@@ -1,163 +1,160 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Seamless Gutters & Gutter Guards | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Seamless aluminum gutters (5&quot; & 6&quot;) and gutter guard installation in North County San Diego, Greater San Diego, and Temecula. Custom on-site fabrication, color-matched to your home, and professional installation." />
-  <link rel="canonical" href="https://www.zenithroofingservices.com/services/gutters/">
+// netlify/functions/jn-create-lead.js
+const allowedOrigins = [
+  'https://zenithroofingca.com',
+  'https://www.zenithroofingca.com',
+  'https://zenithroofingservices.com',
+  'https://www.zenithroofingservices.com',
+  'http://localhost:8888',
+  'http://localhost:5173',
+];
+const isPreviewOrigin = (origin) => {
+  try { return new URL(origin).hostname.endsWith('.netlify.app'); }
+  catch { return false; }
+};
+const corsHeaders = (origin) => {
+  const h = {
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    'Vary': 'Origin'
+  };
+  if (allowedOrigins.includes(origin) || isPreviewOrigin(origin)) h['Access-Control-Allow-Origin'] = origin;
+  return h;
+};
 
-  <!-- Your shared site styles -->
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/footer.css">
-  <link rel="stylesheet" href="/css/ui.css">
+// Parse urlencoded or JSON (recommend client sends urlencoded)
+const parseBody = (event) => {
+  const ct = (event.headers['content-type'] || event.headers['Content-Type'] || '').toLowerCase();
+  if (ct.includes('application/json')) return JSON.parse(event.body || '{}');
+  if (ct.includes('application/x-www-form-urlencoded')) {
+    const params = new URLSearchParams(event.body || ''); return Object.fromEntries(params.entries());
+  }
+  // Fallback: try urlsearchparams anyway (best effort)
+  try { const params = new URLSearchParams(event.body || ''); return Object.fromEntries(params.entries()); }
+  catch { return {}; }
+};
 
-  <!-- Adapter styles (error box + disclaimer) -->
-  <link rel="stylesheet" href="/assets/jn-adapter.css">
+const onlyDigits = (s) => (s || '').replace(/\D+/g, '');
+const normalizePhone = (s) => onlyDigits(s).slice(0, 10);
 
-  <!-- Optional: slight cue for invalid required inputs -->
-  <style>
-    input:required:invalid, textarea:required:invalid { outline: 2px solid #ef4444; }
-    .lede { color:#475569; font-size:1.075rem; margin:8px 0 18px }
-    .badge { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:#f1f5f9; font-weight:600; font-size:.95rem }
-    .muted { color:var(--ui-muted) }
-    .small { font-size:.9rem }
-    .page.gutters{max-width:1100px;margin:24px auto;padding:0 16px}
-    .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-    .card h2{margin:0 0 6px}
-  </style>
+exports.handler = async (event) => {
+  const origin = event.headers?.origin || event.headers?.Origin || '';
+  const cors = corsHeaders(origin);
 
-  <!-- Your site scripts -->
-  <script defer src="/js/loader.js"></script>
-  <script defer src="/js/header.js"></script>
+  if (event.httpMethod === 'OPTIONS') return { statusCode: 204, headers: cors, body: '' };
+  if (event.httpMethod !== 'POST')   return { statusCode: 405, headers: cors, body: 'Method Not Allowed' };
 
-  <!-- Adapter (attaches to the form and posts to JobNimbus) -->
-  <script defer src="/assets/jn-adapter.js"></script>
-</head>
-<body>
-  <div data-include="/components/header-section.html"></div>
+  try {
+    const data = parseBody(event);
+    const {
+      JN_API_KEY,
+      JN_CONTACT_ENDPOINT,
+      RECAPTCHA_SECRET,        // optional: enforce if set
+      SENDGRID_API_KEY,        // optional: notification
+      LEAD_NOTIFY_FROM,        // optional
+      LEAD_NOTIFY_TO           // optional
+    } = process.env;
 
-  <main class="page gutters" id="top">
-    <section class="card airy">
-      <span class="badge">Seamless Gutters</span>
-      <h1>Seamless Aluminum Gutters & Gutter Guards</h1>
-      <p class="lede">
-        We custom-form seamless <strong>5&quot; and 6&quot; aluminum</strong> gutters on site for a perfect fit,
-        then install color-matched downspouts and optional gutter guards to keep debris out.
-      </p>
-      <div class="svc-grid">
-        <div class="card">
-          <h2>Why Seamless?</h2>
-          <ul class="checklist relaxed">
-            <li>Fewer joints = fewer leak points</li>
-            <li>Clean, continuous look</li>
-            <li>Formed to your home on site</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Options</h2>
-          <ul class="checklist relaxed">
-            <li>5&quot; &amp; 6&quot; K-style aluminum</li>
-            <li>Many factory colors</li>
-            <li>Gutter guards available</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Good to Know</h2>
-          <ul class="checklist relaxed">
-            <li>Proper slope &amp; hanger spacing</li>
-            <li>Downspout placement that works</li>
-            <li>Neat jobsite and haul-away</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    if (!JN_API_KEY || !JN_CONTACT_ENDPOINT) {
+      return { statusCode: 500, headers: cors, body: JSON.stringify({ error: 'Server not configured (missing env vars)' }) };
+    }
 
-    <!-- Estimate / Lead form -->
-    <section id="estimate" class="card airy"
-             data-estimate-context
-             data-category="Seamless Gutters & Gutter Guards"
-             data-redirect="/thank-you/">
-      <h2 style="margin-top:0">Get a Free Gutter Quote</h2>
-      <p class="muted small">Tell us a little about your home and we’ll follow up quickly.</p>
+    // reCAPTCHA verify (only if you set RECAPTCHA_SECRET)
+    if (RECAPTCHA_SECRET) {
+      const token = (data.recaptcha_token || '').trim();
+      if (!token) return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Missing recaptcha token' }) };
+      const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ secret: RECAPTCHA_SECRET, response: token }),
+      });
+      const verifyJson = await verifyRes.json();
+      if (!verifyJson.success) return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Recaptcha failed' }) };
+    }
 
-      <!-- The adapter will handle submission via fetch, but we also set action for no-JS fallback -->
-      <form id="estimate-form" method="POST" action="/.netlify/functions/jn-create-lead" novalidate>
-        <!-- Not required, adapter will infer this from data-category; but keeping won’t hurt -->
-        <input type="hidden" name="service_type" value="Seamless Gutters & Gutter Guards">
+    // Basic field cleanup
+    const first = (data.first_name || '').trim();
+    const last  = (data.last_name  || '').trim();
+    const email = (data.email      || '').trim();
+    const phoneDigits = normalizePhone(data.phone || data.phone_number || '');
+    if (!phoneDigits)              return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Phone number is required' }) };
+    if (phoneDigits.length !== 10) return { statusCode: 400, headers: cors, body: JSON.stringify({ error: `Invalid phone number (${phoneDigits})` }) };
+    const formattedPhone = `(${phoneDigits.slice(0,3)}) ${phoneDigits.slice(3,6)}-${phoneDigits.slice(6)}`;
 
-        <div class="form-row">
-          <div class="form-col-6">
-            <label>First Name</label>
-            <input name="first_name" required>
-          </div>
-          <div class="form-col-6">
-            <label>Last Name</label>
-            <input name="last_name" required>
-          </div>
-        </div>
+    const descLines = [`Phone: ${formattedPhone}`];
+    if ((data.service_type || '').trim())    descLines.push(`Service Type: ${data.service_type.trim()}`);
+    if ((data.referral_source || '').trim()) descLines.push(`Referral: ${data.referral_source.trim()}`);
+    if ((data.description || '').trim())     descLines.push(`Notes: ${data.description.trim()}`);
+    if ((data.page || '').trim())            descLines.push(`Page: ${data.page.trim()}`);
+    const combinedDescription = descLines.join('\n');
 
-        <div class="form-row">
-          <div class="form-col-6">
-            <label>Phone</label>
-            <input name="phone" type="tel" required>
-          </div>
-          <div class="form-col-6">
-            <label>Email <span class="muted">(optional)</span></label>
-            <input name="email" type="email">
-          </div>
-        </div>
+    // Construct JobNimbus payload
+    const payload = {
+      display_name: [first, last].filter(Boolean).join(' ').trim() || email || formattedPhone || 'Website Lead',
+      first_name: first,
+      last_name:  last,
+      email,
+      phone: phoneDigits,
+      phone_formatted: formattedPhone,
+      address: `${data.street_address || ''}, ${data.city || ''}, ${data.state || ''} ${data.zip || ''}`.trim(),
+      description: combinedDescription,
+      service_type: data.service_type || '',
+      referral_source: data.referral_source || '',
+      _source: 'website-jn-create-lead',
+      _version: 'jn-create-lead-' + new Date().toISOString().split('T')[0],
+    };
 
-        <div class="form-row">
-          <div class="form-col-6">
-            <label>Street Address</label>
-            <input name="street_address">
-          </div>
-          <div class="form-col-3">
-            <label>City</label>
-            <input name="city">
-          </div>
-          <div class="form-col-3">
-            <label>State</label>
-            <input name="state" maxlength="2" placeholder="CA">
-          </div>
-        </div>
+    // Create contact in JobNimbus
+    const jnRes = await fetch(JN_CONTACT_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': JN_API_KEY
+      },
+      body: JSON.stringify(payload)
+    });
 
-        <div class="form-row">
-          <div class="form-col-3">
-            <label>ZIP</label>
-            <input name="zip" required>
-          </div>
-          <div class="form-col-9">
-            <label>Notes</label>
-            <textarea name="description" rows="4"
-              placeholder="Approx. linear feet? 5&quot; or 6&quot;? Any problem areas? Interested in gutter guards?"></textarea>
-          </div>
-        </div>
+    const jnText = await jnRes.text();
 
-        <!-- Spam honeypot (adapter will ignore submission if filled) -->
-        <input name="company" tabindex="-1" autocomplete="off" style="display:none">
+    // (Optional) Email notify via SendGrid
+    if (SENDGRID_API_KEY && LEAD_NOTIFY_FROM && LEAD_NOTIFY_TO) {
+      try {
+        const message = [
+          `<strong>New Website Lead</strong>`,
+          `Name: ${payload.display_name}`,
+          `Email: ${email || '(none)'}`,
+          `Phone: ${formattedPhone}`,
+          `Address: ${payload.address || '(none)'}`,
+          `Service: ${payload.service_type || '(none)'}`,
+          `Referral: ${payload.referral_source || '(none)'}`,
+          `Page: ${data.page || '(unknown)'}`,
+          '',
+          `Notes:`,
+          (data.description || '(none)')
+        ].join('<br>');
 
-        <button class="btn" type="submit">Send Request</button>
-        <!-- The adapter adds the disclaimer below the button automatically -->
-      </form>
-    </section>
+        await fetch('https://api.sendgrid.com/v3/mail/send', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${SENDGRID_API_KEY}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            personalizations: [{ to: [{ email: LEAD_NOTIFY_TO }] }],
+            from: { email: LEAD_NOTIFY_FROM, name: 'Zenith Roofing Website' },
+            subject: 'New Website Lead',
+            content: [{ type: 'text/html', value: message }]
+          })
+        });
+      } catch (e) {
+        console.error('SendGrid error:', e);
+      }
+    }
 
-    <section class="card airy" aria-label="Service area">
-      <h2>Service Area</h2>
-      <p class="muted">North County San Diego, Greater San Diego, Temecula & nearby communities.</p>
-      <p class="muted small">Information above reflects common practices. Final scope and warranties are governed by your signed contract and manufacturer documentation.</p>
-    </section>
-  </main>
-
-  <div data-include="/components/footer.html"></div>
-
-  <!-- Sticky actions (your existing UI) -->
-  <div class="actionbar">
-    <a class="ab-btn call" href="tel:8589006163">Call</a>
-    <a class="ab-btn text" href="sms:+18589006163">Text</a>
-    <a class="ab-btn estimate" href="#estimate">Free Estimate</a>
-  </div>
-</body>
-</html>
+    let body = jnText;
+    try { const jnJson = JSON.parse(jnText); body = JSON.stringify(jnJson); } catch {}
+    return { statusCode: jnRes.status, headers: cors, body };
+  } catch (err) {
+    console.error('Handler error:', err);
+    return { statusCode: 500, headers: cors, body: JSON.stringify({ error: 'Internal server error', details: err.message }) };
+  }
+};
