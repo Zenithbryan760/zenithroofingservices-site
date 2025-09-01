@@ -2,33 +2,127 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Thank You | Zenith Roofing Services</title>
+  <title>Seamless Gutters & Gutter Guards | Zenith Roofing Services</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="noindex" />
+  <meta name="description" content="Seamless aluminum gutters in 5&quot; and 6&quot; sizes, custom-formed on site for a perfect fit. Optional gutter guards to reduce clogs. Serving San Diego, North County & Temecula. Licensed C-39 #1036112." />
+  <link rel="canonical" href="https://www.zenithroofingservices.com/services/gutters/">
+
+  <!-- site css you already use -->
   <link rel="stylesheet" href="/css/header.css">
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/footer.css">
   <link rel="stylesheet" href="/css/ui.css">
+
+  <!-- adapter styles (error box + disclaimer) -->
+  <link rel="stylesheet" href="/assets/jn-adapter.css">
+
+  <!-- site scripts you already use -->
   <script defer src="/js/loader.js"></script>
   <script defer src="/js/header.js"></script>
+
+  <!-- JobNimbus form adapter -->
+  <script defer src="/assets/jn-adapter.js"></script>
+
   <style>
-    .page.ty{max-width:900px;margin:24px auto;padding:0 16px}
-    .card.airy p{font-size:1.05rem;color:#475569}
+    .page.gutters{max-width:1100px;margin:24px auto;padding:0 16px}
+    .lede{color:#475569;font-size:1.075rem;margin:8px 0 18px}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:600;font-size:.95rem}
+    .muted{color:var(--ui-muted)}
+    .tick{font-weight:800;color:#0b3a6f}
+    .svc-card h3{margin-bottom:6px}
+    .svc-card p{margin:0}
+    .small{font-size:.9rem}
+    .cta{display:flex;gap:10px;flex-wrap:wrap}
   </style>
 </head>
 <body>
   <div data-include="/components/header-section.html"></div>
-  <main class="page ty">
+
+  <main class="page gutters" id="top">
     <section class="card airy">
-      <h1>Thanks — we got your request!</h1>
-      <p>We’ll review your info and reach out shortly. If this is urgent, call or text <strong>(858) 900-6163</strong>.</p>
-      <p class="muted small">Tip: add our number to your contacts so you don’t miss our reply.</p>
-      <div class="cta" style="display:flex;gap:10px;margin-top:12px">
-        <a class="btn" href="tel:8589006163">Call Now</a>
-        <a class="btn outline" href="/">Back to Home</a>
+      <span class="badge">Seamless Gutters</span>
+      <h1 style="margin:10px 0 6px;">Seamless Aluminum Gutters & Guards</h1>
+      <p class="lede">
+        We custom-form seamless aluminum gutters on site for a perfect fit and clean look.
+        Choose <strong>5&quot; or 6&quot;</strong> sizes with matching downspouts. Add optional
+        <strong>gutter guards</strong> to cut down on clogs and maintenance.
+      </p>
+      <div class="cta">
+        <a class="btn" href="#estimate">Get a Free Estimate</a>
+        <a class="btn outline" href="/projects/">See Recent Work</a>
       </div>
     </section>
+
+    <section class="card airy">
+      <h2>Why Seamless?</h2>
+      <ul class="checklist relaxed" style="margin-top:8px">
+        <li><span class="tick">✓</span> Fewer joints = fewer leak points</li>
+        <li><span class="tick">✓</span> Custom lengths formed on site</li>
+        <li><span class="tick">✓</span> Color-matched aluminum and accessories</li>
+        <li><span class="tick">✓</span> Optional leaf/needle <strong>gutter guards</strong></li>
+      </ul>
+      <p class="muted small" style="margin-top:10px">
+        We’ll recommend 5&quot; vs 6&quot; based on roof size, drainage needs, and aesthetics.
+      </p>
+    </section>
+
+    <!-- ======== ESTIMATE SECTION (ONE form only; adapter hooks it) ======== -->
+    <section id="estimate" class="card airy"
+             data-estimate-context
+             data-category="Seamless Gutters & Gutter Guards"
+             data-redirect="/thank-you/">
+      <!-- Delete any older embedded/Netlify forms from this section -->
+      <!-- Minimal fallback form. Adapter will use this OR any included form if you add one later. -->
+      <template id="lead-form-fallback">
+        <form id="estimate-form" novalidate>
+          <!-- lock in the service for this page -->
+          <input type="hidden" name="service_type" value="Seamless Gutters & Gutter Guards">
+          <div class="form-row">
+            <div class="form-col-6">
+              <label>Full Name*</label>
+              <input name="name" required autocomplete="name">
+            </div>
+            <div class="form-col-6">
+              <label>Phone*</label>
+              <input name="phone" type="tel" required autocomplete="tel">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-col-6">
+              <label>Email*</label>
+              <input name="email" type="email" required autocomplete="email">
+            </div>
+            <div class="form-col-6">
+              <label>ZIP*</label>
+              <input name="zip" required autocomplete="postal-code">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-col-12">
+              <label>Notes</label>
+              <textarea name="message" rows="4" placeholder="5&quot; or 6&quot;? Add gutter guards? Any problem areas?"></textarea>
+            </div>
+          </div>
+          <button class="btn" type="submit">Send Request</button>
+        </form>
+      </template>
+    </section>
+
+    <section class="card airy" aria-label="Service area">
+      <h2>Service Area</h2>
+      <p class="muted">North County San Diego, Greater San Diego, Temecula & nearby communities.</p>
+      <p class="muted small">
+        *Free estimates are not available for real-estate transaction inspections or third-party written reports. See Real Estate Services.
+      </p>
+      <p class="muted small">Lic# 1036112 • C-39 Roofing Contractor</p>
+    </section>
   </main>
+
   <div data-include="/components/footer.html"></div>
+  <div class="actionbar">
+    <a class="ab-btn call" href="tel:8589006163">Call</a>
+    <a class="ab-btn text" href="sms:+18589006163">Text</a>
+    <a class="ab-btn estimate" href="#estimate">Free Estimate</a>
+  </div>
 </body>
 </html>
