@@ -22,7 +22,6 @@
     .muted { color: var(--ui-muted, #64748b); }
     .checklist { margin:8px 0 0; padding:0 0 0 18px; }
 
-    /* Form feedback (in case site CSS doesn’t cover it) */
     .error-summary { display:none; background:#fee2e2; border:1px solid #fecaca; color:#7f1d1d; border-radius:8px; padding:10px 12px; margin-bottom:12px; }
     .error-summary.show { display:block; }
     .form-group.has-error input,
@@ -38,14 +37,14 @@
   <main class="page gutters" id="top">
     <section class="card airy">
       <span class="badge">Seamless Gutters</span>
-      <h1 style="margin:10px 0 6px;">Seamless Aluminum Gutters (5" &amp; 6") + Gutter Guards</h1>
+      <h1 style="margin:10px 0 6px;">Seamless Aluminum Gutters (5&quot; &amp; 6&quot;) + Gutter Guards</h1>
       <p class="lede">
         Protect your home with custom, on-site formed K-style aluminum gutters. We offer
         <strong>5-inch and 6-inch</strong> sizes, color-matched downspouts, sealed mitered corners,
         and premium <strong>gutter guards</strong> to reduce clogs and maintenance.
       </p>
       <ul class="checklist muted">
-        <li>Seamless K-style in 5" &amp; 6" (aluminum)</li>
+        <li>Seamless K-style in 5&quot; &amp; 6&quot; (aluminum)</li>
         <li>Wide color selection; color-matched downspouts</li>
         <li>Hidden hangers, pitched for proper drainage</li>
         <li>High-flow outlets &amp; splash blocks where needed</li>
@@ -61,7 +60,6 @@
         <!-- Hidden default for this page -->
         <input type="hidden" name="service_type" value="Gutters">
 
-        <!-- Error summary -->
         <div class="error-summary" aria-live="assertive" role="alert"></div>
 
         <!-- Row 1 -->
@@ -80,11 +78,7 @@
         <div class="form-row">
           <div class="form-group form-col-6">
             <label for="phone" class="sr-only">Phone Number*</label>
-            <input
-              type="tel" id="phone" name="phone" inputmode="tel"
-              placeholder="Phone Number*"
-              pattern="[0-9\\s\\-\\(\\)\\.]{10,}"
-              autocomplete="tel" required />
+            <input type="tel" id="phone" name="phone" inputmode="tel" placeholder="Phone Number*" pattern="[0-9\s\-\(\)\.]{10,}" autocomplete="tel" required />
           </div>
           <div class="form-group form-col-6">
             <label for="email" class="sr-only">Email Address*</label>
@@ -112,13 +106,7 @@
           </div>
           <div class="form-group form-col-4">
             <label for="zip" class="sr-only">ZIP Code*</label>
-            <input
-              type="text" id="zip" name="zip"
-              placeholder="ZIP Code*"
-              inputmode="numeric"
-              pattern="[0-9]{5}(-[0-9]{4})?"
-              maxlength="10"
-              autocomplete="postal-code" required />
+            <input type="text" id="zip" name="zip" placeholder="ZIP Code*" inputmode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" maxlength="10" autocomplete="postal-code" required />
           </div>
         </div>
 
@@ -160,9 +148,7 @@
         <div class="form-row">
           <div class="form-group">
             <label for="description" class="sr-only">Brief Description*</label>
-            <textarea id="description" name="description" rows="4"
-              placeholder="Brief Description* — gutter size (5&quot;/6&quot;), guards?, any overflow/clogs, lengths/sides, stories"
-              required></textarea>
+            <textarea id="description" name="description" rows="4" placeholder="Brief Description* — gutter size (5&quot;/6&quot;), guards?, any overflow/clogs, lengths/sides, stories" required></textarea>
           </div>
         </div>
 
@@ -173,12 +159,10 @@
           </div>
         </div>
 
-        <!-- Submit -->
         <div class="form-row">
           <button type="submit" class="zenith-btn">Request Free Estimate</button>
         </div>
 
-        <!-- Disclaimer -->
         <p class="form-disclaimer">
           <em>*Free estimates are not available for real-estate transactions. For roof reports, visual inspections, or
           verbal estimates related to a transaction, please see our Real Estate Services. Third-party inspection requests are billed.</em>
@@ -200,12 +184,10 @@
     <a class="ab-btn estimate" href="#estimate">Free Estimate</a>
   </div>
 
-  <!-- Page JS -->
   <script>
   (function () {
     const RECAPTCHA_SITEKEY = '6LclaJ4rAAAAAEMe8ppXrEJvIgLeFVxgmkq4DBrI';
 
-    /* ---------- reCAPTCHA (lazy) ---------- */
     function ensureRecaptchaScript() {
       if (document.querySelector('script[data-zenith-recaptcha]')) return;
       const s = document.createElement('script');
@@ -221,7 +203,6 @@
       }
     };
 
-    /* ---------- Phone mask ---------- */
     function bindPhoneMask() {
       const el = document.getElementById('phone');
       if (!el || el._masked) return;
@@ -241,7 +222,6 @@
       });
     }
 
-    /* ---------- ZIP → City autofill ---------- */
     function bindZipToCity() {
       const zipInput  = document.getElementById('zip');
       const cityInput = document.getElementById('city');
@@ -261,7 +241,6 @@
         cache[zip5] = city;
         return city;
       }
-
       async function maybeFill() {
         const digits = (zipInput.value || '').replace(/\D/g, '');
         if (!(digits.length === 5 || digits.length === 9)) return;
@@ -274,13 +253,11 @@
           }
         } catch {}
       }
-
       zipInput.addEventListener('input',  maybeFill);
       zipInput.addEventListener('change', maybeFill);
       maybeFill();
     }
 
-    /* ---------- Validation ---------- */
     function ensureErrorSummary(form) {
       let box = form.querySelector('.error-summary');
       if (!box) {
@@ -331,13 +308,12 @@
       return true;
     }
 
-    /* ---------- Submit ---------- */
     async function submitHandler(e) {
       e.preventDefault();
       const form = e.currentTarget;
       if (!validateForm(form)) return;
 
-      // Require reCAPTCHA
+      // reCAPTCHA required
       let token = '';
       if (window.grecaptcha && typeof window.grecaptcha.getResponse === 'function') {
         if (typeof window._recaptchaWidgetId !== 'undefined') {
@@ -355,7 +331,6 @@
         return;
       }
 
-      // Gather data
       const fd = new FormData(form);
       const data = {
         first_name: (fd.get("first_name") || "").trim(),
@@ -371,7 +346,6 @@
         description:     ((fd.get("description") || "").trim()) + `\nPage: ${location.pathname}`
       };
 
-      // UI state
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn ? submitBtn.textContent : null;
       if (submitBtn) { submitBtn.textContent = "Submitting…"; submitBtn.disabled = true; }
@@ -383,26 +357,24 @@
           body: JSON.stringify(data)
         });
 
-        const text = await res.text();
+        const rawText = await res.text();
 
         if (!res.ok) {
-          // Surface exact server error back to the user (JSON or plain text)
-          let msg = 'Sorry, there was a problem submitting your request.';
+          let msg = `Error ${res.status}${res.statusText ? ' ' + res.statusText : ''}.`;
           try {
-            const j = JSON.parse(text);
-            msg = j.error || j.message || msg;
+            const j = JSON.parse(rawText);
+            if (j.error || j.message) msg = `Error ${res.status}: ${j.error || j.message}`;
             if (j.details) msg += ` — ${j.details}`;
           } catch {
-            if (text && text.trim()) msg = text.trim();
+            if (rawText && rawText.trim()) msg = `Error ${res.status}: ${rawText.trim()}`;
           }
           const box = ensureErrorSummary(form);
           box.textContent = msg;
           box.classList.add('show');
-          console.error("JobNimbus error:", text);
+          console.error("JobNimbus error:", rawText);
           return;
         }
 
-        // Success → redirect
         const to = (document.querySelector('[data-estimate-context]')?.dataset.redirect) || '/thank-you/';
         window.location.href = to;
       } catch (err) {
@@ -424,7 +396,6 @@
       form.addEventListener('focusin', trigger, { once:true });
     }
 
-    /* ---------- Init ---------- */
     document.addEventListener('DOMContentLoaded', () => {
       const form = document.getElementById('estimate-form');
       if (!form) return;
@@ -433,7 +404,6 @@
       bindZipToCity();
       setupLazyRecaptcha(form);
 
-      // Preselect "Gutters" in visible select if empty
       const svc = document.getElementById('serviceType');
       if (svc && !svc.value) svc.value = 'Gutters';
 
