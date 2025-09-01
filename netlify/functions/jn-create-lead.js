@@ -34,17 +34,14 @@ const corsHeaders = (origin) => {
 // ---------- Utilities ----------
 const normalizePhone = (raw = '') => {
   const digits = (String(raw).match(/\d/g) || []).join('');
-  const normalized = digits.replace(/^1(?=\d{10}$)/, '');
+  const normalized = digits.replace(/^1(?=\d{10}$)/, ''); // strip leading 1
   console.log(`Phone normalization: raw="${raw}" → digits="${digits}" → normalized="${normalized}"`);
   return normalized;
 };
 
 const parseBody = (event) => {
   const ct = (event.headers['content-type'] || event.headers['Content-Type'] || '').toLowerCase();
-  if (ct.includes('application/json')) {
-    return JSON.parse(event.body || '{}');
-  }
-  // Support x-www-form-urlencoded
+  if (ct.includes('application/json')) return JSON.parse(event.body || '{}');
   const params = new URLSearchParams(event.body || '');
   return Object.fromEntries(params.entries());
 };
@@ -71,7 +68,6 @@ exports.handler = async (event) => {
   if (event.httpMethod === 'OPTIONS') {
     return { statusCode: 204, headers: cors, body: '' };
   }
-
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, headers: cors, body: 'Method Not Allowed' };
   }
@@ -81,12 +77,12 @@ exports.handler = async (event) => {
     console.log('Incoming form data:', JSON.stringify(data, null, 2));
 
     const JN_API_KEY = process.env.JN_API_KEY;
-    const JN_CONTACT_ENDPOINT = process.env.JN_CONTACT_ENDPOINT;
+    const JN_CONTACT_ENDPOINT = process.env.JN_CONTACT_ENDPOINT; // should be https://app.jobnimbus.com/api1/contacts
     if (!JN_API_KEY || !JN_CONTACT_ENDPOINT) {
       return {
         statusCode: 500,
         headers: cors,
-        body: JSON.stringify({ error: 'Server not configured (missing env vars)' }),
+        body: JSON.stringify({ error: 'Server not configured (missing env vars JN_API_KEY/JN_CONTACT_ENDPOINT)' }),
       };
     }
 
@@ -105,10 +101,7 @@ exports.handler = async (event) => {
       return {
         statusCode: 400,
         headers: cors,
-        body: JSON.stringify({
-          error: 'Invalid phone number format',
-          details: `Expected 10 digits, got ${phone.length} (${phone})`,
-        }),
+        body: JSON.stringify({ error: 'Invalid phone number format', details: `Expected 10 digits, got ${phone.length} (${phone})` }),
       };
     }
 
@@ -123,17 +116,24 @@ exports.handler = async (event) => {
     // dynamic source tag by origin
     const siteKey = originHostKey(origin);
 
+    // 🔧 Friendly defaults some JN accounts require
     const payload = {
       display_name: [first, last].filter(Boolean).join(' ').trim() || email || formattedPhone || 'Website Lead',
       first_name: first,
       last_name: last,
       email: email,
-      phone: phone, // numeric
-      phone_formatted: formattedPhone, // human-readable
+      phone: phone,                 // numeric only
+      phone_formatted: formattedPhone,
       address: `${data.street_address || ''}, ${data.city || ''}, ${data.state || ''} ${data.zip || ''}`.trim(),
       description: combinedDescription,
       service_type: data.service_type || '',
       referral_source: data.referral_source || '',
+
+      // 👇 Defaults that prevent 400/422 in many JN setups
+      status_name: data.status_name || 'Lead',
+      contact_type: data.contact_type || 'Customer',
+      source_name: data.referral_source || 'Website',
+
       _source: `website-${siteKey}`,
       _version: 'jn-create-lead-' + new Date().toISOString().split('T')[0],
     };
@@ -153,7 +153,16 @@ exports.handler = async (event) => {
     const jnResponseText = await res.text();
     console.log('JobNimbus response:', jnResponseText);
 
-    // Optional SendGrid notification (unchanged)
+    // If JN rejects, bubble up their error so the page shows it
+    if (!res.ok) {
+      return {
+        statusCode: res.status,
+        headers: cors,
+        body: jnResponseText || JSON.stringify({ error: 'JobNimbus request failed' }),
+      };
+    }
+
+    // Optional SendGrid notification
     let mailStatus = 'skipped';
     try {
       const SG_KEY = process.env.SENDGRID_API_KEY;
@@ -199,24 +208,20 @@ ${combinedDescription || ''}`;
       mailStatus = 'error';
     }
 
-    let responseBody = jnResponseText;
+    // Include mail status in success response
+    let bodyOut = jnResponseText;
     try {
-      const jnJson = JSON.parse(jnResponseText);
-      jnJson._mailStatus = mailStatus;
-      responseBody = JSON.stringify(jnJson);
+      const json = JSON.parse(jnResponseText);
+      json._mailStatus = mailStatus;
+      bodyOut = JSON.stringify(json);
     } catch (_) {}
-
-    return { statusCode: res.status, headers: cors, body: responseBody };
+    return { statusCode: 200, headers: cors, body: bodyOut };
   } catch (err) {
     console.error('Handler error:', err);
     return {
       statusCode: 500,
       headers: cors,
-      body: JSON.stringify({
-        error: 'Internal server error',
-        details: err.message,
-        stack: process.env.NODE_ENV === 'development' ? err.stack : undefined,
-      }),
+      body: JSON.stringify({ error: 'Internal server error', details: err.message }),
     };
   }
 };
