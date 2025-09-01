@@ -228,7 +228,7 @@
     setupLazyRecaptcha(form);
 
     const photosNote = document.getElementById('photos-note');
-    if (photosNote) photosNote.textContent = 'Photos are optional; all other fields are required.';
+    if (photosNote) photosNote.textContent = 'Photos are optional; all other fields are required.'
 
     form.addEventListener('submit', submitHandler);
   };
