@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Seamless Gutters (5&quot; &amp; 6&quot; Aluminum) | Zenith Roofing Services</title>
+  <title>Seamless Gutters & Gutter Guards (5&quot; &amp; 6&quot; Aluminum) | Zenith Roofing Services</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Professional installation of 5&quot; &amp; 6&quot; aluminum seamless gutters in North County San Diego, Greater San Diego & Temecula. Color-matched, leak-free runs, proper pitch, and premium hangers. Get a fast quote today." />
+  <meta name="description" content="We install 5&quot; &amp; 6&quot; aluminum seamless gutters and gutter guards in North County San Diego, Greater San Diego & Temecula. Color-matched, leak-free runs with proper pitch, premium hangers, and optional leaf protection. Get a fast quote today." />
   <link rel="canonical" href="https://www.zenithroofingservices.com/services/seamless-gutters/">
 
   <!-- site styles -->
@@ -49,6 +49,11 @@
       },
       {
         "@type":"Question",
+        "name":"Do you offer gutter guards (leaf protection)?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. We supply and install compatible leaf protection systems that keep debris out while maintaining water flow. We’ll recommend options during your quote."}
+      },
+      {
+        "@type":"Question",
         "name":"What colors are available?",
         "acceptedAnswer":{"@type":"Answer","text":"We offer a wide range of factory-finished colors to match trim and fascia. During your quote we confirm availability for your address."}
       },
@@ -73,9 +78,9 @@
 
     <!-- Hero -->
     <section class="card airy">
-      <span class="badge">Seamless Gutters</span>
-      <h1 style="margin:10px 0 6px;">5&quot; &amp; 6&quot; Aluminum Seamless Gutters</h1>
-      <p class="lede">Protect your home with clean, leak-free gutter runs custom-formed on site. We color-match, set proper pitch, and install premium hangers for long-term performance.</p>
+      <span class="badge">Seamless Gutters &amp; Guards</span>
+      <h1 style="margin:10px 0 6px;">5&quot; &amp; 6&quot; Aluminum Seamless Gutters + Gutter Guards</h1>
+      <p class="lede">Protect your home with clean, leak-free gutter runs custom-formed on site. We color-match, set proper pitch, and install premium hangers. Add leaf protection (gutter guards) to cut maintenance and keep water moving.</p>
       <div class="cta">
         <a class="btn" href="#estimate">Get a Fast Quote</a>
         <a class="btn outline" href="/services/roof-repairs/">Need Roof Repairs?</a>
@@ -116,6 +121,18 @@
       </div>
     </section>
 
+    <!-- Gutter Guards section -->
+    <section class="card airy">
+      <h2>Gutter Guards (Leaf Protection)</h2>
+      <p class="muted">Tired of clogs and cleanouts? We install compatible gutter guard systems that keep leaves and debris out while letting rain flow in. Great for homes with trees or wind-blown debris.</p>
+      <ul class="checklist relaxed" style="margin-top:8px">
+        <li><span class="tick">✓</span> Reduces clogs and overflows</li>
+        <li><span class="tick">✓</span> Helps prevent fascia/soffit damage</li>
+        <li><span class="tick">✓</span> Lowers maintenance frequency</li>
+      </ul>
+      <p class="muted small">We’ll review guard options and compatibility for your roof and gutter profile during your quote.</p>
+    </section>
+
     <!-- Specs -->
     <section class="card airy">
       <h2>Our Standard Specifications</h2>
@@ -125,7 +142,7 @@
         <li><strong>Hangers:</strong> Premium hidden hangers with stainless steel fasteners</li>
         <li><strong>Pitch:</strong> Set per run for positive drainage; tested on install</li>
         <li><strong>Downspouts:</strong> Sized and placed for roof area and slope</li>
-        <li><strong>Optional:</strong> Leaf protection and splash blocks by request</li>
+        <li><strong>Optional:</strong> Leaf protection (gutter guards) and splash blocks by request</li>
       </ul>
       <p class="muted small">Note: Final scope and product selections are confirmed on your written proposal.</p>
     </section>
@@ -138,6 +155,7 @@
         <li><strong>Form On Site:</strong> Continuous gutter runs are extruded to exact length.</li>
         <li><strong>Install &amp; Seal:</strong> Hangers set, outlets cut, miters sealed and fastened.</li>
         <li><strong>Downspouts:</strong> Routed for clean looks and efficient flow.</li>
+        <li><strong>Add Guards (optional):</strong> We fit compatible leaf protection to reduce clogs.</li>
         <li><strong>Final Check:</strong> Pitch confirmed and cleanup performed.</li>
       </ol>
     </section>
@@ -145,14 +163,14 @@
     <!-- Estimate Form (adapter will wire this up) -->
     <section id="estimate" class="card airy"
              data-estimate-context
-             data-category="Seamless Gutters — Aluminum 5&quot; &amp; 6&quot;"
+             data-category="Seamless Gutters & Gutter Guards — Aluminum 5&quot; &amp; 6&quot;"
              data-redirect="/thank-you/">
       <div data-include="/components/forms/estimate.html"></div>
 
       <!-- Fallback form (keeps your site’s field style) -->
       <template id="lead-form-fallback">
         <form id="estimate-form" novalidate>
-          <input type="hidden" name="service_type" value="Seamless Gutters — Aluminum 5&quot; &amp; 6&quot;">
+          <input type="hidden" name="service_type" value="Seamless Gutters & Gutter Guards — Aluminum 5&quot; &amp; 6&quot;">
           <div class="form-row">
             <div class="form-col-6"><label>Full Name</label><input name="name" required></div>
             <div class="form-col-6"><label>Phone</label><input name="phone" type="tel" required></div>
@@ -162,9 +180,27 @@
             <div class="form-col-6"><label>ZIP</label><input name="zip" required></div>
           </div>
           <div class="form-row">
+            <div class="form-col-6">
+              <label>Interested in Gutter Guards?</label>
+              <select name="gutter_guards_interest">
+                <option value="">Not sure yet</option>
+                <option value="Yes">Yes — include with quote</option>
+                <option value="No">No — gutters only</option>
+              </select>
+            </div>
+            <div class="form-col-6">
+              <label>Gutter Size</label>
+              <select name="gutter_size_pref">
+                <option value="">Either 5&quot; or 6&quot;</option>
+                <option value="5-inch">5&quot; K-style</option>
+                <option value="6-inch">6&quot; K-style</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
             <div class="form-col-12">
               <label>Notes</label>
-              <textarea name="message" rows="4" placeholder="5&quot; or 6&quot;? Color idea? Any problem areas (overflow, erosion, fascia issues)?"></textarea>
+              <textarea name="message" rows="4" placeholder="Color idea? Problem areas (overflow, erosion, fascia issues)? Any trees/debris concerns?"></textarea>
             </div>
           </div>
           <!-- Optional tiny honeypot for spam bots -->
@@ -181,11 +217,14 @@
     <section class="card airy">
       <h2>Seamless Gutter FAQs</h2>
       <dl class="faq">
+        <dt>Do you offer gutter guards?</dt>
+        <dd class="muted">Yes. We install compatible leaf protection systems and will recommend options for your home during the quote.</dd>
+
         <dt>Do you replace damaged fascia before installing?</dt>
         <dd class="muted">If we find wood that won’t hold fasteners or won’t keep pitch, we’ll note repair options on your proposal.</dd>
 
-        <dt>What about leaf guards?</dt>
-        <dd class="muted">We can price compatible leaf protection systems with your install. Ask during your quote.</dd>
+        <dt>What colors are available?</dt>
+        <dd class="muted">A wide range of factory finishes are available to match trim and fascia.</dd>
 
         <dt>How fast can you schedule?</dt>
         <dd class="muted">Season and scope affect scheduling. Send the form above—we’ll confirm current availability.</dd>
