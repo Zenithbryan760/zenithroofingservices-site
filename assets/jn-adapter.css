@@ -1,0 +1,5 @@
+/* minimal status + disclaimer styles used by the adapter */
+.jn-disclaimer{margin:.75rem 0;color:#9a3412;background:#fff7ed;border:1px solid #fed7aa;padding:.55rem .65rem;border-radius:8px;font-size:.95rem}
+.jn-status{margin:.75rem 0;font-size:.95rem}
+.jn-status.error{color:#b91c1c}
+.jn-status.success{color:#166534}
