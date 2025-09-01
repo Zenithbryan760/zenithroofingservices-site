@@ -2,127 +2,201 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Seamless Gutters & Gutter Guards | Zenith Roofing Services</title>
+  <title>Seamless Gutters (5&quot; &amp; 6&quot;) &amp; Gutter Guards | Zenith Roofing Services</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Seamless aluminum gutters in 5&quot; and 6&quot; sizes, custom-formed on site for a perfect fit. Optional gutter guards to reduce clogs. Serving San Diego, North County & Temecula. Licensed C-39 #1036112." />
+  <meta name="description" content="Professional installation of seamless aluminum gutters in 5&quot; and 6&quot; profiles plus premium gutter guards. Custom on-site fabrication, color-matched metals, drip-edge tie-ins, and proper downspout sizing. Serving San Diego, North County & Temecula." />
   <link rel="canonical" href="https://www.zenithroofingservices.com/services/gutters/">
 
-  <!-- site css you already use -->
+  <!-- site styles -->
   <link rel="stylesheet" href="/css/header.css">
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/footer.css">
   <link rel="stylesheet" href="/css/ui.css">
-
-  <!-- adapter styles (error box + disclaimer) -->
+  <!-- adapter styles -->
   <link rel="stylesheet" href="/assets/jn-adapter.css">
 
-  <!-- site scripts you already use -->
+  <!-- site scripts (no hero.js here) -->
   <script defer src="/js/loader.js"></script>
   <script defer src="/js/header.js"></script>
-
-  <!-- JobNimbus form adapter -->
+  <!-- JobNimbus adapter (submits to /.netlify/functions/jn-create-lead) -->
   <script defer src="/assets/jn-adapter.js"></script>
 
   <style>
-    .page.gutters{max-width:1100px;margin:24px auto;padding:0 16px}
-    .lede{color:#475569;font-size:1.075rem;margin:8px 0 18px}
-    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:600;font-size:.95rem}
-    .muted{color:var(--ui-muted)}
-    .tick{font-weight:800;color:#0b3a6f}
-    .svc-card h3{margin-bottom:6px}
-    .svc-card p{margin:0}
-    .small{font-size:.9rem}
-    .cta{display:flex;gap:10px;flex-wrap:wrap}
+    /* page-specific polish */
+    .page.gutters {max-width:1100px;margin:24px auto;padding:0 16px}
+    .hero {display:grid;gap:16px;align-items:center}
+    .hero h1{margin:6px 0 4px}
+    .lede{color:#475569;font-size:1.05rem;margin:6px 0 18px}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:600;font-size:.95rem}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    @media (max-width:860px){.grid-2{grid-template-columns:1fr}}
+    .specs li{margin:6px 0}
+    .faq dt{font-weight:700;margin-top:12px}
+    .faq dd{margin:6px 0 12px;color:#475569}
+    /* small hero form card look */
+    .mini-card{border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,0.04)}
+    .mini-card .form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .mini-card label{font-size:.9rem;color:#334155}
+    .mini-card input,.mini-card textarea{width:100%}
+    .mini-card button{margin-top:6px}
   </style>
+
+  <!-- tiny, page-local phone mask (safe with adapter) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const p = document.querySelector('#estimate [name="phone"]');
+      if (!p) return;
+      p.setAttribute('maxlength','14');
+      const fmt = v => {
+        const d = (v || '').replace(/\D/g,'').slice(0,10);
+        if (!d) return '';
+        if (d.length < 4) return `(${d}`;
+        if (d.length < 7) return `(${d.slice(0,3)}) ${d.slice(3)}`;
+        return `(${d.slice(0,3)}) ${d.slice(3,6)}-${d.slice(6)}`;
+      };
+      p.addEventListener('input', e => e.target.value = fmt(e.target.value));
+    });
+  </script>
 </head>
 <body>
   <div data-include="/components/header-section.html"></div>
 
   <main class="page gutters" id="top">
-    <section class="card airy">
-      <span class="badge">Seamless Gutters</span>
-      <h1 style="margin:10px 0 6px;">Seamless Aluminum Gutters & Guards</h1>
+    <!-- HERO -->
+    <section class="card airy hero">
+      <span class="pill">Seamless Gutters</span>
+      <h1>5&quot; &amp; 6&quot; Aluminum Seamless Gutters + Gutter Guards</h1>
       <p class="lede">
-        We custom-form seamless aluminum gutters on site for a perfect fit and clean look.
-        Choose <strong>5&quot; or 6&quot;</strong> sizes with matching downspouts. Add optional
-        <strong>gutter guards</strong> to cut down on clogs and maintenance.
+        Custom, on-site fabricated seamless gutters, color-matched to your home. We size downspouts correctly,
+        flash to the drip edge, and offer high-flow **6&quot; K-style** for heavy roof areas.
+        Add **micro-mesh gutter guards** to keep debris out and water moving.
       </p>
       <div class="cta">
-        <a class="btn" href="#estimate">Get a Free Estimate</a>
-        <a class="btn outline" href="/projects/">See Recent Work</a>
+        <a class="btn" href="#estimate">Get a Quote</a>
+        <a class="btn outline" href="#details">Gutter Options</a>
       </div>
     </section>
 
-    <section class="card airy">
-      <h2>Why Seamless?</h2>
-      <ul class="checklist relaxed" style="margin-top:8px">
-        <li><span class="tick">✓</span> Fewer joints = fewer leak points</li>
-        <li><span class="tick">✓</span> Custom lengths formed on site</li>
-        <li><span class="tick">✓</span> Color-matched aluminum and accessories</li>
-        <li><span class="tick">✓</span> Optional leaf/needle <strong>gutter guards</strong></li>
-      </ul>
-      <p class="muted small" style="margin-top:10px">
-        We’ll recommend 5&quot; vs 6&quot; based on roof size, drainage needs, and aesthetics.
-      </p>
-    </section>
-
-    <!-- ======== ESTIMATE SECTION (ONE form only; adapter hooks it) ======== -->
-    <section id="estimate" class="card airy"
+    <!-- QUICK ESTIMATE (Hero-style, short) -->
+    <section id="estimate" class="card airy mini-card"
              data-estimate-context
              data-category="Seamless Gutters & Gutter Guards"
              data-redirect="/thank-you/">
-      <!-- Delete any older embedded/Netlify forms from this section -->
-      <!-- Minimal fallback form. Adapter will use this OR any included form if you add one later. -->
+      <!-- the adapter will use this fallback if no include exists -->
       <template id="lead-form-fallback">
         <form id="estimate-form" novalidate>
-          <!-- lock in the service for this page -->
-          <input type="hidden" name="service_type" value="Seamless Gutters & Gutter Guards">
+          <input type="hidden" name="service_type" value="Seamless Gutters (5&quot;/6&quot;) & Gutter Guards">
           <div class="form-row">
-            <div class="form-col-6">
-              <label>Full Name*</label>
-              <input name="name" required autocomplete="name">
+            <div>
+              <label for="name">Full Name</label>
+              <input id="name" name="name" autocomplete="name" required />
             </div>
-            <div class="form-col-6">
-              <label>Phone*</label>
-              <input name="phone" type="tel" required autocomplete="tel">
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" required />
             </div>
           </div>
-          <div class="form-row">
-            <div class="form-col-6">
-              <label>Email*</label>
-              <input name="email" type="email" required autocomplete="email">
+          <div class="form-row" style="margin-top:8px">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
             </div>
-            <div class="form-col-6">
-              <label>ZIP*</label>
-              <input name="zip" required autocomplete="postal-code">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-col-12">
-              <label>Notes</label>
-              <textarea name="message" rows="4" placeholder="5&quot; or 6&quot;? Add gutter guards? Any problem areas?"></textarea>
+            <div>
+              <label for="zip">ZIP</label>
+              <input id="zip" name="zip" inputmode="numeric" pattern="\\d{5}(-\\d{4})?" required />
             </div>
           </div>
-          <button class="btn" type="submit">Send Request</button>
+          <div style="margin-top:8px">
+            <label for="message">Notes</label>
+            <textarea id="message" name="message" rows="3" placeholder="5&quot; or 6&quot;? Any clogged areas or overflow? Interested in gutter guards?"></textarea>
+          </div>
+          <button class="btn" type="submit" style="width:100%;margin-top:10px">Send Request</button>
         </form>
       </template>
+      <!-- adapter auto-inserts the disclaimer and handles submission -->
     </section>
 
+    <!-- DETAILS -->
+    <section id="details" class="card airy">
+      <h2>Why Seamless Aluminum Gutters?</h2>
+      <div class="grid-2">
+        <div>
+          <p>
+            Seamless gutters are roll-formed on site from a single coil, so there are no seams along the run
+            (fewer leak points). We use aluminum for its corrosion resistance by the coast and wide color
+            availability to match fascia and trim.
+          </p>
+          <ul class="checklist specs">
+            <li><span class="tick">✓</span> **5&quot; K-style** — common residential size</li>
+            <li><span class="tick">✓</span> **6&quot; K-style (high-capacity)** — larger roof planes, valleys, tile roofs</li>
+            <li><span class="tick">✓</span> 2&quot;x3&quot; or 3&quot;x4&quot; downspouts (we upsize where needed)</li>
+            <li><span class="tick">✓</span> Hidden hangers w/ screws (no spikes)</li>
+            <li><span class="tick">✓</span> Color-matched baked-enamel coils & accessories</li>
+            <li><span class="tick">✓</span> Proper slope and outlet placement for flow</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Gutter Guards (Debris Protection)</h3>
+          <p>
+            Tired of clogs? We install **micro-mesh stainless steel guards** that block leaves, needles, and
+            roof grit while letting water pass. Guards reduce maintenance and help prevent overflow that can
+            damage fascia, eaves, and foundations.
+          </p>
+          <ul class="checklist specs">
+            <li><span class="tick">✓</span> Micro-mesh, powder-coated aluminum frame</li>
+            <li><span class="tick">✓</span> Works with 5&quot; and 6&quot; K-style gutters</li>
+            <li><span class="tick">✓</span> Secure attachment; won’t void gutter warranty</li>
+            <li><span class="tick">✓</span> Great for trees, canyons, and windy areas</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARISON -->
+    <section class="card airy">
+      <h2>5&quot; vs 6&quot; — Which Size Do I Need?</h2>
+      <p class="muted">
+        6&quot; gutters hold more water and accept larger downspouts for faster drainage. We recommend 6&quot; on
+        big roof planes, steep pitches, at valley dumps, and under tile where flow is heavier. Many homes are
+        fine with 5&quot; around most elevations, with 6&quot; used selectively where capacity matters.
+      </p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="card airy faq">
+      <h2>Gutter FAQ</h2>
+      <dl>
+        <dt>Do you fabricate gutters on site?</dt>
+        <dd>Yes — our machine forms seamless runs to exact length for a clean look and fewer joints.</dd>
+
+        <dt>Can you match my trim color?</dt>
+        <dd>We stock popular colors and can special-order coils to closely match most fascia colors.</dd>
+
+        <dt>Will you fix drainage issues?</dt>
+        <dd>We check slope, add outlets where needed, and can upsize to 3&quot;x4&quot; downspouts to improve flow.</dd>
+
+        <dt>Do gutter guards eliminate cleaning forever?</dt>
+        <dd>They dramatically reduce debris entry. We still suggest quick visual checks seasonally.</dd>
+      </dl>
+      <p class="muted small">
+        *Free estimates exclude real-estate transaction inspections and third-party report requests.
+      </p>
+    </section>
+
+    <!-- SERVICE AREA -->
     <section class="card airy" aria-label="Service area">
       <h2>Service Area</h2>
       <p class="muted">North County San Diego, Greater San Diego, Temecula & nearby communities.</p>
-      <p class="muted small">
-        *Free estimates are not available for real-estate transaction inspections or third-party written reports. See Real Estate Services.
-      </p>
-      <p class="muted small">Lic# 1036112 • C-39 Roofing Contractor</p>
+      <p class="muted small">Final scope and warranties are governed by your signed contract and manufacturer documentation.</p>
     </section>
   </main>
 
   <div data-include="/components/footer.html"></div>
+
   <div class="actionbar">
     <a class="ab-btn call" href="tel:8589006163">Call</a>
     <a class="ab-btn text" href="sms:+18589006163">Text</a>
-    <a class="ab-btn estimate" href="#estimate">Free Estimate</a>
+    <a class="ab-btn estimate" href="#estimate">Get a Quote</a>
   </div>
 </body>
 </html>
