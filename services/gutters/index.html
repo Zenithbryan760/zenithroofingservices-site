@@ -7,7 +7,6 @@
   <meta name="description" content="Seamless aluminum gutters in 5-inch and 6-inch K-style with color-matched downspouts, plus premium gutter guards. Professionally installed in North County San Diego, San Diego & Temecula. Free estimates (non-real-estate)." />
   <link rel="canonical" href="https://www.zenithroofingservices.com/services/gutters/">
 
-  <!-- Site styles/scripts -->
   <link rel="stylesheet" href="/css/header.css">
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/footer.css">
@@ -17,13 +16,13 @@
   <script defer src="/js/header.js"></script>
 
   <style>
-    /* Page tweaks */
     .page.gutters { max-width: 1100px; margin: 24px auto; padding: 0 16px; }
     .badge { display:inline-flex; gap:8px; align-items:center; padding:8px 12px; border-radius:999px; background:#f1f5f9; font-weight:600; font-size:.95rem; }
     .lede { color:#475569; font-size:1.075rem; margin:8px 0 18px; }
     .muted { color: var(--ui-muted, #64748b); }
     .checklist { margin:8px 0 0; padding:0 0 0 18px; }
-    /* Minimal form error styling in case your CSS doesn’t include it */
+
+    /* Form feedback (in case site CSS doesn’t cover it) */
     .error-summary { display:none; background:#fee2e2; border:1px solid #fecaca; color:#7f1d1d; border-radius:8px; padding:10px 12px; margin-bottom:12px; }
     .error-summary.show { display:block; }
     .form-group.has-error input,
@@ -59,7 +58,7 @@
       <p id="photos-note" class="muted" style="margin-top:-6px;">Photos are optional; all other fields are required.</p>
 
       <form id="estimate-form" method="POST" novalidate>
-        <!-- Hidden: prefer Gutters for this page -->
+        <!-- Hidden default for this page -->
         <input type="hidden" name="service_type" value="Gutters">
 
         <!-- Error summary -->
@@ -81,11 +80,11 @@
         <div class="form-row">
           <div class="form-group form-col-6">
             <label for="phone" class="sr-only">Phone Number*</label>
-            <input type="tel" id="phone" name="phone"
-                   inputmode="tel"
-                   placeholder="Phone Number*"
-                   pattern="[0-9\s\-\(\)\.]{10,}"
-                   autocomplete="tel" required />
+            <input
+              type="tel" id="phone" name="phone" inputmode="tel"
+              placeholder="Phone Number*"
+              pattern="[0-9\\s\\-\\(\\)\\.]{10,}"
+              autocomplete="tel" required />
           </div>
           <div class="form-group form-col-6">
             <label for="email" class="sr-only">Email Address*</label>
@@ -113,12 +112,13 @@
           </div>
           <div class="form-group form-col-4">
             <label for="zip" class="sr-only">ZIP Code*</label>
-            <input type="text" id="zip" name="zip"
-                   placeholder="ZIP Code*"
-                   inputmode="numeric"
-                   pattern="[0-9]{5}(-[0-9]{4})?"
-                   maxlength="10"
-                   autocomplete="postal-code" required />
+            <input
+              type="text" id="zip" name="zip"
+              placeholder="ZIP Code*"
+              inputmode="numeric"
+              pattern="[0-9]{5}(-[0-9]{4})?"
+              maxlength="10"
+              autocomplete="postal-code" required />
           </div>
         </div>
 
@@ -161,8 +161,8 @@
           <div class="form-group">
             <label for="description" class="sr-only">Brief Description*</label>
             <textarea id="description" name="description" rows="4"
-                      placeholder="Brief Description* — gutter size (5&quot;/6&quot;), guards?, any overflow/clogs, lengths/sides, stories"
-                      required></textarea>
+              placeholder="Brief Description* — gutter size (5&quot;/6&quot;), guards?, any overflow/clogs, lengths/sides, stories"
+              required></textarea>
           </div>
         </div>
 
@@ -200,12 +200,12 @@
     <a class="ab-btn estimate" href="#estimate">Free Estimate</a>
   </div>
 
-  <!-- Page-specific JS: mask, ZIP->City, validation, lazy reCAPTCHA, submit -->
+  <!-- Page JS -->
   <script>
   (function () {
     const RECAPTCHA_SITEKEY = '6LclaJ4rAAAAAEMe8ppXrEJvIgLeFVxgmkq4DBrI';
 
-    // Lazy-load reCAPTCHA
+    /* ---------- reCAPTCHA (lazy) ---------- */
     function ensureRecaptchaScript() {
       if (document.querySelector('script[data-zenith-recaptcha]')) return;
       const s = document.createElement('script');
@@ -221,7 +221,7 @@
       }
     };
 
-    // Phone mask
+    /* ---------- Phone mask ---------- */
     function bindPhoneMask() {
       const el = document.getElementById('phone');
       if (!el || el._masked) return;
@@ -241,7 +241,7 @@
       });
     }
 
-    // ZIP → City autofill
+    /* ---------- ZIP → City autofill ---------- */
     function bindZipToCity() {
       const zipInput  = document.getElementById('zip');
       const cityInput = document.getElementById('city');
@@ -280,7 +280,7 @@
       maybeFill();
     }
 
-    // Validation helpers
+    /* ---------- Validation ---------- */
     function ensureErrorSummary(form) {
       let box = form.querySelector('.error-summary');
       if (!box) {
@@ -331,7 +331,7 @@
       return true;
     }
 
-    // Submit
+    /* ---------- Submit ---------- */
     async function submitHandler(e) {
       e.preventDefault();
       const form = e.currentTarget;
@@ -368,9 +368,10 @@
         zip:        (fd.get("zip")        || "").trim(),
         service_type:    (fd.get("service_type")    || "Gutters"),
         referral_source: (fd.get("referral_source") || ""),
-        description:     (fd.get("description")    || "").trim() + `\nPage: ${location.pathname}`
+        description:     ((fd.get("description") || "").trim()) + `\nPage: ${location.pathname}`
       };
 
+      // UI state
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn ? submitBtn.textContent : null;
       if (submitBtn) { submitBtn.textContent = "Submitting…"; submitBtn.disabled = true; }
@@ -383,22 +384,32 @@
         });
 
         const text = await res.text();
+
         if (!res.ok) {
-          console.error("JobNimbus error:", text);
+          // Surface exact server error back to the user (JSON or plain text)
+          let msg = 'Sorry, there was a problem submitting your request.';
+          try {
+            const j = JSON.parse(text);
+            msg = j.error || j.message || msg;
+            if (j.details) msg += ` — ${j.details}`;
+          } catch {
+            if (text && text.trim()) msg = text.trim();
+          }
           const box = ensureErrorSummary(form);
-          box.textContent = 'Sorry, there was a problem submitting your request.';
+          box.textContent = msg;
           box.classList.add('show');
+          console.error("JobNimbus error:", text);
           return;
         }
 
-        // Redirect on success
+        // Success → redirect
         const to = (document.querySelector('[data-estimate-context]')?.dataset.redirect) || '/thank-you/';
         window.location.href = to;
       } catch (err) {
-        console.error(err);
-        const box = ensureErrorSummary(form);
+        const box = ensureErrorSummary(e.currentTarget);
         box.textContent = 'Network error. Please try again.';
         box.classList.add('show');
+        console.error(err);
       } finally {
         if (submitBtn && originalText) { submitBtn.textContent = originalText; submitBtn.disabled = false; }
       }
@@ -413,15 +424,16 @@
       form.addEventListener('focusin', trigger, { once:true });
     }
 
-    // Init
+    /* ---------- Init ---------- */
     document.addEventListener('DOMContentLoaded', () => {
       const form = document.getElementById('estimate-form');
       if (!form) return;
+
       bindPhoneMask();
       bindZipToCity();
       setupLazyRecaptcha(form);
 
-      // Preselect "Gutters" in visible select
+      // Preselect "Gutters" in visible select if empty
       const svc = document.getElementById('serviceType');
       if (svc && !svc.value) svc.value = 'Gutters';
 
