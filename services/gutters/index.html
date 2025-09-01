@@ -2,161 +2,130 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Seamless Gutters & Gutter Guards (5" & 6" Aluminum) | Zenith Roofing Services</title>
+  <title>Seamless Gutters & Gutter Guards | Zenith Roofing Services</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Professional installation of seamless aluminum gutters (5&quot; & 6&quot;) and gutter guards. Custom colors, proper pitch, hidden hangers, clean miters, and leak-free joints. Serving San Diego, North County & Temecula." />
+  <meta name="description" content="Seamless aluminum gutters (5&quot; & 6&quot;) and gutter guards professionally installed in North County San Diego, Greater San Diego, and Temecula. Free estimates for homeowners. Licensed C-39 #1036112." />
   <link rel="canonical" href="https://www.zenithroofingservices.com/services/gutters/">
 
+  <!-- Site styles -->
   <link rel="stylesheet" href="/css/header.css">
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/footer.css">
   <link rel="stylesheet" href="/css/ui.css">
+  <!-- NEW: lightweight adapter styles (error box + disclaimer + invalid fields) -->
+  <link rel="stylesheet" href="/assets/jn-adapter.css">
 
+  <!-- Site scripts -->
   <script defer src="/js/loader.js"></script>
   <script defer src="/js/header.js"></script>
+  <!-- IMPORTANT: use the new adapter, not the old estimate-form.js -->
+  <script defer src="/assets/jn-adapter.js"></script>
 
   <style>
     .page.gutters{max-width:1100px;margin:24px auto;padding:0 16px}
     .lede{color:#475569;font-size:1.075rem;margin:8px 0 18px}
     .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:600;font-size:.95rem}
-    .muted{color:var(--ui-muted)} .tick{font-weight:800;color:#0b3a6f}
-    .grid-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    @media (max-width:900px){.grid-cols{grid-template-columns:1fr}}
+    .muted{color:var(--ui-muted)}
+    .tick{font-weight:800;color:#0b3a6f}
+    .svc-card h3{margin-bottom:6px}
+    .svc-card p{margin:0}
     .small{font-size:.9rem}
+    .grid.two{display:grid;gap:16px;grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:900px){.grid.two{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <div data-include="/components/header-section.html"></div>
 
   <main class="page gutters" id="top">
+    <!-- Hero -->
     <section class="card airy">
       <span class="badge">Seamless Gutters</span>
       <h1 style="margin:10px 0 6px;">Seamless Aluminum Gutters & Gutter Guards</h1>
-      <p class="lede">Custom-formed 5&quot; &amp; 6&quot; K-style aluminum gutters with color-matched downspouts and optional guards. Proper pitch, sturdy hidden hangers, clean miters, and leak-free seams.</p>
+      <p class="lede">
+        Clean lines, fewer joints, and better water control. We custom-form seamless aluminum gutters (5&quot; & 6&quot;)
+        on site and offer durable gutter guard options to keep debris out.
+      </p>
       <div class="cta">
-        <a class="btn" href="#estimate">Get a Quote</a>
-        <a class="btn outline" href="#details">What you’ll get</a>
+        <a class="btn" href="#estimate">Get a Free Estimate</a>
+        <a class="btn outline" href="#why">Why Seamless?</a>
       </div>
     </section>
 
-    <section id="details" class="card airy">
-      <div class="grid-cols">
-        <div>
-          <h2>Why seamless?</h2>
-          <ul class="checklist relaxed">
-            <li><span class="tick">✓</span> Fewer joints = fewer leaks</li>
-            <li><span class="tick">✓</span> Clean, continuous look with custom colors</li>
-            <li><span class="tick">✓</span> Correct slope for proper drainage</li>
-            <li><span class="tick">✓</span> Hidden hangers + screws for strength</li>
-            <li><span class="tick">✓</span> 5&quot; or 6&quot; sizing to match roof area & rainfall</li>
-          </ul>
-        </div>
-        <div>
-          <h2>Gutter guards (optional)</h2>
-          <p class="muted">Cut down on clogs and ladder trips. We’ll recommend a guard style that fits your roof edge detail and nearby trees.</p>
-          <ul class="checklist relaxed">
-            <li><span class="tick">✓</span> Keeps out leaves & debris</li>
-            <li><span class="tick">✓</span> Maintains water flow</li>
-            <li><span class="tick">✓</span> Works with 5&quot; &amp; 6&quot; K-style</li>
-          </ul>
-        </div>
+    <!-- Benefits -->
+    <section id="why" class="grid two" aria-label="Benefits">
+      <div class="card">
+        <h2>Why Seamless Aluminum?</h2>
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Continuous runs reduce leak points</li>
+          <li><span class="tick">✓</span> Custom-formed on site for a perfect fit</li>
+          <li><span class="tick">✓</span> 5&quot; &amp; 6&quot; profiles for proper capacity</li>
+          <li><span class="tick">✓</span> Aluminum resists rust and corrosion</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Gutter Guards</h2>
+        <p class="muted">Cut down on clogs and maintenance with proven guards sized to your system.</p>
+        <ul class="checklist relaxed" style="margin-top:8px;">
+          <li><span class="tick">✓</span> Keeps leaves and debris out</li>
+          <li><span class="tick">✓</span> Helps prevent overflows and fascia damage</li>
+          <li><span class="tick">✓</span> Paired with correct pitch & downspout sizing</li>
+        </ul>
       </div>
     </section>
 
-    <!-- Quote Form -->
-    <section id="estimate" class="card airy" data-estimate-context data-category="Seamless Gutters & Gutter Guards" data-redirect="/thank-you/">
+    <!-- Estimate form (component include + fallback) -->
+    <section id="estimate"
+      class="card airy"
+      data-estimate-context
+      data-category="Seamless Gutters & Gutter Guards"
+      data-redirect="/thank-you/">
+
+      <!-- This will be injected by /js/loader.js if present -->
       <div data-include="/components/forms/estimate.html"></div>
 
-      <!-- Fallback (works even if JS is disabled) -->
+      <!-- Fallback if the include fails for any reason -->
       <template id="lead-form-fallback">
-        <form id="estimate-form" method="POST" action="/.netlify/functions/jn-create-lead">
-          <!-- context -->
-          <input type="hidden" name="service_type" value="Seamless Gutters & Gutter Guards — Aluminum 5&quot; &amp; 6&quot;">
-          <input type="hidden" name="referral_source" value="website-gutters">
-          <input type="hidden" name="page" value="/services/gutters/">
-
+        <form id="estimate-form" novalidate>
+          <input type="hidden" name="service_type" value="Seamless Gutters & Gutter Guards">
           <div class="form-row">
             <div class="form-col-6">
-              <label>First Name</label>
-              <input name="first_name" required>
+              <label>Full Name</label>
+              <input name="name" required>
             </div>
-            <div class="form-col-6">
-              <label>Last Name</label>
-              <input name="last_name" required>
-            </div>
-          </div>
-
-          <div class="form-row">
             <div class="form-col-6">
               <label>Phone</label>
               <input name="phone" type="tel" required>
             </div>
+          </div>
+          <div class="form-row">
             <div class="form-col-6">
               <label>Email</label>
-              <input name="email" type="email">
+              <input name="email" type="email" required>
             </div>
-          </div>
-
-          <div class="form-row">
             <div class="form-col-6">
-              <label>Street Address</label>
-              <input name="street_address">
-            </div>
-            <div class="form-col-3">
-              <label>City</label>
-              <input name="city">
-            </div>
-            <div class="form-col-3">
-              <label>State</label>
-              <input name="state" maxlength="2" placeholder="CA">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-col-3">
               <label>ZIP</label>
               <input name="zip" required>
             </div>
-            <div class="form-col-4">
-              <label>Gutter Size</label>
-              <select name="gutter_size_pref">
-                <option value="">Either 5&quot; or 6&quot;</option>
-                <option value="5-inch">5&quot; K-style</option>
-                <option value="6-inch">6&quot; K-style</option>
-              </select>
-            </div>
-            <div class="form-col-5">
-              <label>Gutter Guards?</label>
-              <select name="gutter_guards_interest">
-                <option value="">Not sure yet</option>
-                <option value="Yes">Yes — include with quote</option>
-                <option value="No">No — gutters only</option>
-              </select>
-            </div>
           </div>
-
           <div class="form-row">
             <div class="form-col-12">
               <label>Notes</label>
-              <textarea name="description" rows="4" placeholder="Color idea? Problem areas (overflow/erosion)? Trees/debris? Downspout changes?"></textarea>
+              <textarea name="message" rows="4" placeholder="5&quot; or 6&quot;? Gutter guards? Any problem areas?"></textarea>
             </div>
           </div>
-
-          <!-- spam honeypot -->
-          <input name="company" tabindex="-1" autocomplete="off" style="display:none">
-
-          <button class="btn" type="submit">Request My Quote</button>
-          <p class="muted small" style="margin-top:8px">
-            Real-estate transaction inspections and third-party report requests are billed services.
-          </p>
+          <button class="btn" type="submit">Send Request</button>
+          <p class="jn-disclaimer">Real-estate transaction inspections and third-party report requests are billed services.</p>
         </form>
       </template>
     </section>
 
     <section class="card airy" aria-label="Service area">
       <h2>Service Area</h2>
-      <p class="muted">North County San Diego, Greater San Diego, Temecula & nearby communities.</p>
-      <p class="muted small">Installation practices follow manufacturer specs and local best practices. Final scope and warranties are governed by your signed contract and manufacturer documentation.</p>
+      <p class="muted">North County San Diego, Greater San Diego, Temecula &amp; nearby communities.</p>
+      <p class="muted small">
+        Information above reflects common practices. Final scope and warranties are governed by your signed contract and manufacturer documentation.
+      </p>
     </section>
   </main>
 
@@ -164,7 +133,7 @@
   <div class="actionbar">
     <a class="ab-btn call" href="tel:8589006163">Call</a>
     <a class="ab-btn text" href="sms:+18589006163">Text</a>
-    <a class="ab-btn estimate" href="#estimate">Get a Quote</a>
+    <a class="ab-btn estimate" href="#estimate">Free Estimate</a>
   </div>
 </body>
 </html>
