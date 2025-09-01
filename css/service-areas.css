@@ -1,0 +1,110 @@
+/* Brand Colors */
+:root {
+    --zenith-blue:    #072e59;
+    --zenith-orange:  #f7941d;
+    --white:          #ffffff;
+    --off-white:      #fdfdfd;
+    --light-gray:     #f7f7f7;
+    --text-gray:      #333333;
+}
+
+/* Service Areas Section */
+.service-areas {
+    padding: 2rem 1rem;
+}
+
+.section-title {
+    font-size: 2.5rem; /* Increased size for better visibility */
+    color: var(--zenith-blue);
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    font-size: 1.5rem; /* Increased size */
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Areas Grid */
+.areas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.areas-grid h3 {
+    color: var(--zenith-blue);
+    margin: .25rem 0 .5rem;
+    font-weight: bold;
+    border-bottom: 2px solid var(--zenith-orange);
+    padding-bottom: 0.5rem;
+}
+
+.areas-grid ul {
+    margin: .25rem 0;
+    padding-left: 1.1rem;
+    list-style-type: disc; /* Bullet points */
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+    .areas-grid {
+        grid-template-columns: 1fr; /* Single column for smaller screens */
+        gap: 10px; /* Reduced gap for smaller screens */
+    }
+
+    .section-title {
+        font-size: 2rem; /* Smaller size for mobile */
+    }
+
+    .section-subtitle {
+        font-size: 1.2rem; /* Smaller size for mobile */
+    }
+}
+
+/* Call to Action */
+.call-to-action {
+    margin-top: 2rem;
+    text-align: center;
+    background-color: var(--zenith-blue);
+    color: var(--white);
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 1.2rem; /* Increased size for readability */
+}
+
+.call-to-action a {
+    color: var(--white);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.call-to-action a:hover {
+    color: var(--zenith-orange);
+}
+
+/* Additional Styles */
+.area-group {
+    background-color: var(--light-gray);
+    border-radius: 10px;
+    padding: 1.5rem; /* Increased padding for easier tapping */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.area-group:hover {
+    transform: translateY(-3px); /* Elevate effect on hover */
+}
+
+/* Ensuring Readability */
+h3, p, li {
+    line-height: 1.5; /* Better line spacing */
+}
+
+/* Make sure buttons are easy to tap on mobile devices */
+button, .call-to-action {
+    cursor: pointer;
+    border: none;
+    outline: none;
+}

@@ -1,0 +1,8 @@
+[functions]
+  directory = "netlify/functions"
+
+# 1-year cache for your self-hosted Swiper files
+[[headers]]
+  for = "/assets/lib/swiper/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

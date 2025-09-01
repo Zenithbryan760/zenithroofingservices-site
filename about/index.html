@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>About Zenith Roofing Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/footer.css"><!-- ✅ add this -->
+  <style>.page{max-width:900px;margin:24px auto;padding:0 16px}.cta{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}.btn{display:inline-block;padding:10px 16px;border-radius:999px;font-weight:700;text-decoration:none}.btn-primary{background:#f7941d;color:#072e59}.btn-outline{border:2px solid #f7941d;color:#f7941d}</style>
+</head>
+<body>
+  <div data-include="/components/header-section.html"></div>
+  <main class="page">
+    <h1>About Us</h1>
+    <p>Zenith Roofing Services is a licensed, insured contractor (Lic #1036112) serving San Diego, Escondido, Temecula &amp; surrounding areas.</p>
+    <ul>
+      <li>Clear proposals and scope—no surprises</li>
+      <li>Pro-grade materials and trained installers</li>
+      <li>Respect for your home and schedule</li>
+    </ul>
+    <div class="cta">
+      <a class="btn btn-primary" href="/index.html#estimate">Get a Free Estimate</a>
+      <a class="btn btn-outline" href="/projects/">See Projects</a>
+    </div>
+  </main>
+  <div data-include="/components/footer.html"></div>
+
+<script>
+  (function () {
+    // fetch + inject a single [data-include]
+    async function include(el) {
+      const src = el.getAttribute('data-include');
+      if (!src) return;
+      try {
+        const res = await fetch(src);             // normal caching
+        if (!res.ok) throw new Error('Failed ' + src);
+        const html = await res.text();
+        el.outerHTML = html;
+      } catch (e) {
+        console.error('❌ Include error:', src, e);
+      }
+    }
+
+    // Header height + collapsed state WITHOUT scroll reflow
+    function setupHeaderObservers() {
+      const root = document.documentElement;
+      const getHeader = () => document.querySelector('.mobile-header') || document.querySelector('.header');
+
+      function updateHeaderH() {
+        const h = getHeader();
+        if (h) root.style.setProperty('--header-h', Math.round(h.offsetHeight) + 'px');
+      }
+
+      // update when the header actually resizes
+      if ('ResizeObserver' in window) {
+        const ro = new ResizeObserver(updateHeaderH);
+        const h = getHeader(); if (h) ro.observe(h);
+      }
+      window.addEventListener('load', updateHeaderH, { passive: true });
+      window.addEventListener('resize', () => requestAnimationFrame(updateHeaderH), { passive: true });
+
+      // toggle nav-collapsed via IntersectionObserver (no scroll work)
+      const sent = document.createElement('div');
+      sent.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;';
+      document.body.prepend(sent);
+      new IntersectionObserver(([e]) => {
+        root.classList.toggle('nav-collapsed', !e.isIntersecting);
+      }, { rootMargin: '-80px 0px 0px 0px' }).observe(sent); // adjust -80px if your header is taller
+    }
+
+    async function init() {
+      // include everything ELSE (hero has an LCP stub now)
+      const includes = Array.from(document.querySelectorAll('[data-include]'));
+      await Promise.all(includes.map(include));
+
+      // Upgrade the stub to the real hero component while REUSING the already-downloaded LCP <img>
+      const stub = document.getElementById('hero-stub');
+      if (stub) {
+        const res = await fetch('components/hero-section.html');
+        if (res.ok) {
+          const html = await res.text();
+          const tpl = document.createElement('template');
+          tpl.innerHTML = html.trim();
+          const real = tpl.content.querySelector('section.zenith-hero') || tpl.content.firstElementChild;
+          if (real) {
+            const lcp = document.getElementById('lcp-img');
+            const realPic = real.querySelector('.zenith-hero-media picture') || real.querySelector('.zenith-hero-media');
+            if (lcp && realPic) {
+              const existing = realPic.querySelector('.zenith-hero-mobile-img');
+              if (existing) existing.replaceWith(lcp); else realPic.appendChild(lcp);
+            }
+            stub.replaceWith(real);
+          }
+        }
+      }
+
+      // your existing inits (unchanged)
+      if (window.initMobileMenu) window.initMobileMenu();
+      [
+        'initEstimateForm','initAboutSection','initWhyChoose','initTrustSection',
+        'initPhotoSection','initTestimonials','initCTA','initServiceAreas',
+        'initRealEstate','initFooter','initHeader'
+      ].forEach(n => { if (typeof window[n] === 'function') window[n](); });
+
+      setupHeaderObservers();   // replaces old setLayoutFlags/scroll listeners
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+  </script>
+<script src="/js/loader.js" defer></script>
+<script src="/js/header.js" defer></script>
+</body>
+</html>

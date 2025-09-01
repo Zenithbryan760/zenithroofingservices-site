@@ -1,0 +1,495 @@
+/* =========================================================
+   Zenith Roofing — Header & Navigation (Desktop + Mobile)
+   Evenly spaced tabs + consistent Services dropdown spacing
+   ========================================================= */
+
+/* 1) Design tokens */
+:root{
+  --zenith-navy:#072e59;
+  --zenith-navy-2:#0b3a6f;
+  --zenith-orange:#f7941d;
+  --zenith-blue: var(--zenith-navy);
+
+  --white:#ffffff;
+  --zenith-text:#0f172a;
+  --zenith-muted:#64748b;
+  --zenith-border:#e2e8f0;
+
+  --font-sans:"Poppins", Inter, ui-sans-serif, system-ui, -apple-system,
+              "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+  --radius:12px;
+  --shadow-lg:0 18px 50px rgba(2,14,32,.18);
+  --shadow-md:0 10px 30px rgba(2,14,32,.14);
+  --shadow-sm:0 4px 14px rgba(2,14,32,.10);
+
+  --header-bg: linear-gradient(180deg, rgba(7,46,89,0.96) 0%, rgba(7,46,89,0.93) 70%, rgba(7,46,89,0.90) 100%);
+  --menu-bg: rgba(255,255,255,0.94);
+  --menu-border: rgba(2,14,32,0.08);
+}
+
+/* 2) Base (scoped) */
+.header * { box-sizing: border-box; }
+nav ul, nav ul ul { margin:0; padding:0; list-style:none; }
+a { text-decoration: none; }
+.header, .header a, .mobile-nav, .mobile-nav a, .menu-toggle, .accordion-toggle {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* =========================================================
+   3) HEADER BAR
+   ========================================================= */
+.header{
+  position: sticky; top: 0; z-index: 1000;
+  width: 100%;
+  background: var(--header-bg);
+  color: var(--white);
+  box-shadow: 0 4px 18px rgba(0,0,0,.26);
+  backdrop-filter: saturate(140%) blur(6px);
+}
+.header-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 18px;
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* logo | nav | phone */
+  gap: 16px;
+  align-items: center;
+}
+
+/* Logo stack */
+.header .header-inner > .logo-section{
+  display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:2px;
+}
+.header .header-inner > .logo-section .logo{
+  height: 80px; width:auto; display:block; margin-bottom:2px;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.18));
+}
+.header .header-inner > .logo-section .license{
+  color: var(--white); font-size:.84rem; line-height:1.2; margin:0; letter-spacing:.02em; opacity:.95;
+}
+
+/* =========================================================
+   4) DESKTOP NAV — EVENLY SPACED TABS
+   ========================================================= */
+.nav-bar{ display:block; width:100%; }
+.nav-links{
+  display:flex;
+  align-items:stretch;              /* tabs same height */
+  justify-content:space-between;    /* spread across row */
+  gap: 0;                           /* equal-width tabs remove gap */
+}
+.nav-links > li{
+  position:relative;
+  flex:1 1 0;                       /* ⬅️ equal-width tabs */
+  min-width:0;
+  display:flex;                     /* for full-width anchors */
+}
+.nav-links > li > a{
+  position: relative;
+  flex:1 1 auto;
+  display:flex; align-items:center; justify-content:center; /* center label */
+  color: var(--white);
+  padding: 12px 6px;                /* uniform vertical rhythm */
+  transition: color .28s ease, transform .2s ease, background .2s ease;
+  line-height:1.15; font-weight:600; letter-spacing:.01em; font-size:.98rem;
+  border-radius:10px;               /* subtle pill */
+}
+.nav-links > li > a:hover{
+  color: var(--zenith-orange);
+  background: rgba(255,255,255,.06);
+  transform: translateY(-1px);
+}
+/* Underline animation */
+.nav-links a::after{
+  content:"";
+  position:absolute; left:50%; bottom:6px;
+  width:0; height:2px; background:var(--zenith-orange); border-radius:1px;
+  transition: width .28s ease, left .28s ease;
+}
+.nav-links a:hover::after{ width:80%; left:10%; }
+
+/* Active/current */
+.nav-links a.is-active,
+.nav-links a[aria-current="page"]{ color: var(--zenith-orange); background: rgba(255,255,255,.06); }
+.nav-links a.is-active::after,
+.nav-links a[aria-current="page"]::after{ width:80%; left:10%; }
+
+/* Keyboard focus */
+.nav-links a:focus-visible{
+  outline:none;
+  color: var(--zenith-orange);
+  box-shadow: 0 0 0 3px rgba(247,148,29,.28);
+}
+.nav-links a:focus-visible::after{ width:80%; left:10%; }
+
+/* =========================================================
+   5) DESKTOP DROPDOWNS — CONSISTENT SPACING
+   ========================================================= */
+.dropdown > a{ padding-right: 22px; } /* room for chevron if you add one */
+
+/* Base menu panel */
+.dropdown-menu{
+  position:absolute; top:calc(100% + 8px); left:0;   /* slight offset for air */
+  min-width: 280px;
+  background: var(--menu-bg);
+  color: var(--zenith-text);
+  border-radius: 14px;
+  border: 1px solid var(--menu-border);
+  box-shadow: var(--shadow-lg);
+  padding: 10px;
+
+  display:flex; flex-direction:column; gap:6px;      /* ⬅️ even vertical spacing */
+
+  opacity:0; visibility:hidden; transform: translateY(8px);
+  transition: opacity .22s ease, transform .22s ease, visibility .22s ease;
+  backdrop-filter: blur(8px) saturate(120%);
+}
+
+/* Open on hover/focus */
+.dropdown:hover > .dropdown-menu,
+.dropdown:focus-within > .dropdown-menu{
+  opacity:1; visibility:visible; transform: translateY(0);
+}
+
+/* Items */
+.dropdown-menu > li{ margin:0; }
+.dropdown-menu > li > a{
+  display:flex; align-items:center; gap:10px;
+  padding:12px 12px;                /* ⬅️ consistent hit area */
+  border-radius:10px;
+  color: var(--zenith-text);
+  font-weight:500;
+  transition: background-color .18s ease, color .18s ease, transform .16s ease;
+}
+.dropdown-menu > li > a:hover{
+  background: rgba(247,148,29,0.10);
+  color: var(--zenith-orange);
+  transform: translateX(1px);
+}
+
+/* Section label */
+.submenu-label{
+  padding:10px 12px 4px;
+  font-size:.78rem;
+  text-transform: uppercase;
+  letter-spacing:.08em;
+  color: var(--zenith-muted);
+  cursor: default;
+}
+
+/* Flyout submenu (Services → nested) */
+.dropdown-submenu{ position: relative; }
+.dropdown-submenu > .submenu{
+  position:absolute; top:0; left:100%; margin-left:10px;
+  min-width: 260px;
+  background: var(--menu-bg);
+  color: var(--zenith-text);
+  border-radius: 12px;
+  border:1px solid var(--menu-border);
+  box-shadow: var(--shadow-md);
+  padding:10px;
+  display:flex; flex-direction:column; gap:6px;      /* ⬅️ even spacing */
+
+  opacity:0; visibility:hidden; transform: translateY(8px);
+  transition: opacity .22s ease, transform .22s ease, visibility .22s ease;
+  z-index: 2;
+  backdrop-filter: blur(8px) saturate(120%);
+}
+.dropdown-submenu:hover > .submenu,
+.dropdown-submenu:focus-within > .submenu{
+  opacity:1; visibility:visible; transform: translateY(0);
+}
+.submenu a{
+  display:flex; align-items:center;
+  padding:12px 12px; border-radius:10px;
+  color: var(--zenith-text); font-weight:500;
+  transition: background-color .18s ease, color .18s ease, transform .16s ease;
+}
+.submenu a:hover{
+  background: rgba(247,148,29,0.10);
+  color: var(--zenith-orange);
+  transform: translateX(1px);
+}
+
+/* =========================================================
+   6) PHONE SECTION (desktop)
+   ========================================================= */
+.phone-section{
+  display:flex; flex-direction:column; align-items:flex-end; gap:6px;
+}
+.phone-section p{ margin:0; font-size:.95rem; }
+.phone-section p a{
+  position: relative; color: var(--white);
+  transition: color .26s ease;
+}
+.phone-section p a::after{
+  content:""; position:absolute; left:50%; bottom:-2px;
+  width:0; height:2px; background:var(--zenith-orange);
+  transition: width .26s ease, left .26s ease;
+}
+.phone-section p a:hover{ color:var(--zenith-orange); }
+.phone-section p a:hover::after{ width:80%; left:10%; }
+
+.call-button{
+  display:inline-block;
+  padding:9px 16px;
+  color:#072e59; background: var(--zenith-orange);
+  border-radius: 999px; font-weight:700; border:none;
+  transition: transform .18s ease, box-shadow .18s ease, opacity .26s ease;
+  box-shadow: 0 8px 18px rgba(247,148,29,.22);
+}
+.call-button:hover{ transform: translateY(-1px); box-shadow: 0 10px 20px rgba(247,148,29,.28); }
+.call-button:active{ transform: translateY(0); }
+
+/* =========================================================
+   7) MOBILE HEADER (hamburger + logo + call)
+   ========================================================= */
+.mobile-header{
+  display:none; /* shown at ≤ 1024px */
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;            /* a bit tighter than 10px */
+  min-height: 88px;   /* was 92px — now just tall enough for the 88px logo */
+  padding: 0 10px;    /* no top/bottom padding; only side padding */
+}
+
+/* Center the logo between the two buttons */
+.mobile-header .logo-section{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Mobile logo */
+.mobile-header .logo{
+  height: 88px;          /* keep the bigger logo */
+  max-height: 88px;
+  width: auto;
+  max-width: 320px;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.18));
+}
+
+/* Hamburger toggle — same footprint as call button */
+.menu-toggle{
+  appearance: none;
+  font: inherit;
+  background: var(--zenith-orange);
+  color: #072e59;
+  border: 0;
+  border-radius: 12px;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(247,148,29,.22);
+  transition: transform .18s ease, box-shadow .18s ease, opacity .26s ease;
+}
+.menu-toggle:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(247,148,29,.28);
+}
+.menu-toggle:active{
+  transform: translateY(0);
+}
+
+/* Mobile call button — matches toggle size/feel */
+.mobile-call{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--zenith-orange);
+  box-shadow: 0 8px 18px rgba(247,148,29,.22);
+  transition: transform .18s ease, box-shadow .18s ease, opacity .26s ease;
+}
+.mobile-call:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(247,148,29,.28);
+}
+.mobile-call:active{
+  transform: translateY(0);
+}
+/* Keep the phone icon visible on orange */
+.mobile-call svg path { fill: #072e59; }
+
+
+
+
+
+/* =========================================================
+   8) OFF-CANVAS MOBILE NAV (powder-blue accordions)
+   ========================================================= */
+.mobile-nav{
+  position: fixed; inset: 0 30% 0 0; max-width: 420px;
+  transform: translateX(-100%);
+  background: #0b3a6f; color: #fff;
+  padding: 18px 16px 40px; overflow-y: auto;
+  box-shadow: 8px 0 24px rgba(0,0,0,.25);
+  transition: transform .32s ease; z-index: 1100;
+}
+body.nav-open .mobile-nav{ transform: translateX(0); }
+
+/* Backdrop */
+body.nav-open::after{
+  content:""; position: fixed; inset:0; background: rgba(0,0,0,.45); z-index: 1090;
+}
+
+/* Top-level + nested items (uniform tabs) */
+.mobile-links > li + li{ margin-top:6px; } /* keep the even rhythm */
+
+.mobile-nav a,
+.mobile-nav .accordion-toggle{
+  display:flex; align-items:center; justify-content:space-between;
+  width:100%;
+  padding:12px 12px;
+  font-family: var(--font-sans);
+  font-weight:600;
+  font-size:1rem;
+  line-height:1.2;
+  color:#fff;
+  background:transparent;
+  border:0;
+  border-radius:12px;
+  text-align:left;
+}
+
+.mobile-nav a:hover,
+.mobile-nav .accordion-toggle:hover{
+  background: rgba(255,255,255,.08);
+}
+
+/* Chevron */
+.chevron{ display:inline-block; transition: transform .25s ease; }
+
+/* Submenus */
+.mobile-links .submenu{
+  display:none; padding-left: 10px; margin: 8px 0 6px; border-left: 2px solid rgba(255,255,255,.15);
+}
+.mobile-links li.open > .submenu{ display:block; }
+.mobile-links li.open > .accordion-toggle .chevron{ transform: rotate(90deg); }
+
+/* Powder-blue scheme */
+.mobile-nav .mobile-links > li > .accordion-toggle{
+  background: #e0f0ff; color: var(--zenith-blue);
+  box-shadow: 0 1px 0 rgba(2,14,32,.04) inset, 0 6px 14px rgba(11,58,111,.08);
+}
+.mobile-nav .mobile-links > li > .submenu{
+  background: #d0e8ff; border-left:none; border-radius: 12px;
+  padding: 6px 6px 10px;
+  box-shadow: 0 1px 0 rgba(2,14,32,.04) inset, 0 6px 14px rgba(11,58,111,.08);
+}
+.mobile-nav .submenu .accordion-toggle{
+  background: #e0f0ff; color: var(--zenith-blue); border-radius: 10px;
+}
+.mobile-nav .submenu .submenu{
+  background: #d0e8ff; border-left: none; border-radius: 10px;
+}
+.mobile-nav .submenu li + li{ margin-top:6px; }       /* even spacing in nested lists */
+.mobile-nav .submenu li a{
+  color: var(--zenith-blue); border-radius: 10px; padding: 10px 10px; font-weight:600;
+}
+.mobile-nav .mobile-links > li > .accordion-toggle:hover,
+.mobile-nav .submenu li a:hover{
+  color: var(--zenith-orange); background: rgba(247,148,29,0.10);
+}
+
+/* =========================================================
+   9) RESPONSIVE
+   ========================================================= */
+@media (max-width: 1024px){
+  .mobile-header{ 
+    display:flex; 
+    position: relative;   /* keep content above fade */
+    z-index: 1;
+  }
+  .header .header-inner{ grid-template-columns: 1fr; gap: 0; padding: 10px 14px; }
+  .header .header-inner > .logo-section, .nav-bar, .phone-section{ display:none; }
+
+  /* Real fade: make bottom of header transparent (no solid line) */
+  .header{
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(0,0,0,1) calc(100% - 18px),
+      rgba(0,0,0,0) 100%
+    );
+            mask-image: linear-gradient(
+      to bottom,
+      rgba(0,0,0,1) calc(100% - 18px),
+      rgba(0,0,0,0) 100%
+    );
+  }
+
+  /* Remove any tiny seam between header and first section */
+  main { margin-top: 0 !important; }
+  main > *:first-child { margin-top: 0 !important; padding-top: 0 !important; border-top: 0 !important; }
+  .header + main { margin-top: -2px; } /* tweak to -1px or -3px if needed */
+
+  /* If your hero has a specific class, ensure no extra space there */
+  .hero, .hero-section, .zenith-hero { margin-top: 0 !important; padding-top: 0 !important; }
+}
+
+/* Tiny phones (≤360px): slightly smaller logo & header */
+@media (max-width: 360px){
+  .mobile-header .logo{ height:72px; max-height:72px; }
+  .mobile-header{ min-height: 88px; }
+}
+
+/* =========================================================
+   10) ACCESSIBILITY & MOTION
+   ========================================================= */
+@media (prefers-reduced-motion: reduce){
+  .nav-links a, .nav-links a::after, .dropdown-menu, .submenu a,
+  .call-button, .mobile-nav, .mobile-links .submenu, .chevron{
+    transition: none !important;
+  }
+}
+.mobile-nav a:focus-visible,
+.mobile-nav button:focus-visible,
+.menu-toggle:focus-visible{
+  outline:none; box-shadow: 0 0 0 3px rgba(247,148,29,.28);
+}
+
+/* =========================================================
+   11) OPTIONAL: LEFT→RIGHT UNDERLINE VARIANT
+   ========================================================= */
+.nav-bar.underline-ltr .nav-links a::after{
+  left:0; bottom:6px; width:0; height:2px; border-radius:1px;
+}
+.nav-bar.underline-ltr .nav-links a:hover::after{ width:100%; left:0; }
+.nav-bar.underline-ltr .nav-links a.is-active::after,
+.nav-bar.underline-ltr .nav-links a[aria-current="page"]::after{
+  width:100%; left:0;
+}
+
+/* =========================================================
+   APPENDED: scroll only inside flyout submenus (no other overrides)
+   ========================================================= */
+.dropdown-submenu > .submenu{
+  max-height: min(70vh, 520px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Optional: slimmer scrollbar inside flyouts */
+.dropdown-submenu > .submenu::-webkit-scrollbar{ width: 8px; }
+.dropdown-submenu > .submenu::-webkit-scrollbar-thumb{
+  background: rgba(7,46,89,.25);
+  border-radius: 8px;
+}
+
+
+/* Clickable logo wrapper (keeps same layout as the old div) */
+.header .header-inner > .logo-section.logo-link{ display:flex; align-items:center; }
+.mobile-header .logo-section.logo-link{ display:flex; align-items:center; }
+.logo-link .logo{ display:block; }

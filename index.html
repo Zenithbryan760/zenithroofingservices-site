@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ===== META & SEO ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Zenith Roofing Services – San Diego & Temecula Roof Experts</title>
+  <meta name="description" content="Licensed roofing contractor serving Escondido, San Diego & Temecula. Roof repair, replacement, tile, shingles, TPO, torch down, silicone coatings & gutters.">
+
+  <!-- ===== Preload critical CSS ===== -->
+  <link rel="preload" href="/css/base.css" as="style">
+  <link rel="preload" href="/css/header.css" as="style">
+  <link rel="preload" href="/css/hero.css" as="style">
+
+  <!-- LCP image preload (WebP, responsive) -->
+  <link rel="preload" as="image" type="image/webp"
+        href="/images/modern-tile-roof-1280.webp"
+        imagesrcset="/images/modern-tile-roof-640.webp 640w,
+                     /images/modern-tile-roof-960.webp 960w,
+                     /images/modern-tile-roof-1280.webp 1280w,
+                     /images/modern-tile-roof-1600.webp 1600w"
+        imagesizes="100vw">
+
+  <!-- (Optional) Preload the hero partial you inject -->
+  <link rel="preload" as="fetch" href="components/hero-section.html" crossorigin="anonymous">
+
+  <!-- Google Fonts (non-blocking) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+        media="print"
+        onload="this.media='all'">
+  <noscript>
+    
+  </noscript>
+
+  <!-- ===== Structured data ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RoofingContractor",
+    "name": "Zenith Roofing Services, Inc.",
+    "image": "https://zenithroofingca.com/images/badges/logo-zenith-icon-176.webp",
+    "telephone": "+1-858-900-6163",
+    "areaServed": ["Escondido CA","San Diego CA","Temecula CA","North County San Diego"],
+    "url": "https://zenithroofingca.com/",
+    "address": { "@type": "PostalAddress", "addressRegion": "CA", "addressCountry": "US" },
+    "license": "C-39 #1036112",
+    "sameAs": [
+      "https://www.yelp.com/biz/zenith-roofing-services-escondido",
+      "https://www.angi.com/companylist/us/ca/escondido/zenith-roofing-services-inc-reviews-1.htm"
+    ]
+  }
+  </script>
+
+  <!-- ===== Critical CSS (tiny; stabilizes layout & scroll) ===== -->
+  <style>
+    body{ margin:0; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .header{ position:relative; z-index:5000; }
+    a,button,.hover-effect{ transition:all .3s ease; }
+    a:hover,button:hover,.hover-effect:hover{ opacity:.9; transform:translateY(-1px); }
+
+    :root{ --header-h:80px; }
+    .zenith-hero{ min-height:100svh; min-height:100dvh; }
+
+    /* LCP stub space (replaces the old [data-include="/components/hero-section.html"] rule) */
+    #hero-stub{ display:block; min-height:100svh; min-height:100dvh; }
+
+    /* Zero font-swap shift above the fold */
+    .zenith-hero, .zenith-card, .zenith-header-text, #estimate-form{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    html{ scroll-behavior:smooth; scroll-padding-top:var(--header-h,80px); }
+    [id]{ scroll-margin-top:calc(var(--header-h,80px) + 12px); }
+  </style>
+
+  <!-- ===== Load critical CSS normally (preloaded above) ===== -->
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/hero.css">
+
+  <!-- ===== Non-critical CSS (async) ===== -->
+  <link rel="stylesheet" href="/css/about.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/why-choose.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/trust.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/photo.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/testimonial.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/cta.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/service-areas.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/real-estate.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/footer.css" media="print" onload="this.media='all'"><!-- Swiper CSS (self-hosted) -->
+  <link rel="stylesheet"
+        href="/assets/lib/swiper/10.3.1/swiper-bundle.min.css"
+        media="print" onload="this.media='all'">
+  <noscript>
+    
+  </noscript>
+</head>
+
+<body>
+  <!-- Header include FIRST so it's present for measurements -->
+  <section data-include="/components/header-section.html"></section>
+
+  <!-- ===== MAIN (partials auto-injected below) ===== -->
+  <main>
+    <!-- ✅ LCP STUB replaces the hero include -->
+    <section id="hero-stub" class="zenith-hero" aria-label="Free roofing estimate">
+      <div class="zenith-hero-media">
+        <picture>
+          <!-- WebP sources (match the <head> preload) -->
+          <source type="image/webp"
+                  srcset="/images/modern-tile-roof-640.webp 640w,
+                          /images/modern-tile-roof-960.webp 960w,
+                          /images/modern-tile-roof-1280.webp 1280w,
+                          /images/modern-tile-roof-1600.webp 1600w"
+                  sizes="100vw">
+          <!-- Fallback also WebP (avoid large PNG) -->
+          <img id="lcp-img"
+               class="zenith-hero-mobile-img"
+               src="/images/modern-tile-roof-1280.webp"
+               srcset="/images/modern-tile-roof-640.webp 640w,
+                       /images/modern-tile-roof-960.webp 960w,
+                       /images/modern-tile-roof-1280.webp 1280w,
+                       /images/modern-tile-roof-1600.webp 1600w"
+               sizes="100vw"
+               alt="Zenith Roofing work background"
+               width="1600" height="900"
+               decoding="async" fetchpriority="high">
+        </picture>
+        <div class="zenith-image-overlay" aria-hidden="true"></div>
+      </div>
+      <!-- light skeleton so layout matches before swap -->
+      <div class="zenith-card" aria-hidden="true"></div>
+    </section>
+
+    <!-- Other includes stay the same -->
+    <section data-include="/components/about-section.html"></section>
+    <section data-include="/components/why-choose-section.html"></section>
+    <section data-include="/components/trust-section.html"></section>
+    <section data-include="/components/photo-section.html"></section>
+    <section data-include="/components/testimonial-section.html"></section>
+    <section data-include="/components/cta-section.html"></section>
+    <section data-include="/components/service-areas.html"></section>
+    <section data-include="/components/real-estate.html"></section>
+    <section data-include="/components/footer.html"></section>
+  </main>
+
+  <!-- ===== JS (all defer) ===== -->
+  <script src="js/header.js" defer></script>
+  <script src="js/hero.js" defer></script>
+  <script src="js/about.js" defer></script>
+  <script src="js/why-choose.js" defer></script>
+  <script src="js/trust.js" defer></script>
+  <script src="js/photo.js" defer></script>
+  <script src="js/cta.js" defer></script>
+  <script src="js/service-areas.js" defer></script>
+  <script src="js/real-estate.js" defer></script>
+  <script src="js/footer.js" defer></script>
+
+  <!-- Swiper (self-hosted) + testimonials init -->
+  <script defer src="/assets/lib/swiper/10.3.1/swiper-bundle.min.js"></script>
+  <script defer src="js/testimonial.js"></script>
+
+  <!-- ✅ Include loader (upgrades stub; no scroll reflow) -->
+  <script>
+  (function () {
+    // fetch + inject a single [data-include]
+    async function include(el) {
+      const src = el.getAttribute('data-include');
+      if (!src) return;
+      try {
+        const res = await fetch(src);             // normal caching
+        if (!res.ok) throw new Error('Failed ' + src);
+        const html = await res.text();
+        el.outerHTML = html;
+      } catch (e) {
+        console.error('❌ Include error:', src, e);
+      }
+    }
+
+    // Header height + collapsed state WITHOUT scroll reflow
+    function setupHeaderObservers() {
+      const root = document.documentElement;
+      const getHeader = () => document.querySelector('.mobile-header') || document.querySelector('.header');
+
+      function updateHeaderH() {
+        const h = getHeader();
+        if (h) root.style.setProperty('--header-h', Math.round(h.offsetHeight) + 'px');
+      }
+
+      // update when the header actually resizes
+      if ('ResizeObserver' in window) {
+        const ro = new ResizeObserver(updateHeaderH);
+        const h = getHeader(); if (h) ro.observe(h);
+      }
+      window.addEventListener('load', updateHeaderH, { passive: true });
+      window.addEventListener('resize', () => requestAnimationFrame(updateHeaderH), { passive: true });
+
+      // toggle nav-collapsed via IntersectionObserver (no scroll work)
+      const sent = document.createElement('div');
+      sent.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;';
+      document.body.prepend(sent);
+      new IntersectionObserver(([e]) => {
+        root.classList.toggle('nav-collapsed', !e.isIntersecting);
+      }, { rootMargin: '-80px 0px 0px 0px' }).observe(sent); // adjust -80px if your header is taller
+    }
+
+    async function init() {
+      // include everything ELSE (hero has an LCP stub now)
+      const includes = Array.from(document.querySelectorAll('[data-include]'));
+      await Promise.all(includes.map(include));
+
+      // Upgrade the stub to the real hero component while REUSING the already-downloaded LCP <img>
+      const stub = document.getElementById('hero-stub');
+      if (stub) {
+        const res = await fetch('components/hero-section.html');
+        if (res.ok) {
+          const html = await res.text();
+          const tpl = document.createElement('template');
+          tpl.innerHTML = html.trim();
+          const real = tpl.content.querySelector('section.zenith-hero') || tpl.content.firstElementChild;
+          if (real) {
+            const lcp = document.getElementById('lcp-img');
+            const realPic = real.querySelector('.zenith-hero-media picture') || real.querySelector('.zenith-hero-media');
+            if (lcp && realPic) {
+              const existing = realPic.querySelector('.zenith-hero-mobile-img');
+              if (existing) existing.replaceWith(lcp); else realPic.appendChild(lcp);
+            }
+            stub.replaceWith(real);
+          }
+        }
+      }
+
+      // your existing inits (unchanged)
+      if (window.initMobileMenu) window.initMobileMenu();
+      [
+        'initEstimateForm','initAboutSection','initWhyChoose','initTrustSection',
+        'initPhotoSection','initTestimonials','initCTA','initServiceAreas',
+        'initRealEstate','initFooter','initHeader'
+      ].forEach(n => { if (typeof window[n] === 'function') window[n](); });
+
+      setupHeaderObservers();   // replaces old setLayoutFlags/scroll listeners
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+  </script>
+
+  <!-- Smooth scroll with header offset (fallback) -->
+  <script>
+    (function(){
+      var root = document.documentElement;
+      function headerHeight(){
+        var h = parseInt(getComputedStyle(root).getPropertyValue('--header-h')) || 80;
+        return h + 8;
+      }
+      function scrollToHash(hash, replace){
+        var id = (hash || '').slice(1);
+        if(!id) return;
+        var el = document.getElementById(id);
+        if(!el) return;
+        var y = el.getBoundingClientRect().top + window.pageYOffset - headerHeight();
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        if(replace) { try { history.replaceState(null, '', '#' + id); } catch(_){} }
+      }
+      document.addEventListener('click', function(e){
+        var a = e.target.closest('a[href^="#"]');
+        if(!a) return;
+        var href = a.getAttribute('href');
+        if(href === '#' || href.length < 2) return;
+        if(document.getElementById(href.slice(1))){
+          e.preventDefault();
+          scrollToHash(href, true);
+        }
+      });
+      window.addEventListener('load', function(){
+        if(location.hash){
+          setTimeout(function(){ scrollToHash(location.hash, false); }, 0);
+        }
+      });
+    })();
+  </script>
+  <script src="/js/header.js" defer></script>
+  <script src="/js/loader.js" defer></script>
+</body>
+</html>

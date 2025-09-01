@@ -1,0 +1,2 @@
+/services/*/  /services/:splat/index.html 200
+/services/*   /services/:splat/index.html 200

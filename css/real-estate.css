@@ -1,0 +1,67 @@
+.re-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.re-card {
+  background: #fff;
+  border: 1px solid var(--zenith-border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Adding Styles for the Call to Action */
+.call-to-action {
+  margin-top: 2rem;
+  background-color: var(--zenith-blue);
+  color: var(--white);
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.call-to-action h4 {
+  margin: 0.5rem 0;
+}
+
+.call-to-action p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem; /* Slightly larger for visibility */
+}
+
+.cta-button {
+  background-color: var(--zenith-orange);
+  color: var(--white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem; /* Ensure readability */
+}
+
+.cta-button:hover {
+  background-color: var(--zenith-blue);
+}
+
+.re-card h3 {
+  margin: .25rem 0 .4rem;
+  color: var(--zenith-navy-2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+  .re-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .call-to-action {
+    padding: 1.5rem; /* Increase padding on mobile */
+  }
+  
+  .cta-button {
+    display: block;
+    margin: 0 auto; /* Center the button */
+  }
+}

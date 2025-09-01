@@ -1,0 +1,63 @@
+/* ===================================================================
+   responsive.css — Media queries & responsive overrides
+   =================================================================== */
+
+/* ≤1024px: tablet & small desktop */
+@media (max-width: 1024px) {
+  /* Header: stack logo, nav, and call button */
+  .header-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Hero card (use .zenith-hero to match your current markup) */
+  .zenith-hero {
+    padding: 60px 20px;
+  }
+  .zenith-hero h1 {
+    font-size: 2rem;
+  }
+  .zenith-hero p {
+    font-size: 1.125rem;
+  }
+
+  /* Form: one-column rows */
+  .form-row {
+    flex-direction: column;
+  }
+
+  /* FORCE mobile nav UI: hide desktop nav, show mobile header */
+  .nav-bar { display: none !important; }          /* hide desktop nav */
+  .mobile-header { display: flex !important; }     /* show mobile header */
+  .mobile-nav { display: block !important; }       /* ensure off-canvas exists */
+  .menu-toggle {
+    display: inline-flex !important;               /* show hamburger (overrides safe default) */
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ≤768px: phone */
+@media (max-width: 768px) {
+  /* Hero text gets smaller on phones */
+  .zenith-hero h1 { font-size: 1.75rem; }
+  .zenith-hero p  { font-size: 1rem; }
+
+  /* Buttons stretch full width */
+  .button,
+  .call-button {
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  /* Gallery: single column photos */
+  .photo-grid { grid-template-columns: 1fr; }
+
+  /* Badge row: tighter gap */
+  .badge-row { gap: 16px; }
+}
