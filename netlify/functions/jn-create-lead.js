@@ -1,272 +1,163 @@
-// netlify/functions/jn-create-lead.js
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Seamless Gutters & Gutter Guards | Zenith Roofing Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Seamless aluminum gutters (5&quot; & 6&quot;) and gutter guard installation in North County San Diego, Greater San Diego, and Temecula. Custom on-site fabrication, color-matched to your home, and professional installation." />
+  <link rel="canonical" href="https://www.zenithroofingservices.com/services/gutters/">
 
-// ---------- Allowed origins / CORS ----------
-const allowedOrigins = [
-  'https://zenithroofingca.com',
-  'https://www.zenithroofingca.com',
-  'https://zenithroofingservices.com',
-  'https://www.zenithroofingservices.com',
-  'http://localhost:8888', // netlify dev
-  'http://localhost:5173', // vite (if used)
-];
+  <!-- Your shared site styles -->
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="/css/ui.css">
 
-const isPreviewOrigin = (origin) => {
-  try {
-    const h = new URL(origin).hostname;
-    return h.endsWith('.netlify.app');
-  } catch (_) {
-    return false;
-  }
-};
+  <!-- Adapter styles (error box + disclaimer) -->
+  <link rel="stylesheet" href="/assets/jn-adapter.css">
 
-const corsHeaders = (origin) => {
-  const headers = {
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-    'Vary': 'Origin',
-  };
-  if (allowedOrigins.includes(origin) || isPreviewOrigin(origin)) {
-    headers['Access-Control-Allow-Origin'] = origin;
-  }
-  return headers;
-};
+  <!-- Optional: slight cue for invalid required inputs -->
+  <style>
+    input:required:invalid, textarea:required:invalid { outline: 2px solid #ef4444; }
+    .lede { color:#475569; font-size:1.075rem; margin:8px 0 18px }
+    .badge { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:#f1f5f9; font-weight:600; font-size:.95rem }
+    .muted { color:var(--ui-muted) }
+    .small { font-size:.9rem }
+    .page.gutters{max-width:1100px;margin:24px auto;padding:0 16px}
+    .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .card h2{margin:0 0 6px}
+  </style>
 
-// ---------- Utilities ----------
-const normalizePhone = (raw = '') => {
-  const digits = (String(raw).match(/\d/g) || []).join('');
-  const normalized = digits.replace(/^1(?=\d{10}$)/, '');
-  console.log(`Phone normalization: raw="${raw}" → digits="${digits}" → normalized="${normalized}"`);
-  return normalized;
-};
+  <!-- Your site scripts -->
+  <script defer src="/js/loader.js"></script>
+  <script defer src="/js/header.js"></script>
 
-// last 4 digits of any phone-ish string
-const last4 = (s = '') => (String(s).match(/\d/g) || []).join('').slice(-4);
+  <!-- Adapter (attaches to the form and posts to JobNimbus) -->
+  <script defer src="/assets/jn-adapter.js"></script>
+</head>
+<body>
+  <div data-include="/components/header-section.html"></div>
 
-// Build a readable-unique display name so same-named people can coexist
-const buildDisplayName = ({ baseName, city, zip, phone }) => {
-  const bits = [];
-  if ((city || '').trim()) bits.push(city.trim());
-  if ((zip || '').toString().trim()) bits.push(String(zip).trim());
-  const l4 = last4(phone);
-  if (l4) bits.push(`#${l4}`);
-  // e.g. "John Smith • Escondido 92025 • #6163"
-  return [baseName, bits.join(' ')].filter(Boolean).join(' • ').replace(/\s+/g, ' ').trim();
-};
+  <main class="page gutters" id="top">
+    <section class="card airy">
+      <span class="badge">Seamless Gutters</span>
+      <h1>Seamless Aluminum Gutters & Gutter Guards</h1>
+      <p class="lede">
+        We custom-form seamless <strong>5&quot; and 6&quot; aluminum</strong> gutters on site for a perfect fit,
+        then install color-matched downspouts and optional gutter guards to keep debris out.
+      </p>
+      <div class="svc-grid">
+        <div class="card">
+          <h2>Why Seamless?</h2>
+          <ul class="checklist relaxed">
+            <li>Fewer joints = fewer leak points</li>
+            <li>Clean, continuous look</li>
+            <li>Formed to your home on site</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>Options</h2>
+          <ul class="checklist relaxed">
+            <li>5&quot; &amp; 6&quot; K-style aluminum</li>
+            <li>Many factory colors</li>
+            <li>Gutter guards available</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>Good to Know</h2>
+          <ul class="checklist relaxed">
+            <li>Proper slope &amp; hanger spacing</li>
+            <li>Downspout placement that works</li>
+            <li>Neat jobsite and haul-away</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-const parseBody = (event) => {
-  const ct = (event.headers['content-type'] || event.headers['Content-Type'] || '').toLowerCase();
-  if (ct.includes('application/json')) {
-    return JSON.parse(event.body || '{}');
-  }
-  // Support x-www-form-urlencoded
-  const params = new URLSearchParams(event.body || '');
-  return Object.fromEntries(params.entries());
-};
+    <!-- Estimate / Lead form -->
+    <section id="estimate" class="card airy"
+             data-estimate-context
+             data-category="Seamless Gutters & Gutter Guards"
+             data-redirect="/thank-you/">
+      <h2 style="margin-top:0">Get a Free Gutter Quote</h2>
+      <p class="muted small">Tell us a little about your home and we’ll follow up quickly.</p>
 
-const originHostKey = (origin) => {
-  try {
-    const host = new URL(origin).hostname.replace(/^www\./, '');
-    if (host.includes('zenithroofingservices')) return 'zenithroofingservices';
-    if (host.includes('zenithroofingca')) return 'zenithroofingca';
-    if (host.endsWith('.netlify.app')) return 'preview';
-    if (host.startsWith('localhost')) return 'localhost';
-    return host || 'unknown';
-  } catch {
-    return 'unknown';
-  }
-};
+      <!-- The adapter will handle submission via fetch, but we also set action for no-JS fallback -->
+      <form id="estimate-form" method="POST" action="/.netlify/functions/jn-create-lead" novalidate>
+        <!-- Not required, adapter will infer this from data-category; but keeping won’t hurt -->
+        <input type="hidden" name="service_type" value="Seamless Gutters & Gutter Guards">
 
-// ---------- Handler ----------
-exports.handler = async (event) => {
-  const origin = event.headers?.origin || event.headers?.Origin || '';
-  const cors = corsHeaders(origin);
+        <div class="form-row">
+          <div class="form-col-6">
+            <label>First Name</label>
+            <input name="first_name" required>
+          </div>
+          <div class="form-col-6">
+            <label>Last Name</label>
+            <input name="last_name" required>
+          </div>
+        </div>
 
-  // Preflight
-  if (event.httpMethod === 'OPTIONS') {
-    return { statusCode: 204, headers: cors, body: '' };
-  }
+        <div class="form-row">
+          <div class="form-col-6">
+            <label>Phone</label>
+            <input name="phone" type="tel" required>
+          </div>
+          <div class="form-col-6">
+            <label>Email <span class="muted">(optional)</span></label>
+            <input name="email" type="email">
+          </div>
+        </div>
 
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, headers: cors, body: 'Method Not Allowed' };
-  }
+        <div class="form-row">
+          <div class="form-col-6">
+            <label>Street Address</label>
+            <input name="street_address">
+          </div>
+          <div class="form-col-3">
+            <label>City</label>
+            <input name="city">
+          </div>
+          <div class="form-col-3">
+            <label>State</label>
+            <input name="state" maxlength="2" placeholder="CA">
+          </div>
+        </div>
 
-  try {
-    const data = parseBody(event);
-    console.log('Incoming form data:', JSON.stringify(data, null, 2));
+        <div class="form-row">
+          <div class="form-col-3">
+            <label>ZIP</label>
+            <input name="zip" required>
+          </div>
+          <div class="form-col-9">
+            <label>Notes</label>
+            <textarea name="description" rows="4"
+              placeholder="Approx. linear feet? 5&quot; or 6&quot;? Any problem areas? Interested in gutter guards?"></textarea>
+          </div>
+        </div>
 
-    const JN_API_KEY = process.env.JN_API_KEY;
-    const JN_CONTACT_ENDPOINT = process.env.JN_CONTACT_ENDPOINT;
-    if (!JN_API_KEY || !JN_CONTACT_ENDPOINT) {
-      return {
-        statusCode: 500,
-        headers: cors,
-        body: JSON.stringify({ error: 'Server not configured (missing env vars)' }),
-      };
-    }
+        <!-- Spam honeypot (adapter will ignore submission if filled) -->
+        <input name="company" tabindex="-1" autocomplete="off" style="display:none">
 
-    const first = (data.first_name || '').trim();
-    const last = (data.last_name || '').trim();
-    const email = (data.email || '').trim();
+        <button class="btn" type="submit">Send Request</button>
+        <!-- The adapter adds the disclaimer below the button automatically -->
+      </form>
+    </section>
 
-    const rawPhone = data.phone_number || data.phone || data.phoneNumber || '';
-    const phone = normalizePhone(rawPhone);
-    console.log(`Final phone: "${phone}" (from raw: "${rawPhone}")`);
+    <section class="card airy" aria-label="Service area">
+      <h2>Service Area</h2>
+      <p class="muted">North County San Diego, Greater San Diego, Temecula & nearby communities.</p>
+      <p class="muted small">Information above reflects common practices. Final scope and warranties are governed by your signed contract and manufacturer documentation.</p>
+    </section>
+  </main>
 
-    if (!phone) {
-      return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Phone number is required' }) };
-    }
-    if (phone.length !== 10) {
-      return {
-        statusCode: 400,
-        headers: cors,
-        body: JSON.stringify({
-          error: 'Invalid phone number format',
-          details: `Expected 10 digits, got ${phone.length} (${phone})`,
-        }),
-      };
-    }
+  <div data-include="/components/footer.html"></div>
 
-    const formattedPhone = `(${phone.slice(0, 3)}) ${phone.slice(3, 6)}-${phone.slice(6)}`;
-
-    const descLines = [`Phone: ${formattedPhone}`];
-    if ((data.service_type || '').trim()) descLines.push(`Service Type: ${data.service_type.trim()}`);
-    if ((data.description || '').trim()) descLines.push(`Details: ${data.description.trim()}`);
-    if ((data.referral_source || '').trim()) descLines.push(`Heard About Us: ${data.referral_source.trim()}`);
-    const combinedDescription = descLines.join('\n');
-
-    // dynamic source tag by origin
-    const siteKey = originHostKey(origin);
-
-    const baseName =
-      (data.display_name || '').trim() ||
-      [first, last].filter(Boolean).join(' ').trim() ||
-      email ||
-      formattedPhone ||
-      'Website Lead';
-
-    // Build a readable unique display name (name • City ZIP • #last4)
-    const displayName = buildDisplayName({
-      baseName,
-      city: data.city || '',
-      zip: data.zip || '',
-      phone, // numeric 10-digit
-    });
-
-    let payload = {
-      display_name: displayName,
-      first_name: first,
-      last_name: last,
-      email: email,
-      phone: phone, // numeric-only
-      phone_formatted: formattedPhone, // human-readable
-      address: `${data.street_address || ''}, ${data.city || ''}, ${data.state || ''} ${data.zip || ''}`.trim(),
-      description: combinedDescription,
-      service_type: data.service_type || '',
-      referral_source: data.referral_source || '',
-      _source: `website-${siteKey}`,
-      _version: 'jn-create-lead-' + new Date().toISOString().split('T')[0],
-    };
-
-    console.log('JobNimbus payload:', JSON.stringify(payload, null, 2));
-
-    // First attempt
-    let res = await fetch(JN_CONTACT_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        Authorization: `Bearer ${JN_API_KEY}`,
-      },
-      body: JSON.stringify(payload),
-    });
-
-    let jnResponseText = await res.text();
-    console.log('JobNimbus response:', jnResponseText);
-
-    // If JN says duplicate, retry once with a tiny time-based suffix to force uniqueness
-    if (res.status === 400 && /Duplicate contact exists/i.test(jnResponseText)) {
-      const hhmm = new Date().toISOString().slice(11, 16).replace(':', ''); // e.g. "1912"
-      payload = { ...payload, display_name: `${displayName} • ${hhmm}` };
-      console.log('Retrying with unique display_name:', payload.display_name);
-
-      res = await fetch(JN_CONTACT_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-          Authorization: `Bearer ${JN_API_KEY}`,
-        },
-        body: JSON.stringify(payload),
-      });
-
-      jnResponseText = await res.text();
-      console.log('JobNimbus response (retry):', jnResponseText);
-    }
-
-    // Optional SendGrid notification (unchanged)
-    let mailStatus = 'skipped';
-    try {
-      const SG_KEY = process.env.SENDGRID_API_KEY;
-      const TO = process.env.LEAD_NOTIFY_TO;
-      const FROM = process.env.LEAD_NOTIFY_FROM;
-      if (SG_KEY && TO && FROM) {
-        const subject = `New Website Lead: ${[first, last].filter(Boolean).join(' ') || formattedPhone || email}`;
-        const html = `
-          <h2>New Website Lead</h2>
-          <table cellspacing="0" cellpadding="6" style="font-family:Arial,Helvetica,sans-serif;font-size:14px">
-            <tr><td><b>Name</b></td><td>${first} ${last}</td></tr>
-            <tr><td><b>Email</b></td><td>${email}</td></tr>
-            <tr><td><b>Phone</b></td><td>${formattedPhone}</td></tr>
-            <tr><td><b>Address</b></td><td>${data.street_address}, ${data.city}, ${data.state} ${data.zip}</td></tr>
-            <tr><td><b>Description</b></td><td>${(combinedDescription || '').replace(/\n/g, '<br>')}</td></tr>
-          </table>
-        `;
-        const text = `New website lead
-Name: ${first} ${last}
-Email: ${email}
-Phone: ${formattedPhone}
-Address: ${data.street_address}, ${data.city}, ${data.state} ${data.zip}
-
-${combinedDescription || ''}`;
-
-        const sgRes = await fetch('https://api.sendgrid.com/v3/mail/send', {
-          method: 'POST',
-          headers: { Authorization: `Bearer ${SG_KEY}`, 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            personalizations: [{ to: [{ email: TO }], subject }],
-            from: { email: FROM, name: 'Zenith Roofing Website' },
-            reply_to: email ? { email } : undefined,
-            content: [
-              { type: 'text/plain', value: text },
-              { type: 'text/html', value: html },
-            ],
-          }),
-        });
-        mailStatus = `${sgRes.status}`;
-      }
-    } catch (e) {
-      console.error('SendGrid error:', e);
-      mailStatus = 'error';
-    }
-
-    let responseBody = jnResponseText;
-    try {
-      const jnJson = JSON.parse(jnResponseText);
-      jnJson._mailStatus = mailStatus;
-      responseBody = JSON.stringify(jnJson);
-    } catch (_) {}
-
-    return { statusCode: res.status, headers: cors, body: responseBody };
-  } catch (err) {
-    console.error('Handler error:', err);
-    return {
-      statusCode: 500,
-      headers: cors,
-      body: JSON.stringify({
-        error: 'Internal server error',
-        details: err.message,
-        stack: process.env.NODE_ENV === 'development' ? err.stack : undefined,
-      }),
-    };
-  }
-};
+  <!-- Sticky actions (your existing UI) -->
+  <div class="actionbar">
+    <a class="ab-btn call" href="tel:8589006163">Call</a>
+    <a class="ab-btn text" href="sms:+18589006163">Text</a>
+    <a class="ab-btn estimate" href="#estimate">Free Estimate</a>
+  </div>
+</body>
+</html>
