@@ -14,3 +14,16 @@
   font-size: 0.9rem;
   color: var(--ui-muted, #64748b);
 }
+/* Show invalid required fields with a red border */
+input:required:invalid,
+textarea:required:invalid,
+select:required:invalid {
+  border-color: #dc2626; /* red-600 */
+  outline: none;
+}
+
+/* Improve focus for accessibility */
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid #0ea5e9; /* sky-500 */
+  outline-offset: 1px;
+}
