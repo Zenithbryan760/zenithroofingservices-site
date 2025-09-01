@@ -4,190 +4,433 @@
   <meta charset="utf-8" />
   <title>Seamless Gutters (5&quot; &amp; 6&quot;) &amp; Gutter Guards | Zenith Roofing Services</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Professional installation of seamless aluminum gutters in 5&quot; and 6&quot; profiles plus premium gutter guards. Custom on-site fabrication, color-matched metals, drip-edge tie-ins, and proper downspout sizing. Serving San Diego, North County & Temecula." />
+  <meta name="description" content="Custom seamless aluminum gutters in 5&quot; and 6&quot; K-style, plus premium micro-mesh gutter guards. On-site fabrication, color-matched metals, correct downspout sizing, and drip-edge tie-in. Serving San Diego, North County & Temecula." />
   <link rel="canonical" href="https://www.zenithroofingservices.com/services/gutters/">
 
-  <!-- site styles -->
+  <!-- Site CSS -->
   <link rel="stylesheet" href="/css/header.css">
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/footer.css">
   <link rel="stylesheet" href="/css/ui.css">
-  <!-- adapter styles -->
-  <link rel="stylesheet" href="/assets/jn-adapter.css">
-
-  <!-- site scripts (no hero.js here) -->
-  <script defer src="/js/loader.js"></script>
-  <script defer src="/js/header.js"></script>
-  <!-- JobNimbus adapter (submits to /.netlify/functions/jn-create-lead) -->
-  <script defer src="/assets/jn-adapter.js"></script>
 
   <style>
-    /* page-specific polish */
-    .page.gutters {max-width:1100px;margin:24px auto;padding:0 16px}
-    .hero {display:grid;gap:16px;align-items:center}
-    .hero h1{margin:6px 0 4px}
-    .lede{color:#475569;font-size:1.05rem;margin:6px 0 18px}
+    /* Page layout polish */
+    .page.gutters{max-width:1100px;margin:24px auto;padding:0 16px}
     .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:600;font-size:.95rem}
+    .lede{color:#475569;font-size:1.05rem;margin:8px 0 18px}
     .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     @media (max-width:860px){.grid-2{grid-template-columns:1fr}}
-    .specs li{margin:6px 0}
-    .faq dt{font-weight:700;margin-top:12px}
-    .faq dd{margin:6px 0 12px;color:#475569}
-    /* small hero form card look */
-    .mini-card{border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,0.04)}
-    .mini-card .form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .mini-card label{font-size:.9rem;color:#334155}
-    .mini-card input,.mini-card textarea{width:100%}
-    .mini-card button{margin-top:6px}
+    .checklist li{margin:6px 0}
+    .small{font-size:.9rem}
+
+    /* Form UI */
+    #estimate-form{max-width:760px;margin:0 auto}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+    .form-row .form-group{display:flex;flex-direction:column}
+    .form-col-4{grid-template-columns:1fr 1fr 1fr}
+    .form-col-6{grid-template-columns:1fr 1fr}
+    #estimate-form input,#estimate-form select,#estimate-form textarea{
+      width:100%;padding:10px 12px;border:1px solid #cbd5e1;border-radius:10px;font-size:1rem
+    }
+    #estimate-form textarea{resize:vertical}
+    .zenith-btn{display:inline-block;background:#0b3a6f;color:#fff;border:none;border-radius:999px;padding:12px 18px;font-weight:700;cursor:pointer}
+    .zenith-btn:disabled{opacity:.6;cursor:not-allowed}
+    .form-disclaimer{margin:10px 0 0;color:#64748b}
+
+    /* Validation errors */
+    .error-summary{display:none;background:#fee2e2;color:#7f1d1d;border:1px solid #fecaca;border-radius:10px;padding:10px 12px;margin-bottom:12px}
+    .error-summary.show{display:block}
+    .has-error input,.has-error select,.has-error textarea{border-color:#ef4444}
+    .field-error{color:#b91c1c;font-size:.9rem;margin-top:6px}
+
+    /* reCAPTCHA container */
+    .recaptcha-container{display:flex;justify-content:center}
   </style>
 
-  <!-- tiny, page-local phone mask (safe with adapter) -->
+  <!-- Site scripts -->
+  <script defer src="/js/loader.js"></script>
+  <script defer src="/js/header.js"></script>
+
+  <!-- Page JS: mask, ZIP→City, validation, reCAPTCHA, submit -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const p = document.querySelector('#estimate [name="phone"]');
-      if (!p) return;
-      p.setAttribute('maxlength','14');
-      const fmt = v => {
-        const d = (v || '').replace(/\D/g,'').slice(0,10);
-        if (!d) return '';
-        if (d.length < 4) return `(${d}`;
-        if (d.length < 7) return `(${d.slice(0,3)}) ${d.slice(3)}`;
-        return `(${d.slice(0,3)}) ${d.slice(3,6)}-${d.slice(6)}`;
+    (function () {
+      const RECAPTCHA_SITEKEY = '6LclaJ4rAAAAAEMe8ppXrEJvIgLeFVxgmkq4DBrI';
+      const FN_URL = '/.netlify/functions/jn-create-lead';
+
+      // --- Lazy-load reCAPTCHA ---
+      function ensureRecaptchaScript() {
+        if (document.querySelector('script[data-zenith-recaptcha]')) return;
+        const s = document.createElement('script');
+        s.src = 'https://www.google.com/recaptcha/api.js?onload=recaptchaOnload&render=explicit';
+        s.async = true; s.defer = true; s.setAttribute('data-zenith-recaptcha','1');
+        document.head.appendChild(s);
+      }
+      window.recaptchaOnload = function() {
+        const slot = document.getElementById('recaptcha-slot');
+        if (slot && !slot.dataset.rendered && window.grecaptcha) {
+          window._recaptchaWidgetId = grecaptcha.render(slot, {
+            sitekey: RECAPTCHA_SITEKEY, theme: 'light', size: 'normal'
+          });
+          slot.dataset.rendered = '1';
+        }
       };
-      p.addEventListener('input', e => e.target.value = fmt(e.target.value));
-    });
+      function setupLazyRecaptcha(form) {
+        const trigger = () => { ensureRecaptchaScript(); obs && obs.disconnect(); form.removeEventListener('focusin', trigger); };
+        const obs = ('IntersectionObserver' in window)
+          ? new IntersectionObserver((es)=>{ if (es.some(e=>e.isIntersecting)) trigger(); }, { rootMargin:'300px' })
+          : null;
+        if (obs) obs.observe(form);
+        form.addEventListener('focusin', trigger, { once:true });
+      }
+
+      // --- Phone mask ---
+      function maskPhone() {
+        const el = document.getElementById('phone');
+        if (!el || el._masked) return; el._masked = true;
+        el.setAttribute('maxlength','14');
+        const fmt = v => {
+          const d = (v||'').replace(/\D/g,'').slice(0,10);
+          if (!d) return '';
+          if (d.length < 4) return `(${d}`;
+          if (d.length < 7) return `(${d.slice(0,3)}) ${d.slice(3)}`;
+          return `(${d.slice(0,3)}) ${d.slice(3,6)}-${d.slice(6)}`;
+        };
+        el.addEventListener('input', e => e.target.value = fmt(e.target.value));
+        el.addEventListener('blur', e => {
+          const len = e.target.value.replace(/\D/g,'').length;
+          e.target.setCustomValidity(len === 0 || len === 10 ? '' : 'Enter a 10-digit phone number');
+        });
+      }
+
+      // --- ZIP -> City autofill ---
+      function zipToCity() {
+        const zip = document.getElementById('zip');
+        const city = document.getElementById('city');
+        if (!zip || !city || zip._zipBound) return;
+        zip._zipBound = true;
+        const cache = {};
+        city.addEventListener('input', () => { city.dataset.autofilled = ''; });
+
+        async function lookup(z) {
+          if (cache[z]) return cache[z];
+          const res = await fetch('https://api.zippopotam.us/us/' + z);
+          if (!res.ok) throw new Error('zip lookup failed');
+          const data = await res.json();
+          const place = data.places && data.places[0];
+          const name = place ? place['place name'] : '';
+          cache[z] = name; return name;
+        }
+        async function maybeFill() {
+          const digits = (zip.value||'').replace(/\D/g,'');
+          if (!(digits.length === 5 || digits.length === 9)) return;
+          try {
+            const name = await lookup(digits.slice(0,5));
+            const canWrite = !city.value || city.dataset.autofilled === '1';
+            if (canWrite) { city.value = name || ''; city.dataset.autofilled = '1'; }
+          } catch {}
+        }
+        zip.addEventListener('input', maybeFill);
+        zip.addEventListener('change', maybeFill);
+        maybeFill();
+      }
+
+      // --- Validation helpers ---
+      function ensureErrorSummary(form) {
+        let box = form.querySelector('.error-summary');
+        if (!box) {
+          box = document.createElement('div');
+          box.className = 'error-summary';
+          box.setAttribute('role','alert'); box.setAttribute('aria-live','assertive');
+          form.prepend(box);
+        }
+        return box;
+      }
+      function clearErrors(form){
+        form.querySelectorAll('.form-group.has-error').forEach(g => g.classList.remove('has-error'));
+        form.querySelectorAll('.field-error').forEach(n => n.remove());
+        const box = form.querySelector('.error-summary'); if (box){ box.textContent=''; box.classList.remove('show'); }
+      }
+      function showFieldError(input, msg){
+        const group = input.closest('.form-group') || input.parentElement;
+        group.classList.add('has-error');
+        if (!group.querySelector('.field-error')) {
+          const n = document.createElement('div'); n.className='field-error'; n.textContent = msg; group.appendChild(n);
+        }
+      }
+      function getMsg(input){
+        if (input.validity.valueMissing) return 'This field is required.';
+        if (input.id==='email' && input.validity.typeMismatch) return 'Enter a valid email address.';
+        if (input.id==='phone' && input.validity.patternMismatch) return 'Use format: (555) 123-4567';
+        if (input.id==='zip' && input.validity.patternMismatch) return 'Enter a 5-digit ZIP (or ZIP+4).';
+        return 'Please check this field.';
+      }
+      function validate(form){
+        clearErrors(form);
+        const required = Array.from(form.querySelectorAll('[required]'));
+        const invalid = required.filter(el => !el.checkValidity());
+        if (invalid.length){
+          const box = ensureErrorSummary(form);
+          box.textContent = 'Please fix the highlighted fields. Photos are optional; all other fields are required.';
+          box.classList.add('show');
+          invalid.forEach(el => showFieldError(el, getMsg(el)));
+          invalid[0].focus();
+          return false;
+        }
+        return true;
+      }
+
+      // --- Submit handler (to Netlify/JobNimbus) ---
+      function normalizePhone(raw=''){ return (String(raw).match(/\d/g) || []).join('').replace(/^1(?=\d{10}$)/, ''); }
+
+      async function submitHandler(e){
+        e.preventDefault();
+        const form = e.currentTarget;
+        if (!validate(form)) return;
+
+        // reCAPTCHA required
+        let token = '';
+        if (window.grecaptcha && typeof window.grecaptcha.getResponse === 'function') {
+          if (typeof window._recaptchaWidgetId !== 'undefined') token = window.grecaptcha.getResponse(window._recaptchaWidgetId) || '';
+        }
+        if (!token) {
+          const box = ensureErrorSummary(form);
+          box.textContent = 'Please complete the reCAPTCHA before submitting.'; box.classList.add('show'); return;
+        }
+
+        const fd = new FormData(form);
+        const data = {
+          first_name: (fd.get('first_name')||'').trim(),
+          last_name: (fd.get('last_name')||'').trim(),
+          phone: (fd.get('phone')||'').trim(),
+          email: (fd.get('email')||'').trim(),
+          street_address: (fd.get('street_address')||'').trim(),
+          city: (fd.get('city')||'').trim(),
+          state: (fd.get('state')||'').trim(),
+          zip: (fd.get('zip')||'').trim(),
+          service_type: fd.get('service_type') || 'Gutters',
+          referral_source: fd.get('referral_source') || '',
+          description: [
+            (fd.get('description')||'').trim(),
+            `Service Type: ${fd.get('service_type') || 'Gutters'}`,
+            `Page: ${location.pathname}`
+          ].filter(Boolean).join('\n')
+        };
+
+        // client-side phone sanity (avoid 400)
+        const np = normalizePhone(data.phone);
+        if (!np || np.length !== 10){
+          const box = ensureErrorSummary(form);
+          box.textContent = 'Please enter a valid 10-digit phone number.'; box.classList.add('show'); return;
+        }
+
+        const btn = form.querySelector('button[type="submit"]');
+        const original = btn ? btn.textContent : null;
+        if (btn){ btn.textContent='Submitting…'; btn.disabled=true; }
+
+        try{
+          const res = await fetch(FN_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          const text = await res.text();
+
+          if (!res.ok){
+            console.error('JobNimbus error:', text);
+            const box = ensureErrorSummary(form);
+            try { const j = JSON.parse(text); box.textContent = j.error || 'Sorry, there was a problem submitting your request.'; }
+            catch { box.textContent = 'Sorry, there was a problem submitting your request.'; }
+            box.classList.add('show');
+            return;
+          }
+
+          // Success
+          window.location.href = '/thank-you/';
+        } catch (err){
+          console.error(err);
+          const box = ensureErrorSummary(form);
+          box.textContent = 'Network error. Please try again.'; box.classList.add('show');
+        } finally {
+          if (btn && original){ btn.textContent = original; btn.disabled = false; }
+          if (window.grecaptcha && typeof window.grecaptcha.reset === 'function' &&
+              typeof window._recaptchaWidgetId !== 'undefined') {
+            window.grecaptcha.reset(window._recaptchaWidgetId);
+          }
+        }
+      }
+
+      // --- Init ---
+      function init(){
+        const form = document.getElementById('estimate-form');
+        if (!form || form._bound) return; form._bound = true;
+
+        // default the service type for this page
+        const svc = document.getElementById('serviceType');
+        if (svc && !svc.value) svc.value = 'Gutters';
+
+        maskPhone();
+        zipToCity();
+        setupLazyRecaptcha(form);
+        form.addEventListener('submit', submitHandler);
+      }
+      document.addEventListener('DOMContentLoaded', init);
+    })();
   </script>
 </head>
 <body>
   <div data-include="/components/header-section.html"></div>
 
   <main class="page gutters" id="top">
-    <!-- HERO -->
-    <section class="card airy hero">
+    <section class="card airy">
       <span class="pill">Seamless Gutters</span>
-      <h1>5&quot; &amp; 6&quot; Aluminum Seamless Gutters + Gutter Guards</h1>
+      <h1>5&quot; &amp; 6&quot; Seamless Aluminum Gutters + Micro-Mesh Gutter Guards</h1>
       <p class="lede">
-        Custom, on-site fabricated seamless gutters, color-matched to your home. We size downspouts correctly,
-        flash to the drip edge, and offer high-flow **6&quot; K-style** for heavy roof areas.
-        Add **micro-mesh gutter guards** to keep debris out and water moving.
+        We custom-form seamless K-style gutters on site for a perfect fit. Choose 5&quot; for most elevations or
+        6&quot; high-capacity for large roof planes, valleys, and tile roofs. Add premium micro-mesh guards to stop
+        leaves and roof grit while maintaining flow.
       </p>
-      <div class="cta">
-        <a class="btn" href="#estimate">Get a Quote</a>
-        <a class="btn outline" href="#details">Gutter Options</a>
-      </div>
     </section>
 
-    <!-- QUICK ESTIMATE (Hero-style, short) -->
-    <section id="estimate" class="card airy mini-card"
-             data-estimate-context
-             data-category="Seamless Gutters & Gutter Guards"
-             data-redirect="/thank-you/">
-      <!-- the adapter will use this fallback if no include exists -->
-      <template id="lead-form-fallback">
-        <form id="estimate-form" novalidate>
-          <input type="hidden" name="service_type" value="Seamless Gutters (5&quot;/6&quot;) & Gutter Guards">
-          <div class="form-row">
-            <div>
-              <label for="name">Full Name</label>
-              <input id="name" name="name" autocomplete="name" required />
-            </div>
-            <div>
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" inputmode="tel" required />
-            </div>
+    <!-- FORM -->
+    <section class="card airy">
+      <h2 style="margin-bottom:10px">Request a Free Estimate</h2>
+      <p id="photos-note" class="small" style="color:#64748b">Photos are optional; all other fields are required.</p>
+
+      <form id="estimate-form" method="POST" novalidate>
+        <div class="error-summary" aria-live="assertive" role="alert"></div>
+
+        <!-- Row 1 -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName" class="sr-only">First Name*</label>
+            <input type="text" id="firstName" name="first_name" placeholder="First Name*" autocomplete="given-name" required />
           </div>
-          <div class="form-row" style="margin-top:8px">
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required />
-            </div>
-            <div>
-              <label for="zip">ZIP</label>
-              <input id="zip" name="zip" inputmode="numeric" pattern="\\d{5}(-\\d{4})?" required />
-            </div>
+          <div class="form-group">
+            <label for="lastName" class="sr-only">Last Name*</label>
+            <input type="text" id="lastName" name="last_name" placeholder="Last Name*" autocomplete="family-name" required />
           </div>
-          <div style="margin-top:8px">
-            <label for="message">Notes</label>
-            <textarea id="message" name="message" rows="3" placeholder="5&quot; or 6&quot;? Any clogged areas or overflow? Interested in gutter guards?"></textarea>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone" class="sr-only">Phone Number*</label>
+            <input type="tel" id="phone" name="phone" inputmode="tel" placeholder="Phone Number*" pattern="[\\d\\s\\-\\(\\)\\.]{10,}" autocomplete="tel" required />
           </div>
-          <button class="btn" type="submit" style="width:100%;margin-top:10px">Send Request</button>
-        </form>
-      </template>
-      <!-- adapter auto-inserts the disclaimer and handles submission -->
+          <div class="form-group">
+            <label for="email" class="sr-only">Email Address*</label>
+            <input type="email" id="email" name="email" placeholder="Email Address*" autocomplete="email" required />
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="streetAddress" class="sr-only">Street Address*</label>
+            <input type="text" id="streetAddress" name="street_address" placeholder="Street Address*" autocomplete="address-line1" required />
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="city" class="sr-only">City*</label>
+            <input type="text" id="city" name="city" placeholder="City*" autocomplete="address-level2" required />
+          </div>
+          <div class="form-group">
+            <label for="state" class="sr-only">State*</label>
+            <input type="text" id="state" name="state" value="CA" placeholder="State*" readonly />
+          </div>
+          <div class="form-group">
+            <label for="zip" class="sr-only">ZIP Code*</label>
+            <input type="text" id="zip" name="zip" placeholder="ZIP Code*" inputmode="numeric" pattern="\\d{5}(-\\d{4})?" maxlength="10" autocomplete="postal-code" required />
+          </div>
+        </div>
+
+        <!-- Row 5 -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="photos" class="sr-only">Upload Photos</label>
+            <input type="file" id="photos" name="photos" accept="image/*" multiple />
+          </div>
+          <div class="form-group">
+            <label for="serviceType" class="sr-only">Service Type*</label>
+            <select id="serviceType" name="service_type" required>
+              <option value="" disabled hidden>Service Type*</option>
+              <option>Gutters</option>
+              <option>Roof Repair</option>
+              <option>Roof Replacement</option>
+              <option>Roof Maintenance</option>
+              <option>Commercial Roofing</option>
+              <option>Residential Roofing</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="referral" class="sr-only">How did you hear about us?*</label>
+            <select id="referral" name="referral_source" required>
+              <option value="" disabled hidden>How did you hear about us?*</option>
+              <option>Google</option>
+              <option>Yelp</option>
+              <option>Angi</option>
+              <option>Social Media</option>
+              <option>Referral</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Row 6 -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="description" class="sr-only">Brief Description*</label>
+            <textarea id="description" name="description" rows="4" placeholder="Brief Description* — tell us about 5&quot; vs 6&quot;, overflow areas, and if you want gutter guards" required></textarea>
+          </div>
+        </div>
+
+        <!-- reCAPTCHA -->
+        <div class="form-row">
+          <div class="form-group recaptcha-container">
+            <div id="recaptcha-slot" aria-label="reCAPTCHA widget"></div>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="form-row">
+          <button type="submit" class="zenith-btn">Request Free Estimate</button>
+        </div>
+
+        <!-- Disclaimer -->
+        <p class="form-disclaimer">
+          <em>*Free estimates are not available for real estate transactions. For transaction-related roof reports or verbal estimates, please see our Real Estate Services. Third-party inspections are billed services.</em>
+        </p>
+      </form>
     </section>
 
-    <!-- DETAILS -->
-    <section id="details" class="card airy">
-      <h2>Why Seamless Aluminum Gutters?</h2>
+    <!-- Service details / SEO content -->
+    <section class="card airy">
+      <h2>Why Choose Seamless Aluminum Gutters?</h2>
       <div class="grid-2">
         <div>
-          <p>
-            Seamless gutters are roll-formed on site from a single coil, so there are no seams along the run
-            (fewer leak points). We use aluminum for its corrosion resistance by the coast and wide color
-            availability to match fascia and trim.
-          </p>
-          <ul class="checklist specs">
-            <li><span class="tick">✓</span> **5&quot; K-style** — common residential size</li>
-            <li><span class="tick">✓</span> **6&quot; K-style (high-capacity)** — larger roof planes, valleys, tile roofs</li>
-            <li><span class="tick">✓</span> 2&quot;x3&quot; or 3&quot;x4&quot; downspouts (we upsize where needed)</li>
-            <li><span class="tick">✓</span> Hidden hangers w/ screws (no spikes)</li>
+          <ul class="checklist">
+            <li><span class="tick">✓</span> **Seamless 5&quot; and 6&quot; K-style** — formed on site to exact length</li>
+            <li><span class="tick">✓</span> Hidden hangers with screws (no spikes)</li>
+            <li><span class="tick">✓</span> Correct slope, outlet placement, and downspout sizing</li>
             <li><span class="tick">✓</span> Color-matched baked-enamel coils & accessories</li>
-            <li><span class="tick">✓</span> Proper slope and outlet placement for flow</li>
+            <li><span class="tick">✓</span> Drip-edge tie-in to protect fascia and eaves</li>
           </ul>
         </div>
         <div>
-          <h3>Gutter Guards (Debris Protection)</h3>
-          <p>
-            Tired of clogs? We install **micro-mesh stainless steel guards** that block leaves, needles, and
-            roof grit while letting water pass. Guards reduce maintenance and help prevent overflow that can
-            damage fascia, eaves, and foundations.
-          </p>
-          <ul class="checklist specs">
-            <li><span class="tick">✓</span> Micro-mesh, powder-coated aluminum frame</li>
-            <li><span class="tick">✓</span> Works with 5&quot; and 6&quot; K-style gutters</li>
-            <li><span class="tick">✓</span> Secure attachment; won’t void gutter warranty</li>
-            <li><span class="tick">✓</span> Great for trees, canyons, and windy areas</li>
+          <h3>Gutter Guards (Micro-Mesh)</h3>
+          <p>Stop clogs and reduce maintenance with stainless micro-mesh guards that keep out leaves, needles, and roof grit while allowing water to flow.</p>
+          <ul class="checklist">
+            <li><span class="tick">✓</span> Works with 5&quot; & 6&quot; K-style</li>
+            <li><span class="tick">✓</span> Aluminum frame, corrosion-resistant</li>
+            <li><span class="tick">✓</span> Great for tree-heavy lots, canyons, and windy areas</li>
           </ul>
         </div>
       </div>
-    </section>
-
-    <!-- COMPARISON -->
-    <section class="card airy">
-      <h2>5&quot; vs 6&quot; — Which Size Do I Need?</h2>
-      <p class="muted">
-        6&quot; gutters hold more water and accept larger downspouts for faster drainage. We recommend 6&quot; on
-        big roof planes, steep pitches, at valley dumps, and under tile where flow is heavier. Many homes are
-        fine with 5&quot; around most elevations, with 6&quot; used selectively where capacity matters.
-      </p>
-    </section>
-
-    <!-- FAQ -->
-    <section class="card airy faq">
-      <h2>Gutter FAQ</h2>
-      <dl>
-        <dt>Do you fabricate gutters on site?</dt>
-        <dd>Yes — our machine forms seamless runs to exact length for a clean look and fewer joints.</dd>
-
-        <dt>Can you match my trim color?</dt>
-        <dd>We stock popular colors and can special-order coils to closely match most fascia colors.</dd>
-
-        <dt>Will you fix drainage issues?</dt>
-        <dd>We check slope, add outlets where needed, and can upsize to 3&quot;x4&quot; downspouts to improve flow.</dd>
-
-        <dt>Do gutter guards eliminate cleaning forever?</dt>
-        <dd>They dramatically reduce debris entry. We still suggest quick visual checks seasonally.</dd>
-      </dl>
-      <p class="muted small">
-        *Free estimates exclude real-estate transaction inspections and third-party report requests.
-      </p>
-    </section>
-
-    <!-- SERVICE AREA -->
-    <section class="card airy" aria-label="Service area">
-      <h2>Service Area</h2>
-      <p class="muted">North County San Diego, Greater San Diego, Temecula & nearby communities.</p>
-      <p class="muted small">Final scope and warranties are governed by your signed contract and manufacturer documentation.</p>
+      <p class="small muted" style="margin-top:8px">We serve North County San Diego, Greater San Diego, Temecula & nearby communities.</p>
     </section>
   </main>
 
