@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Zenith Roofing Services – San Diego & Temecula Roof Experts</title>
-  <meta name="description" content="Licensed roofing contractor ... tile, shingles, TPO, torch down, silicone coatings & gutters.">
+  <meta name="description" content="Licensed roofing contractor serving Escondido, San Diego & Temecula. Roof repair, replacement, tile, shingles, TPO, torch down, silicone coatings & gutters.">
 
   <!-- ===== Preload critical CSS ===== -->
   <link rel="preload" href="/css/base.css" as="style">
@@ -63,8 +63,17 @@
     a:hover,button:hover,.hover-effect:hover{ opacity:.9; transform:translateY(-1px); }
 
     :root{ --header-h:80px; }
-    .sticky-nav-sentinel{ position:absolute; top:calc(var(--header-h,80px) + 1px); left:0; right:0; height:1px; }
-    html { scroll-behavior:smooth; }
+    .zenith-hero{ min-height:100svh; min-height:100dvh; }
+
+    /* LCP stub space (replaces the old [data-include="/components/hero-section.html"] rule) */
+    #hero-stub{ display:block; min-height:100svh; min-height:100dvh; }
+
+    /* Zero font-swap shift above the fold */
+    .zenith-hero, .zenith-card, .zenith-header-text, #estimate-form{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    html{ scroll-behavior:smooth; scroll-padding-top:var(--header-h,80px); }
     [id]{ scroll-margin-top:calc(var(--header-h,80px) + 12px); }
   </style>
 
@@ -95,26 +104,39 @@
   <!-- Header include FIRST so it's present for measurements -->
   <section data-include="/components/header-section.html"></section>
 
-  <!-- Hero: LCP placeholder image (then replaced by full component via loader) -->
-  <div id="hero-stub" class="zenith-hero">
-    <div class="zenith-hero-media">
-      <img
-        id="lcp-img"
-        class="zenith-hero-mobile-img"
-        src="/images/modern-tile-roof-1280.webp"
-        srcset="/images/modern-tile-roof-640.webp 640w,
-                /images/modern-tile-roof-960.webp 960w,
-                /images/modern-tile-roof-1280.webp 1280w,
-                /images/modern-tile-roof-1600.webp 1600w"
-        sizes="100vw"
-        alt="Zenith Roofing work background"
-        width="1600" height="900"
-        decoding="async" fetchpriority="high">
-      <div class="zenith-image-overlay" aria-hidden="true"></div>
-    </div>
-  </div>
+  <!-- ===== MAIN (partials auto-injected below) ===== -->
+  <main>
+    <!-- ✅ LCP STUB replaces the hero include -->
+    <section id="hero-stub" class="zenith-hero" aria-label="Free roofing estimate">
+      <div class="zenith-hero-media">
+        <picture>
+          <!-- WebP sources (match the <head> preload) -->
+          <source type="image/webp"
+                  srcset="/images/modern-tile-roof-640.webp 640w,
+                          /images/modern-tile-roof-960.webp 960w,
+                          /images/modern-tile-roof-1280.webp 1280w,
+                          /images/modern-tile-roof-1600.webp 1600w"
+                  sizes="100vw">
+          <!-- Fallback also WebP (avoid large PNG) -->
+          <img id="lcp-img"
+               class="zenith-hero-mobile-img"
+               src="/images/modern-tile-roof-1280.webp"
+               srcset="/images/modern-tile-roof-640.webp 640w,
+                       /images/modern-tile-roof-960.webp 960w,
+                       /images/modern-tile-roof-1280.webp 1280w,
+                       /images/modern-tile-roof-1600.webp 1600w"
+               sizes="100vw"
+               alt="Zenith Roofing work background"
+               width="1600" height="900"
+               decoding="async" fetchpriority="high">
+        </picture>
+        <div class="zenith-image-overlay" aria-hidden="true"></div>
+      </div>
+      <!-- light skeleton so layout matches before swap -->
+      <div class="zenith-card" aria-hidden="true"></div>
+    </section>
 
-  <main id="content">
+    <!-- Other includes stay the same -->
     <section data-include="/components/about-section.html"></section>
     <section data-include="/components/why-choose-section.html"></section>
     <section data-include="/components/trust-section.html"></section>
@@ -137,8 +159,6 @@
   <script src="js/service-areas.js" defer></script>
   <script src="js/real-estate.js" defer></script>
   <script src="js/footer.js" defer></script>
-  <!-- Form handler for hero estimate form -->
-  <script defer src="js/estimate-form.js"></script>
 
   <!-- Swiper (self-hosted) + testimonials init -->
   <script defer src="/assets/lib/swiper/10.3.1/swiper-bundle.min.js"></script>
@@ -149,23 +169,41 @@
   (function () {
     // fetch + inject a single [data-include]
     async function include(el) {
-      const url = el.getAttribute('data-include');
-      if (!url) return;
+      const src = el.getAttribute('data-include');
+      if (!src) return;
       try {
-        const res = await fetch(url, { credentials: 'same-origin' });
-        if (!res.ok) return;
-        el.outerHTML = await res.text();
-      } catch (e) { console.warn('include failed', url, e); }
+        const res = await fetch(src);             // normal caching
+        if (!res.ok) throw new Error('Failed ' + src);
+        const html = await res.text();
+        el.outerHTML = html;
+      } catch (e) {
+        console.error('❌ Include error:', src, e);
+      }
     }
 
-    // adjust header on sticky state
-    function stickyHeader() {
+    // Header height + collapsed state WITHOUT scroll reflow
+    function setupHeaderObservers() {
       const root = document.documentElement;
-      const sent = document.querySelector('.sticky-nav-sentinel') || document.createElement('div');
-      sent.className = 'sticky-nav-sentinel';
+      const getHeader = () => document.querySelector('.mobile-header') || document.querySelector('.header');
+
+      function updateHeaderH() {
+        const h = getHeader();
+        if (h) root.style.setProperty('--header-h', Math.round(h.offsetHeight) + 'px');
+      }
+
+      // update when the header actually resizes
+      if ('ResizeObserver' in window) {
+        const ro = new ResizeObserver(updateHeaderH);
+        const h = getHeader(); if (h) ro.observe(h);
+      }
+      window.addEventListener('load', updateHeaderH, { passive: true });
+      window.addEventListener('resize', () => requestAnimationFrame(updateHeaderH), { passive: true });
+
+      // toggle nav-collapsed via IntersectionObserver (no scroll work)
+      const sent = document.createElement('div');
+      sent.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;';
       document.body.prepend(sent);
-      new IntersectionObserver((entries) => {
-        const e = entries[0];
+      new IntersectionObserver(([e]) => {
         root.classList.toggle('nav-collapsed', !e.isIntersecting);
       }, { rootMargin: '-80px 0px 0px 0px' }).observe(sent); // adjust -80px if your header is taller
     }
@@ -196,20 +234,48 @@
         }
       }
 
-      stickyHeader();
+      // your existing inits (unchanged)
+      if (window.initMobileMenu) window.initMobileMenu();
+      [
+        'initEstimateForm','initAboutSection','initWhyChoose','initTrustSection',
+        'initPhotoSection','initTestimonials','initCTA','initServiceAreas',
+        'initRealEstate','initFooter','initHeader'
+      ].forEach(n => { if (typeof window[n] === 'function') window[n](); });
 
-      // Smooth scroll for internal links with header offset
-      function scrollToHash(hash, replace) {
-        const el = document.querySelector(hash);
-        if (!el) return;
-        el.scrollIntoView();
-        if (replace) history.replaceState(null, '', hash);
+      setupHeaderObservers();   // replaces old setLayoutFlags/scroll listeners
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+  </script>
+
+  <!-- Smooth scroll with header offset (fallback) -->
+  <script>
+    (function(){
+      var root = document.documentElement;
+      function headerHeight(){
+        var h = parseInt(getComputedStyle(root).getPropertyValue('--header-h')) || 80;
+        return h + 8;
       }
-      document.body.addEventListener('click', function(e){
-        const a = e.target.closest('a[href^="#"]');
-        if (!a) return;
-        const href = a.getAttribute('href');
-        if (href.length > 1) {
+      function scrollToHash(hash, replace){
+        var id = (hash || '').slice(1);
+        if(!id) return;
+        var el = document.getElementById(id);
+        if(!el) return;
+        var y = el.getBoundingClientRect().top + window.pageYOffset - headerHeight();
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        if(replace) { try { history.replaceState(null, '', '#' + id); } catch(_){} }
+      }
+      document.addEventListener('click', function(e){
+        var a = e.target.closest('a[href^="#"]');
+        if(!a) return;
+        var href = a.getAttribute('href');
+        if(href === '#' || href.length < 2) return;
+        if(document.getElementById(href.slice(1))){
           e.preventDefault();
           scrollToHash(href, true);
         }
