@@ -39,6 +39,20 @@ const normalizePhone = (raw = '') => {
   return normalized;
 };
 
+// last 4 digits of any phone-ish string
+const last4 = (s = '') => (String(s).match(/\d/g) || []).join('').slice(-4);
+
+// Build a readable-unique display name so same-named people can coexist
+const buildDisplayName = ({ baseName, city, zip, phone }) => {
+  const bits = [];
+  if ((city || '').trim()) bits.push(city.trim());
+  if ((zip || '').toString().trim()) bits.push(String(zip).trim());
+  const l4 = last4(phone);
+  if (l4) bits.push(`#${l4}`);
+  // e.g. "John Smith • Escondido 92025 • #6163"
+  return [baseName, bits.join(' ')].filter(Boolean).join(' • ').replace(/\s+/g, ' ').trim();
+};
+
 const parseBody = (event) => {
   const ct = (event.headers['content-type'] || event.headers['Content-Type'] || '').toLowerCase();
   if (ct.includes('application/json')) {
@@ -123,21 +137,27 @@ exports.handler = async (event) => {
     // dynamic source tag by origin
     const siteKey = originHostKey(origin);
 
-    // --- NEW: safe defaults so JobNimbus accepts the contact ---
-    const statusName =
-      (data.status_name || process.env.JN_DEFAULT_CONTACT_STATUS_NAME || 'Active').trim();
-    const statusId = data.status_id || process.env.JN_DEFAULT_CONTACT_STATUS_ID;
+    const baseName =
+      (data.display_name || '').trim() ||
+      [first, last].filter(Boolean).join(' ').trim() ||
+      email ||
+      formattedPhone ||
+      'Website Lead';
 
-    const contactTypeName =
-      (data.contact_type_name || process.env.JN_DEFAULT_CONTACT_TYPE_NAME || 'Customer').trim();
-    const contactTypeId = data.contact_type_id || process.env.JN_DEFAULT_CONTACT_TYPE_ID;
+    // Build a readable unique display name (name • City ZIP • #last4)
+    const displayName = buildDisplayName({
+      baseName,
+      city: data.city || '',
+      zip: data.zip || '',
+      phone, // numeric 10-digit
+    });
 
-    const payload = {
-      display_name: [first, last].filter(Boolean).join(' ').trim() || email || formattedPhone || 'Website Lead',
+    let payload = {
+      display_name: displayName,
       first_name: first,
       last_name: last,
       email: email,
-      phone: phone, // numeric
+      phone: phone, // numeric-only
       phone_formatted: formattedPhone, // human-readable
       address: `${data.street_address || ''}, ${data.city || ''}, ${data.state || ''} ${data.zip || ''}`.trim(),
       description: combinedDescription,
@@ -147,13 +167,10 @@ exports.handler = async (event) => {
       _version: 'jn-create-lead-' + new Date().toISOString().split('T')[0],
     };
 
-    // Include status/contact type (prefer IDs if present)
-    if (statusId) payload.status_id = statusId; else payload.status_name = statusName;
-    if (contactTypeId) payload.contact_type_id = contactTypeId; else payload.contact_type_name = contactTypeName;
-
     console.log('JobNimbus payload:', JSON.stringify(payload, null, 2));
 
-    const res = await fetch(JN_CONTACT_ENDPOINT, {
+    // First attempt
+    let res = await fetch(JN_CONTACT_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -163,8 +180,28 @@ exports.handler = async (event) => {
       body: JSON.stringify(payload),
     });
 
-    const jnResponseText = await res.text();
+    let jnResponseText = await res.text();
     console.log('JobNimbus response:', jnResponseText);
+
+    // If JN says duplicate, retry once with a tiny time-based suffix to force uniqueness
+    if (res.status === 400 && /Duplicate contact exists/i.test(jnResponseText)) {
+      const hhmm = new Date().toISOString().slice(11, 16).replace(':', ''); // e.g. "1912"
+      payload = { ...payload, display_name: `${displayName} • ${hhmm}` };
+      console.log('Retrying with unique display_name:', payload.display_name);
+
+      res = await fetch(JN_CONTACT_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Authorization: `Bearer ${JN_API_KEY}`,
+        },
+        body: JSON.stringify(payload),
+      });
+
+      jnResponseText = await res.text();
+      console.log('JobNimbus response (retry):', jnResponseText);
+    }
 
     // Optional SendGrid notification (unchanged)
     let mailStatus = 'skipped';
