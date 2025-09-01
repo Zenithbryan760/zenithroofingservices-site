@@ -11,12 +11,8 @@ const allowedOrigins = [
 ];
 
 const isPreviewOrigin = (origin) => {
-  try {
-    const h = new URL(origin).hostname;
-    return h.endsWith('.netlify.app');
-  } catch (_) {
-    return false;
-  }
+  try { return new URL(origin).hostname.endsWith('.netlify.app'); }
+  catch { return false; }
 };
 
 const corsHeaders = (origin) => {
@@ -32,18 +28,13 @@ const corsHeaders = (origin) => {
 };
 
 // ---------- Utilities ----------
-const normalizePhone = (raw = '') => {
-  const digits = (String(raw).match(/\d/g) || []).join('');
-  const normalized = digits.replace(/^1(?=\d{10}$)/, ''); // strip leading 1
-  console.log(`Phone normalization: raw="${raw}" → digits="${digits}" → normalized="${normalized}"`);
-  return normalized;
-};
+const normalizePhone = (raw = '') =>
+  (String(raw).match(/\d/g) || []).join('').replace(/^1(?=\d{10}$)/, '');
 
 const parseBody = (event) => {
   const ct = (event.headers['content-type'] || event.headers['Content-Type'] || '').toLowerCase();
   if (ct.includes('application/json')) return JSON.parse(event.body || '{}');
-  const params = new URLSearchParams(event.body || '');
-  return Object.fromEntries(params.entries());
+  return Object.fromEntries(new URLSearchParams(event.body || '').entries());
 };
 
 const originHostKey = (origin) => {
@@ -54,9 +45,7 @@ const originHostKey = (origin) => {
     if (host.endsWith('.netlify.app')) return 'preview';
     if (host.startsWith('localhost')) return 'localhost';
     return host || 'unknown';
-  } catch {
-    return 'unknown';
-  }
+  } catch { return 'unknown'; }
 };
 
 // ---------- Handler ----------
@@ -65,104 +54,97 @@ exports.handler = async (event) => {
   const cors = corsHeaders(origin);
 
   // Preflight
-  if (event.httpMethod === 'OPTIONS') {
-    return { statusCode: 204, headers: cors, body: '' };
-  }
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, headers: cors, body: 'Method Not Allowed' };
-  }
+  if (event.httpMethod === 'OPTIONS') return { statusCode: 204, headers: cors, body: '' };
+  if (event.httpMethod !== 'POST') return { statusCode: 405, headers: cors, body: 'Method Not Allowed' };
 
   try {
     const data = parseBody(event);
-    console.log('Incoming form data:', JSON.stringify(data, null, 2));
 
     const JN_API_KEY = process.env.JN_API_KEY;
-    const JN_CONTACT_ENDPOINT = process.env.JN_CONTACT_ENDPOINT; // should be https://app.jobnimbus.com/api1/contacts
+    const JN_CONTACT_ENDPOINT = process.env.JN_CONTACT_ENDPOINT; // https://app.jobnimbus.com/api1/contacts
     if (!JN_API_KEY || !JN_CONTACT_ENDPOINT) {
-      return {
-        statusCode: 500,
-        headers: cors,
-        body: JSON.stringify({ error: 'Server not configured (missing env vars JN_API_KEY/JN_CONTACT_ENDPOINT)' }),
-      };
+      return { statusCode: 500, headers: cors, body: JSON.stringify({ error: 'Server not configured (missing JN_API_KEY or JN_CONTACT_ENDPOINT)' }) };
     }
 
     const first = (data.first_name || '').trim();
-    const last = (data.last_name || '').trim();
-    const email = (data.email || '').trim();
-
-    const rawPhone = data.phone_number || data.phone || data.phoneNumber || '';
-    const phone = normalizePhone(rawPhone);
-    console.log(`Final phone: "${phone}" (from raw: "${rawPhone}")`);
-
-    if (!phone) {
-      return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Phone number is required' }) };
-    }
-    if (phone.length !== 10) {
-      return {
-        statusCode: 400,
-        headers: cors,
-        body: JSON.stringify({ error: 'Invalid phone number format', details: `Expected 10 digits, got ${phone.length} (${phone})` }),
-      };
-    }
-
-    const formattedPhone = `(${phone.slice(0, 3)}) ${phone.slice(3, 6)}-${phone.slice(6)}`;
+    const last  = (data.last_name  || '').trim();
+    const email = (data.email      || '').trim();
+    const phone = normalizePhone(data.phone_number || data.phone || data.phoneNumber || '');
+    if (!phone)   return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Phone number is required' }) };
+    if (phone.length !== 10) return { statusCode: 400, headers: cors, body: JSON.stringify({ error: `Invalid phone number (${phone})` }) };
+    const formattedPhone = `(${phone.slice(0,3)}) ${phone.slice(3,6)}-${phone.slice(6)}`;
+    const phoneLast4 = phone.slice(-4);
 
     const descLines = [`Phone: ${formattedPhone}`];
-    if ((data.service_type || '').trim()) descLines.push(`Service Type: ${data.service_type.trim()}`);
-    if ((data.description || '').trim()) descLines.push(`Details: ${data.description.trim()}`);
-    if ((data.referral_source || '').trim()) descLines.push(`Heard About Us: ${data.referral_source.trim()}`);
+    if ((data.service_type || '').trim())    descLines.push(`Service Type: ${String(data.service_type).trim()}`);
+    if ((data.description || '').trim())     descLines.push(`Details: ${String(data.description).trim()}`);
+    if ((data.referral_source || '').trim()) descLines.push(`Heard About Us: ${String(data.referral_source).trim()}`);
     const combinedDescription = descLines.join('\n');
 
-    // dynamic source tag by origin
     const siteKey = originHostKey(origin);
 
-    // 🔧 Friendly defaults some JN accounts require
-    const payload = {
-      display_name: [first, last].filter(Boolean).join(' ').trim() || email || formattedPhone || 'Website Lead',
+    // 👉 Respect incoming display_name, else build one; then make it more unique
+    const incomingDisplay = (data.display_name || '').trim();
+    const baseDisplay =
+      incomingDisplay ||
+      [first, last].filter(Boolean).join(' ').trim() ||
+      email ||
+      formattedPhone ||
+      'Website Lead';
+
+    const initialDisplay = phoneLast4 ? `${baseDisplay} • ${phoneLast4}` : baseDisplay;
+
+    const makePayload = (displayName) => ({
+      display_name: displayName,
       first_name: first,
       last_name: last,
-      email: email,
-      phone: phone,                 // numeric only
+      email,
+      phone,                                     // numeric only
       phone_formatted: formattedPhone,
       address: `${data.street_address || ''}, ${data.city || ''}, ${data.state || ''} ${data.zip || ''}`.trim(),
       description: combinedDescription,
       service_type: data.service_type || '',
       referral_source: data.referral_source || '',
-
-      // 👇 Defaults that prevent 400/422 in many JN setups
+      // Friendly defaults many orgs require
       status_name: data.status_name || 'Lead',
       contact_type: data.contact_type || 'Customer',
       source_name: data.referral_source || 'Website',
-
       _source: `website-${siteKey}`,
       _version: 'jn-create-lead-' + new Date().toISOString().split('T')[0],
-    };
-
-    console.log('JobNimbus payload:', JSON.stringify(payload, null, 2));
-
-    const res = await fetch(JN_CONTACT_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        Authorization: `Bearer ${JN_API_KEY}`,
-      },
-      body: JSON.stringify(payload),
     });
 
-    const jnResponseText = await res.text();
-    console.log('JobNimbus response:', jnResponseText);
+    const sendToJN = async (payload) => {
+      const res = await fetch(JN_CONTACT_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Authorization: `Bearer ${JN_API_KEY}`,
+        },
+        body: JSON.stringify(payload),
+      });
+      const text = await res.text();
+      return { ok: res.ok, status: res.status, text };
+    };
 
-    // If JN rejects, bubble up their error so the page shows it
-    if (!res.ok) {
-      return {
-        statusCode: res.status,
-        headers: cors,
-        body: jnResponseText || JSON.stringify({ error: 'JobNimbus request failed' }),
-      };
+    // 1) First attempt
+    let payload = makePayload(initialDisplay);
+    let { ok, status, text } = await sendToJN(payload);
+
+    // 2) If duplicate, retry once with a timestamp suffix to guarantee uniqueness
+    const duplicate = (text || '').toLowerCase().includes('duplicate contact exists');
+    if (!ok && (status === 400 || status === 409) && duplicate) {
+      const stamp = new Date().toISOString().replace(/[-:T.Z]/g, '').slice(0,12); // yyyymmddhhmm
+      payload = makePayload(`${initialDisplay} #${stamp}`);
+      ({ ok, status, text } = await sendToJN(payload));
     }
 
-    // Optional SendGrid notification
+    if (!ok) {
+      // Bubble JN’s message to the browser so you can see exactly why
+      return { statusCode: status, headers: cors, body: text || JSON.stringify({ error: 'JobNimbus request failed' }) };
+    }
+
+    // ----- Optional SendGrid notification (unchanged) -----
     let mailStatus = 'skipped';
     try {
       const SG_KEY = process.env.SENDGRID_API_KEY;
@@ -178,50 +160,35 @@ exports.handler = async (event) => {
             <tr><td><b>Phone</b></td><td>${formattedPhone}</td></tr>
             <tr><td><b>Address</b></td><td>${data.street_address}, ${data.city}, ${data.state} ${data.zip}</td></tr>
             <tr><td><b>Description</b></td><td>${(combinedDescription || '').replace(/\n/g, '<br>')}</td></tr>
-          </table>
-        `;
-        const text = `New website lead
+          </table>`;
+        const textPlain = `New website lead
 Name: ${first} ${last}
 Email: ${email}
 Phone: ${formattedPhone}
 Address: ${data.street_address}, ${data.city}, ${data.state} ${data.zip}
 
 ${combinedDescription || ''}`;
-
-        const sgRes = await fetch('https://api.sendgrid.com/v3/mail/send', {
+        await fetch('https://api.sendgrid.com/v3/mail/send', {
           method: 'POST',
           headers: { Authorization: `Bearer ${SG_KEY}`, 'Content-Type': 'application/json' },
           body: JSON.stringify({
             personalizations: [{ to: [{ email: TO }], subject }],
             from: { email: FROM, name: 'Zenith Roofing Website' },
             reply_to: email ? { email } : undefined,
-            content: [
-              { type: 'text/plain', value: text },
-              { type: 'text/html', value: html },
-            ],
+            content: [{ type: 'text/plain', value: textPlain }, { type: 'text/html', value: html }],
           }),
         });
-        mailStatus = `${sgRes.status}`;
+        mailStatus = 'sent';
       }
-    } catch (e) {
-      console.error('SendGrid error:', e);
+    } catch {
       mailStatus = 'error';
     }
 
-    // Include mail status in success response
-    let bodyOut = jnResponseText;
-    try {
-      const json = JSON.parse(jnResponseText);
-      json._mailStatus = mailStatus;
-      bodyOut = JSON.stringify(json);
-    } catch (_) {}
+    // success
+    let bodyOut = text;
+    try { const j = JSON.parse(text); j._mailStatus = mailStatus; bodyOut = JSON.stringify(j); } catch {}
     return { statusCode: 200, headers: cors, body: bodyOut };
   } catch (err) {
-    console.error('Handler error:', err);
-    return {
-      statusCode: 500,
-      headers: cors,
-      body: JSON.stringify({ error: 'Internal server error', details: err.message }),
-    };
+    return { statusCode: 500, headers: cors, body: JSON.stringify({ error: 'Internal server error', details: err.message }) };
   }
 };
