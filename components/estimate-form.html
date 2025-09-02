@@ -1,4 +1,12 @@
 <!-- components/estimate-form.html -->
+<!-- Legacy anchor so old links like href="#estimate" still land on the form -->
+<div id="estimate" style="position:relative;scroll-margin-top:90px;"></div>
+
+<!-- Scoped CSS/JS for the form (safe to include from component) -->
+<link rel="stylesheet" href="/css/estimate-form.css">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="/js/estimate-form.js" defer></script>
+
 <section class="zenith-card estimate-form-block" style="max-width:920px;margin:0 auto;">
   <div class="zenith-header" style="text-align:center;margin-bottom:1.25rem;">
     <h1 class="form-title" style="margin:.25rem 0 0;color:#072e59;font-weight:800;font-size:1.4rem;letter-spacing:.3px;">
@@ -8,6 +16,14 @@
       Roofing • 5"&nbsp;/&nbsp;6" Seamless Aluminum Gutters • Gutter Guards
     </p>
   </div>
+
+  <!-- reCAPTCHA container (optional). Add your site key below. -->
+  <!-- If you don’t have one yet, leave it empty—submission still works without a token. -->
+  <div id="recaptcha-container"
+       class="g-recaptcha"
+       data-sitekey=""          <!-- TODO: paste your reCAPTCHA site key -->
+       data-size="invisible"
+       style="display:none;"></div>
 
   <form id="estimate-form" method="POST" novalidate>
     <!-- Row 1 -->
@@ -26,7 +42,8 @@
     <div class="form-row">
       <div class="form-group form-col-6">
         <label for="phone" class="sr-only">Phone Number*</label>
-        <input type="tel" id="phone" name="phone" inputmode="tel" placeholder="Phone Number*" pattern="[\d\s\-\(\)\.]{10,}" autocomplete="tel" required />
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number*" inputmode="tel"
+               pattern="[\d\s\-\(\)\.]{10,}" autocomplete="tel" required />
       </div>
       <div class="form-group form-col-6">
         <label for="email" class="sr-only">Email Address*</label>
@@ -54,22 +71,22 @@
       </div>
       <div class="form-group form-col-4">
         <label for="zip" class="sr-only">ZIP Code*</label>
-        <input type="text" id="zip" name="zip" placeholder="ZIP Code*" inputmode="numeric" pattern="\d{5}(-\d{4})?" maxlength="10" autocomplete="postal-code" required />
+        <input type="text" id="zip" name="zip" placeholder="ZIP Code*" inputmode="numeric" pattern="\d{5}" autocomplete="postal-code" required />
       </div>
     </div>
 
     <!-- Row 5 -->
-    <div class="form-row service-row">
-      <div class="form-group form-col-4 service-select-wrap">
+    <div class="form-row">
+      <div class="form-group form-col-4">
         <label for="serviceType" class="sr-only">Service Type*</label>
         <select id="serviceType" name="service_type" required>
           <option value="" selected disabled hidden>Service Type*</option>
-          <option>5" Seamless Aluminum Gutters</option>
-          <option>6" Seamless Aluminum Gutters</option>
+          <option>Gutters: 5" Seamless Aluminum</option>
+          <option>Gutters: 6" Seamless Aluminum</option>
           <option>Gutter Guards</option>
-          <option>Downspouts</option>
           <option>Roof Repair</option>
           <option>Roof Replacement</option>
+          <option>Inspection / Tune-Up</option>
           <option>Other</option>
         </select>
       </div>
@@ -104,14 +121,8 @@
       </div>
     </div>
 
-    <!-- reCAPTCHA -->
-    <div class="form-row">
-      <div class="form-group recaptcha-container">
-        <div id="recaptcha" class="g-recaptcha"
-             data-sitekey="6LfD_borAAAAAFEtGO9x__VXAbvSjDYRiVaVpea5"
-             aria-label="reCAPTCHA widget"></div>
-      </div>
-    </div>
+    <!-- Error summary will be injected here -->
+    <div class="form-error-summary" aria-live="polite" hidden></div>
 
     <!-- Submit -->
     <div class="form-row">
@@ -119,8 +130,8 @@
     </div>
 
     <p class="form-disclaimer">
-      <em>*Free estimates are not available for real estate transactions. If you're a real estate professional, buyer, or seller seeking a roof report, visual inspection, or verbal estimate for a transaction, please see our
-      <a href="/#real-estate">Real Estate Services</a>.</em>
+      <em>*Free estimates are not available for real estate transactions (buyer/seller). If you need a roof certification,
+      inspection, or verbal estimate for a transaction, please see our <a href="/#real-estate">Real Estate Services</a>.</em>
     </p>
   </form>
 </section>
