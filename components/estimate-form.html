@@ -2,12 +2,13 @@
 <!-- Legacy anchor so old links like href="#estimate" still land on the form -->
 <div id="estimate" style="position:relative;scroll-margin-top:90px;"></div>
 
-<!-- Scoped CSS/JS for the form (safe to include from component) -->
+<!-- Component-scoped assets -->
 <link rel="stylesheet" href="/css/estimate-form.css">
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script src="/js/estimate-form.js" defer></script>
 
-<section class="zenith-card estimate-form-block" style="max-width:920px;margin:0 auto;">
+<!-- data-redirect lets you change the success destination without editing JS -->
+<section class="zenith-card estimate-form-block" data-redirect="/thank-you/" style="max-width:920px;margin:0 auto;">
   <div class="zenith-header" style="text-align:center;margin-bottom:1.25rem;">
     <h1 class="form-title" style="margin:.25rem 0 0;color:#072e59;font-weight:800;font-size:1.4rem;letter-spacing:.3px;">
       Request a Free Estimate
@@ -17,15 +18,17 @@
     </p>
   </div>
 
-  <!-- reCAPTCHA container (optional). Add your site key below. -->
-  <!-- If you don’t have one yet, leave it empty—submission still works without a token. -->
+  <!-- Invisible reCAPTCHA container (optional) -->
   <div id="recaptcha-container"
        class="g-recaptcha"
-       data-sitekey=""          <!-- TODO: paste your reCAPTCHA site key -->
+       data-sitekey=""  <!-- optional: paste your site key -->
        data-size="invisible"
        style="display:none;"></div>
 
   <form id="estimate-form" method="POST" novalidate>
+    <!-- Combined name (fallback if you ever add it) -->
+    <input type="text" name="name" autocomplete="name" style="display:none" aria-hidden="true"/>
+
     <!-- Row 1 -->
     <div class="form-row">
       <div class="form-group form-col-6">
@@ -92,9 +95,9 @@
       </div>
 
       <div class="form-group form-col-4">
-        <label for="referral" class="sr-only">How did you hear about us?*</label>
-        <select id="referral" name="referral_source" required>
-          <option value="" selected disabled hidden>How did you hear about us?*</option>
+        <label for="referral" class="sr-only">How did you hear about us?</label>
+        <select id="referral" name="referral_source">
+          <option value="" selected hidden>How did you hear about us?</option>
           <option>Google</option>
           <option>Yelp</option>
           <option>Angi</option>
@@ -105,7 +108,6 @@
       </div>
 
       <div class="form-group form-col-4">
-        <!-- Optional (UI only; not uploaded by function yet) -->
         <label for="photos" class="sr-only">Upload Photos</label>
         <input type="file" id="photos" name="photos" accept="image/*" multiple />
       </div>
@@ -121,7 +123,7 @@
       </div>
     </div>
 
-    <!-- Error summary will be injected here -->
+    <!-- Error summary (JS fills) -->
     <div class="form-error-summary" aria-live="polite" hidden></div>
 
     <!-- Submit -->
@@ -130,8 +132,7 @@
     </div>
 
     <p class="form-disclaimer">
-      <em>*Free estimates are not available for real estate transactions (buyer/seller). If you need a roof certification,
-      inspection, or verbal estimate for a transaction, please see our <a href="/#real-estate">Real Estate Services</a>.</em>
+      <em>*Free estimates are not available for real estate transactions. For roof certifications or transaction inspections, please see our <a href="/#real-estate">Real Estate Services</a>.</em>
     </p>
   </form>
 </section>
