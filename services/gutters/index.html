@@ -6,21 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>5" & 6" Seamless Aluminum Gutters & Gutter Guards | Zenith Roofing Services</title>
   <meta name="description" content="On-site fabricated 5&quot; and 6&quot; seamless aluminum gutters plus clog-stopping gutter guards. Licensed & insured. Free estimates in Escondido, San Diego & Temecula.">
-  <link rel="canonical" href="https://zenithroofingservices.com/gutter-services.html">
+  <link rel="canonical" href="https://zenithroofingservices.com/services/gutters/">
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="5&quot; & 6&quot; Seamless Aluminum Gutters & Gutter Guards">
   <meta property="og:description" content="Seamless K-style aluminum gutters fabricated on-site plus gutter guards. Free estimate.">
-  <meta property="og:url" content="https://zenithroofingservices.com/gutter-services.html">
-  <meta property="og:image" content="https://zenithroofingservices.com/images/og/gutters-hero-1200x630.jpg">
+  <meta property="og:url" content="https://zenithroofingservices.com/services/gutters/">
+  <meta property="og:image" content="https://zenithroofingservices.com/images/og/gutters-1200x630.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Seamless Aluminum Gutters & Gutter Guards">
   <meta name="twitter:description" content="5&quot; & 6&quot; seamless gutters + gutter guards. Free estimate.">
-  <meta name="twitter:image" content="https://zenithroofingservices.com/images/og/gutters-hero-1200x630.jpg">
+  <meta name="twitter:image" content="https://zenithroofingservices.com/images/og/gutters-1200x630.jpg">
 
   <!-- ===== CSS ===== -->
   <link rel="stylesheet" href="/css/base.css">
@@ -34,7 +34,7 @@
     "@context":"https://schema.org",
     "@type":"RoofingContractor",
     "name":"Zenith Roofing Services, Inc.",
-    "url":"https://zenithroofingservices.com/gutter-services.html",
+    "url":"https://zenithroofingservices.com/services/gutters/",
     "image":"https://zenithroofingservices.com/images/badges/logo-zenith-icon-176.webp",
     "telephone":"+1-858-900-6163",
     "areaServed":["Escondido CA","San Diego CA","Temecula CA","North County San Diego"],
@@ -60,7 +60,6 @@
   }
   </script>
 
-  <!-- Small safe defaults -->
   <style>
     :root{ --header-h:80px; }
     [id]{ scroll-margin-top:calc(var(--header-h,80px) + 12px); }
@@ -72,8 +71,8 @@
   <section data-include="/components/header-section.html"></section>
 
   <main class="page">
-    <!-- Page hero (uses your ui.css) -->
-    <header class="hero">
+    <!-- Page hero -->
+    <header class="hero" id="top">
       <h1>5" &amp; 6" Seamless Aluminum Gutters &amp; Gutter Guards</h1>
       <p class="lede narrow">
         Seamless K-style aluminum gutters, fabricated on-site for a perfect fit—plus durable gutter guards to stop clogs.
@@ -89,9 +88,54 @@
       </div>
     </header>
 
-    <!-- UNIVERSAL FORM (included once) -->
+    <!-- Pill nav -->
+    <nav class="pillnav sticky-pills">
+      <a href="#why">Why Seamless</a>
+      <a href="#sizes">5&quot; vs 6&quot;</a>
+      <a href="#guards">Gutter Guards</a>
+      <a href="#process">Our Process</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#estimate-form">Free Estimate</a>
+    </nav>
+
+    <!-- ===== CONTENT FIRST ===== -->
+    <section class="section narrow prose" id="why">
+      <h2>Why Seamless Aluminum Gutters?</h2>
+      <ul class="checklist grid-2">
+        <li><span class="tick">✓</span><div>Seamless runs mean fewer joints and fewer leaks</div></li>
+        <li><span class="tick">✓</span><div>Aluminum won’t rust and color-matches your trim</div></li>
+        <li><span class="tick">✓</span><div>Hidden hangers, sealed miters, and proper pitch</div></li>
+        <li><span class="tick">✓</span><div>5" for most homes; 6" for big or steep roofs & heavy flows</div></li>
+      </ul>
+    </section>
+
+    <section class="section narrow prose" id="sizes">
+      <h2>5" vs 6" Seamless Gutters</h2>
+      <p><strong>5-inch</strong> K-style gutters are the standard for many homes and work well with typical roof sizes and rainfall. <strong>6-inch</strong> K-style gutters carry more water and reduce overflow on larger roof planes, steep pitches, or where downspout runs are longer. We’ll size your system based on roof area, layout, and local conditions.</p>
+    </section>
+
+    <section class="section narrow prose" id="guards">
+      <h2>Gutter Guards That Actually Help</h2>
+      <p>Guard systems keep leaves and debris out so water flows where it should—away from fascia and foundations. We match the guard to your roof type and tree coverage to reduce maintenance and prevent storm overflow.</p>
+    </section>
+
+    <section class="section narrow prose" id="process">
+      <h2>Our Seamless Gutter Process</h2>
+      <ol class="list">
+        <li>Measure rooflines and plan downspout locations.</li>
+        <li>Fabricate seamless aluminum runs on-site for exact lengths.</li>
+        <li>Install with hidden hangers, seal miters, set proper pitch.</li>
+        <li>Test flow and finalize color-matched touch-ups.</li>
+      </ol>
+    </section>
+
+    <section class="section narrow prose" id="areas">
+      <h2>Service Areas</h2>
+      <p class="muted">Escondido • San Marcos • Vista • Oceanside • Carlsbad • Encinitas • San Diego • Poway • Temecula • Murrieta • North County San Diego</p>
+    </section>
+
+    <!-- ===== UNIVERSAL FORM (now below content) ===== -->
     <section class="section">
-      <!-- Per-page config: title/subtitle + preselected service + hidden tags -->
       <script>
         window.ESTIMATE_FORM_CONFIG = {
           title: 'Free Estimate — Seamless Gutters & Gutter Guards',
@@ -102,26 +146,10 @@
           hiddenFields: { campaign: 'gutters', source_tag: 'services/gutters' }
         };
       </script>
-
-      <!-- Drop-in partial -->
       <section data-include="/components/estimate-form.html"></section>
     </section>
 
-    <!-- Benefits (SEO content) -->
-    <section class="section narrow prose">
-      <h2>Why Seamless Aluminum Gutters?</h2>
-      <ul class="checklist grid-2">
-        <li><span class="tick">✓</span><div>Fewer seams = fewer leaks and cleaner lines</div></li>
-        <li><span class="tick">✓</span><div>Color-matched aluminum that won’t rust</div></li>
-        <li><span class="tick">✓</span><div>Hidden hangers, sealed miters, proper pitch</div></li>
-        <li><span class="tick">✓</span><div>5" for most homes; 6" for larger/steeper roofs</div></li>
-      </ul>
-
-      <h3>Gutter Guards That Work</h3>
-      <p>We pair the right guard with your roof type and tree coverage to keep debris out and water flowing. Fewer clogs, fewer ladder trips, better protection for your foundation and fascia.</p>
-    </section>
-
-    <!-- FAQ block matching schema -->
+    <!-- FAQ (matches JSON-LD) -->
     <section class="section faq narrow">
       <h2>Gutters &amp; Guards — FAQ</h2>
       <details>
@@ -138,7 +166,7 @@
       </details>
     </section>
 
-    <!-- Mobile action bar (from ui.css) -->
+    <!-- Mobile action bar -->
     <div class="actionbar">
       <a class="ab-btn call" href="tel:+18589006163">Call</a>
       <a class="ab-btn text" href="sms:+18589006163">Text</a>
@@ -151,7 +179,6 @@
 
   <!-- ===== JS ===== -->
   <script>
-    // Tiny include loader (same pattern you already use)
     (async function(){
       async function include(el){
         const src = el.getAttribute('data-include'); if(!src) return;
@@ -161,14 +188,12 @@
       const all = Array.from(document.querySelectorAll('[data-include]'));
       await Promise.all(all.map(include));
 
-      // Init header/footer (if your scripts expose them)
       if (window.initHeader) window.initHeader();
-      // Init the universal estimate form
       if (window.initEstimateForm) window.initEstimateForm();
     })();
   </script>
 
-  <!-- reCAPTCHA v2 + your universal form logic -->
+  <!-- reCAPTCHA v2 + logic -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="/js/header.js" defer></script>
   <script src="/js/hero.js" defer></script>
