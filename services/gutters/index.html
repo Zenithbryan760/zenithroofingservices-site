@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>5" & 6" Seamless Aluminum Gutters & Gutter Guards | Zenith Roofing Services</title>
-  <meta name="description" content="On-site fabricated 5&quot; and 6&quot; seamless aluminum gutters plus clog-stopping gutter guards. Licensed & insured. Free estimates in Escondido, San Diego & Temecula.">
+  <meta name="description" content="On-site fabricated 5&quot; and 6&quot; seamless aluminum gutters plus durable gutter guards. Free estimates in Escondido, San Diego & Temecula. Licensed & insured.">
   <link rel="canonical" href="https://zenithroofingservices.com/services/gutters/">
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
 
@@ -71,7 +71,7 @@
   <section data-include="/components/header-section.html"></section>
 
   <main class="page">
-    <!-- Page hero -->
+    <!-- Content-first hero -->
     <header class="hero" id="top">
       <h1>5" &amp; 6" Seamless Aluminum Gutters &amp; Gutter Guards</h1>
       <p class="lede narrow">
@@ -102,7 +102,7 @@
     <section class="section narrow prose" id="why">
       <h2>Why Seamless Aluminum Gutters?</h2>
       <ul class="checklist grid-2">
-        <li><span class="tick">✓</span><div>Seamless runs mean fewer joints and fewer leaks</div></li>
+        <li><span class="tick">✓</span><div>Seamless runs = fewer joints and fewer leaks</div></li>
         <li><span class="tick">✓</span><div>Aluminum won’t rust and color-matches your trim</div></li>
         <li><span class="tick">✓</span><div>Hidden hangers, sealed miters, and proper pitch</div></li>
         <li><span class="tick">✓</span><div>5" for most homes; 6" for big or steep roofs & heavy flows</div></li>
@@ -134,9 +134,10 @@
       <p class="muted">Escondido • San Marcos • Vista • Oceanside • Carlsbad • Encinitas • San Diego • Poway • Temecula • Murrieta • North County San Diego</p>
     </section>
 
-    <!-- ===== UNIVERSAL FORM (now below content) ===== -->
-    <section class="section">
+    <!-- ===== UNIVERSAL FORM (styled via ui.css §21) ===== -->
+    <section class="section" id="estimate-form">
       <script>
+        // Page-specific configuration for the universal form
         window.ESTIMATE_FORM_CONFIG = {
           title: 'Free Estimate — Seamless Gutters & Gutter Guards',
           subtitle: '5" & 6" K-style • On-site fabrication',
@@ -146,6 +147,7 @@
           hiddenFields: { campaign: 'gutters', source_tag: 'services/gutters' }
         };
       </script>
+      <!-- Include the shared partial -->
       <section data-include="/components/estimate-form.html"></section>
     </section>
 
@@ -179,6 +181,7 @@
 
   <!-- ===== JS ===== -->
   <script>
+    // Minimal include loader so the partial + header/footer render
     (async function(){
       async function include(el){
         const src = el.getAttribute('data-include'); if(!src) return;
@@ -193,7 +196,7 @@
     })();
   </script>
 
-  <!-- reCAPTCHA v2 + logic -->
+  <!-- reCAPTCHA v2 + your form logic -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="/js/header.js" defer></script>
   <script src="/js/hero.js" defer></script>
