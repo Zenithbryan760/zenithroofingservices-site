@@ -10,6 +10,13 @@
   // ---------- Tiny helpers ----------
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+  const debounce = (fn, wait = 300) => {            // NEW
+    let t;                                          // NEW
+    return (...args) => {                           // NEW
+      clearTimeout(t);                              // NEW
+      t = setTimeout(() => fn(...args), wait);      // NEW
+    };                                              // NEW
+  };                                                // NEW
 
   // Create (or get) a compact error box near the submit button
   function ensureErrorSummary(form) {
@@ -97,6 +104,29 @@
 
     input.value = out;
   }
+
+  // ---------- ZIP → City/State autofill ----------  // NEW
+  async function fillCityStateFromZip(zip, form) {    // NEW
+    if (!/^\d{5}$/.test(zip)) return;                 // NEW
+    try {                                             // NEW
+      const res = await fetch(`https://api.zippopotam.us/us/${zip}`, { mode: 'cors' }); // NEW
+      if (!res.ok) return;                            // NEW
+      const data = await res.json();                  // NEW
+      const place = (data.places && data.places[0]) || null; // NEW
+      if (!place) return;                             // NEW
+      const city = place['place name'] || '';         // NEW
+      const stateAbbr = place['state abbreviation'] || ''; // NEW
+
+      const cityEl = $('#city', form);                // NEW
+      if (cityEl && !cityEl.value.trim()) {          // NEW (won't overwrite user input)
+        cityEl.value = city;                          // NEW
+      }                                               // NEW
+      const stateEl = $('#state', form);              // NEW
+      if (stateEl && !stateEl.readOnly && stateAbbr) {// NEW
+        stateEl.value = stateAbbr;                    // NEW
+      }                                               // NEW
+    } catch (_) { /* silent */ }                      // NEW
+  }                                                   // NEW
 
   // ---------- reCAPTCHA render ----------
   // We’ll try to render once on load, and again on focus if needed.
@@ -237,6 +267,20 @@
     // Phone mask
     const phone = $('#phone', form);
     if (phone) phone.addEventListener('input', maskPhoneInput);
+
+    // ZIP → City/State autofill                         // NEW
+    const zipEl = $('#zip', form);                       // NEW
+    if (zipEl) {                                         // NEW
+      const trigger = debounce(() => {                   // NEW
+        const v = (zipEl.value || '').trim().slice(0, 5);// NEW
+        if (/^\d{5}$/.test(v)) fillCityStateFromZip(v, form); // NEW
+      }, 350);                                           // NEW
+      zipEl.addEventListener('input', trigger);          // NEW
+      zipEl.addEventListener('blur', () => {             // NEW
+        const v = (zipEl.value || '').trim().slice(0, 5);// NEW
+        if (/^\d{5}$/.test(v)) fillCityStateFromZip(v, form); // NEW
+      });                                                // NEW
+    }                                                    // NEW
 
     // Try to render reCAPTCHA now (and again on first focus)
     tryRenderRecaptchaWithRetries();
