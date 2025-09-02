@@ -246,6 +246,9 @@
     form.addEventListener('submit', submitHandler);
   }
 
+  // ✅ Expose init so your include loader can run it after injecting the hero
+  window.initEstimateForm = attachBehaviors;
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', attachBehaviors);
   } else {
