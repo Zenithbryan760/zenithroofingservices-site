@@ -5,37 +5,37 @@
   <!-- Invisible anchor so menu links land below the sticky header -->
   <span id="home" class="sr-only" aria-hidden="true"></span>
 
-  <!-- ===== Background media (WebP, responsive) ===== -->
-  <div class="zenith-hero-media">
-    <picture>
-      <!-- WebP sources -->
-      <source type="image/webp"
-              srcset="/images/modern-tile-roof-640.webp 640w,
-                      /images/modern-tile-roof-960.webp 960w,
-                      /images/modern-tile-roof-1280.webp 1280w,
-                      /images/modern-tile-roof-1600.webp 1600w"
-              sizes="100vw">
-      <!-- Fallback also WebP (so we never hit the big PNG) -->
-      <img class="zenith-hero-mobile-img"
-           src="/images/modern-tile-roof-1280.webp"
-           srcset="/images/modern-tile-roof-640.webp 640w,
-                   /images/modern-tile-roof-960.webp 960w,
-                   /images/modern-tile-roof-1280.webp 1280w,
-                   /images/modern-tile-roof-1600.webp 1600w"
-           sizes="100vw"
-           alt="Zenith Roofing work background"
-           width="1600" height="900"
-           decoding="async" fetchpriority="high">
-    </picture>
-    <div class="zenith-image-overlay" aria-hidden="true"></div>
-  </div>
+<!-- ===== Background media (WebP, responsive) ===== -->
+<div class="zenith-hero-media">
+  <picture>
+    <!-- WebP sources -->
+    <source type="image/webp"
+            srcset="/images/modern-tile-roof-640.webp 640w,
+                    /images/modern-tile-roof-960.webp 960w,
+                    /images/modern-tile-roof-1280.webp 1280w,
+                    /images/modern-tile-roof-1600.webp 1600w"
+            sizes="100vw">
+    <!-- Fallback also WebP (so we never hit the big PNG) -->
+    <img class="zenith-hero-mobile-img"
+         src="/images/modern-tile-roof-1280.webp"
+         srcset="/images/modern-tile-roof-640.webp 640w,
+                 /images/modern-tile-roof-960.webp 960w,
+                 /images/modern-tile-roof-1280.webp 1280w,
+                 /images/modern-tile-roof-1600.webp 1600w"
+         sizes="100vw"
+         alt="Zenith Roofing work background"
+         width="1600" height="900"
+         decoding="async" fetchpriority="high">
+  </picture>
+  <div class="zenith-image-overlay" aria-hidden="true"></div>
+</div>
 
   <!-- ===== Card ===== -->
   <div class="zenith-card">
     <div class="zenith-header">
       <div class="zenith-logo-container">
         <img
-          src="/images/badges/logo-zenith-icon.png"
+          src="images/badges/logo-zenith-icon.png"
           alt="Zenith Roofing"
           class="zenith-logo"
           width="86" height="48"
@@ -140,10 +140,14 @@
         </div>
       </div>
 
-      <!-- reCAPTCHA -->
+      <!-- reCAPTCHA (classic v2 Checkbox) -->
       <div class="form-row">
         <div class="form-group recaptcha-container">
-          <div id="recaptcha-slot" aria-label="reCAPTCHA widget"></div>
+          <div
+            id="recaptcha"
+            class="g-recaptcha"
+            data-sitekey="6LfD_borAAAAAFEtGO9x__VXAbvSjDYRiVaVpea5"
+            aria-label="reCAPTCHA widget"></div>
         </div>
       </div>
 
@@ -159,4 +163,11 @@
       </p>
     </form>
   </div>
+
+   <!-- ===== Scripts (kept in the component so it works anywhere this is included) ===== -->
+  <!-- Google reCAPTCHA API -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <!-- Hero form logic -->
+  <script src="/js/hero.js" defer></script>
+</section>
 </section>
