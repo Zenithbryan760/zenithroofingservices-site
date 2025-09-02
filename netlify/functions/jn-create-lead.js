@@ -47,46 +47,32 @@ const parseBody = (event) => {
 const onlyDigits = (s) => (s || '').replace(/\D+/g, '');
 const normalizePhone = (s) => onlyDigits(s).slice(0, 10);
 
-// ===== Handler =====
 exports.handler = async (event) => {
   const origin = event.headers?.origin || event.headers?.Origin || '';
   const cors = corsHeaders(origin);
 
-  // CORS preflight
-  if (event.httpMethod === 'OPTIONS') {
-    return { statusCode: 204, headers: cors, body: '' };
-  }
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, headers: cors, body: 'Method Not Allowed' };
-  }
+  if (event.httpMethod === 'OPTIONS') return { statusCode: 204, headers: cors, body: '' };
+  if (event.httpMethod !== 'POST')   return { statusCode: 405, headers: cors, body: 'Method Not Allowed' };
 
   try {
     const data = parseBody(event);
-
     const {
       JN_API_KEY,
       JN_CONTACT_ENDPOINT,
-      RECAPTCHA_SECRET,        // optional: enforce if present
-      SENDGRID_API_KEY,        // optional: notification
-      LEAD_NOTIFY_FROM,        // optional
-      LEAD_NOTIFY_TO           // optional
+      RECAPTCHA_SECRET,
+      SENDGRID_API_KEY,
+      LEAD_NOTIFY_FROM,
+      LEAD_NOTIFY_TO
     } = process.env;
 
     if (!JN_API_KEY || !JN_CONTACT_ENDPOINT) {
-      return {
-        statusCode: 500,
-        headers: cors,
-        body: JSON.stringify({ error: 'Server not configured (missing env vars)' })
-      };
+      return { statusCode: 500, headers: cors, body: JSON.stringify({ error: 'Server not configured (missing env vars)' }) };
     }
 
-    // ---- reCAPTCHA verify (only if RECAPTCHA_SECRET is set) ----
+    // ---- reCAPTCHA (if enabled) ----
     if (RECAPTCHA_SECRET) {
       const token = (data.recaptcha_token || '').trim();
-      if (!token) {
-        return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Missing recaptcha token' }) };
-      }
-
+      if (!token) return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Missing recaptcha token' }) };
       const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -98,7 +84,7 @@ exports.handler = async (event) => {
       }
     }
 
-    // ---- Basic field cleanup ----
+    // ---- Normalize inputs ----
     const first = (data.first_name || '').trim();
     const last  = (data.last_name  || '').trim();
     const email = (data.email      || '').trim();
@@ -115,9 +101,19 @@ exports.handler = async (event) => {
     if ((data.page || '').trim())            descLines.push(`Page: ${data.page.trim()}`);
     const combinedDescription = descLines.join('\n');
 
+    // ---- Build unique display_name (base + last4 or city) ----
+    const baseName =
+      [first, last].filter(Boolean).join(' ').trim() ||
+      email || formattedPhone || 'Website Lead';
+
+    const last4 = phoneDigits.slice(-4);
+    const cityToken = (data.city || '').trim().split(/\s+/)[0] || '';
+    const uniqueTag = last4 || cityToken || new Date().toISOString().slice(2,10).replace(/-/g, '');
+    let displayName = `${baseName} – ${uniqueTag}`;
+
     // ---- JobNimbus payload ----
-    const payload = {
-      display_name: [first, last].filter(Boolean).join(' ').trim() || email || formattedPhone || 'Website Lead',
+    const payloadBase = {
+      display_name: displayName,
       first_name: first,
       last_name:  last,
       email,
@@ -131,31 +127,40 @@ exports.handler = async (event) => {
       _version: 'jn-create-lead-' + new Date().toISOString().split('T')[0],
     };
 
-    // ---- Create contact in JobNimbus (robust auth header selection) ----
+    // ---- Auth header variants (JN tenants differ) ----
     const headerVariants = [
       { 'x-api-key': JN_API_KEY, 'Content-Type': 'application/json', 'Accept': 'application/json' },
       { 'Authorization': `Bearer ${JN_API_KEY}`, 'Content-Type': 'application/json', 'Accept': 'application/json' },
       { 'Authorization': JN_API_KEY, 'Content-Type': 'application/json', 'Accept': 'application/json' }, // legacy last resort
     ];
 
-    let jnRes, jnText, chosenIdx = 0;
-    for (let i = 0; i < headerVariants.length; i++) {
-      const headers = headerVariants[i];
-      jnRes = await fetch(JN_CONTACT_ENDPOINT, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify(payload)
-      });
-      jnText = await jnRes.text();
+    // Helper to POST to JobNimbus
+    const postToJN = async (headers, body) => {
+      const r = await fetch(JN_CONTACT_ENDPOINT, { method: 'POST', headers, body: JSON.stringify(body) });
+      const t = await r.text();
+      return { r, t };
+    };
 
-      // accept first non-401/403 or success
-      if (jnRes.status !== 401 && jnRes.status !== 403) { chosenIdx = i; break; }
+    // 1st attempt
+    let { r: jnRes, t: jnText } = await postToJN(headerVariants[0], payloadBase);
+
+    // If unauthorized/forbidden, try the other auth header styles
+    if (jnRes.status === 401 || jnRes.status === 403) {
+      for (let i = 1; i < headerVariants.length; i++) {
+        ({ r: jnRes, t: jnText } = await postToJN(headerVariants[i], payloadBase));
+        if (jnRes.status !== 401 && jnRes.status !== 403) break;
+      }
     }
 
-    try { console.log('JobNimbus status:', jnRes.status, 'using headers:', Object.keys(headerVariants[chosenIdx])); } catch {}
+    // If duplicate error, retry once with a stronger unique suffix
+    if (!jnRes.ok && /Duplicate contact exists/i.test(jnText)) {
+      displayName = `${baseName} – ${uniqueTag}-${Date.now().toString().slice(-4)}`;
+      const payloadRetry = { ...payloadBase, display_name: displayName };
+      ({ r: jnRes, t: jnText } = await postToJN(headerVariants[0], payloadRetry));
+    }
 
+    // If still not OK, echo upstream error for quick debugging
     if (!jnRes.ok) {
-      // Echo upstream error so you can see it in DevTools Response
       return {
         statusCode: jnRes.status,
         headers: cors,
@@ -166,17 +171,17 @@ exports.handler = async (event) => {
       };
     }
 
-    // ---- Optional: Email notify via SendGrid ----
+    // ---- Optional: SendGrid notify ----
     if (SENDGRID_API_KEY && LEAD_NOTIFY_FROM && LEAD_NOTIFY_TO) {
       try {
         const message = [
           `<strong>New Website Lead</strong>`,
-          `Name: ${payload.display_name}`,
+          `Name: ${displayName}`,
           `Email: ${email || '(none)'}`,
           `Phone: ${formattedPhone}`,
-          `Address: ${payload.address || '(none)'}`,
-          `Service: ${payload.service_type || '(none)'}`,
-          `Referral: ${payload.referral_source || '(none)'}`,
+          `Address: ${payloadBase.address || '(none)'}`,
+          `Service: ${payloadBase.service_type || '(none)'}`,
+          `Referral: ${payloadBase.referral_source || '(none)'}`,
           `Page: ${data.page || '(unknown)'}`,
           '',
           `Notes:`,
@@ -208,10 +213,6 @@ exports.handler = async (event) => {
 
   } catch (err) {
     console.error('Handler error:', err);
-    return {
-      statusCode: 500,
-      headers: cors,
-      body: JSON.stringify({ error: 'Internal server error', details: err.message })
-    };
+    return { statusCode: 500, headers: cors, body: JSON.stringify({ error: 'Internal server error', details: err.message }) };
   }
 };
