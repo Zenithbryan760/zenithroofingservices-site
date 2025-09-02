@@ -140,10 +140,14 @@
         </div>
       </div>
 
-      <!-- reCAPTCHA -->
+      <!-- reCAPTCHA (classic v2 Checkbox) -->
       <div class="form-row">
         <div class="form-group recaptcha-container">
-          <div id="recaptcha-slot" aria-label="reCAPTCHA widget"></div>
+          <div
+            id="recaptcha"
+            class="g-recaptcha"
+            data-sitekey="6LfD_borAAAAAFEtGO9x__VXAbvSjDYRiVaVpea5"
+            aria-label="reCAPTCHA widget"></div>
         </div>
       </div>
 
@@ -159,4 +163,10 @@
       </p>
     </form>
   </div>
+
+  <!-- ===== Scripts (kept in the component so it works anywhere this is included) ===== -->
+  <!-- Google reCAPTCHA API -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <!-- Hero form logic -->
+  <script src="/js/hero.js" defer></script>
 </section>
