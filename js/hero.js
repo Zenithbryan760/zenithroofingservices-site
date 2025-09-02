@@ -299,3 +299,113 @@
     attachBehaviors();
   }
 })();
+// ... your existing hero.js above ...
+
+  // ---------- Boot ----------
+  function attachBehaviors() {
+    const form = document.getElementById('estimate-form');
+    if (!form) return;
+
+    // NEW: apply per-page config if provided
+    applyFormConfig(form); // NEW
+
+    // Phone mask
+    const phone = $('#phone', form);
+    if (phone) phone.addEventListener('input', maskPhoneInput);
+
+    // ZIP → City/State autofill
+    const zipEl = $('#zip', form);
+    if (zipEl) {
+      const trigger = debounce(() => {
+        const v = (zipEl.value || '').trim().slice(0, 5);
+        if (/^\d{5}$/.test(v)) fillCityStateFromZip(v, form);
+      }, 350);
+      zipEl.addEventListener('input', trigger);
+      zipEl.addEventListener('blur', () => {
+        const v = (zipEl.value || '').trim().slice(0, 5);
+        if (/^\d{5}$/.test(v)) fillCityStateFromZip(v, form);
+      });
+    }
+
+    // Try to render reCAPTCHA now (and again on first focus)
+    tryRenderRecaptchaWithRetries();
+    form.addEventListener('focusin', renderRecaptchaIfPossible, { once: true });
+
+    // Submit wiring
+    form.addEventListener('submit', submitHandler);
+  }
+
+  // NEW: universal form config (title, subtitle, lock/preselect service, placeholders, hidden fields)
+  function applyFormConfig(form) {
+    const cfg = window.ESTIMATE_FORM_CONFIG || {};
+    const block = form.closest('.estimate-form-block') || document;
+
+    // Title / subtitle
+    if (cfg.title) {
+      const h1 = block.querySelector('.form-title');
+      if (h1) h1.textContent = cfg.title;
+    }
+    if (cfg.subtitle) {
+      const sub = block.querySelector('.form-subtitle');
+      if (sub) sub.textContent = cfg.subtitle;
+    }
+
+    // Description placeholder
+    if (cfg.descriptionPlaceholder) {
+      const desc = form.querySelector('#description');
+      if (desc) desc.placeholder = cfg.descriptionPlaceholder;
+    }
+
+    // Referral preselect
+    if (cfg.referralPreselect) {
+      const ref = form.querySelector('#referral');
+      if (ref) {
+        [...ref.options].forEach(o => {
+          if (o.text.trim().toLowerCase() === String(cfg.referralPreselect).trim().toLowerCase()) {
+            o.selected = true;
+          }
+        });
+      }
+    }
+
+    // Service lock OR preselect
+    const serviceWrap = form.querySelector('.service-select-wrap');
+    const select = form.querySelector('#serviceType');
+
+    if (cfg.lockService && serviceWrap) {
+      // Replace the select with a hidden field + a visible pill
+      const lockedVal = String(cfg.lockService);
+      const hidden = document.createElement('input');
+      hidden.type = 'hidden';
+      hidden.name = 'service_type';
+      hidden.value = lockedVal;
+
+      const pill = document.createElement('div');
+      pill.setAttribute('aria-label', 'Selected service');
+      pill.style.cssText = 'display:flex;align-items:center;gap:.5rem;padding:.9rem .95rem;border:1px solid var(--zenith-border);border-radius:10px;background:#f8fafc;color:#0f172a;font-weight:600;';
+      pill.textContent = lockedVal;
+
+      serviceWrap.innerHTML = '';
+      serviceWrap.appendChild(pill);
+      serviceWrap.appendChild(hidden);
+    } else if (cfg.preselectService && select) {
+      [...select.options].forEach(o => {
+        if (o.text.trim().toLowerCase() === String(cfg.preselectService).trim().toLowerCase()) {
+          o.selected = true;
+        }
+      });
+    }
+
+    // Extra hidden fields (e.g., campaign, page tag)
+    if (cfg.hiddenFields && typeof cfg.hiddenFields === 'object') {
+      Object.entries(cfg.hiddenFields).forEach(([name, val]) => {
+        const h = document.createElement('input');
+        h.type = 'hidden';
+        h.name = name;
+        h.value = String(val);
+        form.appendChild(h);
+      });
+    }
+  }
+
+// ... rest of your hero.js remains the same ...
