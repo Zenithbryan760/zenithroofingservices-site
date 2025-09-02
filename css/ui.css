@@ -307,6 +307,7 @@
   .page{ padding:6px 8px; }
   .page h1{ font-size: clamp(1.35rem, 1.1rem + 3vw, 1.6rem); }
 }
+
 /* ========== 21) Estimate form styles (scoped, safe on any page) ========== */
 /* Scope to .estimate-form-block so it won't clash with other forms */
 .page .estimate-form-block .zenith-card{
@@ -316,7 +317,6 @@
   padding:clamp(16px, 2.6vw, 26px);
   box-shadow:var(--ui-shadow);
 }
-
 .page .estimate-form-block .zenith-header{
   text-align:center;
   margin-bottom:clamp(12px, 2vw, 20px);
@@ -333,7 +333,6 @@
   margin:.35rem 0 0;
   font-size:clamp(.95rem, .9rem + .3vw, 1.05rem);
 }
-
 /* Grid */
 .page .estimate-form-block .form-row{
   display:flex; flex-wrap:wrap; gap:14px; margin-bottom:14px;
@@ -341,15 +340,12 @@
 .page .estimate-form-block .form-group{ flex:1; min-width:0; display:flex; flex-direction:column; gap:.45rem; }
 .page .estimate-form-block .form-col-6{ flex:0 0 calc(50% - 7px); }
 .page .estimate-form-block .form-col-4{ flex:0 0 calc(33.333% - 9.3px); }
-
 @media (max-width:768px){
   .page .estimate-form-block .form-col-6,
   .page .estimate-form-block .form-col-4{ flex:0 0 100%; }
 }
-
 /* Labels */
 .page .estimate-form-block label{ font-weight:600; font-size:.92rem; color:#334155; }
-
 /* Inputs / selects / textareas */
 .page .estimate-form-block input,
 .page .estimate-form-block select,
@@ -375,7 +371,6 @@
   border-color:#072e59;
   box-shadow:0 0 0 3px rgba(7,46,89,.15), var(--ui-shadow);
 }
-
 /* Validation */
 .page .estimate-form-block input:invalid,
 .page .estimate-form-block select:invalid,
@@ -387,7 +382,6 @@
 .page .estimate-form-block textarea:invalid:focus{
   box-shadow:0 0 0 3px rgba(247,148,29,.18), var(--ui-shadow);
 }
-
 /* File input */
 .page .estimate-form-block input[type="file"]{
   padding:.55rem .75rem;
@@ -406,7 +400,6 @@
   background:#e9830b; box-shadow:0 10px 24px rgba(247,148,29,.35);
   transform:translateY(-1px);
 }
-
 /* Submit button */
 .page .estimate-form-block .zenith-btn{
   background:#f7941d; color:#0b0b0b; border:none;
@@ -419,21 +412,18 @@
   background:#e9830b; box-shadow:0 14px 28px rgba(247,148,29,.35);
   transform:translateY(-1px);
 }
-
 /* reCAPTCHA */
 .page .estimate-form-block .recaptcha-container{
   display:flex; justify-content:center; align-items:center; width:100%;
   margin:.35rem 0 .35rem;
 }
 .page .estimate-form-block #recaptcha{ min-width:304px; min-height:78px; }
-
 /* Disclaimer + compact error box */
 .page .estimate-form-block .form-disclaimer{
   font-size:.85rem; color:#6b7280; margin-top:1rem; text-align:center; line-height:1.5;
 }
 .page .estimate-form-block .form-disclaimer a{ color:#f7941d; font-weight:800; text-decoration:none; }
 .page .estimate-form-block .form-disclaimer a:hover{ text-decoration:underline; }
-
 .page .estimate-form-block .form-error-summary{
   display:none;
   background:#fff7ed;
@@ -444,3 +434,49 @@
   margin:0 0 1rem 0;
 }
 .page .estimate-form-block .form-error-summary.show{ display:block; }
+
+/* ========== 22) A11y helpers & skip link ========== */
+.sr-only{
+  position:absolute !important;
+  width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,1px,1px); white-space:nowrap; border:0;
+}
+.skip-link{
+  position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+}
+.skip-link:focus{
+  left:12px; top:12px; width:auto; height:auto; z-index:1000;
+  background:#072e59; color:#fff; padding:.6rem .9rem; border-radius:10px;
+  box-shadow:0 8px 18px rgba(2,12,32,.25);
+}
+
+/* ========== 23) Comparison table (gutters page) ========== */
+.page .comparison-table{ margin: .75rem 0 1rem; }
+.page .comparison-table table{
+  width:100%; border-collapse:separate; border-spacing:0;
+  border:1px solid var(--ui-line);
+  border-radius:12px; overflow:hidden; background:#fff;
+  box-shadow: var(--ui-shadow);
+}
+.page .comparison-table caption{
+  text-align:left; font-weight:800; padding:.7rem .8rem; color:#0f172a;
+}
+.page .comparison-table thead th{
+  background:#f3f6fb; color:#0f172a; font-weight:800;
+  border-bottom:1px solid var(--ui-line);
+  padding:.65rem .75rem; text-align:left;
+}
+.page .comparison-table th[scope="row"]{
+  background:#fafbfc; font-weight:700; width:34%;
+}
+.page .comparison-table td, 
+.page .comparison-table th{
+  padding:.65rem .75rem; border-bottom:1px solid var(--ui-line);
+}
+.page .comparison-table tbody tr:last-child td,
+.page .comparison-table tbody tr:last-child th{
+  border-bottom:0;
+}
+@media (max-width:560px){
+  .page .comparison-table table{ font-size:.95rem; }
+}
