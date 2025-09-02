@@ -1,10 +1,10 @@
 <!-- components/estimate-form.html -->
-<section class="zenith-card" style="max-width:920px;margin:0 auto;">
+<section class="zenith-card estimate-form-block" style="max-width:920px;margin:0 auto;">
   <div class="zenith-header" style="text-align:center;margin-bottom:1.25rem;">
-    <h1 style="margin:.25rem 0 0;color:#072e59;font-weight:800;font-size:1.4rem;letter-spacing:.3px;">
+    <h1 class="form-title" style="margin:.25rem 0 0;color:#072e59;font-weight:800;font-size:1.4rem;letter-spacing:.3px;">
       Request a Free Estimate
     </h1>
-    <p class="service-area" style="color:#64748b;margin:.35rem 0 0;">
+    <p class="form-subtitle service-area" style="color:#64748b;margin:.35rem 0 0;">
       Roofing • 5"&nbsp;/&nbsp;6" Seamless Aluminum Gutters • Gutter Guards
     </p>
   </div>
@@ -59,8 +59,8 @@
     </div>
 
     <!-- Row 5 -->
-    <div class="form-row">
-      <div class="form-group form-col-4">
+    <div class="form-row service-row">
+      <div class="form-group form-col-4 service-select-wrap">
         <label for="serviceType" class="sr-only">Service Type*</label>
         <select id="serviceType" name="service_type" required>
           <option value="" selected disabled hidden>Service Type*</option>
@@ -73,6 +73,7 @@
           <option>Other</option>
         </select>
       </div>
+
       <div class="form-group form-col-4">
         <label for="referral" class="sr-only">How did you hear about us?*</label>
         <select id="referral" name="referral_source" required>
@@ -85,6 +86,7 @@
           <option>Other</option>
         </select>
       </div>
+
       <div class="form-group form-col-4">
         <!-- Optional (UI only; not uploaded by function yet) -->
         <label for="photos" class="sr-only">Upload Photos</label>
@@ -109,3 +111,16 @@
              data-sitekey="6LfD_borAAAAAFEtGO9x__VXAbvSjDYRiVaVpea5"
              aria-label="reCAPTCHA widget"></div>
       </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="form-row">
+      <button type="submit" class="zenith-btn">Request Free Estimate</button>
+    </div>
+
+    <p class="form-disclaimer">
+      <em>*Free estimates are not available for real estate transactions. If you're a real estate professional, buyer, or seller seeking a roof report, visual inspection, or verbal estimate for a transaction, please see our
+      <a href="/#real-estate">Real Estate Services</a>.</em>
+    </p>
+  </form>
+</section>
