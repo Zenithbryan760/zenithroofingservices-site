@@ -9,12 +9,21 @@
   <link rel="canonical" href="https://zenithroofingservices.com/services/gutters/">
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
 
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/css/base.css" as="style">
+  <link rel="preload" href="/css/header.css" as="style">
+  <link rel="preload" href="/css/ui.css" as="style">
+  <link rel="preload" href="/js/header.js" as="script">
+
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="5&quot; & 6&quot; Seamless Aluminum Gutters & Gutter Guards">
   <meta property="og:description" content="Seamless K-style aluminum gutters fabricated on-site plus gutter guards. Free estimate.">
   <meta property="og:url" content="https://zenithroofingservices.com/services/gutters/">
   <meta property="og:image" content="https://zenithroofingservices.com/images/og/gutters-1200x630.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Zenith Roofing Services">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
@@ -31,46 +40,63 @@
   <!-- ===== Structured Data ===== -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"RoofingContractor",
-    "name":"Zenith Roofing Services, Inc.",
-    "url":"https://zenithroofingservices.com/services/gutters/",
-    "image":"https://zenithroofingservices.com/images/badges/logo-zenith-icon-176.webp",
-    "telephone":"+1-858-900-6163",
-    "areaServed":["Escondido CA","San Diego CA","Temecula CA","North County San Diego"],
-    "address":{"@type":"PostalAddress","addressRegion":"CA","addressCountry":"US"},
-    "serviceType":"Seamless Aluminum Gutters & Gutter Guards",
-    "makesOffer":[
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"5-inch Seamless Aluminum Gutters"}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"6-inch Seamless Aluminum Gutters"}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Gutter Guards"}}
+    "@context": "https://schema.org",
+    "@type": "RoofingContractor",
+    "name": "Zenith Roofing Services, Inc.",
+    "url": "https://zenithroofingservices.com/services/gutters/",
+    "image": "https://zenithroofingservices.com/images/badges/logo-zenith-icon-176.webp",
+    "telephone": "+1-858-900-6163",
+    "areaServed": ["Escondido CA", "San Diego CA", "Temecula CA", "North County San Diego"],
+    "address": { "@type": "PostalAddress", "addressRegion": "CA", "addressCountry": "US" },
+    "serviceType": "Seamless Aluminum Gutters & Gutter Guards",
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "5-inch Seamless Aluminum Gutters" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "6-inch Seamless Aluminum Gutters" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gutter Guards" } }
     ]
   }
   </script>
 
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"What’s the difference between 5\" and 6\" gutters?","acceptedAnswer":{"@type":"Answer","text":"5\" gutters suit most homes; 6\" gutters handle larger roof areas and heavier rainfall, reducing overflow."}},
-      {"@type":"Question","name":"Are aluminum gutters good for Southern California?","acceptedAnswer":{"@type":"Answer","text":"Yes. Aluminum resists rust, is lightweight, color-matched, and performs well in our climate when installed with proper fasteners and sealants."}},
-      {"@type":"Question","name":"Do gutter guards really help?","acceptedAnswer":{"@type":"Answer","text":"Quality guards cut down clogs from leaves and debris, reduce maintenance, and help prevent overflow during storms."}}
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What's the difference between 5\" and 6\" gutters?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "5\" gutters suit most homes; 6\" gutters handle larger roof areas and heavier rainfall, reducing overflow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are aluminum gutters good for Southern California?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Aluminum resists rust, is lightweight, color-matched, and performs well in our climate when installed with proper fasteners and sealants."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do gutter guards really help?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Quality guards cut down clogs from leaves and debris, reduce maintenance, and help prevent overflow during storms."
+        }
+      }
     ]
   }
   </script>
-
-  <style>
-    :root{ --header-h:80px; }
-    [id]{ scroll-margin-top:calc(var(--header-h,80px) + 12px); }
-    body{ margin:0; }
-  </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- Header include -->
   <section data-include="/components/header-section.html"></section>
 
-  <main class="page">
+  <main id="main-content" class="page">
     <!-- Content-first hero -->
     <header class="hero" id="top">
       <h1>5" &amp; 6" Seamless Aluminum Gutters &amp; Gutter Guards</h1>
@@ -89,9 +115,9 @@
     </header>
 
     <!-- Pill nav -->
-    <nav class="pillnav sticky-pills">
+    <nav class="pillnav sticky-pills" aria-label="Gutter services navigation">
       <a href="#why">Why Seamless</a>
-      <a href="#sizes">5&quot; vs 6&quot;</a>
+      <a href="#sizes">5" vs 6"</a>
       <a href="#guards">Gutter Guards</a>
       <a href="#process">Our Process</a>
       <a href="#areas">Service Areas</a>
@@ -102,21 +128,59 @@
     <section class="section narrow prose" id="why">
       <h2>Why Seamless Aluminum Gutters?</h2>
       <ul class="checklist grid-2">
-        <li><span class="tick">✓</span><div>Seamless runs = fewer joints and fewer leaks</div></li>
-        <li><span class="tick">✓</span><div>Aluminum won’t rust and color-matches your trim</div></li>
-        <li><span class="tick">✓</span><div>Hidden hangers, sealed miters, and proper pitch</div></li>
-        <li><span class="tick">✓</span><div>5" for most homes; 6" for big or steep roofs & heavy flows</div></li>
+        <li><span class="tick" aria-hidden="true">✓</span><div>Seamless runs = fewer joints and fewer leaks</div></li>
+        <li><span class="tick" aria-hidden="true">✓</span><div>Aluminum won't rust and color-matches your trim</div></li>
+        <li><span class="tick" aria-hidden="true">✓</span><div>Hidden hangers, sealed miters, and proper pitch</div></li>
+        <li><span class="tick" aria-hidden="true">✓</span><div>5" for most homes; 6" for big or steep roofs & heavy flows</div></li>
       </ul>
     </section>
 
     <section class="section narrow prose" id="sizes">
       <h2>5" vs 6" Seamless Gutters</h2>
-      <p><strong>5-inch</strong> K-style gutters are the standard for many homes and work well with typical roof sizes and rainfall. <strong>6-inch</strong> K-style gutters carry more water and reduce overflow on larger roof planes, steep pitches, or where downspout runs are longer. We’ll size your system based on roof area, layout, and local conditions.</p>
+      <p><strong>5-inch</strong> K-style gutters are the standard for many homes and work well with typical roof sizes and rainfall. <strong>6-inch</strong> K-style gutters carry more water and reduce overflow on larger roof planes, steep pitches, or where downspout runs are longer. We'll size your system based on roof area, layout, and local conditions.</p>
+
+      <div class="comparison-table">
+        <table>
+          <caption>Gutter Size Comparison</caption>
+          <thead>
+            <tr>
+              <th scope="col">Feature</th>
+              <th scope="col">5" Gutters</th>
+              <th scope="col">6" Gutters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Water Capacity</th>
+              <td>Standard capacity</td>
+              <td>40% more capacity</td>
+            </tr>
+            <tr>
+              <th scope="row">Best For</th>
+              <td>Most residential homes</td>
+              <td>Large roofs, heavy rainfall areas</td>
+            </tr>
+            <tr>
+              <th scope="row">Roof Size</th>
+              <td>Up to 5,000 sq ft</td>
+              <td>Over 5,000 sq ft</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section class="section narrow prose" id="guards">
       <h2>Gutter Guards That Actually Help</h2>
       <p>Guard systems keep leaves and debris out so water flows where it should—away from fascia and foundations. We match the guard to your roof type and tree coverage to reduce maintenance and prevent storm overflow.</p>
+
+      <h3>Guard Types We Offer</h3>
+      <ul>
+        <li><strong>Mesh screens:</strong> Fine filtering for small debris</li>
+        <li><strong>Reverse curve:</strong> Surface tension water guidance</li>
+        <li><strong>Bottle brush:</strong> Allows water through while blocking debris</li>
+        <li><strong>Perforated:</strong> Durable option for most environments</li>
+      </ul>
     </section>
 
     <section class="section narrow prose" id="process">
@@ -135,14 +199,14 @@
     </section>
 
     <!-- ===== UNIVERSAL FORM (styled via ui.css §21) ===== -->
-    <section class="section" id="estimate-form">
+    <section class="section estimate-form-block" id="estimate-form">
       <script>
         // Page-specific configuration for the universal form
         window.ESTIMATE_FORM_CONFIG = {
           title: 'Free Estimate — Seamless Gutters & Gutter Guards',
           subtitle: '5" & 6" K-style • On-site fabrication',
           preselectService: '6" Seamless Aluminum Gutters',
-          descriptionPlaceholder: 'Brief Description* — e.g., “Install 6\" K-style in bronze, add guards on rear run”',
+          descriptionPlaceholder: 'Brief Description* — e.g., "Install 6&quot; K-style in bronze, add guards on rear run"',
           referralPreselect: 'Google',
           hiddenFields: { campaign: 'gutters', source_tag: 'services/gutters' }
         };
@@ -155,7 +219,7 @@
     <section class="section faq narrow">
       <h2>Gutters &amp; Guards — FAQ</h2>
       <details>
-        <summary>What’s the difference between 5" and 6" gutters?</summary>
+        <summary>What's the difference between 5" and 6" gutters?</summary>
         <div>5" gutters fit most homes with standard rooflines and rainfall. 6" gutters carry more water, ideal for big roof areas or steep pitches.</div>
       </details>
       <details>
@@ -166,13 +230,17 @@
         <summary>Will guards stop all cleaning?</summary>
         <div>They drastically reduce it, but an occasional rinse/inspection keeps everything working perfectly.</div>
       </details>
+      <details>
+        <summary>How long do seamless gutters last?</summary>
+        <div>With proper installation and maintenance, seamless aluminum gutters can last 20+ years in our climate.</div>
+      </details>
     </section>
 
     <!-- Mobile action bar -->
-    <div class="actionbar">
-      <a class="ab-btn call" href="tel:+18589006163">Call</a>
-      <a class="ab-btn text" href="sms:+18589006163">Text</a>
-      <a class="ab-btn estimate" href="#estimate-form">Estimate</a>
+    <div class="actionbar" aria-hidden="true">
+      <a class="ab-btn call" href="tel:+18589006163" aria-label="Call us">Call</a>
+      <a class="ab-btn text" href="sms:+18589006163" aria-label="Text us">Text</a>
+      <a class="ab-btn estimate" href="#estimate-form" aria-label="Get a free estimate">Estimate</a>
     </div>
 
     <!-- Footer include -->
@@ -182,21 +250,31 @@
   <!-- ===== JS ===== -->
   <script>
     // Minimal include loader so the partial + header/footer render
-    (async function(){
-      async function include(el){
-        const src = el.getAttribute('data-include'); if(!src) return;
-        try{ const r = await fetch(src); if(!r.ok) throw 0; el.outerHTML = await r.text(); }
-        catch(e){ console.error('Include failed:', src); }
+    (async function() {
+      async function include(el) {
+        const src = el.getAttribute('data-include');
+        if (!src) return;
+        try {
+          const r = await fetch(src);
+          if (!r.ok) throw new Error(`HTTP ${r.status} on ${src}`);
+          el.outerHTML = await r.text();
+        } catch(e) {
+          console.error('Include failed:', src, e);
+        }
       }
       const all = Array.from(document.querySelectorAll('[data-include]'));
-      await Promise.all(all.map(include));
+      await Promise.allSettled(all.map(include));
 
-      if (window.initHeader) window.initHeader();
-      if (window.initEstimateForm) window.initEstimateForm();
+      // Initialize components if they exist
+      if (typeof window.initHeader === 'function') window.initHeader();
+      if (typeof window.initEstimateForm === 'function') window.initEstimateForm();
     })();
+
+    // Add a class for JavaScript-enabled styling
+    document.documentElement.classList.add('js-enabled');
   </script>
 
-  <!-- reCAPTCHA v2 + your form logic -->
+  <!-- reCAPTCHA v2 + universal form logic -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="/js/header.js" defer></script>
   <script src="/js/hero.js" defer></script>
