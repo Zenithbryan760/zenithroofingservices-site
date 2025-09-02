@@ -36,6 +36,59 @@
   <link rel="stylesheet" href="/css/header.css">
   <link rel="stylesheet" href="/css/ui.css">
   <link rel="stylesheet" href="/css/footer.css" media="print" onload="this.media='all'">
+
+  <!-- ===== Structured Data ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RoofingContractor",
+    "name": "Zenith Roofing Services, Inc.",
+    "url": "https://zenithroofingservices.com/services/gutters/",
+    "image": "https://zenithroofingservices.com/images/badges/logo-zenith-icon-176.webp",
+    "telephone": "+1-858-900-6163",
+    "areaServed": ["Escondido CA","San Diego CA","Temecula CA","North County San Diego"],
+    "address": { "@type": "PostalAddress", "addressRegion": "CA", "addressCountry": "US" },
+    "serviceType": "Seamless Aluminum Gutters & Gutter Guards",
+    "makesOffer": [
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"5-inch Seamless Aluminum Gutters"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"6-inch Seamless Aluminum Gutters"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Gutter Guards"}}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What's the difference between 5\" and 6\" gutters?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "5\" gutters suit most homes; 6\" gutters handle larger roof areas and heavier rainfall, reducing overflow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are aluminum gutters good for Southern California?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Aluminum resists rust, is lightweight, color-matched, and performs well in our climate when installed with proper fasteners and sealants."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do gutter guards really help?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Quality guards cut down clogs from leaves and debris, reduce maintenance, and help prevent overflow during storms."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -151,9 +204,9 @@
         window.ESTIMATE_FORM_CONFIG = {
           title: 'Free Estimate — Seamless Gutters & Gutter Guards',
           subtitle: '5&quot; &amp; 6&quot; K-style • On-site fabrication',
-          preselectService: '6" Seamless Aluminum Gutters',
+          preselectService: '6" Seamless Aluminum Gutters',               // must match an <option>
           descriptionPlaceholder: 'Brief Description* — e.g., "Install 6&quot; K-style in bronze, add guards on rear run"',
-          referralPreselect: 'Google',
+          referralPreselect: 'Google',                                    // optional
           hiddenFields: { campaign: 'gutters', source_tag: 'services/gutters' }
         };
       </script>
