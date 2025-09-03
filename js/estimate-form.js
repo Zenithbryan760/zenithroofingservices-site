@@ -25,7 +25,7 @@
     if (box) box.style.display = 'none';
   }
 
-  /* === ADDED: error helpers (non-breaking) === */
+  /* Error helpers (for red only when invalid) */
   function clearFieldErrors(form) {
     form.querySelectorAll('.is-error').forEach(el => {
       el.classList.remove('is-error');
@@ -120,11 +120,11 @@
     const need = ['firstName','lastName','phone','email','streetAddress','city','state','zip'];
     for (const id of need) {
       const el = $('#'+id, form);
-      if (!el || !el.value.trim()) { 
+      if (!el || !el.value.trim()) {
         flagInvalid(el);
-        showError(form,'Please fill out all required fields (*).'); 
-        el?.focus(); 
-        return false; 
+        showError(form,'Please fill out all required fields (*).');
+        el?.focus();
+        return false;
       }
     }
 
@@ -145,21 +145,23 @@
     }
 
     const phone = cleanDigits($('#phone', form)?.value);
-    if (phone.length < 10) { 
+    if (phone.length < 10) {
       const el = $('#phone', form);
       flagInvalid(el);
-      showError(form,'Please enter a valid phone number.'); 
-      el.focus(); 
-      return false; 
+      showError(form,'Please enter a valid phone number.');
+      el.focus();
+      return false;
     }
+
     const zip = $('#zip', form)?.value.trim();
-    if (!/^\d{5}(-?\d{4})?$/.test(zip)) { 
+    if (!/^\d{5}(-?\d{4})?$/.test(zip)) {
       const el = $('#zip', form);
       flagInvalid(el);
-      showError(form,'Please enter a valid ZIP code.'); 
-      el.focus(); 
-      return false; 
+      showError(form,'Please enter a valid ZIP code.');
+      el.focus();
+      return false;
     }
+
     return true;
   }
 
@@ -195,9 +197,9 @@
     payload.recaptcha_token = token;
     payload.page = location.href;
 
-    /* ====== ADDED: auto-append page/source note to the customer's description ====== */
+    /* Auto-append page/source note to the customer's description */
     const cfg = window.ESTIMATE_FORM_CONFIG || {};
-    const labelFromConfig = cfg.lockService || cfg?.hiddenFields?.campaign;   // prefer your page's service/campaign
+    const labelFromConfig = cfg.lockService || cfg?.hiddenFields?.campaign;
     const labelFromDOM =
       document.querySelector('main h1')?.textContent ||
       document.querySelector('meta[property="og:title"]')?.content ||
@@ -209,7 +211,6 @@
     if (!/\[Source:/.test(payload.description || '')) {
       payload.description = `${(payload.description || '').trim()}\n\n${sourceLine}`;
     }
-    /* ====== /ADDED ====== */
 
     const btn = form.querySelector('button[type="submit"]');
     const txt = btn?.textContent;
@@ -279,7 +280,7 @@
     renderRecaptcha();
     form.addEventListener('focusin', renderRecaptcha, { once: true });
 
-    // Live-clear error styling when user types/changes a field (ADDED)
+    // Live-clear error styling when user types/changes a field
     form.querySelectorAll('input, select, textarea').forEach(el => {
       const clear = () => {
         el.classList.remove('is-error');
