@@ -488,3 +488,64 @@
 @media (max-width:560px){
   .page .comparison-table table{ font-size:.95rem; }
 }
+/* Modern Service Areas (scoped) */
+.page .service-areas-modern .sa-head { margin-bottom: .6rem; }
+.page .service-areas-modern .sa-title { margin: 0 0 .25rem; }
+
+.page .service-areas-modern .chip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: .4rem 0 .2rem;
+}
+
+/* Chips */
+.page .service-areas-modern .sa-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .6rem .85rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--ui-line);
+  font-weight: 800;
+  color: var(--zenith-navy, #072e59);
+  transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease;
+  box-shadow: var(--ui-shadow);
+}
+.page .service-areas-modern .sa-chip.strong {
+  border-color: rgba(7,46,89,.2);
+  box-shadow: 0 10px 24px rgba(7,46,89,.08);
+}
+.page .service-areas-modern .sa-chip:hover {
+  transform: translateY(-1px);
+  border-color: rgba(7,46,89,.22);
+  box-shadow: var(--ui-shadow-hover);
+}
+
+/* Details / summary */
+.page .service-areas-modern .sa-more { margin-top: .35rem; }
+.page .service-areas-modern .sa-summary {
+  cursor: pointer;
+  font-weight: 800;
+  color: var(--zenith-navy, #072e59);
+  padding: .4rem 0;
+  list-style: none;
+}
+.page .service-areas-modern .sa-summary::marker { display: none; }
+.page .service-areas-modern .sa-summary::-webkit-details-marker { display: none; }
+.page .service-areas-modern .sa-summary::after {
+  content: "▾";
+  margin-left: .4rem;
+  font-weight: 700;
+  transition: transform .2s ease;
+}
+.page .service-areas-modern details[open] .sa-summary::after { transform: rotate(180deg); }
+
+/* Compact on small phones */
+@media (max-width: 480px) {
+  .page .service-areas-modern .chip-grid { gap: 8px; }
+  .page .service-areas-modern .sa-chip { padding: .55rem .75rem; }
+}
