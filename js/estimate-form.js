@@ -4,6 +4,7 @@
    - Optional Invisible reCAPTCHA
    - Redirects to data-redirect / ESTIMATE_FORM_CONFIG.redirect / '/thank-you/'
    - Normalizes miswired CTAs to avoid 404s
+   - Phone masking + ZIP -> City/State auto-fill (Zippopotam)
 -------------------------------------------------------------- */
 (() => {
   'use strict';
@@ -47,34 +48,50 @@
     return `(${d.slice(0,3)}) ${d.slice(3,6)}-${d.slice(6)}`;
   };
 
-  // ---------- CTA safety (prevents 404s to non-existent pages) ----------
+  // ---------- FORCE all estimate CTAs to stay on page ----------
+  function isEstimateCTA(node) {
+    const txt = (node.textContent || '').toLowerCase();
+    const cls = (node.className || '').toLowerCase();
+    const href = (node.getAttribute && node.getAttribute('href') || '').toLowerCase();
+    const textHit = /estimate/.test(txt);
+    const classHit = /estimate|cta-btn|ftr-btn/.test(cls);
+    const hrefHit =
+      /^#estimate$/.test(href) ||
+      /^\/#estimate$/.test(href) ||
+      /^#estimate-form$/.test(href) ||
+      /^\/#estimate-form$/.test(href) ||
+      /\/services\/gutters(\/|#|$)/.test(href) ||
+      (/^https?:\/\//.test(href) && /\/services\/gutters(\/|#|$)/.test(href));
+    return textHit || classHit || hrefHit;
+  }
+  function scrollToLocalOrHomeForm() {
+    const target = document.querySelector('#estimate-form, #estimate');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      location.href = '/#estimate-form';
+    }
+  }
   function normalizeEstimateLinks() {
     const hasForm = !!document.querySelector('#estimate-form');
     const toLocal = '#estimate-form';
     const toHome  = '/#estimate-form';
-    const patterns = [
-      /^#estimate$/, /^\/#estimate$/,
-      /^#estimate-form$/, /^\/#estimate-form$/,
-      /^\/services\/gutters\/?$/, /^\/services\/gutters\/#estimate$/, /^\/services\/gutters\/#estimate-form$/
-    ];
-    $$('a[href]').forEach(a => {
-      const href = a.getAttribute('href') || '';
-      if (patterns.some(rx => rx.test(href))) a.setAttribute('href', hasForm ? toLocal : toHome);
+    document.querySelectorAll('a[href]').forEach(a => {
+      if (!isEstimateCTA(a)) return;
+      a.setAttribute('href', hasForm ? toLocal : toHome);
+      a.removeAttribute('target');
     });
   }
-
   document.addEventListener('click', (e) => {
-    const a = e.target.closest('a[href]');
+    const a = e.target.closest('a[href], button');
     if (!a) return;
-    const href = a.getAttribute('href') || '';
-    const hasForm = !!document.querySelector('#estimate-form');
-    const bad = /^#estimate$|^\/#estimate$|^#estimate-form$|^\/#estimate-form$|^\/services\/gutters\/?$|^\/services\/gutters\/#estimate$|^\/services\/gutters\/#estimate-form$/;
-    if (!bad.test(href)) return;
-    e.preventDefault();
-    const t = hasForm ? document.querySelector('#estimate-form, #estimate') : null;
-    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    else location.href = '/#estimate-form';
-  });
+    if (a.tagName === 'BUTTON') {
+      if (!isEstimateCTA(a)) return;
+      e.preventDefault(); scrollToLocalOrHomeForm(); return;
+    }
+    if (!isEstimateCTA(a)) return;
+    e.preventDefault(); scrollToLocalOrHomeForm();
+  }, { capture: true });
 
   if (location.hash === '#estimate' || location.hash === '#estimate-form') {
     const t = document.querySelector('#estimate-form, #estimate');
@@ -92,6 +109,46 @@
   }
   window.addEventListener('load', renderRecaptcha);
 
+  // ---------- Enforce required fields (photos explicitly NOT required) ----------
+  function enforceRequired(form) {
+    const must = [
+      '#firstName', '#lastName', '#phone', '#email',
+      '#streetAddress', '#city', '#state', '#zip',
+      '#serviceType', '#description'
+    ];
+    must.forEach(sel => { const el = $(sel, form); if (el) el.required = true; });
+    const photos = $('#photos', form);
+    if (photos) photos.required = false;
+  }
+
+  // ---------- ZIP -> City/State auto-fill (Zippopotam) ----------
+  async function fillCityStateFromZip(form) {
+    const zipEl = $('#zip', form);
+    const cityEl = $('#city', form);
+    const stateEl = $('#state', form);
+
+    const zip = zipEl?.value?.trim();
+    if (!/^\d{5}$/.test(zip || '')) return;
+
+    try {
+      const resp = await fetch(`https://api.zippopotam.us/us/${zip}`, { mode: 'cors' });
+      if (!resp.ok) return;
+      const data = await resp.json();
+      const place = data?.places?.[0];
+      if (!place) return;
+
+      const city = place['place name'] || '';
+      const stateAbbr = place['state abbreviation'] || '';
+
+      if (cityEl && !cityEl.value) cityEl.value = city;
+      if (stateEl && !stateEl.readOnly) {
+        if (!stateEl.value) stateEl.value = stateAbbr;
+      }
+    } catch (_) {
+      // swallow; leave fields as-is
+    }
+  }
+
   // ---------- Init ----------
   function init() {
     normalizeEstimateLinks();
@@ -100,10 +157,27 @@
     if (!form || form.dataset.bound === 'true') return;
     form.dataset.bound = 'true';
 
+    enforceRequired(form);
+
     const phone = $('#phone', form);
     const zip   = $('#zip', form);
+    const city  = $('#city', form);
+
+    // Phone masking as user types
     if (phone) phone.addEventListener('input', () => { phone.value = formatUS(phone.value); });
-    if (zip)   zip.addEventListener('input', () => { zip.value = digits(zip.value).slice(0,5); });
+
+    // ZIP guard + auto-fill city/state when 5 digits present
+    if (zip) {
+      zip.addEventListener('input', () => {
+        zip.value = digits(zip.value).slice(0,5);
+        if (zip.value.length === 5) fillCityStateFromZip(form);
+      });
+      zip.addEventListener('blur', () => {
+        if (/^\d{5}$/.test(zip.value)) fillCityStateFromZip(form);
+      });
+    }
+
+    // If user edits city after ZIP, we don't overwrite it automatically—only fill when empty.
 
     form.addEventListener('submit', async (evt) => {
       evt.preventDefault();
@@ -115,8 +189,13 @@
         [$('#firstName', form)?.value, $('#lastName', form)?.value].filter(Boolean).join(' ') || '';
       const { first, last } = splitName(fullName);
 
-      // Required checks
-      const required = [...form.querySelectorAll('[required]')];
+      // Required checks (everything except photos)
+      const required = [
+        '#firstName', '#lastName', '#phone', '#email',
+        '#streetAddress', '#city', '#state', '#zip',
+        '#serviceType', '#description'
+      ].map(sel => $(sel, form)).filter(Boolean);
+
       let invalid = [];
       required.forEach((el) => {
         const ok = !!(el.value && el.value.trim());
@@ -186,10 +265,6 @@
 
       setLoading(form, true);
       try {
-        // Debug lines (optional while verifying):
-        // console.log('POST →', FN_URL);
-        // console.log('payload:', payload);
-
         const res = await fetch(FN_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
