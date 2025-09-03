@@ -155,28 +155,21 @@ select {
   border-radius: 6px;
 }
 
-/* HTML5 validity colouring:
-   - Only red when invalid
-   - Green border when valid (optional; keep subtle) */
-input:invalid,
-select:invalid,
-textarea:invalid {
-  border-color: #e53e3e;        /* red only when invalid */
-}
-
-input:valid,
-select:valid,
-textarea:valid {
-  border-color: #38a169;        /* soft green when valid */
+/* ---- Only show red borders AFTER a failed submit ---- */
+#estimate-form.has-errors input:invalid,
+#estimate-form.has-errors select:invalid,
+#estimate-form.has-errors textarea:invalid {
+  border-color: #e53e3e;        /* red only when form has errors */
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
 }
 
 /* Disclaimer — subtle top divider, no dark left bar */
 .form-disclaimer {
   margin-top: 24px;
-  padding: 16px 0 0;            /* space above text */
+  padding: 16px 0 0;
   background: transparent;
   color: #334155;               /* slate-700 */
-  border-left: 0;               /* remove previous vertical bar */
+  border-left: 0;
   border-top: 2px solid #e5e7eb;/* light top rule to match site */
 }
 
