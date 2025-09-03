@@ -4,6 +4,7 @@
 
   const $ = (s, r = document) => r.querySelector(s);
   const cleanDigits = (v = '') => v.replace(/\D+/g, '');
+  const debounce = (fn, wait = 300) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), wait); }; };
 
   function showError(form, msg) {
     let box = $('.form-error-summary', form);
@@ -24,6 +25,81 @@
     if (box) box.style.display = 'none';
   }
 
+  // ---- Enhancements ----
+
+  // Phone masking: (###) ###-####
+  function maskPhoneInput(e) {
+    const input = e.target;
+    const d = cleanDigits(input.value).slice(0, 10);
+    let out = d;
+    if (d.length > 6) out = `(${d.slice(0,3)}) ${d.slice(3,6)}-${d.slice(6)}`;
+    else if (d.length > 3) out = `(${d.slice(0,3)}) ${d.slice(3)}`;
+    else if (d.length > 0) out = `(${d}`;
+    input.value = out;
+  }
+
+  // ZIP -> City/State autofill (doesn’t overwrite user-entered values)
+  async function fillCityStateFromZip(zip, form) {
+    if (!/^\d{5}$/.test(zip)) return;
+    try {
+      const res = await fetch(`https://api.zippopotam.us/us/${zip}`, { mode: 'cors' });
+      if (!res.ok) return;
+      const data = await res.json();
+      const place = (data.places && data.places[0]) || null;
+      if (!place) return;
+
+      const city = place['place name'] || '';
+      const stateAbbr = place['state abbreviation'] || '';
+
+      const cityEl = $('#city', form);
+      if (cityEl && !cityEl.value.trim()) cityEl.value = city;
+
+      const stateEl = $('#state', form);
+      if (stateEl && !stateEl.readOnly && stateAbbr) stateEl.value = stateAbbr;
+    } catch (_) {}
+  }
+
+  // Prefill from page config (service type, referral, description placeholder)
+  function prefillFromConfig(form) {
+    const cfg = window.ESTIMATE_FORM_CONFIG || {};
+
+    // Service Type — default to “Gutters”, match by text, and optionally lock
+    const svc = $('#serviceType', form);
+    if (svc) {
+      const desired = (cfg.lockService || 'Gutters').toLowerCase();
+      let matched = null;
+      [...svc.options].forEach(o => {
+        const t = (o.textContent || o.value || '').toLowerCase();
+        if (!matched && (t === desired || t.includes('gutter'))) matched = o.value || o.textContent;
+      });
+      if (matched) svc.value = matched;
+
+      if (cfg.lockServiceLock === true) {
+        svc.disabled = true;
+        // ensure value still posts
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.name = svc.name;
+        hidden.value = svc.value;
+        form.appendChild(hidden);
+      }
+    }
+
+    // Referral preselect
+    const ref = $('#referral', form);
+    if (ref && cfg.referralPreselect) {
+      const norm = cfg.referralPreselect.toLowerCase();
+      const opt = [...ref.options].find(o => (o.textContent || '').toLowerCase() === norm);
+      if (opt) ref.value = opt.value || opt.textContent;
+    }
+
+    // Description placeholder
+    const desc = $('#description', form);
+    if (desc && cfg.descriptionPlaceholder) desc.placeholder = cfg.descriptionPlaceholder;
+  }
+
+  // ---- Validation & submit ----
+
   function validate(form) {
     hideError(form);
     const need = ['firstName','lastName','phone','email','streetAddress','city','state','zip'];
@@ -42,8 +118,8 @@
     const host = window.grecaptcha && typeof grecaptcha.render === 'function';
     const holder = document.getElementById('recaptcha') || document.querySelector('.g-recaptcha');
     if (!host || !holder) return;
-    if (recaptchaId != null) return; // already rendered
-    const sitekey = holder.getAttribute('data-sitekey');
+    if (recaptchaId != null || holder.childElementCount > 0) return; // already rendered or auto-rendered
+    const sitekey = holder.getAttribute('data-sitekey') || window.RECAPTCHA_SITE_KEY || '';
     if (!sitekey) return;
     try { recaptchaId = grecaptcha.render(holder, { sitekey }); } catch {}
   }
@@ -53,10 +129,14 @@
     const form = e.currentTarget;
     if (!validate(form)) return;
 
-    // reCAPTCHA token (required by your function)
+    // reCAPTCHA token — support explicit render AND auto-render
     let token = '';
-    if (window.grecaptcha?.getResponse && recaptchaId != null) {
-      token = grecaptcha.getResponse(recaptchaId) || '';
+    if (window.grecaptcha?.getResponse) {
+      token = (recaptchaId != null) ? grecaptcha.getResponse(recaptchaId) : grecaptcha.getResponse();
+    }
+    if (!token) {
+      const t = document.querySelector('textarea[name="g-recaptcha-response"]');
+      if (t && t.value) token = t.value.trim();
     }
     if (!token) { showError(form, 'Please complete the reCAPTCHA.'); return; }
 
@@ -97,6 +177,30 @@
   function bindForm() {
     const form = document.getElementById('estimate-form');
     if (!form) return;
+
+    // Phone mask
+    const phone = $('#phone', form);
+    if (phone) {
+      phone.removeEventListener('input', maskPhoneInput);
+      phone.addEventListener('input', maskPhoneInput);
+    }
+
+    // ZIP autofill (debounced + on blur)
+    const zipEl = $('#zip', form);
+    if (zipEl) {
+      const trigger = debounce(() => {
+        const v = (zipEl.value || '').trim().slice(0,5);
+        if (/^\d{5}$/.test(v)) fillCityStateFromZip(v, form);
+      }, 350);
+      zipEl.addEventListener('input', trigger);
+      zipEl.addEventListener('blur', () => {
+        const v = (zipEl.value || '').trim().slice(0,5);
+        if (/^\d{5}$/.test(v)) fillCityStateFromZip(v, form);
+      });
+    }
+
+    // Prefill from page config
+    prefillFromConfig(form);
 
     // Ensure the CTA actually submits
     const btn = form.querySelector('button[type="submit"]');
