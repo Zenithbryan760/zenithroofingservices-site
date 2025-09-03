@@ -1,3 +1,4 @@
+<script>
 (function () {
   const FN_URL = '/.netlify/functions/jn-create-lead';
   let recaptchaId = null;
@@ -5,6 +6,30 @@
   const $ = (s, r = document) => r.querySelector(s);
   const cleanDigits = (v = '') => v.replace(/\D+/g, '');
   const debounce = (fn, wait = 300) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), wait); }; };
+
+  /* ==== NEW (tiny helpers for service auto-detect) ==== */
+  const norm = s => String(s||'').toLowerCase();
+  // Map common keywords -> your select options
+  const SERVICE_MAP = [
+    { k: ['gutter','gutters'], v: 'Gutters' },
+    { k: ['tune up','tune-up','maintenance','tuneup'], v: 'Roof Maintenance' },
+    { k: ['repair','leak','tile repair','roof repair'], v: 'Roof Repair' },
+    { k: ['replacement','re-roof','reroof','re roof'], v: 'Roof Replacement' },
+    { k: ['commercial'], v: 'Commercial Roofing' },
+    { k: ['residential','home'], v: 'Residential Roofing' },
+  ];
+  function guessServiceFromPage(){
+    const h1 = document.querySelector('main h1')?.textContent || '';
+    const og = document.querySelector('meta[property="og:title"]')?.content || '';
+    const ttl = document.title || '';
+    const path = location.pathname.replace(/\/+$/,'').replace(/[-_]/g,' ');
+    const hay = norm([h1, og, ttl, path].join(' '));
+    for (const {k,v} of SERVICE_MAP){
+      if (k.some(word => hay.includes(word))) return v;
+    }
+    return ''; // no guess
+  }
+  /* ==== /NEW ==== */
 
   function showError(form, msg) {
     let box = $('.form-error-summary', form);
@@ -63,15 +88,23 @@
   function prefillFromConfig(form) {
     const cfg = window.ESTIMATE_FORM_CONFIG || {};
 
-    // Service Type — default to “Gutters”, match by text, and optionally lock
+    // Service Type — default to auto-detected from page; falls back to “Gutters”
     const svc = $('#serviceType', form);
     if (svc) {
-      const desired = (cfg.lockService || 'Gutters').toLowerCase();
+      const desiredRaw = cfg.lockService || guessServiceFromPage() || 'Gutters';   // <-- only change
+      const desired = desiredRaw.toLowerCase();
       let matched = null;
       [...svc.options].forEach(o => {
         const t = (o.textContent || o.value || '').toLowerCase();
-        if (!matched && (t === desired || t.includes('gutter'))) matched = o.value || o.textContent;
+        if (!matched && (t === desired || t.includes(desired))) matched = o.value || o.textContent;
       });
+      if (!matched) {
+        // soft fallback for gutters keyword if the exact text differs
+        [...svc.options].forEach(o => {
+          const t = (o.textContent || o.value || '').toLowerCase();
+          if (!matched && desired.includes('gutter') && t.includes('gutter')) matched = o.value || o.textContent;
+        });
+      }
       if (matched) svc.value = matched;
 
       if (cfg.lockServiceLock === true) {
@@ -88,8 +121,8 @@
     // Referral preselect
     const ref = $('#referral', form);
     if (ref && cfg.referralPreselect) {
-      const norm = cfg.referralPreselect.toLowerCase();
-      const opt = [...ref.options].find(o => (o.textContent || '').toLowerCase() === norm);
+      const normV = cfg.referralPreselect.toLowerCase();
+      const opt = [...ref.options].find(o => (o.textContent || '').toLowerCase() === normV);
       if (opt) ref.value = opt.value || opt.textContent;
     }
 
@@ -97,7 +130,7 @@
     const desc = $('#description', form);
     if (desc && cfg.descriptionPlaceholder) desc.placeholder = cfg.descriptionPlaceholder;
 
-    // 🔶 NEW: per-page submit button text (default = "Request Estimate")
+    // 🔶 per-page submit button text (default = "Request Estimate")
     const btn = form.querySelector('button[type="submit"]');
     if (btn) {
       const defaultText = 'Request Estimate';
@@ -246,3 +279,4 @@
   window.addEventListener('includes:ready', bindForm);
   window.onRecaptchaLoaded = () => { renderRecaptcha(); bindForm(); };
 })();
+</script>
