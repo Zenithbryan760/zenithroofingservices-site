@@ -27,21 +27,6 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://zenithroofingservices.com/services/gutters/" />
 
-  <!-- LocalBusiness / Service JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "RoofingContractor",
-    "name": "Zenith Roofing Services, Inc.",
-    "url": "https://zenithroofingservices.com",
-    "telephone": "+1-858-900-6163",
-    "areaServed": ["Escondido","San Diego","Temecula","North County San Diego"],
-    "license": "CSLB 1036112 C-39",
-    "serviceType": ["Seamless Aluminum Gutters","Gutter Guards","Roofing"],
-    "address": { "@type": "PostalAddress", "addressRegion": "CA", "addressCountry": "US" }
-  }
-  </script>
-
   <style>
     /* Page-scope helpers (kept tiny; won’t fight your global UI) */
     .hero { padding: 48px 20px 20px; text-align: center; }
@@ -205,21 +190,11 @@
   <!-- ===== JS ===== -->
   <script src="/js/header.js"></script>
 
-  <!-- Lightweight include loader (same pattern you’ve used) -->
-  <script>
-    (async () => {
-      const slots=[...document.querySelectorAll('[data-include]')];
-      await Promise.all(slots.map(async (slot)=>{
-        const url=slot.getAttribute('data-include');
-        try{
-          const res=await fetch(url,{cache:'no-store'});
-          const html=await res.text();
-          const wrap=document.createElement('div'); wrap.innerHTML=html.trim();
-          const parent=slot.parentNode; const nodes=[...wrap.childNodes];
-          nodes.forEach(n=>parent.insertBefore(n,slot)); parent.removeChild(slot);
-        }catch(err){ console.error('Include failed:',url,err); }
-      }));
-    })();
-  </script>
+  <!-- Script-aware include loader (executes scripts inside included components) -->
+  <script src="/js/loader.js"></script>
+
+  <!-- (Only needed if RECAPTCHA is enabled on your Netlify function)
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  -->
 </body>
 </html>
