@@ -25,6 +25,19 @@
     if (box) box.style.display = 'none';
   }
 
+  /* === ADDED: error helpers (non-breaking) === */
+  function clearFieldErrors(form) {
+    form.querySelectorAll('.is-error').forEach(el => {
+      el.classList.remove('is-error');
+      el.removeAttribute('aria-invalid');
+    });
+  }
+  function flagInvalid(el) {
+    if (!el) return;
+    el.classList.add('is-error');
+    el.setAttribute('aria-invalid', 'true');
+  }
+
   // ---- Enhancements ----
 
   // Phone masking: (###) ###-####
@@ -102,15 +115,51 @@
 
   function validate(form) {
     hideError(form);
+    clearFieldErrors(form);
+
     const need = ['firstName','lastName','phone','email','streetAddress','city','state','zip'];
     for (const id of need) {
       const el = $('#'+id, form);
-      if (!el || !el.value.trim()) { showError(form,'Please fill out all required fields (*).'); el?.focus(); return false; }
+      if (!el || !el.value.trim()) { 
+        flagInvalid(el);
+        showError(form,'Please fill out all required fields (*).'); 
+        el?.focus(); 
+        return false; 
+      }
     }
+
+    // required selects
+    const svc = $('#serviceType', form);
+    if (svc && !svc.value) {
+      flagInvalid(svc);
+      showError(form,'Please choose a Service Type.');
+      svc.focus();
+      return false;
+    }
+    const ref = $('#referral', form);
+    if (ref && !ref.value) {
+      flagInvalid(ref);
+      showError(form,'Please tell us how you heard about us.');
+      ref.focus();
+      return false;
+    }
+
     const phone = cleanDigits($('#phone', form)?.value);
-    if (phone.length < 10) { showError(form,'Please enter a valid phone number.'); $('#phone', form).focus(); return false; }
+    if (phone.length < 10) { 
+      const el = $('#phone', form);
+      flagInvalid(el);
+      showError(form,'Please enter a valid phone number.'); 
+      el.focus(); 
+      return false; 
+    }
     const zip = $('#zip', form)?.value.trim();
-    if (!/^\d{5}(-?\d{4})?$/.test(zip)) { showError(form,'Please enter a valid ZIP code.'); $('#zip', form).focus(); return false; }
+    if (!/^\d{5}(-?\d{4})?$/.test(zip)) { 
+      const el = $('#zip', form);
+      flagInvalid(el);
+      showError(form,'Please enter a valid ZIP code.'); 
+      el.focus(); 
+      return false; 
+    }
     return true;
   }
 
@@ -229,6 +278,17 @@
     // Render reCAPTCHA now (and again when focused just in case)
     renderRecaptcha();
     form.addEventListener('focusin', renderRecaptcha, { once: true });
+
+    // Live-clear error styling when user types/changes a field (ADDED)
+    form.querySelectorAll('input, select, textarea').forEach(el => {
+      const clear = () => {
+        el.classList.remove('is-error');
+        el.removeAttribute('aria-invalid');
+        hideError(form);
+      };
+      el.addEventListener('input', clear);
+      el.addEventListener('change', clear);
+    });
 
     // Prevent hero overlays from stealing taps
     const overlay = document.querySelector('.hero-overlay');
