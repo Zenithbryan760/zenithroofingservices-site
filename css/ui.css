@@ -1,4 +1,4 @@
-/* ========================================================= 
+/* =========================================================  
    Zenith UI — Shared components for all interior pages
    Scope: .page (content), .faq (accordions), component classes
    Footer safety: nothing targets #site-footer
@@ -105,8 +105,8 @@
 .page .cta{ display:flex; gap:12px; flex-wrap:wrap; margin:16px 0; }
 .page .btn{
   display:inline-flex; align-items:center; justify-content:center;
-  padding:10px 16px; min-height:44px; font-size:1rem; /* prevents iOS zoom */
-  border-radius:999px; font-weight:700; text-decoration:none;
+  padding:10px 16px; min-height:42px; font-size:1rem; /* prevents iOS zoom */
+  border-radius:12px; font-weight:700; text-decoration:none;
   transition:transform .12s ease, box-shadow .2s ease,
              background-color .2s ease, color .2s ease, border-color .2s ease;
   outline:none;
@@ -371,7 +371,7 @@
   border-color:#072e59;
   box-shadow:0 0 0 3px rgba(7,46,89,.15), var(--ui-shadow);
 }
-/* Validation */
+/* Validation — default = orange hint */
 .page .estimate-form-block input:invalid,
 .page .estimate-form-block select:invalid,
 .page .estimate-form-block textarea:invalid{
@@ -382,6 +382,14 @@
 .page .estimate-form-block textarea:invalid:focus{
   box-shadow:0 0 0 3px rgba(247,148,29,.18), var(--ui-shadow);
 }
+/* 🔴 Upgrade to RED only after a failed submit (error box visible) */
+.page .estimate-form-block form:has(.form-error-summary.show) input:invalid,
+.page .estimate-form-block form:has(.form-error-summary.show) select:invalid,
+.page .estimate-form-block form:has(.form-error-summary.show) textarea:invalid{
+  border-color:#dc2626;
+  box-shadow:0 0 0 3px rgba(220,38,38,.18), var(--ui-shadow);
+}
+
 /* File input */
 .page .estimate-form-block input[type="file"]{
   padding:.55rem .75rem;
@@ -400,11 +408,11 @@
   background:#e9830b; box-shadow:0 10px 24px rgba(247,148,29,.35);
   transform:translateY(-1px);
 }
-/* Submit button */
+/* Submit button (centered + not full-width) */
 .page .estimate-form-block .zenith-btn{
   background:#f7941d; color:#0b0b0b; border:none;
-  padding:1rem 1.25rem; font-size:1rem; font-weight:800; width:100%;
-  border-radius:12px; cursor:pointer;
+  padding:1rem 1.25rem; font-size:1rem; font-weight:800; width:100%; max-width:360px;
+  border-radius:12px; cursor:pointer; margin-inline:auto;
   transition:transform .08s, box-shadow .2s, background .2s;
   box-shadow:0 10px 24px rgba(247,148,29,.25);
 }
