@@ -25,19 +25,6 @@
     if (box) box.style.display = 'none';
   }
 
-  /* Error helpers (for red only when invalid) */
-  function clearFieldErrors(form) {
-    form.querySelectorAll('.is-error').forEach(el => {
-      el.classList.remove('is-error');
-      el.removeAttribute('aria-invalid');
-    });
-  }
-  function flagInvalid(el) {
-    if (!el) return;
-    el.classList.add('is-error');
-    el.setAttribute('aria-invalid', 'true');
-  }
-
   // ---- Enhancements ----
 
   // Phone masking: (###) ###-####
@@ -109,59 +96,28 @@
     // Description placeholder
     const desc = $('#description', form);
     if (desc && cfg.descriptionPlaceholder) desc.placeholder = cfg.descriptionPlaceholder;
+
+    // 🔶 NEW: per-page submit button text (default = "Request Estimate")
+    const btn = form.querySelector('button[type="submit"]');
+    if (btn) {
+      const defaultText = 'Request Estimate';
+      btn.textContent = cfg.submitText || defaultText;
+    }
   }
 
   // ---- Validation & submit ----
 
   function validate(form) {
     hideError(form);
-    clearFieldErrors(form);
-
     const need = ['firstName','lastName','phone','email','streetAddress','city','state','zip'];
     for (const id of need) {
       const el = $('#'+id, form);
-      if (!el || !el.value.trim()) {
-        flagInvalid(el);
-        showError(form,'Please fill out all required fields (*).');
-        el?.focus();
-        return false;
-      }
+      if (!el || !el.value.trim()) { showError(form,'Please fill out all required fields (*).'); el?.focus(); return false; }
     }
-
-    // required selects
-    const svc = $('#serviceType', form);
-    if (svc && !svc.value) {
-      flagInvalid(svc);
-      showError(form,'Please choose a Service Type.');
-      svc.focus();
-      return false;
-    }
-    const ref = $('#referral', form);
-    if (ref && !ref.value) {
-      flagInvalid(ref);
-      showError(form,'Please tell us how you heard about us.');
-      ref.focus();
-      return false;
-    }
-
     const phone = cleanDigits($('#phone', form)?.value);
-    if (phone.length < 10) {
-      const el = $('#phone', form);
-      flagInvalid(el);
-      showError(form,'Please enter a valid phone number.');
-      el.focus();
-      return false;
-    }
-
+    if (phone.length < 10) { showError(form,'Please enter a valid phone number.'); $('#phone', form).focus(); return false; }
     const zip = $('#zip', form)?.value.trim();
-    if (!/^\d{5}(-?\d{4})?$/.test(zip)) {
-      const el = $('#zip', form);
-      flagInvalid(el);
-      showError(form,'Please enter a valid ZIP code.');
-      el.focus();
-      return false;
-    }
-
+    if (!/^\d{5}(-?\d{4})?$/.test(zip)) { showError(form,'Please enter a valid ZIP code.'); $('#zip', form).focus(); return false; }
     return true;
   }
 
@@ -197,7 +153,7 @@
     payload.recaptcha_token = token;
     payload.page = location.href;
 
-    /* Auto-append page/source note to the customer's description */
+    /* ====== Auto-append page/source note to the customer's description ====== */
     const cfg = window.ESTIMATE_FORM_CONFIG || {};
     const labelFromConfig = cfg.lockService || cfg?.hiddenFields?.campaign;
     const labelFromDOM =
@@ -211,6 +167,7 @@
     if (!/\[Source:/.test(payload.description || '')) {
       payload.description = `${(payload.description || '').trim()}\n\n${sourceLine}`;
     }
+    /* ====== /Auto-append ====== */
 
     const btn = form.querySelector('button[type="submit"]');
     const txt = btn?.textContent;
@@ -279,17 +236,6 @@
     // Render reCAPTCHA now (and again when focused just in case)
     renderRecaptcha();
     form.addEventListener('focusin', renderRecaptcha, { once: true });
-
-    // Live-clear error styling when user types/changes a field
-    form.querySelectorAll('input, select, textarea').forEach(el => {
-      const clear = () => {
-        el.classList.remove('is-error');
-        el.removeAttribute('aria-invalid');
-        hideError(form);
-      };
-      el.addEventListener('input', clear);
-      el.addEventListener('change', clear);
-    });
 
     // Prevent hero overlays from stealing taps
     const overlay = document.querySelector('.hero-overlay');
