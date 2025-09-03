@@ -5,12 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Estimate Form</title>
 
-  <!-- (keep your existing global CSS links here) -->
-  <!-- ✅ Correct placement: put the estimate form CSS in the HEAD, after your globals -->
+  <!-- Your global CSS links here -->
   <link rel="stylesheet" href="/css/estimate-form.css" />
 </head>
 <body>
-
+    <!-- Form configuration -->
+  <script>
+  window.ESTIMATE_FORM_CONFIG = {
+    title: "Request a Free Estimate",
+    subtitle: "Fill out the form below and we'll contact you shortly",
+    descriptionPlaceholder: "Brief Description* — tell us what you need help with",
+    hiddenFields: {
+      source: "website",
+      campaign: "main-form"
+    }
+  };
+  </script>
   <!-- ===== Form ===== -->
   <form id="estimate-form" method="POST" novalidate>
     <!-- Row 1 -->
