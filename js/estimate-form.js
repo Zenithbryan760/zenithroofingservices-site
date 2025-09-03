@@ -1,6 +1,4 @@
 /* =========================================================
-   Zenith – Hero Estimate Form Logic
-   File: /js/hero.js
    Safe to include on any page. Looks for #estimate-form.
    ========================================================= */
 
@@ -10,13 +8,13 @@
   // ---------- Tiny helpers ----------
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
-  const debounce = (fn, wait = 300) => {            // NEW
-    let t;                                          // NEW
-    return (...args) => {                           // NEW
-      clearTimeout(t);                              // NEW
-      t = setTimeout(() => fn(...args), wait);      // NEW
-    };                                              // NEW
-  };                                                // NEW
+  const debounce = (fn, wait = 300) => {
+    let t;
+    return (...args) => {
+      clearTimeout(t);
+      t = setTimeout(() => fn(...args), wait);
+    };
+  };
 
   // Create (or get) a compact error box near the submit button
   function ensureErrorSummary(form) {
@@ -24,21 +22,21 @@
     if (!box) {
       box = document.createElement('div');
       box.className = 'form-error-summary';
-      box.style.margin = '10px 0';
-      box.style.fontSize = '0.95rem';
-      box.style.lineHeight = '1.3';
-      box.style.color = '#b00020';
-      box.style.display = 'none';
+      box.style.cssText = 'margin: 10px 0; font-size: 0.95rem; line-height: 1.3; color: #b00020; display: none; padding: 10px; background: #ffe6e6; border-radius: 4px;';
       const submitRow = form.querySelector('button[type="submit"]')?.parentElement || form;
       submitRow.parentNode.insertBefore(box, submitRow);
     }
     return box;
   }
+  
   function showError(form, msg) {
     const box = ensureErrorSummary(form);
     box.textContent = msg;
     box.style.display = 'block';
+    // Scroll to error
+    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
+  
   function hideError(form) {
     const box = $('.form-error-summary', form);
     if (box) box.style.display = 'none';
@@ -55,7 +53,8 @@
     // Required fields you collect server-side
     const requiredIds = [
       'firstName','lastName','phone','email',
-      'streetAddress','city','state','zip'
+      'streetAddress','city','state','zip',
+      'serviceType', 'referral', 'description'
     ];
 
     for (const id of requiredIds) {
@@ -105,31 +104,30 @@
     input.value = out;
   }
 
-  // ---------- ZIP → City/State autofill ----------  // NEW
-  async function fillCityStateFromZip(zip, form) {    // NEW
-    if (!/^\d{5}$/.test(zip)) return;                 // NEW
-    try {                                             // NEW
-      const res = await fetch(`https://api.zippopotam.us/us/${zip}`, { mode: 'cors' }); // NEW
-      if (!res.ok) return;                            // NEW
-      const data = await res.json();                  // NEW
-      const place = (data.places && data.places[0]) || null; // NEW
-      if (!place) return;                             // NEW
-      const city = place['place name'] || '';         // NEW
-      const stateAbbr = place['state abbreviation'] || ''; // NEW
+  // ---------- ZIP → City/State autofill ----------
+  async function fillCityStateFromZip(zip, form) {
+    if (!/^\d{5}$/.test(zip)) return;
+    try {
+      const res = await fetch(`https://api.zippopotam.us/us/${zip}`, { mode: 'cors' });
+      if (!res.ok) return;
+      const data = await res.json();
+      const place = (data.places && data.places[0]) || null;
+      if (!place) return;
+      const city = place['place name'] || '';
+      const stateAbbr = place['state abbreviation'] || '';
 
-      const cityEl = $('#city', form);                // NEW
-      if (cityEl && !cityEl.value.trim()) {          // NEW (won't overwrite user input)
-        cityEl.value = city;                          // NEW
-      }                                               // NEW
-      const stateEl = $('#state', form);              // NEW
-      if (stateEl && !stateEl.readOnly && stateAbbr) {// NEW
-        stateEl.value = stateAbbr;                    // NEW
-      }                                               // NEW
-    } catch (_) { /* silent */ }                      // NEW
-  }                                                   // NEW
+      const cityEl = $('#city', form);
+      if (cityEl && !cityEl.value.trim()) {
+        cityEl.value = city;
+      }
+      const stateEl = $('#state', form);
+      if (stateEl && !stateEl.readOnly && stateAbbr) {
+        stateEl.value = stateAbbr;
+      }
+    } catch (_) { /* silent */ }
+  }
 
   // ---------- reCAPTCHA render ----------
-  // We’ll try to render once on load, and again on focus if needed.
   function renderRecaptchaIfPossible() {
     const host = window.grecaptcha && typeof window.grecaptcha.render === 'function';
     const container = document.getElementById('recaptcha') || document.querySelector('.g-recaptcha');
@@ -138,20 +136,16 @@
     // Avoid duplicate render
     if (typeof window._recaptchaWidgetId !== 'undefined') return;
 
-    // Site key sources (pick the first you have):
-    // 1) <div id="recaptcha" data-sitekey="..."></div>
-    // 2) window.RECAPTCHA_SITE_KEY (set on the page)
     const sitekey = container.getAttribute('data-sitekey') || window.RECAPTCHA_SITE_KEY || '';
     if (!sitekey) return;
 
     try {
       window._recaptchaWidgetId = window.grecaptcha.render(container, { sitekey });
     } catch (e) {
-      // noop
+      console.error('reCAPTCHA render error:', e);
     }
   }
 
-  // Some browsers load the API later; try a few times.
   function tryRenderRecaptchaWithRetries() {
     let tries = 0;
     const timer = setInterval(() => {
@@ -170,24 +164,26 @@
 
     if (!validateForm(form)) return;
 
-    // Collect reCAPTCHA token (required when RECAPTCHA_SECRET is set in Netlify)
+    // Collect reCAPTCHA token
     let token = '';
     if (window.grecaptcha && typeof window.grecaptcha.getResponse === 'function') {
       if (typeof window._recaptchaWidgetId !== 'undefined') {
         token = window.grecaptcha.getResponse(window._recaptchaWidgetId) || '';
       }
     }
+    
+    // Fallback for hidden textarea
     if (!token) {
-      // Some themes add a hidden textarea; try that as a fallback
       const t = document.querySelector('textarea[name="g-recaptcha-response"]');
       if (t && t.value) token = t.value.trim();
     }
+    
     if (!token) {
       showError(form, 'Please complete the reCAPTCHA before submitting.');
       return;
     }
 
-    // Build payload (names must match your Netlify function expectations)
+    // Build payload
     const fd = new FormData(form);
     const data = {
       first_name:      (fd.get('first_name') || '').trim(),
@@ -201,17 +197,24 @@
       service_type:     fd.get('service_type')    || '',
       referral_source:  fd.get('referral_source') || '',
       description:     (fd.get('description')    || '').trim(),
-
-      // ✅ NEW — required by your function when RECAPTCHA_SECRET is present
       recaptcha_token: token,
-
-      // Helpful context in CRM/email
       page: location.href
     };
 
+    // Add hidden fields if any
+    const hiddenFields = form.querySelectorAll('input[type="hidden"]');
+    hiddenFields.forEach(field => {
+      if (field.name && !data[field.name]) {
+        data[field.name] = field.value;
+      }
+    });
+
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn ? submitBtn.textContent : null;
-    if (submitBtn) { submitBtn.textContent = 'Submitting…'; submitBtn.disabled = true; }
+    if (submitBtn) { 
+      submitBtn.textContent = 'Submitting…'; 
+      submitBtn.disabled = true; 
+    }
 
     try {
       const res = await fetch('/.netlify/functions/jn-create-lead', {
@@ -222,7 +225,6 @@
 
       const text = await res.text();
       if (!res.ok) {
-        // Surface server message if available
         let msg = 'Sorry, there was a problem submitting your request.';
         try {
           const json = JSON.parse(text);
@@ -235,10 +237,12 @@
         return;
       }
 
-      alert('Thanks! Your request has been submitted.');
+      // Success
+      alert('Thanks! Your request has been submitted. We\'ll contact you shortly.');
       form.reset();
       hideError(form);
 
+      // Reset reCAPTCHA
       if (window.grecaptcha &&
           typeof window.grecaptcha.reset === 'function' &&
           typeof window._recaptchaWidgetId !== 'undefined') {
@@ -259,83 +263,7 @@
     }
   }
 
-  // ---------- Boot ----------
-  function attachBehaviors() {
-    const form = document.getElementById('estimate-form');
-    if (!form) return;
-
-    // Phone mask
-    const phone = $('#phone', form);
-    if (phone) phone.addEventListener('input', maskPhoneInput);
-
-    // ZIP → City/State autofill                         // NEW
-    const zipEl = $('#zip', form);                       // NEW
-    if (zipEl) {                                         // NEW
-      const trigger = debounce(() => {                   // NEW
-        const v = (zipEl.value || '').trim().slice(0, 5);// NEW
-        if (/^\d{5}$/.test(v)) fillCityStateFromZip(v, form); // NEW
-      }, 350);                                           // NEW
-      zipEl.addEventListener('input', trigger);          // NEW
-      zipEl.addEventListener('blur', () => {             // NEW
-        const v = (zipEl.value || '').trim().slice(0, 5);// NEW
-        if (/^\d{5}$/.test(v)) fillCityStateFromZip(v, form); // NEW
-      });                                                // NEW
-    }                                                    // NEW
-
-    // Try to render reCAPTCHA now (and again on first focus)
-    tryRenderRecaptchaWithRetries();
-    form.addEventListener('focusin', renderRecaptchaIfPossible, { once: true });
-
-    // Submit wiring
-    form.addEventListener('submit', submitHandler);
-  }
-
-  // ✅ Expose init so your include loader can run it after injecting the hero
-  window.initEstimateForm = attachBehaviors;
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', attachBehaviors);
-  } else {
-    attachBehaviors();
-  }
-})();
-// ... your existing hero.js above ...
-
-  // ---------- Boot ----------
-  function attachBehaviors() {
-    const form = document.getElementById('estimate-form');
-    if (!form) return;
-
-    // NEW: apply per-page config if provided
-    applyFormConfig(form); // NEW
-
-    // Phone mask
-    const phone = $('#phone', form);
-    if (phone) phone.addEventListener('input', maskPhoneInput);
-
-    // ZIP → City/State autofill
-    const zipEl = $('#zip', form);
-    if (zipEl) {
-      const trigger = debounce(() => {
-        const v = (zipEl.value || '').trim().slice(0, 5);
-        if (/^\d{5}$/.test(v)) fillCityStateFromZip(v, form);
-      }, 350);
-      zipEl.addEventListener('input', trigger);
-      zipEl.addEventListener('blur', () => {
-        const v = (zipEl.value || '').trim().slice(0, 5);
-        if (/^\d{5}$/.test(v)) fillCityStateFromZip(v, form);
-      });
-    }
-
-    // Try to render reCAPTCHA now (and again on first focus)
-    tryRenderRecaptchaWithRetries();
-    form.addEventListener('focusin', renderRecaptchaIfPossible, { once: true });
-
-    // Submit wiring
-    form.addEventListener('submit', submitHandler);
-  }
-
-  // NEW: universal form config (title, subtitle, lock/preselect service, placeholders, hidden fields)
+  // NEW: universal form config
   function applyFormConfig(form) {
     const cfg = window.ESTIMATE_FORM_CONFIG || {};
     const block = form.closest('.estimate-form-block') || document;
@@ -382,7 +310,7 @@
 
       const pill = document.createElement('div');
       pill.setAttribute('aria-label', 'Selected service');
-      pill.style.cssText = 'display:flex;align-items:center;gap:.5rem;padding:.9rem .95rem;border:1px solid var(--zenith-border);border-radius:10px;background:#f8fafc;color:#0f172a;font-weight:600;';
+      pill.style.cssText = 'display:flex;align-items:center;gap:.5rem;padding:.9rem .95rem;border:1px solid #d1d5db;border-radius:10px;background:#f8fafc;color:#0f172a;font-weight:600;';
       pill.textContent = lockedVal;
 
       serviceWrap.innerHTML = '';
@@ -396,7 +324,7 @@
       });
     }
 
-    // Extra hidden fields (e.g., campaign, page tag)
+    // Extra hidden fields
     if (cfg.hiddenFields && typeof cfg.hiddenFields === 'object') {
       Object.entries(cfg.hiddenFields).forEach(([name, val]) => {
         const h = document.createElement('input');
@@ -408,4 +336,48 @@
     }
   }
 
-// ... rest of your hero.js remains the same ...
+  // ---------- Boot ----------
+  function attachBehaviors() {
+    const form = document.getElementById('estimate-form');
+    if (!form) return;
+
+    // Apply per-page config if provided
+    applyFormConfig(form);
+
+    // Phone mask
+    const phone = $('#phone', form);
+    if (phone) phone.addEventListener('input', maskPhoneInput);
+
+    // ZIP → City/State autofill
+    const zipEl = $('#zip', form);
+    if (zipEl) {
+      const trigger = debounce(() => {
+        const v = (zipEl.value || '').trim().slice(0, 5);
+        if (/^\d{5}$/.test(v)) fillCityStateFromZip(v, form);
+      }, 350);
+      zipEl.addEventListener('input', trigger);
+      zipEl.addEventListener('blur', () => {
+        const v = (zipEl.value || '').trim().slice(0, 5);
+        if (/^\d{5}$/.test(v)) fillCityStateFromZip(v, form);
+      });
+    }
+
+    // Try to render reCAPTCHA now (and again on first focus)
+    tryRenderRecaptchaWithRetries();
+    form.addEventListener('focusin', () => {
+      renderRecaptchaIfPossible();
+    }, { once: true });
+
+    // Submit wiring
+    form.addEventListener('submit', submitHandler);
+  }
+
+  // ✅ Expose init so your include loader can run it after injecting the hero
+  window.initEstimateForm = attachBehaviors;
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', attachBehaviors);
+  } else {
+    attachBehaviors();
+  }
+})();
