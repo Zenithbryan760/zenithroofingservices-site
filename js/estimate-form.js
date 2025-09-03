@@ -1,314 +1,411 @@
-/* js/estimate-form.js
-   - Posts to '/.netlify/functions/jn-create-lead'
-   - Uses your variable names (display_name, first_name, etc.)
-   - Optional Invisible reCAPTCHA
-   - Redirects to data-redirect / ESTIMATE_FORM_CONFIG.redirect / '/thank-you/'
-   - Normalizes miswired CTAs to avoid 404s
-   - Phone masking + ZIP -> City/State auto-fill (Zippopotam)
--------------------------------------------------------------- */
+/* =========================================================
+   Zenith – Hero Estimate Form Logic
+   File: /js/hero.js
+   Safe to include on any page. Looks for #estimate-form.
+   ========================================================= */
+
 (() => {
   'use strict';
 
-  const FN_URL = '/.netlify/functions/jn-create-lead';
-
-  // ---------- Helpers ----------
-  const $  = (sel, root = document) => root.querySelector(sel);
+  // ---------- Tiny helpers ----------
+  const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
-  const digits = (s) => (s || '').replace(/\D+/g, '');
-  const normalizePhone = (raw = '') =>
-    (String(raw).match(/\d/g) || []).join('').replace(/^1(?=\d{10}$)/, '');
-  const splitName = (full = '') => {
-    const t = full.trim().replace(/\s+/g, ' ');
-    if (!t) return { first: '', last: '' };
-    const parts = t.split(' ');
-    if (parts.length === 1) return { first: parts[0], last: '' };
-    return { first: parts.shift(), last: parts.join(' ') };
-  };
-  const ensureErrorBox = (form) => {
-    let box = form.querySelector('.form-error-summary');
+  const debounce = (fn, wait = 300) => {            // NEW
+    let t;                                          // NEW
+    return (...args) => {                           // NEW
+      clearTimeout(t);                              // NEW
+      t = setTimeout(() => fn(...args), wait);      // NEW
+    };                                              // NEW
+  };                                                // NEW
+
+  // Create (or get) a compact error box near the submit button
+  function ensureErrorSummary(form) {
+    let box = $('.form-error-summary', form);
     if (!box) {
       box = document.createElement('div');
       box.className = 'form-error-summary';
-      form.appendChild(box);
+      box.style.margin = '10px 0';
+      box.style.fontSize = '0.95rem';
+      box.style.lineHeight = '1.3';
+      box.style.color = '#b00020';
+      box.style.display = 'none';
+      const submitRow = form.querySelector('button[type="submit"]')?.parentElement || form;
+      submitRow.parentNode.insertBefore(box, submitRow);
     }
     return box;
-  };
-  const showError = (form, msg) => { const b = ensureErrorBox(form); b.hidden = false; b.textContent = msg; };
-  const hideError = (form) => { const b = form.querySelector('.form-error-summary'); if (b) { b.hidden = true; b.textContent = ''; } };
-  const setLoading = (form, on) => {
-    const btn = form.querySelector('button[type="submit"]');
-    if (!btn) return;
-    if (on) { btn.dataset.prev = btn.textContent; btn.textContent = 'Submitting…'; btn.disabled = true; }
-    else { btn.textContent = btn.dataset.prev || 'Submit'; btn.disabled = false; }
-  };
-  const formatUS = (raw) => {
-    const d = digits(raw).slice(0, 10);
-    if (d.length <= 3) return d;
-    if (d.length <= 6) return `(${d.slice(0,3)}) ${d.slice(3)}`;
-    return `(${d.slice(0,3)}) ${d.slice(3,6)}-${d.slice(6)}`;
-  };
-
-  // ---------- FORCE all estimate CTAs to stay on page ----------
-  function isEstimateCTA(node) {
-    const txt = (node.textContent || '').toLowerCase();
-    const cls = (node.className || '').toLowerCase();
-    const href = (node.getAttribute && node.getAttribute('href') || '').toLowerCase();
-    const textHit = /estimate/.test(txt);
-    const classHit = /estimate|cta-btn|ftr-btn/.test(cls);
-    const hrefHit =
-      /^#estimate$/.test(href) ||
-      /^\/#estimate$/.test(href) ||
-      /^#estimate-form$/.test(href) ||
-      /^\/#estimate-form$/.test(href) ||
-      /\/services\/gutters(\/|#|$)/.test(href) ||
-      (/^https?:\/\//.test(href) && /\/services\/gutters(\/|#|$)/.test(href));
-    return textHit || classHit || hrefHit;
   }
-  function scrollToLocalOrHomeForm() {
-    const target = document.querySelector('#estimate-form, #estimate');
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      location.href = '/#estimate-form';
-    }
+  function showError(form, msg) {
+    const box = ensureErrorSummary(form);
+    box.textContent = msg;
+    box.style.display = 'block';
   }
-  function normalizeEstimateLinks() {
-    const hasForm = !!document.querySelector('#estimate-form');
-    const toLocal = '#estimate-form';
-    const toHome  = '/#estimate-form';
-    document.querySelectorAll('a[href]').forEach(a => {
-      if (!isEstimateCTA(a)) return;
-      a.setAttribute('href', hasForm ? toLocal : toHome);
-      a.removeAttribute('target');
-    });
-  }
-  document.addEventListener('click', (e) => {
-    const a = e.target.closest('a[href], button');
-    if (!a) return;
-    if (a.tagName === 'BUTTON') {
-      if (!isEstimateCTA(a)) return;
-      e.preventDefault(); scrollToLocalOrHomeForm(); return;
-    }
-    if (!isEstimateCTA(a)) return;
-    e.preventDefault(); scrollToLocalOrHomeForm();
-  }, { capture: true });
-
-  if (location.hash === '#estimate' || location.hash === '#estimate-form') {
-    const t = document.querySelector('#estimate-form, #estimate');
-    if (t) setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
+  function hideError(form) {
+    const box = $('.form-error-summary', form);
+    if (box) box.style.display = 'none';
   }
 
-  // ---------- Optional reCAPTCHA ----------
-  let recaptchaWidgetId = null;
-  function renderRecaptcha() {
-    const el = document.getElementById('recaptcha-container');
-    if (!el) return;
-    const sitekey = el.getAttribute('data-sitekey') || '';
-    if (!sitekey || !window.grecaptcha || typeof window.grecaptcha.render !== 'function') return;
-    try { recaptchaWidgetId = window.grecaptcha.render(el, { sitekey, size: 'invisible' }); } catch {}
-  }
-  window.addEventListener('load', renderRecaptcha);
+  // ---------- Field validation ----------
+  const emailOK = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  const zipOK   = (v) => /^\d{5}(-?\d{4})?$/.test(v);
+  const cleanDigits = (v) => (v || '').replace(/\D+/g, '');
 
-  // ---------- Enforce required fields (photos explicitly NOT required) ----------
-  function enforceRequired(form) {
-    const must = [
-      '#firstName', '#lastName', '#phone', '#email',
-      '#streetAddress', '#city', '#state', '#zip',
-      '#serviceType', '#description'
+  function validateForm(form) {
+    hideError(form);
+
+    // Required fields you collect server-side
+    const requiredIds = [
+      'firstName','lastName','phone','email',
+      'streetAddress','city','state','zip'
     ];
-    must.forEach(sel => { const el = $(sel, form); if (el) el.required = true; });
-    const photos = $('#photos', form);
-    if (photos) photos.required = false;
+
+    for (const id of requiredIds) {
+      const el = $('#' + id, form);
+      if (!el || !el.value || !el.value.trim()) {
+        showError(form, 'Please fill out all required fields (marked with *).');
+        el?.focus();
+        return false;
+      }
+    }
+
+    const email = $('#email', form).value.trim();
+    if (!emailOK(email)) {
+      showError(form, 'Please enter a valid email address.');
+      $('#email', form).focus();
+      return false;
+    }
+
+    const phoneRaw = $('#phone', form).value;
+    const phoneDigits = cleanDigits(phoneRaw);
+    if (phoneDigits.length < 10) {
+      showError(form, 'Please enter a valid phone number (10 digits).');
+      $('#phone', form).focus();
+      return false;
+    }
+
+    const zip = $('#zip', form).value.trim();
+    if (!zipOK(zip)) {
+      showError(form, 'Please enter a valid ZIP code (5 or 9 digits).');
+      $('#zip', form).focus();
+      return false;
+    }
+
+    return true;
   }
 
-  // ---------- ZIP -> City/State auto-fill (Zippopotam) ----------
-  async function fillCityStateFromZip(form) {
-    const zipEl = $('#zip', form);
-    const cityEl = $('#city', form);
-    const stateEl = $('#state', form);
+  // ---------- Phone masking ----------
+  function maskPhoneInput(e) {
+    const input = e.target;
+    const digits = input.value.replace(/\D+/g, '').slice(0, 10);
+    let out = digits;
 
-    const zip = zipEl?.value?.trim();
-    if (!/^\d{5}$/.test(zip || '')) return;
+    if (digits.length > 6) out = `(${digits.slice(0,3)}) ${digits.slice(3,6)}-${digits.slice(6)}`;
+    else if (digits.length > 3) out = `(${digits.slice(0,3)}) ${digits.slice(3)}`;
+    else if (digits.length > 0) out = `(${digits}`;
+
+    input.value = out;
+  }
+
+  // ---------- ZIP → City/State autofill ----------  // NEW
+  async function fillCityStateFromZip(zip, form) {    // NEW
+    if (!/^\d{5}$/.test(zip)) return;                 // NEW
+    try {                                             // NEW
+      const res = await fetch(`https://api.zippopotam.us/us/${zip}`, { mode: 'cors' }); // NEW
+      if (!res.ok) return;                            // NEW
+      const data = await res.json();                  // NEW
+      const place = (data.places && data.places[0]) || null; // NEW
+      if (!place) return;                             // NEW
+      const city = place['place name'] || '';         // NEW
+      const stateAbbr = place['state abbreviation'] || ''; // NEW
+
+      const cityEl = $('#city', form);                // NEW
+      if (cityEl && !cityEl.value.trim()) {          // NEW (won't overwrite user input)
+        cityEl.value = city;                          // NEW
+      }                                               // NEW
+      const stateEl = $('#state', form);              // NEW
+      if (stateEl && !stateEl.readOnly && stateAbbr) {// NEW
+        stateEl.value = stateAbbr;                    // NEW
+      }                                               // NEW
+    } catch (_) { /* silent */ }                      // NEW
+  }                                                   // NEW
+
+  // ---------- reCAPTCHA render ----------
+  // We’ll try to render once on load, and again on focus if needed.
+  function renderRecaptchaIfPossible() {
+    const host = window.grecaptcha && typeof window.grecaptcha.render === 'function';
+    const container = document.getElementById('recaptcha') || document.querySelector('.g-recaptcha');
+    if (!host || !container) return;
+
+    // Avoid duplicate render
+    if (typeof window._recaptchaWidgetId !== 'undefined') return;
+
+    // Site key sources (pick the first you have):
+    // 1) <div id="recaptcha" data-sitekey="..."></div>
+    // 2) window.RECAPTCHA_SITE_KEY (set on the page)
+    const sitekey = container.getAttribute('data-sitekey') || window.RECAPTCHA_SITE_KEY || '';
+    if (!sitekey) return;
 
     try {
-      const resp = await fetch(`https://api.zippopotam.us/us/${zip}`, { mode: 'cors' });
-      if (!resp.ok) return;
-      const data = await resp.json();
-      const place = data?.places?.[0];
-      if (!place) return;
-
-      const city = place['place name'] || '';
-      const stateAbbr = place['state abbreviation'] || '';
-
-      if (cityEl && !cityEl.value) cityEl.value = city;
-      if (stateEl && !stateEl.readOnly) {
-        if (!stateEl.value) stateEl.value = stateAbbr;
-      }
-    } catch (_) {
-      // swallow; leave fields as-is
+      window._recaptchaWidgetId = window.grecaptcha.render(container, { sitekey });
+    } catch (e) {
+      // noop
     }
   }
 
-  // ---------- Init ----------
-  function init() {
-    normalizeEstimateLinks();
+  // Some browsers load the API later; try a few times.
+  function tryRenderRecaptchaWithRetries() {
+    let tries = 0;
+    const timer = setInterval(() => {
+      tries++;
+      renderRecaptchaIfPossible();
+      if (typeof window._recaptchaWidgetId !== 'undefined' || tries > 20) {
+        clearInterval(timer);
+      }
+    }, 300);
+  }
 
-    const form = document.getElementById('estimate-form');
-    if (!form || form.dataset.bound === 'true') return;
-    form.dataset.bound = 'true';
+  // ---------- Submit handler (includes recaptcha_token) ----------
+  async function submitHandler(e) {
+    e.preventDefault();
+    const form = e.currentTarget;
 
-    enforceRequired(form);
+    if (!validateForm(form)) return;
 
-    const phone = $('#phone', form);
-    const zip   = $('#zip', form);
-    const city  = $('#city', form);
-
-    // Phone masking as user types
-    if (phone) phone.addEventListener('input', () => { phone.value = formatUS(phone.value); });
-
-    // ZIP guard + auto-fill city/state when 5 digits present
-    if (zip) {
-      zip.addEventListener('input', () => {
-        zip.value = digits(zip.value).slice(0,5);
-        if (zip.value.length === 5) fillCityStateFromZip(form);
-      });
-      zip.addEventListener('blur', () => {
-        if (/^\d{5}$/.test(zip.value)) fillCityStateFromZip(form);
-      });
+    // Collect reCAPTCHA token (required when RECAPTCHA_SECRET is set in Netlify)
+    let token = '';
+    if (window.grecaptcha && typeof window.grecaptcha.getResponse === 'function') {
+      if (typeof window._recaptchaWidgetId !== 'undefined') {
+        token = window.grecaptcha.getResponse(window._recaptchaWidgetId) || '';
+      }
+    }
+    if (!token) {
+      // Some themes add a hidden textarea; try that as a fallback
+      const t = document.querySelector('textarea[name="g-recaptcha-response"]');
+      if (t && t.value) token = t.value.trim();
+    }
+    if (!token) {
+      showError(form, 'Please complete the reCAPTCHA before submitting.');
+      return;
     }
 
-    // If user edits city after ZIP, we don't overwrite it automatically—only fill when empty.
+    // Build payload (names must match your Netlify function expectations)
+    const fd = new FormData(form);
+    const data = {
+      first_name:      (fd.get('first_name') || '').trim(),
+      last_name:       (fd.get('last_name')  || '').trim(),
+      phone:           (fd.get('phone')      || '').trim(),
+      email:           (fd.get('email')      || '').trim(),
+      street_address:  (fd.get('street_address') || '').trim(),
+      city:            (fd.get('city')       || '').trim(),
+      state:           (fd.get('state')      || '').trim(),
+      zip:             (fd.get('zip')        || '').trim(),
+      service_type:     fd.get('service_type')    || '',
+      referral_source:  fd.get('referral_source') || '',
+      description:     (fd.get('description')    || '').trim(),
 
-    form.addEventListener('submit', async (evt) => {
-      evt.preventDefault();
-      hideError(form);
+      // ✅ NEW — required by your function when RECAPTCHA_SECRET is present
+      recaptcha_token: token,
 
-      // Name handling: supports either separate fields or a hidden 'name'
-      const fullName =
-        form.querySelector('[name="name"]')?.value ||
-        [$('#firstName', form)?.value, $('#lastName', form)?.value].filter(Boolean).join(' ') || '';
-      const { first, last } = splitName(fullName);
+      // Helpful context in CRM/email
+      page: location.href
+    };
 
-      // Required checks (everything except photos)
-      const required = [
-        '#firstName', '#lastName', '#phone', '#email',
-        '#streetAddress', '#city', '#state', '#zip',
-        '#serviceType', '#description'
-      ].map(sel => $(sel, form)).filter(Boolean);
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn ? submitBtn.textContent : null;
+    if (submitBtn) { submitBtn.textContent = 'Submitting…'; submitBtn.disabled = true; }
 
-      let invalid = [];
-      required.forEach((el) => {
-        const ok = !!(el.value && el.value.trim());
-        el.classList.toggle('is-invalid', !ok);
-        el.setAttribute('aria-invalid', String(!ok));
-        if (!ok) invalid.push(el);
+    try {
+      const res = await fetch('/.netlify/functions/jn-create-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
       });
 
-      // Phone 10 digits
-      const nPhone = normalizePhone($('#phone', form)?.value || '');
-      if (!(nPhone && nPhone.length === 10)) {
-        const p = $('#phone', form);
-        if (p && !invalid.includes(p)) { p.classList.add('is-invalid'); p.setAttribute('aria-invalid','true'); invalid.push(p); }
-      }
-
-      // ZIP 5 digits
-      const zipEl = $('#zip', form);
-      if (zipEl && !/^\d{5}$/.test(zipEl.value || '')) {
-        if (!invalid.includes(zipEl)) { zipEl.classList.add('is-invalid'); zipEl.setAttribute('aria-invalid','true'); invalid.push(zipEl); }
-      }
-
-      if (invalid.length) {
-        showError(form, 'Please complete the required fields highlighted in red.');
-        invalid[0].focus();
+      const text = await res.text();
+      if (!res.ok) {
+        // Surface server message if available
+        let msg = 'Sorry, there was a problem submitting your request.';
+        try {
+          const json = JSON.parse(text);
+          if (json && (json.error || json.message)) {
+            msg = 'Error: ' + (json.error || json.message);
+          }
+        } catch (_) {}
+        console.error('Lead submit failed:', text);
+        showError(form, msg);
         return;
       }
 
-      // reCAPTCHA token (optional)
-      let recaptcha_token = '';
-      try {
-        if (window.grecaptcha && typeof window.grecaptcha.execute === 'function' && recaptchaWidgetId !== null) {
-          recaptcha_token = await window.grecaptcha.execute(recaptchaWidgetId, { action: 'submit' });
-        } else {
-          const t = document.querySelector('textarea[name="g-recaptcha-response"]');
-          if (t && t.value) recaptcha_token = t.value;
-        }
-      } catch {}
+      alert('Thanks! Your request has been submitted.');
+      form.reset();
+      hideError(form);
 
-      // Description lines (mirrors your adapter)
-      const descLines = [];
-      const msg = $('#description', form)?.value?.trim();
-      if (msg) descLines.push(msg);
-      const serviceType = $('#serviceType', form)?.value?.trim() || '';
-      if (serviceType) descLines.push(`Service Type: ${serviceType}`);
-      const zipVal = $('#zip', form)?.value?.trim() || '';
-      if (zipVal) descLines.push(`ZIP: ${zipVal}`);
-      descLines.push(`Page: ${location.pathname}`);
-      descLines.push('Note: Real-estate / third-party inspections are billed.');
-
-      // Build payload (keys your function expects)
-      const payload = {
-        display_name: fullName || ($('#email', form)?.value || $('#phone', form)?.value) || 'Website Lead',
-        first_name: $('#firstName', form)?.value?.trim() || first,
-        last_name:  $('#lastName',  form)?.value?.trim() || last,
-        phone:      $('#phone', form)?.value || '',
-        email:      $('#email', form)?.value || '',
-        street_address: $('#streetAddress', form)?.value || '',
-        city:       $('#city', form)?.value || '',
-        state:      $('#state', form)?.value || '',
-        zip:        $('#zip',  form)?.value || '',
-        description: descLines.join('\n'),
-        service_type: serviceType,
-        referral_source: $('#referral', form)?.value || document.referrer || '',
-        page: location.href,
-        recaptcha_token
-      };
-
-      setLoading(form, true);
-      try {
-        const res = await fetch(FN_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-
-        const text = await res.text();
-
-        if (res.ok || res.status === 201) {
-          // ====== SUCCESS (no alert, redirect instead) ======
-          form.reset();
-          [...form.querySelectorAll('[aria-invalid="true"]')].forEach(el => {
-            el.classList.remove('is-invalid');
-            el.setAttribute('aria-invalid', 'false');
-          });
-          if (window.grecaptcha && typeof window.grecaptcha.reset === 'function') {
-            try { window.grecaptcha.reset(); } catch (_) {}
-          }
-          const block = form.closest('.estimate-form-block');
-          const redirectTo =
-            (window.ESTIMATE_FORM_CONFIG && window.ESTIMATE_FORM_CONFIG.redirect) ||
-            (block && block.dataset && block.dataset.redirect) ||
-            '/thank-you/';
-          location.href = redirectTo;
-          return;
-        }
-
-        // Error path: show returned message if possible
-        try {
-          const j = JSON.parse(text);
-          showError(form, j.error || j.message || 'Something went wrong. Please call or text us.');
-        } catch {
-          showError(form, text || 'Something went wrong. Please call or text us.');
-        }
-
-      } catch (err) {
-        console.error(err);
-        showError(form, 'Network error. Please check your connection and try again.');
-      } finally {
-        setLoading(form, false);
+      if (window.grecaptcha &&
+          typeof window.grecaptcha.reset === 'function' &&
+          typeof window._recaptchaWidgetId !== 'undefined') {
+        window.grecaptcha.reset(window._recaptchaWidgetId);
+      } else {
+        const t = document.querySelector('textarea[name="g-recaptcha-response"]');
+        if (t) t.value = '';
       }
-    });
+
+    } catch (err) {
+      console.error(err);
+      showError(form, 'Network error. Please try again.');
+    } finally {
+      if (submitBtn && originalText) {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    }
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
+  // ---------- Boot ----------
+  function attachBehaviors() {
+    const form = document.getElementById('estimate-form');
+    if (!form) return;
+
+    // Phone mask
+    const phone = $('#phone', form);
+    if (phone) phone.addEventListener('input', maskPhoneInput);
+
+    // ZIP → City/State autofill                         // NEW
+    const zipEl = $('#zip', form);                       // NEW
+    if (zipEl) {                                         // NEW
+      const trigger = debounce(() => {                   // NEW
+        const v = (zipEl.value || '').trim().slice(0, 5);// NEW
+        if (/^\d{5}$/.test(v)) fillCityStateFromZip(v, form); // NEW
+      }, 350);                                           // NEW
+      zipEl.addEventListener('input', trigger);          // NEW
+      zipEl.addEventListener('blur', () => {             // NEW
+        const v = (zipEl.value || '').trim().slice(0, 5);// NEW
+        if (/^\d{5}$/.test(v)) fillCityStateFromZip(v, form); // NEW
+      });                                                // NEW
+    }                                                    // NEW
+
+    // Try to render reCAPTCHA now (and again on first focus)
+    tryRenderRecaptchaWithRetries();
+    form.addEventListener('focusin', renderRecaptchaIfPossible, { once: true });
+
+    // Submit wiring
+    form.addEventListener('submit', submitHandler);
+  }
+
+  // ✅ Expose init so your include loader can run it after injecting the hero
+  window.initEstimateForm = attachBehaviors;
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', attachBehaviors);
+  } else {
+    attachBehaviors();
+  }
 })();
+// ... your existing hero.js above ...
+
+  // ---------- Boot ----------
+  function attachBehaviors() {
+    const form = document.getElementById('estimate-form');
+    if (!form) return;
+
+    // NEW: apply per-page config if provided
+    applyFormConfig(form); // NEW
+
+    // Phone mask
+    const phone = $('#phone', form);
+    if (phone) phone.addEventListener('input', maskPhoneInput);
+
+    // ZIP → City/State autofill
+    const zipEl = $('#zip', form);
+    if (zipEl) {
+      const trigger = debounce(() => {
+        const v = (zipEl.value || '').trim().slice(0, 5);
+        if (/^\d{5}$/.test(v)) fillCityStateFromZip(v, form);
+      }, 350);
+      zipEl.addEventListener('input', trigger);
+      zipEl.addEventListener('blur', () => {
+        const v = (zipEl.value || '').trim().slice(0, 5);
+        if (/^\d{5}$/.test(v)) fillCityStateFromZip(v, form);
+      });
+    }
+
+    // Try to render reCAPTCHA now (and again on first focus)
+    tryRenderRecaptchaWithRetries();
+    form.addEventListener('focusin', renderRecaptchaIfPossible, { once: true });
+
+    // Submit wiring
+    form.addEventListener('submit', submitHandler);
+  }
+
+  // NEW: universal form config (title, subtitle, lock/preselect service, placeholders, hidden fields)
+  function applyFormConfig(form) {
+    const cfg = window.ESTIMATE_FORM_CONFIG || {};
+    const block = form.closest('.estimate-form-block') || document;
+
+    // Title / subtitle
+    if (cfg.title) {
+      const h1 = block.querySelector('.form-title');
+      if (h1) h1.textContent = cfg.title;
+    }
+    if (cfg.subtitle) {
+      const sub = block.querySelector('.form-subtitle');
+      if (sub) sub.textContent = cfg.subtitle;
+    }
+
+    // Description placeholder
+    if (cfg.descriptionPlaceholder) {
+      const desc = form.querySelector('#description');
+      if (desc) desc.placeholder = cfg.descriptionPlaceholder;
+    }
+
+    // Referral preselect
+    if (cfg.referralPreselect) {
+      const ref = form.querySelector('#referral');
+      if (ref) {
+        [...ref.options].forEach(o => {
+          if (o.text.trim().toLowerCase() === String(cfg.referralPreselect).trim().toLowerCase()) {
+            o.selected = true;
+          }
+        });
+      }
+    }
+
+    // Service lock OR preselect
+    const serviceWrap = form.querySelector('.service-select-wrap');
+    const select = form.querySelector('#serviceType');
+
+    if (cfg.lockService && serviceWrap) {
+      // Replace the select with a hidden field + a visible pill
+      const lockedVal = String(cfg.lockService);
+      const hidden = document.createElement('input');
+      hidden.type = 'hidden';
+      hidden.name = 'service_type';
+      hidden.value = lockedVal;
+
+      const pill = document.createElement('div');
+      pill.setAttribute('aria-label', 'Selected service');
+      pill.style.cssText = 'display:flex;align-items:center;gap:.5rem;padding:.9rem .95rem;border:1px solid var(--zenith-border);border-radius:10px;background:#f8fafc;color:#0f172a;font-weight:600;';
+      pill.textContent = lockedVal;
+
+      serviceWrap.innerHTML = '';
+      serviceWrap.appendChild(pill);
+      serviceWrap.appendChild(hidden);
+    } else if (cfg.preselectService && select) {
+      [...select.options].forEach(o => {
+        if (o.text.trim().toLowerCase() === String(cfg.preselectService).trim().toLowerCase()) {
+          o.selected = true;
+        }
+      });
+    }
+
+    // Extra hidden fields (e.g., campaign, page tag)
+    if (cfg.hiddenFields && typeof cfg.hiddenFields === 'object') {
+      Object.entries(cfg.hiddenFields).forEach(([name, val]) => {
+        const h = document.createElement('input');
+        h.type = 'hidden';
+        h.name = name;
+        h.value = String(val);
+        form.appendChild(h);
+      });
+    }
+  }
+
+// ... rest of your hero.js remains the same ...
