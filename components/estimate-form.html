@@ -2,14 +2,8 @@
 <!-- Legacy anchor so old links like href="#estimate" still land on the form -->
 <div id="estimate" style="position:relative;scroll-margin-top:90px;"></div>
 
-<!-- Component-scoped assets -->
+<!-- Component-scoped CSS -->
 <link rel="stylesheet" href="/css/estimate-form.css">
-<!-- IMPORTANT: this runs the form logic when included via the loader -->
-<script src="/js/estimate-form.js" defer></script>
-
-<!-- (Only needed if RECAPTCHA is enabled for your Netlify function)
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
--->
 
 <!-- data-redirect lets you change the success destination without editing JS -->
 <section class="zenith-card estimate-form-block" data-redirect="/thank-you/" style="max-width:920px;margin:0 auto;">
@@ -22,15 +16,14 @@
     </p>
   </div>
 
-  <!-- Invisible reCAPTCHA container (optional) -->
+  <!-- Invisible reCAPTCHA container (optional; leave sitekey blank if not using) -->
   <div id="recaptcha-container"
        class="g-recaptcha"
-       data-sitekey=""  <!-- paste your site key if using reCAPTCHA -->
+       data-sitekey=""
        data-size="invisible"
        style="display:none;"></div>
 
   <form id="estimate-form" method="POST" novalidate>
-    <!-- Combined name (fallback if you ever add it) -->
     <input type="text" name="name" autocomplete="name" style="display:none" aria-hidden="true"/>
 
     <!-- Row 1 -->
@@ -140,3 +133,10 @@
     </p>
   </form>
 </section>
+
+<!-- IMPORTANT: put the script AFTER the form so it runs once the form nodes exist -->
+<script src="/js/estimate-form.js"></script>
+
+<!-- Only needed if you actually enable RECAPTCHA_SECRET in Netlify:
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+-->
