@@ -146,6 +146,22 @@
     payload.recaptcha_token = token;
     payload.page = location.href;
 
+    /* ====== ADDED: auto-append page/source note to the customer's description ====== */
+    const cfg = window.ESTIMATE_FORM_CONFIG || {};
+    const labelFromConfig = cfg.lockService || cfg?.hiddenFields?.campaign;   // prefer your page's service/campaign
+    const labelFromDOM =
+      document.querySelector('main h1')?.textContent ||
+      document.querySelector('meta[property="og:title"]')?.content ||
+      document.title;
+    const slug = location.pathname.replace(/\/+$/,'').split('/').pop() || 'home';
+    const labelFromSlug = slug.replace(/[-_]+/g,' ').replace(/\b\w/g, c => c.toUpperCase());
+    const pageLabel = (labelFromConfig || labelFromDOM || labelFromSlug).trim();
+    const sourceLine = `[Source: ${pageLabel} • ${location.pathname}]`;
+    if (!/\[Source:/.test(payload.description || '')) {
+      payload.description = `${(payload.description || '').trim()}\n\n${sourceLine}`;
+    }
+    /* ====== /ADDED ====== */
+
     const btn = form.querySelector('button[type="submit"]');
     const txt = btn?.textContent;
     if (btn) { btn.disabled = true; btn.textContent = 'Submitting…'; }
