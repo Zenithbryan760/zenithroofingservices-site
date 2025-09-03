@@ -1,128 +1,99 @@
-/* /js/loader.js
-   Lightweight HTML partial loader.
-
-   WHAT THIS FILE DOES (high level):
-   1) Finds every element on the page with data-include="/path/file.html".
-   2) Fetches the referenced HTML file.
-   3) Replaces the placeholder element with the fetched HTML fragment.
-   4) **Executes any <script> tags found in the fragment**, including:
-        - External scripts: <script src="/js/estimate-form.js" defer></script>
-        - Inline scripts:   <script>console.log('Hello')</script>
-      (Browsers do NOT run scripts injected via innerHTML by default. We fix that.)
-   5) **Avoids inserting duplicate external scripts** that are already on the page.
-   6) After all includes are finished, calls optional initializers (e.g., window.ZenithHeader.init()).
-   7) Fires a custom "includes:ready" event in case other code is waiting for includes.
-
-   WHY YOU NEED THIS:
-   - Your components (e.g., components/estimate-form.html) are injected via innerHTML.
-   - Without this loader’s “script-aware” behavior, scripts in those components won’t run.
-   - This file preserves your original behavior and adds just the missing execution step.
+/* /js/loader.js — Lightweight HTML partial loader (ready for all pages)
+   - Finds [data-include]
+   - Inserts markup
+   - Executes ALL nested <script> tags (inline + external)
+   - Skips duplicate external scripts
+   - Fires "includes:ready" on document AND window
 */
-
 (async () => {
-  // 1) Find all placeholder elements like:
-  //    <div data-include="/components/header-section.html"></div>
-  //    <section data-include="/components/footer.html"></section>
   const slots = [...document.querySelectorAll('[data-include]')];
 
-  // 2) Helper: avoid adding the same external script more than once.
-  //    - If we inject a component that includes <script src="/js/estimate-form.js">,
-  //      but that script already exists on the page (or was previously included),
-  //      we skip adding it again to prevent duplicate execution and event binding.
+  // Check if a given external script URL is already present on the page
   const scriptSrcExists = (src) => {
     try {
-      // Convert "src" into an absolute URL so we can compare apples to apples.
       const abs = new URL(src, location.href).href;
-
-      // Look through all <script src="..."> already on the page and compare absolute URLs.
       return [...document.querySelectorAll('script[src]')]
         .some(s => new URL(s.getAttribute('src'), location.href).href === abs);
     } catch {
-      // If URL parsing fails (malformed src), be conservative and say "doesn't exist".
       return false;
     }
   };
 
-  // 3) Fetch and insert each include in parallel (fast, and your original approach).
+  // Execute scripts in DOM order. External scripts are awaited unless async is set.
+  async function runScriptsSequentially(scripts) {
+    for (const n of scripts) {
+      const src = n.getAttribute('src');
+
+      // Skip external script if it's already loaded
+      if (src && scriptSrcExists(src)) continue;
+
+      // Create a real <script> so the browser executes it
+      const s = document.createElement('script');
+
+      // Copy all attributes (type, src, async, defer, data-*, etc.)
+      for (const { name, value } of [...n.attributes]) s.setAttribute(name, value);
+
+      // Inline code
+      if (!src) s.textContent = n.textContent || '';
+
+      // If external & async => don't block; otherwise await load to preserve order
+      const shouldAwait = !!src && !s.hasAttribute('async');
+
+      const p = new Promise((resolve) => {
+        s.onload = s.onerror = () => resolve();
+      });
+
+      // Append to head (or body). Head is fine for both inline and external in this context.
+      (document.head || document.documentElement).appendChild(s);
+
+      if (shouldAwait) await p;
+    }
+  }
+
   await Promise.all(slots.map(async (slot) => {
-    const url = slot.getAttribute('data-include'); // e.g., "/components/estimate-form.html"
+    const url = slot.getAttribute('data-include');
     try {
-      // 3a) Fetch the component HTML.
-      //     cache:'no-store' ensures you always get the latest version (useful during development).
       const res  = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const html = await res.text();
 
-      // 3b) Create a temporary container and parse the HTML string into DOM nodes.
-      //     We do not insert directly into the document yet; we want to examine nodes first.
+      // Parse into a container
       const wrap = document.createElement('div');
       wrap.innerHTML = html.trim();
 
-      // 3c) Prepare to replace the placeholder element with the new nodes.
+      // Collect ALL scripts (nested too), then remove them from the fragment
+      const scripts = [...wrap.querySelectorAll('script')];
+      scripts.forEach(s => s.parentNode.removeChild(s));
+
+      // Insert all non-script nodes before the placeholder
       const parent = slot.parentNode;
-      const nodes  = [...wrap.childNodes]; // turn NodeList into a plain array
+      [...wrap.childNodes].forEach(n => parent.insertBefore(n, slot));
 
-      // 3d) Insert each node before the placeholder (so order is preserved).
-      nodes.forEach((n) => {
-        // IMPORTANT PART: execute <script> tags from the included fragment
-        // Browsers ignore <script> tags inserted by innerHTML, so we must recreate them.
-        if (n.tagName === 'SCRIPT') {
-          const src = n.getAttribute('src');
+      // Execute scripts after DOM nodes are in place
+      await runScriptsSequentially(scripts);
 
-          // If this is an external script and it already exists in the page,
-          // we skip it to prevent double-loading and double-binding events.
-          if (src && scriptSrcExists(src)) return;
-
-          // Recreate a real <script> element so the browser executes it.
-          const s = document.createElement('script');
-
-          // Copy ALL attributes (e.g., src, type, async, defer, data-*, etc.)
-          for (const { name, value } of [...n.attributes]) {
-            s.setAttribute(name, value);
-          }
-
-          // If there is no "src" (inline script), copy its JS code into textContent.
-          // This is how you execute inline scripts from includes.
-          if (!src) s.textContent = n.textContent || '';
-
-          // Insert the <script> element into the DOM (this is when it actually executes).
-          parent.insertBefore(s, slot);
-        } else {
-          // For all non-script nodes, preserve your original behavior:
-          // just insert them before the placeholder.
-          parent.insertBefore(n, slot);
-        }
-      });
-
-      // Finally, remove the include placeholder element from the DOM.
+      // Remove the placeholder
       parent.removeChild(slot);
-
     } catch (err) {
-      // If the fetch fails (404, network error), log it. This helps you debug broken include paths.
       console.error('Include failed:', url, err);
     }
   }));
 
-  // 4) After ALL includes are finished:
-  //    - Optionally (re)initialize UI components that depend on included markup.
-  //    - This preserves your original post-include header init pattern.
+  // OPTIONAL: call any component initializers you expose globally
   try {
-    // If your header component defines window.ZenithHeader.init(), call it now.
     if (window.ZenithHeader?.init) window.ZenithHeader.init();
-
-    // If you add other components in the future that expose init functions,
-    // you can call them here as well, e.g.:
-    // if (window.Footer?.init) window.Footer.init();
-    // if (window.SomeWidget?.mount) window.SomeWidget.mount();
-
   } catch (e) {
-    // Never break the page if an init fails; just log a soft message.
     console.debug('Post-include init skipped:', e);
   }
 
-  // 5) ADDED: Broadcast a custom event so other scripts can run AFTER includes are ready.
-  //    - This is optional and harmless. You can listen for it elsewhere:
-  //        document.addEventListener('includes:ready', () => { /* do stuff */ });
+  // Fire the ready event for both patterns of listeners
   try {
-    document.dispatchEvent(new CustomEvent('includes:ready'));
-  } catch {} // Old browsers without CustomEvent constructor will just skip.
+    const evt = new (window.CustomEvent || Event)('includes:ready');
+    document.dispatchEvent(evt);
+    window.dispatchEvent(new Event('includes:ready'));
+  } catch {
+    // Old browsers: best-effort fallback
+    document.dispatchEvent(new Event('includes:ready'));
+    window.dispatchEvent(new Event('includes:ready'));
+  }
 })();
