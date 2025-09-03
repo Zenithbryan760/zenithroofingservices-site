@@ -2,19 +2,13 @@
 <!-- Legacy anchor so old links like href="#estimate" still land on the form -->
 <div id="estimate" style="position:relative;scroll-margin-top:90px;"></div>
 
-<!-- Styles (safe inside includes) -->
+<!-- Component-scoped assets -->
 <link rel="stylesheet" href="/css/estimate-form.css">
+<!-- IMPORTANT: this runs the form logic when included via the loader -->
+<script src="/js/estimate-form.js" defer></script>
 
-<!-- IMPORTANT:
-     When this component is inserted via data-include/innerHTML, <script> tags inside it will NOT execute.
-     Load /js/estimate-form.js globally in your base layout (outside the include system), e.g.:
-       <script src="/js/estimate-form.js" defer></script>
-     Keep the line below as a hint/preload; execution still depends on the global include. -->
-<link rel="modulepreload" href="/js/estimate-form.js" as="script" />
-
-<!-- reCAPTCHA (this script also won't execute when injected via innerHTML;
-     if you use reCAPTCHA, add it globally in your base layout as well)
-     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<!-- (Only needed if RECAPTCHA is enabled for your Netlify function)
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 -->
 
 <!-- data-redirect lets you change the success destination without editing JS -->
