@@ -5,61 +5,132 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>5" & 6" Seamless Aluminum Gutters, K-Style & Gutter Guards | Zenith Roofing Services</title>
-  <meta name="description" content="On-site fabricated 5&quot; & 6&quot; K-style seamless aluminum gutters with gutter guards. Multiple factory colors. Clean installs, sealed miters, hangers every 24&quot;-32&quot;, downspouts sized to code. Free estimates in Escondido, San Diego & Temecula." />
-  <link rel="canonical" href="https://zenithroofingservices.com/services/gutters/" />
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large" />
+  <meta name="description" content="On-site fabricated 5&quot; & 6&quot; K-style seamless aluminum gutters with color-matched finishes and gutter guards. Clean installs with sealed miters, hidden hangers 24&quot;–32&quot; O.C., correctly sized downspouts. Free estimates in Escondido, San Diego & Temecula." />
+  <link rel="canonical" href="https://zenithroofingservices.com/services/gutters/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="5&quot; & 6&quot; Seamless Aluminum Gutters & Gutter Guards | Zenith Roofing"/>
+  <meta property="og:description" content="K-style seamless gutters fabricated on-site, color-matched, sealed, and pitched right. Serving Escondido, San Diego, Temecula."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://zenithroofingservices.com/services/gutters/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Preload critical CSS/JS you already use sitewide -->
-  <link rel="preload" href="/css/base.css" as="style" />
-  <link rel="preload" href="/css/header.css" as="style" />
-  <link rel="preload" href="/css/ui.css" as="style" />
-  <link rel="preload" href="/js/header.js" as="script" />
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="preload" href="/js/header.js" as="script"/>
 
   <!-- Site CSS -->
-  <link rel="stylesheet" href="/css/header.css" />
-  <link rel="stylesheet" href="/css/base.css" />
-  <link rel="stylesheet" href="/css/footer.css" />
-  <link rel="stylesheet" href="/css/ui.css" />
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <!-- Form CSS (scoped) -->
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
 
-  <!-- Open Graph (nice preview) -->
-  <meta property="og:title" content="5&quot; & 6&quot; Seamless Aluminum Gutters & Gutter Guards" />
-  <meta property="og:description" content="On-site fabricated K-style gutters in multiple factory colors. Expert installation & lifetime-grade materials." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://zenithroofingservices.com/services/gutters/" />
-
+  <!-- Page-scope styles (tiny; won’t fight your global UI) -->
   <style>
-    /* Page-scope helpers (kept tiny; won’t fight your global UI) */
-    .hero { padding: 48px 20px 20px; text-align: center; }
-    .hero h1 { font-size: clamp(28px, 3.2vw, 40px); margin: 0 0 8px; color:#072e59; }
-    .hero p { color:#475569; max-width: 880px; margin: 0 auto; }
-    .pillnav { display:flex; gap:10px; overflow:auto; padding:10px 16px; margin: 8px auto 16px; }
-    .pillnav a { white-space:nowrap; border:1px solid #d1d5db; padding:8px 12px; border-radius:999px; font-weight:600; }
-    .section { padding: 28px 16px; }
-    .section h2 { font-size: clamp(22px, 2.4vw, 30px); margin: 0 0 12px; color:#072e59; }
-    .grid-2 { display:grid; gap:16px; grid-template-columns: 1fr; }
-    @media (min-width: 900px){ .grid-2{ grid-template-columns: 1fr 1fr; } }
-    .checklist { list-style: none; padding:0; margin:0; }
-    .checklist li::before { content:"✓"; margin-right:10px; color:#0f766e; font-weight:700; }
-    .colors { columns: 2; column-gap: 18px; }
-    @media (min-width:800px){ .colors{ columns: 3; } }
-    .actionbar { position: sticky; bottom: 16px; display:flex; gap:10px; justify-content:center; padding:10px; }
-    .ab-btn { border-radius: 12px; padding: 10px 14px; border:1px solid #cbd5e1; font-weight:700; background:#fff; }
-    .ab-btn.estimate{ background:#0f766e; color:#fff; border-color:#0f766e; }
+    :root{
+      --zenith-navy:#072e59;
+      --zenith-orange:#f7941d;
+    }
+    .hero{padding:48px 20px 20px;text-align:center}
+    .hero h1{font-size:clamp(28px,3.2vw,40px);margin:0 0 8px;color:var(--zenith-navy)}
+    .hero p{color:#475569;max-width:880px;margin:0 auto}
+    .pillnav{display:flex;gap:10px;overflow:auto;padding:10px 16px;margin:8px auto 16px}
+    .pillnav a{white-space:nowrap;border:1px solid #d1d5db;padding:8px 12px;border-radius:999px;font-weight:700;color:#0f172a;text-decoration:none}
+    .pillnav a:focus-visible{outline:2px solid var(--zenith-orange);outline-offset:2px}
+    .section{padding:28px 16px}
+    .section h2{font-size:clamp(22px,2.4vw,30px);margin:0 0 12px;color:var(--zenith-navy)}
+    .grid-2{display:grid;gap:16px;grid-template-columns:1fr}
+    @media(min-width:900px){.grid-2{grid-template-columns:1fr 1fr}}
+    .checklist{list-style:none;padding:0;margin:0}
+    .checklist li{margin:.4rem 0}
+    .checklist li::before{content:"✓";margin-right:10px;color:#0f766e;font-weight:700}
+    .colors{columns:2;column-gap:18px}
+    @media(min-width:800px){.colors{columns:3}}
+    .actionbar{position:sticky;bottom:16px;display:flex;gap:10px;justify-content:center;padding:10px}
+    .ab-btn{border-radius:12px;padding:10px 14px;border:1px solid #cbd5e1;font-weight:800;background:#fff;color:#0f172a;text-decoration:none}
+    .ab-btn.estimate{background:#0f766e;color:#fff;border-color:#0f766e}
+    .badge{display:inline-flex;gap:.5rem;align-items:center;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:999px;padding:.35rem .7rem;color:#0f172a;font-weight:700}
+    .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,1px,1px);white-space:nowrap;border:0}
   </style>
+
+  <!-- JSON-LD: Organization + Service + FAQ (helps SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Zenith Roofing Services, Inc.",
+    "url":"https://zenithroofingservices.com",
+    "telephone":"+1-858-900-6163",
+    "areaServed":["Escondido","San Diego","Temecula","North County San Diego","Oceanside","Carlsbad"],
+    "logo":"https://zenithroofingservices.com/images/logo.png",
+    "sameAs":[
+      "https://www.yelp.com/biz/zenith-roofing-services-escondido",
+      "https://www.angi.com/companylist/us/ca/escondido/zenith-roofing-services-inc-reviews-1.htm"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "serviceType":"Seamless Aluminum Gutters & Gutter Guards",
+    "provider":{
+      "@type":"LocalBusiness",
+      "name":"Zenith Roofing Services, Inc.",
+      "telephone":"+1-858-900-6163",
+      "areaServed":"San Diego & Temecula"
+    },
+    "areaServed":["Escondido","San Diego","Temecula","North County San Diego"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Do I need gutter guards?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"If trees overhang or you get frequent clogs, guards reduce cleanings and keep water moving. We size guards to your 5\" or 6\" K-style system and roof type."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Is 5\" or 6\" right for my home?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Most homes are fine with 5\". For long runs, steep pitches, or larger roof planes, 6\" with 3\"×4\" downspouts drains faster and reduces overflow risk."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- Header include -->
   <div data-include="/components/header-section.html"></div>
 
   <main id="top" class="page">
+    <!-- ===== HERO ===== -->
     <section class="hero">
+      <p class="sr-only">Zenith Roofing Services – CSLB #1036112 (C-39)</p>
+      <span class="badge" aria-hidden="true">K-Style • Seamless • Color-Matched</span>
       <h1>5&quot; &amp; 6&quot; K-Style Seamless Aluminum Gutters &amp; Gutter Guards</h1>
-      <p>Factory-finish, on-site fabricated seamless gutters built to drain right and look clean. We size your runs, downspouts, and outlets to code, seal every miter, and mount with hidden hangers for a crisp, long-lasting install.</p>
-      <p style="margin-top:10px;"><a class="ab-btn estimate" href="#estimate-form" aria-label="Request a free estimate">Request a Free Estimate</a></p>
+      <p>Factory-finish, on-site fabricated seamless gutters built to drain right and look clean. We size runs, downspouts, and outlets to code, seal every miter, and mount with hidden hangers for a crisp, long-lasting install.</p>
+      <p style="margin-top:12px;">
+        <a class="ab-btn estimate" href="#estimate-form" aria-label="Request a free estimate">Request a Free Estimate</a>
+      </p>
     </section>
 
-    <!-- Pill nav -->
-    <nav class="pillnav" aria-label="Gutter services navigation">
+    <!-- ===== PILL NAV ===== -->
+    <nav class="pillnav" aria-label="Gutter page sections">
       <a href="#why">Why Seamless</a>
       <a href="#sizes">5&quot; vs 6&quot;</a>
       <a href="#guards">Gutter Guards</a>
@@ -70,21 +141,21 @@
       <a href="#estimate-form">Free Estimate</a>
     </nav>
 
-    <!-- ===== CONTENT FIRST ===== -->
+    <!-- ===== CONTENT ===== -->
     <section id="why" class="section">
       <h2>Why Seamless Aluminum Gutters</h2>
       <div class="grid-2">
         <div>
           <ul class="checklist">
             <li><strong>Seamless runs:</strong> Fewer joints = fewer leak points.</li>
-            <li><strong>Hidden hangers:</strong> Clean look and strong hold, typically 24&quot;–32&quot; on center.</li>
+            <li><strong>Hidden hangers:</strong> Clean look and strong hold, typically 24&quot;–32&quot; O.C.</li>
             <li><strong>K-style profile:</strong> Matches modern fascia lines and roofing styles.</li>
             <li><strong>Corrosion-resistant aluminum:</strong> Durable, low maintenance, color-matched finish.</li>
-            <li><strong>Proper pitch &amp; outlet sizing:</strong> Built on site for your roof geometry and rainfall.</li>
+            <li><strong>Correct pitch &amp; outlet sizing:</strong> Built on-site for your roof geometry and rainfall.</li>
           </ul>
         </div>
         <div>
-          <p>We measure each eave, set correct slopes, place outlets where they actually move water, and seal all end-caps and miters. Downspout placement is planned to protect landscaping and walkways while keeping walls dry.</p>
+          <p>We measure each eave, set proper slopes, place outlets to actually move water, and seal all end-caps and miters. Downspout placement is planned to protect landscaping and walkways while keeping walls dry.</p>
         </div>
       </div>
     </section>
@@ -94,22 +165,22 @@
       <div class="grid-2">
         <div>
           <h3 style="margin:0 0 6px;">5&quot; K-Style</h3>
-          <p>Great for most single-family homes with standard roof areas. Pairs well with 2&quot;x3&quot; downspouts on shorter runs, or 3&quot;x4&quot; where extra flow is needed.</p>
+          <p>Great for most single-family homes with standard roof areas. Pair with 2&quot;×3&quot; downspouts for short runs, or 3&quot;×4&quot; where a bit more flow is needed.</p>
         </div>
         <div>
           <h3 style="margin:0 0 6px;">6&quot; K-Style</h3>
-          <p>Best for larger roof planes, steep pitches, long runs, or where heavy rainfall concentrates. Usually paired with 3&quot;x4&quot; downspouts for faster drainage and fewer overflows.</p>
+          <p>Best for larger roof planes, steep pitches, long runs, or heavy rainfall concentration. Typically paired with 3&quot;×4&quot; downspouts for faster drainage and fewer overflows.</p>
         </div>
       </div>
     </section>
 
     <section id="guards" class="section">
       <h2>Gutter Guards</h2>
-      <p>We install durable guards that help keep leaves and debris out while maintaining proper water flow. Guards are matched to your gutter size, roof system, and surrounding trees to reduce cleanings and protect fascia.</p>
+      <p>We install durable guards that help keep leaves and debris out while maintaining water flow. Guards are matched to your gutter size, roof system, and surrounding trees to reduce cleanings and protect fascia.</p>
       <ul class="checklist" style="margin-top:10px;">
         <li>Sized for 5&quot; and 6&quot; K-style</li>
         <li>Fasteners that won’t void your roof warranty</li>
-        <li>Reduces clogs, ice-dam risk (in colder zones), and staining</li>
+        <li>Reduces clogs and staining along the eave</li>
       </ul>
     </section>
 
@@ -117,52 +188,32 @@
       <h2>Available Colors</h2>
       <p>Choose a factory finish that complements your roof and trim. Current options:</p>
       <div class="colors">
-        <div>High Gloss White</div>
-        <div>Satin</div>
-        <div>Linen</div>
-        <div>Low Gloss White</div>
-        <div>Almond</div>
-        <div>Creme</div>
-        <div>Sandcastle</div>
-        <div>Ivory</div>
-        <div>Wicker</div>
-        <div>Clay</div>
-        <div>Wood Beige</div>
-        <div>Buck</div>
-        <div>Colonial Grey</div>
-        <div>Dark Grey</div>
-        <div>Terratone</div>
-        <div>Tuxedo</div>
-        <div>Royal Brown</div>
-        <div>Musket Brown</div>
-        <div>Harvest Brown</div>
-        <div>Bronze</div>
-        <div>Black</div>
-        <div>Blue</div>
-        <div>Green</div>
-        <div>Red</div>
+        <div>High Gloss White</div><div>Satin</div><div>Linen</div><div>Low Gloss White</div><div>Almond</div><div>Creme</div>
+        <div>Sandcastle</div><div>Ivory</div><div>Wicker</div><div>Clay</div><div>Wood Beige</div><div>Buck</div>
+        <div>Colonial Grey</div><div>Dark Grey</div><div>Terratone</div><div>Tuxedo</div><div>Royal Brown</div><div>Musket Brown</div>
+        <div>Harvest Brown</div><div>Bronze</div><div>Black</div><div>Blue</div><div>Green</div><div>Red</div>
       </div>
-      <p style="margin-top:10px;color:#64748b;font-size:.95rem;">Note: Actual finishes may vary slightly in person due to lighting and screen differences.</p>
+      <p style="margin-top:10px;color:#64748b;font-size:.95rem;">Note: finishes may vary slightly in person due to lighting and screens.</p>
     </section>
 
     <section id="process" class="section">
       <h2>Our Installation Process</h2>
       <ol style="padding-left:18px;margin:0;">
         <li><strong>Assessment &amp; Layout:</strong> Measure eaves, locate downspouts, confirm size (5&quot; or 6&quot;).</li>
-        <li><strong>On-Site Fabrication:</strong> Form seamless runs to exact length. Prep miters and end-caps.</li>
-        <li><strong>Mounting:</strong> Hidden hangers placed ~24&quot;–32&quot; O.C. with stainless/galvanized fasteners.</li>
+        <li><strong>On-Site Fabrication:</strong> Form seamless runs to exact length; prep miters and end-caps.</li>
+        <li><strong>Mounting:</strong> Hidden hangers placed ~24&quot;–32&quot; O.C. with appropriate fasteners.</li>
         <li><strong>Sealing &amp; Pitch:</strong> Set correct slope to outlets; seal end-caps and miters.</li>
         <li><strong>Downspouts:</strong> Size and route to grade, splash blocks, or drains as needed.</li>
-        <li><strong>Cleanup &amp; Walkthrough:</strong> Site sweep, magnet pass for screws, final quality check.</li>
+        <li><strong>Cleanup &amp; Walkthrough:</strong> Site sweep, magnet pass, final quality check.</li>
       </ol>
     </section>
 
     <section id="faq" class="section">
       <h2>FAQ</h2>
       <h3>Do I need gutter guards?</h3>
-      <p>If you have trees near the roof line or frequent clogs, guards are a smart upgrade. They cut maintenance and help keep water moving to the ground instead of over the eave.</p>
+      <p>If trees are near the roof line or you get frequent clogs, guards are a smart upgrade. They cut maintenance and keep water moving to the ground instead of over the eave.</p>
       <h3>Will 5&quot; work for my home?</h3>
-      <p>Often yes. If you’ve had overflow on long or steep sections—or you have large roof areas feeding one run—6&quot; is the safer choice. We’ll size it during your estimate.</p>
+      <p>Often yes. If you’ve had overflow on long or steep sections—or have large roof areas feeding one run—6&quot; is the safer choice. We’ll size it during your estimate.</p>
     </section>
 
     <section id="areas" class="section">
@@ -171,12 +222,12 @@
       <p style="color:#64748b;font-size:.95rem;">Zenith Roofing Services, Inc. — CSLB #1036112 (C-39)</p>
     </section>
 
-    <!-- ===== ESTIMATE FORM (component includes its own CSS/JS) ===== -->
-    <section class="section" id="estimate-form-block">
-      <div data-include="/components/estimate-form.html"></div>
+    <!-- ===== ESTIMATE FORM ===== -->
+    <section class="section estimate-form-section" id="estimate-form">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
     </section>
 
-    <!-- Sticky action bar -->
+    <!-- Sticky CTA (mobile-friendly) -->
     <div class="actionbar" aria-hidden="true">
       <a class="ab-btn call" href="tel:+18589006163" aria-label="Call us">Call</a>
       <a class="ab-btn text" href="sms:+18589006163" aria-label="Text us">Text</a>
@@ -190,11 +241,30 @@
   <!-- ===== JS ===== -->
   <script src="/js/header.js"></script>
 
-  <!-- Script-aware include loader (executes scripts inside included components) -->
+  <!-- Per-page form config: locks service + sets copy -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      title: "Free Gutter Estimate",
+      subtitle: "K-style seamless gutters • 5\" & 6\" • Color-matched • Professional install",
+      lockService: "Gutters & Gutter Guards",
+      descriptionPlaceholder: "Tell us about your home and where you notice overflows, drips, or debris build-up…",
+      referralPreselect: "Website",
+      hiddenFields: {
+        campaign: "services/gutters",
+        page_tag: "gutters-page"
+      }
+    };
+    // Optional: expose your public reCAPTCHA site key if you prefer JS to read it here
+    // window.RECAPTCHA_SITE_KEY = "YOUR_RECAPTCHA_SITE_KEY";
+  </script>
+
+  <!-- Include loader (executes scripts inside included components) -->
   <script src="/js/loader.js"></script>
 
-  <!-- (Only needed if RECAPTCHA is enabled on your Netlify function)
+  <!-- Form logic -->
+  <script src="/js/estimate-form.js"></script>
+
+  <!-- reCAPTCHA (safe to always include; it only renders if element + key is found) -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  -->
 </body>
 </html>
