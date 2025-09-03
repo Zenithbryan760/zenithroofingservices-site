@@ -71,6 +71,7 @@
       <h1>5&quot; &amp; 6&quot; K-Style Seamless Aluminum Gutters &amp; Gutter Guards</h1>
       <p>Factory-finish, on-site fabricated seamless gutters built to drain right and look clean…</p>
       <p style="margin-top:12px;">
+        <!-- NOTE: links now point to #estimate (the section wrapper), not #estimate-form -->
         <a class="ab-btn estimate" href="#estimate" aria-label="Request a free estimate">Request a Free Estimate</a>
       </p>
     </section>
@@ -97,6 +98,7 @@
     <section id="areas" class="section"><h2>Service Areas</h2>…</section>
 
     <!-- ===== ESTIMATE FORM ===== -->
+    <!-- IMPORTANT: wrapper id is NOT 'estimate-form' to avoid collision -->
     <section class="section estimate-form-section" id="estimate">
       <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
     </section>
@@ -107,10 +109,10 @@
       <a class="ab-btn text" href="sms:+18589006163">Text</a>
       <a class="ab-btn estimate" href="#estimate">Estimate</a>
     </div>
-  </main>
 
-  <!-- Footer include moved OUTSIDE <main> for full-width -->
-  <footer data-include="/components/footer.html"></footer>
+    <!-- Footer include -->
+    <section data-include="/components/footer.html"></section>
+  </main>
 
   <!-- ===== JS ===== -->
   <script src="/js/header.js"></script>
@@ -123,7 +125,9 @@
       lockService: "Gutters & Gutter Guards",
       descriptionPlaceholder: "Tell us about your home and where you notice overflows, drips, or debris build-up…",
       referralPreselect: "Website",
-      hiddenFields: { campaign: "services/gutters", page_tag: "gutters-page" }
+      hiddenFields: { campaign: "services/gutters", page_tag: "gutters-page" },
+      /* 🔶 NEW: label for the submit button on this page */
+      submitText: "Request Free Estimate"
     };
   </script>
 
