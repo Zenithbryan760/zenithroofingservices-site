@@ -238,16 +238,40 @@
     </section>
 
     <!-- ===== AREAS ===== -->
-    <section id="areas" class="section card airy hoverable">
-      <h2>Service Areas</h2>
-      <p class="muted">North County San Diego, greater San Diego &amp; South Riverside County.</p>
-      <div class="service-areas">
-        <ul>
-          <li>Escondido</li><li>San Marcos</li><li>Vista</li><li>Oceanside</li><li>Carlsbad</li><li>Poway</li>
-          <li>Rancho Bernardo</li><li>Temecula</li><li>Murrieta</li><li>Fallbrook</li><li>Menifee</li>
-        </ul>
-      </div>
-    </section>
+<section id="areas" class="section card airy hoverable service-areas-modern">
+  <div class="sa-head">
+    <h2 class="sa-title">Service Areas</h2>
+    <p class="muted">Fast scheduling in North County San Diego, greater San Diego, and South Riverside County.</p>
+  </div>
+
+  <!-- Core cities -->
+  <ul class="chip-grid sa-cities" aria-label="Primary service cities">
+    <li><span class="chip sa-chip strong">Escondido</span></li>
+    <li><span class="chip sa-chip strong">San Diego</span></li>
+    <li><span class="chip sa-chip strong">Temecula</span></li>
+    <li><span class="chip sa-chip">San Marcos</span></li>
+    <li><span class="chip sa-chip">Vista</span></li>
+    <li><span class="chip sa-chip">Oceanside</span></li>
+  </ul>
+
+  <!-- Expandable: more nearby cities -->
+  <details class="sa-more">
+    <summary class="sa-summary">More nearby cities</summary>
+    <ul class="chip-grid sa-cities">
+      <li><span class="chip sa-chip">Carlsbad</span></li>
+      <li><span class="chip sa-chip">Encinitas</span></li>
+      <li><span class="chip sa-chip">Poway</span></li>
+      <li><span class="chip sa-chip">Rancho Bernardo</span></li>
+      <li><span class="chip sa-chip">Fallbrook</span></li>
+      <li><span class="chip sa-chip">Murrieta</span></li>
+      <li><span class="chip sa-chip">Menifee</span></li>
+    </ul>
+  </details>
+
+  <div class="center-actions">
+    <a class="btn btn-primary" href="#estimate">Check my ZIP &amp; Request Free Estimate</a>
+  </div>
+</section>
 
     <!-- ===== ESTIMATE FORM ===== -->
     <section id="estimate" class="section estimate-form-section">
