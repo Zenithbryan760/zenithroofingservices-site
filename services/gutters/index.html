@@ -23,21 +23,67 @@
   <link rel="stylesheet" href="/css/base.css"/>
   <link rel="stylesheet" href="/css/header.css"/>
   <link rel="stylesheet" href="/css/ui.css"/>
-  <link rel="stylesheet" href="/css/footer.css"/><!-- footer CSS in head -->
+  <link rel="stylesheet" href="/css/footer.css"/>
   <!-- Form CSS -->
   <link rel="stylesheet" href="/css/estimate-form.css"/>
 
-  <!-- Page-scope polish (scoped to .page only) -->
+  <!-- Page-scope polish: subtle motion, refined hover, modern hero -->
   <style>
     :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
-    .page .hero .chip{ background:#fff; font-weight:700; }
-    .page .hero .badges{ display:flex; gap:8px; flex-wrap:wrap; margin:.35rem 0 .5rem; }
-    .page .color-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+    /* Smooth anchor scroll (safe, lightweight) */
+    html { scroll-behavior: smooth; }
+
+    /* Hero: split layout on desktop, soft gradient */
+    .page .hero {
+      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border: 1px solid var(--ui-line);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 14px 34px rgba(2,12,32,.08);
+    }
+    .page .hero .eyebrow {
+      display:flex; flex-wrap:wrap; gap:8px; margin: 0 0 .6rem;
+    }
+    .page .hero .eyebrow .chip { background:#fff; font-weight:800; }
+    .page .hero .split { align-items:center; }
+    .page .hero .media {
+      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
+      background:#fff; box-shadow: var(--ui-shadow);
+      transform: translateZ(0);
+    }
+    .page .hero .media::before {
+      content:""; display:block; aspect-ratio: 16/10; 
+      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
+    }
+
+    /* Section refinements */
+    .page h2 { margin-bottom: .4rem; }
+    .page .section .lede-narrow { max-width: 68ch; color:#475569; }
+
+    /* Fancy cards hover */
+    .page .card.hoverable { will-change: transform, box-shadow; }
+    .page .card.hoverable:hover { transform: translateY(-3px); }
+
+    /* Color swatches */
+    .page .color-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
     @media(min-width:700px){ .page .color-grid{ grid-template-columns:repeat(6,1fr); } }
-    .page .swatch{ border:1px solid var(--ui-line); border-radius:10px; padding:.6rem .55rem; text-align:center; font-weight:700; background:#fff; }
-    .page .cta-strip{ background:#072e59; color:#fff; border-radius:16px; padding:14px 16px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; box-shadow:var(--ui-shadow); }
-    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
-    .page .mini-faq details{ background:#fff; }
+    .page .swatch { background:#fff; border:1px solid var(--ui-line); border-radius:12px; padding:.65rem .55rem; text-align:center; font-weight:800; }
+
+    /* CTA band */
+    .page .cta-strip {
+      background: #072e59; color:#fff; border-radius:16px;
+      padding: 16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      box-shadow: 0 14px 34px rgba(2,12,32,.12);
+    }
+    .page .cta-strip .btn { background:#f7941d; color:#0b0b0b; }
+    .page .cta-strip .btn:hover { transform: translateY(-2px); }
+
+    /* Micro lists */
+    .page .mini-list { margin:.5rem 0 0 .95rem; color:#334155; }
+    .page .mini-list li { margin:.25rem 0; }
+
+    /* In-section CTA alignment */
+    .page .center-actions { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
   </style>
 
   <!-- JSON-LD: Service + Local targeting + FAQ -->
@@ -69,18 +115,23 @@
   <div data-include="/components/header-section.html"></div>
 
   <main id="top" class="page">
-    <!-- ===== HERO ===== -->
-    <section class="hero card airy hoverable" aria-label="Gutters hero">
-      <div class="badges">
+    <!-- ===== HERO (split) ===== -->
+    <section class="hero" aria-label="Seamless gutters">
+      <div class="eyebrow">
         <span class="chip">K-Style</span>
         <span class="chip">Seamless</span>
         <span class="chip">Color-Matched</span>
       </div>
-      <h1>5&quot; &amp; 6&quot; Seamless Aluminum Gutters &amp; Gutter Guards</h1>
-      <p class="lede">On-site fabricated, cleanly installed K-style gutters that drain right and look finished—hidden hangers, sealed miters, correct downspout sizing, and optional guards. Serving <strong>Escondido</strong>, <strong>San Diego</strong>, and <strong>Temecula</strong>.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="#estimate" aria-label="Request a free estimate for gutters">Request Free Estimate</a>
-        <a class="btn btn-outline" href="#sizes">5&quot; vs 6&quot;</a>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">5&quot; &amp; 6&quot; Seamless Aluminum Gutters &amp; Gutter Guards</h1>
+          <p class="lede">On-site fabricated K-style gutters that drain right and look finished—hidden hangers, sealed miters, correct downspout sizing, and optional guards. Serving <strong>Escondido</strong>, <strong>San Diego</strong>, and <strong>Temecula</strong>.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#estimate" aria-label="Request a free estimate for gutters">Request Free Estimate</a>
+            <a class="btn btn-outline" href="#sizes">5&quot; vs 6&quot;</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true"></div>
       </div>
     </section>
 
@@ -102,14 +153,24 @@
       <div class="grid cols-2">
         <div>
           <ul class="checklist relaxed">
-            <li><span class="tick">✓</span> Fabricated on-site for long, clean runs with fewer joints</li>
-            <li><span class="tick">✓</span> Hidden hangers every 24&quot;–32&quot; for strength and a tidy appearance</li>
-            <li><span class="tick">✓</span> Factory-finish colors to match your fascia/trim</li>
-            <li><span class="tick">✓</span> Proper pitch, sealed miters, and correctly sized downspouts</li>
-            <li><span class="tick">✓</span> Optional low-profile gutter guards to reduce clogs</li>
+            <li><span class="tick">✓</span> Seamless runs for fewer joints and leak points</li>
+            <li><span class="tick">✓</span> Hidden hangers every 24&quot;–32&quot; for strength and a clean look</li>
+            <li><span class="tick">✓</span> Factory-finish colors to match fascia and trim</li>
+            <li><span class="tick">✓</span> Correct pitch, sealed miters, right-sized downspouts</li>
+            <li><span class="tick">✓</span> Optional low-profile guards to reduce clogs</li>
           </ul>
         </div>
-        <div class="tip"><strong>Built for downpours:</strong> We size, pitch, and place downspouts so your system moves water away from the home—even on heavy San Diego storm days.</div>
+        <div>
+          <p class="section lede-narrow" style="margin:0;">We size, pitch, and place downspouts for real storms—not just a sprinkle. The result is a system that moves water away from the home and looks great doing it.</p>
+          <ul class="mini-list">
+            <li>Measured and fabricated on-site</li>
+            <li>Clean fascia lines with K-style profile</li>
+            <li>Color-matched outlets and accessories</li>
+          </ul>
+        </div>
+      </div>
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Request Free Estimate</a>
       </div>
     </section>
 
@@ -124,14 +185,11 @@
           <tbody>
             <tr><th scope="row">Typical roof areas &amp; pitches</th><td>5&quot; K-style (most homes)</td></tr>
             <tr><th scope="row">Large roof planes or steep pitch</th><td>6&quot; K-style (higher capacity)</td></tr>
-            <tr><th scope="row">Long runs with valley dumps</th><td>6&quot; K-style near valleys/downspouts</td></tr>
-            <tr><th scope="row">Frequent heavy rain exposure</th><td>6&quot; K-style for extra margin</td></tr>
+            <tr><th scope="row">Long runs with valley dumps</th><td>6&quot; near valleys/downspouts</td></tr>
+            <tr><th scope="row">Frequent heavy rain exposure</th><td>6&quot; for extra margin</td></tr>
           </tbody>
         </table>
         <p id="size-notes" class="muted small" style="margin-top:.5rem;">We’ll verify sizing on site. Mixed sizing (5&quot; + targeted 6&quot;) is common for optimal performance and look.</p>
-      </div>
-      <div class="center">
-        <a class="btn btn-primary" href="#estimate">Request Free Estimate</a>
       </div>
     </section>
 
@@ -139,7 +197,7 @@
     <section id="guards" class="section card airy hoverable">
       <h2>Low-Profile Gutter Guards</h2>
       <div class="grid cols-2">
-        <p class="prose">Keep out leaves, needles, and debris while letting water in. We’ll recommend the right guard for your roofline and trees. Guards aren’t for every home; if a simple clean-out is the better value, we’ll tell you.</p>
+        <p class="prose">Keep out leaves, needles, and debris while letting water in. We’ll recommend the right guard for your roofline and trees. If a simple clean-out is the better value, we’ll tell you.</p>
         <ul class="checklist relaxed">
           <li><span class="tick">✓</span> Discourages clogs and overflows</li>
           <li><span class="tick">✓</span> Low-profile look, color-coordinated</li>
@@ -170,7 +228,7 @@
     </section>
 
     <!-- ===== FAQ ===== -->
-    <section id="faq" class="section card airy hoverable mini-faq">
+    <section id="faq" class="section card airy hoverable">
       <h2>FAQ</h2>
       <div class="faq">
         <details><summary>Do I need 5&quot; or 6&quot; gutters?</summary><p class="muted">Most homes use 5&quot;. For big roof planes, steep pitch, or long runs with valley flow, we’ll recommend 6&quot; for capacity.</p></details>
@@ -189,9 +247,6 @@
           <li>Rancho Bernardo</li><li>Temecula</li><li>Murrieta</li><li>Fallbrook</li><li>Menifee</li>
         </ul>
       </div>
-      <div class="cta" style="margin-top:.8rem;">
-        <a class="btn btn-primary" href="#estimate">Request Free Estimate</a>
-      </div>
     </section>
 
     <!-- ===== ESTIMATE FORM ===== -->
@@ -200,7 +255,7 @@
       <p class="form-disclaimer"><em>*Free estimates are not available for real estate transactions. If you're a real estate professional, buyer, or seller seeking a roof report, visual inspection, or verbal estimate for a transaction, please see our <a href="#real-estate">Real Estate Services</a>.</em></p>
     </section>
 
-    <!-- In-content CTA strip -->
+    <!-- Full-width CTA band inside container -->
     <section class="section">
       <div class="cta-strip">
         <div class="text"><strong>Ready for seamless gutters?</strong> Color-matched, pitched right, and built to last.</div>
@@ -215,18 +270,16 @@
   <!-- ===== JS ===== -->
   <script src="/js/loader.js" defer></script>
   <script src="/js/header.js" defer></script>
-  <!-- Estimate form logic (auto-detects “Gutters” from page content) -->
+  <!-- Estimate form config: per page button text & campaign tag -->
   <script>
     window.ESTIMATE_FORM_CONFIG = {
-      // no lockService -> auto-detects "Gutters" from page content
       submitText: "Request Free Estimate",
       referralPreselect: "Website",
       hiddenFields: { campaign: "services/gutters", page_tag: "gutters-page" }
+      // No lockService needed — your JS auto-detects “Gutters” from page content
     };
   </script>
   <script src="/js/estimate-form.js" defer></script>
-
-  <!-- reCAPTCHA -->
   <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
