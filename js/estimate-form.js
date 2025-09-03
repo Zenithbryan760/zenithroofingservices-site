@@ -1,4 +1,3 @@
-<script>
 (function () {
   const FN_URL = '/.netlify/functions/jn-create-lead';
   let recaptchaId = null;
@@ -6,30 +5,6 @@
   const $ = (s, r = document) => r.querySelector(s);
   const cleanDigits = (v = '') => v.replace(/\D+/g, '');
   const debounce = (fn, wait = 300) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), wait); }; };
-
-  /* ==== NEW (tiny helpers for service auto-detect) ==== */
-  const norm = s => String(s||'').toLowerCase();
-  // Map common keywords -> your select options
-  const SERVICE_MAP = [
-    { k: ['gutter','gutters'], v: 'Gutters' },
-    { k: ['tune up','tune-up','maintenance','tuneup'], v: 'Roof Maintenance' },
-    { k: ['repair','leak','tile repair','roof repair'], v: 'Roof Repair' },
-    { k: ['replacement','re-roof','reroof','re roof'], v: 'Roof Replacement' },
-    { k: ['commercial'], v: 'Commercial Roofing' },
-    { k: ['residential','home'], v: 'Residential Roofing' },
-  ];
-  function guessServiceFromPage(){
-    const h1 = document.querySelector('main h1')?.textContent || '';
-    const og = document.querySelector('meta[property="og:title"]')?.content || '';
-    const ttl = document.title || '';
-    const path = location.pathname.replace(/\/+$/,'').replace(/[-_]/g,' ');
-    const hay = norm([h1, og, ttl, path].join(' '));
-    for (const {k,v} of SERVICE_MAP){
-      if (k.some(word => hay.includes(word))) return v;
-    }
-    return ''; // no guess
-  }
-  /* ==== /NEW ==== */
 
   function showError(form, msg) {
     let box = $('.form-error-summary', form);
@@ -84,45 +59,49 @@
     } catch (_) {}
   }
 
-  // Prefill from page config (service type, referral, description placeholder)
+  // Helper: derive a service label from the page if not provided
+  function deriveServiceFromPage() {
+    const h1 = document.querySelector('main h1')?.textContent?.trim();
+    if (h1) return h1.replace(/\s*\(.*?\)\s*/g, ''); // remove parentheses like "(Concrete & Clay)"
+    const og = document.querySelector('meta[property="og:title"]')?.content?.trim();
+    if (og) return og;
+    const title = document.title?.trim();
+    if (title) return title;
+    return 'General Roofing';
+  }
+
+  // Prefill from page config (service type, referral, description placeholder, submit text)
   function prefillFromConfig(form) {
     const cfg = window.ESTIMATE_FORM_CONFIG || {};
 
-    // Service Type — default to auto-detected from page; falls back to “Gutters”
-    const svc = $('#serviceType', form);
-    if (svc) {
-      const desiredRaw = cfg.lockService || guessServiceFromPage() || 'Gutters';   // <-- only change
-      const desired = desiredRaw.toLowerCase();
-      let matched = null;
-      [...svc.options].forEach(o => {
-        const t = (o.textContent || o.value || '').toLowerCase();
-        if (!matched && (t === desired || t.includes(desired))) matched = o.value || o.textContent;
-      });
-      if (!matched) {
-        // soft fallback for gutters keyword if the exact text differs
-        [...svc.options].forEach(o => {
-          const t = (o.textContent || o.value || '').toLowerCase();
-          if (!matched && desired.includes('gutter') && t.includes('gutter')) matched = o.value || o.textContent;
-        });
-      }
-      if (matched) svc.value = matched;
-
-      if (cfg.lockServiceLock === true) {
-        svc.disabled = true;
-        // ensure value still posts
-        const hidden = document.createElement('input');
+    // --- NEW: Always inject a hidden "service_type" based on page/service, and hide dropdown if present ---
+    const serviceLabel = (cfg.lockService || deriveServiceFromPage()).trim();
+    if (serviceLabel) {
+      // ensure one hidden field with name="service_type"
+      let hidden = form.querySelector('input[type="hidden"][name="service_type"]');
+      if (!hidden) {
+        hidden = document.createElement('input');
         hidden.type = 'hidden';
-        hidden.name = svc.name;
-        hidden.value = svc.value;
+        hidden.name = 'service_type';
         form.appendChild(hidden);
       }
+      hidden.value = serviceLabel;
+
+      // If a <select id="serviceType"> exists, neutralize it so it doesn't submit or show
+      const svc = $('#serviceType', form);
+      if (svc) {
+        svc.required = false;
+        svc.disabled = true;    // disabled inputs don't submit
+        svc.style.display = 'none';
+      }
     }
+    // --- /NEW ---
 
     // Referral preselect
     const ref = $('#referral', form);
     if (ref && cfg.referralPreselect) {
-      const normV = cfg.referralPreselect.toLowerCase();
-      const opt = [...ref.options].find(o => (o.textContent || '').toLowerCase() === normV);
+      const norm = cfg.referralPreselect.toLowerCase();
+      const opt = [...ref.options].find(o => (o.textContent || '').toLowerCase() === norm);
       if (opt) ref.value = opt.value || opt.textContent;
     }
 
@@ -130,7 +109,7 @@
     const desc = $('#description', form);
     if (desc && cfg.descriptionPlaceholder) desc.placeholder = cfg.descriptionPlaceholder;
 
-    // 🔶 per-page submit button text (default = "Request Estimate")
+    // Per-page submit button text (default = "Request Estimate")
     const btn = form.querySelector('button[type="submit"]');
     if (btn) {
       const defaultText = 'Request Estimate';
@@ -186,7 +165,7 @@
     payload.recaptcha_token = token;
     payload.page = location.href;
 
-    /* ====== Auto-append page/source note to the customer's description ====== */
+    /* Auto-append page/source note to description */
     const cfg = window.ESTIMATE_FORM_CONFIG || {};
     const labelFromConfig = cfg.lockService || cfg?.hiddenFields?.campaign;
     const labelFromDOM =
@@ -200,7 +179,6 @@
     if (!/\[Source:/.test(payload.description || '')) {
       payload.description = `${(payload.description || '').trim()}\n\n${sourceLine}`;
     }
-    /* ====== /Auto-append ====== */
 
     const btn = form.querySelector('button[type="submit"]');
     const txt = btn?.textContent;
@@ -279,4 +257,3 @@
   window.addEventListener('includes:ready', bindForm);
   window.onRecaptchaLoaded = () => { renderRecaptcha(); bindForm(); };
 })();
-</script>
