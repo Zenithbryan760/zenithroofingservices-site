@@ -39,32 +39,6 @@
   z-index:0;
 }
 
-/* Background media (photo only) */
-.zenith-hero-media{ position:absolute; inset:0; z-index:0; }
-.zenith-hero-media picture,
-.zenith-hero-media img{ display:block; width:100%; height:100%; }
-
-/* LCP image */
-.zenith-hero-mobile-img{
-  position:absolute; inset:0;
-  width:100%; height:100%;
-  object-fit:cover; object-position:center;
-  display:block; z-index:0;       /* under tint */
-  aspect-ratio:16/9;              /* reduces CLS */
-}
-
-/* Tint overlay as a real element (prevents CLS) */
-.zenith-image-overlay{
-  position:absolute; inset:0; z-index:1;
-  background: var(--hero-tint);
-  pointer-events:none;
-}
-@media (max-width:768px){
-  .zenith-image-overlay{ background: var(--hero-tint-strong); }
-}
-
-/* Content sits above media + tint */
-.zenith-hero > *:not(.zenith-hero-media){ position:relative; z-index:2; }
 
 /* ===== Card ===== */
 .zenith-card{
@@ -73,43 +47,6 @@
   box-shadow:var(--shadow-lg);
   width:100%; max-width:920px;
   padding:clamp(1.5rem, 3vw, 2.5rem);
-}
-
-/* ===== Header (logo + titles) ===== */
-.zenith-header{ text-align:center; margin-bottom:1.75rem; }
-.zenith-logo-container{ position:relative; display:inline-block; margin-bottom:.75rem; }
-
-.zenith-logo{
-  display:block;
-  width:var(--logo-size-desktop);
-  height:auto;
-  object-fit:contain;
-  position:relative; z-index:1;
-}
-
-/* navy halo behind circular logo */
-.logo-backdrop{
-  position:absolute; inset:-18px; z-index:0; border-radius:50%;
-  background: radial-gradient(circle at 50% 50%,
-              rgba(7,46,89,.96) 0%,
-              rgba(7,46,89,.85) 58%,
-              rgba(7,46,89,0) 100%);
-  border:3px solid var(--zenith-orange);
-  box-shadow:0 6px 18px rgba(0,0,0,.28);
-  backdrop-filter:blur(2px);
-}
-
-.zenith-header-text h1{
-  margin:.25rem 0 0; font-weight:800; letter-spacing:.3px;
-  color:var(--zenith-navy);
-  font-size:clamp(1.6rem, 3.2vw, 2rem);
-  text-transform:uppercase;
-}
-.zenith-header-text h2{
-  margin:.2rem 0 .35rem; font-weight:700; color:var(--zenith-navy);
-  font-size:clamp(1rem, 2.5vw, 1.25rem);
-}
-.service-area{ color:var(--zenith-muted); font-size:clamp(.92rem, 2vw, 1rem); }
 
 /* ===== Form grid ===== */
 .form-row{ display:flex; flex-wrap:wrap; gap:1.25rem; margin-bottom:1.25rem; }
@@ -225,24 +162,6 @@ input[type="file"]:focus-within{
 /* ---------- Responsive ---------- */
 @media (max-width:900px){
   .zenith-card{ padding:1.75rem; }
-}
-@media (max-width:768px){
-  .form-col-6, .form-col-4{ flex:0 0 100%; }
-  .zenith-card{ padding:1.25rem; }
-  .zenith-logo{ width:var(--logo-size-mobile) !important; height:auto !important; }
-}
-
-/* Hide hero logo only when nav is collapsed (mobile) */
-@media (max-width:1024px){
-  html.nav-collapsed .zenith-hero .zenith-header .zenith-logo-container,
-  html.nav-collapsed .zenith-hero .zenith-header .zenith-logo,
-  html.nav-collapsed .zenith-hero .zenith-header .logo-backdrop{ display:none !important; }
-}
-
-/* When nav is collapsed, add space under sticky header */
-.nav-collapsed .zenith-hero{
-  padding-top:var(--header-h, 80px);
-  min-height:calc(100svh - var(--header-h, 80px));
 }
 
 /* Validation helpers */
