@@ -1,179 +1,329 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Residential Roofing (Repairs & Replacement) | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Residential roofing for pitched and flat/low-slope homes: shingles, tile (lift & lay), metal, TPO/PVC, torch-down, silicone coatings, leak repairs, tune-ups, and gutters. Free estimates." />
-  <link rel="canonical" href="https://www.zenithroofingservices.com/services/residential/">
+  <!-- ===== META ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Residential Roofing for Landlords, Investors & Property Managers | North County San Diego & Temecula</title>
+  <meta name="description" content="Residential roofing pros for landlords, real estate investors, homeowners, and property managers—leak repair, tune-ups, replacements, gutters, and maintenance programs. Serving Escondido, North County San Diego, Temecula & San Diego County." />
+  <link rel="canonical" href="https://zenithroofingservices.com/services/residential/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 
-  <!-- Shared CSS -->
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/footer.css">
-  <link rel="stylesheet" href="/css/ui.css">
-  <!-- Lead form CSS -->
-  <link rel="stylesheet" href="/css/estimate-form.css">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Residential Roofing | Landlords • Investors • Property Managers • Homeowners"/>
+  <meta property="og:description" content="Leak repair, roof tune-ups, replacements, gutters, and maintenance programs. Fast scheduling in North County San Diego, Temecula, and San Diego County."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://zenithroofingservices.com/services/residential/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Shared JS -->
-  <script defer src="/js/loader.js"></script>
-  <script defer src="/js/header.js"></script>
-  <script defer src="/js/estimate-form.js"></script>
+  <!-- Shared CSS (keep footer.css here so footer spans full width) -->
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <!-- Form CSS -->
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
 
+  <!-- Page-scope polish -->
   <style>
-    .page.res { max-width:1100px; margin:24px auto; padding:0 16px; }
-    .badge{ display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:#f1f5f9; font-weight:600; font-size:.95rem; }
-    .lede{ color:#475569; font-size:1.075rem; margin:8px 0 18px; }
-    .muted{ color:var(--ui-muted); }
-    .small{ font-size:.9rem; }
-    .tick{ font-weight:800; color:#0b3a6f; }
-    .svc-card h3{ margin-bottom:6px; }
-    .svc-card p{ margin:0; }
+    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    html { scroll-behavior: smooth; }
+
+    .page .hero{
+      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border: 1px solid var(--ui-line);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 14px 34px rgba(2,12,32,.08);
+    }
+    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
+    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
+    .page .hero .split{ align-items:center; }
+    .page .hero .media{
+      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
+      background:#fff; box-shadow: var(--ui-shadow); transform: translateZ(0);
+    }
+    .page .hero .media::before{
+      content:""; display:block; aspect-ratio:16/10;
+      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
+    }
+
+    .page h2{ margin-bottom:.4rem; }
+    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
+    .page .card.hoverable{ will-change: transform, box-shadow; }
+    .page .card.hoverable:hover{ transform: translateY(-3px); }
+
+    .page .pillnav .badge { font-weight:800; border:1px solid var(--ui-line); padding:.25rem .55rem; border-radius:999px; background:#fff; }
+    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
+
+    .page .cta-strip{
+      background:#072e59; color:#fff; border-radius:16px;
+      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    }
+    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
+    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
   </style>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Services","item":"https://zenithroofingservices.com/services/"},
+      {"@type":"ListItem","position":2,"name":"Residential","item":"https://zenithroofingservices.com/services/residential/"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ (landlords/investors) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Do you handle occupied rentals and multi-unit scheduling?","acceptedAnswer":{"@type":"Answer","text":"Yes. We coordinate directly with tenants or property managers, provide photo updates, and keep disruptions minimal—all with clear time windows."}},
+      {"@type":"Question","name":"Do you offer maintenance programs for portfolios?","acceptedAnswer":{"@type":"Answer","text":"Yes. Annual or semi-annual roof tune-ups with prioritized repair lists and photo documentation are available for single homes or multi-property portfolios."}},
+      {"@type":"Question","name":"Are estimates free?","acceptedAnswer":{"@type":"Answer","text":"Standard repair and replacement estimates are free. Real estate transaction reports/inspections carry a fee; ask for details."}}
+    ]
+  }
+  </script>
 </head>
 <body>
+  <!-- Header include -->
   <div data-include="/components/header-section.html"></div>
 
-  <main class="page res" id="top">
-    <!-- Hero -->
-    <section class="card airy">
-      <span class="badge">Residential Roofing</span>
-      <h1 style="margin:10px 0 6px;">Roof Repairs, Replacements & Maintenance for Your Home</h1>
-      <p class="lede">From pitched (shingles, tile, metal) to flat/low-slope (TPO/PVC, torch-down, silicone), we install to manufacturer specs, protect landscaping, and keep job sites clean.</p>
-      <div class="cta">
-        <a class="btn" href="#estimate">Get a Free Estimate</a>
-        <a class="btn outline" href="/services/need-help/">New to Roofing? Start Here</a>
+  <main id="top" class="page">
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-label="Residential Roofing">
+      <div class="eyebrow">
+        <span class="chip">Landlords</span>
+        <span class="chip">Investors</span>
+        <span class="chip">Property Managers</span>
+        <span class="chip">Homeowners</span>
       </div>
-      <p class="small muted" style="margin-top:8px;">Free estimates are for homeowners (not real-estate transactions). For buyer/seller needs, see <a href="/services/real-estate/">Real Estate Services</a>.</p>
-    </section>
-
-    <!-- Why choose us -->
-    <section class="grid micro-grid" aria-label="Why homeowners choose Zenith">
-      <div class="card"><h3>Licensed &amp; Insured</h3><p class="muted">C-39 #1036112 • Permits where required • Photo documentation.</p></div>
-      <div class="card"><h3>Built to Spec</h3><p class="muted">Manufacturer guidelines, proper underlayment/flashings, balanced ventilation.</p></div>
-      <div class="card"><h3>Clean & Courteous</h3><p class="muted">Landscape protection, daily cleanup, magnet sweep, final walkthrough.</p></div>
-    </section>
-
-    <!-- Choose your roof type (6 even cards) -->
-    <section class="card airy" aria-label="Choose your roof type">
-      <h2>Choose Your Roof Type</h2>
-      <div class="grid micro-grid">
-        <a class="card svc-card" href="/services/residential/asphalt-shingles/">
-          <h3>Asphalt Shingles</h3><p class="muted">Architectural shingles • Title 24 cool colors.</p>
-        </a>
-        <a class="card svc-card" href="/services/residential/tile-roof/">
-          <h3>Tile Roofing</h3><p class="muted">Concrete & clay systems • Flashings & bird-stops.</p>
-        </a>
-        <a class="card svc-card" href="/services/residential/tile-lift-lay/">
-          <h3>Tile Lift &amp; Lay</h3><p class="muted">Reuse tiles • New underlayment & metals.</p>
-        </a>
-        <a class="card svc-card" href="/services/residential/tpo/">
-          <h3>TPO (Flat/Low-Slope)</h3><p class="muted">Heat-welded seams • Drains & scuppers.</p>
-        </a>
-        <a class="card svc-card" href="/services/residential/torch-down/">
-          <h3>Torch-Down (Mod-Bit)</h3><p class="muted">Base + granulated cap sheet • Term bars.</p>
-        </a>
-        <a class="card svc-card" href="/services/residential/silicone/">
-          <h3>Silicone Coatings</h3><p class="muted">Restoration option for eligible roofs.</p>
-        </a>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">Residential Roofing — Built for Rentals, Portfolios & Family Homes</h1>
+          <p class="lede">Fast, clean, and photo-documented **repairs**, **tune-ups**, and **replacements** that protect cash flow and property value. Serving <strong>Escondido</strong>, <strong>North County San Diego</strong>, <strong>Temecula</strong>, and all of <strong>San Diego County</strong>.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#estimate" aria-label="Request a residential roofing estimate">Request Free Estimate</a>
+            <a class="btn btn-outline" href="#programs">Maintenance Programs</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true"></div>
       </div>
     </section>
 
-    <!-- Popular services (6 even cards) -->
-    <section class="card airy" aria-label="Popular residential services">
-      <h2>Popular Residential Services</h2>
-      <div class="grid micro-grid">
-        <a class="card svc-card" href="/services/residential/leak-repair-troubleshooting/">
-          <h3>Leak Repair</h3><p class="muted">Trace sources • Targeted fixes • Photos.</p>
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills" aria-label="Residential sections">
+      <a href="#solutions">Solutions</a>
+      <a href="#programs">Maintenance</a>
+      <a href="#landlords">For Landlords & PMs</a>
+      <a href="#homeowners">For Homeowners</a>
+      <a href="#faq">FAQ</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#estimate">Estimate</a>
+    </nav>
+
+    <!-- ===== SOLUTIONS ===== -->
+    <section id="solutions" class="section card airy hoverable">
+      <h2>Common Residential Solutions</h2>
+      <div class="grid cols-3">
+        <a class="card hoverable" href="/services/roof-repairs/roof-leak-repair/">
+          <h3>Leak Repair</h3>
+          <p class="muted">Active leaks stopped fast—flashings, valleys, vents, skylights.</p>
         </a>
-        <a class="card svc-card" href="/services/residential/preventive-maintenance/">
-          <h3>Tune-Up &amp; Maintenance</h3><p class="muted">Seal penetrations • Clear valleys/gutters.</p>
+        <a class="card hoverable" href="/services/roof-repairs/roof-tune-up/">
+          <h3>Roof Tune-Up</h3>
+          <p class="muted">Sealant refresh, flashing reseal, debris/valley cleanout + photos.</p>
         </a>
-        <a class="card svc-card" href="/services/roof-repairs/skylight-repair/">
-          <h3>Skylight Repair</h3><p class="muted">Re-flash or replace with new curb/kit.</p>
+        <a class="card hoverable" href="/services/roof-replacement/">
+          <h3>Roof Replacement</h3>
+          <p class="muted">Shingle, tile, slate, metal, and flat systems (TPO, PVC, mod-bit, silicone).</p>
         </a>
-        <a class="card svc-card" href="/services/residential/roof-washing-moss-removal/">
-          <h3>Roof &amp; Gutter Cleaning</h3><p class="muted">Debris removal • Minor sealing.</p>
+        <a class="card hoverable" href="/services/gutters/">
+          <h3>Seamless Gutters</h3>
+          <p class="muted">5&quot;/6&quot; K-style, color-matched, optional guards.</p>
         </a>
-        <a class="card svc-card" href="/services/gutters/">
-          <h3>Gutters &amp; Guards</h3><p class="muted">Seamless gutters • Debris control.</p>
+        <a class="card hoverable" href="/services/roof-repairs/skylight-repair/">
+          <h3>Skylight Repair/Replace</h3>
+          <p class="muted">Leak repairs, curb-mounted replacements, proper flashing.</p>
         </a>
-        <a class="card svc-card" href="/services/roof-inspection/">
-          <h3>Roof Inspections</h3><p class="muted">Photos • Findings • Planning.</p>
+        <a class="card hoverable" href="/services/roof-repairs/roof-cleaning-maintenance/">
+          <h3>Cleaning & Maintenance</h3>
+          <p class="muted">Preventative care that extends roof life and reduces surprises.</p>
         </a>
+      </div>
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Request Free Estimate</a>
       </div>
     </section>
 
-    <!-- How it works -->
-    <section class="card airy">
-      <h2>How It Works</h2>
-      <div class="grid cols-2">
-        <div class="card"><h3>1) Inspection</h3><p class="muted">Photos, ventilation/drainage review, code items.</p></div>
-        <div class="card"><h3>2) Proposal</h3><p class="muted">Clear scope, options, and materials.</p></div>
-        <div class="card"><h3>3) Preparation</h3><p class="muted">Tear-off/repairs, flashings, protection measures.</p></div>
-        <div class="card"><h3>4) Install &amp; Cleanup</h3><p class="muted">Spec install, magnet sweep, walkthrough, warranty docs.</p></div>
-      </div>
-    </section>
-
-    <!-- FAQs -->
-    <section class="card airy">
-      <h2>Residential FAQs</h2>
+    <!-- ===== MAINTENANCE PROGRAMS ===== -->
+    <section id="programs" class="section card airy hoverable">
+      <h2>Maintenance Programs — Single Home or Portfolio</h2>
       <div class="grid cols-2">
         <div class="card">
-          <h3>Repair or Replace?</h3>
-          <p class="muted">One-area leaks or isolated damage are often repairable. Widespread wear, aged underlayment, or multiple leaks point to replacement.</p>
+          <h3>Annual / Semi-Annual Tune-Ups</h3>
+          <ul class="checklist relaxed">
+            <li><span class="tick">✓</span> Flashing reseal, sealant touch-ups, valley & gutter transition cleanout</li>
+            <li><span class="tick">✓</span> Prioritized repair list with photo documentation</li>
+            <li><span class="tick">✓</span> Discounts for multi-property portfolios</li>
+          </ul>
         </div>
         <div class="card">
-          <h3>How Long Does It Take?</h3>
-          <p class="muted">Small repairs can be same/next day scheduling; replacements vary by size and material. We keep you updated daily.</p>
+          <h3>Proactive Repairs & Budget Planning</h3>
+          <ul class="checklist relaxed">
+            <li><span class="tick">✓</span> Extend service life and reduce emergency calls</li>
+            <li><span class="tick">✓</span> Forecast replacements with timelines & options</li>
+            <li><span class="tick">✓</span> Tenant-friendly scheduling and updates</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- Estimate form include -->
-    <section id="estimate" class="card airy" data-estimate-context data-category="Residential Roofing — Overview" data-redirect="/thank-you/">
-      <h2>Get a Free Residential Roofing Estimate</h2>
-      <div data-include="/components/forms/estimate.html"></div>
-
-      <!-- Fallback if include is unavailable -->
-      <template id="lead-form-fallback">
-        <form id="estimate-form" novalidate>
-          <input type="hidden" name="service_type" value="Residential Roofing — Overview">
-          <input type="hidden" name="page" value="">
-          <div class="form-row">
-            <div class="form-col-6"><label>Full Name</label><input name="name" required></div>
-            <div class="form-col-6"><label>Phone</label><input name="phone" type="tel" required></div>
-          </div>
-          <div class="form-row">
-            <div class="form-col-6"><label>Email</label><input name="email" type="email" required></div>
-            <div class="form-col-6"><label>ZIP</label><input name="zip" required></div>
-          </div>
-          <div class="form-row">
-            <div class="form-col-12">
-              <label>Notes</label>
-              <textarea name="message" rows="4" placeholder="Pitched or flat? Material? Any leaks? Timeline?"></textarea>
-            </div>
-          </div>
-          <button class="btn" type="submit">Send Request</button>
-        </form>
-      </template>
+    <!-- ===== FOR LANDLORDS / PMs ===== -->
+    <section id="landlords" class="section card airy hoverable">
+      <h2>Built for Landlords & Property Managers</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>Scheduling That Works</h3><p class="muted">We coordinate with tenants, provide time windows, and keep you updated with photos.</p></div>
+        <div class="card"><h3>Make-Ready & Turnover</h3><p class="muted">Quick tune-ups and targeted repairs between tenants to protect the next lease.</p></div>
+        <div class="card"><h3>Portfolio Handling</h3><p class="muted">One point of contact for multiple properties; consistent standards and documentation.</p></div>
+        <div class="card"><h3>Insurance Support</h3><p class="muted">Photo evidence and scope notes for storm/wind claims when applicable.</p></div>
+      </div>
     </section>
 
-    <!-- Service area -->
-    <section class="card airy">
-      <h2>Service Area</h2>
-      <p class="muted">North County San Diego, Greater San Diego, Temecula & nearby communities.</p>
-      <p class="muted small">Information above reflects common practices. Final scope, pricing, and warranties are governed by your signed contract and manufacturer documentation.</p>
+    <!-- ===== FOR HOMEOWNERS ===== -->
+    <section id="homeowners" class="section card airy hoverable">
+      <h2>For Homeowners</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>Leak Response</h3><p class="muted">Stop the leak, document the cause, plan next steps.</p></div>
+        <div class="card"><h3>Replacement Options</h3><p class="muted">Shingle, tile, slate, metal, or flat membranes tailored to SoCal homes.</p></div>
+        <div class="card"><h3>Gutters & Drainage</h3><p class="muted">Correctly sized downspouts, clean miters, optional guards.</p></div>
+        <div class="card"><h3>Care & Upkeep</h3><p class="muted">Seasonal tune-ups that prevent small issues from becoming leaks.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section card airy hoverable">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>Do you work on occupied rentals?</summary><p class="muted">Yes—our team coordinates with tenants, works clean, and provides photo updates so owners and managers stay informed.</p></details>
+        <details><summary>How fast can you respond to a leak?</summary><p class="muted">As quickly as scheduling allows. Include photos and access notes in your request for the fastest dispatch.</p></details>
+        <details><summary>Are estimates free?</summary><p class="muted">Standard repair/replacement estimates are free. Real estate transaction inspections/reports have a fee—ask for details.</p></details>
+      </div>
+    </section>
+
+    <!-- ===== AREAS (hierarchy) ===== -->
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head">
+        <h2 class="sa-title">Service Areas</h2>
+        <p class="muted">North County San Diego, Temecula Valley, the rest of San Diego County, and nearby Southern California communities.</p>
+      </div>
+
+      <!-- 1) North County SD -->
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">1) North County San Diego</h3>
+          <p class="muted small" style="margin:0;">Escondido • Carlsbad • San Marcos • Encinitas • Vista • Oceanside • Poway • Rancho Bernardo</p>
+        </div>
+        <ul class="chip-grid" aria-label="North County cities">
+          <li><span class="sa-chip strong">Escondido 92025–92029</span></li>
+          <li><span class="sa-chip">Carlsbad 92008–92011</span></li>
+          <li><span class="sa-chip">San Marcos 92069–92078</span></li>
+          <li><span class="sa-chip">Encinitas 92024</span></li>
+          <li><span class="sa-chip">Vista 92081–92084</span></li>
+          <li><span class="sa-chip">Oceanside 92054–92057</span></li>
+          <li><span class="sa-chip">Poway 92064</span></li>
+          <li><span class="sa-chip">Rancho Bernardo 92127–92128</span></li>
+        </ul>
+        <details class="sa-more">
+          <summary class="sa-summary">See more North County ZIPs</summary>
+          <p class="muted small">Rancho Peñasquitos 92129 • Fallbrook 92028 • Solana Beach 92075 • Del Mar 92014 • La Costa 92009</p>
+        </details>
+      </div>
+
+      <!-- 2) Temecula Valley -->
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">2) Temecula Valley</h3>
+          <p class="muted small" style="margin:0;">Temecula • Murrieta • Menifee • Wildomar • Lake Elsinore</p>
+        </div>
+        <ul class="chip-grid" aria-label="Temecula area">
+          <li><span class="sa-chip strong">Temecula 92590–92592</span></li>
+          <li><span class="sa-chip">Murrieta 92562–92563</span></li>
+          <li><span class="sa-chip">Menifee 92584</span></li>
+          <li><span class="sa-chip">Wildomar 92595</span></li>
+          <li><span class="sa-chip">Lake Elsinore 92530–92532</span></li>
+        </ul>
+      </div>
+
+      <!-- 3) Greater San Diego County -->
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">3) Greater San Diego County</h3>
+          <p class="muted small" style="margin:0;">Coastal, inland, and metro neighborhoods.</p>
+        </div>
+        <ul class="chip-grid" aria-label="San Diego County">
+          <li><span class="sa-chip">San Diego</span></li>
+          <li><span class="sa-chip">La Jolla</span></li>
+          <li><span class="sa-chip">Scripps Ranch</span></li>
+          <li><span class="sa-chip">Chula Vista</span></li>
+          <li><span class="sa-chip">La Mesa</span></li>
+          <li><span class="sa-chip">El Cajon</span></li>
+        </ul>
+      </div>
+
+      <!-- 4) Southern California -->
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">4) Southern California</h3>
+          <p class="muted small" style="margin:0;">Select nearby communities by request.</p>
+        </div>
+        <ul class="chip-grid" aria-label="SoCal">
+          <li><span class="sa-chip">Orange County (by request)</span></li>
+          <li><span class="sa-chip">Riverside County (by request)</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== ESTIMATE FORM ===== -->
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer"><em>*Free estimates exclude real-estate transaction inspections/reports. If you’re buying/selling or an agent, ask about our paid inspection/report options.</em></p>
+    </section>
+
+    <!-- CTA band -->
+    <section class="section">
+      <div class="cta-strip">
+        <div class="text"><strong>Ready to protect your rentals or home?</strong> Fast scheduling, clean work, and photo documentation.</div>
+        <a class="btn" href="#estimate">Request Free Estimate</a>
+      </div>
     </section>
   </main>
 
+  <!-- Footer include OUTSIDE <main> for full width -->
   <div data-include="/components/footer.html"></div>
 
-  <!-- Sticky Action Bar -->
-  <div class="actionbar">
-    <a class="ab-btn call" href="tel:8589006163">Call</a>
-    <a class="ab-btn text" href="sms:+18589006163">Text</a>
-    <a class="ab-btn estimate" href="#estimate">Free Estimate</a>
-  </div>
+  <!-- ===== JS ===== -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
+  <!-- Per-page form config (keep Service Type on “Other”) -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Request Free Estimate",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Tell us property type (single-family, duplex, 4-plex, HOA, SFR, etc.), number of buildings/units, access notes (tenant/lockbox), active leaks, and attach photos if available.",
+      // No lockService so the dropdown stays on “Other” (your preferred default)
+      hiddenFields: { campaign: "services/residential", page_tag: "residential-roofing" }
+    };
+  </script>
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
