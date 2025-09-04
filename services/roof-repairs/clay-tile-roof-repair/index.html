@@ -1,148 +1,271 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Clay Tile Roof Repair | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Clay tile roof repairs: cracked/broken tiles, underlayment tie-ins, flashings, ridges/hips, and bird-stops—done with clay-friendly handling and photo documentation." />
-  <link rel="canonical" href="https://www.zenithroofingservices.com/services/roof-repairs/clay-tile-roof-repair/">
+  <!-- ===== META ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Clay Tile Roof Repair in North County San Diego & Temecula | Zenith Roofing Services</title>
+  <meta name="description" content="Expert clay tile roof repair: cracked/broken tiles, slipped tiles, flashing & underlayment leaks, valley cleanouts, blended tile matching, and photo documentation. Serving Escondido, North County San Diego, Temecula & San Diego County." />
+  <link rel="canonical" href="https://zenithroofingservices.com/services/roof-repairs/clay-tile-roof-repair/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 
-  <!-- Shared CSS -->
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/footer.css">
-  <link rel="stylesheet" href="/css/ui.css">
-  <!-- Lead form CSS -->
-  <link rel="stylesheet" href="/css/estimate-form.css">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Clay Tile Roof Repair | Escondido, North County San Diego & Temecula"/>
+  <meta property="og:description" content="Cracked tile replacement, slipped tile resets, flashing fixes, underlayment leak repairs, and photo documentation. Local, tile-safe technicians."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://zenithroofingservices.com/services/roof-repairs/clay-tile-roof-repair/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Shared JS -->
-  <script defer src="/js/loader.js"></script>
-  <script defer src="/js/header.js"></script>
-  <script defer src="/js/estimate-form.js"></script>
+  <!-- Shared CSS (keep footer.css in head) -->
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <!-- Form CSS -->
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
 
+  <!-- Page-scope polish (same vibe as Gutters/Tune-Up) -->
   <style>
-    .page.ctilefix { max-width:1100px; margin:24px auto; padding:0 16px; }
-    .badge{ display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:#f1f5f9; font-weight:600; font-size:.95rem; }
-    .lede{ color:#475569; font-size:1.075rem; margin:8px 0 18px; }
-    .muted{ color:var(--ui-muted); }
-    .tick{ font-weight:800; color:#0b3a6f; }
+    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    html { scroll-behavior: smooth; }
+
+    .page .hero{
+      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border: 1px solid var(--ui-line);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 14px 34px rgba(2,12,32,.08);
+    }
+    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
+    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
+    .page .hero .split{ align-items:center; }
+    .page .hero .media{
+      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
+      background:#fff; box-shadow: var(--ui-shadow); transform: translateZ(0);
+    }
+    .page .hero .media::before{
+      content:""; display:block; aspect-ratio:16/10;
+      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
+    }
+
+    .page h2{ margin-bottom:.4rem; }
+    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
+
+    .page .card.hoverable{ will-change: transform, box-shadow; }
+    .page .card.hoverable:hover{ transform: translateY(-3px); }
+
+    .page .mini-list{ margin:.5rem 0 0 .95rem; color:#334155; }
+    .page .mini-list li{ margin:.25rem 0; }
+
+    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
+
+    .page .cta-strip{
+      background:#072e59; color:#fff; border-radius:16px;
+      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    }
+    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
+    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
   </style>
+
+  <!-- JSON-LD: Service + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Clay Tile Roof Repair",
+    "serviceType":"Clay tile roof repair (tile replacement, flashing & underlayment fixes)",
+    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
+    "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}],
+    "description":"Expert clay tile roof repair: cracked or slipped tiles, flashing and underlayment leak repairs, valley cleanouts, and photo documentation with color-blended tile matching where available."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Can you walk on clay tile safely?","acceptedAnswer":{"@type":"Answer","text":"Yes. We use tile-safe paths and pads to minimize breakage, and we document any pre-existing damage."}},
+      {"@type":"Question","name":"What if my tile is discontinued?","acceptedAnswer":{"@type":"Answer","text":"We source the closest match available and blend replacements across the repair area to reduce visual contrast."}},
+      {"@type":"Question","name":"What causes most tile roof leaks?","acceptedAnswer":{"@type":"Answer","text":"Common sources are aged underlayment, failed flashing at penetrations, debris-filled valleys, and broken/slipped tiles that expose laps."}}
+    ]
+  }
+  </script>
 </head>
 <body>
+  <!-- Header include -->
   <div data-include="/components/header-section.html"></div>
 
-  <main class="page ctilefix" id="top">
-    <section class="card airy">
-      <span class="badge">Clay Tile Roof Repair</span>
-      <h1 style="margin:10px 0 6px;">Specialized Clay Tile Repairs</h1>
-      <p class="lede">We repair cracked/broken clay tiles, address flashings, and perform underlayment tie-ins—using clay-friendly handling and proper footing to protect your roof.</p>
-      <div class="cta">
-        <a class="btn" href="#estimate">Request Repair Estimate</a>
-        <a class="btn outline" href="tel:8589006163">Call 858-900-6163</a>
+  <main id="top" class="page">
+    <!-- ===== HERO (split) ===== -->
+    <section class="hero" aria-label="Clay Tile Roof Repair">
+      <div class="eyebrow">
+        <span class="chip">Tile-Safe</span>
+        <span class="chip">Leak Diagnostics</span>
+        <span class="chip">Photo Report</span>
+      </div>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">Clay Tile Roof Repair — Local, Tile-Safe Specialists</h1>
+          <p class="lede">Cracked or slipped tiles? Staining near a valley or skylight? Our team repairs clay tile systems the right way—replace damaged tiles, fix flashing/underlayment issues, clear valleys, and provide a photo summary. Serving <strong>Escondido</strong>, <strong>North County San Diego</strong>, and <strong>Temecula</strong>.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#estimate" aria-label="Request a free estimate for clay tile roof repair">Request Free Estimate</a>
+            <a class="btn btn-outline" href="#symptoms">Signs of Trouble</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true"></div>
       </div>
     </section>
 
-    <section class="card airy" aria-label="Common clay tile issues we fix">
-      <h2>Common Issues We Fix</h2>
-      <div class="grid auto-fit" style="--ui-gap:16px;">
-        <div class="card">
-          <h3>Cracked / Missing Tiles</h3>
-          <ul class="checklist relaxed">
-            <li><span class="tick">✓</span> Clay-compatible removal & swaps</li>
-            <li><span class="tick">✓</span> Color/shape match where available</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Underlayment Tie-Ins</h3>
-          <ul class="checklist relaxed">
-            <li><span class="tick">✓</span> Targeted waterproofing at leaks</li>
-            <li><span class="tick">✓</span> Valleys, walls, and transitions</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Flashings & Metals</h3>
-          <ul class="checklist relaxed">
-            <li><span class="tick">✓</span> Pipes, vents, kickouts, headwalls</li>
-            <li><span class="tick">✓</span> Bird-stops & drip-edge touch-ups</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Ridges & Hips</h3>
-          <ul class="checklist relaxed">
-            <li><span class="tick">✓</span> Re-bed/reset where accessible</li>
-            <li><span class="tick">✓</span> Mortar/ridge vent considerations</li>
-          </ul>
-        </div>
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills" aria-label="Clay Tile Roof Repair sections">
+      <a href="#symptoms">Symptoms</a>
+      <a href="#repairs">What We Fix</a>
+      <a href="#sources">Common Leak Sources</a>
+      <a href="#faq">FAQ</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#estimate">Estimate</a>
+    </nav>
+
+    <!-- ===== SYMPTOMS ===== -->
+    <section id="symptoms" class="section card airy hoverable">
+      <h2>Signs Your Clay Tile Roof Needs Attention</h2>
+      <div class="grid cols-2">
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Broken, cracked, or missing tiles</li>
+          <li><span class="tick">✓</span> Slipped tiles exposing laps/battens</li>
+          <li><span class="tick">✓</span> Stains on ceilings or eaves after rain</li>
+          <li><span class="tick">✓</span> Debris or plant growth in valleys</li>
+        </ul>
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Mortar cracks at ridges/hips</li>
+          <li><span class="tick">✓</span> Loose or corroded flashing at vents, skylights, or walls</li>
+          <li><span class="tick">✓</span> Aged underlayment (curling or exposed)</li>
+        </ul>
+      </div>
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Get a Roof Repair Estimate</a>
       </div>
     </section>
 
-    <section class="card airy" aria-label="Our clay-safe approach">
-      <h2>Why Clay Repairs Need Care</h2>
+    <!-- ===== WHAT WE FIX ===== -->
+    <section id="repairs" class="section card airy hoverable">
+      <h2>What We Repair on Clay Tile Roofs</h2>
       <div class="grid cols-2">
         <div class="card">
-          <h3>Clay-Safe Handling</h3>
-          <p class="muted">Clay is more brittle than concrete. We use proper walking paths, ladders, and padding to minimize breakage.</p>
+          <h3>Tile & Surface</h3>
+          <ul class="mini-list">
+            <li>Replace cracked/broken clay tiles</li>
+            <li>Reset slipped tiles & secure hips/ridges</li>
+            <li>Color-blend replacements when tile is discontinued</li>
+          </ul>
         </div>
         <div class="card">
-          <h3>Compatible Materials</h3>
-          <p class="muted">Flashings, fasteners, and sealants are selected for clay systems and local code requirements.</p>
+          <h3>Waterproofing & Flashing</h3>
+          <ul class="mini-list">
+            <li>Repair/replace damaged underlayment in local areas</li>
+            <li>Rework flashing at vents, skylights, chimneys, and walls</li>
+            <li>Clean/clear valleys; correct transitions to gutters</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section id="estimate" class="card airy" data-estimate-context data-category="Clay Tile Roof Repair" data-redirect="/thank-you/">
-      <h2>Request a Repair Estimate</h2>
-      <div data-include="/components/forms/estimate.html"></div>
-      <template id="lead-form-fallback">
-        <form id="estimate-form" novalidate>
-          <input type="hidden" name="service_type" value="Clay Tile Roof Repair">
-          <input type="hidden" name="page" value="">
-          <div class="form-row">
-            <div class="form-col-6"><label>Full Name</label><input name="name" required></div>
-            <div class="form-col-6"><label>Phone</label><input name="phone" type="tel" required></div>
-          </div>
-          <div class="form-row">
-            <div class="form-col-6"><label>Email</label><input name="email" type="email" required></div>
-            <div class="form-col-6"><label>ZIP</label><input name="zip" required></div>
-          </div>
-          <div class="form-row">
-            <div class="form-col-12">
-              <label>Notes</label>
-              <textarea name="message" rows="4" placeholder="Where is the leak? Any cracked tiles visible? When did you notice it?"></textarea>
-            </div>
-          </div>
-          <button class="btn" type="submit">Send Request</button>
-        </form>
-      </template>
-    </section>
-
-    <section class="card airy" aria-label="FAQs">
-      <h2>FAQs</h2>
+    <!-- ===== LEAK SOURCES ===== -->
+    <section id="sources" class="section card airy hoverable">
+      <h2>Common Leak Sources on Tile Roofs</h2>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Can you match my tile exactly?</h3>
-          <p class="muted">We try to source close color/shape matches. If an exact match isn’t available, we place replacements in less-visible areas when possible.</p>
-        </div>
-        <div class="card">
-          <h3>Will repairs stop all future leaks?</h3>
-          <p class="muted">Repairs address the documented issue. If underlayment is at end-of-life broadly, we may recommend a larger lift-&-lay scope.</p>
-        </div>
+        <div class="card"><h3>Valleys & Debris</h3><p class="muted">Debris dams water under tile; we clear valleys and adjust diverters.</p></div>
+        <div class="card"><h3>Penetrations</h3><p class="muted">Aged or loose flashing at pipes, skylights, and attic fans is a frequent culprit.</p></div>
+        <div class="card"><h3>Roof-to-Wall</h3><p class="muted">Kickout flashing missing? We add or correct it to protect stucco and siding.</p></div>
+        <div class="card"><h3>Underlayment</h3><p class="muted">Old felt or torn underlayment can require localized replacement.</p></div>
       </div>
     </section>
 
-    <section class="card airy" aria-label="Service area">
-      <h2>Service Area</h2>
-      <p class="muted">North County San Diego, Greater San Diego, Temecula & nearby communities.</p>
-      <p class="muted" style="font-size:.9rem;">Information above reflects common practices and code requirements. Final scope, materials, pricing, and warranties are governed solely by your signed contract and manufacturer documentation.</p>
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section card airy hoverable">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>Will replacements match my existing tile?</summary><p class="muted">If the exact tile is unavailable, we blend close matches across the repair area for a uniform look.</p></details>
+        <details><summary>Do you repair during light rain?</summary><p class="muted">We schedule repairs during safe, dry windows and provide temporary protection if needed.</p></details>
+        <details><summary>Do you repair concrete tile too?</summary><p class="muted">Yes—see our tile repair services for clay and concrete systems.</p></details>
+      </div>
+    </section>
+
+    <!-- ===== AREAS ===== -->
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head">
+        <h2 class="sa-title">Service Areas</h2>
+        <p class="muted">Fast scheduling in North County San Diego, greater San Diego, and Temecula Valley.</p>
+      </div>
+
+      <ul class="chip-grid sa-cities" aria-label="Primary service cities">
+        <li><span class="chip sa-chip strong">Escondido</span></li>
+        <li><span class="chip sa-chip strong">San Diego</span></li>
+        <li><span class="chip sa-chip strong">Temecula</span></li>
+        <li><span class="chip sa-chip">San Marcos</span></li>
+        <li><span class="chip sa-chip">Vista</span></li>
+        <li><span class="chip sa-chip">Oceanside</span></li>
+      </ul>
+
+      <details class="sa-more">
+        <summary class="sa-summary">More nearby cities</summary>
+        <ul class="chip-grid sa-cities">
+          <li><span class="chip sa-chip">Carlsbad</span></li>
+          <li><span class="chip sa-chip">Encinitas</span></li>
+          <li><span class="chip sa-chip">Poway</span></li>
+          <li><span class="chip sa-chip">Rancho Bernardo</span></li>
+          <li><span class="chip sa-chip">Fallbrook</span></li>
+          <li><span class="chip sa-chip">Murrieta</span></li>
+          <li><span class="chip sa-chip">Menifee</span></li>
+        </ul>
+      </details>
+
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Check my ZIP &amp; Request Free Estimate</a>
+      </div>
+    </section>
+
+    <!-- ===== ESTIMATE FORM (Clay Tile Roof Repair) ===== -->
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer">
+        <em>*Free estimates exclude real-estate transaction inspections/reports. If you’re a buyer/seller or agent, please see our Real Estate Services.</em>
+      </p>
+    </section>
+
+    <!-- Full-width CTA band inside container -->
+    <section class="section">
+      <div class="cta-strip">
+        <div class="text">
+          <strong>Need clay tile roof repair?</strong> Tile-safe technicians, smart leak diagnostics, and a clean finish.
+        </div>
+        <a class="btn" href="#estimate">Request Free Estimate</a>
+      </div>
     </section>
   </main>
 
+  <!-- Footer include OUTSIDE <main> so it spans full width -->
   <div data-include="/components/footer.html"></div>
 
-  <div class="actionbar">
-    <a class="ab-btn call" href="tel:8589006163">Call</a>
-    <a class="ab-btn text" href="sms:+18589006163">Text</a>
-    <a class="ab-btn estimate" href="#estimate">Free Estimate</a>
-  </div>
+  <!-- ===== JS ===== -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
+
+  <!-- Per-page form config: preselect “Roof Repair” WITHOUT changing shared JS -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Request Free Estimate",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Briefly describe the issue (where you noticed leaks, photos/links, tile type if known)…",
+      lockService: "Roof Repair", // 👈 preselect Service Type
+      hiddenFields: { campaign: "services/roof-repairs/clay-tile-roof-repair", page_tag: "clay-tile-roof-repair" }
+    };
+  </script>
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
