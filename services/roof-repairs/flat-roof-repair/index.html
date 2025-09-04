@@ -1,41 +1,294 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Flat Roof Repair (TPO, PVC, Torch-Down) | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Flat roof repairs for TPO, PVC, and torch-down: seams, penetrations, drains, and scuppers. San Diego & Temecula." />
-  <link rel="canonical" href="https://www.zenithroofingservices.com/services/roof-repairs/flat-roof-repair/">
+  <!-- ===== META ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Flat Roof Repair (TPO, Torch, Mod Bit, PVC) | North County San Diego & Temecula</title>
+  <meta name="description" content="Expert flat roof repair for TPO, PVC, torch-down/modified bitumen, and built-up roofs. Leak tracing, seam & flashing repairs, drain/scupper fixes, and ponding solutions. Serving Escondido, North County San Diego, Temecula & all San Diego County." />
+  <link rel="canonical" href="https://zenithroofingservices.com/services/roof-repairs/flat-roof-repair/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 
-  <link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/ui.css"><link rel="stylesheet" href="/css/estimate-form.css">
-  <script defer src="/js/loader.js"></script><script defer src="/js/header.js"></script><script defer src="/js/estimate-form.js"></script>
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Flat Roof Repair (TPO, Torch, Mod Bit, PVC) | Zenith Roofing Services"/>
+  <meta property="og:description" content="Fast, clean flat roof repairs—seams, flashings, drains, and ponding fixes. Serving Escondido, North County San Diego & Temecula."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://zenithroofingservices.com/services/roof-repairs/flat-roof-repair/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-  <style>.page.flatfix{max-width:1100px;margin:24px auto;padding:0 16px}.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:600;font-size:.95rem}.muted{color:var(--ui-muted)}.tick{font-weight:800;color:#0b3a6f}</style>
+  <!-- Shared CSS (footer.css in head so it’s global) -->
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <!-- Form CSS -->
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
+
+  <!-- Page-scope polish (same vibe as other pages) -->
+  <style>
+    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    html { scroll-behavior: smooth; }
+
+    .page .hero{
+      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border: 1px solid var(--ui-line);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 14px 34px rgba(2,12,32,.08);
+    }
+    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
+    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
+    .page .hero .split{ align-items:center; }
+    .page .hero .media{
+      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
+      background:#fff; box-shadow: var(--ui-shadow); transform: translateZ(0);
+    }
+    .page .hero .media::before{
+      content:""; display:block; aspect-ratio:16/10;
+      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
+    }
+
+    .page h2{ margin-bottom:.4rem; }
+    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
+
+    .page .card.hoverable{ will-change: transform, box-shadow; }
+    .page .card.hoverable:hover{ transform: translateY(-3px); }
+
+    .page .mini-list{ margin:.5rem 0 0 .95rem; color:#334155; }
+    .page .mini-list li{ margin:.25rem 0; }
+
+    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
+
+    .page .cta-strip{
+      background:#072e59; color:#fff; border-radius:16px;
+      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    }
+    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
+    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
+  </style>
+
+  <!-- JSON-LD: Service + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Flat Roof Repair",
+    "serviceType":"Flat/low-slope roof repair (TPO, PVC, modified bitumen/torch-down, BUR)",
+    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
+    "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}],
+    "description":"Expert flat roof repair including seam welding, flashing rebuilds at curbs/walls, drain and scupper fixes, targeted membrane & underlayment replacement, and ponding water mitigation with photo documentation."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Which flat roof types do you repair?","acceptedAnswer":{"@type":"Answer","text":"We work on TPO, PVC, modified bitumen (torch-down), built-up roofs, and select coatings. We match materials and attachment methods to your existing system."}},
+      {"@type":"Question","name":"Can you fix ponding water?","acceptedAnswer":{"@type":"Answer","text":"Often, yes. We improve drainage with tapered patches/crickets, adjust scuppers/drains, and rework low spots when feasible."}},
+      {"@type":"Question","name":"Do you repair rooftop equipment flashings?","acceptedAnswer":{"@type":"Answer","text":"Yes. Curbs, pipes, HVAC stands, and skylight flashings are common leak points. We rebuild and heat-weld/seal to manufacturer standards."}}
+    ]
+  }
+  </script>
 </head>
 <body>
+  <!-- Header include -->
   <div data-include="/components/header-section.html"></div>
-  <main class="page flatfix" id="top">
-    <section class="card airy">
-      <span class="badge">Flat Roof Repair</span>
-      <h1 style="margin:10px 0 6px;">TPO • PVC • Torch-Down Repairs</h1>
-      <p class="muted">We repair seams, penetrations, drains, and scuppers with compatible details and proper prep.</p>
-      <div class="cta"><a class="btn" href="#estimate">Request Repair Estimate</a></div>
-    </section>
 
-    <section class="card airy" aria-label="Common issues">
-      <h2>Common Issues We Fix</h2>
-      <div class="grid auto-fit" style="--ui-gap:16px;">
-        <div class="card"><h3>Open Seams</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Heat-weld/patch compatible</li><li><span class="tick">✓</span> Term bars as needed</li></ul></div>
-        <div class="card"><h3>Penetrations</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Pipes/curbs re-flash</li><li><span class="tick">✓</span> Walk pads in service paths</li></ul></div>
-        <div class="card"><h3>Drains/Scuppers</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Bowls/strainers</li><li><span class="tick">✓</span> Overflow provisions</li></ul></div>
+  <main id="top" class="page">
+    <!-- ===== HERO (split) ===== -->
+    <section class="hero" aria-label="Flat Roof Repair">
+      <div class="eyebrow">
+        <span class="chip">Flat & Low-Slope</span>
+        <span class="chip">Leak Repair</span>
+        <span class="chip">Drains & Scuppers</span>
+      </div>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">Flat Roof Repair — Clean Seams, Dry Interiors</h1>
+          <p class="lede">Leaks around seams, curbs, or drains? We diagnose fast and repair right—heat-welded seams, rebuilt flashings, and tuned drainage. Serving <strong>Escondido</strong>, <strong>North County San Diego</strong>, and <strong>Temecula</strong>.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#estimate" aria-label="Request a free estimate for flat roof repair">Request Free Estimate</a>
+            <a class="btn btn-outline" href="#repairs">What We Fix</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true"></div>
       </div>
     </section>
 
-    <section id="estimate" class="card airy" data-estimate-context data-category="Flat Roof Repair" data-redirect="/thank-you/">
-      <div data-include="/components/forms/estimate.html"></div>
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills" aria-label="Flat Roof Repair sections">
+      <a href="#symptoms">Symptoms</a>
+      <a href="#repairs">What We Fix</a>
+      <a href="#materials">Systems We Service</a>
+      <a href="#drainage">Drainage & Ponding</a>
+      <a href="#faq">FAQ</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#estimate">Estimate</a>
+    </nav>
+
+    <!-- ===== SYMPTOMS ===== -->
+    <section id="symptoms" class="section card airy hoverable">
+      <h2>Signs Your Flat Roof Needs Repair</h2>
+      <div class="grid cols-2">
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Leaks during steady rain or after standing water</li>
+          <li><span class="tick">✓</span> Open or wrinkled seams; lifted laps</li>
+          <li><span class="tick">✓</span> Blisters, fishmouths, or membrane splits</li>
+        </ul>
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Wet insulation, soft spots, or sagging deck</li>
+          <li><span class="tick">✓</span> Clogged drains/scuppers or constant ponding</li>
+          <li><span class="tick">✓</span> Cracked flashings at curbs, walls, or skylights</li>
+        </ul>
+      </div>
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Get a Roof Repair Estimate</a>
+      </div>
+    </section>
+
+    <!-- ===== WHAT WE FIX ===== -->
+    <section id="repairs" class="section card airy hoverable">
+      <h2>What We Repair on Flat Roofs</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Seams & Membrane</h3>
+          <ul class="mini-list">
+            <li>Heat-weld or adhere open laps; reinforce with patches</li>
+            <li>Targeted membrane replacement at splits/blisters</li>
+            <li>Seal terminations and penetration collars</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Flashings & Details</h3>
+          <ul class="mini-list">
+            <li>Rebuild curb, wall, and skylight flashings</li>
+            <li>Replace cracked pipe boots and pitch pans</li>
+            <li>Edge metal tune-ups and counterflashing integration</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MATERIALS ===== -->
+    <section id="materials" class="section card airy hoverable">
+      <h2>Systems We Service</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>TPO &amp; PVC</h3>
+          <p class="muted">Heat-welded single-ply systems—excellent for efficient repairs at seams and details.</p>
+        </div>
+        <div class="card">
+          <h3>Modified Bitumen / Torch-Down</h3>
+          <p class="muted">SBS/APP membranes—torch, cold-process, or self-adhered; strong for targeted patches.</p>
+        </div>
+        <div class="card">
+          <h3>Built-Up &amp; Coatings</h3>
+          <p class="muted">BUR and compatible coatings for maintenance and service-life extension.</p>
+        </div>
+        <div class="card">
+          <h3>Drains &amp; Scuppers</h3>
+          <p class="muted">Reset bowls, tighten clamps, replace strainers, seal tie-ins, and improve flow.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DRAINAGE & PONDING ===== -->
+    <section id="drainage" class="section card airy hoverable">
+      <h2>Drainage &amp; Ponding Solutions</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>Clog Removal & Tune-Up</h3><p class="muted">Clear debris at drains/scuppers; verify clamp rings, strainers, and tie-ins.</p></div>
+        <div class="card"><h3>Tapered Patches/Crickets</h3><p class="muted">Build slope to move water off low spots and away from seams/curbs.</p></div>
+        <div class="card"><h3>Detail Rework</h3><p class="muted">Correct backwater laps and add diverters/saddles where helpful.</p></div>
+        <div class="card"><h3>Moisture Check</h3><p class="muted">Identify wet insulation and recommend targeted replacement as needed.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section card airy hoverable">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>Do you provide photos?</summary><p class="muted">Yes—before/after photos and a brief summary so you can see exactly what was done.</p></details>
+        <details><summary>Will repairs void my warranty?</summary><p class="muted">We follow manufacturer practices whenever possible and will advise if warranty constraints apply.</p></details>
+        <details><summary>How soon can you come out?</summary><p class="muted">We prioritize active leaks and safety issues. Ask about our earliest openings.</p></details>
+      </div>
+    </section>
+
+    <!-- ===== AREAS ===== -->
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head">
+        <h2 class="sa-title">Service Areas</h2>
+        <p class="muted">Fast scheduling in North County San Diego, greater San Diego, and Temecula Valley.</p>
+      </div>
+
+      <ul class="chip-grid sa-cities" aria-label="Primary service cities">
+        <li><span class="chip sa-chip strong">Escondido</span></li>
+        <li><span class="chip sa-chip strong">San Diego</span></li>
+        <li><span class="chip sa-chip strong">Temecula</span></li>
+        <li><span class="chip sa-chip">San Marcos</span></li>
+        <li><span class="chip sa-chip">Vista</span></li>
+        <li><span class="chip sa-chip">Oceanside</span></li>
+      </ul>
+
+      <details class="sa-more">
+        <summary class="sa-summary">More nearby cities</summary>
+        <ul class="chip-grid sa-cities">
+          <li><span class="chip sa-chip">Carlsbad</span></li>
+          <li><span class="chip sa-chip">Encinitas</span></li>
+          <li><span class="chip sa-chip">Poway</span></li>
+          <li><span class="chip sa-chip">Rancho Bernardo</span></li>
+          <li><span class="chip sa-chip">Fallbrook</span></li>
+          <li><span class="chip sa-chip">Murrieta</span></li>
+          <li><span class="chip sa-chip">Menifee</span></li>
+        </ul>
+      </details>
+
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Check my ZIP &amp; Request Free Estimate</a>
+      </div>
+    </section>
+
+    <!-- ===== ESTIMATE FORM (Flat Roof Repair) ===== -->
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer">
+        <em>*Free estimates exclude real-estate transaction inspections/reports. If you’re a buyer/seller or agent, please see our Real Estate Services.</em>
+      </p>
+    </section>
+
+    <!-- Full-width CTA band inside container -->
+    <section class="section">
+      <div class="cta-strip">
+        <div class="text">
+          <strong>Need flat roof repair?</strong> Precise leak tracing, clean seams, and tuned drainage—done right.
+        </div>
+        <a class="btn" href="#estimate">Request Free Estimate</a>
+      </div>
     </section>
   </main>
+
+  <!-- Footer include OUTSIDE <main> so it spans full width -->
   <div data-include="/components/footer.html"></div>
-  <div class="actionbar"><a class="ab-btn call" href="tel:8589006163">Call</a><a class="ab-btn text" href="sms:+18589006163">Text</a><a class="ab-btn estimate" href="#estimate">Free Estimate</a></div>
+
+  <!-- ===== JS ===== -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
+
+  <!-- Per-page form config: keep form consistent & preselect “Roof Repair” -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Request Free Estimate",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Tell us where it leaks, how long it ponds, roof type (TPO/PVC/torch/BUR), and share photos/links if you have them…",
+      lockService: "Roof Repair",
+      hiddenFields: { campaign: "services/roof-repairs/flat-roof-repair", page_tag: "flat-roof-repair" }
+    };
+  </script>
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
