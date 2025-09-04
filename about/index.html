@@ -1,119 +1,211 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>About Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/css/base.css">
+  <meta charset="utf-8" />
+  <title>About Zenith Roofing Services | Escondido • North County San Diego</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Born and raised in San Diego County, we do it right the first time with high-quality materials, manufacturer-backed warranties, clear communication, and jobsite cleanliness. Insurance/wind damage assessments. Family-run, faith-guided, locally trusted." />
+  <link rel="canonical" href="https://www.zenithroofingservices.com/about/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="About Zenith Roofing Services | Escondido • North County San Diego"/>
+  <meta property="og:description" content="Local, family-run roofing—done right the first time. Premium materials, strong warranties, wind/insurance assessments, and white-glove cleanup."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.zenithroofingservices.com/about/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <!-- Shared CSS (keep footer.css at doc level so it spans full width) -->
   <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/footer.css"><!-- ✅ add this -->
-  <style>.page{max-width:900px;margin:24px auto;padding:0 16px}.cta{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}.btn{display:inline-block;padding:10px 16px;border-radius:999px;font-weight:700;text-decoration:none}.btn-primary{background:#f7941d;color:#072e59}.btn-outline{border:2px solid #f7941d;color:#f7941d}</style>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/ui.css">
+  <link rel="stylesheet" href="/css/footer.css">
+
+  <!-- Shared JS -->
+  <script defer src="/js/loader.js"></script>
+  <script defer src="/js/header.js"></script>
+
+  <!-- Page micro styles -->
+  <style>
+    html { scroll-behavior: smooth; }
+    .page.about { max-width:1080px; margin:24px auto; padding:0 16px; }
+    .hero { background:linear-gradient(135deg,#f8fafc,#eef6ff); border:1px solid var(--ui-line); border-radius:18px; padding:clamp(18px,3vw,28px); box-shadow:0 14px 34px rgba(2,12,32,.08); }
+    .hero .chips { display:flex; flex-wrap:wrap; gap:8px; margin:.25rem 0 .5rem; }
+    .chip { border:1px solid var(--ui-line); border-radius:999px; padding:.45rem .75rem; background:#fff; font-weight:800; }
+    .values-grid { display:grid; gap:16px; grid-template-columns:1fr; }
+    @media(min-width:860px){ .values-grid { grid-template-columns:repeat(3,1fr); } }
+    .quote { font-size:1.05rem; line-height:1.7; color:#0f172a; }
+    .sig { font-weight:800; color:#072e59; }
+    .badge-row { display:flex; flex-wrap:wrap; gap:10px; }
+    .badge-row .badge { background:#fff; border:1px solid var(--ui-line); border-radius:999px; padding:.45rem .75rem; font-weight:700; }
+    .media.placeholder {
+      background: linear-gradient(135deg, rgba(7,46,89,.06), rgba(247,148,29,.06));
+      border:1px dashed var(--ui-line);
+      border-radius:14px; height:230px;
+      display:flex; align-items:center; justify-content:center; color:#64748b; font-weight:700;
+    }
+    .cta-strip {
+      background:#072e59; color:#fff; border-radius:16px;
+      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    }
+    .cta-strip .btn { background:#f7941d; color:#0b0b0b; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:10px 16px; border-radius:12px; font-weight:800; text-decoration:none; border:2px solid transparent; }
+    .btn:hover { transform: translateY(-1px); box-shadow:0 10px 20px rgba(2,12,32,.08); }
+    .btn.outline { background:transparent; border-color:#f7941d; color:#f7941d; }
+    .list-tight { margin:.25rem 0 0 1rem; }
+    .list-tight li { margin:.2rem 0; }
+  </style>
+
+  <!-- JSON-LD: Organization + Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Zenith Roofing Services",
+    "url":"https://www.zenithroofingservices.com/",
+    "telephone":"+1-858-900-6163",
+    "address":{"@type":"PostalAddress","addressRegion":"CA","addressLocality":"Escondido"},
+    "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}],
+    "sameAs":[
+      "https://www.google.com/search?q=Zenith+Roofing+Services",
+      "https://www.yelp.com/", 
+      "https://www.angi.com/"
+    ],
+    "description":"Family-run, San Diego born-and-raised roofing company focused on doing it right the first time with premium materials, manufacturer warranties, insurance/wind damage assessments, and photo-documented workmanship."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.zenithroofingservices.com/"},
+      {"@type":"ListItem","position":2,"name":"About","item":"https://www.zenithroofingservices.com/about/"}
+    ]
+  }
+  </script>
 </head>
 <body>
+  <!-- Header include -->
   <div data-include="/components/header-section.html"></div>
-  <main class="page">
-    <h1>About Us</h1>
-    <p>Zenith Roofing Services is a licensed, insured contractor (Lic #1036112) serving San Diego, Escondido, Temecula &amp; surrounding areas.</p>
-    <ul>
-      <li>Clear proposals and scope—no surprises</li>
-      <li>Pro-grade materials and trained installers</li>
-      <li>Respect for your home and schedule</li>
-    </ul>
-    <div class="cta">
-      <a class="btn btn-primary" href="/index.html#estimate">Get a Free Estimate</a>
-      <a class="btn btn-outline" href="/projects/">See Projects</a>
-    </div>
+
+  <main id="top" class="page about">
+    <!-- HERO -->
+    <section class="hero card airy">
+      <div class="chips">
+        <span class="chip">Escondido-Born</span>
+        <span class="chip">San Diego Proud</span>
+        <span class="chip">Do It Right the First Time</span>
+      </div>
+      <h1>Built in San Diego. Built to Last.</h1>
+      <p class="lede">
+        We’re a local, family-run roofing company out of <strong>Escondido</strong> serving all of <strong>North County San Diego</strong>, greater <strong>San Diego</strong>, and <strong>Temecula Valley</strong>. 
+        Our promise is simple: use <strong>high-quality materials</strong>, follow manufacturer standards, document our work with photos, and leave your home <strong>water-tight, safe,</strong> and clean.
+      </p>
+      <div class="badge-row" aria-label="Trust highlights">
+        <span class="badge">Premium Materials</span>
+        <span class="badge">Manufacturer Warranties</span>
+        <span class="badge">Wind/Insurance Assessments</span>
+        <span class="badge">Jobsite Cleanliness</span>
+        <span class="badge">Photo Documentation</span>
+        <span class="badge">Great Communication</span>
+      </div>
+      <div class="cta" style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn" href="/">Go to Home</a>
+        <a class="btn outline" href="/services/">Explore Services</a>
+      </div>
+    </section>
+
+    <!-- ASPIRATION / LIFESTYLE (≈70%) -->
+    <section class="section card airy hoverable">
+      <div class="grid cols-2">
+        <div>
+          <h2>Homes That Feel Buttoned-Up</h2>
+          <p class="quote">
+            A great roof isn’t just about shingles or tiles—it’s about peace of mind when the wind picks up and the rain sets in. 
+            We design and install like your home is our own, focusing on resilience, clean details, and a finish that looks as good as it performs.
+          </p>
+          <ul class="checklist relaxed">
+            <li><span class="tick">✓</span> Clean lines, correct flashings, and watertight transitions</li>
+            <li><span class="tick">✓</span> Roof systems that meet or exceed <em>manufacturer specs</em></li>
+            <li><span class="tick">✓</span> Before/after photos so you see exactly what we did</li>
+            <li><span class="tick">✓</span> Jobsite protection, daily cleanup, on-site dump trailers</li>
+          </ul>
+        </div>
+        <div>
+          <figure class="media placeholder">Add a team / jobsite photo (1200×700)</figure>
+          <p class="muted small" style="margin:.4rem 0 0;">Want help deciding roof type or scope? We’ll walk you through options (performance, look, and cost) with no pressure.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY / HERITAGE / CRAFT (≈20%) -->
+    <section class="section">
+      <div class="values-grid">
+        <div class="card airy">
+          <h3>San Diego Roots</h3>
+          <p class="muted">Born and raised in San Diego County, our owner built the company in <strong>Escondido</strong> and has lived here all his life. We know the microclimates, the winds, and what SoCal roofs really face.</p>
+        </div>
+        <div class="card airy">
+          <h3>From Hands-On to Leadership</h3>
+          <p class="muted">We’ve worked on roofs ourselves, learned the craft the right way, and built a team known for <strong>precision</strong> and <strong>communication</strong>. That’s how we keep projects smooth.</p>
+        </div>
+        <div class="card airy">
+          <h3>Guided by Faith & Family</h3>
+          <p class="muted">We’re a family that loves God and strives to be worthy of trust. Doing things right—even when no one’s watching—matters to us.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST / PROOF -->
+    <section class="section card airy hoverable">
+      <h2>Why Homeowners Choose Us</h2>
+      <ul class="checklist grid-2">
+        <li><span class="tick">✓</span> <strong>Insurance & Wind Damage</strong>—we assess storm and wind claims and help you communicate with carriers.</li>
+        <li><span class="tick">✓</span> <strong>Reviews You Can Verify</strong>—plenty on Google, Angi, and Yelp.</li>
+        <li><span class="tick">✓</span> <strong>Manufacturer Focus</strong>—we follow specs so warranties stay strong.</li>
+        <li><span class="tick">✓</span> <strong>All Services, One Team</strong>—repairs, tune-ups, tile lift & relay, TPO, silicone, gutters, skylights, and more.</li>
+      </ul>
+      <p class="muted small" style="margin:.4rem 0 0;">Ask us for sample photo sets—before, during, and after—so you can see our process.</p>
+    </section>
+
+    <!-- LIGHT SELL (≈10%) -->
+    <section class="section cta-strip">
+      <div class="text">
+        <strong>Ready to feel confident about your roof?</strong> We’ll show recommendations, materials, and photos—no guesswork.
+      </div>
+      <div class="actions" style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn" href="/">Go to Home</a>
+        <a class="btn outline" href="/services/">Browse Services</a>
+      </div>
+    </section>
+
+    <!-- Service area & quick links -->
+    <section class="section card airy">
+      <h2>Proudly Serving</h2>
+      <p class="muted">North County San Diego, greater San Diego County, and Temecula Valley.</p>
+      <ul class="list-tight">
+        <li>Escondido • San Marcos • Carlsbad • Encinitas • Vista • Oceanside</li>
+        <li>San Diego metro • Poway • Rancho Bernardo • La Jolla • Scripps Ranch</li>
+        <li>Temecula • Murrieta • Menifee • Lake Elsinore</li>
+      </ul>
+      <div class="cta" style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn" href="/">Return Home</a>
+        <a class="btn outline" href="/contact/">Contact</a>
+        <a class="btn outline" href="/services/">All Services</a>
+      </div>
+    </section>
   </main>
+
+  <!-- Footer include -->
   <div data-include="/components/footer.html"></div>
 
-<script>
-  (function () {
-    // fetch + inject a single [data-include]
-    async function include(el) {
-      const src = el.getAttribute('data-include');
-      if (!src) return;
-      try {
-        const res = await fetch(src);             // normal caching
-        if (!res.ok) throw new Error('Failed ' + src);
-        const html = await res.text();
-        el.outerHTML = html;
-      } catch (e) {
-        console.error('❌ Include error:', src, e);
-      }
-    }
-
-    // Header height + collapsed state WITHOUT scroll reflow
-    function setupHeaderObservers() {
-      const root = document.documentElement;
-      const getHeader = () => document.querySelector('.mobile-header') || document.querySelector('.header');
-
-      function updateHeaderH() {
-        const h = getHeader();
-        if (h) root.style.setProperty('--header-h', Math.round(h.offsetHeight) + 'px');
-      }
-
-      // update when the header actually resizes
-      if ('ResizeObserver' in window) {
-        const ro = new ResizeObserver(updateHeaderH);
-        const h = getHeader(); if (h) ro.observe(h);
-      }
-      window.addEventListener('load', updateHeaderH, { passive: true });
-      window.addEventListener('resize', () => requestAnimationFrame(updateHeaderH), { passive: true });
-
-      // toggle nav-collapsed via IntersectionObserver (no scroll work)
-      const sent = document.createElement('div');
-      sent.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;';
-      document.body.prepend(sent);
-      new IntersectionObserver(([e]) => {
-        root.classList.toggle('nav-collapsed', !e.isIntersecting);
-      }, { rootMargin: '-80px 0px 0px 0px' }).observe(sent); // adjust -80px if your header is taller
-    }
-
-    async function init() {
-      // include everything ELSE (hero has an LCP stub now)
-      const includes = Array.from(document.querySelectorAll('[data-include]'));
-      await Promise.all(includes.map(include));
-
-      // Upgrade the stub to the real hero component while REUSING the already-downloaded LCP <img>
-      const stub = document.getElementById('hero-stub');
-      if (stub) {
-        const res = await fetch('components/hero-section.html');
-        if (res.ok) {
-          const html = await res.text();
-          const tpl = document.createElement('template');
-          tpl.innerHTML = html.trim();
-          const real = tpl.content.querySelector('section.zenith-hero') || tpl.content.firstElementChild;
-          if (real) {
-            const lcp = document.getElementById('lcp-img');
-            const realPic = real.querySelector('.zenith-hero-media picture') || real.querySelector('.zenith-hero-media');
-            if (lcp && realPic) {
-              const existing = realPic.querySelector('.zenith-hero-mobile-img');
-              if (existing) existing.replaceWith(lcp); else realPic.appendChild(lcp);
-            }
-            stub.replaceWith(real);
-          }
-        }
-      }
-
-      // your existing inits (unchanged)
-      if (window.initMobileMenu) window.initMobileMenu();
-      [
-        'initEstimateForm','initAboutSection','initWhyChoose','initTrustSection',
-        'initPhotoSection','initTestimonials','initCTA','initServiceAreas',
-        'initRealEstate','initFooter','initHeader'
-      ].forEach(n => { if (typeof window[n] === 'function') window[n](); });
-
-      setupHeaderObservers();   // replaces old setLayoutFlags/scroll listeners
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
-  })();
-  </script>
-<script src="/js/loader.js" defer></script>
-<script src="/js/header.js" defer></script>
+  <!-- Optional mobile action bar -->
+  <div class="actionbar">
+    <a class="ab-btn call" href="tel:8589006163">Call</a>
+    <a class="ab-btn text" href="sms:+18589006163">Text</a>
+    <a class="ab-btn estimate" href="/">Home</a>
+  </div>
 </body>
 </html>
