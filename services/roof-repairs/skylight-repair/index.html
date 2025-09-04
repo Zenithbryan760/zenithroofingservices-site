@@ -1,37 +1,278 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Skylight Repair & Replacement | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Skylight leak repair, re-flashing, and replacements with new curbs and compatible flashing kits. San Diego & Temecula." />
-  <link rel="canonical" href="https://www.zenithroofingservices.com/services/roof-repairs/skylight-repair/">
-  <link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/ui.css"><link rel="stylesheet" href="/css/estimate-form.css">
-  <script defer src="/js/loader.js"></script><script defer src="/js/header.js"></script><script defer src="/js/estimate-form.js"></script>
-  <style>.page.sky{max-width:1100px;margin:24px auto;padding:0 16px}.badge{display:inline-flex;gap:8px;padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:600}.muted{color:var(--ui-muted)}.tick{font-weight:800;color:#0b3a6f}</style>
+  <!-- ===== META ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Skylight Repair & Curb-Mounted Replacement | North County San Diego & Temecula</title>
+  <meta name="description" content="Leaks around the skylight? We diagnose, repair flashings, and replace aging curb-mounted skylights with clean, modern units. Serving Escondido, North County San Diego, Temecula & all San Diego County." />
+  <link rel="canonical" href="https://zenithroofingservices.com/services/roof-repairs/skylight-repair/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Skylight Repair & Curb-Mounted Replacement | Zenith Roofing Services"/>
+  <meta property="og:description" content="Professional skylight leak repair, flashing rebuilds, and curb-mounted replacements. Escondido • North County San Diego • Temecula."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://zenithroofingservices.com/services/roof-repairs/skylight-repair/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <!-- Shared CSS (footer.css stays in head so it isn’t clipped) -->
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <!-- Form CSS -->
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
+
+  <!-- Page-scope polish (same vibe as other pages) -->
+  <style>
+    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    html { scroll-behavior: smooth; }
+
+    .page .hero{
+      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border: 1px solid var(--ui-line);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 14px 34px rgba(2,12,32,.08);
+    }
+    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
+    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
+    .page .hero .split{ align-items:center; }
+    .page .hero .media{
+      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
+      background:#fff; box-shadow: var(--ui-shadow); transform: translateZ(0);
+    }
+    .page .hero .media::before{
+      content:""; display:block; aspect-ratio:16/10;
+      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
+    }
+
+    .page h2{ margin-bottom:.4rem; }
+    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
+
+    .page .card.hoverable{ will-change: transform, box-shadow; }
+    .page .card.hoverable:hover{ transform: translateY(-3px); }
+
+    .page .mini-list{ margin:.5rem 0 0 .95rem; color:#334155; }
+    .page .mini-list li{ margin:.25rem 0; }
+
+    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
+
+    .page .cta-strip{
+      background:#072e59; color:#fff; border-radius:16px;
+      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    }
+    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
+    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
+  </style>
+
+  <!-- JSON-LD: Service + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Skylight Repair & Replacement",
+    "serviceType":"Skylight leak repair, flashing rebuilds, and curb-mounted skylight replacement",
+    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
+    "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}],
+    "description":"We stop leaks around skylights with proper flashing, curb rebuilds, and we replace aging curb-mounted skylights with modern, efficient units—backed by clean detailing and photo documentation."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Why do skylights leak?","acceptedAnswer":{"@type":"Answer","text":"Most leaks come from failed flashing, aged sealants, cracked domes, or deteriorated curbs. We diagnose the exact source before repairing."}},
+      {"@type":"Question","name":"Do you replace curb-mounted skylights?","acceptedAnswer":{"@type":"Answer","text":"Yes. We rebuild or tune the curb, integrate manufacturer flashing kits, and install new curb-mounted units matched to your opening."}},
+      {"@type":"Question","name":"Deck-mounted vs curb-mounted—what’s better?","acceptedAnswer":{"@type":"Answer","text":"Both can be excellent when detailed correctly. Many older homes use curb-mounted; we often replace like-for-like for fit and cost-efficiency unless there’s a reason to reframe."}}
+    ]
+  }
+  </script>
 </head>
 <body>
-<div data-include="/components/header-section.html"></div>
-<main class="page sky" id="top">
-  <section class="card airy">
-    <span class="badge">Skylight Repair</span>
-    <h1 style="margin:10px 0 6px;">Leak Repair & Replacements</h1>
-    <p class="muted">We re-flash or replace leaking skylights with proper curbs, flashing kits, and sealants.</p>
-    <div class="cta"><a class="btn" href="#estimate">Request Repair Estimate</a></div>
-  </section>
+  <!-- Header include -->
+  <div data-include="/components/header-section.html"></div>
 
-  <section class="card airy"><h2>Common Fixes</h2>
-    <div class="grid auto-fit" style="--ui-gap:16px;">
-      <div class="card"><h3>Re-Flashing</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> New curb/kit</li><li><span class="tick">✓</span> Counterflashing & seal</li></ul></div>
-      <div class="card"><h3>Replacement</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Modern skylight units</li><li><span class="tick">✓</span> Better energy performance</li></ul></div>
-    </div>
-  </section>
+  <main id="top" class="page">
+    <!-- ===== HERO (split) ===== -->
+    <section class="hero" aria-label="Skylight Repair & Replacement">
+      <div class="eyebrow">
+        <span class="chip">Roof Repair</span>
+        <span class="chip">Skylight Leaks</span>
+        <span class="chip">Curb-Mounted</span>
+      </div>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">Skylight Repair — Stop Leaks, Replace Aging Units</h1>
+          <p class="lede">Active drip or ceiling stain around your skylight? We find the real source, rebuild flashings/curbs the right way, and replace older curb-mounted skylights with clean, efficient options. Serving <strong>Escondido</strong>, <strong>North County San Diego</strong>, and <strong>Temecula</strong>.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#estimate" aria-label="Request a free estimate for skylight repair">Request Free Estimate</a>
+            <a class="btn btn-outline" href="#repairs">What We Fix</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true"></div>
+      </div>
+    </section>
 
-  <section id="estimate" class="card airy" data-estimate-context data-category="Skylight Repair" data-redirect="/thank-you/">
-    <div data-include="/components/forms/estimate.html"></div>
-  </section>
-</main>
-<div data-include="/components/footer.html"></div>
-<div class="actionbar"><a class="ab-btn call" href="tel:8589006163">Call</a><a class="ab-btn text" href="sms:+18589006163">Text</a><a class="ab-btn estimate" href="#estimate">Free Estimate</a></div>
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills" aria-label="Skylight Repair sections">
+      <a href="#symptoms">Leak Symptoms</a>
+      <a href="#repairs">What We Fix</a>
+      <a href="#replace">Curb-Mounted Replacement</a>
+      <a href="#faq">FAQ</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#estimate">Estimate</a>
+    </nav>
+
+    <!-- ===== SYMPTOMS ===== -->
+    <section id="symptoms" class="section card airy hoverable">
+      <h2>Common Skylight Leak Symptoms</h2>
+      <div class="grid cols-2">
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Drips at corners or after steady rain</li>
+          <li><span class="tick">✓</span> Staining/bubbling paint on ceiling or shaft</li>
+          <li><span class="tick">✓</span> Drafts or visible gaps at flashing</li>
+        </ul>
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Cracked/crazed acrylic dome or fogged glass</li>
+          <li><span class="tick">✓</span> Ponding at uphill side of curb</li>
+          <li><span class="tick">✓</span> Water trails at drywall or trim</li>
+        </ul>
+      </div>
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Get a Roof Repair Estimate</a>
+      </div>
+    </section>
+
+    <!-- ===== WHAT WE FIX ===== -->
+    <section id="repairs" class="section card airy hoverable">
+      <h2>What We Repair</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Leak Tracing & Flashings</h3>
+          <ul class="mini-list">
+            <li>Step and headwall flashing rebuilds</li>
+            <li>Counterflashing integration to siding/stucco</li>
+            <li>Sealant upgrades at penetrations & laps</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Curbs & Domes/Glazing</h3>
+          <ul class="mini-list">
+            <li>Rebuild or resurface deteriorated curbs</li>
+            <li>Replace cracked domes or fogged glass units</li>
+            <li>Improve drainage & diverters at uphill side</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== REPLACEMENT ===== -->
+    <section id="replace" class="section card airy hoverable">
+      <h2>Curb-Mounted Skylight Replacement</h2>
+      <div class="grid cols-2">
+        <div>
+          <p class="lede-narrow">When the skylight itself is the problem—not just the flashing—we’ll replace with a properly sized curb-mounted unit and integrate the manufacturer’s flashing kit to your roof system.</p>
+          <ul class="mini-list">
+            <li>Modern low-profile, energy-efficient units</li>
+            <li>Size match or reframe opening if needed</li>
+            <li>Clean interior finish and trim touch-up options</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Great for Tile, Shingle & Flat Roofs</h3>
+          <p class="muted">We tailor details to your roof type for a factory-clean look and reliable seal.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section card airy hoverable">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>Can you repair without replacing?</summary><p class="muted">Often yes—if the lens and frame are in good shape, a proper flashing rebuild and sealant upgrade may solve it.</p></details>
+        <details><summary>How long does a replacement take?</summary><p class="muted">Most curb-mounted swaps are completed in a day, plus interior touch-ups if needed.</p></details>
+        <details><summary>Do you provide photos?</summary><p class="muted">Yes—before/after photos and a short summary of work performed.</p></details>
+      </div>
+    </section>
+
+    <!-- ===== AREAS ===== -->
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head">
+        <h2 class="sa-title">Service Areas</h2>
+        <p class="muted">Fast scheduling in North County San Diego, greater San Diego, and Temecula Valley.</p>
+      </div>
+
+      <ul class="chip-grid sa-cities" aria-label="Primary service cities">
+        <li><span class="chip sa-chip strong">Escondido</span></li>
+        <li><span class="chip sa-chip strong">San Diego</span></li>
+        <li><span class="chip sa-chip strong">Temecula</span></li>
+        <li><span class="chip sa-chip">San Marcos</span></li>
+        <li><span class="chip sa-chip">Vista</span></li>
+        <li><span class="chip sa-chip">Oceanside</span></li>
+      </ul>
+
+      <details class="sa-more">
+        <summary class="sa-summary">More nearby cities</summary>
+        <ul class="chip-grid sa-cities">
+          <li><span class="chip sa-chip">Carlsbad</span></li>
+          <li><span class="chip sa-chip">Encinitas</span></li>
+          <li><span class="chip sa-chip">Poway</span></li>
+          <li><span class="chip sa-chip">Rancho Bernardo</span></li>
+          <li><span class="chip sa-chip">Fallbrook</span></li>
+          <li><span class="chip sa-chip">Murrieta</span></li>
+          <li><span class="chip sa-chip">Menifee</span></li>
+        </ul>
+      </details>
+
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Check my ZIP &amp; Request Free Estimate</a>
+      </div>
+    </section>
+
+    <!-- ===== ESTIMATE FORM (Skylight Repair) ===== -->
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer">
+        <em>*Free estimates exclude real-estate transaction inspections/reports. If you’re a buyer/seller or agent, please see our Real Estate Services.</em>
+      </p>
+    </section>
+
+    <!-- Full-width CTA band inside container -->
+    <section class="section">
+      <div class="cta-strip">
+        <div class="text">
+          <strong>Skylight leaking?</strong> We’ll stop it the right way—or replace the unit cleanly if needed.
+        </div>
+        <a class="btn" href="#estimate">Request Free Estimate</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer include OUTSIDE <main> so it spans full width -->
+  <div data-include="/components/footer.html"></div>
+
+  <!-- ===== JS ===== -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
+
+  <!-- Per-page form config: keep form consistent & preselect “Roof Repair” -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Request Free Estimate",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Tell us what you’re seeing (drips, stains), skylight type (curb/deck, dome/glass), size/brand if known, roof type, and share photos/links…",
+      lockService: "Roof Repair",
+      hiddenFields: { campaign: "services/roof-repairs/skylight-repair", page_tag: "skylight-repair" }
+    };
+  </script>
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
