@@ -1,56 +1,86 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Roof Certification | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Pass/fail roof certification for real-estate when eligibility standards are met. Serving San Diego & Temecula." />
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/footer.css">
-  <link rel="stylesheet" href="/css/ui.css">
-  <link rel="stylesheet" href="/css/estimate-form.css">
-  <script defer src="/js/loader.js"></script>
-  <script defer src="/js/header.js"></script>
-  <script defer src="/js/estimate-form.js"></script>
-  <style>.page{max-width:1060px;margin:24px auto;padding:0 16px}.muted{color:#64748b}</style>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <title>Roof Certifications for Real Estate | Zenith Roofing Services</title>
+  <meta name="description" content="Roof certifications for transactions when required by lenders/insurers. Site evaluation, corrective items (if needed), documentation, and certification issuance."/>
+  <link rel="canonical" href="https://zenithroofingservices.com/services/real-estate/roof-certifications/"/>
+  <meta property="og:title" content="Roof Certifications for Real Estate"/>
+  <meta property="og:description" content="When lenders or insurers require roof certification. Book online."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/base.css"/><link rel="stylesheet" href="/css/header.css"/><link rel="stylesheet" href="/css/ui.css"/><link rel="stylesheet" href="/css/footer.css"/><link rel="stylesheet" href="/css/estimate-form.css"/>
+  <style>
+    html{scroll-behavior:smooth}.hero{background:linear-gradient(135deg,#f8fafc,#eef6ff);border:1px solid var(--ui-line);border-radius:18px;padding:clamp(18px,3vw,28px)}
+    .chip{background:#fff;border:1px solid var(--ui-line);border-radius:999px;padding:.35rem .7rem;font-weight:800}
+    .pricecard{border:1px solid var(--ui-line);border-radius:14px;background:#fff;padding:14px}
+    .price{font-weight:900}
+  </style>
 </head>
 <body>
   <div data-include="/components/header-section.html"></div>
-  <main class="page" id="top">
-    <section class="card airy">
-      <span class="badge">Real Estate Service</span>
-      <h1>Roof Certification</h1>
-      <p class="muted">Pass/fail certificate when eligibility standards are met and any required repairs are completed.</p>
-    </section>
-
-    <section class="card airy">
-      <h2>Eligibility Basics</h2>
-      <div class="grid cols-2">
-        <div class="card"><h3>Condition Thresholds</h3><p class="muted">No active leaks; acceptable underlayment/membrane; flashings to code.</p></div>
-        <div class="card"><h3>Required Repairs</h3><p class="muted">If needed, we’ll outline fixes to qualify—priced separately.</p></div>
+  <main id="top" class="page">
+    <section class="hero">
+      <div class="eyebrow" style="display:flex;gap:8px;flex-wrap:wrap;margin:0 0 .6rem"><span class="chip">Lender/Insurer</span><span class="chip">Transaction-Ready</span><span class="chip">Optional Repairs</span></div>
+      <h1>Roof Certifications for Real Estate</h1>
+      <p class="lede">We evaluate, note any corrective items, and—when the roof qualifies—issue a roof certification suitable for lenders/insurers.</p>
+      <div class="grid cols-3" style="gap:12px;margin-top:.6rem">
+        <div class="pricecard"><strong>Certification Evaluation</strong><div class="price">$$PRICE_CERT_EVAL</div><p class="muted">Site evaluation & report of required corrective items (if any).</p></div>
+        <div class="pricecard"><strong>Certification Issuance</strong><div class="price">$$PRICE_CERT_ISSUE</div><p class="muted">Issued after required corrections are completed and verified.</p></div>
+        <div class="pricecard"><strong>Rush Add-On</strong><div class="price">$$PRICE_RUSH</div><p class="muted">Priority scheduling & processing.</p></div>
       </div>
+      <div class="cta"><a class="btn btn-primary" href="#estimate">Book Certification</a><a class="btn btn-outline" href="#steps">Steps</a></div>
     </section>
 
-    <section id="book"
-      data-estimate-context
-      data-category="Real-Estate — Roof Certification (Paid)"
-      data-service="Roof Certification ($395)"
-      data-cta="Request Roof Certification"
-      data-redirect="/thank-you/">
-      <div data-include="/components/forms/request-minimal.html"></div>
+    <nav class="pillnav sticky-pills"><a href="#steps">Steps</a><a href="#criteria">Typical Criteria</a><a href="#faq">FAQ</a><a href="#areas">Service Areas</a><a href="#estimate">Book</a></nav>
+
+    <section id="steps" class="section card airy hoverable">
+      <h2>How It Works</h2>
+      <ol class="mini-list">
+        <li>Site evaluation and photo documentation</li>
+        <li>List of corrective items (if needed)</li>
+        <li>Corrections completed (by us or others)</li>
+        <li>Verification visit and certification issuance</li>
+      </ol>
     </section>
 
-    <section class="card airy">
-      <h2>Common Uses</h2>
-      <div class="grid micro-grid">
-        <div class="card"><h3>Lenders</h3><p class="muted">Satisfy underwriting conditions.</p></div>
-        <div class="card"><h3>Buyer Confidence</h3><p class="muted">Document serviceable condition.</p></div>
-        <div class="card"><h3>Insurance</h3><p class="muted">Prove system integrity when requested.</p></div>
-        <div class="card"><h3>HOAs</h3><p class="muted">Meet community documentation needs.</p></div>
-      </div>
+    <section id="criteria" class="section card airy hoverable">
+      <h2>Typical Qualification Criteria</h2>
+      <ul class="checklist relaxed">
+        <li><span class="tick">✓</span> Roof is watertight with reasonable remaining life</li>
+        <li><span class="tick">✓</span> No active leaks or critical defects</li>
+        <li><span class="tick">✓</span> Flashings/drains/penetrations serviceable</li>
+      </ul>
+    </section>
+
+    <section id="faq" class="section card airy hoverable">
+      <h2>FAQ</h2>
+      <details><summary>What if repairs are needed?</summary><p class="muted">We can quote and perform corrections, or you may use others. Certification is issued once items are verified completed.</p></details>
+      <details><summary>How long is certification valid?</summary><p class="muted">Depends on lender/insurer requirements. We can customize language if requested.</p></details>
+    </section>
+
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head"><h2 class="sa-title">Service Areas</h2><p class="muted">North County San Diego • San Diego County • Temecula Valley</p></div>
+      <ul class="chip-grid sa-cities"><li><span class="chip sa-chip strong">Escondido</span></li><li><span class="chip sa-chip strong">San Diego</span></li><li><span class="chip sa-chip strong">Temecula</span></li></ul>
+      <div class="center-actions"><a class="btn btn-primary" href="#estimate">Book Certification</a></div>
+    </section>
+
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer"><em><strong>Paid service:</strong> certification requires the roof to meet criteria; corrective work (if any) is billed separately. We’ll confirm schedule & payment after submission.</em></p>
     </section>
   </main>
   <div data-include="/components/footer.html"></div>
+  <script src="/js/loader.js" defer></script><script src="/js/header.js" defer></script>
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Book Certification",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Property address, lender/insurer request, deadlines, access/lockbox, roof type if known.",
+      hiddenFields: { campaign: "services/real-estate/roof-certifications", page_tag: "re-cert" }
+    };
+  </script>
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
