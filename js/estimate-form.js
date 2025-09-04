@@ -19,10 +19,12 @@
     }
     box.textContent = msg;
     box.style.display = 'block';
+    // mark error-visible so CSS can upgrade invalid fields to red if you use that pattern
+    box.classList.add('show');
   }
   function hideError(form) {
     const box = $('.form-error-summary', form);
-    if (box) box.style.display = 'none';
+    if (box) { box.style.display = 'none'; box.classList.remove('show'); }
   }
 
   // ---- Enhancements ----
@@ -59,57 +61,43 @@
     } catch (_) {}
   }
 
-  // Prefill from page config (service type, referral, description placeholder, button text)
+  // Prefill from page config (service type, referral, description placeholder, submit text)
   function prefillFromConfig(form) {
     const cfg = window.ESTIMATE_FORM_CONFIG || {};
 
-    // --- Service Type autofill (robust: works with or without <select>) ---
-    const desiredSvc = (cfg.lockService || '').trim();
-    if (desiredSvc) {
-      // Try to find an existing control first
-      let svcEl = $('#serviceType', form) || form.querySelector('[name="serviceType"]');
-
-      // If there is a SELECT, set it (best effort by option text), then disable + mirror with hidden input
-      if (svcEl && svcEl.tagName === 'SELECT') {
-        let matched = null;
-        [...svcEl.options].forEach(o => {
-          const t = (o.textContent || o.value || '').toLowerCase();
-          if (!matched && (t === desiredSvc.toLowerCase() || t.includes(desiredSvc.toLowerCase()))) {
-            matched = o.value || o.textContent;
-          }
-        });
-        svcEl.value = matched || desiredSvc;
-        svcEl.disabled = true;
-
-        // Hidden mirror (ensures it posts)
-        let hidden = form.querySelector('input[type="hidden"][name="serviceType"]');
-        if (!hidden) {
-          hidden = document.createElement('input');
-          hidden.type = 'hidden';
-          hidden.name = 'serviceType';
-          form.appendChild(hidden);
-        }
-        hidden.value = svcEl.value || desiredSvc;
-
-        // Hide the visible field's form-group to keep your row tidy
-        const grp = svcEl.closest('.form-group');
-        if (grp) grp.style.display = 'none';
-      } else {
-        // No select present — ensure a single hidden field exists and carries the value
-        let hidden = form.querySelector('input[type="hidden"][name="serviceType"]');
-        if (!hidden) {
-          hidden = document.createElement('input');
-          hidden.type = 'hidden';
-          hidden.name = 'serviceType';
-          form.appendChild(hidden);
-        }
-        hidden.value = desiredSvc;
+    // --- Page-path → desired service (special-cases live here) ---
+    function serviceFromPath() {
+      const p = location.pathname.replace(/\/+$/, '/').toLowerCase();
+      if (p.endsWith('/services/roof-repairs/roof-tune-up/') ||
+          p.endsWith('/services/roof-repairs/roof-tune-up/index.html')) {
+        return 'Roof Tune-Up';
       }
+      return ''; // no special case, fall back below
     }
 
-    // State default (keep editable; just prefill if empty)
-    const stateEl = $('#state', form);
-    if (stateEl && !stateEl.value.trim()) stateEl.value = cfg.defaultState || 'CA';
+    // Service Type — default to “Other”; allow per-page override via path OR cfg.lockService
+    const svc = $('#serviceType', form);
+    if (svc) {
+      const byPath = serviceFromPath(); // e.g., "Roof Tune-Up" on that page
+      const desired = (cfg.lockService || byPath || 'Other').toLowerCase();
+
+      let matched = null;
+      [...svc.options].forEach(o => {
+        const t = (o.textContent || o.value || '').toLowerCase();
+        if (!matched && (t === desired || t.includes(desired))) matched = o.value || o.textContent;
+      });
+      if (matched) svc.value = matched;
+
+      if (cfg.lockServiceLock === true) {
+        svc.disabled = true;
+        // ensure value still posts
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.name = svc.name;
+        hidden.value = svc.value;
+        form.appendChild(hidden);
+      }
+    }
 
     // Referral preselect
     const ref = $('#referral', form);
@@ -125,7 +113,10 @@
 
     // Per-page submit button text (default = "Request Estimate")
     const btn = form.querySelector('button[type="submit"]');
-    if (btn) btn.textContent = cfg.submitText || 'Request Estimate';
+    if (btn) {
+      const defaultText = 'Request Estimate';
+      btn.textContent = cfg.submitText || defaultText;
+    }
   }
 
   // ---- Validation & submit ----
@@ -176,11 +167,8 @@
     payload.recaptcha_token = token;
     payload.page = location.href;
 
-    // Ensure serviceType is in payload if lockService is configured
-    const cfg = window.ESTIMATE_FORM_CONFIG || {};
-    if (cfg.lockService) payload.serviceType = cfg.lockService;
-
     /* ====== Auto-append page/source note to the customer's description ====== */
+    const cfg = window.ESTIMATE_FORM_CONFIG || {};
     const labelFromConfig = cfg.lockService || cfg?.hiddenFields?.campaign;
     const labelFromDOM =
       document.querySelector('main h1')?.textContent ||
@@ -248,7 +236,7 @@
       });
     }
 
-    // Prefill from page config (service type, etc.)
+    // Prefill from page config
     prefillFromConfig(form);
 
     // Ensure the CTA actually submits
