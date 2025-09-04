@@ -233,14 +233,6 @@ a { text-decoration: none; }
 .phone-section p a:hover{ color:var(--zenith-orange); }
 .phone-section p a:hover::after{ width:80%; left:10%; }
 
-.call-button{
-  display:inline-block;
-  padding:9px 16px;
-  color:#072e59; background: var(--zenith-orange);
-  border-radius: 999px; font-weight:700; border:none;
-  transition: transform .18s ease, box-shadow .18s ease, opacity .26s ease;
-  box-shadow: 0 8px 18px rgba(247,148,29,.22);
-}
 .call-button:hover{ transform: translateY(-1px); box-shadow: 0 10px 20px rgba(247,148,29,.28); }
 .call-button:active{ transform: translateY(0); }
 
@@ -448,7 +440,7 @@ body.nav-open::after{
    ========================================================= */
 @media (prefers-reduced-motion: reduce){
   .nav-links a, .nav-links a::after, .dropdown-menu, .submenu a,
-  .call-button, .mobile-nav, .mobile-links .submenu, .chevron{
+.mobile-nav, .mobile-links .submenu, .chevron{
     transition: none !important;
   }
 }
@@ -493,3 +485,45 @@ body.nav-open::after{
 .header .header-inner > .logo-section.logo-link{ display:flex; align-items:center; }
 .mobile-header .logo-section.logo-link{ display:flex; align-items:center; }
 .logo-link .logo{ display:block; }
+/* ===== Header CTA (desktop) — single source of truth ===== */
+@media (min-width: 1024px){
+
+  /* 1) Defaults for every page (desktop): NAVY pill + WHITE text */
+  .header{
+    --cta-bg: #f7941d;             /* ORANGE */
+    --cta-text: #072e59;           /* NAVY */
+    --cta-border: rgba(247,148,29,.35);
+    --cta-shadow: rgba(247,148,29,.45);
+    --cta-bg-hover: #e88916;
+  }
+
+  .header .phone-section{ display:flex; align-items:center; gap:.75rem; }
+
+  .header .phone-section .call-button{
+    display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+    padding:10px 16px; border-radius:9999px;
+    background:var(--cta-bg); color:var(--cta-text);
+    text-decoration:none; line-height:1; white-space:nowrap;
+    border:1px solid var(--cta-border);
+    box-shadow:0 6px 14px var(--cta-shadow);
+    transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+  }
+  .header .phone-section .call-button:hover{
+    transform:translateY(-1px);
+    box-shadow:0 10px 20px var(--cta-shadow);
+    background:var(--cta-bg-hover);
+  }
+  .header .phone-section .call-button:active{ transform:translateY(0); }
+  .header .phone-section .call-button:focus-visible{ outline:2px solid #fff; outline-offset:2px; }
+
+  /* 4) Gentle attention pulse — HOME ONLY (respects reduced motion) */
+  @media (prefers-reduced-motion:no-preference){
+    .header .phone-section .call-button{ animation:zenithCtaPulse 2.2s ease-in-out infinite; }
+  }
+}
+
+/* Keyframes defined once */
+@keyframes zenithCtaPulse{
+  0%,100%{ transform:translateY(0); box-shadow:0 6px 14px var(--cta-shadow); }
+  50%    { transform:translateY(-1px); box-shadow:0 14px 26px var(--cta-shadow); }
+}

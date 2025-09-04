@@ -50,12 +50,14 @@
 
   /* Buttons stretch full width */
   .button,
-  .call-button {
+   (max-width: 1023px){
+.call-button {
     width: 100%;
     padding: 12px 0;
   }
 
-  /* Gallery: single column photos */
+  
+}/* Gallery: single column photos */
   .photo-grid { grid-template-columns: 1fr; }
 
   /* Badge row: tighter gap */
