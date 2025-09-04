@@ -1,39 +1,108 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Commercial TPO Roofing | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Commercial TPO systems: white reflective membrane, heat-welded seams, adhered or mechanically attached, ES-1 edge metal, drains & scuppers." />
-  <link rel="canonical" href="https://www.zenithroofingservices.com/services/commercial/tpo/">
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <title>Commercial Roofing — Apartments, HOA, Schools & Retail | Zenith Roofing Services</title>
+  <meta name="description" content="Full-scope commercial roofing: TPO, torch-down, silicone coatings, metal, tile, shingle, debris cleaning & roof asset maintenance. Bid-ready scopes, phased schedules, clean jobsites. Escondido • San Diego • Temecula."/>
+  <link rel="canonical" href="https://zenithroofingservices.com/services/commercial/"/>
+  <meta property="og:title" content="Commercial Roofing — Apartments, HOA, Schools & Retail"/>
+  <meta property="og:description" content="From replacements to maintenance programs—bid-ready, phased, documented."/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-  <link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/ui.css"><link rel="stylesheet" href="/css/estimate-form.css">
-  <script defer src="/js/loader.js"></script><script defer src="/js/header.js"></script><script defer src="/js/estimate-form.js"></script>
+  <link rel="stylesheet" href="/css/base.css"/><link rel="stylesheet" href="/css/header.css"/><link rel="stylesheet" href="/css/ui.css"/><link rel="stylesheet" href="/css/footer.css"/>
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
 
-  <style>.page.ctpo{max-width:1100px;margin:24px auto;padding:0 16px}.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:600}.muted{color:var(--ui-muted)}.tick{font-weight:800;color:#0b3a6f}</style>
+  <style>
+    html{scroll-behavior:smooth}
+    .hero{background:linear-gradient(135deg,#f8fafc,#eef6ff);border:1px solid var(--ui-line);border-radius:18px;padding:clamp(18px,3vw,28px);box-shadow:0 14px 34px rgba(2,12,32,.08)}
+    .chip{background:#fff;border:1px solid var(--ui-line);border-radius:999px;padding:.4rem .7rem;font-weight:800}
+    .cta-strip{background:#072e59;color:#fff;border-radius:16px;padding:16px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .service-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .service-card{display:block;border:1px solid var(--ui-line);border-radius:14px;padding:16px;background:#fff;box-shadow:var(--ui-shadow);text-decoration:none;color:inherit}
+    .service-card:hover{transform:translateY(-2px);box-shadow:var(--ui-shadow-hover)}
+  </style>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Service","name":"Commercial Roofing","serviceType":"Commercial roofing installation, replacements, repairs and maintenance","provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"}}
+  </script>
 </head>
 <body>
-<div data-include="/components/header-section.html"></div>
-<main class="page ctpo" id="top">
-  <section class="card airy">
-    <span class="badge">Commercial</span>
-    <h1 style="margin:10px 0 6px;">TPO Roofing</h1>
-    <p class="muted">Energy-efficient white membrane with heat-welded seams. Great performance for large, flat roofs.</p>
-    <div class="cta"><a class="btn" href="#estimate">Request Proposal</a></div>
-  </section>
+  <div data-include="/components/header-section.html"></div>
+  <main id="top" class="page">
+    <section class="hero">
+      <div class="eyebrow" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:.6rem">
+        <span class="chip">Bid-Ready</span><span class="chip">Phased</span><span class="chip">Photo Docs</span>
+      </div>
+      <h1>Commercial Roofing — Apartments, HOA, Schools & Retail</h1>
+      <p class="lede">From full replacements to preventive programs, we deliver code-compliant systems, organized schedules around people and parking, and clean jobsites with photo documentation.</p>
+      <div class="cta"><a class="btn btn-primary" href="#estimate">Request Bid / Estimate</a><a class="btn btn-outline" href="#services">Explore Services</a></div>
+    </section>
 
-  <section class="card airy"><h2>System Details</h2>
-    <div class="grid auto-fit" style="--ui-gap:16px;">
-      <div class="card"><h3>Membrane</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Heat-welded seams</li><li><span class="tick">✓</span> Adhered/mech attached</li></ul></div>
-      <div class="card"><h3>Edges & Drainage</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> ES-1 edge metal</li><li><span class="tick">✓</span> Drains & scuppers</li></ul></div>
-    </div>
-  </section>
+    <nav class="pillnav sticky-pills"><a href="#services">Services</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#areas">Service Areas</a><a href="#estimate">Estimate</a></nav>
 
-  <section id="estimate" class="card airy" data-estimate-context data-category="Commercial — TPO" data-redirect="/thank-you/">
-    <div data-include="/components/forms/estimate.html"></div>
-  </section>
-</main>
-<div data-include="/components/footer.html"></div>
-<div class="actionbar"><a class="ab-btn call" href="tel:8589006163">Call</a><a class="ab-btn text" href="sms:+18589006163">Text</a><a class="ab-btn estimate" href="#estimate">Free Estimate</a></div>
+    <!-- Services grid -->
+    <section id="services" class="section card airy hoverable">
+      <h2>Commercial Roofing Services</h2>
+      <div class="service-grid">
+        <a class="service-card" href="/services/commercial/tpo/"><strong>TPO Single-Ply</strong><br><span class="muted">Cool, welded seams (no flame)</span></a>
+        <a class="service-card" href="/services/commercial/torch-down/"><strong>Torch-Down (Mod-Bit)</strong><br><span class="muted">Durable multi-ply assemblies</span></a>
+        <a class="service-card" href="/services/commercial/silicone-coatings/"><strong>Silicone Coatings</strong><br><span class="muted">Restore & extend life</span></a>
+        <a class="service-card" href="/services/commercial/metal/"><strong>Metal Roofing</strong><br><span class="muted">Standing seam & R-panel</span></a>
+        <a class="service-card" href="/services/commercial/tile-roofing/"><strong>Tile Roofing</strong><br><span class="muted">Clay & concrete systems</span></a>
+        <a class="service-card" href="/services/commercial/shingle-systems/"><strong>Shingle Systems</strong><br><span class="muted">Apartments & HOA</span></a>
+        <a class="service-card" href="/services/commercial/debris-removal-cleaning/"><strong>Debris Removal & Cleaning</strong><br><span class="muted">Gutters, drains & scuppers</span></a>
+        <a class="service-card" href="/services/commercial/roof-asset-maintenance/"><strong>Roof Asset Maintenance</strong><br><span class="muted">6/12/24-month programs</span></a>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="section card airy hoverable">
+      <h2>Our Process For Bigger Projects</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>1) Site Walk & Scope</h3><p class="muted">Measure, access, staging & safety zones.</p></div>
+        <div class="card"><h3>2) Proposal & Options</h3><p class="muted">Clear scope with alternates (insulation, edge metal, warranties).</p></div>
+        <div class="card"><h3>3) Phasing & Communication</h3><p class="muted">Resident notices, protected paths, clean daily close-outs.</p></div>
+        <div class="card"><h3>4) Install & Photo Docs</h3><p class="muted">Spec-aligned install with documented checkpoints.</p></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section card airy hoverable">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>Do you work occupied properties?</summary><p class="muted">Yes—most commercial projects remain fully occupied. We schedule and protect accordingly.</p></details>
+        <details><summary>Can you assist with specs and RFPs?</summary><p class="muted">Absolutely—cut sheets, detail notes, and value-engineering options are available.</p></details>
+      </div>
+    </section>
+
+    <!-- AREAS -->
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head"><h2 class="sa-title">Service Areas</h2><p class="muted">North County San Diego • Temecula Valley • Greater San Diego County</p></div>
+      <ul class="chip-grid sa-cities"><li><span class="chip sa-chip strong">Escondido</span></li><li><span class="chip sa-chip strong">San Diego</span></li><li><span class="chip sa-chip strong">Temecula</span></li><li><span class="chip sa-chip">Carlsbad</span></li><li><span class="chip sa-chip">San Marcos</span></li><li><span class="chip sa-chip">Vista</span></li></ul>
+      <div class="center-actions"><a class="btn btn-primary" href="#estimate">Request Bid / Estimate</a></div>
+    </section>
+
+    <!-- FORM -->
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer"><em>Include building use, roof size, system preference (if any), access notes, and bid timeline.</em></p>
+    </section>
+
+    <!-- CTA -->
+    <section class="section"><div class="cta-strip"><div class="text"><strong>Let’s plan your project.</strong> We’ll deliver a clean, competitive, complete bid with options.</div><a class="btn" href="#estimate">Request Bid / Estimate</a></div></section>
+  </main>
+  <div data-include="/components/footer.html"></div>
+
+  <script src="/js/loader.js" defer></script><script src="/js/header.js" defer></script>
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Request Bid / Estimate",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Tell us about your property (use, SF), desired system or goals (cool roof, low disruption), and any deadlines.",
+      hiddenFields: { campaign: "services/commercial", page_tag: "commercial-index" }
+    };
+  </script>
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
