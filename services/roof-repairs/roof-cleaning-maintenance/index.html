@@ -1,37 +1,248 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Roof Cleaning & Maintenance | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Roof and gutter cleaning, valley clearing, minor sealing, and photo documentation. San Diego & Temecula." />
-  <link rel="canonical" href="https://www.zenithroofingservices.com/services/roof-repairs/roof-cleaning-maintenance/">
-  <link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/ui.css"><link rel="stylesheet" href="/css/estimate-form.css">
-  <script defer src="/js/loader.js"></script><script defer src="/js/header.js"></script><script defer src="/js/estimate-form.js"></script>
-  <style>.page.rcm{max-width:1100px;margin:24px auto;padding:0 16px}.badge{display:inline-flex;gap:8px;padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:600}.muted{color:var(--ui-muted)}.tick{font-weight:800;color:#0b3a6f}</style>
+  <!-- ===== META ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Roof Cleaning & Maintenance | North County San Diego, Temecula & San Diego County</title>
+  <meta name="description" content="Tile, shingle, and flat roof cleaning & maintenance: debris removal, valley/gutter clear-outs, targeted sealant touch-ups, and photo documentation. Serving Escondido, North County San Diego, Temecula & all San Diego County." />
+  <link rel="canonical" href="https://zenithroofingservices.com/services/roof-repairs/roof-cleaning-maintenance/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Roof Cleaning & Maintenance | Zenith Roofing Services"/>
+  <meta property="og:description" content="Pro cleaning & maintenance that prevents leaks—debris removal, valley & roof-to-gutter clear-outs, sealant touch-ups, photo summary. Escondido • North County San Diego • Temecula."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://zenithroofingservices.com/services/roof-repairs/roof-cleaning-maintenance/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <!-- Shared CSS (footer.css in <head> so footer isn’t clipped) -->
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <!-- Form CSS -->
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
+
+  <!-- Page-scope polish (same vibe as other service pages) -->
+  <style>
+    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    html { scroll-behavior: smooth; }
+
+    .page .hero{
+      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border: 1px solid var(--ui-line);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 14px 34px rgba(2,12,32,.08);
+    }
+    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
+    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
+    .page .hero .split{ align-items:center; }
+    .page .hero .media{
+      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
+      background:#fff; box-shadow: var(--ui-shadow); transform: translateZ(0);
+    }
+    .page .hero .media::before{
+      content:""; display:block; aspect-ratio:16/10;
+      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
+    }
+
+    .page h2{ margin-bottom:.4rem; }
+    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
+
+    .page .card.hoverable{ will-change: transform, box-shadow; }
+    .page .card.hoverable:hover{ transform: translateY(-3px); }
+
+    .page .mini-list{ margin:.5rem 0 0 .95rem; color:#334155; }
+    .page .mini-list li{ margin:.25rem 0; }
+
+    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
+
+    .page .cta-strip{
+      background:#072e59; color:#fff; border-radius:16px;
+      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    }
+    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
+    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
+  </style>
+
+  <!-- JSON-LD: Service + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Roof Cleaning & Maintenance",
+    "serviceType":"Debris removal, valley & gutter clear-out, sealant touch-ups, minor maintenance",
+    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
+    "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}],
+    "description":"Professional roof cleaning & preventative maintenance for tile, shingle, and flat roofs. We clear debris, clean valleys/roof-to-gutter transitions, perform sealant touch-ups, and provide a photo summary."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What does roof cleaning include?","acceptedAnswer":{"@type":"Answer","text":"Debris removal from roof planes and valleys, roof-to-gutter clear-outs, minor sealant touch-ups where appropriate, and a brief photo summary."}},
+      {"@type":"Question","name":"Is pressure washing safe for roofs?","acceptedAnswer":{"@type":"Answer","text":"We do not pressure wash tile/shingle roofs. We use roof-safe methods to protect profiles, coatings, and underlayment."}},
+      {"@type":"Question","name":"How often should I schedule maintenance?","acceptedAnswer":{"@type":"Answer","text":"Typically once per year in Southern California; twice per year for heavy tree cover or complex rooflines."}}
+    ]
+  }
+  </script>
 </head>
 <body>
-<div data-include="/components/header-section.html"></div>
-<main class="page rcm" id="top">
-  <section class="card airy">
-    <span class="badge">Cleaning & Maintenance</span>
-    <h1 style="margin:10px 0 6px;">Roof & Gutter Cleaning</h1>
-    <p class="muted">Remove debris, clean valleys/gutters, and perform small sealing to help water flow and extend useful life.</p>
-    <div class="cta"><a class="btn" href="#estimate">Request Cleaning</a></div>
-  </section>
+  <!-- Header include -->
+  <div data-include="/components/header-section.html"></div>
 
-  <section class="card airy"><h2>What We Do</h2>
-    <div class="grid auto-fit" style="--ui-gap:16px;">
-      <div class="card"><h3>Clean & Clear</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Valleys & gutters</li><li><span class="tick">✓</span> Roof debris removal</li></ul></div>
-      <div class="card"><h3>Minor Touch-Ups</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Small sealing as needed</li><li><span class="tick">✓</span> Photos provided</li></ul></div>
-    </div>
-  </section>
+  <main id="top" class="page">
+    <!-- ===== HERO (split) ===== -->
+    <section class="hero" aria-label="Roof Cleaning & Maintenance">
+      <div class="eyebrow">
+        <span class="chip">Maintenance</span>
+        <span class="chip">Debris Removal</span>
+        <span class="chip">Photo Summary</span>
+      </div>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">Roof Cleaning & Maintenance — Keep Water Moving</h1>
+          <p class="lede">Prevent leaks and early wear with professional cleaning and targeted maintenance. We clear valleys and roof-to-gutter transitions, remove debris, and perform sealant touch-ups—ideal for <strong>Escondido</strong>, <strong>North County San Diego</strong>, and <strong>Temecula</strong>.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#estimate" aria-label="Request a free estimate for roof cleaning and maintenance">Request Free Estimate</a>
+            <a class="btn btn-outline" href="#what">What’s Included</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true"></div>
+      </div>
+    </section>
 
-  <section id="estimate" class="card airy" data-estimate-context data-category="Roof Cleaning & Maintenance" data-redirect="/thank-you/">
-    <div data-include="/components/forms/estimate.html"></div>
-  </section>
-</main>
-<div data-include="/components/footer.html"></div>
-<div class="actionbar"><a class="ab-btn call" href="tel:8589006163">Call</a><a class="ab-btn text" href="sms:+18589006163">Text</a><a class="ab-btn estimate" href="#estimate">Free Estimate</a></div>
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills" aria-label="Roof Cleaning & Maintenance sections">
+      <a href="#what">What’s Included</a>
+      <a href="#methods">Our Methods</a>
+      <a href="#faq">FAQ</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#estimate">Estimate</a>
+    </nav>
+
+    <!-- ===== WHAT'S INCLUDED ===== -->
+    <section id="what" class="section card airy hoverable">
+      <h2>What’s Included</h2>
+      <div class="grid cols-2">
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Debris removal from roof planes & valleys</li>
+          <li><span class="tick">✓</span> Roof-to-gutter & downspout transitions cleared</li>
+          <li><span class="tick">✓</span> Sealant touch-ups at select penetrations</li>
+        </ul>
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Visual check for cracked tiles or lifted shingles</li>
+          <li><span class="tick">✓</span> Noted drainage issues & recommendations</li>
+          <li><span class="tick">✓</span> Brief photo summary of work performed</li>
+        </ul>
+      </div>
+      <p class="section lede-narrow" style="margin:0;">Perfect for annual upkeep or pre-storm prep across North County San Diego, Temecula Valley, and greater San Diego County.</p>
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Request Free Estimate</a>
+      </div>
+    </section>
+
+    <!-- ===== METHODS ===== -->
+    <section id="methods" class="section card airy hoverable">
+      <h2>Roof-Safe Cleaning Methods</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>Tile & Shingle Safe</h3><p class="muted">No pressure washing. We use roof-safe methods to protect coatings, profiles, and underlayment.</p></div>
+        <div class="card"><h3>Valleys & Transitions</h3><p class="muted">We focus on the highest-risk leak zones—valleys and roof-to-gutter transitions—so water flows freely.</p></div>
+        <div class="card"><h3>Drainage First</h3><p class="muted">We identify pitch or downspout issues and recommend practical fixes to reduce ponding and backups.</p></div>
+        <div class="card"><h3>Photos & Notes</h3><p class="muted">You’ll get quick before/after highlights and next-step suggestions if we see concerns.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section card airy hoverable">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>Will you clean my gutters too?</summary><p class="muted">We clear roof-to-gutter transitions during maintenance and can quote gutter cleaning/repairs as needed.</p></details>
+        <details><summary>Do you work around solar?</summary><p class="muted">Yes. We work roof-safe around solar arrays and note any obstructions or drainage impacts.</p></details>
+        <details><summary>How often should I schedule this?</summary><p class="muted">Once per year for most homes; twice per year if you have heavy tree cover or complex rooflines.</p></details>
+      </div>
+    </section>
+
+    <!-- ===== AREAS ===== -->
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head">
+        <h2 class="sa-title">Service Areas</h2>
+        <p class="muted">Fast scheduling in North County San Diego, greater San Diego, and Temecula Valley.</p>
+      </div>
+
+      <ul class="chip-grid sa-cities" aria-label="Primary service cities">
+        <li><span class="chip sa-chip strong">Escondido</span></li>
+        <li><span class="chip sa-chip strong">San Diego</span></li>
+        <li><span class="chip sa-chip strong">Temecula</span></li>
+        <li><span class="chip sa-chip">San Marcos</span></li>
+        <li><span class="chip sa-chip">Vista</span></li>
+        <li><span class="chip sa-chip">Oceanside</span></li>
+      </ul>
+
+      <details class="sa-more">
+        <summary class="sa-summary">More nearby cities</summary>
+        <ul class="chip-grid sa-cities">
+          <li><span class="chip sa-chip">Carlsbad</span></li>
+          <li><span class="chip sa-chip">Encinitas</span></li>
+          <li><span class="chip sa-chip">Poway</span></li>
+          <li><span class="chip sa-chip">Rancho Bernardo</span></li>
+          <li><span class="chip sa-chip">Fallbrook</span></li>
+          <li><span class="chip sa-chip">Murrieta</span></li>
+          <li><span class="chip sa-chip">Menifee</span></li>
+        </ul>
+      </details>
+
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Check my ZIP &amp; Request Free Estimate</a>
+      </div>
+    </section>
+
+    <!-- ===== ESTIMATE FORM (Roof Cleaning & Maintenance) ===== -->
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer">
+        <em>*Free estimates exclude real-estate transaction inspections/reports. If you’re a buyer/seller or agent, please see our Real Estate Services.</em>
+      </p>
+    </section>
+
+    <!-- Full-width CTA band inside container -->
+    <section class="section">
+      <div class="cta-strip">
+        <div class="text">
+          <strong>Ready for roof cleaning & maintenance?</strong> Keep water moving and protect your roof before storms hit.
+        </div>
+        <a class="btn" href="#estimate">Request Free Estimate</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer include OUTSIDE <main> so it spans full width -->
+  <div data-include="/components/footer.html"></div>
+
+  <!-- ===== JS ===== -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
+
+  <!-- Per-page form config -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Request Free Estimate",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Tell us roof type (tile/shingle/flat), debris sources (trees, wind), any staining or overflow areas, and share photos/links…",
+      lockService: "Roof Repair", // If you prefer “Other”, just delete this line.
+      hiddenFields: { campaign: "services/roof-repairs/roof-cleaning-maintenance", page_tag: "roof-cleaning-maintenance" }
+    };
+  </script>
+
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
