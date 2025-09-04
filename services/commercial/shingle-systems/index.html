@@ -1,37 +1,355 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Commercial Shingle Systems | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Architectural shingles for light commercial/multifamily: proper starters, valleys, ridge, and ventilation recommendations." />
-  <link rel="canonical" href="https://www.zenithroofingservices.com/services/commercial/shingle-systems/">
-  <link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/ui.css"><link rel="stylesheet" href="/css/estimate-form.css">
-  <script defer src="/js/loader.js"></script><script defer src="/js/header.js"></script><script defer src="/js/estimate-form.js"></script>
-  <style>.page.cshin{max-width:1100px;margin:24px auto;padding:0 16px}.badge{display:inline-flex;gap:8px;padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:600}.muted{color:var(--ui-muted)}.tick{font-weight:800;color:#0b3a6f}</style>
+  <!-- ===== META ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Commercial Shingle Roofing (Apartments, HOA, Multi-Building) | Zenith Roofing Services</title>
+  <meta name="description" content="Commercial asphalt shingle systems for apartments, HOA/condo communities, schools & light commercial. Class A fire-rated, manufacturer-backed, code-compliant installs. Serving Escondido, North County San Diego & Temecula. Request a bid." />
+  <link rel="canonical" href="https://zenithroofingservices.com/services/commercial/shingle-systems/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Commercial Shingle Roofing — Apartments, HOA, Multi-Building"/>
+  <meta property="og:description" content="Durable, code-compliant composition shingle systems with manufacturer warranties. Escondido • North County San Diego • Temecula. Request a bid."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://zenithroofingservices.com/services/commercial/shingle-systems/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <!-- Shared CSS (match working order; include footer.css here so it spans full width) -->
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <!-- Form CSS -->
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
+
+  <!-- Page-scope polish (same design language) -->
+  <style>
+    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    html { scroll-behavior: smooth; }
+
+    .page .hero{
+      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border: 1px solid var(--ui-line);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 14px 34px rgba(2,12,32,.08);
+    }
+    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
+    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
+    .page .hero .split{ align-items:center; }
+    .page .hero .media{
+      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
+      background:#fff; box-shadow: var(--ui-shadow); transform: translateZ(0);
+    }
+    .page .hero .media::before{
+      content:""; display:block; aspect-ratio:16/10;
+      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
+    }
+
+    .page h2{ margin-bottom:.4rem; }
+    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
+    .page .card.hoverable{ will-change: transform, box-shadow; }
+    .page .card.hoverable:hover{ transform: translateY(-3px); }
+    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
+
+    .page .cta-strip{
+      background:#072e59; color:#fff; border-radius:16px;
+      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    }
+    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
+    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
+
+    /* Quick badges grid */
+    .badge-grid{ display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+    .badge{ display:flex; align-items:center; gap:.5rem; font-weight:800; color:#072e59; }
+  </style>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Services","item":"https://zenithroofingservices.com/services/"},
+      {"@type":"ListItem","position":2,"name":"Commercial","item":"https://zenithroofingservices.com/services/commercial/"},
+      {"@type":"ListItem","position":3,"name":"Commercial Shingle Systems","item":"https://zenithroofingservices.com/services/commercial/shingle-systems/"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Service + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Commercial Asphalt Shingle Roofing (Steep-Slope)",
+    "serviceType":"Design, removal, and installation of commercial asphalt shingle systems",
+    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
+    "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}],
+    "description":"Manufacturer-aligned, code-compliant shingle systems for apartments, HOA/condo communities, schools and light commercial. Class A fire-rated assemblies, ventilation balanced, documented QA, and bid/RFP ready."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Do you handle multi-building, phased projects?","acceptedAnswer":{"@type":"Answer","text":"Yes. We stage, phase, and schedule around tenants and operations. We provide resident notices, safety cones/tape, daily clean-up, and progress reporting."}},
+      {"@type":"Question","name":"Which shingle brands do you install?","acceptedAnswer":{"@type":"Answer","text":"We work with leading manufacturers and install to their specs for warranty eligibility. Options include architectural and impact-rated products with cool-roof selections."}},
+      {"@type":"Question","name":"Can you assist with specifications and RFPs?","acceptedAnswer":{"@type":"Answer","text":"Yes. We can help scope, write project notes, provide cut sheets, ventilation calcs, and value-engineer underlayment, flashings, and accessories to meet budget and performance."}}
+    ]
+  }
+  </script>
 </head>
 <body>
-<div data-include="/components/header-section.html"></div>
-<main class="page cshin" id="top">
-  <section class="card airy">
-    <span class="badge">Commercial</span>
-    <h1 style="margin:10px 0 6px;">Shingle Systems</h1>
-    <p class="muted">Architectural shingles with proper edge/valley/ridge details and balanced ventilation.</p>
-    <div class="cta"><a class="btn" href="#estimate">Request Proposal</a></div>
-  </section>
+  <!-- Header include -->
+  <div data-include="/components/header-section.html"></div>
 
-  <section class="card airy"><h2>Scope Highlights</h2>
-    <div class="grid auto-fit" style="--ui-gap:16px;">
-      <div class="card"><h3>Install Details</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Starters, valleys, ridge</li><li><span class="tick">✓</span> Fastening patterns</li></ul></div>
-      <div class="card"><h3>Ventilation</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Intake/exhaust balance</li><li><span class="tick">✓</span> Ridge vent options</li></ul></div>
-    </div>
-  </section>
+  <main id="top" class="page">
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-label="Commercial shingle roofing">
+      <div class="eyebrow">
+        <span class="chip">Apartments & HOA</span>
+        <span class="chip">Multi-Building</span>
+        <span class="chip">Class A Assemblies</span>
+      </div>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">Commercial Shingle Roofing — Apartments, HOA & Multi-Building</h1>
+          <p class="lede">Durable, code-compliant **composition shingle systems** built for bigger properties. We phase work around residents, provide clean jobsites, and deliver manufacturer-aligned installations for long-term performance.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#estimate" aria-label="Request a bid for commercial shingle roofing">Request Bid / Estimate</a>
+            <a class="btn btn-outline" href="#systems">Systems</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true"></div>
+      </div>
+    </section>
 
-  <section id="estimate" class="card airy" data-estimate-context data-category="Commercial — Shingle Systems" data-redirect="/thank-you/">
-    <div data-include="/components/forms/estimate.html"></div>
-  </section>
-</main>
-<div data-include="/components/footer.html"></div>
-<div class="actionbar"><a class="ab-btn call" href="tel:8589006163">Call</a><a class="ab-btn text" href="sms:+18589006163">Text</a><a class="ab-btn estimate" href="#estimate">Free Estimate</a></div>
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills" aria-label="Commercial shingle page sections">
+      <a href="#systems">Systems</a>
+      <a href="#why">Why Us</a>
+      <a href="#specs">Specs & Compliance</a>
+      <a href="#warranty">Warranties</a>
+      <a href="#process">Process</a>
+      <a href="#faq">FAQ</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#estimate">Estimate</a>
+    </nav>
+
+    <!-- ===== SYSTEMS ===== -->
+    <section id="systems" class="section card airy hoverable">
+      <h2>System Options for Big Projects</h2>
+      <p class="section lede-narrow">Architectural/laminated shingles with proper underlayment, flashings, and balanced ventilation. Cool-roof options for Title 24 where applicable.</p>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Architectural Shingle (Most Properties)</h3>
+          <ul class="checklist relaxed">
+            <li><span class="tick">✓</span> Laminated shingle with dimensional look</li>
+            <li><span class="tick">✓</span> Synthetic underlayment + ice/water at criticals (per spec)</li>
+            <li><span class="tick">✓</span> New metal flashings, boots, and vents</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Upgrades &amp; Options</h3>
+          <ul class="checklist relaxed">
+            <li><span class="tick">✓</span> Cool-roof shingle selections</li>
+            <li><span class="tick">✓</span> Impact-rated shingles (select SKUs)</li>
+            <li><span class="tick">✓</span> Ridge venting & code ventilation balance</li>
+          </ul>
+        </div>
+      </div>
+      <div class="badge-grid" style="margin-top:10px;">
+        <div class="badge">• Class A Fire-Rated Assemblies</div>
+        <div class="badge">• Manufacturer-Aligned Install</div>
+        <div class="badge">• Photo Documentation</div>
+        <div class="badge">• Bid/RFP Friendly Scopes</div>
+      </div>
+      <div class="center-actions"><a class="btn btn-primary" href="#estimate">Request Bid / Estimate</a></div>
+    </section>
+
+    <!-- ===== WHY US ===== -->
+    <section id="why" class="section card airy hoverable">
+      <h2>Why Commercial Clients Choose Us</h2>
+      <div class="grid cols-2">
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Phasing & tenant-friendly scheduling</li>
+          <li><span class="tick">✓</span> Daily clean-up, magnets, and access controls</li>
+          <li><span class="tick">✓</span> Dedicated point of contact & progress reporting</li>
+        </ul>
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Organized staging & safety zones</li>
+          <li><span class="tick">✓</span> Punch-list closeout with photos</li>
+          <li><span class="tick">✓</span> Value engineering to hit budget & spec</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== SPECS & COMPLIANCE ===== -->
+    <section id="specs" class="section card airy hoverable">
+      <h2>Specs & Compliance</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Code & Details</h3>
+          <ul class="checklist">
+            <li><span class="tick">✓</span> Balanced attic ventilation calculations</li>
+            <li><span class="tick">✓</span> Proper valley, wall, and pipe flashings</li>
+            <li><span class="tick">✓</span> Fastener patterns per spec & wind zone</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Documentation</h3>
+          <ul class="checklist">
+            <li><span class="tick">✓</span> Cut sheets & submittals on request</li>
+            <li><span class="tick">✓</span> Photo logs and site reports</li>
+            <li><span class="tick">✓</span> Closeout packet with warranty info</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WARRANTIES ===== -->
+    <section id="warranty" class="section card airy hoverable">
+      <h2>Manufacturer & Workmanship Warranties</h2>
+      <p class="muted">We install to manufacturer specifications for warranty eligibility and stand behind our workmanship. Warranty options vary by product and scope—ask us to align selections with your goals.</p>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section id="process" class="section card airy hoverable">
+      <h2>Our Process</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>1) Site Walk & Scope</h3><p class="muted">Measure, review access, and plan phasing around people & parking.</p></div>
+        <div class="card"><h3>2) Proposal & Options</h3><p class="muted">Clear bid with alternates for underlayment, vents, and shingles.</p></div>
+        <div class="card"><h3>3) Mobilize & Protect</h3><p class="muted">Safety zones, protection, and daily clean-up commitments.</p></div>
+        <div class="card"><h3>4) Install & QC</h3><p class="muted">Spec-aligned install with documented checkpoints & photos.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section card airy hoverable">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>Can you work while the property is occupied?</summary><p class="muted">Yes—most of our commercial shingle projects are fully occupied. We coordinate notices, maintain access, and keep sites clean.</p></details>
+        <details><summary>Do you offer cool-roof shingles?</summary><p class="muted">Yes. Where Title 24 cool-roof requirements apply, we’ll propose compliant options or value-engineer alternatives if allowed.</p></details>
+        <details><summary>How do you handle rain or weather delays?</summary><p class="muted">We schedule smart, monitor forecasts, and never leave open exposures. Temporary protection is in place if weather shifts.</p></details>
+      </div>
+    </section>
+
+    <!-- ===== AREAS (hierarchy) ===== -->
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head">
+        <h2 class="sa-title">Service Areas</h2>
+        <p class="muted">North County San Diego, Temecula Valley, the rest of San Diego County, and nearby Southern California communities.</p>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">1) North County San Diego</h3>
+          <p class="muted small" style="margin:0;">Escondido • Carlsbad • San Marcos • Encinitas • Vista • Oceanside • Poway • Rancho Bernardo</p>
+        </div>
+        <ul class="chip-grid" aria-label="North County cities">
+          <li><span class="sa-chip strong">Escondido 92025–92029</span></li>
+          <li><span class="sa-chip">Carlsbad 92008–92011</span></li>
+          <li><span class="sa-chip">San Marcos 92069–92078</span></li>
+          <li><span class="sa-chip">Encinitas 92024</span></li>
+          <li><span class="sa-chip">Vista 92081–92084</span></li>
+          <li><span class="sa-chip">Oceanside 92054–92057</span></li>
+          <li><span class="sa-chip">Poway 92064</span></li>
+          <li><span class="sa-chip">Rancho Bernardo 92127–92128</span></li>
+        </ul>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">2) Temecula Valley</h3>
+          <p class="muted small" style="margin:0;">Temecula • Murrieta • Menifee • Wildomar • Lake Elsinore</p>
+        </div>
+        <ul class="chip-grid" aria-label="Temecula area">
+          <li><span class="sa-chip strong">Temecula 92590–92592</span></li>
+          <li><span class="sa-chip">Murrieta 92562–92563</span></li>
+          <li><span class="sa-chip">Menifee 92584</span></li>
+          <li><span class="sa-chip">Wildomar 92595</span></li>
+          <li><span class="sa-chip">Lake Elsinore 92530–92532</span></li>
+        </ul>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">3) Greater San Diego County</h3>
+          <p class="muted small" style="margin:0;">Coastal, inland, and metro neighborhoods.</p>
+        </div>
+        <ul class="chip-grid" aria-label="San Diego County">
+          <li><span class="sa-chip">San Diego</span></li>
+          <li><span class="sa-chip">La Jolla</span></li>
+          <li><span class="sa-chip">Scripps Ranch</span></li>
+          <li><span class="sa-chip">Chula Vista</span></li>
+          <li><span class="sa-chip">La Mesa</span></li>
+          <li><span class="sa-chip">El Cajon</span></li>
+        </ul>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">4) Southern California</h3>
+          <p class="muted small" style="margin:0;">Select nearby communities by request.</p>
+        </div>
+        <ul class="chip-grid" aria-label="SoCal">
+          <li><span class="sa-chip">Orange County (by request)</span></li>
+          <li><span class="sa-chip">Riverside County (by request)</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== ESTIMATE FORM ===== -->
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer">
+        <em>For RFPs or large scopes, include site address(es), unit count, access notes, and bid deadlines. We’ll confirm a site walk if needed.</em>
+      </p>
+    </section>
+
+    <!-- CTA band -->
+    <section class="section">
+      <div class="cta-strip">
+        <div class="text"><strong>Ready to spec a commercial shingle project?</strong> We’ll provide a clean, competitive, and complete bid.</div>
+        <a class="btn" href="#estimate">Request Bid / Estimate</a>
+      </div>
+    </section>
+
+    <!-- Cross-links -->
+    <section class="section">
+      <div class="grid cols-3">
+        <a class="card hoverable" href="/services/roof-replacement/pitched-roof/"><strong>Pitched Roof Replacement</strong><br><span class="muted">Steep-slope systems</span></a>
+        <a class="card hoverable" href="/services/residential/asphalt-shingles/"><strong>Asphalt Shingles (Residential)</strong><br><span class="muted">Architectural options</span></a>
+        <a class="card hoverable" href="/services/residential/preventive-maintenance/"><strong>Preventive Maintenance</strong><br><span class="muted">Keep roofs performing</span></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer include OUTSIDE <main> so it spans full width -->
+  <div data-include="/components/footer.html"></div>
+
+  <!-- ===== JS ===== -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
+  <!-- Per-page form config: keep Service Type on “Other” (no lockService) -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Request Bid / Estimate",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Tell us property type (apartments/HOA/school), addresses or unit count, scope (remove/replace, options), timeline, and any bid deadlines.",
+      hiddenFields: { campaign: "services/commercial/shingle-systems", page_tag: "commercial-shingle" }
+      // No lockService so dropdown remains on “Other,” per your preference
+    };
+  </script>
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
