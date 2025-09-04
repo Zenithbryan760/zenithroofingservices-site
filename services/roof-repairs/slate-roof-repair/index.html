@@ -1,37 +1,271 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Slate Roof Repair | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Slate repair and selective replacement with compatible flashings and careful handling. San Diego & Temecula." />
-  <link rel="canonical" href="https://www.zenithroofingservices.com/services/roof-repairs/slate-roof-repair/">
-  <link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/ui.css"><link rel="stylesheet" href="/css/estimate-form.css">
-  <script defer src="/js/loader.js"></script><script defer src="/js/header.js"></script><script defer src="/js/estimate-form.js"></script>
-  <style>.page.slate{max-width:1100px;margin:24px auto;padding:0 16px}.badge{display:inline-flex;gap:8px;padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:600}.muted{color:var(--ui-muted)}.tick{font-weight:800;color:#0b3a6f}</style>
+  <!-- ===== META ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Slate Roof Repair in North County San Diego & Temecula | Zenith Roofing Services</title>
+  <meta name="description" content="Specialized slate roof repair: broken/slipped slate replacement, copper/lead flashing, valley rebuilds, underlayment fixes, and photo documentation. Serving Escondido, North County San Diego, Temecula & San Diego County." />
+  <link rel="canonical" href="https://zenithroofingservices.com/services/roof-repairs/slate-roof-repair/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Slate Roof Repair | Escondido, North County San Diego & Temecula"/>
+  <meta property="og:description" content="Broken or slipped slate? Expert slate-safe repairs, copper/lead flashing work, valley cleanouts, and leak diagnostics with photo summary."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://zenithroofingservices.com/services/roof-repairs/slate-roof-repair/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <!-- Shared CSS (keep footer.css here so footer styles aren’t constrained) -->
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <!-- Form CSS -->
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
+
+  <!-- Page-scope polish (matches your other service pages) -->
+  <style>
+    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    html { scroll-behavior: smooth; }
+
+    .page .hero{
+      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border: 1px solid var(--ui-line);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 14px 34px rgba(2,12,32,.08);
+    }
+    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
+    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
+    .page .hero .split{ align-items:center; }
+    .page .hero .media{
+      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
+      background:#fff; box-shadow: var(--ui-shadow); transform: translateZ(0);
+    }
+    .page .hero .media::before{
+      content:""; display:block; aspect-ratio:16/10;
+      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
+    }
+
+    .page h2{ margin-bottom:.4rem; }
+    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
+
+    .page .card.hoverable{ will-change: transform, box-shadow; }
+    .page .card.hoverable:hover{ transform: translateY(-3px); }
+
+    .page .mini-list{ margin:.5rem 0 0 .95rem; color:#334155; }
+    .page .mini-list li{ margin:.25rem 0; }
+
+    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
+
+    .page .cta-strip{
+      background:#072e59; color:#fff; border-radius:16px;
+      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    }
+    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
+    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
+  </style>
+
+  <!-- JSON-LD: Service + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Slate Roof Repair",
+    "serviceType":"Natural/slate roof repair (slate replacement, copper/lead flashing, valley rebuilds)",
+    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
+    "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}],
+    "description":"Specialized slate roof repair: broken or slipped slate replacement, slate-safe access, copper/lead flashing work, valley cleanouts and rebuilds, localized underlayment fixes, and photo documentation."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Can you match my slate?","acceptedAnswer":{"@type":"Answer","text":"We source the closest slate available (color, thickness, texture). If exact match isn’t possible, we blend across the repair area for a uniform look."}},
+      {"@type":"Question","name":"Do you use copper or lead for flashing?","acceptedAnswer":{"@type":"Answer","text":"Yes—copper and/or lead flashings are common on slate roofs. We repair or replace flashing at penetrations, walls, and valleys per best practices."}},
+      {"@type":"Question","name":"How do you avoid breaking more slate?","acceptedAnswer":{"@type":"Answer","text":"We use slate hooks, nail pullers, pads, and dedicated walk paths. Access is planned to minimize breakage and protect the roof."}}
+    ]
+  }
+  </script>
 </head>
 <body>
-<div data-include="/components/header-section.html"></div>
-<main class="page slate" id="top">
-  <section class="card airy">
-    <span class="badge">Slate Repairs</span>
-    <h1 style="margin:10px 0 6px;">Specialized Slate Repair</h1>
-    <p class="muted">Selective slate replacement and flashing corrections using careful, slate-friendly techniques.</p>
-    <div class="cta"><a class="btn" href="#estimate">Request Repair Estimate</a></div>
-  </section>
+  <!-- Header include -->
+  <div data-include="/components/header-section.html"></div>
 
-  <section class="card airy"><h2>Common Work</h2>
-    <div class="grid auto-fit" style="--ui-gap:16px;">
-      <div class="card"><h3>Slate Swaps</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Match size & color when possible</li><li><span class="tick">✓</span> Proper hooks/fasteners</li></ul></div>
-      <div class="card"><h3>Flashings</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Copper/galv steel options</li><li><span class="tick">✓</span> Valleys & walls</li></ul></div>
-    </div>
-  </section>
+  <main id="top" class="page">
+    <!-- ===== HERO (split) ===== -->
+    <section class="hero" aria-label="Slate Roof Repair">
+      <div class="eyebrow">
+        <span class="chip">Slate-Safe</span>
+        <span class="chip">Copper/Lead Flashing</span>
+        <span class="chip">Leak Diagnostics</span>
+      </div>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">Slate Roof Repair — Local Specialists, Clean Finish</h1>
+          <p class="lede">Broken or slipped slate? Stains near valleys, skylights, or chimneys? We repair slate the right way—replace damaged pieces, fix flashing/underlayment issues, clear valleys, and provide a photo summary. Serving <strong>Escondido</strong>, <strong>North County San Diego</strong>, and <strong>Temecula</strong>.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#estimate" aria-label="Request a free estimate for slate roof repair">Request Free Estimate</a>
+            <a class="btn btn-outline" href="#symptoms">Signs of Trouble</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true"></div>
+      </div>
+    </section>
 
-  <section id="estimate" class="card airy" data-estimate-context data-category="Slate Roof Repair" data-redirect="/thank-you/">
-    <div data-include="/components/forms/estimate.html"></div>
-  </section>
-</main>
-<div data-include="/components/footer.html"></div>
-<div class="actionbar"><a class="ab-btn call" href="tel:8589006163">Call</a><a class="ab-btn text" href="sms:+18589006163">Text</a><a class="ab-btn estimate" href="#estimate">Free Estimate</a></div>
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills" aria-label="Slate Roof Repair sections">
+      <a href="#symptoms">Symptoms</a>
+      <a href="#repairs">What We Fix</a>
+      <a href="#sources">Common Leak Sources</a>
+      <a href="#faq">FAQ</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#estimate">Estimate</a>
+    </nav>
+
+    <!-- ===== SYMPTOMS ===== -->
+    <section id="symptoms" class="section card airy hoverable">
+      <h2>Signs Your Slate Roof Needs Repair</h2>
+      <div class="grid cols-2">
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Broken, cracked, delaminating, or missing slate</li>
+          <li><span class="tick">✓</span> Slipped slate or exposed nail heads</li>
+          <li><span class="tick">✓</span> Water staining inside after rain</li>
+          <li><span class="tick">✓</span> Rusted or loose flashings</li>
+        </ul>
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Debris accumulation in valleys</li>
+          <li><span class="tick">✓</span> Deteriorated ridge/hip details</li>
+          <li><span class="tick">✓</span> Aged felt/underlayment at leak areas</li>
+        </ul>
+      </div>
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Get a Roof Repair Estimate</a>
+      </div>
+    </section>
+
+    <!-- ===== WHAT WE FIX ===== -->
+    <section id="repairs" class="section card airy hoverable">
+      <h2>What We Repair on Slate Roofs</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Slate & Surface</h3>
+          <ul class="mini-list">
+            <li>Replace broken/slipped slate with hooks or nails as appropriate</li>
+            <li>Blend replacement slate for color/texture consistency</li>
+            <li>Re-secure ridges/hips; patch small mortar failures</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Waterproofing & Flashing</h3>
+          <ul class="mini-list">
+            <li>Repair/replace copper or lead flashing at walls, chimneys, skylights & pipes</li>
+            <li>Rebuild/clean valleys; install diverters where needed</li>
+            <li>Localized underlayment replacement at leak sources</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LEAK SOURCES ===== -->
+    <section id="sources" class="section card airy hoverable">
+      <h2>Common Leak Sources on Slate Roofs</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>Valleys & Transitions</h3><p class="muted">Debris or aged metal causes overflow and back-up—clean or rebuild as needed.</p></div>
+        <div class="card"><h3>Penetrations</h3><p class="muted">Skylights, chimneys, and vent pipes often need flashing rework or replacement.</p></div>
+        <div class="card"><h3>Nailing & Breakage</h3><p class="muted">Exposed nails and cracked slate allow water entry; we replace and seal properly.</p></div>
+        <div class="card"><h3>Underlayment</h3><p class="muted">Localized failure beneath slate can require targeted underlayment replacement.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section card airy hoverable">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>Can you repair during light rain?</summary><p class="muted">We work in safe, dry windows. Temporary protection is available if the roof is actively leaking.</p></details>
+        <details><summary>Do you service synthetic/slate-look products?</summary><p class="muted">Yes—let us know the brand if known; we’ll verify repair approach and availability.</p></details>
+        <details><summary>When is replacement better than repair?</summary><p class="muted">If widespread underlayment or flashing is failing, we’ll outline repair vs. re-roof options with pros/cons and photos.</p></details>
+      </div>
+    </section>
+
+    <!-- ===== AREAS ===== -->
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head">
+        <h2 class="sa-title">Service Areas</h2>
+        <p class="muted">Fast scheduling in North County San Diego, greater San Diego, and Temecula Valley.</p>
+      </div>
+
+      <ul class="chip-grid sa-cities" aria-label="Primary service cities">
+        <li><span class="chip sa-chip strong">Escondido</span></li>
+        <li><span class="chip sa-chip strong">San Diego</span></li>
+        <li><span class="chip sa-chip strong">Temecula</span></li>
+        <li><span class="chip sa-chip">San Marcos</span></li>
+        <li><span class="chip sa-chip">Vista</span></li>
+        <li><span class="chip sa-chip">Oceanside</span></li>
+      </ul>
+
+      <details class="sa-more">
+        <summary class="sa-summary">More nearby cities</summary>
+        <ul class="chip-grid sa-cities">
+          <li><span class="chip sa-chip">Carlsbad</span></li>
+          <li><span class="chip sa-chip">Encinitas</span></li>
+          <li><span class="chip sa-chip">Poway</span></li>
+          <li><span class="chip sa-chip">Rancho Bernardo</span></li>
+          <li><span class="chip sa-chip">Fallbrook</span></li>
+          <li><span class="chip sa-chip">Murrieta</span></li>
+          <li><span class="chip sa-chip">Menifee</span></li>
+        </ul>
+      </details>
+
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Check my ZIP &amp; Request Free Estimate</a>
+      </div>
+    </section>
+
+    <!-- ===== ESTIMATE FORM (Slate Roof Repair) ===== -->
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer">
+        <em>*Free estimates exclude real-estate transaction inspections/reports. If you’re a buyer/seller or agent, please see our Real Estate Services.</em>
+      </p>
+    </section>
+
+    <!-- Full-width CTA band inside container -->
+    <section class="section">
+      <div class="cta-strip">
+        <div class="text">
+          <strong>Need slate roof repair?</strong> Slate-safe technicians, copper/lead flashing expertise, and clear photo documentation.
+        </div>
+        <a class="btn" href="#estimate">Request Free Estimate</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer include OUTSIDE <main> so it spans full width -->
+  <div data-include="/components/footer.html"></div>
+
+  <!-- ===== JS ===== -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
+
+  <!-- Per-page form config: preselect “Roof Repair” + campaign tags (no changes to shared JS) -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Request Free Estimate",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Tell us what you’re seeing (location on roof, photos/links, slate color/thickness if known)…",
+      lockService: "Roof Repair",
+      hiddenFields: { campaign: "services/roof-repairs/slate-roof-repair", page_tag: "slate-roof-repair" }
+    };
+  </script>
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
