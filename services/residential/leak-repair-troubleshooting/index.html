@@ -1,39 +1,360 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Residential Leak Repair & Troubleshooting | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Leak tracing, targeted repairs, flashing corrections, and underlayment tie-ins with photo documentation." />
-  <link rel="canonical" href="https://www.zenithroofingservices.com/services/residential/leak-repair-troubleshooting/">
+  <!-- ===== META ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Roof Leak Repair & Troubleshooting | Escondido, North County San Diego & Temecula</title>
+  <meta name="description" content="Stop roof leaks fast. Step-by-step DIY triage you can do today—then pro leak diagnosis and repairs. Serving Escondido, North County San Diego, Temecula & greater San Diego. Free estimates (non-real-estate)." />
+  <link rel="canonical" href="https://zenithroofingservices.com/services/residential/leak-repair-troubleshooting/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 
-  <link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/ui.css"><link rel="stylesheet" href="/css/estimate-form.css">
-  <script defer src="/js/loader.js"></script><script defer src="/js/header.js"></script><script defer src="/js/estimate-form.js"></script>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Roof Leak Repair & Troubleshooting | Zenith Roofing Services"/>
+  <meta property="og:description" content="Practical DIY steps + fast pro help for roof leaks. Serving Escondido, North County San Diego & Temecula."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://zenithroofingservices.com/services/residential/leak-repair-troubleshooting/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-  <style>.page.rr{max-width:1100px;margin:24px auto;padding:0 16px}.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:600}.muted{color:var(--ui-muted)}.tick{font-weight:800;color:#0b3a6f}</style>
+  <!-- Shared CSS (footer stays in head for full-width) -->
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <!-- Form CSS -->
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
+
+  <!-- Page-scope polish -->
+  <style>
+    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    html { scroll-behavior: smooth; }
+
+    .page .hero{
+      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border: 1px solid var(--ui-line);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 14px 34px rgba(2,12,32,.08);
+    }
+    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
+    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
+    .page .hero .split{ align-items:center; }
+    .page .hero .media{
+      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
+      background:#fff; box-shadow: var(--ui-shadow); transform: translateZ(0);
+    }
+    .page .hero .media::before{
+      content:""; display:block; aspect-ratio:16/10;
+      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
+    }
+
+    .page h2{ margin-bottom:.4rem; }
+    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
+    .page .card.hoverable{ will-change: transform, box-shadow; }
+    .page .card.hoverable:hover{ transform: translateY(-3px); }
+    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
+
+    /* DIY steps timeline */
+    .page .timeline{ display:grid; gap:12px; }
+    .page .step{
+      background:#fff; border:1px solid var(--ui-line); border-radius:12px; padding:14px 16px; box-shadow:var(--ui-shadow);
+    }
+    .page .step h3{ margin:.1rem 0 .35rem; font-size:1.05rem; }
+    .page .badge{ font-weight:800; border:1px solid var(--ui-line); padding:.25rem .55rem; border-radius:999px; background:#fff; }
+
+    /* CTA band */
+    .page .cta-strip{
+      background:#072e59; color:#fff; border-radius:16px;
+      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    }
+    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
+    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
+  </style>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Services","item":"https://zenithroofingservices.com/services/"},
+      {"@type":"ListItem","position":2,"name":"Residential","item":"https://zenithroofingservices.com/services/residential/"},
+      {"@type":"ListItem","position":3,"name":"Leak Repair & Troubleshooting","item":"https://zenithroofingservices.com/services/residential/leak-repair-troubleshooting/"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Service + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Roof Leak Repair & Troubleshooting",
+    "serviceType":"Residential roof leak diagnosis and repair",
+    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
+    "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}],
+    "description":"Fast leak triage, diagnosis, and repair for shingles, tile, slate, flat roofs, skylights, chimneys, and flashings in Southern California."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Where do most roof leaks start?","acceptedAnswer":{"@type":"Answer","text":"Common sources include flashings (walls, chimneys, skylights), roof penetrations (vents, pipes), valleys, and transitions to gutters. Missing or lifted shingles/tiles can also expose underlayment."}},
+      {"@type":"Question","name":"Is it safe to go on the roof?","acceptedAnswer":{"@type":"Answer","text":"We recommend you stay off the roof. From the ground, take photos, note where the ceiling stains appear, and shut off power to any wet light fixtures. Call a pro for roof-level diagnostics."}},
+      {"@type":"Question","name":"Can you repair the same day?","acceptedAnswer":{"@type":"Answer","text":"For many leaks we can perform immediate temporary mitigation and complete permanent repairs as soon as parts and weather allow."}}
+    ]
+  }
+  </script>
 </head>
 <body>
-<div data-include="/components/header-section.html"></div>
-<main class="page rr" id="top">
-  <section class="card airy">
-    <span class="badge">Residential</span>
-    <h1 style="margin:10px 0 6px;">Leak Repair & Troubleshooting</h1>
-    <p class="muted">We identify sources and complete targeted, code-compliant repairs with photos.</p>
-    <div class="cta"><a class="btn" href="#estimate">Request Repair Estimate</a></div>
-  </section>
+  <!-- Header include -->
+  <div data-include="/components/header-section.html"></div>
 
-  <section class="card airy"><h2>Common Fixes</h2>
-    <div class="grid auto-fit" style="--ui-gap:16px;">
-      <div class="card"><h3>Valleys & Walls</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Flashing corrections</li><li><span class="tick">✓</span> Underlayment tie-ins</li></ul></div>
-      <div class="card"><h3>Pipes & Vents</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Re-flash & reseal</li><li><span class="tick">✓</span> Replace failed jacks</li></ul></div>
-    </div>
-  </section>
+  <main id="top" class="page">
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-label="Roof leak repair and troubleshooting">
+      <div class="eyebrow">
+        <span class="chip">Leak Repair</span>
+        <span class="chip">Troubleshooting</span>
+        <span class="chip">Emergency Friendly</span>
+      </div>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">Roof Leak Repair & Troubleshooting</h1>
+          <p class="lede">Water where it shouldn’t be? Use the quick DIY steps below to limit damage, then book our **pro leak diagnosis**. We fix leaks at skylights, chimneys, flashings, valleys, vents, shingles/tiles, and flat roofs across <strong>Escondido</strong>, <strong>North County San Diego</strong>, and <strong>Temecula</strong>.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#estimate" aria-label="Request a leak repair estimate">Request Free Estimate</a>
+            <a class="btn btn-outline" href="#diy">DIY Triage</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true"></div>
+      </div>
+    </section>
 
-  <section id="estimate" class="card airy" data-estimate-context data-category="Residential — Leak Repair & Troubleshooting" data-redirect="/thank-you/">
-    <div data-include="/components/forms/estimate.html"></div>
-  </section>
-</main>
-<div data-include="/components/footer.html"></div>
-<div class="actionbar"><a class="ab-btn call" href="tel:8589006163">Call</a><a class="ab-btn text" href="sms:+18589006163">Text</a><a class="ab-btn estimate" href="#estimate">Free Estimate</a></div>
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills" aria-label="Leak repair sections">
+      <a href="#diy">DIY Triage</a>
+      <a href="#sources">Common Leak Sources</a>
+      <a href="#process">Our Diagnosis Process</a>
+      <a href="#prepphotos">Best Photos to Send</a>
+      <a href="#faq">FAQ</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#estimate">Estimate</a>
+    </nav>
+
+    <!-- ===== DIY TRIAGE (lead-nurturing, trust) ===== -->
+    <section id="diy" class="section card airy hoverable">
+      <h2>5-Minute DIY Leak Triage (Stay Safe & Off the Roof)</h2>
+      <div class="timeline">
+        <div class="step">
+          <h3>1) Protect the area</h3>
+          <ul class="list">
+            <li>Move furniture and electronics. Place a bucket under drips; use a towel as a splash guard.</li>
+            <li>If water is near a light/ceiling fan, turn that circuit <strong>off</strong> at the breaker.</li>
+          </ul>
+        </div>
+        <div class="step">
+          <h3>2) Note when it leaks</h3>
+          <p class="muted">During hard rain? After wind? Only when sprinklers hit a wall? Timing helps pinpoint the source.</p>
+        </div>
+        <div class="step">
+          <h3>3) Look for inside clues</h3>
+          <ul class="list">
+            <li>Mark the ceiling stain edge with painter’s tape and date it.</li>
+            <li>If safe, peek in the attic with a flashlight—look for wet decking or trails (no roof walking).</li>
+          </ul>
+        </div>
+        <div class="step">
+          <h3>4) Check outside from the ground</h3>
+          <ul class="list">
+            <li>Focus on <em>walls & transitions</em>: skylights, chimneys, wall flashings, valleys, vents, and where roof meets gutters.</li>
+            <li>Note any missing shingles/tiles or debris piled in valleys/gutters.</li>
+          </ul>
+        </div>
+        <div class="step">
+          <h3>5) Take & send clear photos</h3>
+          <p class="muted">See “Best Photos to Send” below. Photos often let us prep parts and fix faster.</p>
+        </div>
+      </div>
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Request Free Estimate</a>
+      </div>
+    </section>
+
+    <!-- ===== COMMON SOURCES ===== -->
+    <section id="sources" class="section card airy hoverable">
+      <h2>Common Leak Sources We Fix</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Skylights & Curbs</h3>
+          <p class="muted">Failed curb flashing, old gaskets, or cracked lenses. We reseal, re-flash, or replace curb-mounted units.</p>
+        </div>
+        <div class="card">
+          <h3>Wall/Chimney Flashings</h3>
+          <p class="muted">Counterflashing gaps and dried sealants create wind-driven leaks at stucco/siding transitions.</p>
+        </div>
+        <div class="card">
+          <h3>Valleys & Transitions</h3>
+          <p class="muted">Debris dams and mis-aligned tiles/shingles push water sideways under laps.</p>
+        </div>
+        <div class="card">
+          <h3>Roof Vents & Pipes</h3>
+          <p class="muted">UV-cracked flashings and boots let water track along pipes into the attic.</p>
+        </div>
+        <div class="card">
+          <h3>Missing/Lifted Shingles & Tiles</h3>
+          <p class="muted">Wind or foot traffic can break fasteners and expose underlayment.</p>
+        </div>
+        <div class="card">
+          <h3>Flat Roof Details</h3>
+          <p class="muted">Seams, ponding zones, and terminations at walls/scuppers need membrane-specific repairs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== OUR PROCESS ===== -->
+    <section id="process" class="section card airy hoverable">
+      <h2>Our Leak Diagnosis & Repair Process</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>1) Interview & Photo Review</h3><p class="muted">We match your leak timing and photos to roof geometry.</p></div>
+        <div class="card"><h3>2) On-Roof Diagnosis</h3><p class="muted">Systematic check of flashings, penetrations, valleys, and suspect planes.</p></div>
+        <div class="card"><h3>3) Targeted Repair</h3><p class="muted">Sealant refresh, re-flash details, reset tiles/shingles, replace failed parts.</p></div>
+        <div class="card"><h3>4) Proof & Photos</h3><p class="muted">We document the fix and flag any future-risk areas.</p></div>
+      </div>
+      <p class="muted" style="margin-top:.4rem;"><strong>Real-estate transactions:</strong> reports/inspections are paid services—see note near the form.</p>
+    </section>
+
+    <!-- ===== BEST PHOTOS ===== -->
+    <section id="prepphotos" class="section card airy hoverable">
+      <h2>Best Photos to Send (Helps Us Fix Faster)</h2>
+      <ul class="checklist relaxed">
+        <li><span class="tick">✓</span> The ceiling stain (close + wide)</li>
+        <li><span class="tick">✓</span> Outside area directly above the stain</li>
+        <li><span class="tick">✓</span> Any nearby skylight, chimney, wall, or vent</li>
+        <li><span class="tick">✓</span> Valley or gutter transition in that area</li>
+        <li><span class="tick">✓</span> Overall roof photo from the street</li>
+      </ul>
+      <div class="center-actions"><a class="btn btn-primary" href="#estimate">Attach Photos & Request Estimate</a></div>
+    </section>
+
+    <!-- ===== AREAS (hierarchy) ===== -->
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head">
+        <h2 class="sa-title">Service Areas</h2>
+        <p class="muted">North County San Diego, Temecula Valley, the rest of San Diego County, and nearby Southern California communities.</p>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">1) North County San Diego</h3>
+          <p class="muted small" style="margin:0;">Escondido • Carlsbad • San Marcos • Encinitas • Vista • Oceanside • Poway • Rancho Bernardo</p>
+        </div>
+        <ul class="chip-grid" aria-label="North County cities">
+          <li><span class="sa-chip strong">Escondido 92025–92029</span></li>
+          <li><span class="sa-chip">Carlsbad 92008–92011</span></li>
+          <li><span class="sa-chip">San Marcos 92069–92078</span></li>
+          <li><span class="sa-chip">Encinitas 92024</span></li>
+          <li><span class="sa-chip">Vista 92081–92084</span></li>
+          <li><span class="sa-chip">Oceanside 92054–92057</span></li>
+          <li><span class="sa-chip">Poway 92064</span></li>
+          <li><span class="sa-chip">Rancho Bernardo 92127–92128</span></li>
+        </ul>
+        <details class="sa-more">
+          <summary class="sa-summary">See more North County ZIPs</summary>
+          <p class="muted small">Rancho Peñasquitos 92129 • Fallbrook 92028 • Solana Beach 92075 • Del Mar 92014 • La Costa 92009</p>
+        </details>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">2) Temecula Valley</h3>
+          <p class="muted small" style="margin:0;">Temecula • Murrieta • Menifee • Wildomar • Lake Elsinore</p>
+        </div>
+        <ul class="chip-grid" aria-label="Temecula area">
+          <li><span class="sa-chip strong">Temecula 92590–92592</span></li>
+          <li><span class="sa-chip">Murrieta 92562–92563</span></li>
+          <li><span class="sa-chip">Menifee 92584</span></li>
+          <li><span class="sa-chip">Wildomar 92595</span></li>
+          <li><span class="sa-chip">Lake Elsinore 92530–92532</span></li>
+        </ul>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">3) Greater San Diego County</h3>
+          <p class="muted small" style="margin:0;">Coastal, inland, and metro neighborhoods.</p>
+        </div>
+        <ul class="chip-grid" aria-label="San Diego County">
+          <li><span class="sa-chip">San Diego</span></li>
+          <li><span class="sa-chip">La Jolla</span></li>
+          <li><span class="sa-chip">Scripps Ranch</span></li>
+          <li><span class="sa-chip">Chula Vista</span></li>
+          <li><span class="sa-chip">La Mesa</span></li>
+          <li><span class="sa-chip">El Cajon</span></li>
+        </ul>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">4) Southern California</h3>
+          <p class="muted small" style="margin:0;">Select nearby communities by request.</p>
+        </div>
+        <ul class="chip-grid" aria-label="SoCal">
+          <li><span class="sa-chip">Orange County (by request)</span></li>
+          <li><span class="sa-chip">Riverside County (by request)</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== ESTIMATE FORM ===== -->
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer">
+        <em>*Free estimates exclude real-estate transaction inspections/reports. If you’re buying/selling or an agent, ask about our paid inspection/report options.</em>
+      </p>
+    </section>
+
+    <!-- CTA band -->
+    <section class="section">
+      <div class="cta-strip">
+        <div class="text"><strong>Need leak help now?</strong> Start with the DIY triage above, then send photos—we’ll take it from there.</div>
+        <a class="btn" href="#estimate">Request Free Estimate</a>
+      </div>
+    </section>
+
+    <!-- Cross-links to keep visitors exploring -->
+    <section class="section">
+      <div class="grid cols-3">
+        <a class="card hoverable" href="/services/roof-repairs/roof-leak-repair/"><strong>Active Leak Repair</strong><br><span class="muted">Emergency friendly</span></a>
+        <a class="card hoverable" href="/services/roof-repairs/skylight-repair/"><strong>Skylight Repair</strong><br><span class="muted">Curb & flashing fixes</span></a>
+        <a class="card hoverable" href="/services/roof-replacement/"><strong>Roof Replacement</strong><br><span class="muted">Shingle, tile, slate, flat</span></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer include OUTSIDE <main> for full width -->
+  <div data-include="/components/footer.html"></div>
+
+  <!-- ===== JS ===== -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
+  <!-- Per-page form config (keeps Service Type on “Other”) -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Request Free Estimate",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Where is the leak showing? When does it occur (heavy rain, wind, sprinklers)? Nearby skylight/chimney/valley? Attach photos if available.",
+      // No lockService so the dropdown stays on “Other” (your preferred default)
+      hiddenFields: { campaign: "services/residential/leak-repair-troubleshooting", page_tag: "leak-troubleshooting" }
+    };
+  </script>
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
