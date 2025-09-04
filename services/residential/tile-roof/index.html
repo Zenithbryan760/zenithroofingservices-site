@@ -1,39 +1,369 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Residential Tile Roofing | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Concrete & clay tile roofing for homes: underlayment, flashings, bird-stops, and broken tile swaps. San Diego & Temecula." />
-  <link rel="canonical" href="https://www.zenithroofingservices.com/services/residential/tile-roof/">
+  <!-- ===== META ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Clay & Concrete Tile Roofing — Repair, Lift & Relay, Replacement | Escondido, North County San Diego & Temecula</title>
+  <meta name="description" content="Heavy-duty experts in clay & concrete tile roofing: leak repair, broken tile replacement, lift & relay (underlayment), valley & flashing upgrades, and full replacements. Serving Escondido, North County San Diego, Temecula & greater San Diego County." />
+  <link rel="canonical" href="https://zenithroofingservices.com/services/residential/tile-roof/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 
-  <link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/ui.css"><link rel="stylesheet" href="/css/estimate-form.css">
-  <script defer src="/js/loader.js"></script><script defer src="/js/header.js"></script><script defer src="/js/estimate-form.js"></script>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Clay & Concrete Tile Roofing — Repair, Lift & Relay, Replacement | Zenith Roofing Services"/>
+  <meta property="og:description" content="Market-leading tile roofing for Southern California homes: clay & concrete tile repair, underlayment lift & relay, flashing/valley upgrades, replacements."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://zenithroofingservices.com/services/residential/tile-roof/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-  <style>.page.tr{max-width:1100px;margin:24px auto;padding:0 16px}.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:600}.muted{color:var(--ui-muted)}.tick{font-weight:800;color:#0b3a6f}</style>
+  <!-- Shared CSS (footer kept in head for full-width rendering) -->
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <!-- Form CSS -->
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
+
+  <!-- Page-scope polish: same modern feel -->
+  <style>
+    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    html { scroll-behavior: smooth; }
+
+    .page .hero{
+      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border: 1px solid var(--ui-line);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 14px 34px rgba(2,12,32,.08);
+    }
+    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
+    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
+    .page .hero .split{ align-items:center; }
+    .page .hero .media{
+      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
+      background:#fff; box-shadow: var(--ui-shadow); transform: translateZ(0);
+    }
+    .page .hero .media::before{
+      content:""; display:block; aspect-ratio:16/10;
+      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
+    }
+
+    .page h2{ margin-bottom:.4rem; }
+    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
+    .page .card.hoverable{ will-change: transform, box-shadow; }
+    .page .card.hoverable:hover{ transform: translateY(-3px); }
+    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
+
+    .page .specs{ display:grid; gap:12px; grid-template-columns:1fr; }
+    @media(min-width:860px){ .page .specs{ grid-template-columns:1fr 1fr; } }
+
+    /* CTA band */
+    .page .cta-strip{
+      background:#072e59; color:#fff; border-radius:16px;
+      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    }
+    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
+    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
+
+    /* Placeholder image slot */
+    .page .media.placeholder {
+      background:linear-gradient(135deg,#f8fafc,#eef6ff);
+      border:1px dashed var(--ui-line);
+      border-radius:12px; height:210px;
+      display:flex; align-items:center; justify-content:center;
+      color:#64748b; font-weight:700;
+    }
+  </style>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Services","item":"https://zenithroofingservices.com/services/"},
+      {"@type":"ListItem","position":2,"name":"Residential","item":"https://zenithroofingservices.com/services/residential/"},
+      {"@type":"ListItem","position":3,"name":"Tile Roofing (Clay & Concrete)","item":"https://zenithroofingservices.com/services/residential/tile-roof/"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Service + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Clay & Concrete Tile Roofing",
+    "serviceType":"Residential tile roof repair, lift & relay (underlayment), and replacement",
+    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
+    "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}],
+    "description":"Specialists in clay and concrete tile: leak repair, broken tile replacement, valley metal & flashing upgrades, and full tile roof lift & relay with new underlayment."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Do I need a full replacement or just underlayment?","acceptedAnswer":{"@type":"Answer","text":"Many tile roofs only need a lift & relay—reusing your existing tiles while installing new high-performance underlayment, flashings, and valley metal."}},
+      {"@type":"Question","name":"Can you match my existing tiles?","acceptedAnswer":{"@type":"Answer","text":"Yes. We source close matches for broken tiles and can blend repairs so they don’t stand out. If a profile is discontinued, we offer creative solutions."}},
+      {"@type":"Question","name":"What causes tile roof leaks?","acceptedAnswer":{"@type":"Answer","text":"Most leaks originate at flashings, valleys, penetrations, or aged underlayment—not the tiles themselves. Correct detailing and new underlayment solve root causes."}}
+    ]
+  }
+  </script>
 </head>
 <body>
-<div data-include="/components/header-section.html"></div>
-<main class="page tr" id="top">
-  <section class="card airy">
-    <span class="badge">Residential</span>
-    <h1 style="margin:10px 0 6px;">Tile Roofing</h1>
-    <p class="muted">Proper underlayment, flashings, bird-stops, and tile handling for long-term performance.</p>
-    <div class="cta"><a class="btn" href="#estimate">Get a Free Estimate</a></div>
-  </section>
+  <!-- Header include -->
+  <div data-include="/components/header-section.html"></div>
 
-  <section class="card airy"><h2>Highlights</h2>
-    <div class="grid auto-fit" style="--ui-gap:16px;">
-      <div class="card"><h3>Underlayment</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> New underlayment & fasteners</li><li><span class="tick">✓</span> Valleys & ridges</li></ul></div>
-      <div class="card"><h3>Flashings</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Pipes, walls, kickouts</li><li><span class="tick">✓</span> Venting recommendations</li></ul></div>
-    </div>
-  </section>
+  <main id="top" class="page">
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-label="Clay and concrete tile roofing">
+      <div class="eyebrow">
+        <span class="chip">Clay Tile</span>
+        <span class="chip">Concrete Tile</span>
+        <span class="chip">Lift & Relay</span>
+        <span class="chip">Leak Repair</span>
+      </div>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">Clay & Concrete Tile Roofing — Repair, Lift & Relay, Replacement</h1>
+          <p class="lede">We’re a **tile-first** team for Southern California homes—precise leak repairs, **lift & relay** underlayment solutions, and beautiful replacements that protect and last. Serving <strong>Escondido</strong>, <strong>North County San Diego</strong>, <strong>Temecula</strong>, and greater San Diego County.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#estimate" aria-label="Request a tile roofing estimate">Request Free Estimate</a>
+            <a class="btn btn-outline" href="#repair">Repairs</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true"></div>
+      </div>
+    </section>
 
-  <section id="estimate" class="card airy" data-estimate-context data-category="Residential — Tile Roofing" data-redirect="/thank-you/">
-    <div data-include="/components/forms/estimate.html"></div>
-  </section>
-</main>
-<div data-include="/components/footer.html"></div>
-<div class="actionbar"><a class="ab-btn call" href="tel:8589006163">Call</a><a class="ab-btn text" href="sms:+18589006163">Text</a><a class="ab-btn estimate" href="#estimate">Free Estimate</a></div>
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills" aria-label="Tile roofing sections">
+      <a href="#repair">Repairs</a>
+      <a href="#lift-relay">Lift & Relay (Underlayment)</a>
+      <a href="#replacement">Full Replacement</a>
+      <a href="#details">Key Details & Upgrades</a>
+      <a href="#faq">FAQ</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#estimate">Estimate</a>
+    </nav>
+
+    <!-- ===== REPAIR ===== -->
+    <section id="repair" class="section card airy hoverable">
+      <h2>Targeted Tile Roof Repairs</h2>
+      <div class="grid cols-2">
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Broken/shifted tile replacement (clay & concrete)</li>
+          <li><span class="tick">✓</span> Valley cleanout + new valley metal where needed</li>
+          <li><span class="tick">✓</span> Flashing repairs at walls, skylights, pipes & vents</li>
+          <li><span class="tick">✓</span> Re-bed/re-point mortar at ridges & hips (or foam)</li>
+        </ul>
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Bird-stop & eave closure installs to deter pests/debris</li>
+          <li><span class="tick">✓</span> Leak tracing with photo documentation</li>
+          <li><span class="tick">✓</span> Storm-readiness tune-ups for valleys & transitions</li>
+          <li><span class="tick">✓</span> Repair around solar standoffs & satellite mounts</li>
+        </ul>
+      </div>
+      <p class="section lede-narrow" style="margin:0;">Most leaks originate at **underlayment and flashings**, not the tiles themselves. We fix root causes, not just surface symptoms.</p>
+      <div class="center-actions"><a class="btn btn-primary" href="#estimate">Request Free Estimate</a></div>
+    </section>
+
+    <!-- ===== LIFT & RELAY ===== -->
+    <section id="lift-relay" class="section card airy hoverable">
+      <h2>Lift & Relay — New Underlayment, Same Tiles</h2>
+      <p class="section lede-narrow">If your tiles still look great but the roof leaks, you probably need a **lift & relay**. We carefully remove your tiles, install modern high-performance underlayment and flashings, then reinstall the tiles (replacing damaged ones).</p>
+      <div class="specs">
+        <div class="card">
+          <h3>What’s Included</h3>
+          <ul class="list">
+            <li>Tile removal, staging, protection of landscaping/hardscape</li>
+            <li>New high-temp or premium synthetic underlayment</li>
+            <li>Valley metal upgrade; new headwall/sidewall/stucco flashings</li>
+            <li>Replace broken tiles; integrate bird-stop at eaves</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Why It Works</h3>
+          <ul class="list">
+            <li>Underlayment is the true waterproofing on tile roofs</li>
+            <li>Fresh flashings at penetrations & walls stop chronic leaks</li>
+            <li>Reuse tiles to preserve the aesthetic and save cost</li>
+          </ul>
+        </div>
+      </div>
+      <div class="media placeholder" style="margin-top:12px;">Add a lift & relay photo set (1200×700)</div>
+    </section>
+
+    <!-- ===== REPLACEMENT ===== -->
+    <section id="replacement" class="section card airy hoverable">
+      <h2>Full Tile Roof Replacement</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Clay Tile</h3>
+          <p class="muted">Classic mission/barrel and S-tiles in timeless earth tones. Great longevity and curb appeal when detailed correctly.</p>
+          <ul class="list">
+            <li>Profiles: Mission, S, Flat clay</li>
+            <li>Best with premium underlayment & copper/aluminum flashings</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Concrete Tile</h3>
+          <p class="muted">Cost-effective, strong, and available in numerous textures and colors to match Southern California styles.</p>
+          <ul class="list">
+            <li>Profiles: S, Flat, Shake-look</li>
+            <li>Excellent with upgraded valley metal and bird-stop</li>
+          </ul>
+        </div>
+      </div>
+      <p class="section lede-narrow" style="margin:0;">We verify structure, battens, ventilation, and integrate flashings for **long-term performance**—not just a quick re-roof.</p>
+    </section>
+
+    <!-- ===== DETAILS & UPGRADES ===== -->
+    <section id="details" class="section card airy hoverable">
+      <h2>Key Details that Protect Tile Roofs</h2>
+      <div class="grid cols-2">
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Valleys: W-style or open metal valleys sized for SoCal storms</li>
+          <li><span class="tick">✓</span> Flashings: headwall, sidewall, chimney & skylight integration</li>
+          <li><span class="tick">✓</span> Stucco cuts & counterflashing (no sloppy caulk-only fixes)</li>
+        </ul>
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Bird-stop & eave closures to block pests/debris</li>
+          <li><span class="tick">✓</span> Ridge/hip systems: mortar or foam per profile & code</li>
+          <li><span class="tick">✓</span> Ventilation & intake at eaves where feasible</li>
+        </ul>
+      </div>
+      <div class="center-actions"><a class="btn btn-primary" href="#estimate">Request Free Estimate</a></div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section card airy hoverable">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>Clay vs. concrete — which should I choose?</summary><p class="muted">Clay offers timeless looks and longevity; concrete is budget-friendly and versatile. Underlayment quality and flashings matter most for watertightness.</p></details>
+        <details><summary>Can you work around solar panels?</summary><p class="muted">Yes. We coordinate safe removal/reinstall with your solar provider, protect tiles, and seal every penetration.</p></details>
+        <details><summary>Will repairs blend in?</summary><p class="muted">We source close-match tiles and blend placements. If discontinued, we’ll propose smart alternatives to keep curb appeal high.</p></details>
+      </div>
+    </section>
+
+    <!-- ===== AREAS (hierarchy) ===== -->
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head">
+        <h2 class="sa-title">Service Areas</h2>
+        <p class="muted">North County San Diego, Temecula Valley, the rest of San Diego County, and nearby Southern California communities.</p>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">1) North County San Diego</h3>
+          <p class="muted small" style="margin:0;">Escondido • Carlsbad • San Marcos • Encinitas • Vista • Oceanside • Poway • Rancho Bernardo</p>
+        </div>
+        <ul class="chip-grid" aria-label="North County cities">
+          <li><span class="sa-chip strong">Escondido 92025–92029</span></li>
+          <li><span class="sa-chip">Carlsbad 92008–92011</span></li>
+          <li><span class="sa-chip">San Marcos 92069–92078</span></li>
+          <li><span class="sa-chip">Encinitas 92024</span></li>
+          <li><span class="sa-chip">Vista 92081–92084</span></li>
+          <li><span class="sa-chip">Oceanside 92054–92057</span></li>
+          <li><span class="sa-chip">Poway 92064</span></li>
+          <li><span class="sa-chip">Rancho Bernardo 92127–92128</span></li>
+        </ul>
+        <details class="sa-more">
+          <summary class="sa-summary">See more North County ZIPs</summary>
+          <p class="muted small">Rancho Peñasquitos 92129 • Fallbrook 92028 • Solana Beach 92075 • Del Mar 92014 • La Costa 92009</p>
+        </details>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">2) Temecula Valley</h3>
+          <p class="muted small" style="margin:0;">Temecula • Murrieta • Menifee • Wildomar • Lake Elsinore</p>
+        </div>
+        <ul class="chip-grid" aria-label="Temecula area">
+          <li><span class="sa-chip strong">Temecula 92590–92592</span></li>
+          <li><span class="sa-chip">Murrieta 92562–92563</span></li>
+          <li><span class="sa-chip">Menifee 92584</span></li>
+          <li><span class="sa-chip">Wildomar 92595</span></li>
+          <li><span class="sa-chip">Lake Elsinore 92530–92532</span></li>
+        </ul>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">3) Greater San Diego County</h3>
+          <p class="muted small" style="margin:0;">Coastal, inland, and metro neighborhoods.</p>
+        </div>
+        <ul class="chip-grid" aria-label="San Diego County">
+          <li><span class="sa-chip">San Diego</span></li>
+          <li><span class="sa-chip">La Jolla</span></li>
+          <li><span class="sa-chip">Scripps Ranch</span></li>
+          <li><span class="sa-chip">Chula Vista</span></li>
+          <li><span class="sa-chip">La Mesa</span></li>
+          <li><span class="sa-chip">El Cajon</span></li>
+        </ul>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">4) Southern California</h3>
+          <p class="muted small" style="margin:0;">Select nearby communities by request.</p>
+        </div>
+        <ul class="chip-grid" aria-label="SoCal">
+          <li><span class="sa-chip">Orange County (by request)</span></li>
+          <li><span class="sa-chip">Riverside County (by request)</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== ESTIMATE FORM ===== -->
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer">
+        <em>*Free estimates exclude real-estate transaction inspections/reports. If you’re buying/selling or an agent, ask about our paid inspection/report options.</em>
+      </p>
+    </section>
+
+    <!-- CTA band -->
+    <section class="section">
+      <div class="cta-strip">
+        <div class="text"><strong>Ready to protect your tile roof?</strong> Leak repairs, lift & relay, or a beautiful full replacement.</div>
+        <a class="btn" href="#estimate">Request Free Estimate</a>
+      </div>
+    </section>
+
+    <!-- Cross-links to keep users exploring -->
+    <section class="section">
+      <div class="grid cols-3">
+        <a class="card hoverable" href="/services/roof-repairs/broken-tile-replacement/"><strong>Broken Tile Replacement</strong><br><span class="muted">Fast fixes that blend in</span></a>
+        <a class="card hoverable" href="/services/roof-repairs/roof-leak-repair/"><strong>Leak Repair</strong><br><span class="muted">Trace & fix at flashings/valleys</span></a>
+        <a class="card hoverable" href="/services/roof-replacement/pitched-roof/"><strong>Pitched Roof Replacement</strong><br><span class="muted">Shingle • Tile • Slate</span></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer include OUTSIDE <main> for full width -->
+  <div data-include="/components/footer.html"></div>
+
+  <!-- ===== JS ===== -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
+  <!-- Per-page form config (keeps Service Type on “Other”) -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Request Free Estimate",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Clay or concrete? Age of roof? Leak locations (valley, wall, skylight)? Any broken tiles or underlayment issues? Attach photos if available.",
+      // No lockService so the dropdown stays on “Other”
+      hiddenFields: { campaign: "services/residential/tile-roof", page_tag: "tile-roof" }
+    };
+  </script>
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
