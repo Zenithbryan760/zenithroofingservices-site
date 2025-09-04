@@ -1,59 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Satellite Imagery Analysis | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Remote roof measurements and take-offs from satellite imagery for early budgeting." />
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/footer.css">
-  <link rel="stylesheet" href="/css/ui.css">
-  <link rel="stylesheet" href="/css/estimate-form.css">
-  <script defer src="/js/loader.js"></script>
-  <script defer src="/js/header.js"></script>
-  <script defer src="/js/estimate-form.js"></script>
-  <style>.page{max-width:1060px;margin:24px auto;padding:0 16px}.muted{color:#64748b}</style>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <title>Satellite & Aerial Roof Imagery Analysis (Desk Review) | Zenith Roofing Services</title>
+  <meta name="description" content="Rapid desktop analysis using satellite/aerial imagery and client photos to flag roof type, age indicators, and likely risk areas. Great for early diligence."/>
+  <link rel="canonical" href="https://zenithroofingservices.com/services/real-estate/satellite-imagery-analysis/"/>
+  <meta property="og:title" content="Satellite & Aerial Roof Imagery Analysis"/>
+  <meta property="og:description" content="Fast, remote desk reviews for early due diligence. Book online."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/base.css"/><link rel="stylesheet" href="/css/header.css"/><link rel="stylesheet" href="/css/ui.css"/><link rel="stylesheet" href="/css/footer.css"/><link rel="stylesheet" href="/css/estimate-form.css"/>
+  <style>
+    html{scroll-behavior:smooth}.hero{background:linear-gradient(135deg,#f8fafc,#eef6ff);border:1px solid var(--ui-line);border-radius:18px;padding:clamp(18px,3vw,28px)}
+    .pricecard{border:1px solid var(--ui-line);border-radius:14px;background:#fff;padding:14px}
+  </style>
 </head>
 <body>
   <div data-include="/components/header-section.html"></div>
-
-  <main class="page" id="top">
-    <section class="card airy">
-      <span class="badge">Real Estate Service</span>
-      <h1>Satellite Imagery Analysis</h1>
-      <p class="muted">Remote take-offs for quick budgeting and early scope planning.</p>
+  <main id="top" class="page">
+    <section class="hero">
+      <h1>Satellite & Aerial Roof Imagery Analysis</h1>
+      <p class="lede">A fast, remote look at roof type, age indicators, and likely risk areas using aerial/satellite imagery plus your photos. Great for early diligence before a site visit.</p>
+      <div class="pricecard" style="max-width:520px"><strong>Desk Review</strong> — <span class="price">$$PRICE_SAT</span><p class="muted" style="margin:.3rem 0 0">Includes brief findings & recommendations; not a substitute for on-site evaluation.</p></div>
+      <div class="cta"><a class="btn btn-primary" href="#estimate">Book Desk Review</a><a class="btn btn-outline" href="#faq">FAQ</a></div>
     </section>
 
-    <section class="card airy">
-      <h2>What You Get</h2>
-      <div class="grid cols-2">
-        <div class="card"><h3>Area & Perimeter</h3><p class="muted">Measurements suitable for early budgeting.</p></div>
-        <div class="card"><h3>Notes & Photos</h3><p class="muted">Annotated imagery with assumptions and limitations.</p></div>
-      </div>
-      <p class="muted small">Final pricing and scope are confirmed after on-site verification.</p>
+    <nav class="pillnav sticky-pills"><a href="#deliverables">Deliverables</a><a href="#limitations">Limitations</a><a href="#faq">FAQ</a><a href="#estimate">Book</a></nav>
+
+    <section id="deliverables" class="section card airy hoverable">
+      <h2>Deliverables</h2>
+      <ul class="checklist relaxed"><li><span class="tick">✓</span> Roof type & apparent condition cues</li><li><span class="tick">✓</span> Obvious risk areas (valleys, penetrations, drainage)</li><li><span class="tick">✓</span> Recommended next steps</li></ul>
     </section>
 
-    <section id="start"
-      data-estimate-context
-      data-category="Real-Estate — Satellite Imagery Analysis"
-      data-service="Satellite Imagery Analysis"
-      data-cta="Start Remote Take-Off"
-      data-redirect="/thank-you/">
-      <div data-include="/components/forms/request-minimal.html"></div>
+    <section id="limitations" class="section card airy hoverable">
+      <h2>Limitations</h2>
+      <p class="muted">Imagery date/resolution varies; trees/shade/angles can obscure details. Findings are preliminary and not a warranty or certification.</p>
     </section>
 
-    <section class="card airy">
-      <h2>Good For</h2>
-      <div class="grid micro-grid">
-        <div class="card"><h3>Early Due Diligence</h3><p class="muted">Understand order-of-magnitude costs.</p></div>
-        <div class="card"><h3>Multiple Properties</h3><p class="muted">Screen options quickly before site visits.</p></div>
-        <div class="card"><h3>Budget Planning</h3><p class="muted">Set realistic expectations before offer.</p></div>
-        <div class="card"><h3>Remote Owners</h3><p class="muted">Start the process when you’re not local.</p></div>
-      </div>
+    <section id="faq" class="section card airy hoverable">
+      <h2>FAQ</h2>
+      <details><summary>Can this replace a roof report?</summary><p class="muted">No. It’s a quick screener to help decide if on-site evaluation is necessary.</p></details>
+    </section>
+
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer"><em><strong>Paid remote service.</strong> Include property address, links to any listing photos, and your timeline.</em></p>
     </section>
   </main>
-
   <div data-include="/components/footer.html"></div>
+  <script src="/js/loader.js" defer></script><script src="/js/header.js" defer></script>
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Book Desk Review",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Address, links to photos/listing, timeline/escrow date, specific questions.",
+      hiddenFields: { campaign: "services/real-estate/satellite-imagery-analysis", page_tag: "re-satellite" }
+    };
+  </script>
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
