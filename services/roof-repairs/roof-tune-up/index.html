@@ -209,18 +209,20 @@
       </div>
     </section>
 
-    <!-- ===== ESTIMATE FORM (same include + layout as gutters) ===== -->
+    <!-- ===== ESTIMATE FORM (Roof Tune-Up) ===== -->
     <section id="estimate" class="section estimate-form-section">
       <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
       <p class="form-disclaimer">
-        <em>*Free estimates are not available for real-estate transaction reports. See Real Estate Services for inspections/reports.</em>
+        <em>*Free estimates exclude real-estate transaction inspections/reports. If you’re a buyer/seller or agent, please see our Real Estate Services.</em>
       </p>
     </section>
 
-    <!-- CTA band -->
+    <!-- Full-width CTA band inside container -->
     <section class="section">
       <div class="cta-strip">
-        <div class="text"><strong>Ready for a clean, professional roof tune-up?</strong> Quick scheduling, photo summary, and clear next steps.</div>
+        <div class="text">
+          <strong>Ready for a Roof Tune-Up?</strong> Quick scheduling, targeted maintenance, and a photo summary.
+        </div>
         <a class="btn" href="#estimate">Request Free Estimate</a>
       </div>
     </section>
@@ -232,15 +234,18 @@
   <!-- ===== JS ===== -->
   <script src="/js/loader.js" defer></script>
   <script src="/js/header.js" defer></script>
-  <!-- Per-page form config (no lockService so it stays on "Other") -->
+
+  <!-- Estimate form config: per-page button text & campaign tag (keeps Service Type at "Other") -->
   <script>
     window.ESTIMATE_FORM_CONFIG = {
       submitText: "Request Free Estimate",
       referralPreselect: "Website",
-      hiddenFields: { campaign: "services/roof-repairs/roof-tune-up", page_tag: "roof-tune-up" },
-      descriptionPlaceholder: "Tell us where you’d like us to focus (problem areas, debris, staining, recent storms, include photo links if you have them)…"
+      descriptionPlaceholder: "Tell us the areas to focus on (flashings, valleys, debris, staining). Links to photos help.",
+      hiddenFields: { campaign: "services/roof-repairs/roof-tune-up", page_tag: "roof-tune-up" }
+      // No lockService here so the dropdown remains on "Other" as you prefer
     };
   </script>
+
   <script src="/js/estimate-form.js" defer></script>
   <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
