@@ -1,37 +1,266 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Broken Tile Replacement | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Swap cracked or missing tiles and address minor flashing touch-ups where accessible. Concrete & clay tile." />
-  <link rel="canonical" href="https://www.zenithroofingservices.com/services/roof-repairs/broken-tile-replacement/">
-  <link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/ui.css"><link rel="stylesheet" href="/css/estimate-form.css">
-  <script defer src="/js/loader.js"></script><script defer src="/js/header.js"></script><script defer src="/js/estimate-form.js"></script>
-  <style>.page.btr{max-width:1100px;margin:24px auto;padding:0 16px}.badge{display:inline-flex;gap:8px;padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:600}.muted{color:var(--ui-muted)}.tick{font-weight:800;color:#0b3a6f}</style>
+  <!-- ===== META ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Broken Tile Replacement & Tile Roof Repairs | North County San Diego & Temecula</title>
+  <meta name="description" content="Cracked or slipped tiles? We source matching profiles, replace broken pieces, tune flashings, and address underlayment where needed. Serving Escondido, North County San Diego, Temecula & all San Diego County." />
+  <link rel="canonical" href="https://zenithroofingservices.com/services/roof-repairs/broken-tile-replacement/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Broken Tile Replacement & Tile Roof Repairs | Zenith Roofing Services"/>
+  <meta property="og:description" content="We replace cracked/slipped roof tiles, blend colors, and repair localized underlayment. Escondido • North County San Diego • Temecula."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://zenithroofingservices.com/services/roof-repairs/broken-tile-replacement/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <!-- Shared CSS (footer.css in <head> so footer isn’t clipped) -->
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <!-- Form CSS -->
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
+
+  <!-- Page-scope polish (same vibe as other repair pages) -->
+  <style>
+    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    html { scroll-behavior: smooth; }
+
+    .page .hero{
+      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border: 1px solid var(--ui-line);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 14px 34px rgba(2,12,32,.08);
+    }
+    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
+    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
+    .page .hero .split{ align-items:center; }
+    .page .hero .media{
+      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
+      background:#fff; box-shadow: var(--ui-shadow); transform: translateZ(0);
+    }
+    .page .hero .media::before{
+      content:""; display:block; aspect-ratio:16/10;
+      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
+    }
+
+    .page h2{ margin-bottom:.4rem; }
+    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
+
+    .page .card.hoverable{ will-change: transform, box-shadow; }
+    .page .card.hoverable:hover{ transform: translateY(-3px); }
+
+    .page .mini-list{ margin:.5rem 0 0 .95rem; color:#334155; }
+    .page .mini-list li{ margin:.25rem 0; }
+
+    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
+
+    .page .cta-strip{
+      background:#072e59; color:#fff; border-radius:16px;
+      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    }
+    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
+    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
+  </style>
+
+  <!-- JSON-LD: Service + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Broken Tile Replacement & Tile Roof Repair",
+    "serviceType":"Replace cracked or slipped tiles, localized underlayment repair, flashing tune-ups",
+    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
+    "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}],
+    "description":"We replace broken/clacked tiles, source matching profiles and colors, and repair localized underlayment to stop leaks while keeping your roof looking consistent."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Can you match my existing tile?","acceptedAnswer":{"@type":"Answer","text":"We source the closest profile and color available (Boral/Monier/US Tile and others). When a perfect match is discontinued, we blend color or place replacements in low-visibility areas."}},
+      {"@type":"Question","name":"Do cracked tiles always leak?","acceptedAnswer":{"@type":"Answer","text":"Not always, but they can lead to water intrusion and underlayment damage. We replace cracked/slipped units and check flashings and paper below if needed."}},
+      {"@type":"Question","name":"What if the underlayment is compromised?","acceptedAnswer":{"@type":"Answer","text":"We perform localized underlayment patches during the tile replacement. If the felt is broadly aged, we’ll recommend a larger repair plan."}}
+    ]
+  }
+  </script>
 </head>
 <body>
-<div data-include="/components/header-section.html"></div>
-<main class="page btr" id="top">
-  <section class="card airy">
-    <span class="badge">Tile Repairs</span>
-    <h1 style="margin:10px 0 6px;">Broken Tile Replacement</h1>
-    <p class="muted">We replace cracked or missing tiles and check adjacent flashings where accessible.</p>
-    <div class="cta"><a class="btn" href="#estimate">Request Repair Estimate</a></div>
-  </section>
+  <!-- Header include -->
+  <div data-include="/components/header-section.html"></div>
 
-  <section class="card airy"><h2>What’s Included</h2>
-    <div class="grid auto-fit" style="--ui-gap:16px;">
-      <div class="card"><h3>Tile Swaps</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Color-match if available</li><li><span class="tick">✓</span> Proper fastening</li></ul></div>
-      <div class="card"><h3>Touch-Ups</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Minor flashing/sealant</li><li><span class="tick">✓</span> Photos for records</li></ul></div>
-    </div>
-  </section>
+  <main id="top" class="page">
+    <!-- ===== HERO (split) ===== -->
+    <section class="hero" aria-label="Broken Tile Replacement">
+      <div class="eyebrow">
+        <span class="chip">Roof Repair</span>
+        <span class="chip">Tile Roofs</span>
+        <span class="chip">Color-Matched</span>
+      </div>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">Broken Tile Replacement — Match, Replace, Seal</h1>
+          <p class="lede">We source the right profile, replace cracked or slipped tiles, adjust flashings, and patch underlayment where required—keeping your tile roof watertight and consistent in appearance. Serving <strong>Escondido</strong>, <strong>North County San Diego</strong>, and <strong>Temecula</strong>.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#estimate" aria-label="Request a free estimate for broken tile replacement">Request Free Estimate</a>
+            <a class="btn btn-outline" href="#process">How We Work</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true"></div>
+      </div>
+    </section>
 
-  <section id="estimate" class="card airy" data-estimate-context data-category="Broken Tile Replacement" data-redirect="/thank-you/">
-    <div data-include="/components/forms/estimate.html"></div>
-  </section>
-</main>
-<div data-include="/components/footer.html"></div>
-<div class="actionbar"><a class="ab-btn call" href="tel:8589006163">Call</a><a class="ab-btn text" href="sms:+18589006163">Text</a><a class="ab-btn estimate" href="#estimate">Free Estimate</a></div>
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills" aria-label="Broken Tile Replacement sections">
+      <a href="#symptoms">Signs of Damage</a>
+      <a href="#matching">Matching & Sourcing</a>
+      <a href="#process">Our Process</a>
+      <a href="#faq">FAQ</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#estimate">Estimate</a>
+    </nav>
+
+    <!-- ===== SYMPTOMS ===== -->
+    <section id="symptoms" class="section card airy hoverable">
+      <h2>Signs You Need Tile Replacement</h2>
+      <div class="grid cols-2">
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Cracked tiles from foot traffic or impact</li>
+          <li><span class="tick">✓</span> Slipped or displaced tiles exposing felt</li>
+          <li><span class="tick">✓</span> Broken corners at eaves and valleys</li>
+        </ul>
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Stains on ceilings or fascia</li>
+          <li><span class="tick">✓</span> Debris lodged in valleys around tiles</li>
+          <li><span class="tick">✓</span> Birds/pests disturbing tile alignment</li>
+        </ul>
+      </div>
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Get a Roof Repair Estimate</a>
+      </div>
+    </section>
+
+    <!-- ===== MATCHING ===== -->
+    <section id="matching" class="section card airy hoverable">
+      <h2>Tile Matching & Sourcing</h2>
+      <div class="grid cols-2">
+        <div>
+          <p class="lede-narrow">We identify your tile profile (manufacturer, mold, size) and color family. If exact stock is discontinued, we blend color or place substitutes strategically for a uniform look from the ground.</p>
+          <ul class="mini-list">
+            <li>Profile ID & closest-available match</li>
+            <li>Color blending / painting when appropriate</li>
+            <li>Discrete placement of non-identical pieces</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Underlayment Checks</h3>
+          <p class="muted">If damage suggests paper failure, we perform localized felt/underlayment patches during the tile swap to restore waterproofing.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section id="process" class="section card airy hoverable">
+      <h2>Our Repair Process</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>1) Inspect & Identify</h3><p class="muted">Document cracked/slipped tiles, check flashings and felt exposure.</p></div>
+        <div class="card"><h3>2) Source & Stage</h3><p class="muted">Match profile/color and stage safe access paths on tile.</p></div>
+        <div class="card"><h3>3) Replace & Patch</h3><p class="muted">Swap damaged tiles, address localized underlayment as needed.</p></div>
+        <div class="card"><h3>4) Blend & Clean</h3><p class="muted">Color blend if required, tidy debris, and provide photos.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section card airy hoverable">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>Can you walk on my tile safely?</summary><p class="muted">We use tile-safe paths and pads and train techs on profile-specific footing to prevent breakage.</p></details>
+        <details><summary>How many tiles should I replace?</summary><p class="muted">We replace all visibly cracked/slipped pieces in the affected areas and recommend preventive swaps if others are at risk.</p></details>
+        <details><summary>Will the new tiles stand out?</summary><p class="muted">We match as close as possible; when exact color is unavailable, we blend or place tiles strategically to maintain curb appeal.</p></details>
+      </div>
+    </section>
+
+    <!-- ===== AREAS ===== -->
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head">
+        <h2 class="sa-title">Service Areas</h2>
+        <p class="muted">Fast scheduling in North County San Diego, greater San Diego, and Temecula Valley.</p>
+      </div>
+
+      <ul class="chip-grid sa-cities" aria-label="Primary service cities">
+        <li><span class="chip sa-chip strong">Escondido</span></li>
+        <li><span class="chip sa-chip strong">San Diego</span></li>
+        <li><span class="chip sa-chip strong">Temecula</span></li>
+        <li><span class="chip sa-chip">San Marcos</span></li>
+        <li><span class="chip sa-chip">Vista</span></li>
+        <li><span class="chip sa-chip">Oceanside</span></li>
+      </ul>
+
+      <details class="sa-more">
+        <summary class="sa-summary">More nearby cities</summary>
+        <ul class="chip-grid sa-cities">
+          <li><span class="chip sa-chip">Carlsbad</span></li>
+          <li><span class="chip sa-chip">Encinitas</span></li>
+          <li><span class="chip sa-chip">Poway</span></li>
+          <li><span class="chip sa-chip">Rancho Bernardo</span></li>
+          <li><span class="chip sa-chip">Fallbrook</span></li>
+          <li><span class="chip sa-chip">Murrieta</span></li>
+          <li><span class="chip sa-chip">Menifee</span></li>
+        </ul>
+      </details>
+
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Check my ZIP &amp; Request Free Estimate</a>
+      </div>
+    </section>
+
+    <!-- ===== ESTIMATE FORM (Broken Tile Replacement) ===== -->
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer">
+        <em>*Free estimates exclude real-estate transaction inspections/reports. If you’re a buyer/seller or agent, please see our Real Estate Services.</em>
+      </p>
+    </section>
+
+    <!-- Full-width CTA band inside container -->
+    <section class="section">
+      <div class="cta-strip">
+        <div class="text">
+          <strong>See cracked or slipped tiles?</strong> We’ll replace them, blend colors, and restore waterproofing.
+        </div>
+        <a class="btn" href="#estimate">Request Free Estimate</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer include OUTSIDE <main> so it spans full width -->
+  <div data-include="/components/footer.html"></div>
+
+  <!-- ===== JS ===== -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
+
+  <!-- Per-page form config: keep layout + preselect “Roof Repair” -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Request Free Estimate",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Tell us tile type/profile if known, where the cracks/slips are, any ceiling stains, and share photos/links…",
+      lockService: "Roof Repair",
+      hiddenFields: { campaign: "services/roof-repairs/broken-tile-replacement", page_tag: "broken-tile-replacement" }
+    };
+  </script>
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
