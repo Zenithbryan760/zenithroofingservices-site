@@ -1,39 +1,374 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Residential Preventive Maintenance | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Seal penetrations, reset components, clean valleys/gutters, and minor replacements to extend useful life." />
-  <link rel="canonical" href="https://www.zenithroofingservices.com/services/residential/preventive-maintenance/">
+  <!-- ===== META ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Preventive Roof Maintenance & Annual Tune-Ups | Escondido, North County San Diego & Temecula</title>
+  <meta name="description" content="Stay ahead of leaks with preventive roof maintenance: seasonal tune-ups, flashing reseal, debris/valley cleanout, and photo documentation. Serving Escondido, North County San Diego & Temecula. Free estimates." />
+  <link rel="canonical" href="https://zenithroofingservices.com/services/residential/preventive-maintenance/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 
-  <link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/ui.css"><link rel="stylesheet" href="/css/estimate-form.css">
-  <script defer src="/js/loader.js"></script><script defer src="/js/header.js"></script><script defer src="/js/estimate-form.js"></script>
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Preventive Roof Maintenance & Annual Tune-Ups"/>
+  <meta property="og:description" content="Seasonal tune-ups that stop small issues before they become leaks—reseal, cleanout, photos. Escondido • North County San Diego • Temecula."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://zenithroofingservices.com/services/residential/preventive-maintenance/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-  <style>.page.rpm{max-width:1100px;margin:24px auto;padding:0 16px}.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:600}.muted{color:var(--ui-muted)}.tick{font-weight:800;color:#0b3a6f}</style>
+  <!-- Shared CSS (keep footer.css here so footer spans full width) -->
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <!-- Form CSS -->
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
+
+  <!-- Page-scope polish -->
+  <style>
+    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    html { scroll-behavior: smooth; }
+
+    .page .hero{
+      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border: 1px solid var(--ui-line);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 14px 34px rgba(2,12,32,.08);
+    }
+    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
+    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
+    .page .hero .split{ align-items:center; }
+    .page .hero .media{
+      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
+      background:#fff; box-shadow: var(--ui-shadow); transform: translateZ(0);
+    }
+    .page .hero .media::before{
+      content:""; display:block; aspect-ratio:16/10;
+      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
+    }
+
+    .page h2{ margin-bottom:.4rem; }
+    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
+    .page .card.hoverable{ will-change: transform, box-shadow; }
+    .page .card.hoverable:hover{ transform: translateY(-3px); }
+    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
+
+    /* Plan cards */
+    .plan-grid{ display:grid; gap:12px; grid-template-columns:1fr; }
+    @media (min-width:820px){ .plan-grid{ grid-template-columns:repeat(3,1fr); } }
+    .plan .price{ font-weight:800; font-size:1.15rem; color:#072e59; }
+    .plan .note{ color:#64748b; font-size:.95rem; }
+
+    /* Comparison table */
+    .comparison-table{ margin:.6rem 0 1rem; }
+
+    /* CTA band */
+    .page .cta-strip{
+      background:#072e59; color:#fff; border-radius:16px;
+      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    }
+    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
+    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
+
+    /* Placeholder image slots */
+    .page .media.placeholder{
+      background:linear-gradient(135deg,#f8fafc,#eef6ff);
+      border:1px dashed var(--ui-line);
+      border-radius:12px; height:210px;
+      display:flex; align-items:center; justify-content:center;
+      color:#64748b; font-weight:700;
+    }
+  </style>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Services","item":"https://zenithroofingservices.com/services/"},
+      {"@type":"ListItem","position":2,"name":"Residential","item":"https://zenithroofingservices.com/services/residential/"},
+      {"@type":"ListItem","position":3,"name":"Preventive Maintenance","item":"https://zenithroofingservices.com/services/residential/preventive-maintenance/"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Service + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Preventive Roof Maintenance (Annual/Seasonal Tune-Ups)",
+    "serviceType":"Residential preventive roofing maintenance and tune-ups",
+    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
+    "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}],
+    "description":"Seasonal and annual roof tune-ups to extend roof life: reseal flashings, clean valleys and roof-to-gutter transitions, reset minor tiles/shingles, and photo documentation."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"How is preventive maintenance different from a repair?","acceptedAnswer":{"@type":"Answer","text":"Repairs fix a specific leak. Preventive maintenance is scheduled care—resealing, cleaning, and tightening details to avoid leaks in the first place."}},
+      {"@type":"Question","name":"How often should I schedule it?","acceptedAnswer":{"@type":"Answer","text":"Annually for most homes in Southern California; twice per year if under trees, near the coast, or with complex rooflines. We also offer storm-prep visits."}},
+      {"@type":"Question","name":"Do you service tile, shingle, and flat roofs?","acceptedAnswer":{"@type":"Answer","text":"Yes—clay/concrete tile, asphalt shingles, and many flat roofs (TPO, mod-bit, coatings). We use roof-safe methods and provide photos."}}
+    ]
+  }
+  </script>
 </head>
 <body>
-<div data-include="/components/header-section.html"></div>
-<main class="page rpm" id="top">
-  <section class="card airy">
-    <span class="badge">Residential</span>
-    <h1 style="margin:10px 0 6px;">Preventive Maintenance</h1>
-    <p class="muted">Tune-ups to seal penetrations, reset loose components, and clean valleys/gutters.</p>
-    <div class="cta"><a class="btn" href="#estimate">Book a Tune-Up</a></div>
-  </section>
+  <!-- Header include -->
+  <div data-include="/components/header-section.html"></div>
 
-  <section class="card airy"><h2>Included Tasks</h2>
-    <div class="grid auto-fit" style="--ui-gap:16px;">
-      <div class="card"><h3>Seal & Secure</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Pipes/vents</li><li><span class="tick">✓</span> Exposed fasteners</li></ul></div>
-      <div class="card"><h3>Clean & Clear</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Valleys/gutters</li><li><span class="tick">✓</span> Debris removal</li></ul></div>
-    </div>
-  </section>
+  <main id="top" class="page">
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-label="Preventive roof maintenance">
+      <div class="eyebrow">
+        <span class="chip">Preventive</span>
+        <span class="chip">Tune-Up</span>
+        <span class="chip">Photo Summary</span>
+      </div>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">Preventive Roof Maintenance & Seasonal Tune-Ups</h1>
+          <p class="lede">Stop small issues before they become leaks. Our **preventive maintenance** (aka **preventative maintenance**) includes targeted resealing, debris/valley cleanout, and minor resets—ideal for <strong>Escondido</strong>, <strong>North County San Diego</strong>, and <strong>Temecula</strong>.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#estimate" aria-label="Request a preventive maintenance estimate">Request Free Estimate</a>
+            <a class="btn btn-outline" href="#plans">Plans & Pricing</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true"></div>
+      </div>
+    </section>
 
-  <section id="estimate" class="card airy" data-estimate-context data-category="Residential — Preventive Maintenance" data-redirect="/thank-you/">
-    <div data-include="/components/forms/estimate.html"></div>
-  </section>
-</main>
-<div data-include="/components/footer.html"></div>
-<div class="actionbar"><a class="ab-btn call" href="tel:8589006163">Call</a><a class="ab-btn text" href="sms:+18589006163">Text</a><a class="ab-btn estimate" href="#estimate">Free Estimate</a></div>
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills" aria-label="Preventive maintenance sections">
+      <a href="#why">Why Maintenance</a>
+      <a href="#includes">What’s Included</a>
+      <a href="#plans">Plans & Pricing</a>
+      <a href="#diy">Homeowner DIY</a>
+      <a href="#faq">FAQ</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#estimate">Estimate</a>
+    </nav>
+
+    <!-- ===== WHY ===== -->
+    <section id="why" class="section card airy hoverable">
+      <h2>Why Preventive Maintenance</h2>
+      <div class="grid cols-2">
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Catches small sealant failures before leaks start</li>
+          <li><span class="tick">✓</span> Keeps valleys & transitions draining correctly</li>
+          <li><span class="tick">✓</span> Extends roof life and protects interiors</li>
+        </ul>
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Ideal for tile, shingle, and flat roofs</li>
+          <li><span class="tick">✓</span> Photo documentation after each visit</li>
+          <li><span class="tick">✓</span> Flexible visits: annual, biannual, or storm-prep</li>
+        </ul>
+      </div>
+      <div class="center-actions"><a class="btn btn-primary" href="#estimate">Check My Roof & Request Free Estimate</a></div>
+    </section>
+
+    <!-- ===== WHAT’S INCLUDED ===== -->
+    <section id="includes" class="section card airy hoverable">
+      <h2>What’s Included in a Tune-Up</h2>
+      <div class="grid cols-2">
+        <div>
+          <ul class="checklist">
+            <li><span class="tick">✓</span> Reseal critical flashings (vents, pipes, skylights)</li>
+            <li><span class="tick">✓</span> Minor resets of accessible tiles/shingles</li>
+            <li><span class="tick">✓</span> Valley & roof-to-gutter cleanout</li>
+          </ul>
+        </div>
+        <div>
+          <ul class="checklist">
+            <li><span class="tick">✓</span> Gutter/downspout condition check</li>
+            <li><span class="tick">✓</span> Photo summary + prioritized recommendations</li>
+            <li><span class="tick">✓</span> Safety-first, roof-appropriate methods</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PLANS & PRICING ===== -->
+    <section id="plans" class="section">
+      <h2>Plans & Pricing</h2>
+      <p class="muted">Choose a cadence that fits your home and trees. Pricing shown is typical for residential roofs; we’ll confirm after a quick look.</p>
+      <div class="plan-grid">
+        <div class="card airy hoverable plan">
+          <h3>Annual Plan</h3>
+          <p class="price">From $— / visit</p>
+          <p class="note">Best for most homes</p>
+          <ul class="checklist">
+            <li><span class="tick">✓</span> 1 visit per year</li>
+            <li><span class="tick">✓</span> Standard tune-up & photo summary</li>
+            <li><span class="tick">✓</span> Priority scheduling</li>
+          </ul>
+        </div>
+        <div class="card airy hoverable plan">
+          <h3>Biannual Plan</h3>
+          <p class="price">From $— / visit</p>
+          <p class="note">Homes under trees or coastal</p>
+          <ul class="checklist">
+            <li><span class="tick">✓</span> 2 visits per year</li>
+            <li><span class="tick">✓</span> Seasonal debris & sealant care</li>
+            <li><span class="tick">✓</span> Priority scheduling</li>
+          </ul>
+        </div>
+        <div class="card airy hoverable plan">
+          <h3>Storm-Prep Add-On</h3>
+          <p class="price">From $— / visit</p>
+          <p class="note">Before heavy rain/wind</p>
+          <ul class="checklist">
+            <li><span class="tick">✓</span> Rapid pre-storm check & cleanout</li>
+            <li><span class="tick">✓</span> Target known trouble spots</li>
+            <li><span class="tick">✓</span> Post-storm visual check (optional)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Get My Plan & Free Estimate</a>
+      </div>
+    </section>
+
+    <!-- ===== DIY TIPS (trust builder) ===== -->
+    <section id="diy" class="section card airy hoverable">
+      <h2>Smart DIY Between Visits</h2>
+      <div class="grid cols-2">
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Keep trees trimmed back from the roof</li>
+          <li><span class="tick">✓</span> Clear ground-level downspout exits</li>
+          <li><span class="tick">✓</span> After big winds, walk the perimeter and look for slipped tiles or shingle tabs</li>
+        </ul>
+        <p class="muted">Skip roof walking if you’re not comfortable—surface damage is common. Send us photos from the ground and we’ll advise.</p>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section card airy hoverable">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>Can preventive maintenance stop leaks?</summary><p class="muted">It reduces risk by addressing common failure points. If we find active leaks or larger issues, we’ll quote targeted repairs.</p></details>
+        <details><summary>Do you document what you did?</summary><p class="muted">Yes—brief photo summary with notes and clear next steps if needed.</p></details>
+        <details><summary>Will you replace broken tiles?</summary><p class="muted">We reset minor items during tune-ups; larger breakage is quoted as a repair so you can approve costs first.</p></details>
+      </div>
+    </section>
+
+    <!-- ===== AREAS (hierarchy) ===== -->
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head">
+        <h2 class="sa-title">Service Areas</h2>
+        <p class="muted">North County San Diego, Temecula Valley, the rest of San Diego County, and nearby Southern California communities.</p>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">1) North County San Diego</h3>
+          <p class="muted small" style="margin:0;">Escondido • Carlsbad • San Marcos • Encinitas • Vista • Oceanside • Poway • Rancho Bernardo</p>
+        </div>
+        <ul class="chip-grid" aria-label="North County cities">
+          <li><span class="sa-chip strong">Escondido 92025–92029</span></li>
+          <li><span class="sa-chip">Carlsbad 92008–92011</span></li>
+          <li><span class="sa-chip">San Marcos 92069–92078</span></li>
+          <li><span class="sa-chip">Encinitas 92024</span></li>
+          <li><span class="sa-chip">Vista 92081–92084</span></li>
+          <li><span class="sa-chip">Oceanside 92054–92057</span></li>
+          <li><span class="sa-chip">Poway 92064</span></li>
+          <li><span class="sa-chip">Rancho Bernardo 92127–92128</span></li>
+        </ul>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">2) Temecula Valley</h3>
+          <p class="muted small" style="margin:0;">Temecula • Murrieta • Menifee • Wildomar • Lake Elsinore</p>
+        </div>
+        <ul class="chip-grid" aria-label="Temecula area">
+          <li><span class="sa-chip strong">Temecula 92590–92592</span></li>
+          <li><span class="sa-chip">Murrieta 92562–92563</span></li>
+          <li><span class="sa-chip">Menifee 92584</span></li>
+          <li><span class="sa-chip">Wildomar 92595</span></li>
+          <li><span class="sa-chip">Lake Elsinore 92530–92532</span></li>
+        </ul>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">3) Greater San Diego County</h3>
+          <p class="muted small" style="margin:0;">Coastal, inland, and metro neighborhoods.</p>
+        </div>
+        <ul class="chip-grid" aria-label="San Diego County">
+          <li><span class="sa-chip">San Diego</span></li>
+          <li><span class="sa-chip">La Jolla</span></li>
+          <li><span class="sa-chip">Scripps Ranch</span></li>
+          <li><span class="sa-chip">Chula Vista</span></li>
+          <li><span class="sa-chip">La Mesa</span></li>
+          <li><span class="sa-chip">El Cajon</span></li>
+        </ul>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">4) Southern California</h3>
+          <p class="muted small" style="margin:0;">Select nearby communities by request.</p>
+        </div>
+        <ul class="chip-grid" aria-label="SoCal">
+          <li><span class="sa-chip">Orange County (by request)</span></li>
+          <li><span class="sa-chip">Riverside County (by request)</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== ESTIMATE FORM ===== -->
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer">
+        <em>*Free estimates exclude real-estate transaction inspections/reports. If you’re buying/selling or an agent, ask about our paid inspection/report options.</em>
+      </p>
+    </section>
+
+    <!-- CTA band -->
+    <section class="section">
+      <div class="cta-strip">
+        <div class="text"><strong>Ready to stay ahead of leaks?</strong> Seasonal tune-ups keep water moving and seal the usual suspects.</div>
+        <a class="btn" href="#estimate">Request Free Estimate</a>
+      </div>
+    </section>
+
+    <!-- Cross-links to keep users exploring -->
+    <section class="section">
+      <div class="grid cols-3">
+        <a class="card hoverable" href="/services/roof-repairs/roof-cleaning-maintenance/"><strong>Roof Cleaning & Maintenance</strong><br><span class="muted">Debris & detail care</span></a>
+        <a class="card hoverable" href="/services/roof-repairs/roof-leak-repair/"><strong>Leak Repair</strong><br><span class="muted">Active leaks fixed fast</span></a>
+        <a class="card hoverable" href="/services/residential/tile-roof/"><strong>Tile Roof Care</strong><br><span class="muted">Clay & concrete expertise</span></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer include OUTSIDE <main> so it spans full width -->
+  <div data-include="/components/footer.html"></div>
+
+  <!-- ===== JS ===== -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
+  <!-- Per-page form config (keeps Service Type on “Other”) -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Request Free Estimate",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Tell us your roof type (tile/shingle/flat), age, trees/debris, known trouble spots, and timing. Add photo links if you can.",
+      // Intentionally no lockService so dropdown stays on “Other”
+      hiddenFields: { campaign: "services/residential/preventive-maintenance", page_tag: "preventive-maintenance" }
+    };
+  </script>
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
