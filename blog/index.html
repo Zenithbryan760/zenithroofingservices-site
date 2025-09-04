@@ -1,112 +1,289 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Roofing Blog | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/footer.css"><
-  <style>.page{max-width:900px;margin:24px auto;padding:0 16px}.post{border-bottom:1px solid #e2e8f0;padding:14px 0}</style>
+  <!-- ===== META ===== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Roofing Blog & DIY Guides | Zenith Roofing Services</title>
+  <meta name="description" content="Practical roofing tips, DIY checklists, and repair stories from a San Diego roofer. Learn about CDX vs OSB, peel-and-stick vs felt, TPO vs torch, ponding water, wind claims, and when to repair or replace." />
+  <link rel="canonical" href="https://zenithroofingservices.com/blog/" />
+
+  <!-- ===== SITE CSS (already in your project) ===== -->
+  <link rel="stylesheet" href="/css/header.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
+  <link rel="stylesheet" href="/css/ui.css" />
+
+  <!-- ===== Minimal page-scoped helpers (safe) ===== -->
+  <style>
+    /* Layout shells that rely on your ui.css tokens */
+    .blog-hero{ padding:var(--space-xl, 3rem) var(--space-m, 1.25rem); background:var(--surface-2, #0f172a); color:#fff; text-align:center; }
+    .blog-hero h1{ font-size:clamp(1.8rem, 3.5vw, 2.6rem); line-height:1.1; margin:0 0 .5rem; }
+    .blog-hero p{ max-width:68ch; margin:0 auto; opacity:.9; }
+
+    .section{ padding: min(6vw, 2.5rem) var(--space-m, 1.25rem); }
+    .section h2{ font-size:clamp(1.4rem, 2.6vw, 1.9rem); margin:0 0 .75rem; }
+    .kicker{ font:600 .78rem/1 var(--font, ui-sans-serif); letter-spacing:.08em; text-transform:uppercase; color:var(--muted,#6b7280); margin-bottom:.25rem; }
+
+    .grid{ display:grid; gap:1rem; grid-template-columns:repeat(12, 1fr); }
+    .cards-3 > article{ grid-column: span 12; }
+    @media (min-width: 740px){ .cards-3 > article{ grid-column: span 6; } }
+    @media (min-width: 1024px){ .cards-3 > article{ grid-column: span 4; } }
+
+    article.card{
+      background:var(--ui-bg,#fff); border:1px solid var(--ui-line,#e5e7eb); border-radius: var(--ui-radius,14px);
+      box-shadow: var(--ui-shadow,0 12px 28px rgba(2,12,32,.08)); overflow:hidden; display:flex; flex-direction:column;
+    }
+    .card-media{ aspect-ratio:16/9; background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.02)); }
+    .card-body{ padding:1rem 1rem 1.1rem; display:flex; flex-direction:column; gap:.5rem; }
+    .tags{ display:flex; gap:.5rem; flex-wrap:wrap; }
+    .tag{ font-size:.75rem; padding:.28rem .5rem; border:1px solid var(--ui-line,#e5e7eb); border-radius:999px; background:#fff; }
+    .card h3{ font-size:1.06rem; margin:.1rem 0; }
+    .card p{ color:var(--muted,#6b7280); margin:0; }
+    .card a{ align-self:flex-start; margin-top:.25rem; text-decoration:none; font-weight:600; }
+    .cta-rail{
+      display:grid; gap:1rem; grid-template-columns:1fr; align-items:center;
+      background:var(--surface-1,#0b1220); color:#fff; border-radius:var(--ui-radius,14px); padding:1.25rem;
+    }
+    @media (min-width: 900px){ .cta-rail{ grid-template-columns:1.5fr .9fr; } }
+    .cta-box{ background:#111827; border:1px solid rgba(255,255,255,.1); border-radius:16px; padding:1rem; }
+    .cta-box p{ margin:.25rem 0 .75rem; opacity:.9; }
+    .btn{
+      display:inline-block; padding:.7rem 1rem; border-radius:999px; border:1px solid #fff; color:#111827; background:#fff; font-weight:700; text-align:center;
+    }
+  </style>
+
+  <!-- ===== JSON-LD: Blog schema (basic) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Zenith Roofing Blog",
+    "url": "https://zenithroofingservices.com/blog/",
+    "description": "DIY roofing guides, repair stories, and professional advice for San Diego & Temecula homeowners and property managers.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Zenith Roofing Services, Inc."
+    }
+  }
+  </script>
 </head>
 <body>
+  <!-- ===== HEADER INCLUDE ===== -->
   <div data-include="/components/header-section.html"></div>
-  <main class="page">
-    <h1>Roofing Tips &amp; Guides</h1>
-    <article class="post"><h2><a href="#">How to spot an active leak</a></h2><p>Quick checks you can do safely before a storm.</p></article>
-    <article class="post"><h2><a href="#">Underlayment explained</a></h2><p>Why tile roofs often need Lift &amp; Reset after ~20 years.</p></article>
-    <article class="post"><h2><a href="#">TPO vs. Torch Down</a></h2><p>Choosing the right flat roof for your building.</p></article>
+
+  <main class="page" id="top">
+    <!-- ===== HERO ===== -->
+    <section class="blog-hero">
+      <h1>Zenith Roofing Blog</h1>
+      <p>DIY help, repair know-how, and no-nonsense guidance for San Diego & Temecula. Learn what really matters on a roof—materials, methods, and smart decisions—straight from a licensed C-39 contractor.</p>
+      <!-- ADD HERO IMAGE:
+           Put a wide hero image in /images/blog/hero.webp and set as a background in base.css if you prefer.
+           Example (optional): add a utility class that applies `background-image:url(/images/blog/hero.webp)` -->
+    </section>
+
+    <!-- =========================================================
+         70% EDUCATION / DIY — “Know Your Roof” Series
+         ========================================================= -->
+    <section class="section" aria-labelledby="diy-heading">
+      <div class="kicker">DIY & Education</div>
+      <h2 id="diy-heading">Know Your Roof: Quick Wins & Smart Choices</h2>
+      <div class="grid cards-3">
+        <!-- POST 1 -->
+        <article class="card">
+          <!-- COVER IMAGE (RECOMMENDED)
+               Save to: /images/blog/cdx-vs-osb.webp (1200x675)
+               ALT: "CDX vs OSB roof sheathing comparison" -->
+          <div class="card-media" role="img" aria-label="CDX vs OSB roof sheathing comparison"><!-- image placeholder --></div>
+          <div class="card-body">
+            <div class="tags"><span class="tag">Materials</span><span class="tag">DIY</span></div>
+            <h3><a href="/blog/cdx-vs-osb.html">CDX vs. OSB for Roof Decks: Which and Why</a></h3>
+            <p>CDX handles moisture cycles better at panel edges; OSB offers uniform density. We break down when each makes sense in San Diego’s coastal climate and what to check in your attic before you decide.</p>
+            <!-- ADD “Read more” content in /blog/cdx-vs-osb.html -->
+          </div>
+        </article>
+
+        <!-- POST 2 -->
+        <article class="card">
+          <!-- COVER: /images/blog/solar-stanchions.webp -->
+          <div class="card-media" role="img" aria-label="Solar racking stanchions flashing on a shingle roof"><!-- image placeholder --></div>
+          <div class="card-body">
+            <div class="tags"><span class="tag">Solar</span><span class="tag">Best Practice</span></div>
+            <h3><a href="/blog/solar-racking-stanchions.html">Solar Racking: Why Proper Stanchions & Flashings Beat “Bolt-On” Shortcuts</a></h3>
+            <p>Penetrations are forever. We cover correct stanchion hardware, under-shingle flashing, and sealant stack-ups that keep arrays watertight for the long haul.</p>
+          </div>
+        </article>
+
+        <!-- POST 3 -->
+        <article class="card">
+          <!-- COVER: /images/blog/underlayment-peel-vs-felt.webp -->
+          <div class="card-media" role="img" aria-label="Peel-and-stick underlayment versus traditional felt"><!-- image placeholder --></div>
+          <div class="card-body">
+            <div class="tags"><span class="tag">Underlayment</span><span class="tag">Upgrades</span></div>
+            <h3><a href="/blog/peel-and-stick-vs-felt.html">Peel-and-Stick vs. Felt: Where the Upgrade Pays Off</a></h3>
+            <p>Self-adhered membranes shine on low slopes, dead valleys, and eaves. Felt is fine for standard pitches—until wind-driven rain finds a weak spot. Here’s a simple decision tree.</p>
+          </div>
+        </article>
+
+        <!-- POST 4 -->
+        <article class="card">
+          <!-- COVER: /images/blog/tpo-vs-torch.webp -->
+          <div class="card-media" role="img" aria-label="TPO membrane versus torch-down modified bitumen"><!-- image placeholder --></div>
+          <div class="card-body">
+            <div class="tags"><span class="tag">Flat Roofs</span><span class="tag">Comparisons</span></div>
+            <h3><a href="/blog/tpo-vs-torch.html">TPO vs Torch-Down: Which System Fits Your Flat Roof?</a></h3>
+            <p>TPO is reflective and seam-welded; torch is rugged and repair-friendly. We outline when to choose each—and what maintenance actually looks like.</p>
+          </div>
+        </article>
+
+        <!-- POST 5 -->
+        <article class="card">
+          <!-- COVER: /images/blog/repair-vs-replace-30years.webp -->
+          <div class="card-media" role="img" aria-label="Aging roof at end-of-life around 30 years"><!-- image placeholder --></div>
+          <div class="card-body">
+            <div class="tags"><span class="tag">Decision Guide</span></div>
+            <h3><a href="/blog/repair-vs-replace-30-years.html">Repair or Replace? The 30-Year Reality Check</a></h3>
+            <p>At ~30 years, underlayment and fasteners age out—even if leaks aren’t visible yet. Here’s how to weigh risk of dry rot, hidden deck damage, and the cost curve.</p>
+          </div>
+        </article>
+
+        <!-- POST 6 -->
+        <article class="card">
+          <!-- COVER: /images/blog/termites-from-leaks.webp -->
+          <div class="card-media" role="img" aria-label="Termite damage linked to chronic roof leaks"><!-- image placeholder --></div>
+          <div class="card-body">
+            <div class="tags"><span class="tag">Damage</span><span class="tag">San Diego</span></div>
+            <h3><a href="/blog/termites-from-leaks.html">San Diego Termites & Roof Leaks: The Hidden Connection</a></h3>
+            <p>Moisture invites pests. Learn the early signs in fascia and eaves, and why timely leak control protects both structure and resale value.</p>
+          </div>
+        </article>
+
+        <!-- POST 7 -->
+        <article class="card">
+          <!-- COVER: /images/blog/skip-sheathing-check-attic.webp -->
+          <div class="card-media" role="img" aria-label="Attic view showing skip sheathing under old shakes"><!-- image placeholder --></div>
+          <div class="card-body">
+            <div class="tags"><span class="tag">Legacy Roofs</span><span class="tag">Inspection</span></div>
+            <h3><a href="/blog/wood-shakes-under-shingles.html">Wood Shakes Under Your Shingles? Check for Skip Sheathing</a></h3>
+            <p>Older homes often have shakes sitting on skip sheathing. If someone later laid shingles over it, ventilation and nailing patterns get tricky—peek in the attic before planning work.</p>
+          </div>
+        </article>
+
+        <!-- POST 8 -->
+        <article class="card">
+          <!-- COVER: /images/blog/why-professional-roof-report.webp -->
+          <div class="card-media" role="img" aria-label="Professional roof inspection report clipboard"><!-- image placeholder --></div>
+          <div class="card-body">
+            <div class="tags"><span class="tag">Reports</span><span class="tag">Real Estate</span></div>
+            <h3><a href="/blog/why-professional-roof-report.html">Why a Professional Roof Report Beats Guesswork</a></h3>
+            <p>Good reports document photos, decking, underlayment, penetrations, flashings, and drainage—so you can prioritize repairs, budget realistically, and negotiate with confidence.</p>
+          </div>
+        </article>
+
+        <!-- POST 9 -->
+        <article class="card">
+          <!-- COVER: /images/blog/insurance-wind-claims-sd.webp -->
+          <div class="card-media" role="img" aria-label="Wind-lifted shingles after a storm in San Diego"><!-- image placeholder --></div>
+          <div class="card-body">
+            <div class="tags"><span class="tag">Insurance</span><span class="tag">Wind</span></div>
+            <h3><a href="/blog/insurance-claims-san-diego-wind.html">Insurance Claims in San Diego: Wind Is the Usual Suspect</a></h3>
+            <p>From lifted tabs to creased shingles, we outline what’s typically covered, how to document damage, and when to loop a pro in.</p>
+          </div>
+        </article>
+
+        <!-- POST 10 -->
+        <article class="card">
+          <!-- COVER: /images/blog/ponding-water-crickets-diverters.webp -->
+          <div class="card-media" role="img" aria-label="Ponding water near drain and cricket diverters on a flat roof"><!-- image placeholder --></div>
+          <div class="card-body">
+            <div class="tags"><span class="tag">Drainage</span><span class="tag">Commercial</span></div>
+            <h3><a href="/blog/ponding-water-crickets-diverters.html">Ponding Water: Problem or Just a Flat-Roof Reality?</a></h3>
+            <p>Sometimes it’s benign; sometimes it’s eating seams. We explain drains, clogs, when crickets/diverters help, and why tapered systems are effective—but pricier.</p>
+          </div>
+        </article>
+
+        <!-- ADD MORE DIY POSTS:
+             Duplicate <article class="card">…</article> and update href, title, summary, tags, and image paths. -->
+      </div>
+    </section>
+
+    <!-- =========================================================
+         20% STORY / HERITAGE — “From Bryan’s Notebook”
+         ========================================================= -->
+    <section class="section" aria-labelledby="story-heading">
+      <div class="kicker">Our Story</div>
+      <h2 id="story-heading">From Bryan’s Notebook: Craft, Roots & Doing It Right</h2>
+      <div class="grid cards-3">
+        <article class="card">
+          <!-- COVER: /images/blog/bryan-escondido.webp -->
+          <div class="card-media" role="img" aria-label="Bryan on a roof in Escondido at sunset"><!-- image placeholder --></div>
+          <div class="card-body">
+            <div class="tags"><span class="tag">Heritage</span></div>
+            <h3><a href="/blog/bryan-escondido-story.html">Born & Raised in North County: Why We Treat Every Roof Like Our Own</a></h3>
+            <p>I started on the roof, hands on. The lessons were simple: prep is everything, photos keep everyone honest, and clean-up matters as much as install.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <!-- COVER: /images/blog/warranty-matters.webp -->
+          <div class="card-media" role="img" aria-label="Close-up of flashed pipe with clean sealant profile"><!-- image placeholder --></div>
+          <div class="card-body">
+            <div class="tags"><span class="tag">Craft</span></div>
+            <h3><a href="/blog/why-warranty-matters.html">Why Manufacturer Specs & Warranty Paths Matter</a></h3>
+            <p>It’s not just paper. Following specs on underlayment, flashings, and terminations protects your warranty and your home’s value.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <!-- COVER: /images/blog/real-repair-stories.webp -->
+          <div class="card-media" role="img" aria-label="Before-and-after repair collage"><!-- image placeholder --></div>
+          <div class="card-body">
+            <div class="tags"><span class="tag">Repair Stories</span></div>
+            <h3><a href="/blog/repair-stories-skip-sheathing.html">Repair Stories: Skip Sheathing, Hidden Dry Rot & Smart Sequencing</a></h3>
+            <p>Photos and field notes from real jobs—what we found, how we fixed it, and what we wish the last crew had done.</p>
+          </div>
+        </article>
+      </div>
+      <!-- ADD MORE STORY POSTS as needed -->
+    </section>
+
+    <!-- =========================================================
+         10% LIGHT CTA — “Ask a Pro” (kept gentle, not salesy)
+         ========================================================= -->
+    <section class="section" aria-labelledby="cta-heading">
+      <div class="kicker">Have a question?</div>
+      <h2 id="cta-heading">Ask a Pro, Free for Homeowners</h2>
+      <div class="cta-rail">
+        <div>
+          <p>Unsure about a leak, insurance photos, or the right underlayment? Send us a couple pictures and your address—we’ll point you in the right direction.</p>
+          <div class="cta-box">
+            <p style="margin:0 0 .25rem;"><strong>Quick Disclaimer:</strong> Tips on this blog are general info for common scenarios. Final scope, warranty, and liability are defined by your signed contract.</p>
+            <!-- You requested “hide the legal” tone—this stays brief and friendly -->
+          </div>
+        </div>
+        <div>
+          <a class="btn" href="/#estimate">Get Guidance</a>
+          <!-- If you prefer a dedicated page, link to /contact/ or /free-inspection/ -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         INTERNAL AUTHORING NOTES (won’t display)
+         • Where to add photos: each .card-media; save images under /images/blog/*.webp
+         • How to add posts: duplicate a card, create a matching /blog/your-slug.html page
+         • Keep titles punchy (≤70 chars) and summaries ≤160 chars for SEO
+         • Use cities in body copy (Escondido, Temecula, Oceanside, Carlsbad) naturally
+         • Link service pages where relevant to help internal SEO
+         • Aim for 70% education, 20% story, 10% light CTA on the index
+         ========================================================= -->
+
   </main>
-  <div data-include="/components/footer.html"></div>
 
-<script>
-  (function () {
-    // fetch + inject a single [data-include]
-    async function include(el) {
-      const src = el.getAttribute('data-include');
-      if (!src) return;
-      try {
-        const res = await fetch(src);             // normal caching
-        if (!res.ok) throw new Error('Failed ' + src);
-        const html = await res.text();
-        el.outerHTML = html;
-      } catch (e) {
-        console.error('❌ Include error:', src, e);
-      }
-    }
+  <!-- ===== FOOTER INCLUDE ===== -->
+  <div data-include="/components/footer-section.html"></div>
 
-    // Header height + collapsed state WITHOUT scroll reflow
-    function setupHeaderObservers() {
-      const root = document.documentElement;
-      const getHeader = () => document.querySelector('.mobile-header') || document.querySelector('.header');
-
-      function updateHeaderH() {
-        const h = getHeader();
-        if (h) root.style.setProperty('--header-h', Math.round(h.offsetHeight) + 'px');
-      }
-
-      // update when the header actually resizes
-      if ('ResizeObserver' in window) {
-        const ro = new ResizeObserver(updateHeaderH);
-        const h = getHeader(); if (h) ro.observe(h);
-      }
-      window.addEventListener('load', updateHeaderH, { passive: true });
-      window.addEventListener('resize', () => requestAnimationFrame(updateHeaderH), { passive: true });
-
-      // toggle nav-collapsed via IntersectionObserver (no scroll work)
-      const sent = document.createElement('div');
-      sent.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;';
-      document.body.prepend(sent);
-      new IntersectionObserver(([e]) => {
-        root.classList.toggle('nav-collapsed', !e.isIntersecting);
-      }, { rootMargin: '-80px 0px 0px 0px' }).observe(sent); // adjust -80px if your header is taller
-    }
-
-    async function init() {
-      // include everything ELSE (hero has an LCP stub now)
-      const includes = Array.from(document.querySelectorAll('[data-include]'));
-      await Promise.all(includes.map(include));
-
-      // Upgrade the stub to the real hero component while REUSING the already-downloaded LCP <img>
-      const stub = document.getElementById('hero-stub');
-      if (stub) {
-        const res = await fetch('components/hero-section.html');
-        if (res.ok) {
-          const html = await res.text();
-          const tpl = document.createElement('template');
-          tpl.innerHTML = html.trim();
-          const real = tpl.content.querySelector('section.zenith-hero') || tpl.content.firstElementChild;
-          if (real) {
-            const lcp = document.getElementById('lcp-img');
-            const realPic = real.querySelector('.zenith-hero-media picture') || real.querySelector('.zenith-hero-media');
-            if (lcp && realPic) {
-              const existing = realPic.querySelector('.zenith-hero-mobile-img');
-              if (existing) existing.replaceWith(lcp); else realPic.appendChild(lcp);
-            }
-            stub.replaceWith(real);
-          }
-        }
-      }
-
-      // your existing inits (unchanged)
-      if (window.initMobileMenu) window.initMobileMenu();
-      [
-        'initEstimateForm','initAboutSection','initWhyChoose','initTrustSection',
-        'initPhotoSection','initTestimonials','initCTA','initServiceAreas',
-        'initRealEstate','initFooter','initHeader'
-      ].forEach(n => { if (typeof window[n] === 'function') window[n](); });
-
-      setupHeaderObservers();   // replaces old setLayoutFlags/scroll listeners
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
-  })();
-  </script>
-<script src="/js/loader.js" defer></script>
-<script src="/js/header.js" defer></script>
+  <!-- ===== EXISTING PARTIAL LOADER (already in your site) ===== -->
+  <script src="/js/loader.js" defer></script>
 </body>
 </html>
