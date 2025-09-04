@@ -1,58 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Real-Estate Roof Estimate | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Clear, line-item roof estimates for real-estate negotiations and credits. Serving San Diego & Temecula." />
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/footer.css">
-  <link rel="stylesheet" href="/css/ui.css">
-  <link rel="stylesheet" href="/css/estimate-form.css">
-  <script defer src="/js/loader.js"></script>
-  <script defer src="/js/header.js"></script>
-  <script defer src="/js/estimate-form.js"></script>
-  <style>.page{max-width:1060px;margin:24px auto;padding:0 16px}.muted{color:#64748b}</style>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <title>Written Roof Estimates for Real Estate | Zenith Roofing Services</title>
+  <meta name="description" content="Bid-ready repair or replacement estimates tailored for real estate negotiations. Photos, scope notes, and pricing line items."/>
+  <link rel="canonical" href="https://zenithroofingservices.com/services/real-estate/roof-estimates/"/>
+  <meta property="og:title" content="Written Roof Estimates for Real Estate"/>
+  <meta property="og:description" content="Bid-ready estimates with scope notes and pricing. Book online."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/base.css"/><link rel="stylesheet" href="/css/header.css"/><link rel="stylesheet" href="/css/ui.css"/><link rel="stylesheet" href="/css/footer.css"/><link rel="stylesheet" href="/css/estimate-form.css"/>
+  <style>
+    html{scroll-behavior:smooth}.hero{background:linear-gradient(135deg,#f8fafc,#eef6ff);border:1px solid var(--ui-line);border-radius:18px;padding:clamp(18px,3vw,28px)}
+    .pricecard{border:1px solid var(--ui-line);border-radius:14px;background:#fff;padding:14px}
+  </style>
 </head>
 <body>
   <div data-include="/components/header-section.html"></div>
-  <main class="page" id="top">
-    <section class="card airy">
-      <span class="badge">Real Estate Service</span>
-      <h1>Real-Estate Roof Estimate</h1>
-      <p class="muted">Line-item scope & pricing tailored to disclosures and inspection notes.</p>
-    </section>
-
-    <section class="card airy">
-      <h2>What You’ll Receive</h2>
-      <ul class="checked">
-        <li>Itemized scope of work tied to observations</li>
-        <li>Material & labor pricing per line item</li>
-        <li>Assumptions & exclusions clearly stated</li>
-        <li>Optional alternates (repair vs. replacement)</li>
-      </ul>
-    </section>
-
-    <section id="book"
-      data-estimate-context
-      data-category="Real-Estate — Roof Estimate (Paid)"
-      data-service="Real-Estate Roof Estimate ($295)"
-      data-cta="Request Roof Estimate"
-      data-redirect="/thank-you/">
-      <div data-include="/components/forms/request-minimal.html"></div>
-    </section>
-
-    <section class="card airy">
-      <h2>Best For</h2>
-      <div class="grid micro-grid">
-        <div class="card"><h3>Buyer Credits</h3><p class="muted">Support for price adjustments.</p></div>
-        <div class="card"><h3>Seller Prep</h3><p class="muted">Know costs & timelines upfront.</p></div>
-        <div class="card"><h3>Lender Questions</h3><p class="muted">Clarify scope to satisfy notes.</p></div>
-        <div class="card"><h3>Insurance Comparisons</h3><p class="muted">Compare scope apples-to-apples.</p></div>
+  <main id="top" class="page">
+    <section class="hero">
+      <h1>Written Roof Estimates for Real Estate</h1>
+      <p class="lede">Formal, line-item estimates for repairs or replacement, aligned to transaction timelines and negotiation needs.</p>
+      <div class="grid cols-3" style="gap:12px;margin-top:.6rem">
+        <div class="pricecard"><strong>Repair Estimate</strong><div class="price">$$PRICE_EST_REPAIR</div><p class="muted">Scope notes, photos (as available), pricing line items.</p></div>
+        <div class="pricecard"><strong>Replacement Estimate</strong><div class="price">$$PRICE_EST_REPLACE</div><p class="muted">System options, alternates (e.g., insulation), line-item pricing.</p></div>
+        <div class="pricecard"><strong>Rush Add-On</strong><div class="price">$$PRICE_RUSH</div><p class="muted">Priority scheduling & delivery.</p></div>
       </div>
+      <div class="cta"><a class="btn btn-primary" href="#estimate">Book Estimate</a><a class="btn btn-outline" href="#deliverables">Deliverables</a></div>
+    </section>
+
+    <nav class="pillnav sticky-pills"><a href="#deliverables">Deliverables</a><a href="#timeline">Timeline</a><a href="#faq">FAQ</a><a href="#estimate">Book</a></nav>
+
+    <section id="deliverables" class="section card airy hoverable">
+      <h2>Deliverables</h2>
+      <ul class="checklist relaxed"><li><span class="tick">✓</span> Line-item pricing with scope notes</li><li><span class="tick">✓</span> Photos (as available) and plan snippets if provided</li><li><span class="tick">✓</span> Alternates (good/better/best) when useful</li></ul>
+    </section>
+
+    <section id="timeline" class="section card airy hoverable">
+      <h2>Timeline</h2>
+      <p class="muted">Typical delivery is 1–3 business days after site info and details are received. Rush available.</p>
+    </section>
+
+    <section id="faq" class="section card airy hoverable">
+      <h2>FAQ</h2>
+      <details><summary>Is this a free estimate?</summary><p class="muted">No—this is a paid, transaction-grade estimate aligned to deadlines and negotiation needs.</p></details>
+      <details><summary>Can you tailor scope wording?</summary><p class="muted">Yes—tell us the audience (buyer/seller/underwriter) and any specific concerns.</p></details>
+    </section>
+
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer"><em><strong>Paid service.</strong> After submission, we’ll confirm schedule & payment. Include address, role (buyer/seller/agent), desired scope (repair/replacement), and timeline.</em></p>
     </section>
   </main>
   <div data-include="/components/footer.html"></div>
+  <script src="/js/loader.js" defer></script><script src="/js/header.js" defer></script>
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Book Estimate",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Address, access, buyer/seller/agent, repair vs replacement, deadline, rush?",
+      hiddenFields: { campaign: "services/real-estate/roof-estimates", page_tag: "re-estimate" }
+    };
+  </script>
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
