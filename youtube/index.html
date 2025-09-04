@@ -15,13 +15,12 @@
   <meta property="og:url" content="https://zenithroofingservices.com/youtube/" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- ===== SITE CSS (already in your project) ===== -->
+  <!-- Site CSS -->
   <link rel="stylesheet" href="/css/header.css" />
   <link rel="stylesheet" href="/css/base.css" />
   <link rel="stylesheet" href="/css/footer.css" />
   <link rel="stylesheet" href="/css/ui.css" />
 
-  <!-- ===== Page-scoped helpers (SAFE & lightweight) ===== -->
   <style>
     .yt-hero{ padding:var(--space-xl,3rem) var(--space-m,1.25rem); background:var(--surface-2,#0f172a); color:#fff; text-align:center; }
     .yt-hero h1{ margin:0 0 .5rem; font-size:clamp(1.8rem,3.5vw,2.6rem); line-height:1.1; }
@@ -32,30 +31,30 @@
     @media (min-width: 800px){ .yt-grid{ grid-template-columns: 1fr 1fr; } }
     @media (min-width: 1200px){ .yt-grid{ grid-template-columns: 1fr 1fr 1fr; } }
 
-    .yt-card{ background:var(--ui-bg,#fff); border:1px solid var(--ui-line,#e5e7eb); border-radius:var(--ui-radius,14px); box-shadow:var(--ui-shadow,0 12px 28px rgba(2,12,32,.08)); overflow:hidden; display:flex; flex-direction:column; }
+    .yt-card{ background:#fff; border:1px solid var(--ui-line,#e5e7eb); border-radius:14px; box-shadow:0 12px 28px rgba(2,12,32,.08); overflow:hidden; display:flex; flex-direction:column; }
     .yt-embed{ position:relative; width:100%; aspect-ratio:16/9; background:#000; }
     .yt-embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
     .yt-body{ padding:1rem; display:flex; flex-direction:column; gap:.5rem; }
     .yt-body h3{ font-size:1.02rem; margin:.1rem 0; }
-    .yt-body p{ color:var(--muted,#6b7280); margin:0; }
+    .yt-body p{ color:#6b7280; margin:0; }
     .yt-actions{ margin-top:.5rem; display:flex; gap:.5rem; flex-wrap:wrap; }
-    .btn{ display:inline-block; padding:.6rem .9rem; border-radius:999px; border:1px solid var(--line,#e5e7eb); background:#111827; color:#fff; font-weight:700; text-decoration:none; }
+    .btn{ display:inline-block; padding:.6rem .9rem; border-radius:999px; border:1px solid #e5e7eb; background:#111827; color:#fff; font-weight:700; text-decoration:none; }
     .btn.secondary{ background:#fff; color:#111827; }
 
     .cta-rail{
       display:grid; gap:1rem; grid-template-columns:1fr; align-items:center;
-      background:var(--surface-1,#0b1220); color:#fff; border-radius:var(--ui-radius,14px); padding:1.25rem; margin-top:1.5rem;
+      background:#0b1220; color:#fff; border-radius:14px; padding:1.25rem; margin-top:1.5rem;
     }
     @media (min-width: 900px){ .cta-rail{ grid-template-columns: 1.5fr .9fr; } }
     .cta-rail .btn{ border-color:#fff; }
 
-    details.faq{ background:#fff; border:1px solid var(--ui-line,#e5e7eb); border-radius:12px; padding:.75rem 1rem; }
+    details.faq{ background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:.75rem 1rem; }
     details.faq + details.faq{ margin-top:.75rem; }
     details.faq summary{ cursor:pointer; font-weight:700; }
-    .kicker{ font:600 .78rem/1 var(--font, ui-sans-serif); letter-spacing:.08em; text-transform:uppercase; color:var(--muted,#6b7280); margin:.5rem 0; }
+    .kicker{ font:600 .78rem/1 var(--font, ui-sans-serif); letter-spacing:.08em; text-transform:uppercase; color:#6b7280; margin:.5rem 0; }
   </style>
 
-  <!-- ===== JSON-LD (ItemList of videos + FAQ) ===== -->
+  <!-- CollectionPage + channel -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -64,214 +63,221 @@
     "url": "https://zenithroofingservices.com/youtube/",
     "isPartOf": { "@type": "WebSite", "name": "Zenith Roofing Services", "url": "https://zenithroofingservices.com" },
     "about": "Roofing videos with DIY guidance, repair walkthroughs, and flat-roof best practices for San Diego & Temecula.",
-    "hasPart": {
-      "@type": "ItemList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "url": "https://www.youtube.com/watch?v=Q-N-opdUC6w" },
-        { "@type": "ListItem", "position": 2, "url": "https://www.youtube.com/watch?v=fr6gsxPkwgY" },
-        { "@type": "ListItem", "position": 3, "url": "https://www.youtube.com/watch?v=ccazmyWcQzM" },
-        { "@type": "ListItem", "position": 4, "url": "https://www.youtube.com/watch?v=JqEurqVz3w0" },
-        { "@type": "ListItem", "position": 5, "url": "https://www.youtube.com/watch?v=1I3UqteSTJY" },
-        { "@type": "ListItem", "position": 6, "url": "https://www.youtube.com/watch?v=WN1LgCiWOR8" }
-      ]
-    },
     "sameAs": ["https://youtube.com/@roofingfanatics4775"]
   }
   </script>
 
-  <!-- (Optional) JSON-LD for FAQ below; keep content consistent with on-page text -->
+  <!-- Per-video VideoObject JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"VideoObject",
+        "name":"Two-Ply Modified Bitumen Torch-Down — Step-by-Step Install (Pro Tips)",
+        "description":"Base sheet prep, staggered plies, 45° corner cuts, torching technique and bleed-out, smooth + granulated layers, and edge metal details for a watertight 2-ply torch-down system.",
+        "thumbnailUrl":"https://i.ytimg.com/vi/Q-N-opdUC6w/hqdefault.jpg",
+        "uploadDate":"",
+        "url":"https://www.youtube.com/watch?v=Q-N-opdUC6w",
+        "keywords":"Modified Bitumen Torch Down Roofing, two-ply roofing installation, base sheet installation, smooth modified bitumen, torching technique, waterproofing roof, roofing contractor tips, DIY torch down roofing"
+      },
+      {
+        "@type":"VideoObject",
+        "name":"Torch-Down Basics: Single-Ply Field Membrane, Drip Edge & Fire Safety",
+        "description":"Full single-layer torch-down walkthrough: base sheet layout, mini-smooth around metals, primed drip edge, three-quarters method, tight-area torching, seam welding, and fire prevention.",
+        "thumbnailUrl":"https://i.ytimg.com/vi/fr6gsxPkwgY/hqdefault.jpg",
+        "uploadDate":"",
+        "url":"https://www.youtube.com/watch?v=fr6gsxPkwgY",
+        "keywords":"modified bitumen roofing installation, base sheet installation, drip edge metal, torch down tips, seam welding, fire prevention, roofing installation techniques"
+      },
+      {
+        "@type":"VideoObject",
+        "name":"Silicone Roof on a Sunroom: Seam Sealer, Reinforcement & Coating Steps",
+        "description":"Why sunrooms leak and how to fix them: deck prep, seam sealer with fiberglass/polyester reinforcement, high-solids silicone application, and maintenance tips.",
+        "thumbnailUrl":"https://i.ytimg.com/vi/ccazmyWcQzM/hqdefault.jpg",
+        "uploadDate":"",
+        "url":"https://www.youtube.com/watch?v=ccazmyWcQzM",
+        "keywords":"silicone roof, sunroom roof repair, roof restoration, roof coating, seam sealer, fiberglass mesh, polyester fabric, DIY roofing, San Diego roofing, Escondido roofer"
+      },
+      {
+        "@type":"VideoObject",
+        "name":"Worst Way to Mount Solar Panels — Proper Flashing to Prevent Leaks",
+        "description":"Common solar mounting mistakes on shingle/tile: missed rafters, no water-shedding flashings, slow leak responses—plus how to repair shingles and coordinate roof + solar the right way.",
+        "thumbnailUrl":"https://i.ytimg.com/vi/JqEurqVz3w0/hqdefault.jpg",
+        "uploadDate":"",
+        "url":"https://www.youtube.com/watch?v=JqEurqVz3w0",
+        "keywords":"solar mounts, roof leaks from solar, proper solar flashing, roof jack flashing, solar stanchions, shingle roof flashing, tile roof solar, roofing contractor"
+      },
+      {
+        "@type":"VideoObject",
+        "name":"Roof Planks vs OSB/Plywood — Why Overlays Prevent Nail Misses & Leaks",
+        "description":"Plank decks form wide gaps over time. See why OSB/plywood overlays improve nailing and water-shedding, reduce warping, and are preferred for reroofs on older homes.",
+        "thumbnailUrl":"https://i.ytimg.com/vi/1I3UqteSTJY/hqdefault.jpg",
+        "uploadDate":"",
+        "url":"https://www.youtube.com/watch?v=1I3UqteSTJY",
+        "keywords":"roof planks, OSB vs plywood roofing, roof sheathing, old roof repair, deck overlay, shingle roof prep"
+      },
+      {
+        "@type":"VideoObject",
+        "name":"Common Tile Roof Problems — Underlayment Failure, Valleys & Broken Tiles",
+        "description":"Why tile roofs leak: aged underlayment, smashed pan lips, missing weather blocking, shadow boards, broken tiles, closed valleys, and mortar at pipes instead of proper flashings.",
+        "thumbnailUrl":"https://i.ytimg.com/vi/WN1LgCiWOR8/hqdefault.jpg",
+        "uploadDate":"",
+        "url":"https://www.youtube.com/watch?v=WN1LgCiWOR8",
+        "keywords":"tile roof problems, tile roof leaks, underlayment failure, broken tiles, weather blocking, roof valleys, chimney leaks, roofing tips"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Optional FAQ JSON-LD kept same as before -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"Can I use your videos to troubleshoot a leak before calling?",
-        "acceptedAnswer":{"@type":"Answer","text":"Yes—our videos share general checks (flashings, valleys, penetrations). For safety and warranty reasons, we still recommend a professional inspection before any invasive work."}
-      },
-      {
-        "@type":"Question",
-        "name":"Do you service both pitched and flat roofs?",
-        "acceptedAnswer":{"@type":"Answer","text":"Yes. We handle shingle and tile pitched roofs as well as flat roofs like TPO and torch-down, including drains, crickets, and diverters."}
-      },
-      {
-        "@type":"Question",
-        "name":"Do you provide real estate roof reports in San Diego & Temecula?",
-        "acceptedAnswer":{"@type":"Answer","text":"Yes. We create photo-rich, plain-English roof reports that help buyers and agents understand condition, lifespan, and repair priorities."}
-      }
+      {"@type":"Question","name":"Can I use your videos to troubleshoot a leak before calling?","acceptedAnswer":{"@type":"Answer","text":"Yes—our videos share general checks (flashings, valleys, penetrations). For safety and warranty reasons, we still recommend a professional inspection before any invasive work."}},
+      {"@type":"Question","name":"Do you service both pitched and flat roofs?","acceptedAnswer":{"@type":"Answer","text":"Yes. We handle shingle and tile pitched roofs as well as flat roofs like TPO and torch-down, including drains, crickets, and diverters."}},
+      {"@type":"Question","name":"Do you provide real estate roof reports in San Diego & Temecula?","acceptedAnswer":{"@type":"Answer","text":"Yes. We create photo-rich, plain-English roof reports that help buyers and agents understand condition, lifespan, and repair priorities."}}
     ]
   }
   </script>
 </head>
 <body>
-  <!-- ===== HEADER INCLUDE ===== -->
+  <!-- Header -->
   <div data-include="/components/header-section.html"></div>
 
   <main class="page" id="top">
-    <!-- ===== HERO ===== -->
+    <!-- HERO -->
     <section class="yt-hero">
       <h1>Roofing Videos & Field Tips</h1>
       <p>Short, practical videos from a licensed C-39 contractor. Learn how we diagnose leaks, choose materials, and detail flat roofs the right way in San Diego & Temecula.</p>
       <p style="margin-top:.75rem;">
         <a class="btn" href="https://youtube.com/@roofingfanatics4775" target="_blank" rel="noopener">Visit our YouTube Channel</a>
       </p>
-      <!-- OPTIONAL HERO IMAGE:
-           Save a banner to /images/youtube/hero.webp and apply via base.css if you want a background image. -->
     </section>
 
-    <!-- ===== VIDEO GRID ===== -->
+    <!-- VIDEO GRID -->
     <section class="yt-wrap" aria-labelledby="videos">
       <div class="kicker">Latest uploads</div>
-      <h2 id="videos">Watch & Learn</h2>
+      <h2 id="videos">Watch &amp; Learn</h2>
 
       <div class="yt-grid">
-        <!-- ======================================================
-             VIDEO CARD 1
-             👉 EDIT the <h3> to match the video’s topic for SEO
-             👉 Add 1–2 sentence summary under <p>
-             ====================================================== -->
+        <!-- VIDEO 1 -->
         <article class="yt-card">
-          <div class="yt-embed" aria-label="YouTube video: Roofing Fanatics #1">
-            <iframe
-              loading="lazy"
-              src="https://www.youtube.com/embed/Q-N-opdUC6w?si=5A0rh4ujCrYE4OnM"
-              title="Roofing Fanatics — Video 1"
+          <div class="yt-embed" aria-label="Two-Ply Modified Bitumen Torch-Down — Step-by-Step Install">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/Q-N-opdUC6w?si=5A0rh4ujCrYE4OnM"
+              title="Two-Ply Modified Bitumen Torch-Down — Step-by-Step Install (Pro Tips)"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
           <div class="yt-body">
-            <!-- EDIT TITLE -->
-            <h3><!-- e.g., “Tile Lift & Lay: Replacing Underlayment the Right Way” -->Edit this title for SEO</h3>
-            <!-- EDIT SUMMARY -->
-            <p><!-- e.g., “When tile roofs hit ~30 years, underlayment ages out. We show bird-stop, weather blocking, and headwall pan details.” -->Short summary of what viewers learn.</p>
+            <h3>Two-Ply Modified Bitumen Torch-Down — Step-by-Step Install (Pro Tips)</h3>
+            <p>Base sheet prep, staggered plies, 45° corner cuts, torching technique &amp; bleed-out, smooth + granulated layers, and edge metal details for a watertight 2-ply system.</p>
             <div class="yt-actions">
-              <a class="btn" href="/#estimate">Get an Estimate</a>
-              <a class="btn secondary" href="/contact/">Ask a Question</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- VIDEO CARD 2 -->
-        <article class="yt-card">
-          <div class="yt-embed" aria-label="YouTube video: Roofing Fanatics #2">
-            <iframe
-              loading="lazy"
-              src="https://www.youtube.com/embed/fr6gsxPkwgY?si=JFIsH5Ylra9iGJOj"
-              title="Roofing Fanatics — Video 2"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="yt-body">
-            <h3><!-- e.g., “TPO vs Torch-Down: When to Choose Each Flat-Roof System” -->Edit this title for SEO</h3>
-            <p><!-- e.g., “We compare welded seams, reflectivity, and repairability—and what to do about ponding near drains.” -->Short summary of what viewers learn.</p>
-            <div class="yt-actions">
-              <a class="btn" href="/services/flat-roof-tpo-torch/">Flat Roof Services</a>
+              <a class="btn" href="/services/residential/torch-down/">Torch-Down Services</a>
               <a class="btn secondary" href="/#estimate">Free Guidance</a>
             </div>
           </div>
         </article>
 
-        <!-- VIDEO CARD 3 -->
+        <!-- VIDEO 2 -->
         <article class="yt-card">
-          <div class="yt-embed" aria-label="YouTube video: Roofing Fanatics #3">
-            <iframe
-              loading="lazy"
-              src="https://www.youtube.com/embed/ccazmyWcQzM?si=OLpy1rjRUnOeK2bZ"
-              title="Roofing Fanatics — Video 3"
+          <div class="yt-embed" aria-label="Torch-Down Basics: Single-Ply Field Membrane, Drip Edge & Fire Safety">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/fr6gsxPkwgY?si=JFIsH5Ylra9iGJOj"
+              title="Torch-Down Basics: Single-Ply Field Membrane, Drip Edge & Fire Safety"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
           <div class="yt-body">
-            <h3><!-- e.g., “Kick-Out Flashing: Stopping Stucco Stains & Wall Rot” -->Edit this title for SEO</h3>
-            <p><!-- e.g., “We show how a properly sized diverter sends water into the gutter instead of behind siding.” -->Short summary of what viewers learn.</p>
+            <h3>Torch-Down Basics: Single-Ply Field Membrane, Drip Edge &amp; Fire Safety</h3>
+            <p>Complete single-layer torch-down walkthrough—base sheet layout, mini-smooth around metals, primed drip edge, three-quarters method, tight-area torching, and seam welding.</p>
             <div class="yt-actions">
-              <a class="btn" href="/services/gutters/">Gutters & Guards</a>
-              <a class="btn secondary" href="/contact/">Ask a Question</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- VIDEO CARD 4 -->
-        <article class="yt-card">
-          <div class="yt-embed" aria-label="YouTube video: Roofing Fanatics #4">
-            <iframe
-              loading="lazy"
-              src="https://www.youtube.com/embed/JqEurqVz3w0?si=Jp2QwftMZuPPMnnC"
-              title="Roofing Fanatics — Video 4"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="yt-body">
-            <h3><!-- e.g., “Skylights: Curb-Mounted vs Deck-Mounted” -->Edit this title for SEO</h3>
-            <p><!-- e.g., “Pros/cons of each, proper flashing kits, and how to avoid condensation issues.” -->Short summary of what viewers learn.</p>
-            <div class="yt-actions">
-              <a class="btn" href="/services/skylights/">Skylight Services</a>
-              <a class="btn secondary" href="/#estimate">Free Guidance</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- VIDEO CARD 5 -->
-        <article class="yt-card">
-          <div class="yt-embed" aria-label="YouTube video: Roofing Fanatics #5">
-            <iframe
-              loading="lazy"
-              src="https://www.youtube.com/embed/1I3UqteSTJY?si=FgPTy8YRhnDpuS5w"
-              title="Roofing Fanatics — Video 5"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-          <div class="yt-body">
-            <h3><!-- e.g., “CDX vs OSB: Choosing Roof Sheathing in Coastal SD” -->Edit this title for SEO</h3>
-            <p><!-- e.g., “Edge swell, ventilation, and fast dry-in—what actually matters for long-term performance.” -->Short summary of what viewers learn.</p>
-            <div class="yt-actions">
-              <a class="btn" href="/blog/cdx-vs-osb.html">Read the Guide</a>
+              <a class="btn" href="/services/residential/torch-down/">Flat Roof Torch-Down</a>
               <a class="btn secondary" href="/#estimate">Ask a Pro</a>
             </div>
           </div>
         </article>
 
-        <!-- VIDEO CARD 6 -->
+        <!-- VIDEO 3 -->
         <article class="yt-card">
-          <div class="yt-embed" aria-label="YouTube video: Roofing Fanatics #6">
-            <iframe
-              loading="lazy"
-              src="https://www.youtube.com/embed/WN1LgCiWOR8?si=3ccL5_yBcPnl-els"
-              title="Roofing Fanatics — Video 6"
+          <div class="yt-embed" aria-label="Silicone Roof on a Sunroom: Seam Sealer, Reinforcement & Coating Steps">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/ccazmyWcQzM?si=OLpy1rjRUnOeK2bZ"
+              title="Silicone Roof on a Sunroom: Seam Sealer, Reinforcement & Coating Steps"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
           <div class="yt-body">
-            <h3><!-- e.g., “Ponding Water: Drains, Crickets & Tapered Systems” -->Edit this title for SEO</h3>
-            <p><!-- e.g., “When it’s a problem, when it’s a nuisance, and what fixes are realistic on reroofs.” -->Short summary of what viewers learn.</p>
+            <h3>Silicone Roof on a Sunroom: Seam Sealer, Reinforcement &amp; Coating Steps</h3>
+            <p>Why sunrooms leak and how to fix them: deck prep, seam sealer with fiberglass/poly reinforcement, high-solids silicone application, and maintenance tips.</p>
             <div class="yt-actions">
-              <a class="btn" href="/services/flat-roof-tpo-torch/">Flat Roof Services</a>
-              <a class="btn secondary" href="/contact/">Contact Us</a>
+              <a class="btn" href="/services/residential/silicone/">Silicone Coating Services</a>
+              <a class="btn secondary" href="/contact/">Ask a Question</a>
             </div>
           </div>
         </article>
 
-        <!-- ===== ADD MORE VIDEOS =====
-             1) Duplicate a .yt-card
-             2) Replace the iframe src with your new embed URL
-             3) Edit the <h3> and <p> for keyword-rich title/summary
-             4) Link to a relevant service or blog page in the buttons
-        -->
+        <!-- VIDEO 4 -->
+        <article class="yt-card">
+          <div class="yt-embed" aria-label="Worst Way to Mount Solar Panels — Proper Flashing to Prevent Leaks">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/JqEurqVz3w0?si=Jp2QwftMZuPPMnnC"
+              title="Worst Way to Mount Solar Panels — Proper Flashing to Prevent Leaks"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="yt-body">
+            <h3>Worst Way to Mount Solar Panels — Proper Flashing to Prevent Leaks</h3>
+            <p>Don’t rely on sealant alone. See correct water-shedding flashings for shingle &amp; tile, how to fix missed rafters, and why roof + solar should be coordinated together.</p>
+            <div class="yt-actions">
+              <a class="btn" href="/services/roof-repairs/roof-leak-repair/">Leak Repair</a>
+              <a class="btn secondary" href="/#estimate">Get Help</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIDEO 5 -->
+        <article class="yt-card">
+          <div class="yt-embed" aria-label="Roof Planks vs OSB/Plywood — Why Overlays Prevent Nail Misses & Leaks">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/1I3UqteSTJY?si=FgPTy8YRhnDpuS5w"
+              title="Roof Planks vs OSB/Plywood — Why Overlays Prevent Nail Misses & Leaks"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="yt-body">
+            <h3>Roof Planks vs OSB/Plywood — Why Overlays Prevent Nail Misses &amp; Leaks</h3>
+            <p>Plank decks gap over time. We explain why OSB/plywood overlays improve nailing and water-shedding, reduce warping, and are ideal for reroofs on older homes.</p>
+            <div class="yt-actions">
+              <a class="btn" href="/services/roof-replacement/pitched-roof/">Pitched Roof Replacement</a>
+              <a class="btn secondary" href="/#estimate">Free Guidance</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIDEO 6 -->
+        <article class="yt-card">
+          <div class="yt-embed" aria-label="Common Tile Roof Problems — Underlayment Failure, Valleys & Broken Tiles">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/WN1LgCiWOR8?si=3ccL5_yBcPnl-els"
+              title="Common Tile Roof Problems — Underlayment Failure, Valleys & Broken Tiles"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="yt-body">
+            <h3>Common Tile Roof Problems — Underlayment Failure, Valleys &amp; Broken Tiles</h3>
+            <p>From aged underlayment and smashed pan lips to closed valleys and mortar at pipes—see why tile roofs leak and how we fix them the right way.</p>
+            <div class="yt-actions">
+              <a class="btn" href="/services/roof-repairs/tile-roof-repair/">Tile Roof Repair</a>
+              <a class="btn secondary" href="/contact/">Contact Us</a>
+            </div>
+          </div>
+        </article>
       </div>
 
-      <!-- ===== Gentle CTA (lead-gen) ===== -->
+      <!-- CTA rail -->
       <div class="cta-rail">
         <div>
           <div class="kicker">Have a roof question?</div>
           <h3 style="margin:.2rem 0 0;">Send photos, get quick guidance.</h3>
-          <p style="opacity:.9; margin:.25rem 0 .75rem;">Homeowners in San Diego & Temecula: we’ll point you in the right direction—repair vs. replace, TPO vs torch, tile underlayment, gutters, skylights, and more.</p>
+          <p style="opacity:.9; margin:.25rem 0 .75rem;">Homeowners in San Diego &amp; Temecula: we’ll point you in the right direction—repair vs. replace, TPO vs torch, tile underlayment, gutters, skylights, and more.</p>
         </div>
         <div>
           <a class="btn" href="/#estimate">Get Free Guidance</a>
@@ -280,47 +286,32 @@
       </div>
     </section>
 
-    <!-- ===== FAQ (supports SEO + user intent) ===== -->
+    <!-- FAQ -->
     <section class="yt-wrap" aria-labelledby="faq">
       <div class="kicker">FAQ</div>
       <h2 id="faq">Common Questions</h2>
 
       <details class="faq">
         <summary>Can I follow a video and do the repair myself?</summary>
-        <div>
-          Our videos are great for understanding what’s involved. For safety, code, and warranty reasons, we recommend a professional inspection before any invasive work.
-        </div>
+        <div>Our videos are great for understanding what’s involved. For safety, code, and warranty reasons, we recommend a professional inspection before any invasive work.</div>
       </details>
 
       <details class="faq">
         <summary>Do you cover both pitched and flat roofing?</summary>
-        <div>
-          Yes—shingle and tile (pitched) plus flat systems like TPO and torch-down, including drains, diverters, and crickets.
-        </div>
+        <div>Yes—shingle and tile (pitched) plus flat systems like TPO and torch-down, including drains, diverters, and crickets.</div>
       </details>
 
       <details class="faq">
         <summary>Can you help with insurance (wind damage) photos?</summary>
-        <div>
-          Yes. We document conditions with clear photos and descriptions that help you talk to your carrier.
-        </div>
+        <div>Yes. We document conditions with clear photos and descriptions that help you talk to your carrier.</div>
       </details>
     </section>
   </main>
 
-  <!-- ===== FOOTER INCLUDE ===== -->
+  <!-- Footer -->
   <div data-include="/components/footer-section.html"></div>
 
-  <!-- ===== PARTIAL LOADER ===== -->
+  <!-- Partials loader -->
   <script src="/js/loader.js" defer></script>
-
-  <!-- ===== AUTHORING NOTES (not displayed) =====
-       • Edit each video card <h3> and <p> to match the clip’s topic.
-       • Use service links that fit the topic (e.g., /services/gutters/, /services/roof-tune-up/).
-       • Keep titles ≤ 70 chars and summaries ≤ 160 chars for SEO.
-       • To add shorts, you can still use the standard embed with ?si= param.
-       • Thumbnails are auto-handled by YouTube; if you want a “lite” loader later,
-         we can swap to a lightweight embed to reduce JS.
-  -->
 </body>
 </html>
