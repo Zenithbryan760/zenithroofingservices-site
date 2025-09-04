@@ -43,6 +43,7 @@ a, button, .hover-effect { transition: all .3s ease; }
 }
 
 .button,
+ (max-width: 1023px){
 .call-button {
   display: inline-block;
   background: var(--zenith-orange);
@@ -53,7 +54,8 @@ a, button, .hover-effect { transition: all .3s ease; }
   text-align: center;
   transition: background 0.3s ease;
 }
-.button:hover,
+
+}.button:hover,
 .call-button:hover { background: #e6871c; }
 
 /* 4) Global Image & Link Styles */
