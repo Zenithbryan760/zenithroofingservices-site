@@ -4,19 +4,19 @@
   <!-- ===== META ===== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Preventive Roof Maintenance & Annual Tune-Ups | Escondido, North County San Diego & Temecula</title>
-  <meta name="description" content="Stay ahead of leaks with preventive roof maintenance: seasonal tune-ups, flashing reseal, debris/valley cleanout, and photo documentation. Serving Escondido, North County San Diego & Temecula. Free estimates." />
-  <link rel="canonical" href="https://zenithroofingservices.com/services/residential/preventive-maintenance/"/>
+  <title>Roof Washing & Moss Removal | Escondido, North County San Diego & Temecula</title>
+  <meta name="description" content="Safe roof washing & moss removal (soft-wash, low-pressure) for tile and shingle roofs. Remove algae, lichen, and debris without damage. Serving Escondido, North County San Diego & Temecula. Free estimates." />
+  <link rel="canonical" href="https://zenithroofingservices.com/services/residential/roof-washing-moss-removal/"/>
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Preventive Roof Maintenance & Annual Tune-Ups"/>
-  <meta property="og:description" content="Seasonal tune-ups that stop small issues before they become leaks—reseal, cleanout, photos. Escondido • North County San Diego • Temecula."/>
+  <meta property="og:title" content="Roof Washing & Moss Removal — Tile & Shingle"/>
+  <meta property="og:description" content="Soft-wash cleaning that removes moss, algae & lichen without damaging your roof. Escondido • North County San Diego • Temecula."/>
   <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://zenithroofingservices.com/services/residential/preventive-maintenance/"/>
+  <meta property="og:url" content="https://zenithroofingservices.com/services/residential/roof-washing-moss-removal/"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Shared CSS (keep footer.css here so footer spans full width) -->
+  <!-- Shared CSS (footer first so it spans full width) -->
   <link rel="preload" href="/css/base.css" as="style"/>
   <link rel="preload" href="/css/header.css" as="style"/>
   <link rel="preload" href="/css/ui.css" as="style"/>
@@ -27,11 +27,10 @@
   <!-- Form CSS -->
   <link rel="stylesheet" href="/css/estimate-form.css"/>
 
-  <!-- Page-scope polish -->
+  <!-- Page-scope polish (same design language as other pages) -->
   <style>
     :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
     html { scroll-behavior: smooth; }
-
     .page .hero{
       background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
       border: 1px solid var(--ui-line);
@@ -50,23 +49,11 @@
       content:""; display:block; aspect-ratio:16/10;
       background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
     }
-
     .page h2{ margin-bottom:.4rem; }
     .page .section .lede-narrow{ max-width:68ch; color:#475569; }
     .page .card.hoverable{ will-change: transform, box-shadow; }
     .page .card.hoverable:hover{ transform: translateY(-3px); }
     .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
-
-    /* Plan cards */
-    .plan-grid{ display:grid; gap:12px; grid-template-columns:1fr; }
-    @media (min-width:820px){ .plan-grid{ grid-template-columns:repeat(3,1fr); } }
-    .plan .price{ font-weight:800; font-size:1.15rem; color:#072e59; }
-    .plan .note{ color:#64748b; font-size:.95rem; }
-
-    /* Comparison table */
-    .comparison-table{ margin:.6rem 0 1rem; }
-
-    /* CTA band */
     .page .cta-strip{
       background:#072e59; color:#fff; border-radius:16px;
       padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
@@ -74,8 +61,6 @@
     }
     .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
     .page .cta-strip .btn:hover{ transform:translateY(-2px); }
-
-    /* Placeholder image slots */
     .page .media.placeholder{
       background:linear-gradient(135deg,#f8fafc,#eef6ff);
       border:1px dashed var(--ui-line);
@@ -83,6 +68,10 @@
       display:flex; align-items:center; justify-content:center;
       color:#64748b; font-weight:700;
     }
+    /* Method grid */
+    .method-grid{ display:grid; gap:12px; grid-template-columns:1fr; }
+    @media (min-width:860px){ .method-grid{ grid-template-columns:repeat(3,1fr); } }
+    .badge{ display:inline-flex; align-items:center; gap:.4rem; font-weight:800; color:#072e59; }
   </style>
 
   <!-- JSON-LD: Breadcrumbs -->
@@ -93,7 +82,7 @@
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Services","item":"https://zenithroofingservices.com/services/"},
       {"@type":"ListItem","position":2,"name":"Residential","item":"https://zenithroofingservices.com/services/residential/"},
-      {"@type":"ListItem","position":3,"name":"Preventive Maintenance","item":"https://zenithroofingservices.com/services/residential/preventive-maintenance/"}
+      {"@type":"ListItem","position":3,"name":"Roof Washing & Moss Removal","item":"https://zenithroofingservices.com/services/residential/roof-washing-moss-removal/"}
     ]
   }
   </script>
@@ -103,11 +92,11 @@
   {
     "@context":"https://schema.org",
     "@type":"Service",
-    "name":"Preventive Roof Maintenance (Annual/Seasonal Tune-Ups)",
-    "serviceType":"Residential preventive roofing maintenance and tune-ups",
+    "name":"Roof Washing & Moss Removal (Tile & Shingle)",
+    "serviceType":"Soft-wash roof cleaning and moss/algae/lichen removal",
     "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
     "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}],
-    "description":"Seasonal and annual roof tune-ups to extend roof life: reseal flashings, clean valleys and roof-to-gutter transitions, reset minor tiles/shingles, and photo documentation."
+    "description":"Safe, low-pressure roof washing for clay/concrete tile and asphalt shingles. Removes moss, algae, lichen and staining without surface damage. Landscape protected; photo documentation included."
   }
   </script>
   <script type="application/ld+json">
@@ -115,9 +104,9 @@
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
-      {"@type":"Question","name":"How is preventive maintenance different from a repair?","acceptedAnswer":{"@type":"Answer","text":"Repairs fix a specific leak. Preventive maintenance is scheduled care—resealing, cleaning, and tightening details to avoid leaks in the first place."}},
-      {"@type":"Question","name":"How often should I schedule it?","acceptedAnswer":{"@type":"Answer","text":"Annually for most homes in Southern California; twice per year if under trees, near the coast, or with complex rooflines. We also offer storm-prep visits."}},
-      {"@type":"Question","name":"Do you service tile, shingle, and flat roofs?","acceptedAnswer":{"@type":"Answer","text":"Yes—clay/concrete tile, asphalt shingles, and many flat roofs (TPO, mod-bit, coatings). We use roof-safe methods and provide photos."}}
+      {"@type":"Question","name":"Is pressure washing safe for my roof?","acceptedAnswer":{"@type":"Answer","text":"High-pressure washing can damage shingles and dislodge tiles. We use soft-wash and low-pressure techniques appropriate to your roof type."}},
+      {"@type":"Question","name":"Will cleaning shorten the life of my roof?","acceptedAnswer":{"@type":"Answer","text":"The opposite—proper cleaning removes moisture-holding moss and algae that accelerate wear. Our methods are manufacturer-aligned for tile and asphalt shingles."}},
+      {"@type":"Question","name":"Do you protect landscaping and capture runoff?","acceptedAnswer":{"@type":"Answer","text":"Yes. We pre-wet and cover sensitive plants, control and dilute cleaner, and direct runoff per best practices."}}
     ]
   }
   </script>
@@ -128,19 +117,19 @@
 
   <main id="top" class="page">
     <!-- ===== HERO ===== -->
-    <section class="hero" aria-label="Preventive roof maintenance">
+    <section class="hero" aria-label="Roof washing & moss removal">
       <div class="eyebrow">
-        <span class="chip">Preventive</span>
-        <span class="chip">Tune-Up</span>
-        <span class="chip">Photo Summary</span>
+        <span class="chip">Soft-Wash</span>
+        <span class="chip">Low-Pressure</span>
+        <span class="chip">Tile & Shingle</span>
       </div>
       <div class="split">
         <div>
-          <h1 style="margin:0 0 .5rem">Preventive Roof Maintenance & Seasonal Tune-Ups</h1>
-          <p class="lede">Stop small issues before they become leaks. Our **preventive maintenance** (aka **preventative maintenance**) includes targeted resealing, debris/valley cleanout, and minor resets—ideal for <strong>Escondido</strong>, <strong>North County San Diego</strong>, and <strong>Temecula</strong>.</p>
+          <h1 style="margin:0 0 .5rem">Roof Washing & Moss Removal</h1>
+          <p class="lede">Clean, safe, and roof-appropriate methods that remove **moss, algae/black streaks, and lichen** without damage. Ideal for **clay/concrete tile** and **asphalt shingles** across <strong>Escondido</strong>, <strong>North County San Diego</strong>, and <strong>Temecula</strong>.</p>
           <div class="cta">
-            <a class="btn btn-primary" href="#estimate" aria-label="Request a preventive maintenance estimate">Request Free Estimate</a>
-            <a class="btn btn-outline" href="#plans">Plans & Pricing</a>
+            <a class="btn btn-primary" href="#estimate" aria-label="Request a roof cleaning estimate">Request Free Estimate</a>
+            <a class="btn btn-outline" href="#methods">Methods</a>
           </div>
         </div>
         <div class="media" aria-hidden="true"></div>
@@ -148,106 +137,86 @@
     </section>
 
     <!-- Sticky pills -->
-    <nav class="pillnav sticky-pills" aria-label="Preventive maintenance sections">
-      <a href="#why">Why Maintenance</a>
-      <a href="#includes">What’s Included</a>
-      <a href="#plans">Plans & Pricing</a>
-      <a href="#diy">Homeowner DIY</a>
+    <nav class="pillnav sticky-pills" aria-label="Roof washing sections">
+      <a href="#why">Why Clean</a>
+      <a href="#methods">Methods</a>
+      <a href="#safety">Is It Safe?</a>
+      <a href="#diy">DIY Tips</a>
       <a href="#faq">FAQ</a>
       <a href="#areas">Service Areas</a>
       <a href="#estimate">Estimate</a>
     </nav>
 
-    <!-- ===== WHY ===== -->
+    <!-- ===== WHY CLEAN ===== -->
     <section id="why" class="section card airy hoverable">
-      <h2>Why Preventive Maintenance</h2>
+      <h2>Why Roof Washing Matters</h2>
       <div class="grid cols-2">
         <ul class="checklist relaxed">
-          <li><span class="tick">✓</span> Catches small sealant failures before leaks start</li>
-          <li><span class="tick">✓</span> Keeps valleys & transitions draining correctly</li>
-          <li><span class="tick">✓</span> Extends roof life and protects interiors</li>
+          <li><span class="tick">✓</span> Removes moisture-holding moss that can lift tiles/shingles</li>
+          <li><span class="tick">✓</span> Clears lichen and algae (black streaks)</li>
+          <li><span class="tick">✓</span> Restores curb appeal & helps drainage</li>
         </ul>
         <ul class="checklist relaxed">
-          <li><span class="tick">✓</span> Ideal for tile, shingle, and flat roofs</li>
-          <li><span class="tick">✓</span> Photo documentation after each visit</li>
-          <li><span class="tick">✓</span> Flexible visits: annual, biannual, or storm-prep</li>
+          <li><span class="tick">✓</span> Reduces premature wear and leak risk</li>
+          <li><span class="tick">✓</span> Photo documentation after cleaning</li>
+          <li><span class="tick">✓</span> Options for preventative treatment</li>
         </ul>
       </div>
       <div class="center-actions"><a class="btn btn-primary" href="#estimate">Check My Roof & Request Free Estimate</a></div>
     </section>
 
-    <!-- ===== WHAT’S INCLUDED ===== -->
-    <section id="includes" class="section card airy hoverable">
-      <h2>What’s Included in a Tune-Up</h2>
+    <!-- ===== METHODS ===== -->
+    <section id="methods" class="section">
+      <h2>Our Cleaning Methods</h2>
+      <p class="section lede-narrow">We match method to roof material and moss severity—always gentle, always roof-safe.</p>
+      <div class="method-grid">
+        <div class="card airy hoverable">
+          <h3 class="badge">Soft-Wash • Low-Pressure</h3>
+          <p class="muted">Biodegradable cleaner applied at low pressure, then gently rinsed. Ideal for most asphalt shingles and many tile roofs with algae/black streaks.</p>
+        </div>
+        <div class="card airy hoverable">
+          <h3 class="badge">Manual Moss Removal</h3>
+          <p class="muted">Careful hand removal of moss/lichen where needed, using roof-appropriate tools that don’t gouge or abrade the surface.</p>
+        </div>
+        <div class="card airy hoverable">
+          <h3 class="badge">Preventative Treatment</h3>
+          <p class="muted">Optional post-clean treatment and recommendations (including zinc/copper strategies) to slow future growth in shaded or coastal zones.</p>
+        </div>
+      </div>
+      <div class="media placeholder" style="margin-top:12px;">Add a before/after cleaning photo here (1200×700)</div>
+    </section>
+
+    <!-- ===== SAFETY ===== -->
+    <section id="safety" class="section card airy hoverable">
+      <h2>Is It Safe for My Roof & Landscaping?</h2>
       <div class="grid cols-2">
         <div>
           <ul class="checklist">
-            <li><span class="tick">✓</span> Reseal critical flashings (vents, pipes, skylights)</li>
-            <li><span class="tick">✓</span> Minor resets of accessible tiles/shingles</li>
-            <li><span class="tick">✓</span> Valley & roof-to-gutter cleanout</li>
+            <li><span class="tick">✓</span> No high-pressure blasting on shingles or fragile tiles</li>
+            <li><span class="tick">✓</span> Proper dilution, dwell times, and gentle rinse</li>
+            <li><span class="tick">✓</span> Plant protection: pre-wet, cover, and final rinse</li>
           </ul>
         </div>
         <div>
           <ul class="checklist">
-            <li><span class="tick">✓</span> Gutter/downspout condition check</li>
-            <li><span class="tick">✓</span> Photo summary + prioritized recommendations</li>
-            <li><span class="tick">✓</span> Safety-first, roof-appropriate methods</li>
+            <li><span class="tick">✓</span> Runoff managed per best practices</li>
+            <li><span class="tick">✓</span> Photos of results and any issues found</li>
+            <li><span class="tick">✓</span> Recommendations if repairs are needed</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- ===== PLANS & PRICING ===== -->
-    <section id="plans" class="section">
-      <h2>Plans & Pricing</h2>
-      <p class="muted">Choose a cadence that fits your home and trees. Pricing shown is typical for residential roofs; we’ll confirm after a quick look.</p>
-      <div class="plan-grid">
-        <div class="card airy hoverable plan">
-          <h3>Annual Plan</h3>
-          <p class="price">From $— / visit</p>
-          <p class="note">Best for most homes</p>
-          <ul class="checklist">
-            <li><span class="tick">✓</span> 1 visit per year</li>
-            <li><span class="tick">✓</span> Standard tune-up & photo summary</li>
-            <li><span class="tick">✓</span> Priority scheduling</li>
-          </ul>
-        </div>
-        <div class="card airy hoverable plan">
-          <h3>Biannual Plan</h3>
-          <p class="price">From $— / visit</p>
-          <p class="note">Homes under trees or coastal</p>
-          <ul class="checklist">
-            <li><span class="tick">✓</span> 2 visits per year</li>
-            <li><span class="tick">✓</span> Seasonal debris & sealant care</li>
-            <li><span class="tick">✓</span> Priority scheduling</li>
-          </ul>
-        </div>
-        <div class="card airy hoverable plan">
-          <h3>Storm-Prep Add-On</h3>
-          <p class="price">From $— / visit</p>
-          <p class="note">Before heavy rain/wind</p>
-          <ul class="checklist">
-            <li><span class="tick">✓</span> Rapid pre-storm check & cleanout</li>
-            <li><span class="tick">✓</span> Target known trouble spots</li>
-            <li><span class="tick">✓</span> Post-storm visual check (optional)</li>
-          </ul>
-        </div>
-      </div>
-      <div class="center-actions">
-        <a class="btn btn-primary" href="#estimate">Get My Plan & Free Estimate</a>
-      </div>
-    </section>
-
-    <!-- ===== DIY TIPS (trust builder) ===== -->
+    <!-- ===== DIY TIPS ===== -->
     <section id="diy" class="section card airy hoverable">
-      <h2>Smart DIY Between Visits</h2>
+      <h2>Smart DIY Between Professional Cleanings</h2>
       <div class="grid cols-2">
         <ul class="checklist relaxed">
-          <li><span class="tick">✓</span> Keep trees trimmed back from the roof</li>
+          <li><span class="tick">✓</span> Keep trees trimmed back to reduce shade & debris</li>
           <li><span class="tick">✓</span> Clear ground-level downspout exits</li>
-          <li><span class="tick">✓</span> After big winds, walk the perimeter and look for slipped tiles or shingle tabs</li>
+          <li><span class="tick">✓</span> Avoid walking on tile/shingle roofs—send us photos from the ground</li>
         </ul>
-        <p class="muted">Skip roof walking if you’re not comfortable—surface damage is common. Send us photos from the ground and we’ll advise.</p>
+        <p class="muted">Skip pressure washers and harsh scrubbing—both can void warranties and damage the surface. When in doubt, ask us for a quick look.</p>
       </div>
     </section>
 
@@ -255,9 +224,9 @@
     <section id="faq" class="section card airy hoverable">
       <h2>FAQ</h2>
       <div class="faq">
-        <details><summary>Can preventive maintenance stop leaks?</summary><p class="muted">It reduces risk by addressing common failure points. If we find active leaks or larger issues, we’ll quote targeted repairs.</p></details>
-        <details><summary>Do you document what you did?</summary><p class="muted">Yes—brief photo summary with notes and clear next steps if needed.</p></details>
-        <details><summary>Will you replace broken tiles?</summary><p class="muted">We reset minor items during tune-ups; larger breakage is quoted as a repair so you can approve costs first.</p></details>
+        <details><summary>How long do results last?</summary><p class="muted">Sun/shade, trees, and marine air all matter. Most roofs look great for 1–3 years; shaded/coastal areas may benefit from periodic touch-ups or preventative treatment.</p></details>
+        <details><summary>Do you clean clay and concrete tile?</summary><p class="muted">Yes. We tune the process for tile so there’s no glaze damage or water intrusion.</p></details>
+        <details><summary>Will you find problems during cleaning?</summary><p class="muted">If we see slipped tiles, missing caps, or sealant failures, we’ll document and recommend repair options.</p></details>
       </div>
     </section>
 
@@ -337,7 +306,7 @@
     <!-- CTA band -->
     <section class="section">
       <div class="cta-strip">
-        <div class="text"><strong>Ready to stay ahead of leaks?</strong> Seasonal tune-ups keep water moving and seal the usual suspects.</div>
+        <div class="text"><strong>Ready for a cleaner, safer roof?</strong> We’ll remove moss/algae and protect your home while we work.</div>
         <a class="btn" href="#estimate">Request Free Estimate</a>
       </div>
     </section>
@@ -345,9 +314,9 @@
     <!-- Cross-links to keep users exploring -->
     <section class="section">
       <div class="grid cols-3">
-        <a class="card hoverable" href="/services/roof-repairs/roof-cleaning-maintenance/"><strong>Roof Cleaning & Maintenance</strong><br><span class="muted">Debris & detail care</span></a>
+        <a class="card hoverable" href="/services/roof-repairs/roof-cleaning-maintenance/"><strong>Roof Cleaning & Maintenance</strong><br><span class="muted">Ongoing debris & detail care</span></a>
+        <a class="card hoverable" href="/services/residential/preventive-maintenance/"><strong>Preventive Maintenance</strong><br><span class="muted">Tune-ups to avoid leaks</span></a>
         <a class="card hoverable" href="/services/roof-repairs/roof-leak-repair/"><strong>Leak Repair</strong><br><span class="muted">Active leaks fixed fast</span></a>
-        <a class="card hoverable" href="/services/residential/tile-roof/"><strong>Tile Roof Care</strong><br><span class="muted">Clay & concrete expertise</span></a>
       </div>
     </section>
   </main>
@@ -363,9 +332,9 @@
     window.ESTIMATE_FORM_CONFIG = {
       submitText: "Request Free Estimate",
       referralPreselect: "Website",
-      descriptionPlaceholder: "Tell us your roof type (tile/shingle/flat), age, trees/debris, known trouble spots, and timing. Add photo links if you can.",
+      descriptionPlaceholder: "Tell us roof type (tile/shingle), moss/black streaks seen, shaded areas/trees, and photos or links if you have them.",
       // Intentionally no lockService so dropdown stays on “Other”
-      hiddenFields: { campaign: "services/residential/preventive-maintenance", page_tag: "preventive-maintenance" }
+      hiddenFields: { campaign: "services/residential/roof-washing-moss-removal", page_tag: "roof-washing-moss-removal" }
     };
   </script>
   <script src="/js/estimate-form.js" defer></script>
