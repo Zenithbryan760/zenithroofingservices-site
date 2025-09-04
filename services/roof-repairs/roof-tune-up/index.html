@@ -236,15 +236,17 @@
   <script src="/js/header.js" defer></script>
 
   <!-- Estimate form config: per-page button text & campaign tag (keeps Service Type at "Other") -->
-  <script>
-    window.ESTIMATE_FORM_CONFIG = {
-      submitText: "Request Free Estimate",
-      referralPreselect: "Website",
-      descriptionPlaceholder: "Tell us the areas to focus on (flashings, valleys, debris, staining). Links to photos help.",
-      hiddenFields: { campaign: "services/roof-repairs/roof-tune-up", page_tag: "roof-tune-up" }
-      // No lockService here so the dropdown remains on "Other" as you prefer
-    };
-  </script>
+<script>
+  window.ESTIMATE_FORM_CONFIG = {
+    submitText: "Request Free Estimate",
+    referralPreselect: "Website",
+    descriptionPlaceholder:
+      "Tell us the areas to focus on (flashings, valleys, debris, staining). Links to photos help.",
+    lockService: "Other",  // 👈 preselect “Other” for Service Type on this page
+    hiddenFields: { campaign: "services/roof-repairs/roof-tune-up", page_tag: "roof-tune-up" }
+  };
+</script>
+<script src="/js/estimate-form.js" defer></script>
 
   <script src="/js/estimate-form.js" defer></script>
   <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
