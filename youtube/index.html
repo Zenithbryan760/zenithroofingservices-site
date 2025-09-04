@@ -1,127 +1,326 @@
-mkdir -p youtube
-
-cat > youtube/index.html <<'HTML'
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>YouTube Videos | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/footer.css">
+  <!-- ===== META ===== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Roofing Videos & Field Tips (YouTube) | Zenith Roofing Services</title>
+  <meta name="description" content="Practical roofing videos from a licensed C-39 contractor. See real repairs, flat-roof details, tile underlayment, gutters, skylights, and insurance tips for San Diego & Temecula homeowners." />
+  <link rel="canonical" href="https://zenithroofingservices.com/youtube/" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Roofing Videos & Field Tips (YouTube) | Zenith Roofing Services" />
+  <meta property="og:description" content="Watch no-nonsense roofing how-tos, repairs, and real jobsite walkthroughs. Learn when to repair vs. replace, TPO vs. torch-down, tile lift & lay, gutters, skylights, and more." />
+  <meta property="og:url" content="https://zenithroofingservices.com/youtube/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- ===== SITE CSS (already in your project) ===== -->
+  <link rel="stylesheet" href="/css/header.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
+  <link rel="stylesheet" href="/css/ui.css" />
+
+  <!-- ===== Page-scoped helpers (SAFE & lightweight) ===== -->
   <style>
-    .page{max-width:1200px;margin:24px auto;padding:0 16px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
-    iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;box-shadow:0 10px 30px rgba(2,14,32,.08)}
+    .yt-hero{ padding:var(--space-xl,3rem) var(--space-m,1.25rem); background:var(--surface-2,#0f172a); color:#fff; text-align:center; }
+    .yt-hero h1{ margin:0 0 .5rem; font-size:clamp(1.8rem,3.5vw,2.6rem); line-height:1.1; }
+    .yt-hero p{ max-width:72ch; margin:0 auto; opacity:.9; }
+
+    .yt-wrap{ max-width: 80rem; margin: 0 auto; padding: min(6vw,2.5rem) var(--space-m,1.25rem); }
+    .yt-grid{ display:grid; gap:1.25rem; grid-template-columns:1fr; }
+    @media (min-width: 800px){ .yt-grid{ grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1200px){ .yt-grid{ grid-template-columns: 1fr 1fr 1fr; } }
+
+    .yt-card{ background:var(--ui-bg,#fff); border:1px solid var(--ui-line,#e5e7eb); border-radius:var(--ui-radius,14px); box-shadow:var(--ui-shadow,0 12px 28px rgba(2,12,32,.08)); overflow:hidden; display:flex; flex-direction:column; }
+    .yt-embed{ position:relative; width:100%; aspect-ratio:16/9; background:#000; }
+    .yt-embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+    .yt-body{ padding:1rem; display:flex; flex-direction:column; gap:.5rem; }
+    .yt-body h3{ font-size:1.02rem; margin:.1rem 0; }
+    .yt-body p{ color:var(--muted,#6b7280); margin:0; }
+    .yt-actions{ margin-top:.5rem; display:flex; gap:.5rem; flex-wrap:wrap; }
+    .btn{ display:inline-block; padding:.6rem .9rem; border-radius:999px; border:1px solid var(--line,#e5e7eb); background:#111827; color:#fff; font-weight:700; text-decoration:none; }
+    .btn.secondary{ background:#fff; color:#111827; }
+
+    .cta-rail{
+      display:grid; gap:1rem; grid-template-columns:1fr; align-items:center;
+      background:var(--surface-1,#0b1220); color:#fff; border-radius:var(--ui-radius,14px); padding:1.25rem; margin-top:1.5rem;
+    }
+    @media (min-width: 900px){ .cta-rail{ grid-template-columns: 1.5fr .9fr; } }
+    .cta-rail .btn{ border-color:#fff; }
+
+    details.faq{ background:#fff; border:1px solid var(--ui-line,#e5e7eb); border-radius:12px; padding:.75rem 1rem; }
+    details.faq + details.faq{ margin-top:.75rem; }
+    details.faq summary{ cursor:pointer; font-weight:700; }
+    .kicker{ font:600 .78rem/1 var(--font, ui-sans-serif); letter-spacing:.08em; text-transform:uppercase; color:var(--muted,#6b7280); margin:.5rem 0; }
   </style>
+
+  <!-- ===== JSON-LD (ItemList of videos + FAQ) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Zenith Roofing — YouTube Videos",
+    "url": "https://zenithroofingservices.com/youtube/",
+    "isPartOf": { "@type": "WebSite", "name": "Zenith Roofing Services", "url": "https://zenithroofingservices.com" },
+    "about": "Roofing videos with DIY guidance, repair walkthroughs, and flat-roof best practices for San Diego & Temecula.",
+    "hasPart": {
+      "@type": "ItemList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "url": "https://www.youtube.com/watch?v=Q-N-opdUC6w" },
+        { "@type": "ListItem", "position": 2, "url": "https://www.youtube.com/watch?v=fr6gsxPkwgY" },
+        { "@type": "ListItem", "position": 3, "url": "https://www.youtube.com/watch?v=ccazmyWcQzM" },
+        { "@type": "ListItem", "position": 4, "url": "https://www.youtube.com/watch?v=JqEurqVz3w0" },
+        { "@type": "ListItem", "position": 5, "url": "https://www.youtube.com/watch?v=1I3UqteSTJY" },
+        { "@type": "ListItem", "position": 6, "url": "https://www.youtube.com/watch?v=WN1LgCiWOR8" }
+      ]
+    },
+    "sameAs": ["https://youtube.com/@roofingfanatics4775"]
+  }
+  </script>
+
+  <!-- (Optional) JSON-LD for FAQ below; keep content consistent with on-page text -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Can I use your videos to troubleshoot a leak before calling?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes—our videos share general checks (flashings, valleys, penetrations). For safety and warranty reasons, we still recommend a professional inspection before any invasive work."}
+      },
+      {
+        "@type":"Question",
+        "name":"Do you service both pitched and flat roofs?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. We handle shingle and tile pitched roofs as well as flat roofs like TPO and torch-down, including drains, crickets, and diverters."}
+      },
+      {
+        "@type":"Question",
+        "name":"Do you provide real estate roof reports in San Diego & Temecula?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. We create photo-rich, plain-English roof reports that help buyers and agents understand condition, lifespan, and repair priorities."}
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-  <!-- absolute include paths so it works from /youtube/ -->
+  <!-- ===== HEADER INCLUDE ===== -->
   <div data-include="/components/header-section.html"></div>
 
-  <main class="page">
-    <h1>Latest Videos</h1>
-    <div class="grid">
-      <!-- Replace VIDEO_ID_* with real IDs from your channel -->
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen title="Zenith Roofing video 1"></iframe>
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen title="Zenith Roofing video 2"></iframe>
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen title="Zenith Roofing video 3"></iframe>
-    </div>
-    <p><a href="https://www.youtube.com/@ZenithRoofingServices" target="_blank" rel="noopener">See the full channel →</a></p>
+  <main class="page" id="top">
+    <!-- ===== HERO ===== -->
+    <section class="yt-hero">
+      <h1>Roofing Videos & Field Tips</h1>
+      <p>Short, practical videos from a licensed C-39 contractor. Learn how we diagnose leaks, choose materials, and detail flat roofs the right way in San Diego & Temecula.</p>
+      <p style="margin-top:.75rem;">
+        <a class="btn" href="https://youtube.com/@roofingfanatics4775" target="_blank" rel="noopener">Visit our YouTube Channel</a>
+      </p>
+      <!-- OPTIONAL HERO IMAGE:
+           Save a banner to /images/youtube/hero.webp and apply via base.css if you want a background image. -->
+    </section>
+
+    <!-- ===== VIDEO GRID ===== -->
+    <section class="yt-wrap" aria-labelledby="videos">
+      <div class="kicker">Latest uploads</div>
+      <h2 id="videos">Watch & Learn</h2>
+
+      <div class="yt-grid">
+        <!-- ======================================================
+             VIDEO CARD 1
+             👉 EDIT the <h3> to match the video’s topic for SEO
+             👉 Add 1–2 sentence summary under <p>
+             ====================================================== -->
+        <article class="yt-card">
+          <div class="yt-embed" aria-label="YouTube video: Roofing Fanatics #1">
+            <iframe
+              loading="lazy"
+              src="https://www.youtube.com/embed/Q-N-opdUC6w?si=5A0rh4ujCrYE4OnM"
+              title="Roofing Fanatics — Video 1"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <div class="yt-body">
+            <!-- EDIT TITLE -->
+            <h3><!-- e.g., “Tile Lift & Lay: Replacing Underlayment the Right Way” -->Edit this title for SEO</h3>
+            <!-- EDIT SUMMARY -->
+            <p><!-- e.g., “When tile roofs hit ~30 years, underlayment ages out. We show bird-stop, weather blocking, and headwall pan details.” -->Short summary of what viewers learn.</p>
+            <div class="yt-actions">
+              <a class="btn" href="/#estimate">Get an Estimate</a>
+              <a class="btn secondary" href="/contact/">Ask a Question</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIDEO CARD 2 -->
+        <article class="yt-card">
+          <div class="yt-embed" aria-label="YouTube video: Roofing Fanatics #2">
+            <iframe
+              loading="lazy"
+              src="https://www.youtube.com/embed/fr6gsxPkwgY?si=JFIsH5Ylra9iGJOj"
+              title="Roofing Fanatics — Video 2"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <div class="yt-body">
+            <h3><!-- e.g., “TPO vs Torch-Down: When to Choose Each Flat-Roof System” -->Edit this title for SEO</h3>
+            <p><!-- e.g., “We compare welded seams, reflectivity, and repairability—and what to do about ponding near drains.” -->Short summary of what viewers learn.</p>
+            <div class="yt-actions">
+              <a class="btn" href="/services/flat-roof-tpo-torch/">Flat Roof Services</a>
+              <a class="btn secondary" href="/#estimate">Free Guidance</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIDEO CARD 3 -->
+        <article class="yt-card">
+          <div class="yt-embed" aria-label="YouTube video: Roofing Fanatics #3">
+            <iframe
+              loading="lazy"
+              src="https://www.youtube.com/embed/ccazmyWcQzM?si=OLpy1rjRUnOeK2bZ"
+              title="Roofing Fanatics — Video 3"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <div class="yt-body">
+            <h3><!-- e.g., “Kick-Out Flashing: Stopping Stucco Stains & Wall Rot” -->Edit this title for SEO</h3>
+            <p><!-- e.g., “We show how a properly sized diverter sends water into the gutter instead of behind siding.” -->Short summary of what viewers learn.</p>
+            <div class="yt-actions">
+              <a class="btn" href="/services/gutters/">Gutters & Guards</a>
+              <a class="btn secondary" href="/contact/">Ask a Question</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIDEO CARD 4 -->
+        <article class="yt-card">
+          <div class="yt-embed" aria-label="YouTube video: Roofing Fanatics #4">
+            <iframe
+              loading="lazy"
+              src="https://www.youtube.com/embed/JqEurqVz3w0?si=Jp2QwftMZuPPMnnC"
+              title="Roofing Fanatics — Video 4"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <div class="yt-body">
+            <h3><!-- e.g., “Skylights: Curb-Mounted vs Deck-Mounted” -->Edit this title for SEO</h3>
+            <p><!-- e.g., “Pros/cons of each, proper flashing kits, and how to avoid condensation issues.” -->Short summary of what viewers learn.</p>
+            <div class="yt-actions">
+              <a class="btn" href="/services/skylights/">Skylight Services</a>
+              <a class="btn secondary" href="/#estimate">Free Guidance</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIDEO CARD 5 -->
+        <article class="yt-card">
+          <div class="yt-embed" aria-label="YouTube video: Roofing Fanatics #5">
+            <iframe
+              loading="lazy"
+              src="https://www.youtube.com/embed/1I3UqteSTJY?si=FgPTy8YRhnDpuS5w"
+              title="Roofing Fanatics — Video 5"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <div class="yt-body">
+            <h3><!-- e.g., “CDX vs OSB: Choosing Roof Sheathing in Coastal SD” -->Edit this title for SEO</h3>
+            <p><!-- e.g., “Edge swell, ventilation, and fast dry-in—what actually matters for long-term performance.” -->Short summary of what viewers learn.</p>
+            <div class="yt-actions">
+              <a class="btn" href="/blog/cdx-vs-osb.html">Read the Guide</a>
+              <a class="btn secondary" href="/#estimate">Ask a Pro</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIDEO CARD 6 -->
+        <article class="yt-card">
+          <div class="yt-embed" aria-label="YouTube video: Roofing Fanatics #6">
+            <iframe
+              loading="lazy"
+              src="https://www.youtube.com/embed/WN1LgCiWOR8?si=3ccL5_yBcPnl-els"
+              title="Roofing Fanatics — Video 6"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <div class="yt-body">
+            <h3><!-- e.g., “Ponding Water: Drains, Crickets & Tapered Systems” -->Edit this title for SEO</h3>
+            <p><!-- e.g., “When it’s a problem, when it’s a nuisance, and what fixes are realistic on reroofs.” -->Short summary of what viewers learn.</p>
+            <div class="yt-actions">
+              <a class="btn" href="/services/flat-roof-tpo-torch/">Flat Roof Services</a>
+              <a class="btn secondary" href="/contact/">Contact Us</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ===== ADD MORE VIDEOS =====
+             1) Duplicate a .yt-card
+             2) Replace the iframe src with your new embed URL
+             3) Edit the <h3> and <p> for keyword-rich title/summary
+             4) Link to a relevant service or blog page in the buttons
+        -->
+      </div>
+
+      <!-- ===== Gentle CTA (lead-gen) ===== -->
+      <div class="cta-rail">
+        <div>
+          <div class="kicker">Have a roof question?</div>
+          <h3 style="margin:.2rem 0 0;">Send photos, get quick guidance.</h3>
+          <p style="opacity:.9; margin:.25rem 0 .75rem;">Homeowners in San Diego & Temecula: we’ll point you in the right direction—repair vs. replace, TPO vs torch, tile underlayment, gutters, skylights, and more.</p>
+        </div>
+        <div>
+          <a class="btn" href="/#estimate">Get Free Guidance</a>
+          <a class="btn secondary" href="/contact/">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ (supports SEO + user intent) ===== -->
+    <section class="yt-wrap" aria-labelledby="faq">
+      <div class="kicker">FAQ</div>
+      <h2 id="faq">Common Questions</h2>
+
+      <details class="faq">
+        <summary>Can I follow a video and do the repair myself?</summary>
+        <div>
+          Our videos are great for understanding what’s involved. For safety, code, and warranty reasons, we recommend a professional inspection before any invasive work.
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>Do you cover both pitched and flat roofing?</summary>
+        <div>
+          Yes—shingle and tile (pitched) plus flat systems like TPO and torch-down, including drains, diverters, and crickets.
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>Can you help with insurance (wind damage) photos?</summary>
+        <div>
+          Yes. We document conditions with clear photos and descriptions that help you talk to your carrier.
+        </div>
+      </details>
+    </section>
   </main>
 
-  <div data-include="/components/footer.html"></div>
+  <!-- ===== FOOTER INCLUDE ===== -->
+  <div data-include="/components/footer-section.html"></div>
 
-<script>
-  (function () {
-    // fetch + inject a single [data-include]
-    async function include(el) {
-      const src = el.getAttribute('data-include');
-      if (!src) return;
-      try {
-        const res = await fetch(src);             // normal caching
-        if (!res.ok) throw new Error('Failed ' + src);
-        const html = await res.text();
-        el.outerHTML = html;
-      } catch (e) {
-        console.error('❌ Include error:', src, e);
-      }
-    }
+  <!-- ===== PARTIAL LOADER ===== -->
+  <script src="/js/loader.js" defer></script>
 
-    // Header height + collapsed state WITHOUT scroll reflow
-    function setupHeaderObservers() {
-      const root = document.documentElement;
-      const getHeader = () => document.querySelector('.mobile-header') || document.querySelector('.header');
-
-      function updateHeaderH() {
-        const h = getHeader();
-        if (h) root.style.setProperty('--header-h', Math.round(h.offsetHeight) + 'px');
-      }
-
-      // update when the header actually resizes
-      if ('ResizeObserver' in window) {
-        const ro = new ResizeObserver(updateHeaderH);
-        const h = getHeader(); if (h) ro.observe(h);
-      }
-      window.addEventListener('load', updateHeaderH, { passive: true });
-      window.addEventListener('resize', () => requestAnimationFrame(updateHeaderH), { passive: true });
-
-      // toggle nav-collapsed via IntersectionObserver (no scroll work)
-      const sent = document.createElement('div');
-      sent.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;';
-      document.body.prepend(sent);
-      new IntersectionObserver(([e]) => {
-        root.classList.toggle('nav-collapsed', !e.isIntersecting);
-      }, { rootMargin: '-80px 0px 0px 0px' }).observe(sent); // adjust -80px if your header is taller
-    }
-
-    async function init() {
-      // include everything ELSE (hero has an LCP stub now)
-      const includes = Array.from(document.querySelectorAll('[data-include]'));
-      await Promise.all(includes.map(include));
-
-      // Upgrade the stub to the real hero component while REUSING the already-downloaded LCP <img>
-      const stub = document.getElementById('hero-stub');
-      if (stub) {
-        const res = await fetch('components/hero-section.html');
-        if (res.ok) {
-          const html = await res.text();
-          const tpl = document.createElement('template');
-          tpl.innerHTML = html.trim();
-          const real = tpl.content.querySelector('section.zenith-hero') || tpl.content.firstElementChild;
-          if (real) {
-            const lcp = document.getElementById('lcp-img');
-            const realPic = real.querySelector('.zenith-hero-media picture') || real.querySelector('.zenith-hero-media');
-            if (lcp && realPic) {
-              const existing = realPic.querySelector('.zenith-hero-mobile-img');
-              if (existing) existing.replaceWith(lcp); else realPic.appendChild(lcp);
-            }
-            stub.replaceWith(real);
-          }
-        }
-      }
-
-      // your existing inits (unchanged)
-      if (window.initMobileMenu) window.initMobileMenu();
-      [
-        'initEstimateForm','initAboutSection','initWhyChoose','initTrustSection',
-        'initPhotoSection','initTestimonials','initCTA','initServiceAreas',
-        'initRealEstate','initFooter','initHeader'
-      ].forEach(n => { if (typeof window[n] === 'function') window[n](); });
-
-      setupHeaderObservers();   // replaces old setLayoutFlags/scroll listeners
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
-  })();
-  </script>
-<script src="/js/loader.js" defer></script>
-<script src="/js/header.js" defer></script>
+  <!-- ===== AUTHORING NOTES (not displayed) =====
+       • Edit each video card <h3> and <p> to match the clip’s topic.
+       • Use service links that fit the topic (e.g., /services/gutters/, /services/roof-tune-up/).
+       • Keep titles ≤ 70 chars and summaries ≤ 160 chars for SEO.
+       • To add shorts, you can still use the standard embed with ?si= param.
+       • Thumbnails are auto-handled by YouTube; if you want a “lite” loader later,
+         we can swap to a lightweight embed to reduce JS.
+  -->
 </body>
 </html>
-HTML
