@@ -1,146 +1,406 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Roofing Projects | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/footer.css"><
+  <!-- ===== META ===== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Projects & Case Studies | Zenith Roofing Services (San Diego & Temecula)</title>
+  <meta name="description" content="Browse recent roofing projects: tile lift & relay, leak repairs, TPO & flat roofs, shingle installs, silicone coatings, skylights, and more. Serving Escondido, North County San Diego, greater San Diego & Temecula." />
+  <link rel="canonical" href="https://www.zenithroofingservices.com/projects/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Projects & Case Studies | Zenith Roofing Services"/>
+  <meta property="og:description" content="See before/after photos, scopes, and materials from real jobs in Escondido, San Diego & Temecula."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.zenithroofingservices.com/projects/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <!-- Shared CSS (keep order consistent) -->
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
+
+  <!-- Page-scope polish -->
   <style>
-    .page{max-width:1200px;margin:24px auto;padding:0 16px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-    .tile{background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(2,14,32,.08)}
-    .tile img{width:100%;height:180px;object-fit:cover;display:block}
-    .tile .cap{padding:12px}
-    .cta{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}
-    .btn{display:inline-block;padding:10px 16px;border-radius:999px;font-weight:700;text-decoration:none}
-    .btn-primary{background:#f7941d;color:#072e59}
-    .btn-outline{border:2px solid #f7941d;color:#f7941d}
+    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    html { scroll-behavior:smooth; }
+
+    .page .hero{
+      background:linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border:1px solid var(--ui-line);
+      border-radius:18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow:0 14px 34px rgba(2,12,32,.08);
+    }
+    .page .chip{ border:1px solid var(--ui-line); border-radius:999px; padding:.45rem .75rem; background:#fff; font-weight:800; }
+    .filters { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+    .filters .search { flex:1 1 260px; min-width:220px; }
+    .filters input[type="search"]{
+      width:100%; border:1px solid var(--ui-line); border-radius:12px; padding:.75rem .9rem; font:inherit; background:#fff;
+      box-shadow: var(--ui-shadow);
+    }
+    .filters .chip { cursor:pointer; user-select:none; }
+    .filters .chip[aria-pressed="true"]{
+      background:#072e59; color:#fff; border-color:#072e59;
+    }
+
+    .projects-grid{ display:grid; gap:14px; grid-template-columns:1fr; }
+    @media(min-width:680px){ .projects-grid{ grid-template-columns:1fr 1fr; } }
+    @media(min-width:980px){ .projects-grid{ grid-template-columns:repeat(3,1fr); } }
+
+    .project-card{
+      display:flex; flex-direction:column; gap:10px;
+      background:#fff; border:1px solid var(--ui-line); border-radius:14px; padding:12px;
+      box-shadow:var(--ui-shadow); transition:transform .12s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .project-card:hover{ transform:translateY(-2px); box-shadow:var(--ui-shadow-hover); border-color: rgba(7,46,89,.12); }
+    .project-media{
+      border-radius:10px; overflow:hidden; border:1px solid var(--ui-line); background:#fff;
+    }
+    .project-media::before{
+      content:""; display:block; aspect-ratio: 16/10;
+      background:linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
+    }
+    .project-meta{ font-size:.92rem; color:#475569; display:flex; gap:10px; flex-wrap:wrap; }
+    .project-meta .tag{ background:#f8fafc; border:1px solid var(--ui-line); border-radius:999px; padding:.25rem .55rem; font-weight:700; }
+    .project-title{ margin:.15rem 0 0; font-weight:800; color:#0f172a; }
+    .project-desc{ color:#334155; margin:.25rem 0 0; }
+
+    .load-more-wrap{ display:flex; justify-content:center; margin-top:12px; }
+    .load-more{ background:#f7941d; color:#0b0b0b; border:none; border-radius:12px; padding:.9rem 1.1rem; font-weight:800; cursor:pointer;
+      box-shadow:0 10px 24px rgba(247,148,29,.25); transition:transform .08s, box-shadow .2s, background .2s; }
+    .load-more:hover{ background:#e9830b; transform:translateY(-1px); box-shadow:0 14px 28px rgba(247,148,29,.35); }
+
+    .cta-strip{
+      background:#072e59; color:#fff; border-radius:16px; padding:16px;
+      display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    }
+    .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
+
+    /* Accessibility: hide when filtered out */
+    .is-hidden{ display:none !important; }
   </style>
+
+  <!-- JSON-LD: CollectionPage (lightweight scaffold; you can expand with individual projects later) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Projects & Case Studies",
+    "about":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}]},
+    "isPartOf":{"@type":"WebSite","name":"Zenith Roofing Services"}
+  }
+  </script>
 </head>
 <body>
+  <!-- Header include -->
   <div data-include="/components/header-section.html"></div>
 
-  <main class="page">
-    <h1>Recent Projects</h1>
-    <p>Here’s a quick look at recent installs and repairs around San Diego County.</p>
+  <main id="top" class="page">
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-label="Project gallery">
+      <div class="eyebrow" style="display:flex; gap:8px; flex-wrap:wrap; margin:0 0 .6rem;">
+        <span class="chip">Before &amp; After</span>
+        <span class="chip">Local Jobs</span>
+        <span class="chip">Photo Proof</span>
+      </div>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">Projects &amp; Case Studies</h1>
+          <p class="lede">Browse a sampling of our work—tile lift &amp; relay, leak repairs, flat roof systems (TPO/torch down), shingles, silicone coatings, skylights, and more. Each card shows the **scope**, **materials**, and **city**.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#gallery">View Projects</a>
+            <a class="btn btn-outline" href="#estimate">Request Estimate</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true"></div>
+      </div>
+    </section>
 
-    <div class="grid">
-      <article class="tile">
-        <img src="/images/modern-tile-roof-960.webp" alt="Tile roof replacement">
-        <div class="cap"><strong>Tile Lift &amp; Reset – Escondido</strong><br>Underlayment replacement, new flashings.</div>
-      </article>
-      <article class="tile">
-        <img src="/images/torch-down-point-loma-720.webp" alt="Torch down roof">
-        <div class="cap"><strong>Torch Down – Point Loma</strong><br>Low-slope re-roof with cool cap sheet.</div>
-      </article>
-      <article class="tile">
-        <img src="/images/clay-tiles-solar-shingles-720.webp" alt="Shingle roof">
-        <div class="cap"><strong>Asphalt Shingles – San Diego</strong><br>Wind-resistant architectural shingles.</div>
-      </article>
-      <article class="tile">
-        <img src="/images/zenith-sign-forklift-720.webp" alt="Crew on site">
-        <div class="cap"><strong>Commercial TPO – Vista</strong><br>Fully adhered TPO, welded seams.</div>
-      </article>
-    </div>
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills" aria-label="Projects page sections">
+      <a href="#filters">Filter</a>
+      <a href="#gallery">Projects</a>
+      <a href="#estimate">Estimate</a>
+    </nav>
 
-    <div class="cta">
-      <a class="btn btn-primary" href="/index.html#estimate">Request Free Estimate</a>
-      <a class="btn btn-outline" href="tel:8589006163">Call/Text 858-900-6163</a>
-    </div>
+    <!-- ===== FILTERS ===== -->
+    <section id="filters" class="section card airy hoverable">
+      <h2>Filter &amp; Search</h2>
+      <div class="filters" role="toolbar" aria-label="Project filters">
+        <!-- Search -->
+        <div class="search">
+          <label class="sr-only" for="project-search">Search projects</label>
+          <input id="project-search" type="search" placeholder="Search by city, roof type, or keyword… (e.g., Escondido tile)" autocomplete="off" />
+        </div>
+
+        <!-- Category chips (toggle) -->
+        <button class="chip" data-filter-group="service" data-filter="tile-repair" aria-pressed="false">Tile Repair</button>
+        <button class="chip" data-filter-group="service" data-filter="tile-lift-relay" aria-pressed="false">Tile Lift &amp; Relay</button>
+        <button class="chip" data-filter-group="service" data-filter="leak-repair" aria-pressed="false">Leak Repair</button>
+        <button class="chip" data-filter-group="service" data-filter="tpo" aria-pressed="false">TPO</button>
+        <button class="chip" data-filter-group="service" data-filter="torch-down" aria-pressed="false">Torch Down</button>
+        <button class="chip" data-filter-group="service" data-filter="silicone" aria-pressed="false">Silicone</button>
+        <button class="chip" data-filter-group="service" data-filter="shingle" aria-pressed="false">Shingle</button>
+
+        <!-- Location chips -->
+        <button class="chip" data-filter-group="area" data-filter="north-county" aria-pressed="false">North County</button>
+        <button class="chip" data-filter-group="area" data-filter="temecula" aria-pressed="false">Temecula</button>
+        <button class="chip" data-filter-group="area" data-filter="san-diego" aria-pressed="false">San Diego</button>
+
+        <!-- Reset -->
+        <button class="chip" id="filters-reset" aria-pressed="false" style="margin-left:auto;">Reset</button>
+      </div>
+      <p class="muted" style="margin:.5rem 0 0;">Tip: click multiple chips to combine filters. Use the search box for city names, materials, or notes like “valley leak”.</p>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section id="gallery" class="section">
+      <h2>Recent Projects</h2>
+
+      <!-- NOTE: Duplicate or extend cards; swap placeholder media with real <img> inside .project-media -->
+      <div class="projects-grid" id="projects">
+        <!-- Project Card -->
+        <article class="project-card"
+          data-city="Escondido"
+          data-area="north-county"
+          data-service="tile-lift-relay"
+          data-roof="tile"
+          data-keywords="clay tile lift relay underlayment malarkey rightstart">
+          <div class="project-media">
+            <!-- Replace with real image -->
+            <!-- <img src="/images/projects/escondido-tile-lift-relay-01.jpg" alt="Tile lift and relay in Escondido — before/after"> -->
+          </div>
+          <h3 class="project-title">Tile Lift &amp; Relay — Escondido</h3>
+          <div class="project-meta">
+            <span class="tag">Tile</span>
+            <span class="tag">Lift &amp; Relay</span>
+            <span class="tag">North County</span>
+          </div>
+          <p class="project-desc">Removed tiles, installed 2-layer high-temp underlayment, reset tiles, updated flashings. Photo set with valleys and penetrations.</p>
+        </article>
+
+        <article class="project-card"
+          data-city="Temecula"
+          data-area="temecula"
+          data-service="tpo"
+          data-roof="tpo"
+          data-keywords="flat roof tpo white cool roof title 24">
+          <div class="project-media"></div>
+          <h3 class="project-title">TPO Cool Roof — Temecula</h3>
+          <div class="project-meta">
+            <span class="tag">Flat Roof</span>
+            <span class="tag">TPO</span>
+            <span class="tag">Temecula</span>
+          </div>
+          <p class="project-desc">Mechanically attached TPO with new edge metal; added insulation for energy savings; seams heat-welded.</p>
+        </article>
+
+        <article class="project-card"
+          data-city="San Marcos"
+          data-area="north-county"
+          data-service="leak-repair"
+          data-roof="tile"
+          data-keywords="leak repair valley flashing reset tiles underlayment patch">
+          <div class="project-media"></div>
+          <h3 class="project-title">Valley Leak Repair — San Marcos</h3>
+          <div class="project-meta">
+            <span class="tag">Leak Repair</span>
+            <span class="tag">Tile</span>
+            <span class="tag">North County</span>
+          </div>
+          <p class="project-desc">Opened valley, replaced compromised underlayment, reseated tiles, resealed transitions; storm-tested.</p>
+        </article>
+
+        <article class="project-card"
+          data-city="Carlsbad"
+          data-area="north-county"
+          data-service="silicone"
+          data-roof="silicone"
+          data-keywords="silicone coating ponding seams maintenance">
+          <div class="project-media"></div>
+          <h3 class="project-title">Silicone Coating — Carlsbad</h3>
+          <div class="project-meta">
+            <span class="tag">Flat Roof</span>
+            <span class="tag">Silicone</span>
+            <span class="tag">North County</span>
+          </div>
+          <p class="project-desc">Cleaned, primed, detailed penetrations; high-solids silicone applied for UV/ponding resistance and reflectivity.</p>
+        </article>
+
+        <article class="project-card"
+          data-city="Oceanside"
+          data-area="north-county"
+          data-service="shingle"
+          data-roof="shingle"
+          data-keywords="asphalt shingle reroof replacement">
+          <div class="project-media"></div>
+          <h3 class="project-title">Asphalt Shingle Re-Roof — Oceanside</h3>
+          <div class="project-meta">
+            <span class="tag">Shingle</span>
+            <span class="tag">Replacement</span>
+            <span class="tag">North County</span>
+          </div>
+          <p class="project-desc">Architectural shingles with upgraded underlayment and ventilation; tidy lines and color-matched metals.</p>
+        </article>
+
+        <article class="project-card"
+          data-city="San Diego"
+          data-area="san-diego"
+          data-service="torch-down"
+          data-roof="torch-down"
+          data-keywords="torch down modified bitumen flat roof drains">
+          <div class="project-media"></div>
+          <h3 class="project-title">Torch Down — San Diego</h3>
+          <div class="project-meta">
+            <span class="tag">Flat Roof</span>
+            <span class="tag">Torch Down</span>
+            <span class="tag">San Diego</span>
+          </div>
+          <p class="project-desc">Multi-ply modified bitumen with detail work at drains and parapets; clean seams, UV granulated cap sheet.</p>
+        </article>
+
+        <!-- Add more cards here; they’ll auto-participate in filters -->
+      </div>
+
+      <!-- Load more (progressive reveal) -->
+      <div class="load-more-wrap">
+        <button class="load-more" id="loadMore" type="button">Load More Projects</button>
+      </div>
+    </section>
+
+    <!-- ===== ESTIMATE FORM (shared component; Service Type stays on "Other") ===== -->
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer"><em>Free estimates exclude real-estate transaction documents. For letters/reports, see Real Estate Services.</em></p>
+    </section>
+
+    <!-- CTA band -->
+    <section class="section">
+      <div class="cta-strip">
+        <div class="text"><strong>Ready to start your project?</strong> Fast scheduling, clear communication, photo documentation.</div>
+        <a class="btn" href="#estimate">Request Free Estimate</a>
+      </div>
+    </section>
   </main>
 
+  <!-- Footer include -->
   <div data-include="/components/footer.html"></div>
 
-<script>
-  (function () {
-    // fetch + inject a single [data-include]
-    async function include(el) {
-      const src = el.getAttribute('data-include');
-      if (!src) return;
-      try {
-        const res = await fetch(src);             // normal caching
-        if (!res.ok) throw new Error('Failed ' + src);
-        const html = await res.text();
-        el.outerHTML = html;
-      } catch (e) {
-        console.error('❌ Include error:', src, e);
-      }
-    }
+  <!-- ===== JS ===== -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
 
-    // Header height + collapsed state WITHOUT scroll reflow
-    function setupHeaderObservers() {
-      const root = document.documentElement;
-      const getHeader = () => document.querySelector('.mobile-header') || document.querySelector('.header');
+  <!-- Page-scope: simple filters/search + progressive reveal (no external deps) -->
+  <script>
+    (function(){
+      const grid = document.getElementById('projects');
+      const cards = Array.from(grid.querySelectorAll('.project-card'));
+      const chips = Array.from(document.querySelectorAll('[data-filter-group]'));
+      const search = document.getElementById('project-search');
+      const resetBtn = document.getElementById('filters-reset');
+      const loadMoreBtn = document.getElementById('loadMore');
 
-      function updateHeaderH() {
-        const h = getHeader();
-        if (h) root.style.setProperty('--header-h', Math.round(h.offsetHeight) + 'px');
+      // Progressive reveal
+      const BATCH = 9;
+      let visibleCount = Math.min(BATCH, cards.length);
+      function applyReveal(){
+        cards.forEach((c,i) => c.classList.toggle('is-hidden', i >= visibleCount));
+        loadMoreBtn.style.display = (visibleCount >= cards.lengthFiltered ? 'none' : 'inline-flex');
       }
 
-      // update when the header actually resizes
-      if ('ResizeObserver' in window) {
-        const ro = new ResizeObserver(updateHeaderH);
-        const h = getHeader(); if (h) ro.observe(h);
-      }
-      window.addEventListener('load', updateHeaderH, { passive: true });
-      window.addEventListener('resize', () => requestAnimationFrame(updateHeaderH), { passive: true });
+      // Track active filters
+      const active = { service: new Set(), area: new Set() };
 
-      // toggle nav-collapsed via IntersectionObserver (no scroll work)
-      const sent = document.createElement('div');
-      sent.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;';
-      document.body.prepend(sent);
-      new IntersectionObserver(([e]) => {
-        root.classList.toggle('nav-collapsed', !e.isIntersecting);
-      }, { rootMargin: '-80px 0px 0px 0px' }).observe(sent); // adjust -80px if your header is taller
-    }
+      chips.forEach(chip=>{
+        chip.addEventListener('click', ()=>{
+          const g = chip.getAttribute('data-filter-group');
+          const v = chip.getAttribute('data-filter');
+          const on = chip.getAttribute('aria-pressed') === 'true';
+          chip.setAttribute('aria-pressed', String(!on));
+          if(on) active[g].delete(v); else active[g].add(v);
+          filter();
+        });
+      });
 
-    async function init() {
-      // include everything ELSE (hero has an LCP stub now)
-      const includes = Array.from(document.querySelectorAll('[data-include]'));
-      await Promise.all(includes.map(include));
+      resetBtn?.addEventListener('click', ()=>{
+        chips.forEach(c=>c.setAttribute('aria-pressed','false'));
+        active.service.clear(); active.area.clear();
+        if(search) search.value = '';
+        filter();
+      });
 
-      // Upgrade the stub to the real hero component while REUSING the already-downloaded LCP <img>
-      const stub = document.getElementById('hero-stub');
-      if (stub) {
-        const res = await fetch('components/hero-section.html');
-        if (res.ok) {
-          const html = await res.text();
-          const tpl = document.createElement('template');
-          tpl.innerHTML = html.trim();
-          const real = tpl.content.querySelector('section.zenith-hero') || tpl.content.firstElementChild;
-          if (real) {
-            const lcp = document.getElementById('lcp-img');
-            const realPic = real.querySelector('.zenith-hero-media picture') || real.querySelector('.zenith-hero-media');
-            if (lcp && realPic) {
-              const existing = realPic.querySelector('.zenith-hero-mobile-img');
-              if (existing) existing.replaceWith(lcp); else realPic.appendChild(lcp);
-            }
-            stub.replaceWith(real);
-          }
-        }
+      search?.addEventListener('input', debounce(filter, 120));
+
+      loadMoreBtn?.addEventListener('click', ()=>{
+        visibleCount += BATCH;
+        applyReveal();
+      });
+
+      function matchText(haystack, needle){
+        return haystack.indexOf(needle) !== -1;
       }
 
-      // your existing inits (unchanged)
-      if (window.initMobileMenu) window.initMobileMenu();
-      [
-        'initEstimateForm','initAboutSection','initWhyChoose','initTrustSection',
-        'initPhotoSection','initTestimonials','initCTA','initServiceAreas',
-        'initRealEstate','initFooter','initHeader'
-      ].forEach(n => { if (typeof window[n] === 'function') window[n](); });
+      function filter(){
+        const s = (search?.value || '').trim().toLowerCase();
+        const needService = active.service.size > 0;
+        const needArea = active.area.size > 0;
+        let shown = 0;
 
-      setupHeaderObservers();   // replaces old setLayoutFlags/scroll listeners
-    }
+        cards.forEach(card=>{
+          const svc = String(card.dataset.service || '');
+          const area = String(card.dataset.area || '');
+          const city = String(card.dataset.city || '');
+          const roof = String(card.dataset.roof || '');
+          const keys = String(card.dataset.keywords || '');
+          const textBlob = (svc + ' ' + area + ' ' + city + ' ' + roof + ' ' + keys + ' ' + card.textContent).toLowerCase();
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
-  })();
+          let ok = true;
+          if (needService) ok = ok && active.service.has(svc);
+          if (needArea) ok = ok && active.area.has(area);
+          if (s) ok = ok && matchText(textBlob, s);
+
+          card.classList.toggle('is-hidden', !ok);
+          if (ok) shown++;
+        });
+
+        // Update reveal context to only count visible cards
+        const visibleCards = cards.filter(c=>!c.classList.contains('is-hidden'));
+        visibleCards.forEach((c,i)=> c.style.order = i); // stable order
+        visibleCount = Math.min(BATCH, visibleCards.length);
+        // mark total filtered count to control Load More visibility
+        cards.lengthFiltered = visibleCards.length;
+        // hide all then reveal first batch
+        visibleCards.forEach((c,i)=> c.classList.toggle('is-hidden', i >= visibleCount));
+        loadMoreBtn.style.display = (visibleCount >= visibleCards.length ? 'none' : 'inline-flex');
+      }
+
+      function debounce(fn, wait){ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), wait); }; }
+
+      // Initial state
+      cards.lengthFiltered = cards.length;
+      filter();
+    })();
   </script>
-<script src="/js/loader.js" defer></script>
-<script src="/js/header.js" defer></script>
+
+  <!-- Per-page form config: keeps Service Type = "Other" -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Request Free Estimate",
+      referralPreselect: "Website",
+      hiddenFields: { campaign: "projects", page_tag: "projects" },
+      descriptionPlaceholder: "Tell us about your roof (type/age), city/ZIP, and what you’d like to achieve. Photo links help!"
+      // No lockService — dropdown stays on "Other" as you prefer.
+    };
+  </script>
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
