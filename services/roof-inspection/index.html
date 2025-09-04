@@ -7,11 +7,12 @@
   <meta name="description" content="Free roof inspections for homeowners (wear & tear, leaks, estimates). Third-party letters (insurance/HOA/lender) $295. Certified photo report $495. San Diego & Temecula." />
   <link rel="canonical" href="https://www.zenithroofingservices.com/services/roof-inspection/">
 
-  <!-- Shared CSS -->
+  <!-- Shared CSS (keep footer.css outside container scope like other pages) -->
   <link rel="stylesheet" href="/css/header.css">
   <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/footer.css">
   <link rel="stylesheet" href="/css/ui.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <!-- Shared form CSS -->
   <link rel="stylesheet" href="/css/estimate-form.css">
 
   <!-- Shared JS -->
@@ -20,6 +21,7 @@
   <script defer src="/js/estimate-form.js"></script>
 
   <style>
+    html{scroll-behavior:smooth}
     .page.hinsp { max-width:1100px; margin:24px auto; padding:0 16px; }
     .badge { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:#f1f5f9; font-weight:600; font-size:.95rem; }
     .lede { color:#475569; font-size:1.075rem; margin:8px 0 18px; }
@@ -27,7 +29,15 @@
     .small { font-size:.9rem; }
     .price { font-weight:800; }
     .grid.tight .card p { margin:0; }
-    /* Fallback form */
+
+    /* CTA strip (site-consistent) */
+    .cta-strip{
+      background:#072e59;color:#fff;border-radius:16px;padding:16px;
+      display:flex;gap:12px;flex-wrap:wrap;align-items:center
+    }
+    .cta-strip .btn{background:#f7941d;color:#0b0b0b}
+
+    /* Tiny fallback form styles (used only if include fails) */
     .form { background:#fff; border:1px solid var(--ui-line); border-radius:16px; padding:16px; }
     .form-row { display:flex; gap:12px; margin-bottom:12px; flex-wrap:wrap; }
     .form-col-6 { flex:1 1 260px; min-width:260px; }
@@ -35,7 +45,14 @@
     .form label { display:block; font-weight:600; margin:0 0 6px; }
     .form input, .form textarea, .form select { width:100%; border:1px solid var(--ui-line); border-radius:10px; padding:10px; font:inherit; background:#fff; }
     .btn.primary { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:12px 16px; border-radius:12px; background:var(--ui-accent,#0b3a6f); color:#fff; border:none; cursor:pointer; font-weight:700; }
-    .btn.inline { margin-left:8px; }
+
+    /* Sticky action bar */
+    .actionbar{
+      position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--ui-line);
+      display:flex;gap:8px;justify-content:center;padding:10px;z-index:50
+    }
+    .ab-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border:1px solid var(--ui-line);border-radius:10px;background:#fff}
+    .ab-btn.estimate{background:#072e59;color:#fff;border-color:#072e59}
   </style>
 
   <!-- SEO: Service + Offers + FAQ -->
@@ -50,8 +67,7 @@
     "offers":[
       {"@type":"Offer","name":"Homeowner Roof Inspection","price":"0","priceCurrency":"USD","category":"Homeowner (no third party)"},
       {"@type":"Offer","name":"Third-Party Letter (Insurance/HOA/Lender)","price":"295","priceCurrency":"USD"},
-      {"@type":"Offer","name":"Certified Roof Report (with photos)","price":"495","priceCurrency":"USD",
-       "url":"https://www.zenithroofingservices.com/services/roof-inspection/certified-roof-reports/"}
+      {"@type":"Offer","name":"Certified Roof Report (with photos)","price":"495","priceCurrency":"USD","url":"https://www.zenithroofingservices.com/services/roof-inspection/certified-roof-reports/"}
     ],
     "description":"Free inspection for homeowners to check roof condition, wear & tear, leaks, and provide estimates. Third-party letters are $295. Certified photo report is $495."
   }
@@ -61,21 +77,9 @@
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"When is the inspection free?",
-        "acceptedAnswer":{"@type":"Answer","text":"If you’re the homeowner and want us to evaluate your own roof for normal wear and tear, leaks, or to get an estimate for repairs/replacement, the inspection is free."}
-      },
-      {
-        "@type":"Question",
-        "name":"When is it $295?",
-        "acceptedAnswer":{"@type":"Answer","text":"If a third party needs documentation—insurance underwriting, a lender/refi, HOA, property manager, or a specific letter (like moss/algae)—the inspection visit and letter are $295."}
-      },
-      {
-        "@type":"Question",
-        "name":"What’s $495?",
-        "acceptedAnswer":{"@type":"Answer","text":"Our Certified Roof Report is $495. It includes photos and a written narrative of findings and recommendations."}
-      }
+      {"@type":"Question","name":"When is the inspection free?","acceptedAnswer":{"@type":"Answer","text":"If you’re the homeowner and want us to evaluate your own roof for normal wear and tear, leaks, or to get an estimate for repairs/replacement, the inspection is free."}},
+      {"@type":"Question","name":"When is it $295?","acceptedAnswer":{"@type":"Answer","text":"If a third party needs documentation—insurance underwriting, a lender/refi, HOA, property manager, or a specific letter (like moss/algae)—the inspection visit and letter are $295."}},
+      {"@type":"Question","name":"What’s $495?","acceptedAnswer":{"@type":"Answer","text":"Our Certified Roof Report is $495. It includes photos and a written narrative of findings and recommendations."}}
     ]
   }
   </script>
@@ -121,12 +125,14 @@
       <h2>Free Homeowner Roof Inspection</h2>
       <p class="muted">We assess the surface, flashings, penetrations, edges, and drainage. If repairs or replacement make sense, we’ll provide a written estimate.</p>
 
-      <div data-include="/components/forms/estimate.html" data-estimate-context data-category="Homeowner Roof Inspection — Free" data-redirect="/thank-you/"></div>
+      <!-- Shared component instance #1 -->
+      <div id="free-form" class="estimate-form-block" data-include="/components/estimate-form.html"></div>
 
-      <!-- Fallback form -->
+      <!-- Fallback (only used if include fails) -->
       <template id="free-fallback">
         <form class="form" method="post" action="/api/lead" novalidate>
-          <input type="hidden" name="service_type" value="Homeowner Roof Inspection (Free)">
+          <input type="hidden" name="service_type" value="Other">
+          <input type="hidden" name="campaign" value="services/roof-inspection/free">
           <div class="form-row">
             <div class="form-col-6"><label>Full Name</label><input name="name" required></div>
             <div class="form-col-6"><label>Phone</label><input name="phone" type="tel" required></div>
@@ -151,19 +157,22 @@
           <button class="btn primary" type="submit">Request Free Inspection</button>
         </form>
       </template>
+      <p class="small muted" style="margin-top:8px;">No third-party documentation with the free option. Choose the $295 Letter if a lender/insurer/HOA needs paperwork.</p>
     </section>
 
     <!-- Paid Letter Path -->
     <section id="letter" class="card airy" aria-label="Third-party letter ($295)">
       <h2>Third-Party Letter — <span class="price">$295</span></h2>
-      <p class="muted">For documentation requested by others (insurance underwriting, lender/refi, HOA, PM) including moss/algae or “roof condition” letters.</p>
+      <p class="muted">For documentation requested by others (insurance underwriting, lender/refi, HOA, property manager) including moss/algae or general “roof condition” letters.</p>
 
-      <div data-include="/components/forms/estimate.html" data-estimate-context data-category="Third-Party Inspection Letter — $295" data-redirect="/thank-you/"></div>
+      <!-- Shared component instance #2 -->
+      <div id="letter-form" class="estimate-form-block" data-include="/components/estimate-form.html"></div>
 
-      <!-- Fallback form -->
+      <!-- Fallback (only used if include fails) -->
       <template id="letter-fallback">
         <form class="form" method="post" action="/api/lead" novalidate>
-          <input type="hidden" name="service_type" value="Third-Party Inspection Letter ($295)">
+          <input type="hidden" name="service_type" value="Other">
+          <input type="hidden" name="campaign" value="services/roof-inspection/letter-295">
           <input type="hidden" name="price_usd" value="295">
           <div class="form-row">
             <div class="form-col-6"><label>Full Name</label><input name="name" required></div>
@@ -209,9 +218,114 @@
       <p class="muted">San Diego • Temecula • Nearby communities (travel quotes available).</p>
       <p class="muted small">Final scope, pricing, and warranties are defined by your signed proposal and manufacturer documentation.</p>
     </section>
+
+    <!-- CTA strip -->
+    <section class="section">
+      <div class="cta-strip">
+        <div class="text"><strong>Not sure which option?</strong> Book the free homeowner inspection and we’ll guide you.</div>
+        <a class="btn" href="#free">Book Free Inspection</a>
+      </div>
+    </section>
   </main>
 
   <div data-include="/components/footer.html"></div>
+
+  <!-- Page-level base config (applies if you don't touch per-form text) -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      referralPreselect: "Website",
+      submitText: "Submit", // per-form text overridden below
+      descriptionPlaceholder: "Address, roof type (if known), concerns, best times. Include links to photos if you have them.",
+      hiddenFields: { campaign: "services/roof-inspection", page_tag: "roof-inspection" }
+    };
+  </script>
+
+  <!-- Per-form tweaks WITHOUT editing estimate-form.js -->
+  <script>
+    (function(){
+      function enhance(containerId, options){
+        const root = document.getElementById(containerId);
+        if(!root) return;
+
+        const apply = () => {
+          const form = root.querySelector('form');
+          if(!form) return;
+
+          // Force Service Type to "Other" without touching your dropdown UI
+          if(!form.querySelector('input[name="service_type"]')){
+            const st = document.createElement('input');
+            st.type = 'hidden';
+            st.name = 'service_type';
+            st.value = 'Other';
+            form.appendChild(st);
+          }
+
+          // Campaign tagging
+          if(options.campaign){
+            let camp = form.querySelector('input[name="campaign"]');
+            if(!camp){
+              camp = document.createElement('input');
+              camp.type = 'hidden';
+              camp.name = 'campaign';
+              form.appendChild(camp);
+            }
+            camp.value = options.campaign;
+          }
+
+          // Page tag (optional per form)
+          if(options.page_tag){
+            let tag = form.querySelector('input[name="page_tag"]');
+            if(!tag){
+              tag = document.createElement('input');
+              tag.type = 'hidden';
+              tag.name = 'page_tag';
+              form.appendChild(tag);
+            }
+            tag.value = options.page_tag;
+          }
+
+          // Description placeholder override (per form)
+          if(options.placeholder){
+            const textarea = form.querySelector('textarea[name="message"], textarea[name="description"]');
+            if(textarea && !textarea.dataset.hintSet){
+              textarea.placeholder = options.placeholder;
+              textarea.dataset.hintSet = '1';
+            }
+          }
+
+          // Submit button label
+          const btn = form.querySelector('button[type="submit"], .zenith-submit');
+          if(btn && options.submitText){
+            btn.textContent = options.submitText;
+          }
+        };
+
+        // Try immediately and watch for async include render
+        const mo = new MutationObserver(apply);
+        mo.observe(root, {childList:true, subtree:true});
+        apply();
+      }
+
+      // Enhance both instances
+      document.addEventListener('DOMContentLoaded', function(){
+        enhance('free-form', {
+          campaign: 'services/roof-inspection/free',
+          page_tag: 'roof-inspection-free',
+          submitText: 'Request Free Inspection',
+          placeholder: 'Homeowner check-up: address, roof type (if known), concerns (leak, age, stains), best times.'
+        });
+        enhance('letter-form', {
+          campaign: 'services/roof-inspection/letter-295',
+          page_tag: 'roof-inspection-letter',
+          submitText: 'Book Letter Visit — $295',
+          placeholder: 'Third-party doc: who is requesting (insurance/lender/HOA/PM), exact letter needed, deadlines, links to any forms.'
+        });
+      });
+    })();
+  </script>
+
+  <!-- reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 
   <!-- Sticky Action Bar -->
   <div class="actionbar">
