@@ -4,181 +4,223 @@
   <!-- ===== META ===== -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Contact Us | Zenith Roofing Services</title>
-  <meta name="description" content="Questions about your roof, gutters, skylights, or a leak? Contact Zenith Roofing Services — fast, friendly help for San Diego & Temecula homeowners." />
-  <link rel="canonical" href="https://zenithroofingservices.com/contact/" />
+  <title>Contact Zenith Roofing Services | Questions, Scheduling & Estimates</title>
+  <meta name="description" content="Have a roofing question? Text, call, or send a message. Fast, friendly answers—usually same day. Serving Escondido, North County San Diego, greater San Diego & Temecula." />
+  <link rel="canonical" href="https://www.zenithroofingservices.com/contact/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 
-  <!-- ===== SITE CSS (already in project) ===== -->
-  <link rel="stylesheet" href="/css/header.css" />
-  <link rel="stylesheet" href="/css/base.css" />
-  <link rel="stylesheet" href="/css/footer.css" />
-  <link rel="stylesheet" href="/css/ui.css" />
-  <!-- If you have estimate-form.css, it will style the grid classes below -->
+  <!-- Open Graph -->
+  <meta property="og:title" content="Contact Zenith Roofing Services"/>
+  <meta property="og:description" content="Questions about repairs, replacements, or maintenance? Get quick answers. Escondido • San Diego • Temecula."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.zenithroofingservices.com/contact/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- ===== Page-scoped helpers (SAFE) ===== -->
+  <!-- Shared CSS -->
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <!-- Form CSS -->
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
+
+  <!-- Page-scope polish -->
   <style>
-    .contact-wrap{ padding:min(6vw,2.5rem) 1.25rem; max-width: 72rem; margin: 0 auto; }
-    .contact-card{
-      background:var(--ui-bg,#fff); border:1px solid var(--ui-line,#e5e7eb); border-radius:var(--ui-radius,14px);
-      box-shadow:var(--ui-shadow,0 12px 28px rgba(2,12,32,.08)); padding:1.25rem;
+    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    html { scroll-behavior: smooth; }
+
+    .page .hero{
+      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border: 1px solid var(--ui-line);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 14px 34px rgba(2,12,32,.08);
     }
-    .contact-header{ text-align:center; margin-bottom:1rem; }
-    .contact-header h1{ font-size:clamp(1.6rem,3vw,2.2rem); margin:.25rem 0; }
-    .helptext{ color:var(--muted,#6b7280); max-width:65ch; margin:0 auto .5rem; }
-    .actions{ display:flex; gap:.75rem; flex-wrap:wrap; align-items:center; }
-    .btn{ display:inline-block; padding:.7rem 1rem; border-radius:999px; border:1px solid var(--line,#e5e7eb); background:#111827; color:#fff; font-weight:700; text-decoration:none; }
-    .btn.secondary{ background:#fff; color:#111827; }
-    .success-banner, .error-banner{
-      display:none; margin:1rem 0; padding:.75rem 1rem; border-radius:12px; font-weight:600;
+    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
+    .page .chip{ border:1px solid var(--ui-line); border-radius:999px; padding:.45rem .75rem; background:#fff; font-weight:800; }
+    .contact-cards .card h3 { margin-top:.2rem; }
+    .pillnav.sticky-pills { margin-top: 10px; }
+
+    .cta-strip{
+      background:#072e59; color:#fff; border-radius:16px;
+      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
     }
-    .success-banner{ background:#ecfdf5; border:1px solid #10b981; color:#065f46; }
-    .error-banner{ background:#fef2f2; border:1px solid #ef4444; color:#991b1b; }
-    .sr-only{ position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,1px,1px); white-space:nowrap; border:0; }
+    .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
+
+    .contact-bullets{ margin:.4rem 0 0 .95rem; color:#334155; }
+    .contact-bullets li{ margin:.25rem 0; }
+
+    .contact-quick a { text-decoration:none; }
+    .contact-quick .btn { min-width:170px; }
   </style>
 
-  <!-- (Optional) JSON-LD for ContactPage -->
+  <!-- JSON-LD: ContactPage + LocalBusiness -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"ContactPage",
     "name":"Contact Zenith Roofing Services",
-    "url":"https://zenithroofingservices.com/contact/"
+    "about":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163","areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}]}
   }
   </script>
 </head>
 <body>
-  <!-- ===== HEADER INCLUDE ===== -->
+  <!-- Header include -->
   <div data-include="/components/header-section.html"></div>
 
-  <main class="page">
-    <section class="contact-wrap">
-      <div class="contact-header">
-        <p class="kicker">Questions? Start here.</p>
-        <h1>Contact Zenith Roofing Services</h1>
-        <p class="helptext">Send us a quick note about your roof, gutters, skylights, insurance photos, or a strange leak. Homeowners get friendly guidance at no cost.</p>
+  <main id="top" class="page">
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-label="Contact Zenith Roofing">
+      <div class="eyebrow">
+        <span class="chip">Questions</span>
+        <span class="chip">Scheduling</span>
+        <span class="chip">Local Pros</span>
       </div>
-
-      <div class="contact-card">
-        <!-- STATUS BANNERS -->
-        <div id="ok" class="success-banner">Thanks! We got your message and emailed a copy to you.</div>
-        <div id="err" class="error-banner">Sorry—something went wrong. Please try again or call/text 858-900-6163.</div>
-
-        <!-- ===== CONTACT FORM =====
-             This reuses your estimate-form grid classes: .form-row, .form-group, .form-col-6/.form-col-4
-             ACTION: handled by /js/contact-form.js which POSTs to /.netlify/functions/send-contact
-             Notes: keep "name" attributes stable for Netlify/CRM parsing. -->
-        <form id="contact-form" method="POST" novalidate>
-          <!-- Anti-spam honeypot (hidden from users) -->
-          <label class="sr-only" for="company">Company</label>
-          <input id="company" name="company" type="text" autocomplete="organization" tabindex="-1" style="position:absolute; left:-9999px;" aria-hidden="true" />
-
-          <!-- Row 1 -->
-          <div class="form-row">
-            <div class="form-group form-col-6">
-              <label for="firstName" class="sr-only">First Name*</label>
-              <input type="text" id="firstName" name="first_name" placeholder="First Name*" autocomplete="given-name" required />
-            </div>
-            <div class="form-group form-col-6">
-              <label for="lastName" class="sr-only">Last Name*</label>
-              <input type="text" id="lastName" name="last_name" placeholder="Last Name*" autocomplete="family-name" required />
-            </div>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">Contact Zenith Roofing Services</h1>
+          <p class="lede">Have a roofing question or need guidance on the right service? Get fast, friendly answers—usually the same day. We serve <strong>Escondido</strong>, <strong>North County San Diego</strong>, <strong>San Diego</strong>, and <strong>Temecula</strong>.</p>
+          <div class="cta contact-quick" style="margin-top:8px;">
+            <a class="btn btn-primary" href="tel:8589006163">Call 858-900-6163</a>
+            <a class="btn btn-outline" href="sms:+18589006163">Text Us</a>
+            <a class="btn btn-outline" href="#contact-form">Ask a Question</a>
           </div>
+          <ul class="contact-bullets">
+            <li>Leaks, estimates, replacement options, maintenance &amp; real-estate docs</li>
+            <li>Photo tips &amp; what to look for—happy to walk you through it</li>
+          </ul>
+        </div>
+        <div class="media" aria-hidden="true"></div>
+      </div>
+    </section>
 
-          <!-- Row 2 -->
-          <div class="form-row">
-            <div class="form-group form-col-6">
-              <label for="phone" class="sr-only">Phone Number*</label>
-              <input type="tel" id="phone" name="phone" inputmode="tel" placeholder="Phone Number*" autocomplete="tel" required />
-            </div>
-            <div class="form-group form-col-6">
-              <label for="email" class="sr-only">Email*</label>
-              <input type="email" id="email" name="email" placeholder="Email*" autocomplete="email" required />
-            </div>
-          </div>
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills" aria-label="Contact page sections">
+      <a href="#reach">Ways to Reach Us</a>
+      <a href="#hours">Hours</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact-form">Contact Form</a>
+    </nav>
 
-          <!-- Row 3 -->
-          <div class="form-row">
-            <div class="form-group form-col-6">
-              <label for="address" class="sr-only">Property Address</label>
-              <input type="text" id="address" name="address" placeholder="Property Address (optional)" autocomplete="street-address" />
-            </div>
-            <div class="form-group form-col-4">
-              <label for="city" class="sr-only">City</label>
-              <input type="text" id="city" name="city" placeholder="City (optional)" autocomplete="address-level2" />
-            </div>
-            <div class="form-group">
-              <label for="zip" class="sr-only">ZIP</label>
-              <input type="text" id="zip" name="zip" placeholder="ZIP (optional)" inputmode="numeric" autocomplete="postal-code" />
-            </div>
-          </div>
+    <!-- ===== WAYS TO REACH US ===== -->
+    <section id="reach" class="section card airy hoverable contact-cards">
+      <h2>Ways to Reach Us</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Call</h3>
+          <p class="muted"><a href="tel:8589006163"><strong>858-900-6163</strong></a></p>
+          <p class="muted">Best for urgent leaks or scheduling.</p>
+        </div>
+        <div class="card">
+          <h3>Text</h3>
+          <p class="muted"><a href="sms:+18589006163"><strong>+1 (858) 900-6163</strong></a></p>
+          <p class="muted">Quick questions or to send photos/videos.</p>
+        </div>
+        <div class="card">
+          <h3>Email</h3>
+          <p class="muted"><a href="mailto:hello@zenithroofingservices.com"><strong>hello@zenithroofingservices.com</strong></a></p>
+          <p class="muted">We reply promptly during business hours.</p>
+        </div>
+      </div>
+    </section>
 
-          <!-- Row 4 -->
-          <div class="form-row">
-            <div class="form-group form-col-6">
-              <label for="service" class="sr-only">Topic</label>
-              <select id="service" name="service">
-                <option value="" selected>What can we help with?</option>
-                <option>Leak or emergency</option>
-                <option>Roof tune-up / maintenance</option>
-                <option>Shingle (pitched) roof</option>
-                <option>Tile lift & lay (underlayment)</option>
-                <option>Flat roof (TPO / torch)</option>
-                <option>Gutters / guards</option>
-                <option>Skylights</option>
-                <option>Real estate roof report</option>
-                <option>Insurance (wind/other)</option>
-                <option>General question</option>
-              </select>
-            </div>
-            <div class="form-group form-col-6">
-              <label for="ref" class="sr-only">How did you hear about us?</label>
-              <select id="ref" name="referral_source">
-                <option value="" selected>How did you hear about us?</option>
-                <option>Google</option>
-                <option>Yelp</option>
-                <option>Angi</option>
-                <option>Referral</option>
-                <option>Past customer</option>
-                <option>Other</option>
-              </select>
-            </div>
-          </div>
+    <!-- ===== HOURS ===== -->
+    <section id="hours" class="section card airy hoverable">
+      <h2>Hours</h2>
+      <div class="grid cols-2">
+        <div>
+          <ul class="checklist">
+            <li><span class="tick">✓</span> Monday–Friday: 8:00am – 5:00pm</li>
+            <li><span class="tick">✓</span> Saturday: By appointment</li>
+            <li><span class="tick">✓</span> After-hours leak response: Call for availability</li>
+          </ul>
+        </div>
+        <div>
+          <p class="muted">HQ: Escondido, CA (by appointment). Field teams cover North County, greater San Diego, and Temecula Valley daily.</p>
+        </div>
+      </div>
+    </section>
 
-          <!-- Message -->
-          <div class="form-row">
-            <div class="form-group">
-              <label for="message" class="sr-only">Message / Question*</label>
-              <textarea id="message" name="message" rows="5" placeholder="Tell us what’s going on (required) — photos/links welcome" required></textarea>
-            </div>
-          </div>
+    <!-- ===== AREAS ===== -->
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head">
+        <h2 class="sa-title">Service Areas</h2>
+        <p class="muted">Fast scheduling across North County San Diego, greater San Diego, and Temecula Valley.</p>
+      </div>
+      <ul class="chip-grid sa-cities" aria-label="Primary service cities">
+        <li><span class="chip sa-chip strong">Escondido</span></li>
+        <li><span class="chip sa-chip strong">San Diego</span></li>
+        <li><span class="chip sa-chip strong">Temecula</span></li>
+        <li><span class="chip sa-chip">San Marcos</span></li>
+        <li><span class="chip sa-chip">Vista</span></li>
+        <li><span class="chip sa-chip">Oceanside</span></li>
+      </ul>
+      <details class="sa-more">
+        <summary class="sa-summary">More nearby cities</summary>
+        <ul class="chip-grid sa-cities">
+          <li><span class="chip sa-chip">Carlsbad</span></li>
+          <li><span class="chip sa-chip">Encinitas</span></li>
+          <li><span class="chip sa-chip">Poway</span></li>
+          <li><span class="chip sa-chip">Rancho Bernardo</span></li>
+          <li><span class="chip sa-chip">Fallbrook</span></li>
+          <li><span class="chip sa-chip">Murrieta</span></li>
+          <li><span class="chip sa-chip">Menifee</span></li>
+        </ul>
+      </details>
+    </section>
 
-          <!-- Hidden meta used by the function (labels explain but do not render) -->
-          <!-- DO NOT DISPLAY: form identity for backend routing -->
-          <input type="hidden" name="form_type" value="contact" />
-          <!-- DO NOT DISPLAY: who to notify (the function reads this) -->
-          <input type="hidden" name="notify_emails" value="admin@zenithroofingca.com,bramirez@zenithroofingca.com" />
+    <!-- ===== FAQ (short) ===== -->
+    <section id="faq" class="section card airy hoverable">
+      <h2>Quick FAQ</h2>
+      <div class="faq">
+        <details><summary>Do you charge for estimates?</summary><p class="muted">Estimates are free for most services. Real-estate documentation (letters/reports) has a fee; see our Real Estate Services.</p></details>
+        <details><summary>Can I send photos?</summary><p class="muted">Yes—text or include links in the form below. Wide shots + close-ups around the leak area help a lot.</p></details>
+        <details><summary>Which roofs do you service?</summary><p class="muted">Tile (clay & concrete), asphalt shingles, flat roofs (TPO, torch down, self-adhered), silicone coatings, skylights, and more.</p></details>
+      </div>
+    </section>
 
-          <!-- (Optional) reCAPTCHA v2/v3 -->
-          <!-- If you already load reCAPTCHA elsewhere, you can place the widget here -->
-          <!-- <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div> -->
+    <!-- ===== CONTACT FORM ===== -->
+    <section id="contact-form" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer"><em>We’ll get back to you quickly (often same day). Real-estate documents carry set fees—see our Real Estate Services for details.</em></p>
+    </section>
 
-          <div class="actions">
-            <button class="btn" id="sendBtn" type="submit">Send Message</button>
-            <a class="btn secondary" href="/#estimate">Need an estimate instead?</a>
-          </div>
-
-          <!-- AUTHORING NOTES (not displayed):
-               • To add file upload later, use a <input type="file" multiple> and send links via email or upload to a bucket in the function. -->
-        </form>
+    <!-- CTA band -->
+    <section class="section">
+      <div class="cta-strip">
+        <div class="text"><strong>Prefer to talk now?</strong> Call or text and we’ll help right away.</div>
+        <div class="cta" style="gap:8px;">
+          <a class="btn" href="tel:8589006163">Call 858-900-6163</a>
+          <a class="btn" href="sms:+18589006163">Text Us</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- ===== FOOTER INCLUDE ===== -->
-  <div data-include="/components/footer-section.html"></div>
+  <!-- Footer include -->
+  <div data-include="/components/footer.html"></div>
 
-  <!-- ===== PARTIAL LOADER & CONTACT JS ===== -->
+  <!-- ===== JS ===== -->
   <script src="/js/loader.js" defer></script>
-  <script src="/js/contact-form.js" defer></script>
+  <script src="/js/header.js" defer></script>
+  <!-- Per-page form config: geared for questions; keeps Service Type = "Other" -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      title: "Ask a Roofing Question",
+      subtitle: "Fast, friendly answers — usually the same day",
+      submitText: "Send Message",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "What can we help with? (leak symptoms, roof type/age, timing, address/ZIP, photo links)…",
+      hiddenFields: { campaign: "contact", page_tag: "contact" }
+      // No lockService—dropdown remains on “Other” by default, as you prefer.
+    };
+  </script>
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
