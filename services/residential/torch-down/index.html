@@ -1,39 +1,351 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Residential Torch-Down (Modified Bitumen) | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Torch-down modified bitumen systems with base + granulated cap sheets, proper term bars, vents, and edge metal." />
-  <link rel="canonical" href="https://www.zenithroofingservices.com/services/residential/torch-down/">
+  <!-- ===== META ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Torch-Down (Modified Bitumen) Roofing | Escondido, North County San Diego & Temecula</title>
+  <meta name="description" content="Residential torch-down (modified bitumen) roofing for low-slope & flat roofs. Seam-welded membranes, proper drainage details, and clean parapet flashing. Free estimates in Escondido, North County San Diego & Temecula." />
+  <link rel="canonical" href="https://zenithroofingservices.com/services/residential/torch-down/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 
-  <link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/ui.css"><link rel="stylesheet" href="/css/estimate-form.css">
-  <script defer src="/js/loader.js"></script><script defer src="/js/header.js"></script><script defer src="/js/estimate-form.js"></script>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Torch-Down (Modified Bitumen) Roofing | Zenith Roofing Services"/>
+  <meta property="og:description" content="Seam-welded torch-down membranes for durable flat roofs. Serving Escondido, North County San Diego & Temecula."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://zenithroofingservices.com/services/residential/torch-down/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-  <style>.page.rtd{max-width:1100px;margin:24px auto;padding:0 16px}.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:600}.muted{color:var(--ui-muted)}.tick{font-weight:800;color:#0b3a6f}</style>
+  <!-- Shared CSS (footer kept in head for full-width rendering) -->
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <!-- Form CSS -->
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
+
+  <!-- Page-scope polish -->
+  <style>
+    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    html { scroll-behavior: smooth; }
+
+    .page .hero{
+      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border: 1px solid var(--ui-line);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 14px 34px rgba(2,12,32,.08);
+    }
+    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
+    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
+    .page .hero .split{ align-items:center; }
+    .page .hero .media{
+      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
+      background:#fff; box-shadow: var(--ui-shadow); transform: translateZ(0);
+    }
+    .page .hero .media::before{
+      content:""; display:block; aspect-ratio:16/10;
+      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
+    }
+
+    .page h2{ margin-bottom:.4rem; }
+    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
+    .page .card.hoverable{ will-change: transform, box-shadow; }
+    .page .card.hoverable:hover{ transform: translateY(-3px); }
+    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
+
+    /* Spec grid */
+    .page .specs{ display:grid; gap:12px; grid-template-columns:1fr; }
+    @media(min-width:860px){ .page .specs{ grid-template-columns:1fr 1fr; } }
+
+    /* CTA band */
+    .page .cta-strip{
+      background:#072e59; color:#fff; border-radius:16px;
+      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    }
+    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
+    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
+
+    /* Image placeholder */
+    .page .media.placeholder {
+      background:linear-gradient(135deg,#f8fafc,#eef6ff);
+      border:1px dashed var(--ui-line);
+      border-radius:12px; height:210px;
+      display:flex; align-items:center; justify-content:center;
+      color:#64748b; font-weight:700;
+    }
+  </style>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Services","item":"https://zenithroofingservices.com/services/"},
+      {"@type":"ListItem","position":2,"name":"Residential","item":"https://zenithroofingservices.com/services/residential/"},
+      {"@type":"ListItem","position":3,"name":"Torch-Down (Modified Bitumen) Roofing","item":"https://zenithroofingservices.com/services/residential/torch-down/"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Service + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Torch-Down (Modified Bitumen) Roofing",
+    "serviceType":"Residential flat/low-slope torch-applied modified bitumen roofing",
+    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
+    "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}],
+    "description":"Seam-welded torch-down membranes with clean parapet flashings, proper drains/scuppers, and granulated or cool-roof cap sheets for durable residential flat roofs."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What is torch-down roofing?","acceptedAnswer":{"@type":"Answer","text":"A multi-ply modified-bitumen system heat-welded at seams and details. It’s ideal for low-slope and flat roofs where shingles cannot be used."}},
+      {"@type":"Question","name":"How long does it last?","acceptedAnswer":{"@type":"Answer","text":"With proper prep and drainage, torch-down systems commonly provide long service life. Annual maintenance extends performance."}},
+      {"@type":"Question","name":"Do you offer cool or reflective options?","acceptedAnswer":{"@type":"Answer","text":"Yes—granulated cap sheets in light colors and optional reflective coatings can help keep surfaces cooler."}}
+    ]
+  }
+  </script>
 </head>
 <body>
-<div data-include="/components/header-section.html"></div>
-<main class="page rtd" id="top">
-  <section class="card airy">
-    <span class="badge">Residential</span>
-    <h1 style="margin:10px 0 6px;">Torch-Down (Mod-Bit)</h1>
-    <p class="muted">Granulated cap sheet over base, with proper vents, term bars, and edge details for watertight performance.</p>
-    <div class="cta"><a class="btn" href="#estimate">Get a Free Estimate</a></div>
-  </section>
+  <!-- Header include -->
+  <div data-include="/components/header-section.html"></div>
 
-  <section class="card airy"><h2>Scope Highlights</h2>
-    <div class="grid auto-fit" style="--ui-gap:16px;">
-      <div class="card"><h3>Layers</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Base + cap sheet</li><li><span class="tick">✓</span> Cap sheet granulated finish</li></ul></div>
-      <div class="card"><h3>Details</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Vents, term bars, edges</li><li><span class="tick">✓</span> Compatible flashings</li></ul></div>
-    </div>
-  </section>
+  <main id="top" class="page">
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-label="Torch-down modified bitumen roofing">
+      <div class="eyebrow">
+        <span class="chip">Flat & Low-Slope</span>
+        <span class="chip">Torch-Down</span>
+        <span class="chip">Modified Bitumen</span>
+      </div>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">Torch-Down (Modified Bitumen) Roofing</h1>
+          <p class="lede">Durable, seam-welded membranes for residential flat and low-slope roofs—clean parapet flashings, watertight details at skylights and walls, and proper drainage. Serving <strong>Escondido</strong>, <strong>North County San Diego</strong>, and <strong>Temecula</strong>.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#estimate" aria-label="Request a torch-down roofing estimate">Request Free Estimate</a>
+            <a class="btn btn-outline" href="#advantages">Advantages</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true"></div>
+      </div>
+    </section>
 
-  <section id="estimate" class="card airy" data-estimate-context data-category="Residential — Torch-Down" data-redirect="/thank-you/">
-    <div data-include="/components/forms/estimate.html"></div>
-  </section>
-</main>
-<div data-include="/components/footer.html"></div>
-<div class="actionbar"><a class="ab-btn call" href="tel:8589006163">Call</a><a class="ab-btn text" href="sms:+18589006163">Text</a><a class="ab-btn estimate" href="#estimate">Free Estimate</a></div>
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills" aria-label="Torch-down sections">
+      <a href="#advantages">Advantages</a>
+      <a href="#when">When It’s the Right Choice</a>
+      <a href="#options">Build Options</a>
+      <a href="#process">Our Process</a>
+      <a href="#faq">FAQ</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#estimate">Estimate</a>
+    </nav>
+
+    <!-- ===== ADVANTAGES ===== -->
+    <section id="advantages" class="section card airy hoverable">
+      <h2>Why Homeowners Choose Torch-Down</h2>
+      <div class="grid cols-2">
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Heat-welded seams for strong, reliable laps</li>
+          <li><span class="tick">✓</span> Multi-ply system resists weathering on low-slope roofs</li>
+          <li><span class="tick">✓</span> Clean wall, curb, and parapet flashing details</li>
+          <li><span class="tick">✓</span> Granulated cap sheets for durability and clean look</li>
+        </ul>
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Works around skylights, vents, drains & scuppers</li>
+          <li><span class="tick">✓</span> Optional reflective/cool color cap sheets</li>
+          <li><span class="tick">✓</span> Compatible with many existing flat roof decks</li>
+          <li><span class="tick">✓</span> Great for porches, additions, and whole-house flats</li>
+        </ul>
+      </div>
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Request Free Estimate</a>
+      </div>
+    </section>
+
+    <!-- ===== WHEN IT'S RIGHT ===== -->
+    <section id="when" class="section card airy hoverable">
+      <h2>When Torch-Down Is the Right Choice</h2>
+      <p class="section lede-narrow">Choose torch-down for roofs too low for shingles, for clean integration at parapet walls, or when you need robust flashing around skylights, curbs, and HVAC pads.</p>
+      <ul class="checklist relaxed">
+        <li><span class="tick">✓</span> Low-slope or flat areas where shingles won’t shed water</li>
+        <li><span class="tick">✓</span> Parapet walls that need continuous flashing</li>
+        <li><span class="tick">✓</span> Complex penetrations: skylights, vents, pipes, equipment</li>
+        <li><span class="tick">✓</span> Drainage with scuppers or internal drains</li>
+      </ul>
+    </section>
+
+    <!-- ===== OPTIONS / SPECS ===== -->
+    <section id="options" class="section card airy hoverable">
+      <h2>Common Build Options</h2>
+      <div class="specs">
+        <div class="card">
+          <h3>Base + Cap Configuration</h3>
+          <p class="muted">Two-ply systems are typical: a smooth base sheet and a granulated cap sheet, heat-welded at seams and terminations.</p>
+          <ul class="list">
+            <li>Targeted reinforcement at corners/valleys</li>
+            <li>Metal edge with welded terminations</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Details & Terminations</h3>
+          <p class="muted">Proper flashing at walls, curbs, and parapets is everything.</p>
+          <ul class="list">
+            <li>Counterflashing at stucco/siding</li>
+            <li>Drains/scuppers cleaned and set for flow</li>
+            <li>Skylight curb integration</li>
+          </ul>
+        </div>
+      </div>
+      <div class="media placeholder" style="margin-top:12px;">Add a flat roof detail photo or diagram (1200×700)</div>
+    </section>
+
+    <!-- ===== OUR PROCESS ===== -->
+    <section id="process" class="section card airy hoverable">
+      <h2>Our Torch-Down Installation Process</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>1) Inspect & Plan</h3><p class="muted">We verify slope, deck condition, drainage, and detail locations.</p></div>
+        <div class="card"><h3>2) Prep & Safety</h3><p class="muted">Surface prep, safe access, debris removal, and protection.</p></div>
+        <div class="card"><h3>3) Install Base & Cap</h3><p class="muted">Panels heat-welded with clean seams and reinforced corners.</p></div>
+        <div class="card"><h3>4) Flash & Finish</h3><p class="muted">Parapet/wall flashings, drains/scuppers, edges—then cleanup and photos.</p></div>
+      </div>
+      <p class="muted" style="margin-top:.4rem;"><strong>Real-estate transactions:</strong> inspections/reports are paid services—see the note near the form.</p>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section card airy hoverable">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>Can you install over my existing flat roof?</summary><p class="muted">Sometimes. We’ll evaluate deck condition, existing layers, and drainage before recommending overlay vs. tear-off.</p></details>
+        <details><summary>Will you fix ponding areas?</summary><p class="muted">We address drainage details and can recommend improvements. Mild birdbaths are common on flats and can often be managed.</p></details>
+        <details><summary>Do you coat torch-down roofs?</summary><p class="muted">Yes—reflective coatings can reduce heat and extend service life when applied at the right time.</p></details>
+      </div>
+    </section>
+
+    <!-- ===== AREAS (hierarchy) ===== -->
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head">
+        <h2 class="sa-title">Service Areas</h2>
+        <p class="muted">North County San Diego, Temecula Valley, the rest of San Diego County, and nearby Southern California communities.</p>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">1) North County San Diego</h3>
+          <p class="muted small" style="margin:0;">Escondido • Carlsbad • San Marcos • Encinitas • Vista • Oceanside • Poway • Rancho Bernardo</p>
+        </div>
+        <ul class="chip-grid" aria-label="North County cities">
+          <li><span class="sa-chip strong">Escondido 92025–92029</span></li>
+          <li><span class="sa-chip">Carlsbad 92008–92011</span></li>
+          <li><span class="sa-chip">San Marcos 92069–92078</span></li>
+          <li><span class="sa-chip">Encinitas 92024</span></li>
+          <li><span class="sa-chip">Vista 92081–92084</span></li>
+          <li><span class="sa-chip">Oceanside 92054–92057</span></li>
+          <li><span class="sa-chip">Poway 92064</span></li>
+          <li><span class="sa-chip">Rancho Bernardo 92127–92128</span></li>
+        </ul>
+        <details class="sa-more">
+          <summary class="sa-summary">See more North County ZIPs</summary>
+          <p class="muted small">Rancho Peñasquitos 92129 • Fallbrook 92028 • Solana Beach 92075 • Del Mar 92014 • La Costa 92009</p>
+        </details>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">2) Temecula Valley</h3>
+          <p class="muted small" style="margin:0;">Temecula • Murrieta • Menifee • Wildomar • Lake Elsinore</p>
+        </div>
+        <ul class="chip-grid" aria-label="Temecula area">
+          <li><span class="sa-chip strong">Temecula 92590–92592</span></li>
+          <li><span class="sa-chip">Murrieta 92562–92563</span></li>
+          <li><span class="sa-chip">Menifee 92584</span></li>
+          <li><span class="sa-chip">Wildomar 92595</span></li>
+          <li><span class="sa-chip">Lake Elsinore 92530–92532</span></li>
+        </ul>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">3) Greater San Diego County</h3>
+          <p class="muted small" style="margin:0;">Coastal, inland, and metro neighborhoods.</p>
+        </div>
+        <ul class="chip-grid" aria-label="San Diego County">
+          <li><span class="sa-chip">San Diego</span></li>
+          <li><span class="sa-chip">La Jolla</span></li>
+          <li><span class="sa-chip">Scripps Ranch</span></li>
+          <li><span class="sa-chip">Chula Vista</span></li>
+          <li><span class="sa-chip">La Mesa</span></li>
+          <li><span class="sa-chip">El Cajon</span></li>
+        </ul>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">4) Southern California</h3>
+          <p class="muted small" style="margin:0;">Select nearby communities by request.</p>
+        </div>
+        <ul class="chip-grid" aria-label="SoCal">
+          <li><span class="sa-chip">Orange County (by request)</span></li>
+          <li><span class="sa-chip">Riverside County (by request)</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== ESTIMATE FORM ===== -->
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer">
+        <em>*Free estimates exclude real-estate transaction inspections/reports. If you’re buying/selling or an agent, ask about our paid inspection/report options.</em>
+      </p>
+    </section>
+
+    <!-- CTA band -->
+    <section class="section">
+      <div class="cta-strip">
+        <div class="text"><strong>Ready to upgrade your flat roof?</strong> Seam-welded torch-down with clean, durable details.</div>
+        <a class="btn" href="#estimate">Request Free Estimate</a>
+      </div>
+    </section>
+
+    <!-- Cross-links -->
+    <section class="section">
+      <div class="grid cols-3">
+        <a class="card hoverable" href="/services/roof-repairs/flat-roof-repair/"><strong>Flat Roof Repair</strong><br><span class="muted">Targeted fixes & maintenance</span></a>
+        <a class="card hoverable" href="/services/roof-replacement/flat-roof/"><strong>Flat Roof Replacement</strong><br><span class="muted">TPO • Torch-Down • Coatings</span></a>
+        <a class="card hoverable" href="/services/residential/"><strong>Residential Roofing</strong><br><span class="muted">Shingle, tile, slate & more</span></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer include OUTSIDE <main> for full width -->
+  <div data-include="/components/footer.html"></div>
+
+  <!-- ===== JS ===== -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
+  <!-- Per-page form config (keeps Service Type on “Other”) -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Request Free Estimate",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Flat roof size? Parapet walls? Skylights/drains/scuppers? Any ponding or recent leaks? Attach photos if available.",
+      // No lockService so the dropdown stays on “Other”
+      hiddenFields: { campaign: "services/residential/torch-down", page_tag: "torch-down" }
+    };
+  </script>
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
