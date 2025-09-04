@@ -1,114 +1,394 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Roofing Glossary | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/footer.css"><
-  <style>.page{max-width:900px;margin:24px auto;padding:0 16px} dt{font-weight:700;margin-top:12px}</style>
+  <!-- ===== META ===== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Roofing Glossary (San Diego & Temecula) | Zenith Roofing Services</title>
+  <meta name="description" content="Straightforward roofing & gutter terms with plain-English definitions. Includes skylights, tile parts, underlayments, flat-roof systems, drainage metals, and common synonyms." />
+  <link rel="canonical" href="https://zenithroofingservices.com/glossary/" />
+
+  <!-- ===== SITE CSS (already in your project) ===== -->
+  <link rel="stylesheet" href="/css/header.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
+  <link rel="stylesheet" href="/css/ui.css" />
+
+  <!-- ===== Minimal page-scoped helpers (safe / scoped) ===== -->
+  <style>
+    .gloss-hero{ padding:var(--space-xl,3rem) var(--space-m,1.25rem); background:var(--surface-2,#0f172a); color:#fff; text-align:center; }
+    .gloss-hero h1{ margin:0 0 .5rem; font-size:clamp(1.8rem,3.5vw,2.6rem); line-height:1.1; }
+    .gloss-hero p{ max-width:70ch; margin:0 auto; opacity:.9; }
+
+    .gloss-wrap{ padding:min(6vw,2.5rem) var(--space-m,1.25rem); max-width:72rem; margin:0 auto; }
+    .controls{ display:grid; gap:.75rem; grid-template-columns:1fr; align-items:center; }
+    .controls input[type="search"]{
+      border:1px solid var(--ui-line,#e5e7eb); border-radius:12px; padding:.8rem 1rem; font-size:1rem; width:100%;
+      box-shadow:var(--ui-shadow,0 12px 28px rgba(2,12,32,.04));
+    }
+    .az{ display:flex; flex-wrap:wrap; gap:.4rem; }
+    .az a{ display:inline-block; padding:.4rem .55rem; border:1px solid var(--ui-line,#e5e7eb); border-radius:999px; text-decoration:none; font-size:.85rem; }
+    .note{ background:#f9fafb; border:1px solid #e5e7eb; border-radius:12px; padding:1rem; margin:1rem 0; }
+
+    /* Cards */
+    .terms{ display:grid; gap:1rem; margin-top:1rem; }
+    article.term{
+      background:var(--ui-bg,#fff); border:1px solid var(--ui-line,#e5e7eb); border-radius:var(--ui-radius,14px);
+      box-shadow:var(--ui-shadow,0 12px 28px rgba(2,12,32,.06)); padding:1rem 1rem 1rem;
+    }
+    .term h3{ margin:.2rem 0 .35rem; font-size:1.08rem; }
+    .term .aka{ font-size:.85rem; color:var(--muted,#6b7280); margin:0 0 .5rem; }
+    .term .body{ color:var(--text,#111827); }
+    .chips{ display:flex; gap:.4rem; flex-wrap:wrap; margin:.5rem 0 0; }
+    .chip{ font-size:.72rem; border:1px solid var(--ui-line,#e5e7eb); border-radius:999px; padding:.22rem .5rem; background:#fff; }
+    .see{ font-size:.9rem; margin:.5rem 0 0; }
+    .hide{ display:none !important; }
+    .kicker{ font:600 .78rem/1 var(--font, ui-sans-serif); letter-spacing:.08em; text-transform:uppercase; color:var(--muted,#6b7280); margin:.5rem 0; }
+  </style>
+
+  <!-- ===== JSON-LD: DefinedTermSet (basic starter you can expand) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"DefinedTermSet",
+    "name":"Roofing Glossary",
+    "url":"https://zenithroofingservices.com/glossary/",
+    "hasDefinedTerm":[
+      {"@type":"DefinedTerm","name":"Asphalt shingles","description":"Common residential roof covering made of fiberglass mat with asphalt and granules; also called composition, architectural, or dimensional shingles in the trade."},
+      {"@type":"DefinedTerm","name":"TPO","description":"Single-ply thermoplastic polyolefin membrane used on flat roofs; seams are heat-welded."},
+      {"@type":"DefinedTerm","name":"Valley metal","description":"Formed metal flashing installed where two roof planes meet to direct water downslope."}
+    ]
+  }
+  </script>
 </head>
 <body>
+  <!-- ===== HEADER INCLUDE ===== -->
   <div data-include="/components/header-section.html"></div>
-  <main class="page">
-    <h1>Roofing Glossary</h1>
-    <dl>
-      <dt>Underlayment</dt><dd>Water-resistant layer beneath tile/shingle systems.</dd>
-      <dt>Flashing</dt><dd>Metal pieces that seal roof joints (chimneys, walls, vents).</dd>
-      <dt>Cool Roof</dt><dd>Roofing designed to reflect more sunlight and absorb less heat.</dd>
-    </dl>
+
+  <main class="page" id="top">
+    <!-- ===== HERO ===== -->
+    <section class="gloss-hero">
+      <h1>Roofing & Gutters Glossary</h1>
+      <p>Plain-English definitions for homeowners, property managers, and real-estate pros across North County San Diego & Temecula. Includes common synonyms used by contractors.</p>
+      <!-- OPTIONAL HERO IMAGE:
+           Save a wide banner to /images/glossary/hero.webp and add a CSS class in base.css if you want a background image -->
+    </section>
+
+    <section class="gloss-wrap" aria-labelledby="glossary">
+      <div class="controls">
+        <label class="sr-only" for="q">Search terms & synonyms</label>
+        <input id="q" type="search" placeholder="Search terms & synonyms (e.g., 'dimensional', 'kick-out', 'CDX')" autocomplete="off" />
+        <nav class="az" aria-label="A–Z filter">
+          <!-- A–Z quick filter -->
+          <a href="#" data-letter="all"><strong>All</strong></a>
+          <a href="#" data-letter="A">A</a><a href="#" data-letter="B">B</a><a href="#" data-letter="C">C</a>
+          <a href="#" data-letter="D">D</a><a href="#" data-letter="E">E</a><a href="#" data-letter="F">F</a>
+          <a href="#" data-letter="G">G</a><a href="#" data-letter="H">H</a><a href="#" data-letter="I">I</a>
+          <a href="#" data-letter="J">J</a><a href="#" data-letter="K">K</a><a href="#" data-letter="L">L</a>
+          <a href="#" data-letter="M">M</a><a href="#" data-letter="N">N</a><a href="#" data-letter="O">O</a>
+          <a href="#" data-letter="P">P</a><a href="#" data-letter="Q">Q</a><a href="#" data-letter="R">R</a>
+          <a href="#" data-letter="S">S</a><a href="#" data-letter="T">T</a><a href="#" data-letter="U">U</a>
+          <a href="#" data-letter="V">V</a><a href="#" data-letter="W">W</a><a href="#" data-letter="X">X</a>
+          <a href="#" data-letter="Y">Y</a><a href="#" data-letter="Z">Z</a>
+        </nav>
+      </div>
+
+      <div class="note">
+        <strong>Friendly note:</strong> These are general explanations. Final scope, code compliance, and warranty terms follow your signed contract and local inspector requirements.
+      </div>
+
+      <!-- ===== TERMS LIST =====
+           HOW TO ADD A TERM:
+           1) Duplicate an <article class="term"> block.
+           2) Set data-letter to the first letter of the primary term.
+           3) Add data-synonyms with comma-separated synonyms & nicknames (will be searchable).
+           4) Keep the <h3 id="slug"> anchor id unique for deep links.
+           5) (Optional) Add photo placeholders inside <!-- PHOTO: ... --> comments.  -->
+      <div class="terms" id="terms">
+
+        <!-- A -->
+        <article class="term" data-letter="A" data-synonyms="composition, comp shingles, architectural shingles, dimensional shingles, laminate shingles, asphalt composition">
+          <h3 id="asphalt-shingles">Asphalt shingles</h3>
+          <p class="aka">Also called: <em>composition, architectural, dimensional, laminate</em> shingles.</p>
+          <div class="body">
+            <p>Common residential roof covering made from a fiberglass mat saturated with asphalt and topped with mineral granules. “Architectural / dimensional” are thicker, multi-layer profiles; “3-tab” is thinner and flat.</p>
+            <div class="chips"><span class="chip">Steep-slope</span><span class="chip">Residential</span></div>
+            <!-- PHOTO: /images/glossary/asphalt-architectural.webp -->
+          </div>
+          <p class="see">See also: <a href="#underlayment-peel">Peel-and-stick underlayment</a>, <a href="#valley-metal">Valley metal</a></p>
+        </article>
+
+        <article class="term" data-letter="A" data-synonyms="double dome, skylight dome, acrylic dome">
+          <h3 id="acrylic-double-dome-skylight">Acrylic double-dome skylight</h3>
+          <div class="body">
+            <p>A skylight with two molded acrylic domes—an inner and outer layer—to reduce condensation and improve insulation. Often seen on older flat roofs; modern alternatives include double-glazed glass units.</p>
+            <div class="chips"><span class="chip">Skylights</span><span class="chip">Flat roofs</span></div>
+            <!-- PHOTO: /images/glossary/acrylic-dome.webp -->
+          </div>
+          <p class="see">See also: <a href="#curb-mounted-skylight">Curb-mounted</a>, <a href="#deck-mounted-skylight">Deck-mounted</a></p>
+        </article>
+
+        <!-- B -->
+        <article class="term" data-letter="B" data-synonyms="birdstop, eave closure, tile closure">
+          <h3 id="bird-stop">Bird stop</h3>
+          <div class="body">
+            <p>Perforated metal or formed closure at the eave of tile roofs that blocks birds and debris while allowing airflow. Also helps the first course of tiles sit correctly.</p>
+            <div class="chips"><span class="chip">Tile</span></div>
+            <!-- PHOTO: /images/glossary/bird-stop.webp -->
+          </div>
+          <p class="see">See also: <a href="#weather-blocking">Weather blocking</a>, <a href="#tile-kicker">Tile kicker</a></p>
+        </article>
+
+        <!-- C -->
+        <article class="term" data-letter="C" data-synonyms="C-D Exposure 1, exterior glue plywood">
+          <h3 id="cdx-plywood">CDX plywood</h3>
+          <div class="body">
+            <p>Plywood with a <em>C</em>-grade face and <em>D</em>-grade back veneer; “X” indicates exterior-grade glue. A common roof sheathing panel when properly fastened and dried-in promptly.</p>
+            <div class="chips"><span class="chip">Sheathing</span></div>
+            <!-- PHOTO: /images/glossary/cdx.webp -->
+          </div>
+          <p class="see">See also: <a href="#osb">OSB</a>, <a href="#tongue-and-groove">Tongue-and-groove</a></p>
+        </article>
+
+        <article class="term" data-letter="C" data-synonyms="concrete tile, standard weight tile, heavyweight tile">
+          <h3 id="concrete-tiles">Concrete tiles (standard weight)</h3>
+          <div class="body">
+            <p>Cement-based tiles in profiles like “S,” “flat,” or “shake.” Durable but heavy; the structure must be rated for the load. Often reused during lift-and-lay when underlayment is replaced.</p>
+            <div class="chips"><span class="chip">Tile</span><span class="chip">Steep-slope</span></div>
+          </div>
+          <p class="see">See also: <a href="#lightweight-concrete-tiles">Lightweight concrete tiles</a>, <a href="#weather-blocking">Weather blocking</a></p>
+        </article>
+
+        <article class="term" data-letter="C" data-synonyms="curb mount skylight, curb skylight">
+          <h3 id="curb-mounted-skylight">Curb-mounted skylight</h3>
+          <div class="body">
+            <p>Skylight set over a site-built or factory curb that rises above the roof surface. Useful on flat roofs and for re-roofing because the curb flashing integrates with new membranes or shingles.</p>
+            <div class="chips"><span class="chip">Skylights</span></div>
+          </div>
+          <p class="see">Compare: <a href="#deck-mounted-skylight">Deck-mounted skylight</a></p>
+        </article>
+
+        <!-- D -->
+        <article class="term" data-letter="D" data-synonyms="deck mount skylight, low-profile skylight">
+          <h3 id="deck-mounted-skylight">Deck-mounted skylight</h3>
+          <div class="body">
+            <p>Skylight frame mounts directly to the roof deck (no separate curb). Lower profile; requires manufacturer flashing kits and careful integration with shingles or tile.</p>
+            <div class="chips"><span class="chip">Skylights</span></div>
+          </div>
+          <p class="see">Compare: <a href="#curb-mounted-skylight">Curb-mounted skylight</a></p>
+        </article>
+
+        <!-- F -->
+        <article class="term" data-letter="F" data-synonyms="eave trim, fascia board">
+          <h3 id="fascia">Fascia</h3>
+          <div class="body">
+            <p>Vertical finishing board at the roof edge where gutters attach. Protects rafter tails and provides a straight line for drip edge and gutters.</p>
+            <div class="chips"><span class="chip">Trim</span><span class="chip">Gutters</span></div>
+          </div>
+          <p class="see">See also: <a href="#rafter-tails">Rafter tails</a>, <a href="#gutters">Gutters</a></p>
+        </article>
+
+        <!-- G -->
+        <article class="term" data-letter="G" data-synonyms="downspout, leader, K-style, box gutter">
+          <h3 id="gutters">Gutters</h3>
+          <div class="body">
+            <p>Channels that capture roof runoff and carry it via downspouts (leaders). Common profiles include K-style and box. Proper sizing, slope, and outlets prevent overflow at valleys and eaves.</p>
+            <div class="chips"><span class="chip">Drainage</span></div>
+          </div>
+          <p class="see">See also: <a href="#valley-metal">Valley metal</a>, <a href="#tile-kicker">Kick-out flashing</a></p>
+        </article>
+
+        <!-- L -->
+        <article class="term" data-letter="L" data-synonyms="light weight tile">
+          <h3 id="lightweight-concrete-tiles">Lightweight concrete tiles</h3>
+          <div class="body">
+            <p>Concrete tiles manufactured to lower weight per square (often used in reroofs where structure didn’t account for standard weight). More fragile; walk paths and handling matter.</p>
+            <div class="chips"><span class="chip">Tile</span></div>
+          </div>
+        </article>
+
+        <!-- O -->
+        <article class="term" data-letter="O" data-synonyms="oriented strand board">
+          <h3 id="osb">OSB</h3>
+          <div class="body">
+            <p>Engineered wood panel made from compressed strands with adhesive. Performs well when kept dry and properly ventilated; edges are sensitive to prolonged moisture before dry-in.</p>
+            <div class="chips"><span class="chip">Sheathing</span></div>
+          </div>
+          <p class="see">See also: <a href="#cdx-plywood">CDX plywood</a></p>
+        </article>
+
+        <!-- R -->
+        <article class="term" data-letter="R" data-synonyms="rafter tails, exposed tails">
+          <h3 id="rafter-tails">Rafter tails</h3>
+          <div class="body">
+            <p>Ends of the roof rafters that extend to the eave. Often covered by fascia; rot at tails is common where gutters overflow or fascia/soffit aren’t sealed.</p>
+            <div class="chips"><span class="chip">Structure</span></div>
+          </div>
+          <p class="see">See also: <a href="#fascia">Fascia</a>, <a href="#gutters">Gutters</a></p>
+        </article>
+
+        <!-- S -->
+        <article class="term" data-letter="S" data-synonyms="skip sheathing, spaced plank deck">
+          <h3 id="spaced-sheathing">Spaced (skip) sheathing</h3>
+          <div class="body">
+            <p>Decking made of boards installed with gaps, typical under old wood shakes. If shingles were later installed over it, additional sheathing is needed for proper nailing and ventilation.</p>
+            <div class="chips"><span class="chip">Legacy roofs</span></div>
+          </div>
+          <p class="see">See also: <a href="#wood-shakes">Wood shakes</a>, <a href="#shiplap">Shiplap</a></p>
+        </article>
+
+        <article class="term" data-letter="S" data-synonyms="ship lap, lap siding boards">
+          <h3 id="shiplap">Shiplap</h3>
+          <div class="body">
+            <p>Boards with rabbeted edges that overlap to create a relatively tight surface. Used as roof or wall decking on older homes; not the same as skip sheathing.</p>
+            <div class="chips"><span class="chip">Sheathing</span></div>
+          </div>
+        </article>
+
+        <article class="term" data-letter="S" data-synonyms="shadow board, barge board">
+          <h3 id="shadow-board">Shadow board</h3>
+          <div class="body">
+            <p>Local term sometimes used for the decorative board at gable edges (barge board) or fascia detail casting a “shadow line.” Provides finish and helps shed water from the edge.</p>
+            <div class="chips"><span class="chip">Trim</span></div>
+          </div>
+        </article>
+
+        <!-- T -->
+        <article class="term" data-letter="T" data-synonyms="kick-out flashing, diverter flashing, tile diverter">
+          <h3 id="tile-kicker">Tile kicker</h3>
+          <div class="body">
+            <p>Diverter flashing installed where a roof edge meets a wall near the eave. “Kicks” water away from the siding and into the gutter—critical to stop wall rot and stucco staining.</p>
+            <div class="chips"><span class="chip">Flashing</span></div>
+            <!-- PHOTO: /images/glossary/kickout.webp -->
+          </div>
+          <p class="see">See also: <a href="#gutters">Gutters</a>, <a href="#tile-pan-flashing">Tile pan flashing</a></p>
+        </article>
+
+        <article class="term" data-letter="T" data-synonyms="tile pan, headwall pan, pan flashing">
+          <h3 id="tile-pan-flashing">Tile pan flashing</h3>
+          <div class="body">
+            <p>Formed metal pan used at headwalls, chimneys, and low-slope transitions with tile. Creates a trough to capture and redirect water beneath tiles where standard step flashing isn’t enough.</p>
+            <div class="chips"><span class="chip">Flashing</span><span class="chip">Tile</span></div>
+          </div>
+          <p class="see">See also: <a href="#valley-metal">Valley metal</a>, <a href="#weather-blocking">Weather blocking</a></p>
+        </article>
+
+        <article class="term" data-letter="T" data-synonyms="thermoplastic polyolefin, single-ply white membrane">
+          <h3 id="tpo">TPO</h3>
+          <div class="body">
+            <p>Single-ply white membrane for flat roofs. Seams are hot-air welded. Reflective, lightweight, and usually installed over insulation or a recover board on commercial and residential flats.</p>
+            <div class="chips"><span class="chip">Flat roofs</span><span class="chip">Single-ply</span></div>
+          </div>
+          <p class="see">Compare: <a href="#torch-down">Torch-down</a></p>
+        </article>
+
+        <article class="term" data-letter="T" data-synonyms="SBS modified bitumen, mod bit, torch applied">
+          <h3 id="torch-down">Torch-down (modified bitumen)</h3>
+          <div class="body">
+            <p>Asphalt membrane reinforced with mat and polymers, heat-fused at seams. Rugged and repair-friendly; requires fire-safe practices and skilled installers.</p>
+            <div class="chips"><span class="chip">Flat roofs</span></div>
+          </div>
+          <p class="see">Compare: <a href="#tpo">TPO</a></p>
+        </article>
+
+        <article class="term" data-letter="T" data-synonyms="T&G boards">
+          <h3 id="tongue-and-groove">Tongue-and-groove (T&amp;G)</h3>
+          <div class="body">
+            <p>Boards milled with a tongue on one edge and a groove on the other that interlock to create a tight deck. Found under older roofs and patio covers.</p>
+            <div class="chips"><span class="chip">Sheathing</span></div>
+          </div>
+        </article>
+
+        <!-- V -->
+        <article class="term" data-letter="V" data-synonyms="W-valley, open valley metal, closed valley">
+          <h3 id="valley-metal">Valley metal</h3>
+          <div class="body">
+            <p>Formed flashing installed where two roof planes meet (valley). Types include open (exposed metal, often W-valley) and closed (shingles or tile overlay). Directs high volumes of water safely downslope.</p>
+            <div class="chips"><span class="chip">Flashing</span><span class="chip">Drainage</span></div>
+          </div>
+        </article>
+
+        <!-- W -->
+        <article class="term" data-letter="W" data-synonyms="cedar shakes, hand-split shakes">
+          <h3 id="wood-shakes">Wood shakes</h3>
+          <div class="body">
+            <p>Thicker, split wood roof material (commonly cedar). Often installed over skip sheathing. Aging shakes are a frequent source of leaks and can hide deck issues under later shingle overlays.</p>
+            <div class="chips"><span class="chip">Legacy roofs</span></div>
+          </div>
+          <p class="see">See also: <a href="#spaced-sheathing">Spaced sheathing</a></p>
+        </article>
+
+        <article class="term" data-letter="W" data-synonyms="tile foam closures, mortar closures, eave closures, weather block">
+          <h3 id="weather-blocking">Weather blocking (tile)</h3>
+          <div class="body">
+            <p>Foam, mortar, or formed closures used to seal tile edges at ridges, hips, and eaves against wind-driven rain and pests while allowing ventilation where required.</p>
+            <div class="chips"><span class="chip">Tile</span></div>
+          </div>
+          <p class="see">See also: <a href="#bird-stop">Bird stop</a></p>
+        </article>
+
+        <!-- ===== ADD MORE TERMS BELOW =====
+             Example scaffold:
+             <article class="term" data-letter="P" data-synonyms="ponding, standing water">
+               <h3 id="ponding-water">Ponding water</h3>
+               <div class="body">
+                 <p>Standing water on a flat roof 48+ hours after rain. Causes include low spots, clogged drains, or insufficient slope. May shorten membrane life at seams.</p>
+                 <div class="chips"><span class="chip">Flat roofs</span></div>
+                 <!-- PHOTO: /images/glossary/ponding.webp -->
+               </div>
+               <p class="see">See also: <a href="#tpo">TPO</a>, <a href="#torch-down">Torch-down</a></p>
+             </article>
+        -->
+      </div>
+
+      <!-- Light CTA (optional, non-pushy) -->
+      <div class="note" style="margin-top:1.25rem">
+        Have a term you don’t see here? <a href="/#estimate">Ask us</a>—we’ll explain it and add it to the glossary.
+      </div>
+    </section>
   </main>
-  <div data-include="/components/footer.html"></div>
 
-<script>
-  (function () {
-    // fetch + inject a single [data-include]
-    async function include(el) {
-      const src = el.getAttribute('data-include');
-      if (!src) return;
-      try {
-        const res = await fetch(src);             // normal caching
-        if (!res.ok) throw new Error('Failed ' + src);
-        const html = await res.text();
-        el.outerHTML = html;
-      } catch (e) {
-        console.error('❌ Include error:', src, e);
-      }
+  <!-- ===== FOOTER INCLUDE ===== -->
+  <div data-include="/components/footer-section.html"></div>
+
+  <!-- ===== EXISTING PARTIAL LOADER ===== -->
+  <script src="/js/loader.js" defer></script>
+
+  <!-- ===== Tiny search & A–Z filter (no dependencies) ===== -->
+  <script>
+    // Search matches: title, synonyms, and text body
+    const q = document.getElementById('q');
+    const terms = [...document.querySelectorAll('article.term')];
+    const az = document.querySelector('.az');
+
+    function normalize(s){ return (s||'').toLowerCase(); }
+
+    function applyFilters(letter = 'all'){
+      const needle = normalize(q.value);
+      terms.forEach(el => {
+        const title = normalize(el.querySelector('h3')?.textContent);
+        const syns  = normalize(el.dataset.synonyms);
+        const body  = normalize(el.querySelector('.body')?.textContent);
+        const startsWith = (letter==='all') || (normalize(el.dataset.letter)===normalize(letter));
+        const matches = !needle || (title.includes(needle) || syns.includes(needle) || body.includes(needle));
+        el.classList.toggle('hide', !(startsWith && matches));
+      });
     }
 
-    // Header height + collapsed state WITHOUT scroll reflow
-    function setupHeaderObservers() {
-      const root = document.documentElement;
-      const getHeader = () => document.querySelector('.mobile-header') || document.querySelector('.header');
+    q.addEventListener('input', () => applyFilters(currentLetter));
+    let currentLetter = 'all';
+    az.addEventListener('click', (e)=>{
+      const link = e.target.closest('a[data-letter]');
+      if(!link) return;
+      e.preventDefault();
+      currentLetter = link.dataset.letter;
+      applyFilters(currentLetter);
+      // Visual feedback (optional): bold active
+      az.querySelectorAll('a').forEach(a=>a.style.fontWeight = a===link ? '700':'400');
+    });
 
-      function updateHeaderH() {
-        const h = getHeader();
-        if (h) root.style.setProperty('--header-h', Math.round(h.offsetHeight) + 'px');
-      }
-
-      // update when the header actually resizes
-      if ('ResizeObserver' in window) {
-        const ro = new ResizeObserver(updateHeaderH);
-        const h = getHeader(); if (h) ro.observe(h);
-      }
-      window.addEventListener('load', updateHeaderH, { passive: true });
-      window.addEventListener('resize', () => requestAnimationFrame(updateHeaderH), { passive: true });
-
-      // toggle nav-collapsed via IntersectionObserver (no scroll work)
-      const sent = document.createElement('div');
-      sent.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;';
-      document.body.prepend(sent);
-      new IntersectionObserver(([e]) => {
-        root.classList.toggle('nav-collapsed', !e.isIntersecting);
-      }, { rootMargin: '-80px 0px 0px 0px' }).observe(sent); // adjust -80px if your header is taller
-    }
-
-    async function init() {
-      // include everything ELSE (hero has an LCP stub now)
-      const includes = Array.from(document.querySelectorAll('[data-include]'));
-      await Promise.all(includes.map(include));
-
-      // Upgrade the stub to the real hero component while REUSING the already-downloaded LCP <img>
-      const stub = document.getElementById('hero-stub');
-      if (stub) {
-        const res = await fetch('components/hero-section.html');
-        if (res.ok) {
-          const html = await res.text();
-          const tpl = document.createElement('template');
-          tpl.innerHTML = html.trim();
-          const real = tpl.content.querySelector('section.zenith-hero') || tpl.content.firstElementChild;
-          if (real) {
-            const lcp = document.getElementById('lcp-img');
-            const realPic = real.querySelector('.zenith-hero-media picture') || real.querySelector('.zenith-hero-media');
-            if (lcp && realPic) {
-              const existing = realPic.querySelector('.zenith-hero-mobile-img');
-              if (existing) existing.replaceWith(lcp); else realPic.appendChild(lcp);
-            }
-            stub.replaceWith(real);
-          }
-        }
-      }
-
-      // your existing inits (unchanged)
-      if (window.initMobileMenu) window.initMobileMenu();
-      [
-        'initEstimateForm','initAboutSection','initWhyChoose','initTrustSection',
-        'initPhotoSection','initTestimonials','initCTA','initServiceAreas',
-        'initRealEstate','initFooter','initHeader'
-      ].forEach(n => { if (typeof window[n] === 'function') window[n](); });
-
-      setupHeaderObservers();   // replaces old setLayoutFlags/scroll listeners
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
-  })();
+    // Initial state:
+    applyFilters('all');
   </script>
-<script src="/js/loader.js" defer></script>
-<script src="/js/header.js" defer></script>
 </body>
 </html>
