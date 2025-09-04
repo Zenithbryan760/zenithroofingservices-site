@@ -1,68 +1,95 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ===== Meta & SEO ===== -->
-  <meta charset="utf-8" />
+  <!-- ===== META ===== -->
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Roof Tune-Up in North County San Diego & Temecula | Zenith Roofing Services</title>
-  <meta name="description" content="Professional roof tune-ups to stop small issues before they become leaks—flashing reseal, minor repairs, debris clearing, and photo report. Serving North County San Diego (Escondido, Carlsbad, San Marcos, Encinitas, Vista), Temecula/Murrieta, and greater San Diego." />
-  <link rel="canonical" href="https://zenithroofingservices.com/services/maintenance/roof-tune-up/"/>
+  <meta name="description" content="Professional roof tune-ups to prevent leaks: flashing reseal, minor fixes, debris clearing, and a photo summary. Serving Escondido, San Marcos, Carlsbad, Encinitas, Vista, Oceanside, Temecula & Murrieta." />
+  <link rel="canonical" href="https://zenithroofingservices.com/services/roof-repairs/roof-tune-up/"/>
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 
-  <!-- Open Graph -->
+  <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Roof Tune-Up | North County San Diego, Temecula & San Diego County"/>
-  <meta property="og:description" content="Extend roof life with a pro tune-up: minor fixes, flashing reseal, valley cleanout & photo summary. Escondido • Carlsbad • San Marcos • Encinitas • Vista • Temecula • Murrieta."/>
+  <meta property="og:description" content="Extend roof life with a pro roof tune-up: sealant touch-ups, flashing reseal, valley cleanout & photo summary. Escondido • Carlsbad • San Marcos • Encinitas • Vista • Temecula • Murrieta."/>
   <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://zenithroofingservices.com/services/maintenance/roof-tune-up/"/>
+  <meta property="og:url" content="https://zenithroofingservices.com/services/roof-repairs/roof-tune-up/"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Shared CSS (footer.css included so footer is not “contained”) -->
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/footer.css">
-  <link rel="stylesheet" href="/css/ui.css">
-  <link rel="stylesheet" href="/css/estimate-form.css">
+  <!-- Shared CSS -->
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <!-- Form CSS -->
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
 
-  <!-- Preload common JS -->
-  <link rel="preload" href="/js/header.js" as="script"/>
-
-  <!-- Page micro styles (lean & scoped to .page) -->
+  <!-- Page-scope polish (mirrors gutter page feel) -->
   <style>
-    .page .hero .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:.5rem}
-    .page .hero .chip{border:1px solid var(--ui-line);border-radius:999px;padding:.4rem .7rem;background:#fff;font-weight:700}
-    .page .inclist{display:grid;gap:12px;grid-template-columns:1fr}
-    @media(min-width:820px){.page .inclist{grid-template-columns:1fr 1fr}}
-    .page .media.placeholder{background:linear-gradient(135deg,#f8fafc,#eef6ff);border:1px dashed var(--ui-line);border-radius:12px;height:210px;display:flex;align-items:center;justify-content:center;color:#64748b;font-weight:700}
+    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    html { scroll-behavior: smooth; }
 
-    /* Hide Service Type select on this page ONLY (we’ll inject the value) */
-    .estimate-form-block #serviceType{display:none !important;}
+    .page .hero{
+      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border:1px solid var(--ui-line);
+      border-radius:18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow:0 14px 34px rgba(2,12,32,.08);
+    }
+    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
+    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
+    .page .hero .split{ align-items:center; }
+    .page .hero .media{
+      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
+      background:#fff; box-shadow:var(--ui-shadow); transform:translateZ(0);
+    }
+    .page .hero .media::before{ content:""; display:block; aspect-ratio:16/10;
+      background:linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08)); }
+
+    .page h2{ margin-bottom:.4rem; }
+    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
+
+    .page .card.hoverable{ will-change:transform, box-shadow; }
+    .page .card.hoverable:hover{ transform:translateY(-3px); }
+
+    .page .cta-strip{
+      background:#072e59; color:#fff; border-radius:16px; padding:16px;
+      display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    }
+    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
+    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
+
+    .page .mini-list{ margin:.5rem 0 0 .95rem; color:#334155; }
+    .page .mini-list li{ margin:.25rem 0; }
+    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
   </style>
 
-  <!-- JSON-LD: Breadcrumb + Service + FAQ -->
+  <!-- JSON-LD (Service + FAQ) -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Services","item":"https://zenithroofingservices.com/services/"},
-    {"@type":"ListItem","position":2,"name":"Maintenance","item":"https://zenithroofingservices.com/services/maintenance/"},
-    {"@type":"ListItem","position":3,"name":"Roof Tune-Up","item":"https://zenithroofingservices.com/services/maintenance/roof-tune-up/"}
-  ]}
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Roof Tune-Up",
+    "serviceType":"Roof tune-up and minor maintenance",
+    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
+    "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"},{"@type":"City","name":"Murrieta"}],
+    "description":"Pro roof tune-up to extend roof life: sealant touch-ups, flashing reseal, debris/valley cleanout and a photo summary."
+  }
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Service","name":"Roof Tune-Up","serviceType":"Roof tune-up and minor maintenance",
-   "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
-   "areaServed":[
-     {"@type":"City","name":"Escondido"},{"@type":"City","name":"Carlsbad"},
-     {"@type":"City","name":"San Marcos"},{"@type":"City","name":"Encinitas"},
-     {"@type":"City","name":"Vista"},{"@type":"City","name":"Oceanside"},
-     {"@type":"City","name":"Temecula"},{"@type":"City","name":"Murrieta"},
-     {"@type":"City","name":"San Diego"}],
-   "description":"Proactive roof tune-up that extends roof life: minor shingle/tile fixes, flashing reseal, sealant touch-ups, valley and debris cleanout, and a photo summary."}
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"What is included in a roof tune-up?","acceptedAnswer":{"@type":"Answer","text":"Minor repairs (where feasible), sealant touch-ups, flashing reseal at critical joints, cleaning of valleys and roof-to-gutter transitions, and a brief photo summary."}},
-    {"@type":"Question","name":"How often should I get a roof tune-up?","acceptedAnswer":{"@type":"Answer","text":"Annually or before/after heavy storm seasons in Southern California is typical. Homes under trees or with complex rooflines may benefit from twice per year."}},
-    {"@type":"Question","name":"Do you serve North County San Diego and Temecula?","acceptedAnswer":{"@type":"Answer","text":"Yes. We work across North County San Diego (Escondido, San Marcos, Carlsbad, Encinitas, Vista, Oceanside), Temecula/Murrieta, the rest of San Diego County, and nearby Southern California communities."}}
-  ]}
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What is included in a roof tune-up?","acceptedAnswer":{"@type":"Answer","text":"Minor fixes where feasible, flashing reseal, sealant touch-ups, debris/valley cleanout and a brief photo summary."}},
+      {"@type":"Question","name":"How often should I schedule it?","acceptedAnswer":{"@type":"Answer","text":"Annually is common; twice a year for heavy debris, coastal exposure, or complex rooflines."}},
+      {"@type":"Question","name":"Do you cover my area?","acceptedAnswer":{"@type":"Answer","text":"Yes—North County San Diego (Escondido, Carlsbad, San Marcos, Encinitas, Vista, Oceanside), Temecula/Murrieta and greater San Diego County."}}
+    ]
+  }
   </script>
 </head>
 <body>
@@ -70,200 +97,151 @@
   <div data-include="/components/header-section.html"></div>
 
   <main id="top" class="page">
-    <!-- Hero -->
-    <section class="hero card airy">
-      <span class="chip">Maintenance • Tune-Up</span>
-      <h1>Roof Tune-Up — Prevent Leaks, Extend Roof Life</h1>
-      <p class="lede">Stop small issues before they become costly leaks. Our <strong>roof tune-up</strong> includes targeted maintenance, sealant touch-ups, and debris clearing—ideal for <strong>North County San Diego</strong>, <strong>Temecula</strong>, and the greater San Diego area.</p>
-      <div class="chips">
-        <span class="chip">Flashing Reseal</span>
-        <span class="chip">Minor Fixes</span>
-        <span class="chip">Valley Cleanout</span>
+    <!-- ===== HERO (split) ===== -->
+    <section class="hero" aria-label="Roof Tune-Up">
+      <div class="eyebrow">
+        <span class="chip">Maintenance</span>
+        <span class="chip">Tune-Up</span>
         <span class="chip">Photo Summary</span>
       </div>
-      <div class="cta">
-        <a class="btn btn-primary" href="#estimate">Request Free Estimate</a>
-        <a class="btn btn-outline" href="/services/roof-replacements/">Need Full Replacement?</a>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">Roof Tune-Up — Prevent Leaks & Extend Roof Life</h1>
+          <p class="lede">Targeted maintenance to keep water where it belongs: sealant touch-ups, flashing reseal, debris & valley cleanout, plus a brief photo summary. Serving <strong>North County San Diego</strong>, <strong>Temecula</strong> and the greater San Diego area.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#estimate" aria-label="Request a roof tune-up estimate">Request Free Estimate</a>
+            <a class="btn btn-outline" href="#whats-included">What’s Included</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true"></div>
       </div>
     </section>
 
-    <!-- What’s included -->
-    <section class="section">
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills" aria-label="Tune-up page sections">
+      <a href="#whats-included">What’s Included</a>
+      <a href="#process">Our Process</a>
+      <a href="#faq">FAQ</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#estimate">Estimate</a>
+    </nav>
+
+    <!-- ===== WHAT'S INCLUDED ===== -->
+    <section id="whats-included" class="section card airy hoverable">
       <h2>What’s Included in a Roof Tune-Up</h2>
-      <div class="inclist">
-        <div class="card">
-          <h3>Targeted Maintenance</h3>
-          <ul class="checklist">
-            <li><span class="tick">✓</span> Sealant refresh at penetrations (vents, pipes, skylights).</li>
-            <li><span class="tick">✓</span> Re-secure small loose flashings where feasible.</li>
-            <li><span class="tick">✓</span> Minor shingle/tile resets (non-structural, accessible areas).</li>
+      <div class="grid cols-2">
+        <div>
+          <ul class="checklist relaxed">
+            <li><span class="tick">✓</span> Sealant refresh at vents, pipes, skylights</li>
+            <li><span class="tick">✓</span> Reseal/resecure accessible flashings</li>
+            <li><span class="tick">✓</span> Minor shingle/tile resets (where feasible)</li>
           </ul>
         </div>
-        <div class="card">
-          <h3>Drainage & Cleanout</h3>
-          <ul class="checklist">
-            <li><span class="tick">✓</span> Clear valleys and roof-to-gutter transitions.</li>
-            <li><span class="tick">✓</span> Identify gutter/downspout issues (recommend fixes).</li>
-            <li><span class="tick">✓</span> Note ponding or problem spots for follow-up.</li>
+        <div>
+          <p class="section lede-narrow" style="margin:0;">We focus on the high-value maintenance items that stop small issues from becoming leaks. If we discover larger concerns, we’ll document them and recommend next steps.</p>
+          <ul class="mini-list">
+            <li>Valley and roof-to-gutter cleanout</li>
+            <li>Basic drainage checks</li>
+            <li>Photo summary with notes</li>
           </ul>
-        </div>
-        <div class="card">
-          <h3>Documentation</h3>
-          <ul class="checklist">
-            <li><span class="tick">✓</span> Brief photo summary of findings.</li>
-            <li><span class="tick">✓</span> Recommendations prioritized by urgency.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Best For Southern CA Roofs</h3>
-          <p class="muted">Great for homes in <strong>Escondido, San Marcos, Carlsbad, Encinitas, Vista, Oceanside</strong>, <strong>Temecula</strong>, <strong>Murrieta</strong>, and across <strong>San Diego County</strong> to prep for storms or annual upkeep.</p>
         </div>
       </div>
-    </section>
-
-    <!-- Image slot (ready for photos later) -->
-    <section class="section">
-      <div class="media placeholder">Add a “before & after” tune-up photo here (1200×700)</div>
-    </section>
-
-    <!-- CTA band -->
-    <section class="section cta-band">
-      <div class="text">
-        <h3 style="margin:.2rem 0 .35rem;">Need a quick, professional tune-up?</h3>
-        <p class="muted" style="margin:0;">We work fast, clean, and document what we find so you can plan next steps.</p>
-      </div>
-      <div class="actions">
+      <div class="center-actions">
         <a class="btn btn-primary" href="#estimate">Request Free Estimate</a>
-        <a class="btn btn-outline" href="/services/roof-repairs/roof-leak-repair/">Have an active leak?</a>
       </div>
     </section>
 
-    <!-- Modern Service Areas (hierarchy) -->
-    <section class="section service-areas-modern">
-      <h2>Service Areas</h2>
-
-      <div class="card airy">
-        <div class="sa-head">
-          <h3 class="sa-title">1) North County San Diego</h3>
-          <p class="muted small" style="margin:0;">Escondido • Carlsbad • San Marcos • Encinitas • Vista • Oceanside • Poway • Rancho Bernardo</p>
-        </div>
-        <ul class="chip-grid" aria-label="North County cities">
-          <li><span class="sa-chip strong">Escondido 92025–92029</span></li>
-          <li><span class="sa-chip">Carlsbad 92008–92011</span></li>
-          <li><span class="sa-chip">San Marcos 92069–92078</span></li>
-          <li><span class="sa-chip">Encinitas 92024</span></li>
-          <li><span class="sa-chip">Vista 92081–92084</span></li>
-          <li><span class="sa-chip">Oceanside 92054–92057</span></li>
-          <li><span class="sa-chip">Poway 92064</span></li>
-          <li><span class="sa-chip">Rancho Bernardo 92127–92128</span></li>
-        </ul>
-        <details class="sa-more">
-          <summary class="sa-summary">See more North County ZIPs</summary>
-          <p class="muted small">Rancho Peñasquitos 92129 • Fallbrook 92028 • Solana Beach 92075 • Del Mar 92014 • La Costa 92009</p>
-        </details>
-      </div>
-
-      <div class="card airy">
-        <div class="sa-head">
-          <h3 class="sa-title">2) Temecula Valley</h3>
-          <p class="muted small" style="margin:0;">Temecula • Murrieta • Menifee • Wildomar • Lake Elsinore</p>
-        </div>
-        <ul class="chip-grid" aria-label="Temecula area cities">
-          <li><span class="sa-chip strong">Temecula 92590–92592</span></li>
-          <li><span class="sa-chip">Murrieta 92562–92563</span></li>
-          <li><span class="sa-chip">Menifee 92584</span></li>
-          <li><span class="sa-chip">Wildomar 92595</span></li>
-          <li><span class="sa-chip">Lake Elsinore 92530–92532</span></li>
-        </ul>
-      </div>
-
-      <div class="card airy">
-        <div class="sa-head">
-          <h3 class="sa-title">3) Greater San Diego County</h3>
-          <p class="muted small" style="margin:0;">Coastal, inland, and metro neighborhoods.</p>
-        </div>
-        <ul class="chip-grid" aria-label="San Diego County">
-          <li><span class="sa-chip">San Diego</span></li>
-          <li><span class="sa-chip">La Jolla</span></li>
-          <li><span class="sa-chip">Scripps Ranch</span></li>
-          <li><span class="sa-chip">Chula Vista</span></li>
-          <li><span class="sa-chip">La Mesa</span></li>
-          <li><span class="sa-chip">El Cajon</span></li>
-        </ul>
-      </div>
-
-      <div class="card airy">
-        <div class="sa-head">
-          <h3 class="sa-title">4) Southern California</h3>
-          <p class="muted small" style="margin:0;">Select nearby communities by request.</p>
-        </div>
-        <ul class="chip-grid" aria-label="SoCal">
-          <li><span class="sa-chip">Orange County (by request)</span></li>
-          <li><span class="sa-chip">Riverside County (by request)</span></li>
-        </ul>
+    <!-- ===== PROCESS ===== -->
+    <section id="process" class="section card airy hoverable">
+      <h2>Our Tune-Up Process</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>1) Schedule & Access</h3><p class="muted">We coordinate a window; safety and roof protection come first.</p></div>
+        <div class="card"><h3>2) Diagnose</h3><p class="muted">Trace known concerns and confirm scope on site.</p></div>
+        <div class="card"><h3>3) Perform Tune-Up</h3><p class="muted">Sealant touch-ups, flashing reseal, debris/valley cleanout, minor resets.</p></div>
+        <div class="card"><h3>4) Photo Summary</h3><p class="muted">Before/after photos with brief notes for your records.</p></div>
       </div>
     </section>
 
-    <!-- ===== Estimate Form (shared component; exact rows preserved) ===== -->
-    <section id="estimate" class="section">
-      <div class="estimate-form-block zenith-card">
-        <div class="zenith-header">
-          <p class="form-title">Request a Roof Tune-Up</p>
-          <p class="form-subtitle">Fast scheduling • Photo summary • Local pros</p>
-        </div>
-        <!-- IMPORTANT: keep the same include so we get the same Row 1–6 layout -->
-        <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
-        <p class="form-disclaimer">
-          <em>*Free estimates exclude real-estate transaction reports. For inspections/reports, see Real Estate Services.</em>
-        </p>
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section card airy hoverable">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>How often should I schedule one?</summary><p class="muted">Annually is typical; twice a year for homes under trees, near the coast, or with complex rooflines.</p></details>
+        <details><summary>Will you walk on my tiles/shingles?</summary><p class="muted">Where access requires stepping on the roof, we use roof-safe paths and pads. Fragile materials may require additional precautions.</p></details>
+        <details><summary>Do you cover my city?</summary><p class="muted">Yes—North County San Diego, Temecula/Murrieta, the rest of San Diego County, and nearby Southern California communities.</p></details>
       </div>
     </section>
 
-    <!-- Internal links (SEO flow) -->
+    <!-- ===== AREAS (modern chips) ===== -->
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head">
+        <h2 class="sa-title">Service Areas</h2>
+        <p class="muted">Fast scheduling in North County San Diego, greater San Diego, and South Riverside County.</p>
+      </div>
+
+      <ul class="chip-grid sa-cities" aria-label="Primary service cities">
+        <li><span class="chip sa-chip strong">Escondido</span></li>
+        <li><span class="chip sa-chip strong">San Diego</span></li>
+        <li><span class="chip sa-chip strong">Temecula</span></li>
+        <li><span class="chip sa-chip">San Marcos</span></li>
+        <li><span class="chip sa-chip">Vista</span></li>
+        <li><span class="chip sa-chip">Oceanside</span></li>
+      </ul>
+
+      <details class="sa-more">
+        <summary class="sa-summary">More nearby cities</summary>
+        <ul class="chip-grid sa-cities">
+          <li><span class="chip sa-chip">Carlsbad</span></li>
+          <li><span class="chip sa-chip">Encinitas</span></li>
+          <li><span class="chip sa-chip">Poway</span></li>
+          <li><span class="chip sa-chip">Rancho Bernardo</span></li>
+          <li><span class="chip sa-chip">Fallbrook</span></li>
+          <li><span class="chip sa-chip">Murrieta</span></li>
+          <li><span class="chip sa-chip">Menifee</span></li>
+        </ul>
+      </details>
+
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Check my ZIP &amp; Request Free Estimate</a>
+      </div>
+    </section>
+
+    <!-- ===== ESTIMATE FORM (same layout as gutters) ===== -->
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer">
+        <em>*Free estimates exclude real estate transaction services. For inspections/reports, see our Real Estate Services.</em>
+      </p>
+    </section>
+
+    <!-- Full-width CTA band -->
     <section class="section">
-      <div class="grid cols-3">
-        <a class="card hoverable" href="/services/roof-replacement/"><strong>Roof Replacement</strong><br><span class="muted">Full system re-roof</span></a>
-        <a class="card hoverable" href="/services/roof-repairs/roof-leak-repair/"><strong>Roof Leak Repair</strong><br><span class="muted">Active leak response</span></a>
-        <a class="card hoverable" href="/services/gutters/"><strong>Seamless Gutters</strong><br><span class="muted">5&quot; &amp; 6&quot; K-style + guards</span></a>
+      <div class="cta-strip">
+        <div class="text"><strong>Ready for a clean, professional tune-up?</strong> We’ll document what we find so you can plan next steps.</div>
+        <a class="btn" href="#estimate">Request Free Estimate</a>
       </div>
     </section>
   </main>
 
-  <!-- Footer include -->
+  <!-- Footer include OUTSIDE <main> so it spans full width -->
   <div data-include="/components/footer.html"></div>
 
-  <!-- Scripts -->
+  <!-- ===== JS ===== -->
   <script src="/js/loader.js" defer></script>
   <script src="/js/header.js" defer></script>
-  <script src="/js/estimate-form.js" defer></script>
 
-  <!-- Per-page form config:
-       - Auto-fills Service Type = "Roof Tune-Up"
-       - Disables it for posting + we’ll hide the control above with CSS
-       - Keeps the exact same Row 1–6 layout from your component
-  -->
+  <!-- Per-page form config (kept light; JS handles Service Type = Roof Tune-Up on this path) -->
   <script>
     window.ESTIMATE_FORM_CONFIG = {
-      title: "Request a Roof Tune-Up",
-      subtitle: "Local pros • Fast scheduling • Photo summary",
-      lockService: "Roof Tune-Up",
-      lockServiceLock: true,             // ensures hidden field is posted
       submitText: "Request Free Estimate",
-      descriptionPlaceholder: "Tell us where you’d like us to focus (problem areas, debris, staining, recent storms, photos, etc.)…",
       referralPreselect: "Website",
-      hiddenFields: { campaign: "services/roof-tune-up", page_tag: "roof-tune-up" }
+      hiddenFields: { campaign: "services/roof-tune-up", page_tag: "roof-tune-up" },
+      descriptionPlaceholder: "Tell us where to focus (problem areas, debris, staining, recent storms). Photos help!"
+      // No lockService needed. estimate-form.js will auto-select “Roof Tune-Up” on this path.
     };
-
-    // After the include loads, remove the Service Type form-group entirely so the row stays tidy.
-    document.addEventListener('includes:ready', function () {
-      var svc = document.getElementById('serviceType');
-      if (svc && svc.closest('.form-group')) {
-        svc.closest('.form-group').style.display = 'none';
-      }
-    });
   </script>
 
-  <!-- reCAPTCHA -->
+  <script src="/js/estimate-form.js" defer></script>
   <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
