@@ -1,63 +1,358 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Flat / Low-Slope Roof Replacement | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Flat & low-slope roof replacement for homes and buildings in San Diego & Temecula. TPO/PVC single-ply, torch-down modified bitumen, and silicone restoration. Free estimates." />
-  <link rel="canonical" href="https://www.zenithroofingservices.com/services/roof-replacement/flat-roof/">
+  <!-- ===== META ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Flat Roof Replacement | TPO • PVC • Torch-Down & Self-Adhered Mod Bit • Silicone | North County SD & Temecula</title>
+  <meta name="description" content="Flat/low-slope roof replacement done right: TPO, PVC, modified bitumen (torch-down & self-adhered), and silicone restoration systems. Proper taper/drainage, edge metal, and flashing details. Free estimates in Escondido, North County San Diego, Temecula & San Diego County." />
+  <link rel="canonical" href="https://zenithroofingservices.com/services/roof-replacement/flat-roof/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 
-  <link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/ui.css"><link rel="stylesheet" href="/css/estimate-form.css">
-  <script defer src="/js/loader.js"></script><script defer src="/js/header.js"></script><script defer src="/js/estimate-form.js"></script>
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Flat Roof Replacement — TPO • PVC • Mod Bit • Silicone | North County SD & Temecula"/>
+  <meta property="og:description" content="Low-slope reroof experts: TPO, PVC, torch-down & self-adhered modified bitumen, and silicone restoration where appropriate. Proper drainage, flashings, and edge metal. Free estimates."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://zenithroofingservices.com/services/roof-replacement/flat-roof/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-  <style>.page.flat{max-width:1100px;margin:24px auto;padding:0 16px}.page .lede{color:#475569;font-size:1.075rem;margin:8px 0 18px}.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:600;font-size:.95rem}.tick{font-weight:800;color:#0b3a6f}.muted{color:var(--ui-muted)}</style>
+  <!-- Shared CSS (footer.css kept in HEAD for full-width footer) -->
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <!-- Form CSS -->
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
+
+  <!-- Page-scope polish (matches other service pages) -->
+  <style>
+    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    html { scroll-behavior: smooth; }
+
+    .page .hero{
+      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border: 1px solid var(--ui-line);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 14px 34px rgba(2,12,32,.08);
+    }
+    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
+    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
+    .page .hero .split{ align-items:center; }
+    .page .hero .media{
+      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
+      background:#fff; box-shadow: var(--ui-shadow); transform: translateZ(0);
+    }
+    .page .hero .media::before{
+      content:""; display:block; aspect-ratio:16/10;
+      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
+    }
+
+    .page h2{ margin-bottom:.4rem; }
+    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
+    .page .card.hoverable{ will-change: transform, box-shadow; }
+    .page .card.hoverable:hover{ transform: translateY(-3px); }
+    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
+
+    .svc-card h3{ margin:.25rem 0 .35rem; }
+    .svc-card p{ margin:0; color:#475569; }
+
+    .page .cta-strip{
+      background:#072e59; color:#fff; border-radius:16px;
+      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    }
+    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
+    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
+  </style>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Services","item":"https://zenithroofingservices.com/services/"},
+      {"@type":"ListItem","position":2,"name":"Roof Replacement","item":"https://zenithroofingservices.com/services/roof-replacement/"},
+      {"@type":"ListItem","position":3,"name":"Flat Roof","item":"https://zenithroofingservices.com/services/roof-replacement/flat-roof/"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Service -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Flat Roof Replacement",
+    "serviceType":"Low-slope roof replacement (TPO, PVC, modified bitumen, silicone restoration)",
+    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
+    "areaServed":[
+      {"@type":"City","name":"Escondido"},
+      {"@type":"City","name":"San Diego"},
+      {"@type":"City","name":"Temecula"},
+      {"@type":"City","name":"Carlsbad"},
+      {"@type":"City","name":"San Marcos"},
+      {"@type":"City","name":"Encinitas"},
+      {"@type":"City","name":"Vista"},
+      {"@type":"City","name":"Oceanside"},
+      {"@type":"City","name":"Murrieta"}
+    ],
+    "description":"Low-slope reroof systems for Southern California: TPO and PVC single-ply membranes, torch-down & self-adhered modified bitumen, and silicone restoration where suitable—installed with proper taper/drainage, edge metal, and flashing details."
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Which flat roof system is best for my building?","acceptedAnswer":{"@type":"Answer","text":"It depends on deck conditions, existing layers, sun exposure, and foot traffic. We install TPO, PVC, torch-down & self-adhered modified bitumen, and silicone restoration when the deck/surface qualifies."}},
+      {"@type":"Question","name":"Do you address ponding water?","acceptedAnswer":{"@type":"Answer","text":"Yes. We evaluate drainage and can add tapered insulation, scuppers, or crickets to move water toward drains or gutters."}},
+      {"@type":"Question","name":"What about flashing and edge metal?","acceptedAnswer":{"@type":"Answer","text":"We replace or rework flashings at all penetrations (HVAC, vents, skylights) and install compatible edge metal for a clean, watertight perimeter."}}
+    ]
+  }
+  </script>
 </head>
 <body>
+  <!-- Header include -->
   <div data-include="/components/header-section.html"></div>
-  <main class="page flat" id="top">
-    <section class="card airy">
-      <span class="badge">Flat / Low-Slope Roof Replacement</span>
-      <h1 style="margin:10px 0 6px;">TPO • PVC • Torch-Down • Silicone</h1>
-      <p class="lede">Proper insulation & taper, heat-welded or torch seams, drains & scuppers, and ES-1 edge metal for long-term performance.</p>
-      <div class="cta"><a class="btn" href="#estimate">Get a Free Estimate</a><a class="btn outline" href="tel:8589006163">Call 858-900-6163</a></div>
-    </section>
 
-    <section class="grid micro-grid">
-      <div class="card"><h3>Licensed &amp; Insured</h3><p class="muted">C-39 #1036112. Permits & inspections where required.</p></div>
-      <div class="card"><h3>Watertight Details</h3><p class="muted">Curbs, drains, penetrations, and edge systems.</p></div>
-      <div class="card"><h3>Low Disruption</h3><p class="muted">Clean tear-off or recover (when code allows).</p></div>
-    </section>
-
-    <section class="card airy"><h2>Systems We Install</h2>
-      <div class="grid auto-fit" style="--ui-gap:16px;">
-        <div class="card"><h3>TPO Single-Ply</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> White reflective membrane</li><li><span class="tick">✓</span> Heat-welded seams</li><li><span class="tick">✓</span> Mechanically attached or adhered</li></ul></div>
-        <div class="card"><h3>PVC Single-Ply</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Chemical/grease resistance</li><li><span class="tick">✓</span> Heat-welded seams</li><li><span class="tick">✓</span> Compatible accessories</li></ul></div>
-        <div class="card"><h3>Torch-Down (Mod-Bit)</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Granulated cap sheet</li><li><span class="tick">✓</span> Proper vents & term bars</li><li><span class="tick">✓</span> Great for small flats/patios</li></ul></div>
-        <div class="card"><h3>Silicone Restoration</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Prep + seam reinforcement</li><li><span class="tick">✓</span> Extends life when eligible</li><li><span class="tick">✓</span> Bright & reflective</li></ul></div>
+  <main id="top" class="page">
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-label="Flat Roof Replacement">
+      <div class="eyebrow">
+        <span class="chip">Low-Slope</span>
+        <span class="chip">TPO & PVC</span>
+        <span class="chip">Torch-Down & Self-Adhered</span>
+        <span class="chip">Silicone Restoration</span>
+      </div>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">Flat Roof Replacement — TPO, PVC & Modified Bitumen</h1>
+          <p class="lede">Durable, watertight systems for low-slope roofs: **TPO** and **PVC** single-ply, **torch-down/self-adhered modified bitumen**, and **silicone restoration** when appropriate—installed with proper drainage, flashings, and edge metal. Serving <strong>Escondido</strong>, <strong>North County San Diego</strong>, <strong>Temecula</strong>, and all of <strong>San Diego County</strong>.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#estimate" aria-label="Request a free flat roof replacement estimate">Request Free Estimate</a>
+            <a class="btn btn-outline" href="#systems">Systems</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true"></div>
       </div>
     </section>
 
-    <section class="card airy"><h2>How It Works</h2><div class="grid cols-2">
-      <div class="card"><h3>1) Inspect & Plan</h3><p class="muted">Moisture check, deck, drains, scuppers, code.</p></div>
-      <div class="card"><h3>2) Proposal</h3><p class="muted">Membrane, insulation, edge, curbs, walk pads.</p></div>
-      <div class="card"><h3>3) Preparation</h3><p class="muted">Tear-off, repairs, insulation/taper, edge metals.</p></div>
-      <div class="card"><h3>4) Install &amp; Seal</h3><p class="muted">Heat-welded/torch seams; walkthrough & cleanup.</p></div>
-    </div></section>
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills" aria-label="Flat roof sections">
+      <a href="#why">Why Replace</a>
+      <a href="#systems">Systems</a>
+      <a href="#details">Key Details</a>
+      <a href="#process">Our Process</a>
+      <a href="#faq">FAQ</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#estimate">Estimate</a>
+    </nav>
 
-    <section id="estimate" class="card airy" data-estimate-context data-category="Flat / Low-Slope Roof Replacement" data-redirect="/thank-you/">
-      <div data-include="/components/forms/estimate.html"></div>
-      <template id="lead-form-fallback"><form id="estimate-form" novalidate>
-        <input type="hidden" name="service_type" value="Flat / Low-Slope Roof Replacement"><input type="hidden" name="page" value="">
-        <div class="form-row"><div class="form-col-6"><label>Name</label><input name="name" required></div><div class="form-col-6"><label>Phone</label><input name="phone" type="tel" required></div></div>
-        <div class="form-row"><div class="form-col-6"><label>Email</label><input name="email" type="email" required></div><div class="form-col-6"><label>ZIP</label><input name="zip" required></div></div>
-        <div class="form-row"><div class="form-col-12"><label>Notes</label><textarea name="message" rows="4"></textarea></div></div>
-        <button class="btn" type="submit">Send Request</button>
-      </form></template>
+    <!-- ===== WHY ===== -->
+    <section id="why" class="section card airy hoverable">
+      <h2>Why Owners Replace Flat Roofs</h2>
+      <div class="grid cols-2">
+        <div>
+          <ul class="checklist relaxed">
+            <li><span class="tick">✓</span> Aged or splitting membranes</li>
+            <li><span class="tick">✓</span> Chronic ponding or seam failures</li>
+            <li><span class="tick">✓</span> UV degradation and brittle flashings</li>
+            <li><span class="tick">✓</span> Multiple patch layers and recurring leaks</li>
+          </ul>
+        </div>
+        <div>
+          <p class="section lede-narrow" style="margin:0;">We’ll verify whether a full replacement or a **silicone restoration** makes the most sense based on deck condition, slope, and your budget timeline.</p>
+        </div>
+      </div>
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Check My Roof</a>
+      </div>
     </section>
 
-    <section class="card airy"><h2>Service Area</h2><p class="muted">North County San Diego, Greater San Diego, Temecula & nearby communities.</p><p class="muted" style="font-size:.9rem;">Info reflects common practices; contract & manufacturer docs control.</p></section>
+    <!-- ===== SYSTEMS ===== -->
+    <section id="systems" class="section card airy hoverable">
+      <h2>Flat Roof Systems We Install</h2>
+      <div class="grid cols-3">
+        <div class="card svc-card">
+          <h3>TPO Single-Ply</h3>
+          <p>Energy-efficient white membrane, heat-welded seams, great for SoCal UV. Good balance of value and performance.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>PVC Single-Ply</h3>
+          <p>Excellent chemical/grease resistance, heat-welded seams, and durability—ideal for certain commercial and residential applications.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>Modified Bitumen</h3>
+          <p><strong>Torch-down</strong> or <strong>self-adhered</strong> plies for robust waterproofing and detail work around edges/penetrations.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>Silicone Restoration</h3>
+          <p>When the substrate is sound, a silicone coating system can restore waterproofing and extend life at lower cost.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>Taper & Insulation</h3>
+          <p>Improve drainage with tapered ISO boards; add R-value and help eliminate ponding around drains and low spots.</p>
+        </div>
+        <div class="card svc-card">
+          <h3>Edge Metal & Scuppers</h3>
+          <p>New perimeter metals, scuppers, and overflow protection for a clean, code-compliant finish.</p>
+        </div>
+      </div>
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Request Free Estimate</a>
+      </div>
+    </section>
+
+    <!-- ===== DETAILS ===== -->
+    <section id="details" class="section card airy hoverable">
+      <h2>The Details That Keep Flat Roofs Dry</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>Drainage</h3><p class="muted">Tapered insulation, crickets to drains, scupper placement—and we address chronic ponding areas.</p></div>
+        <div class="card"><h3>Seams & Flashings</h3><p class="muted">Heat-welded seams (TPO/PVC) or proper lap adhesion (mod bit). New flashings at all penetrations.</p></div>
+        <div class="card"><h3>Perimeter Metals</h3><p class="muted">Drip edge, gravel stops, and termination bars that match your chosen system.</p></div>
+        <div class="card"><h3>Substrate Prep</h3><p class="muted">Repair soft spots, fastener back-out, and blisters before the new system goes on.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section id="process" class="section card airy hoverable">
+      <h2>Our Reroof Process</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>1) Inspect & Specify</h3><p class="muted">Document existing layers, slopes, and penetrations; recommend the right system.</p></div>
+        <div class="card"><h3>2) Tear-Off/Prep</h3><p class="muted">Remove failing layers as needed, fix substrate, set taper plan.</p></div>
+        <div class="card"><h3>3) Install System</h3><p class="muted">Membrane or mod-bit install per manufacturer specs; new metals and flashings.</p></div>
+        <div class="card"><h3>4) Final Detail</h3><p class="muted">Sealants, term bars, water test, cleanup, and photo documentation.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section card airy hoverable">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>Is silicone a full replacement?</summary><p class="muted">It’s a restoration coating—great when the existing roof is sound. If the membrane or deck is failing, full replacement is smarter.</p></details>
+        <details><summary>White or gray membrane?</summary><p class="muted">White reflects heat (energy benefits). We’ll recommend based on exposure and any HOA requirements.</p></details>
+        <details><summary>Do you handle roof drains?</summary><p class="muted">Yes—drain bowls, strainers, and tie-ins to the new system, plus overflow solutions as needed.</p></details>
+      </div>
+    </section>
+
+    <!-- ===== AREAS (hierarchy) ===== -->
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head">
+        <h2 class="sa-title">Service Areas</h2>
+        <p class="muted">North County San Diego, Temecula Valley, the rest of San Diego County, and nearby Southern California communities.</p>
+      </div>
+
+      <!-- 1) North County SD -->
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">1) North County San Diego</h3>
+          <p class="muted small" style="margin:0;">Escondido • Carlsbad • San Marcos • Encinitas • Vista • Oceanside • Poway • Rancho Bernardo</p>
+        </div>
+        <ul class="chip-grid" aria-label="North County cities">
+          <li><span class="sa-chip strong">Escondido 92025–92029</span></li>
+          <li><span class="sa-chip">Carlsbad 92008–92011</span></li>
+          <li><span class="sa-chip">San Marcos 92069–92078</span></li>
+          <li><span class="sa-chip">Encinitas 92024</span></li>
+          <li><span class="sa-chip">Vista 92081–92084</span></li>
+          <li><span class="sa-chip">Oceanside 92054–92057</span></li>
+          <li><span class="sa-chip">Poway 92064</span></li>
+          <li><span class="sa-chip">Rancho Bernardo 92127–92128</span></li>
+        </ul>
+        <details class="sa-more">
+          <summary class="sa-summary">See more North County ZIPs</summary>
+          <p class="muted small">Rancho Peñasquitos 92129 • Fallbrook 92028 • Solana Beach 92075 • Del Mar 92014 • La Costa 92009</p>
+        </details>
+      </div>
+
+      <!-- 2) Temecula Valley -->
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">2) Temecula Valley</h3>
+          <p class="muted small" style="margin:0;">Temecula • Murrieta • Menifee • Wildomar • Lake Elsinore</p>
+        </div>
+        <ul class="chip-grid" aria-label="Temecula area">
+          <li><span class="sa-chip strong">Temecula 92590–92592</span></li>
+          <li><span class="sa-chip">Murrieta 92562–92563</span></li>
+          <li><span class="sa-chip">Menifee 92584</span></li>
+          <li><span class="sa-chip">Wildomar 92595</span></li>
+          <li><span class="sa-chip">Lake Elsinore 92530–92532</span></li>
+        </ul>
+      </div>
+
+      <!-- 3) Greater San Diego County -->
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">3) Greater San Diego County</h3>
+          <p class="muted small" style="margin:0;">Coastal, inland, and metro neighborhoods.</p>
+        </div>
+        <ul class="chip-grid" aria-label="San Diego County">
+          <li><span class="sa-chip">San Diego</span></li>
+          <li><span class="sa-chip">La Jolla</span></li>
+          <li><span class="sa-chip">Scripps Ranch</span></li>
+          <li><span class="sa-chip">Chula Vista</span></li>
+          <li><span class="sa-chip">La Mesa</span></li>
+          <li><span class="sa-chip">El Cajon</span></li>
+        </ul>
+      </div>
+
+      <!-- 4) Southern California -->
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">4) Southern California</h3>
+          <p class="muted small" style="margin:0;">Select nearby communities by request.</p>
+        </div>
+        <ul class="chip-grid" aria-label="SoCal">
+          <li><span class="sa-chip">Orange County (by request)</span></li>
+          <li><span class="sa-chip">Riverside County (by request)</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== ESTIMATE FORM ===== -->
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer">
+        <em>*Free estimates exclude real-estate transaction inspections/reports. If you’re a buyer/seller or agent, please see our Real Estate Services.</em>
+      </p>
+    </section>
+
+    <!-- Full-width CTA band inside container -->
+    <section class="section">
+      <div class="cta-strip">
+        <div class="text">
+          <strong>Ready for a flat roof replacement?</strong> Clear options, clean install, correct drainage—by local pros.
+        </div>
+        <a class="btn" href="#estimate">Request Free Estimate</a>
+      </div>
+    </section>
   </main>
+
+  <!-- Footer include OUTSIDE <main> so it spans full width -->
   <div data-include="/components/footer.html"></div>
-  <div class="actionbar"><a class="ab-btn call" href="tel:8589006163">Call</a><a class="ab-btn text" href="sms:+18589006163">Text</a><a class="ab-btn estimate" href="#estimate">Free Estimate</a></div>
+
+  <!-- ===== JS ===== -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
+
+  <!-- Per-page form config (delete lockService to keep dropdown on “Other”) -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Request Free Estimate",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Tell us roof size (approx), current system (if known), ponding areas, and any leaks. Links to photos help.",
+      lockService: "Roof Replacement", // remove this line if you want “Other” selected by default
+      hiddenFields: { campaign: "services/roof-replacement/flat-roof", page_tag: "flat-roof-replacement" }
+    };
+  </script>
+
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
