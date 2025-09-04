@@ -1,39 +1,352 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Residential Silicone Roof Coatings | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="High-solids silicone restoration for eligible roofs—surface prep, seam reinforcement, then reflective silicone for extended service life." />
-  <link rel="canonical" href="https://www.zenithroofingservices.com/services/residential/silicone/">
+  <!-- ===== META ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Silicone Roof Coatings — Cool Roof Restoration (No-Flame) | Escondido, North County San Diego & Temecula</title>
+  <meta name="description" content="Restore your flat roof with a white silicone cool-roof coating: no-flame install, ponding-water resistance, energy savings, and watertight seams. Serving Escondido, North County San Diego & Temecula. Free estimates." />
+  <link rel="canonical" href="https://zenithroofingservices.com/services/residential/silicone/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 
-  <link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/ui.css"><link rel="stylesheet" href="/css/estimate-form.css">
-  <script defer src="/js/loader.js"></script><script defer src="/js/header.js"></script><script defer src="/js/estimate-form.js"></script>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Silicone Roof Coatings — Cool Roof Restoration (No-Flame)"/>
+  <meta property="og:description" content="Extend the life of your flat roof with white silicone: resists ponding, reflects heat, and installs without open flames. Escondido • North County San Diego • Temecula."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://zenithroofingservices.com/services/residential/silicone/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-  <style>.page.rsil{max-width:1100px;margin:24px auto;padding:0 16px}.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:600}.muted{color:var(--ui-muted)}.tick{font-weight:800;color:#0b3a6f}</style>
+  <!-- Shared CSS (keep footer in head so it spans full width) -->
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <!-- Form CSS -->
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
+
+  <!-- Page-scope polish: same modern feel as other pages -->
+  <style>
+    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    html { scroll-behavior: smooth; }
+
+    .page .hero{
+      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border: 1px solid var(--ui-line);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 14px 34px rgba(2,12,32,.08);
+    }
+    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
+    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
+    .page .hero .split{ align-items:center; }
+    .page .hero .media{
+      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
+      background:#fff; box-shadow: var(--ui-shadow); transform: translateZ(0);
+    }
+    .page .hero .media::before{
+      content:""; display:block; aspect-ratio:16/10;
+      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
+    }
+
+    .page h2{ margin-bottom:.4rem; }
+    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
+    .page .card.hoverable{ will-change: transform, box-shadow; }
+    .page .card.hoverable:hover{ transform: translateY(-3px); }
+    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
+
+    /* Tables */
+    .page .comparison-table{ margin:.6rem 0 1rem; }
+
+    /* CTA band */
+    .page .cta-strip{
+      background:#072e59; color:#fff; border-radius:16px;
+      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    }
+    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
+    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
+
+    /* Placeholder image slots */
+    .page .media.placeholder{
+      background:linear-gradient(135deg,#f8fafc,#eef6ff);
+      border:1px dashed var(--ui-line);
+      border-radius:12px; height:210px;
+      display:flex; align-items:center; justify-content:center;
+      color:#64748b; font-weight:700;
+    }
+  </style>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Services","item":"https://zenithroofingservices.com/services/"},
+      {"@type":"ListItem","position":2,"name":"Residential","item":"https://zenithroofingservices.com/services/residential/"},
+      {"@type":"ListItem","position":3,"name":"Silicone Roof Coatings","item":"https://zenithroofingservices.com/services/residential/silicone/"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Service + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Silicone Roof Coating (Cool Roof Restoration)",
+    "serviceType":"Silicone roof restoration coating for low-slope/flat roofs",
+    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
+    "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}],
+    "description":"White silicone cool-roof coating that resists ponding, reflects heat, seals seams, and installs without open flames—ideal for flat residential roofs when the deck and membrane are viable for restoration."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Is silicone coating good for ponding areas?","acceptedAnswer":{"@type":"Answer","text":"Silicone resists standing water better than many coatings, making it a strong option where minor ponding occurs. We still address drainage where practical."}},
+      {"@type":"Question","name":"Will silicone make my roof a cool roof?","acceptedAnswer":{"@type":"Answer","text":"White silicone systems provide highly reflective, cool-roof performance. We can specify products that meet Title 24 cool-roof criteria where required."}},
+      {"@type":"Question","name":"Can any flat roof be coated?","acceptedAnswer":{"@type":"Answer","text":"The existing roof must be a candidate: sound deck, limited wet areas, and proper prep. If the roof is too far gone, we’ll recommend replacement (e.g., TPO)."}}
+    ]
+  }
+  </script>
 </head>
 <body>
-<div data-include="/components/header-section.html"></div>
-<main class="page rsil" id="top">
-  <section class="card airy">
-    <span class="badge">Residential</span>
-    <h1 style="margin:10px 0 6px;">Silicone Coatings</h1>
-    <p class="muted">Prep, reinforce seams, then apply high-solids silicone to extend roof life when the deck/system is eligible.</p>
-    <div class="cta"><a class="btn" href="#estimate">Get a Free Estimate</a></div>
-  </section>
+  <!-- Header include -->
+  <div data-include="/components/header-section.html"></div>
 
-  <section class="card airy"><h2>When It’s a Fit</h2>
-    <div class="grid auto-fit" style="--ui-gap:16px;">
-      <div class="card"><h3>Eligibility</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> No widespread saturation</li><li><span class="tick">✓</span> Sound substrate</li></ul></div>
-      <div class="card"><h3>Benefits</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Reflective & low-maintenance</li><li><span class="tick">✓</span> Budget-friendly vs tear-off</li></ul></div>
-    </div>
-  </section>
+  <main id="top" class="page">
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-label="Silicone Roof Coatings">
+      <div class="eyebrow">
+        <span class="chip">Cool Roof</span>
+        <span class="chip">Ponding Resistant</span>
+        <span class="chip">No-Flame Install</span>
+      </div>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">Silicone Roof Coating — Restore, Seal & Cool Your Flat Roof</h1>
+          <p class="lede">Get a bright **white cool roof** without a tear-off. Silicone coatings **resist ponding water**, seal seams and penetrations, and install with **no open flames**. Ideal for Southern California sun. Serving <strong>Escondido</strong>, <strong>North County San Diego</strong>, and <strong>Temecula</strong>.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#estimate" aria-label="Request a silicone roof coating estimate">Request Free Estimate</a>
+            <a class="btn btn-outline" href="#candidate">Am I a Candidate?</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true"></div>
+      </div>
+    </section>
 
-  <section id="estimate" class="card airy" data-estimate-context data-category="Residential — Silicone Coatings" data-redirect="/thank-you/">
-    <div data-include="/components/forms/estimate.html"></div>
-  </section>
-</main>
-<div data-include="/components/footer.html"></div>
-<div class="actionbar"><a class="ab-btn call" href="tel:8589006163">Call</a><a class="ab-btn text" href="sms:+18589006163">Text</a><a class="ab-btn estimate" href="#estimate">Free Estimate</a></div>
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills" aria-label="Silicone coating sections">
+      <a href="#why">Why Silicone</a>
+      <a href="#candidate">Is My Roof a Candidate?</a>
+      <a href="#system">System & Thickness</a>
+      <a href="#process">Our Process</a>
+      <a href="#faq">FAQ</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#estimate">Estimate</a>
+    </nav>
+
+    <!-- ===== WHY SILICONE ===== -->
+    <section id="why" class="section card airy hoverable">
+      <h2>Why Homeowners Choose Silicone</h2>
+      <div class="grid cols-2">
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> **Ponding resistance** — excellent water resistance compared to many coatings</li>
+          <li><span class="tick">✓</span> **Cool-roof reflectivity** — bright white surface to reduce heat gain</li>
+          <li><span class="tick">✓</span> **No-flame installation** — safe around homes, skylights, and parapet walls</li>
+          <li><span class="tick">✓</span> **Seal & extend life** — seams, penetrations, and transitions reinforced</li>
+        </ul>
+        <ul class="checklist relaxed">
+          <li><span class="tick">✓</span> Low-odor, low-disturbance install</li>
+          <li><span class="tick">✓</span> Works on many existing membranes (after proper prep)</li>
+          <li><span class="tick">✓</span> Cost-effective restoration when full replacement isn’t required</li>
+          <li><span class="tick">✓</span> Photo documentation and clear warranty options</li>
+        </ul>
+      </div>
+      <div class="center-actions"><a class="btn btn-primary" href="#estimate">Check My Roof & Request Free Estimate</a></div>
+    </section>
+
+    <!-- ===== CANDIDATE ===== -->
+    <section id="candidate" class="section card airy hoverable">
+      <h2>Is My Roof a Candidate?</h2>
+      <p class="section lede-narrow" style="margin:0;">Silicone is a **restoration** system. Your roof should be structurally sound with manageable wet areas and compatible surfaces.</p>
+      <div class="comparison-table">
+        <table aria-describedby="cand-notes">
+          <thead>
+            <tr><th scope="col">Good Candidates</th><th scope="col">Better Replaced</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Low-slope roofs with limited wet insulation</td>
+              <td>Widespread saturated insulation or rotten deck</td>
+            </tr>
+            <tr>
+              <td>Existing single-ply, torch-down/modified, or coated roofs (after adhesion test)</td>
+              <td>Delaminating substrates that fail adhesion tests</td>
+            </tr>
+            <tr>
+              <td>Minor ponding that can be managed with detailing</td>
+              <td>Severe structural ponding or collapsed slopes</td>
+            </tr>
+          </tbody>
+        </table>
+        <p id="cand-notes" class="muted small" style="margin-top:.5rem;">If your roof isn’t a fit, we’ll recommend <a href="/services/residential/tpo/">TPO</a> or <a href="/services/roof-replacement/flat-roof/">flat roof replacement</a>.</p>
+      </div>
+    </section>
+
+    <!-- ===== SYSTEM & THICKNESS ===== -->
+    <section id="system" class="section card airy hoverable">
+      <h2>System & Thickness</h2>
+      <div class="grid cols-2">
+        <div>
+          <ul class="checklist">
+            <li><span class="tick">✓</span> Reinforced seams & penetrations (polyester fabric or scrim)</li>
+            <li><span class="tick">✓</span> Targeted primers where needed (e.g., over mod-bit or metal)</li>
+            <li><span class="tick">✓</span> Silicone topcoat in specified mil thickness (e.g., 20–30 mils)</li>
+            <li><span class="tick">✓</span> Title 24 cool-roof options when specified</li>
+          </ul>
+        </div>
+        <div class="media placeholder">Add “before/after” coating photo or thickness diagram (1200×700)</div>
+      </div>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section id="process" class="section card airy hoverable">
+      <h2>Our Coating Process</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>1) Inspection & Testing</h3><p class="muted">Moisture survey, adhesion tests, and detail review.</p></div>
+        <div class="card"><h3>2) Clean & Prep</h3><p class="muted">Pressure wash, dry, and prep per manufacturer spec.</p></div>
+        <div class="card"><h3>3) Detail Work</h3><p class="muted">Reinforce seams/penetrations; repair transitions.</p></div>
+        <div class="card"><h3>4) Prime (As Needed)</h3><p class="muted">Apply primers on specific substrates for adhesion.</p></div>
+        <div class="card"><h3>5) Silicone Coats</h3><p class="muted">Apply to specified mil thickness for performance.</p></div>
+        <div class="card"><h3>6) Final QA & Photos</h3><p class="muted">Punch list, cleanup, and documentation.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section card airy hoverable">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>Will silicone stop all leaks?</summary><p class="muted">We address existing leak sources before coating and reinforce details. If the roof is too degraded, we’ll recommend replacement for a guaranteed outcome.</p></details>
+        <details><summary>How long does it last?</summary><p class="muted">System life and warranty depend on thickness, substrate, and maintenance. We specify mils and manufacturer programs to match your goals.</p></details>
+        <details><summary>Is it slippery?</summary><p class="muted">Silicone can be slick when wet. We include walkway pads or texture where appropriate.</p></details>
+      </div>
+    </section>
+
+    <!-- ===== AREAS (hierarchy) ===== -->
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head">
+        <h2 class="sa-title">Service Areas</h2>
+        <p class="muted">North County San Diego, Temecula Valley, the rest of San Diego County, and nearby Southern California communities.</p>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">1) North County San Diego</h3>
+          <p class="muted small" style="margin:0;">Escondido • Carlsbad • San Marcos • Encinitas • Vista • Oceanside • Poway • Rancho Bernardo</p>
+        </div>
+        <ul class="chip-grid" aria-label="North County cities">
+          <li><span class="sa-chip strong">Escondido 92025–92029</span></li>
+          <li><span class="sa-chip">Carlsbad 92008–92011</span></li>
+          <li><span class="sa-chip">San Marcos 92069–92078</span></li>
+          <li><span class="sa-chip">Encinitas 92024</span></li>
+          <li><span class="sa-chip">Vista 92081–92084</span></li>
+          <li><span class="sa-chip">Oceanside 92054–92057</span></li>
+          <li><span class="sa-chip">Poway 92064</span></li>
+          <li><span class="sa-chip">Rancho Bernardo 92127–92128</span></li>
+        </ul>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">2) Temecula Valley</h3>
+          <p class="muted small" style="margin:0;">Temecula • Murrieta • Menifee • Wildomar • Lake Elsinore</p>
+        </div>
+        <ul class="chip-grid" aria-label="Temecula area">
+          <li><span class="sa-chip strong">Temecula 92590–92592</span></li>
+          <li><span class="sa-chip">Murrieta 92562–92563</span></li>
+          <li><span class="sa-chip">Menifee 92584</span></li>
+          <li><span class="sa-chip">Wildomar 92595</span></li>
+          <li><span class="sa-chip">Lake Elsinore 92530–92532</span></li>
+        </ul>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">3) Greater San Diego County</h3>
+          <p class="muted small" style="margin:0;">Coastal, inland, and metro neighborhoods.</p>
+        </div>
+        <ul class="chip-grid" aria-label="San Diego County">
+          <li><span class="sa-chip">San Diego</span></li>
+          <li><span class="sa-chip">La Jolla</span></li>
+          <li><span class="sa-chip">Scripps Ranch</span></li>
+          <li><span class="sa-chip">Chula Vista</span></li>
+          <li><span class="sa-chip">La Mesa</span></li>
+          <li><span class="sa-chip">El Cajon</span></li>
+        </ul>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">4) Southern California</h3>
+          <p class="muted small" style="margin:0;">Select nearby communities by request.</p>
+        </div>
+        <ul class="chip-grid" aria-label="SoCal">
+          <li><span class="sa-chip">Orange County (by request)</span></li>
+          <li><span class="sa-chip">Riverside County (by request)</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== ESTIMATE FORM ===== -->
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer">
+        <em>*Free estimates exclude real-estate transaction inspections/reports. If you’re buying/selling or an agent, ask about our paid inspection/report options.</em>
+      </p>
+    </section>
+
+    <!-- CTA band -->
+    <section class="section">
+      <div class="cta-strip">
+        <div class="text"><strong>Ready for a white silicone cool roof?</strong> Ponding resistance, no-flame install, and energy-saving reflectivity.</div>
+        <a class="btn" href="#estimate">Request Free Estimate</a>
+      </div>
+    </section>
+
+    <!-- Cross-links to keep users exploring -->
+    <section class="section">
+      <div class="grid cols-3">
+        <a class="card hoverable" href="/services/residential/tpo/"><strong>TPO Roofing</strong><br><span class="muted">No-flame, welded seams</span></a>
+        <a class="card hoverable" href="/services/roof-repairs/flat-roof-repair/"><strong>Flat Roof Repair</strong><br><span class="muted">Leaks • seams • flashings</span></a>
+        <a class="card hoverable" href="/services/roof-replacement/flat-roof/"><strong>Flat Roof Replacement</strong><br><span class="muted">TPO • Torch-down • PVC</span></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer include OUTSIDE <main> so it spans full width -->
+  <div data-include="/components/footer.html"></div>
+
+  <!-- ===== JS ===== -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
+  <!-- Per-page form config (keeps Service Type on “Other”) -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Request Free Estimate",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Tell us your roof size/age, current membrane, leak areas, ponding, skylights/penetrations, and whether you want cool-roof reflectivity. Photos help!",
+      // Intentionally no lockService so dropdown stays on “Other”
+      hiddenFields: { campaign: "services/residential/silicone", page_tag: "silicone" }
+    };
+  </script>
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
