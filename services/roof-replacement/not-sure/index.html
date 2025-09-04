@@ -1,231 +1,352 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Need Help? Roofing Guide for Homeowners | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="New to roofing? Learn the basics in plain English: roof types, how to tell what you have, repair vs replacement, and the next steps. Get routed to the right service and request a free estimate." />
-  <link rel="canonical" href="https://www.zenithroofingservices.com/services/need-help/">
+  <!-- ===== META ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Not Sure What Roof You Have? Identify Your Roof Type & Best Replacement Options | North County SD & Temecula</title>
+  <meta name="description" content="Not sure if your roof is shingle, tile, slate, metal, TPO, PVC, or modified bitumen? Use our quick guide to identify your roof type and see the best replacement path. Free estimates in Escondido, North County San Diego, Temecula & San Diego County." />
+  <link rel="canonical" href="https://zenithroofingservices.com/services/roof-replacement/not-sure/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 
-  <!-- Shared CSS -->
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/footer.css">
-  <link rel="stylesheet" href="/css/ui.css">
-  <!-- Lead form CSS -->
-  <link rel="stylesheet" href="/css/estimate-form.css">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="What Roof Type Do I Have? Identify & Compare Options | Zenith Roofing"/>
+  <meta property="og:description" content="Quick visual guide to tell shingle vs tile vs slate vs metal vs flat systems (TPO, PVC, mod-bit). Then we recommend the right replacement path for Southern CA homes."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://zenithroofingservices.com/services/roof-replacement/not-sure/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Shared JS -->
-  <script defer src="/js/loader.js"></script>
-  <script defer src="/js/header.js"></script>
-  <script defer src="/js/estimate-form.js"></script>
+  <!-- Shared CSS (footer.css kept here so footer spans full width) -->
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <!-- Form CSS -->
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
 
+  <!-- Page-scope polish -->
   <style>
-    .page.help { max-width:1100px; margin:24px auto; padding:0 16px; }
-    .badge{ display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:#f1f5f9; font-weight:600; font-size:.95rem; }
-    .lede{ color:#475569; font-size:1.075rem; margin:8px 0 18px; }
-    .muted{ color:var(--ui-muted); }
-    .small{ font-size:.9rem; }
-    .tick{ font-weight:800; color:#0b3a6f; }
-    details.card summary { cursor:pointer; font-weight:600; }
-    .callout{ background:#f8fafc; border:1px solid var(--ui-line); border-radius:14px; padding:12px 14px; }
+    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    html { scroll-behavior: smooth; }
+
+    .page .hero{
+      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border: 1px solid var(--ui-line);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 14px 34px rgba(2,12,32,.08);
+    }
+    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
+    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
+    .page .hero .split{ align-items:center; }
+    .page .hero .media{
+      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
+      background:#fff; box-shadow: var(--ui-shadow); transform: translateZ(0);
+    }
+    .page .hero .media::before{
+      content:""; display:block; aspect-ratio:16/10;
+      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
+    }
+
+    .page h2{ margin-bottom:.4rem; }
+    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
+    .page .card.hoverable{ will-change: transform, box-shadow; }
+    .page .card.hoverable:hover{ transform: translateY(-3px); }
+    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
+
+    .id-grid .card h3{ margin:.2rem 0 .35rem; }
+    .id-grid .card p{ margin:0; color:#475569; }
+
+    .page .cta-strip{
+      background:#072e59; color:#fff; border-radius:16px;
+      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    }
+    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
+    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
+
+    /* Small visual tags */
+    .tag { display:inline-block; font-weight:800; border:1px solid var(--ui-line); background:#fff; border-radius:999px; padding:.25rem .55rem; margin:.1rem .25rem 0 0; }
   </style>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Services","item":"https://zenithroofingservices.com/services/"},
+      {"@type":"ListItem","position":2,"name":"Roof Replacement","item":"https://zenithroofingservices.com/services/roof-replacement/"},
+      {"@type":"ListItem","position":3,"name":"Find My Roof Type","item":"https://zenithroofingservices.com/services/roof-replacement/not-sure/"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"How can I tell if my roof is flat or pitched?","acceptedAnswer":{"@type":"Answer","text":"Stand back and look at the slope. If water would drain quickly and you can clearly see angles or ridges, it’s pitched. If it’s nearly level with drains, scuppers, or parapet walls, it’s flat/low-slope."}},
+      {"@type":"Question","name":"Is my tile roof clay or concrete?","acceptedAnswer":{"@type":"Answer","text":"Clay tiles are often reddish/orange or glazed with color variations and sound ceramic when tapped; concrete tiles are thicker, heavier, and often have a cement-like surface with molded profiles."}},
+      {"@type":"Question","name":"What’s the difference between TPO and PVC on flat roofs?","acceptedAnswer":{"@type":"Answer","text":"Both are single-ply membranes with heat-welded seams. TPO is popular for energy efficiency; PVC has excellent chemical/grease resistance and can be more pliable for detailing."}}
+    ]
+  }
+  </script>
 </head>
 <body>
+  <!-- Header include -->
   <div data-include="/components/header-section.html"></div>
 
-  <main class="page help" id="top">
-    <!-- Hero -->
-    <section class="card airy">
-      <span class="badge">Need Help?</span>
-      <h1 style="margin:10px 0 6px;">Roofing Guide for First-Timers</h1>
-      <p class="lede">New to roofing? This page explains roof types in plain English, helps you figure out what you have, and points you to the right next step.</p>
-      <div class="cta">
-        <a class="btn" href="#route">Help Me Choose</a>
-        <a class="btn outline" href="#estimate">Get a Free Estimate</a>
+  <main id="top" class="page">
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-label="Find My Roof Type">
+      <div class="eyebrow">
+        <span class="chip">Identify Your Roof</span>
+        <span class="chip">Compare Options</span>
+        <span class="chip">Local Pros</span>
       </div>
-      <p class="small muted" style="margin-top:8px;">Free estimates apply to homeowners (not real-estate transactions). For agent/buyer requests, see <a href="/services/real-estate/">Real Estate Services</a>.</p>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">Not Sure What Roof You Have? We’ll Help You Identify It.</h1>
+          <p class="lede">Use this quick visual guide to determine your roof type—then see your best **replacement** or **restoration** path for Southern California homes and buildings. Serving <strong>Escondido</strong>, <strong>North County San Diego</strong>, <strong>Temecula</strong>, and all of <strong>San Diego County</strong>.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#estimate" aria-label="Request a free roof assessment">Request Free Estimate</a>
+            <a class="btn btn-outline" href="#quiz">Quick Quiz</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true"></div>
+      </div>
     </section>
 
-    <!-- What type of roof do I have? -->
-    <section class="card airy" id="identify">
-      <h2>1) What Type of Roof Do I Have?</h2>
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills" aria-label="Find roof type sections">
+      <a href="#quiz">Quick Quiz</a>
+      <a href="#guide">Visual Guide</a>
+      <a href="#edges">Edges & Penetrations</a>
+      <a href="#pitch">Check Your Pitch</a>
+      <a href="#faq">FAQ</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#estimate">Estimate</a>
+    </nav>
+
+    <!-- ===== QUICK QUIZ ===== -->
+    <section id="quiz" class="section card airy hoverable">
+      <h2>Quick Quiz: Flat or Pitched? What Material?</h2>
       <div class="grid cols-2">
         <div class="card">
-          <h3>Pitched (Sloped) Roofs</h3>
-          <p class="muted">Looks like triangles from the street. Sheds water by gravity. Common materials:</p>
+          <h3>Step 1 — Flat or Pitched</h3>
           <ul class="checklist relaxed">
-            <li><span class="tick">✓</span> <strong>Asphalt Shingles</strong> — layered tabs that overlap.</li>
-            <li><span class="tick">✓</span> <strong>Tile</strong> — curved or flat pieces (concrete or clay).</li>
-            <li><span class="tick">✓</span> <strong>Metal</strong> — standing seams that run vertically.</li>
-            <li><span class="tick">✓</span> <strong>Slate</strong> — natural stone shingles.</li>
+            <li><span class="tick">✓</span> <strong>Pitched:</strong> noticeable slope; has ridges/hips/valleys; shingles, tiles, slate, or metal panels.</li>
+            <li><span class="tick">✓</span> <strong>Flat/Low-Slope:</strong> nearly level; has drains or scuppers; often behind parapet walls; membrane or layered system.</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Flat / Low-Slope Roofs</h3>
-          <p class="muted">Looks flat from above; water drains to <em>drains</em> or <em>scuppers</em>. Common systems:</p>
+          <h3>Step 2 — Look Close at the Surface</h3>
           <ul class="checklist relaxed">
-            <li><span class="tick">✓</span> <strong>TPO/PVC</strong> — white sheet membranes, seams are heat-welded.</li>
-            <li><span class="tick">✓</span> <strong>Torch-Down (Mod-Bit)</strong> — black/gray with granules.</li>
-            <li><span class="tick">✓</span> <strong>Silicone Coating</strong> — bright white coating applied over an existing roof.</li>
+            <li><span class="tick">✓</span> <strong>Asphalt Shingle:</strong> granular rectangles overlapping in rows.</li>
+            <li><span class="tick">✓</span> <strong>Tile:</strong> S-shape or flat profiles; clay (color/glazed) vs concrete (cement-like, thicker).</li>
+            <li><span class="tick">✓</span> <strong>Slate:</strong> thin stone pieces with crisp edges; natural color variation.</li>
+            <li><span class="tick">✓</span> <strong>Metal:</strong> standing seams (vertical ribs) or metal shingles.</li>
+            <li><span class="tick">✓</span> <strong>Flat Membrane:</strong> white/gray sheets (TPO/PVC), granulated rolls (modified bitumen), or smooth coated surfaces (silicone).</li>
           </ul>
         </div>
       </div>
-      <div class="callout" style="margin-top:12px;">
-        <strong>Quick ID Tip:</strong> If you can safely step back and zoom with your phone:
-        shingles = small rectangular tabs • tile = bigger pieces, often curved •
-        metal = long vertical ribs • white sheet = TPO/PVC • gritty gray sheet = torch-down.
+      <p class="section lede-narrow" style="margin:0;">Still not sure? Upload a few photos below—edges, penetrations (vents, skylights), and any problem spots help us identify it fast.</p>
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Upload Photos & Request Free Estimate</a>
       </div>
     </section>
 
-    <!-- Repair vs Replacement -->
-    <section class="card airy">
-      <h2>2) Do I Need a Repair or a Full Replacement?</h2>
+    <!-- ===== VISUAL GUIDE ===== -->
+    <section id="guide" class="section card airy hoverable">
+      <h2>Visual Guide to Common Southern CA Roofs</h2>
+      <div class="grid cols-3 id-grid">
+        <div class="card">
+          <h3>Asphalt Shingle</h3>
+          <p>Granular tabs in rows; most common pitched roof. Modern architectural shingles have a dimensional look. <span class="tag">Pitched</span></p>
+        </div>
+        <div class="card">
+          <h3>Concrete Tile</h3>
+          <p>Thicker/heavier than clay; molded surface, cement-like texture; often flat or S-profile. <span class="tag">Pitched</span> <span class="tag">Tile</span></p>
+        </div>
+        <div class="card">
+          <h3>Clay Tile</h3>
+          <p>Reddish/orange or glazed colors; more variation; “ring” sound when tapped. <span class="tag">Pitched</span> <span class="tag">Tile</span></p>
+        </div>
+        <div class="card">
+          <h3>Slate</h3>
+          <p>Thin stone pieces, crisp edges, natural color shifts; very durable, heavier. <span class="tag">Pitched</span></p>
+        </div>
+        <div class="card">
+          <h3>Metal (Standing Seam)</h3>
+          <p>Vertical ribs every 12–24&quot;; long panels; clean modern look. <span class="tag">Pitched</span> <span class="tag">Metal</span></p>
+        </div>
+        <div class="card">
+          <h3>TPO / PVC</h3>
+          <p>White/gray single-ply membranes with heat-welded seams; common on flats. <span class="tag">Flat</span> <span class="tag">Single-Ply</span></p>
+        </div>
+        <div class="card">
+          <h3>Modified Bitumen</h3>
+          <p>Granulated rolls; torch-down or self-adhered; seams at roll laps. <span class="tag">Flat</span> <span class="tag">Mod-Bit</span></p>
+        </div>
+        <div class="card">
+          <h3>Built-Up (Gravel)</h3>
+          <p>Multiple layers with embedded gravel; older flat systems. <span class="tag">Flat</span> <span class="tag">BUR</span></p>
+        </div>
+        <div class="card">
+          <h3>Silicone-Coated</h3>
+          <p>Smooth, uniform coating (often white) applied over a sound roof to restore waterproofing. <span class="tag">Flat</span> <span class="tag">Coating</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EDGES & PENETRATIONS ===== -->
+    <section id="edges" class="section card airy hoverable">
+      <h2>What to Photograph: Edges & Penetrations</h2>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>Good Repair Candidates</h3>
-          <ul class="checklist relaxed">
-            <li><span class="tick">✓</span> One-area leak (pipe, valley, skylight).</li>
-            <li><span class="tick">✓</span> A few missing shingles/tiles.</li>
-            <li><span class="tick">✓</span> Flat roof with a couple of open seams.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Replacement Is More Likely When</h3>
-          <ul class="checklist relaxed">
-            <li><span class="tick">✓</span> Widespread wear or many leaks.</li>
-            <li><span class="tick">✓</span> Underlayment/membrane is at end of life.</li>
-            <li><span class="tick">✓</span> Extensive deck damage or poor ventilation.</li>
-          </ul>
-        </div>
+        <div class="card"><h3>Perimeter</h3><p class="muted">Drip edge or metal trim, fascia interface, parapet walls, scuppers, and gutter tie-ins.</p></div>
+        <div class="card"><h3>Transitions</h3><p class="muted">Valleys, walls/step flashings, skylights, chimneys, and any roof-to-roof intersections.</p></div>
+        <div class="card"><h3>Penetrations</h3><p class="muted">Plumbing/HVAC vents, satellite mounts, solar attachments, and any patched areas.</p></div>
+        <div class="card"><h3>Problem Spots</h3><p class="muted">Stains on ceilings, ponding areas on flats, cracked tiles, missing shingles, lifted seams.</p></div>
       </div>
-      <p class="muted small" style="margin-top:8px;">Age ranges vary by product and exposure, but many shingle roofs run 20–30 yrs, tile underlayment 20–30+ yrs, and single-ply membranes 15–25+ yrs with maintenance.</p>
-    </section>
-
-    <!-- Common issues & what to look for -->
-    <section class="card airy">
-      <h2>3) What Should I Look For Right Now?</h2>
-      <div class="grid micro-grid">
-        <div class="card"><h3>Ceiling Stains</h3><p class="muted">Brown rings indicate active or past leaks.</p></div>
-        <div class="card"><h3>Missing Pieces</h3><p class="muted">Shingles/tiles blown off or cracked.</p></div>
-        <div class="card"><h3>Ponding Water</h3><p class="muted">Flat areas holding water &gt; 48 hours.</p></div>
-        <div class="card"><h3>Debris Piles</h3><p class="muted">Valleys/gutters clogged reduce drainage.</p></div>
-        <div class="card"><h3>Old Skylights</h3><p class="muted">Brittle domes/failed seals cause leaks.</p></div>
-        <div class="card"><h3>Rust/Cracks</h3><p class="muted">At metal edges or around penetrations.</p></div>
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Upload Photos</a>
       </div>
     </section>
 
-    <!-- Ask better questions -->
-    <section class="card airy">
-      <h2>4) Smart Questions to Ask Any Roofer</h2>
+    <!-- ===== PITCH CHECK ===== -->
+    <section id="pitch" class="section card airy hoverable">
+      <h2>Check Your Roof Pitch (Quick Method)</h2>
       <div class="grid cols-2">
-        <div class="card">
+        <div>
           <ul class="checklist relaxed">
-            <li><span class="tick">✓</span> What’s the <strong>exact scope</strong> (line items) and <strong>photos</strong> of issues?</li>
-            <li><span class="tick">✓</span> How will you handle <strong>flashings</strong>, <strong>ventilation</strong>, and <strong>drainage</strong>?</li>
-            <li><span class="tick">✓</span> For flat roofs: are seams <strong>heat-welded</strong> or <strong>torch-applied</strong>? ES-1 edges?</li>
+            <li><span class="tick">✓</span> Place a level against the roof (or view from a window) and measure 12&quot; along the level.</li>
+            <li><span class="tick">✓</span> Measure the vertical rise from the roof surface to the level at the 12&quot; mark.</li>
+            <li><span class="tick">✓</span> That rise is your pitch: e.g., 4&quot; rise over 12&quot; run = 4:12.</li>
           </ul>
         </div>
-        <div class="card">
-          <ul class="checklist relaxed">
-            <li><span class="tick">✓</span> What <strong>warranty</strong> applies (labor/material), and what voids it?</li>
-            <li><span class="tick">✓</span> Will you protect landscaping and do a <strong>daily cleanup</strong>?</li>
-            <li><span class="tick">✓</span> What <strong>permits</strong> are required, and who handles them?</li>
-          </ul>
+        <div>
+          <p class="muted">Safety first—never climb a roof you’re not comfortable accessing. Photos from the ground help us estimate pitch and type if needed.</p>
         </div>
       </div>
     </section>
 
-    <!-- Mini glossary for novices -->
-    <section class="card airy">
-      <h2>5) Mini Glossary (Plain English)</h2>
-      <div class="grid auto-fit" style="--ui-gap:16px;">
-        <div class="card">
-          <h3>Underlayment</h3>
-          <p class="muted">Water-resistant layer under shingles/tiles; key to keeping water out.</p>
-        </div>
-        <div class="card">
-          <h3>Flashing</h3>
-          <p class="muted">Metal pieces that waterproof at walls, chimneys, pipes, and edges.</p>
-        </div>
-        <div class="card">
-          <h3>Ridge Vent / Intake</h3>
-          <p class="muted">Lets hot air out and cool air in; balances attic airflow on pitched roofs.</p>
-        </div>
-        <div class="card">
-          <h3>Scupper / Drain</h3>
-          <p class="muted">Openings and bowls that move water off flat roofs.</p>
-        </div>
+    <!-- ===== AREAS (hierarchy) ===== -->
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head">
+        <h2 class="sa-title">Service Areas</h2>
+        <p class="muted">North County San Diego, Temecula Valley, the rest of San Diego County, and nearby Southern California communities.</p>
       </div>
-    </section>
 
-    <!-- Collapsible "learn more" blocks -->
-    <section class="card airy">
-      <h2>Deep Dives (Optional)</h2>
-      <div class="grid cols-2">
-        <details class="card"><summary>Shingles vs Tile vs Metal vs Slate</summary>
-          <p class="muted">Shingles are versatile & budget-friendly; tile is durable but relies on underlayment; metal sheds water quickly and can be energy-efficient; slate is long-lasting but heavier and specialized.</p>
+      <!-- 1) North County SD -->
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">1) North County San Diego</h3>
+          <p class="muted small" style="margin:0;">Escondido • Carlsbad • San Marcos • Encinitas • Vista • Oceanside • Poway • Rancho Bernardo</p>
+        </div>
+        <ul class="chip-grid" aria-label="North County cities">
+          <li><span class="sa-chip strong">Escondido 92025–92029</span></li>
+          <li><span class="sa-chip">Carlsbad 92008–92011</span></li>
+          <li><span class="sa-chip">San Marcos 92069–92078</span></li>
+          <li><span class="sa-chip">Encinitas 92024</span></li>
+          <li><span class="sa-chip">Vista 92081–92084</span></li>
+          <li><span class="sa-chip">Oceanside 92054–92057</span></li>
+          <li><span class="sa-chip">Poway 92064</span></li>
+          <li><span class="sa-chip">Rancho Bernardo 92127–92128</span></li>
+        </ul>
+        <details class="sa-more">
+          <summary class="sa-summary">See more North County ZIPs</summary>
+          <p class="muted small">Rancho Peñasquitos 92129 • Fallbrook 92028 • Solana Beach 92075 • Del Mar 92014 • La Costa 92009</p>
         </details>
-        <details class="card"><summary>TPO/PVC vs Torch-Down vs Silicone</summary>
-          <p class="muted">TPO/PVC use heat-welded seams (very watertight); torch-down uses an asphalt-based membrane; silicone is a restoration coating for eligible roofs, extending life without full tear-off.</p>
-        </details>
+      </div>
+
+      <!-- 2) Temecula Valley -->
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">2) Temecula Valley</h3>
+          <p class="muted small" style="margin:0;">Temecula • Murrieta • Menifee • Wildomar • Lake Elsinore</p>
+        </div>
+        <ul class="chip-grid" aria-label="Temecula area">
+          <li><span class="sa-chip strong">Temecula 92590–92592</span></li>
+          <li><span class="sa-chip">Murrieta 92562–92563</span></li>
+          <li><span class="sa-chip">Menifee 92584</span></li>
+          <li><span class="sa-chip">Wildomar 92595</span></li>
+          <li><span class="sa-chip">Lake Elsinore 92530–92532</span></li>
+        </ul>
+      </div>
+
+      <!-- 3) Greater San Diego County -->
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">3) Greater San Diego County</h3>
+          <p class="muted small" style="margin:0;">Coastal, inland, and metro neighborhoods.</p>
+        </div>
+        <ul class="chip-grid" aria-label="San Diego County">
+          <li><span class="sa-chip">San Diego</span></li>
+          <li><span class="sa-chip">La Jolla</span></li>
+          <li><span class="sa-chip">Scripps Ranch</span></li>
+          <li><span class="sa-chip">Chula Vista</span></li>
+          <li><span class="sa-chip">La Mesa</span></li>
+          <li><span class="sa-chip">El Cajon</span></li>
+        </ul>
+      </div>
+
+      <!-- 4) Southern California -->
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">4) Southern California</h3>
+          <p class="muted small" style="margin:0;">Select nearby communities by request.</p>
+        </div>
+        <ul class="chip-grid" aria-label="SoCal">
+          <li><span class="sa-chip">Orange County (by request)</span></li>
+          <li><span class="sa-chip">Riverside County (by request)</span></li>
+        </ul>
       </div>
     </section>
 
-    <!-- Route them (friendly funnel) -->
-    <section class="card airy" id="route">
-      <h2>6) Quick Route: Help Me Choose</h2>
-      <p class="muted">If you’re still unsure, answer a few quick questions and we’ll prefill your estimate with the right service.</p>
-      <div class="cta">
-        <a class="btn" href="/services/roof-replacement/not-sure/">Start the 60-Second Helper</a>
-        <a class="btn outline" href="#estimate">Skip to Free Estimate</a>
+    <!-- ===== ESTIMATE FORM ===== -->
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer">
+        <em>*Free estimates exclude real-estate transaction inspections/reports. If you’re a buyer/seller or agent, please see our Real Estate Services.</em>
+      </p>
+    </section>
+
+    <!-- CTA band -->
+    <section class="section">
+      <div class="cta-strip">
+        <div class="text">
+          <strong>Still unsure about your roof?</strong> Send a few photos—we’ll identify it and recommend your best path.
+        </div>
+        <a class="btn" href="#estimate">Upload Photos & Get Guidance</a>
       </div>
-    </section>
-
-    <!-- Estimate form include -->
-    <section id="estimate" class="card airy" data-estimate-context data-category="Need Help — Roofing Guide" data-redirect="/thank-you/">
-      <h2>Get a Free Estimate</h2>
-      <p class="muted small">Tell us the basics—if you’re not sure on details, just say “not sure” and we’ll guide you.</p>
-      <div data-include="/components/forms/estimate.html"></div>
-
-      <!-- Fallback if include is unavailable -->
-      <template id="lead-form-fallback">
-        <form id="estimate-form" novalidate>
-          <input type="hidden" name="service_type" value="Help Me Choose / General Guidance">
-          <input type="hidden" name="page" value="">
-          <div class="form-row">
-            <div class="form-col-6"><label>Full Name</label><input name="name" required></div>
-            <div class="form-col-6"><label>Phone</label><input name="phone" type="tel" required></div>
-          </div>
-          <div class="form-row">
-            <div class="form-col-6"><label>Email</label><input name="email" type="email" required></div>
-            <div class="form-col-6"><label>ZIP</label><input name="zip" required></div>
-          </div>
-          <div class="form-row">
-            <div class="form-col-12">
-              <label>Notes</label>
-              <textarea name="message" rows="4" placeholder="Pitched or flat? Material? Where is the issue? Timeline?"></textarea>
-            </div>
-          </div>
-          <button class="btn" type="submit">Send Request</button>
-        </form>
-      </template>
-    </section>
-
-    <section class="card airy">
-      <h2>Service Area</h2>
-      <p class="muted">North County San Diego, Greater San Diego, Temecula & nearby communities.</p>
-      <p class="muted small">Info above explains typical practices. Final scope, pricing, and warranties are defined by your signed contract and manufacturer documentation.</p>
     </section>
   </main>
 
+  <!-- Footer include OUTSIDE <main> for full width -->
   <div data-include="/components/footer.html"></div>
 
-  <!-- Sticky Action Bar -->
-  <div class="actionbar">
-    <a class="ab-btn call" href="tel:8589006163">Call</a>
-    <a class="ab-btn text" href="sms:+18589006163">Text</a>
-    <a class="ab-btn estimate" href="#estimate">Free Estimate</a>
-  </div>
+  <!-- ===== JS ===== -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
+
+  <!-- Per-page form config (keeps Service Type on “Other”, optimizes for ID help) -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Request Free Estimate",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Tell us what you see (shingle, tile, slate, metal, flat membrane?), age (if known), leak areas, ponding spots. Upload close-ups of edges, vents/skylights, and any damage.",
+      // No lockService here so the dropdown stays on “Other” (your preference)
+      hiddenFields: { campaign: "services/roof-replacement/not-sure", page_tag: "find-my-roof-type" }
+    };
+  </script>
+
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
