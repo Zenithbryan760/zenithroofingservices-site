@@ -1,40 +1,330 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Residential Asphalt Shingles | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Architectural shingle installs and repairs with proper starters, valleys, ridge, and balanced attic ventilation. Title 24 cool-roof options." />
-  <link rel="canonical" href="https://www.zenithroofingservices.com/services/residential/asphalt-shingles/">
+  <!-- ===== META ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Asphalt Shingle Roofing — Repair & Replacement | North County San Diego & Temecula</title>
+  <meta name="description" content="Architectural asphalt shingle roof repair and replacement. Leak fixes, storm damage, ventilation upgrades, and full re-roofs. Serving Escondido, North County San Diego, Temecula & greater San Diego County. Free estimates." />
+  <link rel="canonical" href="https://zenithroofingservices.com/services/residential/asphalt-shingles/"/>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 
-  <link rel="stylesheet" href="/css/header.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/footer.css"><link rel="stylesheet" href="/css/ui.css"><link rel="stylesheet" href="/css/estimate-form.css">
-  <script defer src="/js/loader.js"></script><script defer src="/js/header.js"></script><script defer src="/js/estimate-form.js"></script>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Asphalt Shingle Roofing — Repair & Replacement | Zenith Roofing Services"/>
+  <meta property="og:description" content="Architectural shingle re-roofs, leak repairs, ventilation and underlayment upgrades. Serving Escondido, North County San Diego & Temecula."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://zenithroofingservices.com/services/residential/asphalt-shingles/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-  <style>.page.shingle{max-width:1100px;margin:24px auto;padding:0 16px}.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:600;font-size:.95rem}.muted{color:var(--ui-muted)}.tick{font-weight:800;color:#0b3a6f}</style>
+  <!-- Shared CSS (footer stays in head so it spans full width) -->
+  <link rel="preload" href="/css/base.css" as="style"/>
+  <link rel="preload" href="/css/header.css" as="style"/>
+  <link rel="preload" href="/css/ui.css" as="style"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <!-- Form CSS -->
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
+
+  <!-- Page-scope polish -->
+  <style>
+    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    html { scroll-behavior: smooth; }
+
+    .page .hero{
+      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
+      border: 1px solid var(--ui-line);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 14px 34px rgba(2,12,32,.08);
+    }
+    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
+    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
+    .page .hero .split{ align-items:center; }
+    .page .hero .media{
+      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
+      background:#fff; box-shadow: var(--ui-shadow); transform: translateZ(0);
+    }
+    .page .hero .media::before{
+      content:""; display:block; aspect-ratio:16/10;
+      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
+    }
+
+    .page h2{ margin-bottom:.4rem; }
+    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
+    .page .card.hoverable{ will-change: transform, box-shadow; }
+    .page .card.hoverable:hover{ transform: translateY(-3px); }
+
+    .page .badge { font-weight:800; border:1px solid var(--ui-line); padding:.25rem .55rem; border-radius:999px; background:#fff; }
+    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
+
+    .page .cta-strip{
+      background:#072e59; color:#fff; border-radius:16px;
+      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    }
+    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
+    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
+  </style>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Services","item":"https://zenithroofingservices.com/services/"},
+      {"@type":"ListItem","position":2,"name":"Residential","item":"https://zenithroofingservices.com/services/residential/"},
+      {"@type":"ListItem","position":3,"name":"Asphalt Shingles","item":"https://zenithroofingservices.com/services/residential/asphalt-shingles/"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Service + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Asphalt Shingle Roof Repair & Replacement",
+    "serviceType":"Architectural asphalt shingle roofing",
+    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
+    "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}],
+    "description":"Architectural asphalt shingle leak repairs, storm damage fixes, ventilation and underlayment upgrades, and full re-roofs for Southern California homes."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"How long does an asphalt shingle roof last in Southern California?","acceptedAnswer":{"@type":"Answer","text":"Architectural shingles commonly last 20–30 years depending on exposure, ventilation, and maintenance. Coastal sun/salt and attic heat can shorten life without proper ventilation."}},
+      {"@type":"Question","name":"Should I overlay or tear off?","acceptedAnswer":{"@type":"Answer","text":"We recommend tear-off for a flat deck, new underlayment, and manufacturer-compliant install. Overlays can trap heat and hide decking issues."}},
+      {"@type":"Question","name":"Do you improve ventilation with the new roof?","acceptedAnswer":{"@type":"Answer","text":"Yes—ridge/roof vents and intake balancing are part of our scope when needed, which helps shingle life and comfort."}}
+    ]
+  }
+  </script>
 </head>
 <body>
+  <!-- Header include -->
   <div data-include="/components/header-section.html"></div>
-  <main class="page shingle" id="top">
-    <section class="card airy">
-      <span class="badge">Residential</span>
-      <h1 style="margin:10px 0 6px;">Asphalt Shingle Roofing</h1>
-      <p class="muted">Architectural shingle installs & repairs with proper starters, valleys, ridge, and ventilation. Title 24 cool options available.</p>
-      <div class="cta"><a class="btn" href="#estimate">Get a Free Estimate</a></div>
-    </section>
 
-    <section class="card airy" aria-label="Highlights">
-      <h2>Highlights</h2>
-      <div class="grid auto-fit" style="--ui-gap:16px;">
-        <div class="card"><h3>Built to Spec</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Starter/edge/valley/ridge</li><li><span class="tick">✓</span> Balanced attic airflow</li></ul></div>
-        <div class="card"><h3>Options</h3><ul class="checklist relaxed"><li><span class="tick">✓</span> Duration Cool colors</li><li><span class="tick">✓</span> Peel-and-stick in critical areas</li></ul></div>
+  <main id="top" class="page">
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-label="Asphalt shingle roofing">
+      <div class="eyebrow">
+        <span class="chip">Architectural Shingles</span>
+        <span class="chip">Leak Repair</span>
+        <span class="chip">Full Replacement</span>
+      </div>
+      <div class="split">
+        <div>
+          <h1 style="margin:0 0 .5rem">Asphalt Shingle Roofing — Repair & Replacement</h1>
+          <p class="lede">Durable, good-looking, and budget-smart. We handle **leak repairs**, **storm damage**, and **architectural shingle re-roofs** with proper ventilation and underlayment—serving <strong>Escondido</strong>, <strong>North County San Diego</strong>, <strong>Temecula</strong>, and greater <strong>San Diego County</strong>.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#estimate" aria-label="Request a free asphalt shingle roofing estimate">Request Free Estimate</a>
+            <a class="btn btn-outline" href="#compare">Shingle Options</a>
+          </div>
+        </div>
+        <div class="media" aria-hidden="true"></div>
       </div>
     </section>
 
-    <section id="estimate" class="card airy" data-estimate-context data-category="Residential — Asphalt Shingles" data-redirect="/thank-you/">
-      <div data-include="/components/forms/estimate.html"></div>
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills" aria-label="Asphalt shingles sections">
+      <a href="#benefits">Why Asphalt Shingles</a>
+      <a href="#compare">Options</a>
+      <a href="#process">Our Process</a>
+      <a href="#warranty">Warranty</a>
+      <a href="#faq">FAQ</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#estimate">Estimate</a>
+    </nav>
+
+    <!-- ===== BENEFITS ===== -->
+    <section id="benefits" class="section card airy hoverable">
+      <h2>Why Asphalt Shingles</h2>
+      <div class="grid cols-2">
+        <div>
+          <ul class="checklist relaxed">
+            <li><span class="tick">✓</span> Great value with architectural curb appeal</li>
+            <li><span class="tick">✓</span> Broad color and style selection</li>
+            <li><span class="tick">✓</span> Compatible with most Southern CA homes</li>
+            <li><span class="tick">✓</span> Streamlined repairs and components availability</li>
+          </ul>
+        </div>
+        <div>
+          <ul class="checklist relaxed">
+            <li><span class="tick">✓</span> Proper underlayment & flashing details for longevity</li>
+            <li><span class="tick">✓</span> Ventilation upgrades to protect shingles & attic</li>
+            <li><span class="tick">✓</span> Strong manufacturer warranties when installed right</li>
+          </ul>
+        </div>
+      </div>
+      <div class="center-actions"><a class="btn btn-primary" href="#estimate">Request Free Estimate</a></div>
+    </section>
+
+    <!-- ===== OPTIONS ===== -->
+    <section id="compare" class="section card airy hoverable">
+      <h2>Popular Shingle Options</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Architectural (Dimensional)</h3>
+          <p class="muted">Heavier profile, layered look, strong wind ratings—our top pick for most homes.</p>
+        </div>
+        <div class="card">
+          <h3>Impact-Resistant</h3>
+          <p class="muted">Added toughness for debris-prone areas; may lower insurance in some cases.</p>
+        </div>
+        <div class="card">
+          <h3>Cool-Roof Colors</h3>
+          <p class="muted">Higher reflectivity options to help reduce attic heat under the SoCal sun.</p>
+        </div>
+      </div>
+      <p class="section lede-narrow" style="margin:0;">We’ll help you select the right profile and color for your home and neighborhood guidelines.</p>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section id="process" class="section card airy hoverable">
+      <h2>Our Re-Roof & Repair Process</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>1) Evaluate</h3><p class="muted">Inspect decking, flashings, ventilation, and trouble areas.</p></div>
+        <div class="card"><h3>2) Protect & Tear-Off</h3><p class="muted">Landscape protection, clean tear-off, deck prep.</p></div>
+        <div class="card"><h3>3) Re-Sheet & Dry-In</h3><p class="muted">Replace bad decking, underlayment, and flashing upgrades.</p></div>
+        <div class="card"><h3>4) Install & Vent</h3><p class="muted">Architectural shingles + balanced intake/exhaust ventilation.</p></div>
+        <div class="card"><h3>5) Detail & Clean</h3><p class="muted">Sealants, penetrations, magnets for nails, thorough cleanup.</p></div>
+        <div class="card"><h3>6) Photos & Walkthrough</h3><p class="muted">Final check with photo documentation for your records.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== WARRANTY ===== -->
+    <section id="warranty" class="section card airy hoverable">
+      <h2>Solid Materials & Warranty</h2>
+      <p class="muted">We install shingle systems to manufacturer specs with matching accessories for warranty integrity. You’ll receive clear documentation and care tips to maximize service life.</p>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section card airy hoverable">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>Can you repair instead of replace?</summary><p class="muted">Yes—if the roof still has life left, we’ll target leak sources (flashings, penetrations, valleys) and provide photos and recommendations.</p></details>
+        <details><summary>Do you offer financing or phased work?</summary><p class="muted">We can stage work and discuss cost-smart scopes. Ask us about options for timing and phases.</p></details>
+        <details><summary>Do you handle HOA requirements?</summary><p class="muted">Yes—color sheets, scope summaries, and install specs are available to help with approvals.</p></details>
+      </div>
+    </section>
+
+    <!-- ===== AREAS (hierarchy) ===== -->
+    <section id="areas" class="section card airy hoverable service-areas-modern">
+      <div class="sa-head">
+        <h2 class="sa-title">Service Areas</h2>
+        <p class="muted">North County San Diego, Temecula Valley, the rest of San Diego County, and nearby Southern California communities.</p>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">1) North County San Diego</h3>
+          <p class="muted small" style="margin:0;">Escondido • Carlsbad • San Marcos • Encinitas • Vista • Oceanside • Poway • Rancho Bernardo</p>
+        </div>
+        <ul class="chip-grid" aria-label="North County cities">
+          <li><span class="sa-chip strong">Escondido 92025–92029</span></li>
+          <li><span class="sa-chip">Carlsbad 92008–92011</span></li>
+          <li><span class="sa-chip">San Marcos 92069–92078</span></li>
+          <li><span class="sa-chip">Encinitas 92024</span></li>
+          <li><span class="sa-chip">Vista 92081–92084</span></li>
+          <li><span class="sa-chip">Oceanside 92054–92057</span></li>
+          <li><span class="sa-chip">Poway 92064</span></li>
+          <li><span class="sa-chip">Rancho Bernardo 92127–92128</span></li>
+        </ul>
+        <details class="sa-more">
+          <summary class="sa-summary">See more North County ZIPs</summary>
+          <p class="muted small">Rancho Peñasquitos 92129 • Fallbrook 92028 • Solana Beach 92075 • Del Mar 92014 • La Costa 92009</p>
+        </details>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">2) Temecula Valley</h3>
+          <p class="muted small" style="margin:0;">Temecula • Murrieta • Menifee • Wildomar • Lake Elsinore</p>
+        </div>
+        <ul class="chip-grid" aria-label="Temecula area">
+          <li><span class="sa-chip strong">Temecula 92590–92592</span></li>
+          <li><span class="sa-chip">Murrieta 92562–92563</span></li>
+          <li><span class="sa-chip">Menifee 92584</span></li>
+          <li><span class="sa-chip">Wildomar 92595</span></li>
+          <li><span class="sa-chip">Lake Elsinore 92530–92532</span></li>
+        </ul>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">3) Greater San Diego County</h3>
+          <p class="muted small" style="margin:0;">Coastal, inland, and metro neighborhoods.</p>
+        </div>
+        <ul class="chip-grid" aria-label="San Diego County">
+          <li><span class="sa-chip">San Diego</span></li>
+          <li><span class="sa-chip">La Jolla</span></li>
+          <li><span class="sa-chip">Scripps Ranch</span></li>
+          <li><span class="sa-chip">Chula Vista</span></li>
+          <li><span class="sa-chip">La Mesa</span></li>
+          <li><span class="sa-chip">El Cajon</span></li>
+        </ul>
+      </div>
+
+      <div class="card airy">
+        <div class="sa-head">
+          <h3 class="sa-title">4) Southern California</h3>
+          <p class="muted small" style="margin:0;">Select nearby communities by request.</p>
+        </div>
+        <ul class="chip-grid" aria-label="SoCal">
+          <li><span class="sa-chip">Orange County (by request)</span></li>
+          <li><span class="sa-chip">Riverside County (by request)</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== ESTIMATE FORM ===== -->
+    <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+      <p class="form-disclaimer">
+        <em>*Free estimates exclude real-estate transaction inspections/reports. If you’re buying/selling or an agent, ask about our paid inspection/report options.</em>
+      </p>
+    </section>
+
+    <!-- CTA band -->
+    <section class="section">
+      <div class="cta-strip">
+        <div class="text"><strong>Ready for a shingle repair or re-roof?</strong> Clean tear-offs, proper ventilation, and photos—done right.</div>
+        <a class="btn" href="#estimate">Request Free Estimate</a>
+      </div>
+    </section>
+
+    <!-- Internal links to help funnel -->
+    <section class="section">
+      <div class="grid cols-3">
+        <a class="card hoverable" href="/services/roof-repairs/"><strong>Roof Repairs</strong><br><span class="muted">Leaks, skylights, flashing</span></a>
+        <a class="card hoverable" href="/services/roof-replacement/"><strong>Roof Replacement</strong><br><span class="muted">Shingle, tile, slate, flat</span></a>
+        <a class="card hoverable" href="/services/gutters/"><strong>Seamless Gutters</strong><br><span class="muted">5&quot;/6&quot; K-style + guards</span></a>
+      </div>
     </section>
   </main>
+
+  <!-- Footer include OUTSIDE <main> for full width -->
   <div data-include="/components/footer.html"></div>
-  <div class="actionbar"><a class="ab-btn call" href="tel:8589006163">Call</a><a class="ab-btn text" href="sms:+18589006163">Text</a><a class="ab-btn estimate" href="#estimate">Free Estimate</a></div>
+
+  <!-- ===== JS ===== -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
+  <!-- Per-page form config (keep Service Type on “Other”) -->
+  <script>
+    window.ESTIMATE_FORM_CONFIG = {
+      submitText: "Request Free Estimate",
+      referralPreselect: "Website",
+      descriptionPlaceholder: "Tell us about leaks, age of roof, preferred colors/profiles, any HOA rules, and attach photos if available.",
+      // No lockService so the dropdown stays on “Other” (your preferred default)
+      hiddenFields: { campaign: "services/residential/asphalt-shingles", page_tag: "asphalt-shingles" }
+    };
+  </script>
+  <script src="/js/estimate-form.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
