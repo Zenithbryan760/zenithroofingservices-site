@@ -549,3 +549,30 @@
   .page .service-areas-modern .chip-grid { gap: 8px; }
   .page .service-areas-modern .sa-chip { padding: .55rem .75rem; }
 }
+
+/* --- Orange flashing pills with navy text (About) --- */
+.link-chip {
+  display:inline-flex; align-items:center;
+  padding:.55rem .9rem; border-radius:9999px;
+  font-weight:600; text-decoration:none; border:0;
+  transition:transform .15s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
+}
+.link-chip--orange-navy { background:#ff8a00; color:#0b2545; }
+.link-chip--flash {
+  box-shadow:0 0 0 0 rgba(255,138,0,.55);
+  animation:chip-flash 1.2s ease-in-out infinite;
+}
+.link-chip--flash:hover { background:#ff7a00; transform:translateY(-1px); }
+.link-chip--flash:active { transform:translateY(0); }
+.link-chip--flash:focus-visible { outline:2px solid #0b2545; outline-offset:2px; }
+/* kill any decorative arrows on pills in About */
+.about-links .link-chip::after { content:none !important; }
+
+@keyframes chip-flash {
+  0%   { box-shadow:0 0 0 0 rgba(255,138,0,.55); }
+  70%  { box-shadow:0 0 0 10px rgba(255,138,0,0); }
+  100% { box-shadow:0 0 0 0 rgba(255,138,0,0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .link-chip--flash { animation:none; }
+}
