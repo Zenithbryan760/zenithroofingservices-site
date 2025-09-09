@@ -665,3 +665,54 @@
   .hero-grid{ display:grid; grid-template-columns:1.35fr .9fr; gap:1.4rem; align-items:start; }
   .hero-photo{ margin-top:0; }
 }
+/* ==== Services Catalog (brand-safe, consistent with Services pages) ==== */
+.catalog-hero{
+  background:#f8fafc;
+  border-bottom:1px solid #e5e7eb;
+  padding:42px 0 28px;
+}
+.catalog-eyebrow{ text-transform:uppercase; letter-spacing:.12em; font-weight:800; color:#64748b; margin-bottom:.25rem; }
+.catalog-hero .hero-title{ color:#0f172a; margin:.15rem 0 .35rem; }
+.catalog-hero .hero-subtitle{ color:#334155; max-width:65ch; line-height:1.65; }
+
+.catalog-subnav{
+  position:sticky; top:var(--header-height,72px); z-index:30;
+  background:rgba(255,255,255,.92); backdrop-filter:saturate(1.1) blur(8px);
+  border-bottom:1px solid #e5e7eb;
+}
+.catalog-subnav .inner{ display:flex; gap:.5rem; flex-wrap:wrap; padding:.6rem 0; }
+.catalog-subnav a{
+  display:inline-flex; align-items:center; gap:.35rem; font-weight:700; color:#0f172a;
+  border:1px solid #e5e7eb; border-radius:999px; padding:.45rem .8rem;
+}
+.catalog-subnav a:hover{ border-color:#cbd5e1; }
+
+.catalog-grid{ display:grid; gap:1.1rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
+.service-card{
+  background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:1rem;
+  box-shadow:0 6px 18px rgba(2,8,23,.08);
+}
+.service-card h3{ margin:.15rem 0 .35rem; color:#0f172a; }
+.service-card p{ color:#475569; }
+.service-meta{ font-size:.86rem; color:#64748b; }
+.service-actions{ display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.7rem; }
+.btn-solid{
+  display:inline-flex; align-items:center; gap:.5rem; font-weight:800;
+  border-radius:999px; padding:.6rem 1rem; border:1px solid transparent;
+  background:linear-gradient(180deg, #fb923c, #f97316); color:#0b1324;
+}
+.btn-solid:hover{ filter:brightness(1.05); }
+.btn-outline{ display:inline-flex; align-items:center; gap:.5rem; font-weight:800; border:1px solid #e5e7eb; border-radius:999px; padding:.6rem 1rem; color:#0f172a; }
+.btn-outline:hover{ border-color:#cbd5e1; }
+
+.section-kicker{ text-transform:uppercase; font-weight:800; letter-spacing:.12em; color:#64748b; margin-bottom:.35rem; }
+.section-title{ margin-top:.15rem; }
+.section-lede{ color:#334155; max-width:65ch; line-height:1.65; margin-bottom:.6rem; }
+
+/* Tiny scrollspy cue */
+.catalog-subnav a.is-active{ border-color:#94a3b8; }
+
+/* Responsive helpers */
+@media (min-width: 980px){
+  .catalog-hero .stack{ display:grid; grid-template-columns:1.5fr .9fr; gap:1.4rem; align-items:start; }
+}
