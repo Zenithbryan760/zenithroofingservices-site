@@ -1,108 +1,240 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-  <title>Commercial Roofing — Apartments, HOA, Schools & Retail | Zenith Roofing Services</title>
-  <meta name="description" content="Full-scope commercial roofing: TPO, torch-down, silicone coatings, metal, tile, shingle, debris cleaning & roof asset maintenance. Bid-ready scopes, phased schedules, clean jobsites. Escondido • San Diego • Temecula."/>
-  <link rel="canonical" href="https://zenithroofingservices.com/services/commercial/"/>
-  <meta property="og:title" content="Commercial Roofing — Apartments, HOA, Schools & Retail"/>
-  <meta property="og:description" content="From replacements to maintenance programs—bid-ready, phased, documented."/>
-  <meta name="twitter:card" content="summary_large_image"/>
+  <meta charset="utf-8" />
+  <title>Commercial Roofing Services | Warehouses, Restaurants, Retail, HOA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Commercial roofing for warehouses, restaurants, retail and HOA in San Diego & Temecula. WeatherBond TPO/PVC, modified bitumen, silicone restoration, SPF foam, and metal retrofits. Title 24 assemblies, tenant-safe phasing, warranties, and clean sites." />
+  <link rel="canonical" href="/services/commercial/" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large" />
 
-  <link rel="stylesheet" href="/css/base.css"/><link rel="stylesheet" href="/css/header.css"/><link rel="stylesheet" href="/css/ui.css"/><link rel="stylesheet" href="/css/footer.css"/>
-  <link rel="stylesheet" href="/css/estimate-form.css"/>
-
-  <style>
-    html{scroll-behavior:smooth}
-    .hero{background:linear-gradient(135deg,#f8fafc,#eef6ff);border:1px solid var(--ui-line);border-radius:18px;padding:clamp(18px,3vw,28px);box-shadow:0 14px 34px rgba(2,12,32,.08)}
-    .chip{background:#fff;border:1px solid var(--ui-line);border-radius:999px;padding:.4rem .7rem;font-weight:800}
-    .cta-strip{background:#072e59;color:#fff;border-radius:16px;padding:16px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-    .service-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-    .service-card{display:block;border:1px solid var(--ui-line);border-radius:14px;padding:16px;background:#fff;box-shadow:var(--ui-shadow);text-decoration:none;color:inherit}
-    .service-card:hover{transform:translateY(-2px);box-shadow:var(--ui-shadow-hover)}
-  </style>
-
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Service","name":"Commercial Roofing","serviceType":"Commercial roofing installation, replacements, repairs and maintenance","provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"}}
-  </script>
+  <!-- Same CSS stack as Residential -->
+  <link rel="preload" href="/css/base.css" as="style" />
+  <link rel="preload" href="/css/header.css" as="style" />
+  <link rel="preload" href="/css/ui.css" as="style" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/header.css" />
+  <link rel="stylesheet" href="/css/ui.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
+  <link rel="stylesheet" href="/css/estimate-form.css" />
 </head>
 <body>
+  <!-- Header include -->
   <div data-include="/components/header-section.html"></div>
-  <main id="top" class="page">
-    <section class="hero">
-      <div class="eyebrow" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:.6rem">
-        <span class="chip">Bid-Ready</span><span class="chip">Phased</span><span class="chip">Photo Docs</span>
+
+  <main>
+    <!-- HERO — same structure/classes as Residential (copy left, photo right) -->
+    <section class="service-hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="service-eyebrow">Zenith Roofing Services • Commercial Division</div>
+          <h1 class="hero-title">Commercial Roofing Services</h1>
+          <p class="hero-subtitle">
+            Low-disruption systems for <strong>industrial warehouses</strong>, <strong>restaurants & retail</strong>, and <strong>HOAs/multifamily</strong>.
+            Title 24-compliant assemblies, tenant-safe phasing, clean sites, and manufacturer-backed warranties.
+          </p>
+
+          <!-- Brand chips (same style as Residential) -->
+          <nav class="about-links" aria-label="Commercial quick links" style="margin-top:.85rem">
+            <a class="link-chip link-chip--flash link-chip--orange-navy" href="/services/commercial/tpo/">TPO / PVC</a>
+            <a class="link-chip link-chip--flash link-chip--orange-navy" href="/services/commercial/torch-down/">Modified Bitumen</a>
+            <a class="link-chip link-chip--flash link-chip--orange-navy" href="/services/commercial/silicone-coatings/">Silicone Restoration</a>
+            <a class="link-chip link-chip--flash link-chip--orange-navy" href="/services/commercial/tpo/">SPF Foam</a>
+            <a class="link-chip link-chip--flash link-chip--orange-navy" href="/services/commercial/metal/">Metal Retrofits</a>
+            <a class="link-chip link-chip--flash link-chip--orange-navy" href="/services/roof-replacement/">Replacement Options</a>
+          </nav>
+
+          <div style="margin-top:14px">
+            <a href="tel:8589006163" class="btn-solid">Call 858-900-6163</a>
+            <a href="#estimate" class="btn-outline">Get a Proposal</a>
+          </div>
+        </div>
+
+        <!-- Photo card — same markup/classes as Residential -->
+        <aside class="hero-photo" aria-label="Recent commercial reroof photo">
+          <figure class="photo-card">
+            <picture>
+              <source srcset="/images/commercial/warehouse-tpo.webp" type="image/webp" />
+              <img
+                src="/images/commercial/warehouse-tpo.jpg"
+                alt="Warehouse TPO reroof with tapered insulation and walk pads"
+                loading="eager" decoding="async" fetchpriority="high"
+                onerror="this.onerror=null;this.src='/images/zenith-van.jpg';this.alt='Zenith Roofing Services service vehicle';"
+              />
+            </picture>
+            <figcaption class="photo-caption">Warehouse TPO • San Diego</figcaption>
+          </figure>
+        </aside>
       </div>
-      <h1>Commercial Roofing — Apartments, HOA, Schools & Retail</h1>
-      <p class="lede">From full replacements to preventive programs, we deliver code-compliant systems, organized schedules around people and parking, and clean jobsites with photo documentation.</p>
-      <div class="cta"><a class="btn btn-primary" href="#estimate">Request Bid / Estimate</a><a class="btn btn-outline" href="#services">Explore Services</a></div>
     </section>
 
-    <nav class="pillnav sticky-pills"><a href="#services">Services</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#areas">Service Areas</a><a href="#estimate">Estimate</a></nav>
+    <!-- Systems (same card/grid pattern used on Residential) -->
+    <section class="container">
+      <div class="section-kicker">Systems</div>
+      <h2 class="section-title">Commercial systems we install & replace</h2>
+      <p class="section-lede">We’ll document repair vs. recover vs. tear-off, confirm layers/moisture, and align warranty paths with your lifecycle goals.</p>
 
-    <!-- Services grid -->
-    <section id="services" class="section card airy hoverable">
-      <h2>Commercial Roofing Services</h2>
-      <div class="service-grid">
-        <a class="service-card" href="/services/commercial/tpo/"><strong>TPO Single-Ply</strong><br><span class="muted">Cool, welded seams (no flame)</span></a>
-        <a class="service-card" href="/services/commercial/torch-down/"><strong>Torch-Down (Mod-Bit)</strong><br><span class="muted">Durable multi-ply assemblies</span></a>
-        <a class="service-card" href="/services/commercial/silicone-coatings/"><strong>Silicone Coatings</strong><br><span class="muted">Restore & extend life</span></a>
-        <a class="service-card" href="/services/commercial/metal/"><strong>Metal Roofing</strong><br><span class="muted">Standing seam & R-panel</span></a>
-        <a class="service-card" href="/services/commercial/tile-roofing/"><strong>Tile Roofing</strong><br><span class="muted">Clay & concrete systems</span></a>
-        <a class="service-card" href="/services/commercial/shingle-systems/"><strong>Shingle Systems</strong><br><span class="muted">Apartments & HOA</span></a>
-        <a class="service-card" href="/services/commercial/debris-removal-cleaning/"><strong>Debris Removal & Cleaning</strong><br><span class="muted">Gutters, drains & scuppers</span></a>
-        <a class="service-card" href="/services/commercial/roof-asset-maintenance/"><strong>Roof Asset Maintenance</strong><br><span class="muted">6/12/24-month programs</span></a>
+      <div class="grid-auto">
+        <article class="card">
+          <h3>TPO / PVC (WeatherBond)</h3>
+          <p class="small-note">Cool-roof membranes with welded seams. PVC is preferred near kitchen exhausts.</p>
+          <ul class="checklist">
+            <li>Tapered insulation & drain upgrades</li>
+            <li>Perimeter metals & penetrations to spec</li>
+            <li>Walk pads at service routes</li>
+          </ul>
+          <div style="margin-top:.6rem">
+            <a href="/services/commercial/tpo/" class="btn-solid">TPO/PVC Details</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Modified Bitumen (Torch-Down)</h3>
+          <p class="small-note">Durable multi-ply assemblies for heavy traffic and equipment zones.</p>
+          <ul class="checklist">
+            <li>Granulated cap sheets for UV</li>
+            <li>Robust perimeter/penetration details</li>
+            <li>Pairs with metal edges & drains</li>
+          </ul>
+          <div style="margin-top:.6rem">
+            <a href="/services/commercial/torch-down/" class="btn-solid">Modified Bitumen</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Silicone Restoration (Coatings)</h3>
+          <p class="small-note">Extend life on eligible roofs with reinforced seams & high-solids silicone topcoat.</p>
+          <ul class="checklist">
+            <li>Prep + reinforcement + topcoat</li>
+            <li>Reduces tear-off waste & downtime</li>
+            <li>Reflective finish lowers heat load</li>
+          </ul>
+          <div style="margin-top:.6rem">
+            <a href="/services/commercial/silicone-coatings/" class="btn-solid">Coating Systems</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>SPF Foam + Coating</h3>
+          <p class="small-note">Monolithic insulated system sealing difficult details and boosting R-value.</p>
+          <ul class="checklist">
+            <li>Slope correction & ponding reduction</li>
+            <li>Seamless around curbs & parapets</li>
+            <li>UV/weather topcoat</li>
+          </ul>
+          <div style="margin-top:.6rem">
+            <a href="/services/commercial/tpo/" class="btn-solid">SPF Overview</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Metal Retrofits</h3>
+          <p class="small-note">Retrofit/overlay assemblies where structure and budget allow.</p>
+          <ul class="checklist">
+            <li>Edge metals, gutters & downspouts</li>
+            <li>Integrates with skylights & RTU curbs</li>
+            <li>Color-matched accessories</li>
+          </ul>
+          <div style="margin-top:.6rem">
+            <a href="/services/commercial/metal/" class="btn-solid">Metal Options</a>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- Process -->
-    <section id="process" class="section card airy hoverable">
-      <h2>Our Process For Bigger Projects</h2>
-      <div class="grid cols-2">
-        <div class="card"><h3>1) Site Walk & Scope</h3><p class="muted">Measure, access, staging & safety zones.</p></div>
-        <div class="card"><h3>2) Proposal & Options</h3><p class="muted">Clear scope with alternates (insulation, edge metal, warranties).</p></div>
-        <div class="card"><h3>3) Phasing & Communication</h3><p class="muted">Resident notices, protected paths, clean daily close-outs.</p></div>
-        <div class="card"><h3>4) Install & Photo Docs</h3><p class="muted">Spec-aligned install with documented checkpoints.</p></div>
+    <!-- Sectors served (same card grid style) -->
+    <section class="light-section">
+      <div class="container">
+        <div class="section-kicker">Who we serve</div>
+        <h2 class="section-title">Built for active, occupied properties</h2>
+        <div class="grid-auto">
+          <article class="card">
+            <h3>Industrial Warehouses</h3>
+            <p class="small-note">Large footprints, skylights, dock areas—engineered drainage & durable details.</p>
+            <ul class="checklist"><li>Tapered insulation & drain upgrades</li><li>Skylight guards/curbs</li><li>Walk pads at service routes</li></ul>
+          </article>
+          <article class="card">
+            <h3>Restaurants & Retail</h3>
+            <p class="small-note">Grease exhaust, odor sensitivity, customer access—phased work and PVC near hoods.</p>
+            <ul class="checklist"><li>Grease containment & slip pads</li><li>Off-hours scheduling</li><li>Clean, signed walk paths</li></ul>
+          </article>
+          <article class="card">
+            <h3>HOA / Multifamily</h3>
+            <p class="small-note">Board communication, resident notices, parking plans, photo documentation.</p>
+            <ul class="checklist"><li>Phased sections</li><li>Overflow & scupper upgrades</li><li>Daily housekeeping</li></ul>
+          </article>
+          <article class="card">
+            <h3>Office / Medical</h3>
+            <p class="small-note">Quiet hours, odor-sensitive products, strict housekeeping and safety.</p>
+            <ul class="checklist"><li>Noise/odor controls</li><li>Protected entries</li><li>Inspection coordination</li></ul>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="section card airy hoverable">
-      <h2>FAQ</h2>
-      <div class="faq">
-        <details><summary>Do you work occupied properties?</summary><p class="muted">Yes—most commercial projects remain fully occupied. We schedule and protect accordingly.</p></details>
-        <details><summary>Can you assist with specs and RFPs?</summary><p class="muted">Absolutely—cut sheets, detail notes, and value-engineering options are available.</p></details>
+    <!-- Process (same component rhythm) -->
+    <section class="container">
+      <div class="section-kicker">How we work</div>
+      <h2 class="section-title">Our commercial process</h2>
+      <div class="grid-auto">
+        <article class="card">
+          <h3>Assessment & Scope</h3>
+          <ul class="checklist"><li>Site visit, moisture checks, cores as needed</li><li>Repair vs. recover vs. replace with drawings</li><li>Clear, line-item proposal</li></ul>
+        </article>
+        <article class="card">
+          <h3>Phasing & Safety</h3>
+          <ul class="checklist"><li>Tenant/employee access plans</li><li>Fall-protection & hot-work controls</li><li>Daily cleanup & signage</li></ul>
+        </article>
+        <article class="card">
+          <h3>Permits & QA Closeout</h3>
+          <ul class="checklist"><li>Title 24 assemblies & inspections</li><li>Progress photos & punch-list</li><li>Warranty documentation packet</li></ul>
+        </article>
       </div>
     </section>
 
-    <!-- AREAS -->
-    <section id="areas" class="section card airy hoverable service-areas-modern">
-      <div class="sa-head"><h2 class="sa-title">Service Areas</h2><p class="muted">North County San Diego • Temecula Valley • Greater San Diego County</p></div>
-      <ul class="chip-grid sa-cities"><li><span class="chip sa-chip strong">Escondido</span></li><li><span class="chip sa-chip strong">San Diego</span></li><li><span class="chip sa-chip strong">Temecula</span></li><li><span class="chip sa-chip">Carlsbad</span></li><li><span class="chip sa-chip">San Marcos</span></li><li><span class="chip sa-chip">Vista</span></li></ul>
-      <div class="center-actions"><a class="btn btn-primary" href="#estimate">Request Bid / Estimate</a></div>
+    <!-- FAQs (same style as Residential) -->
+    <section class="light-section">
+      <div class="container">
+        <div class="section-kicker">FAQ</div>
+        <h2 class="section-title">Common questions</h2>
+        <details><summary>Recover vs. tear-off—what’s right for us?</summary><p>If the deck is sound and there’s a single layer, a recover can be faster and cost-effective. Trapped moisture, multiple layers, or widespread failure point to tear-off. We’ll document findings with photos and, if needed, core data.</p></details>
+        <details><summary>How do you minimize disruption?</summary><p>We phase sections, protect entries, set clear walk paths, coordinate deliveries, and schedule high-impact work off-hours to keep operations open.</p></details>
+        <details><summary>What warranties are available?</summary><p>Workmanship plus manufacturer material & labor coverage (often 15–20 years) on eligible systems installed to spec. We’ll review requirements upfront.</p></details>
+      </div>
     </section>
 
-    <!-- FORM -->
-    <section id="estimate" class="section estimate-form-section">
-      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
-      <p class="form-disclaimer"><em>Include building use, roof size, system preference (if any), access notes, and bid timeline.</em></p>
+    <!-- Estimate (identical include/wrapper as Residential) -->
+    <section id="estimate" class="container" style="padding:2rem 1rem;">
+      <h2 class="h3">Request a Commercial Proposal</h2>
+      <div data-include="/components/estimate-form.html"></div>
+      <p class="small muted" style="margin-top:.5rem">
+        <em>Share your address, roof size (if known), hours of operation, and any photos—we’ll respond quickly.</em>
+      </p>
     </section>
-
-    <!-- CTA -->
-    <section class="section"><div class="cta-strip"><div class="text"><strong>Let’s plan your project.</strong> We’ll deliver a clean, competitive, complete bid with options.</div><a class="btn" href="#estimate">Request Bid / Estimate</a></div></section>
   </main>
-  <div data-include="/components/footer.html"></div>
 
-  <script src="/js/loader.js" defer></script><script src="/js/header.js" defer></script>
-  <script>
-    window.ESTIMATE_FORM_CONFIG = {
-      submitText: "Request Bid / Estimate",
-      referralPreselect: "Website",
-      descriptionPlaceholder: "Tell us about your property (use, SF), desired system or goals (cool roof, low disruption), and any deadlines.",
-      hiddenFields: { campaign: "services/commercial", page_tag: "commercial-index" }
-    };
+  <!-- Footer include -->
+  <div data-include="/components/footer-section.html"></div>
+
+  <!-- Loader -->
+  <script src="/js/loader.js" defer></script>
+
+  <!-- JSON-LD (concise) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "serviceType":"Commercial Roofing Services",
+    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc."},
+    "areaServed":[{"@type":"Place","name":"San Diego County"},{"@type":"Place","name":"Temecula"}],
+    "hasOfferCatalog":{"@type":"OfferCatalog","name":"Systems","itemListElement":[
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"TPO/PVC"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Modified Bitumen"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Silicone Restoration"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"SPF Foam + Coating"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Metal Retrofits"}}
+    ]}
+  }
   </script>
-  <script src="/js/estimate-form.js" defer></script>
-  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
