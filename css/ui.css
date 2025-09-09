@@ -591,3 +591,77 @@
 .section-note{font-size:.9rem;color:#475569;margin-top:.75rem}
 .pricing-subtle{font-size:.82rem;color:#64748b}
 .divider{height:1px;background:#e5e7eb;margin:.85rem 0}
+/* ===== Service V2 (light, consistent with other Services pages) ===== */
+
+/* Light hero (matches your Services look) */
+.service-hero{
+  background:#f8fafc; /* light slate */
+  border-bottom:1px solid #e5e7eb;
+  padding:42px 0 28px;
+}
+.service-eyebrow{
+  text-transform:uppercase; letter-spacing:.12em; font-weight:800; color:#64748b; margin-bottom:.25rem;
+}
+.service-hero .hero-title{ color:#0f172a; margin:.15rem 0 .35rem; }
+.service-hero .hero-subtitle{ color:#334155; max-width:60ch; line-height:1.6; }
+
+/* Hero split with mini photo (mobile-first) */
+.hero-grid{ display:block; }
+.hero-photo{ margin-top:1rem; }
+.photo-card{
+  position:relative; overflow:hidden; border-radius:18px;
+  border:1px solid #e5e7eb; background:#fff;
+  box-shadow:0 16px 40px rgba(2,8,23,.10);
+}
+.photo-card img{ display:block; width:100%; height:100%; object-fit:cover; aspect-ratio:4/3; }
+.photo-caption{
+  position:absolute; left:12px; bottom:12px;
+  background:rgba(255,255,255,.92); border:1px solid #e5e7eb; color:#0b1324;
+  font-weight:800; font-size:.78rem; border-radius:10px; padding:.3rem .55rem;
+}
+
+/* Sticky subnav (light) */
+.subnav{
+  position:sticky; top:var(--header-height,72px); z-index:30;
+  background:rgba(255,255,255,.92); backdrop-filter:saturate(1.1) blur(8px);
+  border-bottom:1px solid #e5e7eb;
+}
+.subnav-inner{ display:flex; gap:.5rem; flex-wrap:wrap; padding:.6rem 0; }
+.subnav a{
+  display:inline-flex; align-items:center; gap:.35rem; font-weight:700;
+  border:1px solid #e5e7eb; border-radius:999px; padding:.45rem .8rem; color:#0f172a;
+}
+.subnav a:hover{ border-color:#cbd5e1; }
+
+/* Section polish (keeps your existing .light-section spacing) */
+.section-kicker{ text-transform:uppercase; font-weight:800; letter-spacing:.12em; color:#64748b; margin-bottom:.25rem; }
+.section-title{ margin-top:.2rem; }
+.section-lede{ color:#334155; max-width:65ch; line-height:1.65; }
+
+/* Premium but subtle cards, consistent with Services */
+.grid-auto{ display:grid; gap:1.1rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
+.card{
+  border:1px solid #e5e7eb; border-radius:16px; background:#fff;
+  box-shadow:0 6px 18px rgba(2,8,23,.08); padding:1rem;
+}
+.card h3{ margin:.25rem 0 .35rem; color:#0f172a; }
+.card .small-note{ color:#475569; }
+.card .checklist{ list-style:none; padding:0; margin:.5rem 0 0; }
+.card .checklist li{ display:flex; gap:.5rem; margin:.32rem 0; }
+.card .checklist li::before{ content:"✓"; font-weight:900; color:#0f172a; }
+
+/* CTA buttons aligned with brand */
+.btn-solid{
+  display:inline-flex; align-items:center; gap:.5rem; font-weight:800;
+  border-radius:999px; padding:.6rem 1rem; border:1px solid transparent;
+  background:linear-gradient(180deg, #fb923c, #f97316); color:#0b1324;
+}
+.btn-solid:hover{ filter:brightness(1.05); }
+.btn-outline{ display:inline-flex; align-items:center; gap:.5rem; font-weight:800; border:1px solid #e5e7eb; border-radius:999px; padding:.6rem 1rem; color:#0f172a; }
+.btn-outline:hover{ border-color:#cbd5e1; }
+
+/* Responsive layout */
+@media (min-width: 980px){
+  .hero-grid{ display:grid; grid-template-columns:1.35fr .9fr; gap:1.4rem; align-items:start; }
+  .hero-photo{ margin-top:0; }
+}
