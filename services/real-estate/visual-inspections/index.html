@@ -1,75 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-  <title>Visual Roof Inspections for Real Estate | Zenith Roofing Services</title>
-  <meta name="description" content="On-site, visual, non-invasive roof inspections for buyers, sellers, and agents. Photos, notes, and clear recommendations."/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+
+  <!-- META -->
+  <title>Visual Roof Inspection | Zenith Roofing Services</title>
+  <meta name="description" content="On-site, visual, non-invasive roof inspection with photos and plain-English notes. For buyers, sellers, and agents who want peace of mind and an honest opinion. Price: $295 (paid in advance)."/>
   <link rel="canonical" href="https://zenithroofingservices.com/services/real-estate/visual-inspections/"/>
-  <meta property="og:title" content="Visual Roof Inspections — Real Estate"/>
-  <meta property="og:description" content="On-site visual inspections with photos and clear recommendations. Book now."/>
+  <meta property="og:title" content="Visual Roof Inspection"/>
+  <meta property="og:description" content="Peace of mind from a licensed roofer—photos, notes, and honest recommendations. Price: $295 (paid in advance)."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="robots" content="index,follow,max-image-preview:large"/>
+
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/base.css"/><link rel="stylesheet" href="/css/header.css"/><link rel="stylesheet" href="/css/ui.css"/><link rel="stylesheet" href="/css/footer.css"/><link rel="stylesheet" href="/css/estimate-form.css"/>
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
+
   <style>
-    html{scroll-behavior:smooth}.hero{background:linear-gradient(135deg,#f8fafc,#eef6ff);border:1px solid var(--ui-line);border-radius:18px;padding:clamp(18px,3vw,28px)}
-    .pricecard{border:1px solid var(--ui-line);border-radius:14px;background:#fff;padding:14px}
+    html{scroll-behavior:smooth}
+    .hero{
+      background:linear-gradient(135deg,#f8fafc,#eef6ff);
+      border:1px solid var(--ui-line);
+      border-radius:18px;
+      padding:clamp(18px,3vw,28px);
+      box-shadow:0 14px 34px rgba(2,12,32,.08)
+    }
+    .chip{background:#fff;border:1px solid var(--ui-line);border-radius:999px;padding:.35rem .7rem;font-weight:800}
+    .eyebrow{display:flex;gap:.5rem;flex-wrap:wrap;margin:0 0 .6rem}
+    .price{font-weight:900}
+    .pillnav.sticky-pills{position:sticky;top:.75rem;z-index:5}
+    .benefits{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .benefit{border:1px solid var(--ui-line);border-radius:14px;background:#fff;padding:14px}
   </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Visual Roof Inspection",
+    "serviceType":"Visual, non-invasive roof inspection",
+    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
+    "offers":{"@type":"Offer","priceCurrency":"USD","price":"295","description":"On-site visual inspection with photos and notes. Paid in advance."}
+  }
+  </script>
 </head>
 <body>
   <div data-include="/components/header-section.html"></div>
+
   <main id="top" class="page">
+    <!-- HERO -->
     <section class="hero">
-      <h1>Visual Roof Inspections (On-Site)</h1>
-      <p class="lede">A thorough, **non-invasive** visual inspection with photos and clear recommendations tailored to your transaction.</p>
-      <div class="pricecard" style="max-width:520px"><strong>Visual Inspection</strong> — <span class="price">$$PRICE_VISUAL</span><p class="muted" style="margin:.3rem 0 0">Includes photos and summary; upgrades available for reports or estimates.</p></div>
-      <div class="cta"><a class="btn btn-primary" href="#estimate">Book Inspection</a><a class="btn btn-outline" href="#includes">What’s Included</a></div>
+      <div class="eyebrow">
+        <span class="chip">Non-Invasive</span>
+        <span class="chip">Photos & Notes</span>
+        <span class="chip">Price: $295</span>
+      </div>
+      <h1>Visual Roof Inspection</h1>
+      <p class="lede">
+        Sometimes you just want peace of mind and an honest opinion. We walk the roof where it’s safe, take clear photos, and give you straightforward notes on what we see—no upsell, just facts you can trust.
+      </p>
+      <p class="price">Price: <strong>$295</strong> <span class="muted">· paid in advance</span></p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#estimate">Book Now</a>
+        <a class="btn btn-outline" href="#includes">What’s Included</a>
+      </div>
     </section>
 
-    <nav class="pillnav sticky-pills"><a href="#includes">What’s Included</a><a href="#limitations">Limitations</a><a href="#faq">FAQ</a><a href="#estimate">Book</a></nav>
+    <!-- NAV -->
+    <nav class="pillnav sticky-pills">
+      <a href="#includes">What’s Included</a>
+      <a href="#benefits">Why It Helps</a>
+      <a href="#limitations">Limitations</a>
+      <a href="#estimate">Book Now</a>
+    </nav>
 
+    <!-- INCLUDED -->
     <section id="includes" class="section card airy hoverable">
       <h2>What’s Included</h2>
-      <ul class="checklist relaxed"><li><span class="tick">✓</span> On-site visual inspection</li><li><span class="tick">✓</span> Representative photos</li><li><span class="tick">✓</span> Summary & recommendations</li></ul>
+      <ul class="checklist relaxed">
+        <li><span class="tick">✓</span> On-site, visual, non-destructive inspection</li>
+        <li><span class="tick">✓</span> Representative photos of roof areas & details</li>
+        <li><span class="tick">✓</span> Plain-English summary and honest recommendations</li>
+      </ul>
+      <p class="muted small">Intended for general condition awareness and peace of mind; not a certification or formal report.</p>
     </section>
 
+    <!-- BENEFITS -->
+    <section id="benefits" class="section card airy hoverable">
+      <h2>Why It Helps</h2>
+      <div class="benefits">
+        <div class="benefit">
+          <h3>Peace of mind</h3>
+          <p class="muted">A straight answer on what we see today—useful before making decisions.</p>
+        </div>
+        <div class="benefit">
+          <h3>Shareable photos</h3>
+          <p class="muted">Clear images you can forward to family, agents, or property managers.</p>
+        </div>
+        <div class="benefit">
+          <h3>Next steps</h3>
+          <p class="muted">Simple recommendations: monitor, maintain, repair, or plan for replacement.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIMITATIONS -->
     <section id="limitations" class="section card airy hoverable">
       <h2>Limitations</h2>
-      <p class="muted">No destructive testing; we do not move finishes, solar, or mechanicals. Access limitations may affect visibility.</p>
+      <p class="muted">
+        Visual only—no destructive testing. We don’t move finishes, solar, or mechanicals. Access limitations may affect visibility.
+        If you need a formal <em>Roof Report</em> or an <em>Insurance Certification</em>, please book those services instead.
+      </p>
     </section>
 
-    <section id="faq" class="section card airy hoverable">
-      <h2>FAQ</h2>
-      <details><summary>Do you inspect interiors/attics?</summary><p class="muted">Roof-only by default. Attic checks can be added if accessible and safe.</p></details>
-    </section>
-
+    <!-- SINGLE FORM (Book Now) -->
     <section id="estimate" class="section estimate-form-section">
       <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
-      <p class="form-disclaimer"><em><strong>Paid service.</strong> Provide address, access, timeline, and any prior inspection notes. We’ll confirm schedule & payment.</em></p>
+      <p class="form-disclaimer">
+        <em><strong>Book now:</strong> $295, paid in advance. Include the property address, access/lockbox, timing, and any known concerns.</em>
+      </p>
     </section>
-<section class="container">
-  <h2 class="section-title">Pricing</h2>
-  <div class="price-grid">
-    <article class="price-card">
-      <h3>Visual Roof Inspection</h3>
-      <div class="price">From $195</div>
-      <ul class="checklist">
-        <li>Walk-through with photos</li>
-        <li>Summary of findings</li>
-        <li>Optional drone imagery</li>
-      </ul>
-      <p class="pricing-subtle">1-story SFR from $195 · 2-story/complex from $295 · Drone add-on +$75.</p>
-    </article>
-  </div>
-</section>
-<section class="light-section"><div class="container"><div data-include="/components/estimate-form.html"></div></div></section>
   </main>
+
   <div data-include="/components/footer.html"></div>
-  <script src="/js/loader.js" defer></script><script src="/js/header.js" defer></script>
+
+  <!-- SCRIPTS -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
   <script>
+    // Configure the universal form for this page
     window.ESTIMATE_FORM_CONFIG = {
-      submitText: "Book Inspection",
+      submitText: "Book Now",
       referralPreselect: "Website",
-      descriptionPlaceholder: "Address, access/lockbox, timeline, known issues, add-ons (attic check?).",
-      hiddenFields: { campaign: "services/real-estate/visual-inspections", page_tag: "re-visual" }
+      descriptionPlaceholder: "Address, access/lockbox, timing, known concerns (leaks, age, prior repairs).",
+      hiddenFields: {
+        campaign: "services/real-estate/visual-inspections",
+        page_tag: "re-visual",
+        product: "Visual Roof Inspection",
+        price_usd: "295",
+        prepaid_required: "true"
+      }
     };
   </script>
   <script src="/js/estimate-form.js" defer></script>
