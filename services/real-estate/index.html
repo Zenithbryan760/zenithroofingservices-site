@@ -1,181 +1,182 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Real Estate Roofing Services (Reports, Inspections, Certifications) | Zenith Roofing Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Transaction-ready roofing services for agents, buyers, sellers & lenders: certified reports, pre-sale estimates, visual inspections, roof certifications, insurance consulting, satellite analysis, and professional verbal opinions." />
-  <link rel="canonical" href="https://zenithroofingservices.com/services/real-estate/" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 
-  <link rel="preload" href="/css/base.css" as="style">
-  <link rel="preload" href="/css/header.css" as="style">
-  <link rel="preload" href="/css/ui.css" as="style">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/ui.css">
+  <!-- META -->
+  <title>Real Estate Roofing Services & Pricing | Zenith Roofing Services</title>
+  <meta name="description" content="Roof estimates, inspections, reports, and certifications for buyers, sellers, and agents. Online Estimate $95 (credit applied), On-Site Estimate $395, Visual Inspection $295 (prepaid), Roof Report $495, Roof Certification $395, plus free 5-minute verbal opinion."/>
+  <link rel="canonical" href="https://zenithroofingservices.com/services/real-estate/"/>
+  <meta property="og:title" content="Real Estate Roofing Services & Pricing"/>
+  <meta property="og:description" content="Online $95 • On-Site $395 • Inspection $295 • Report $495 • Certification $395 • Free 5-min opinion."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="robots" content="index,follow,max-image-preview:large"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+
+  <style>
+    html{scroll-behavior:smooth}
+    .hero{
+      background:linear-gradient(135deg,#f8fafc,#eef6ff);
+      border:1px solid var(--ui-line);
+      border-radius:18px;
+      padding:clamp(18px,3vw,28px);
+      box-shadow:0 14px 34px rgba(2,12,32,.08)
+    }
+    .eyebrow{display:flex;gap:.5rem;flex-wrap:wrap;margin:0 0 .6rem}
+    .chip{background:#fff;border:1px solid var(--ui-line);border-radius:999px;padding:.35rem .7rem;font-weight:800}
+    .services-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .svc{border:1px solid var(--ui-line);border-radius:14px;background:#fff;padding:16px;display:flex;flex-direction:column;justify-content:space-between}
+    .svc h3{margin-bottom:.25rem}
+    .price{font-weight:900}
+    .svc .btn{margin-top:.6rem}
+    .pillnav.sticky-pills{position:sticky;top:.75rem;z-index:5}
+    .muted.small{opacity:.85}
+  </style>
+
+  <!-- JSON-LD summary of offerings -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "itemListElement":[
+      {"@type":"Service","name":"Online Roof Estimate","offers":{"@type":"Offer","priceCurrency":"USD","price":"95","description":"Remote estimate via satellite imagery; credited if you proceed."}},
+      {"@type":"Service","name":"On-Site Written Estimate","offers":{"@type":"Offer","priceCurrency":"USD","price":"395"}},
+      {"@type":"Service","name":"Visual Roof Inspection","offers":{"@type":"Offer","priceCurrency":"USD","price":"295","description":"Paid in advance."}},
+      {"@type":"Service","name":"Roof Report (with Photos)","offers":{"@type":"Offer","priceCurrency":"USD","price":"495"}},
+      {"@type":"Service","name":"Roof Certification (Lender/Insurer)","offers":{"@type":"Offer","priceCurrency":"USD","price":"395"}},
+      {"@type":"Service","name":"Quick Verbal Roof Opinion","offers":{"@type":"Offer","priceCurrency":"USD","price":"0","description":"Free 5-minute call; no form."}},
+      {"@type":"Service","name":"Satellite Imagery Analysis","offers":{"@type":"Offer","priceCurrency":"USD","price":"0","description":"Education/overview; refer to Online/On-Site Estimates."}}
+    ]
+  }
+  </script>
 </head>
 <body>
-  <!-- Header include -->
   <div data-include="/components/header-section.html"></div>
 
-  <main>
+  <main id="top" class="page">
     <!-- HERO -->
-    <section class="hero-section compact">
-      <div class="container">
-        <h1 class="hero-title">Real Estate Roofing Services</h1>
-        <p class="hero-subtitle lede">Fast, clear, transaction-grade deliverables for agents, buyers, sellers, and lenders across North County San Diego & Temecula.</p>
+    <section class="hero">
+      <div class="eyebrow">
+        <span class="chip">Buyers & Sellers</span>
+        <span class="chip">Agents & Escrow</span>
+        <span class="chip">Clear Pricing</span>
+      </div>
+      <h1>Real Estate Roofing Services</h1>
+      <p class="lede">
+        Fast, plain-English deliverables for real estate: estimates, inspections, reports, and certifications. Pick what fits your timeline and what your counterparties require.
+      </p>
+    </section>
 
-        <!-- Quick links match header dropdown exactly -->
-        <nav class="about-links" aria-label="Real Estate quick links" style="margin-top:.75rem">
-          <a href="/services/real-estate/roof-reports/" class="link-chip link-chip--flash link-chip--orange-navy">Certified Roof Reports</a>
-          <a href="/services/real-estate/roof-estimates/" class="link-chip link-chip--flash link-chip--orange-navy">Pre-Sale Roofing Estimates</a>
-          <a href="/services/real-estate/visual-inspections/" class="link-chip link-chip--flash link-chip--orange-navy">Visual Roof Inspections</a>
-          <a href="/services/real-estate/roof-certifications/" class="link-chip link-chip--flash link-chip--orange-navy">Roof Certifications</a>
-          <a href="/services/real-estate/insurance-consulting/" class="link-chip link-chip--flash link-chip--orange-navy">Insurance Consulting</a>
-          <a href="/services/real-estate/verbal-opinions/" class="link-chip link-chip--flash link-chip--orange-navy">Professional Verbal Opinions</a>
-          <a href="/services/real-estate/satellite-imagery-analysis/" class="link-chip link-chip--flash link-chip--orange-navy">Satellite Imagery Analysis</a>
-        </nav>
+    <!-- NAV -->
+    <nav class="pillnav sticky-pills">
+      <a href="#estimates">Estimates</a>
+      <a href="#inspections">Inspections</a>
+      <a href="#docs">Reports & Certifications</a>
+      <a href="#advisory">Advisory</a>
+    </nav>
+
+    <!-- ESTIMATES -->
+    <section id="estimates" class="section card airy hoverable">
+      <h2>Estimates</h2>
+      <div class="services-grid">
+        <article class="svc">
+          <div>
+            <h3>Online Roof Estimate (Remote/Satellite)</h3>
+            <div class="price">$95</div>
+            <p class="muted">Numbers fast from satellite imagery. <strong>Credited if you proceed</strong> with Zenith.</p>
+          </div>
+          <a class="btn btn-primary" href="/services/real-estate/roof-estimates/#online">Start Online Estimate</a>
+        </article>
+
+        <article class="svc">
+          <div>
+            <h3>On-Site Written Estimate</h3>
+            <div class="price">$395</div>
+            <p class="muted">Visual visit and line-item pricing you can attach to offers, credits, or insurance files.</p>
+          </div>
+          <a class="btn btn-outline" href="/services/real-estate/roof-estimates/#onsite">Book On-Site Estimate</a>
+        </article>
+
+        <article class="svc">
+          <div>
+            <h3>Satellite Imagery Analysis</h3>
+            <div class="price">Overview</div>
+            <p class="muted">How we scope roofs remotely. Ready for pricing? Choose Online $95 or On-Site $395.</p>
+          </div>
+          <a class="btn btn-ghost" href="/services/real-estate/satellite-imagery-analysis/">Learn More</a>
+        </article>
       </div>
     </section>
 
-    <!-- Why Zenith -->
-    <section class="light-section">
-      <div class="container">
-        <h2 class="section-title">Built for escrows & tight timelines</h2>
-        <ul class="feature-checks">
-          <li>Clear findings with annotated photos and simple next steps</li>
-          <li>Rush options (same or next business day when available)</li>
-          <li>Clean, professional documentation—easy to share with all parties</li>
-          <li>Roofing contractor C-39 | Licensed • Insured • Local</li>
-        </ul>
+    <!-- INSPECTIONS -->
+    <section id="inspections" class="section card airy hoverable">
+      <h2>Inspections</h2>
+      <div class="services-grid">
+        <article class="svc">
+          <div>
+            <h3>Visual Roof Inspection</h3>
+            <div class="price">$295</div>
+            <p class="muted">On-site, non-invasive check with photos and honest notes. <strong>Paid in advance.</strong></p>
+          </div>
+          <a class="btn btn-primary" href="/services/real-estate/visual-inspections/">Book Inspection</a>
+        </article>
       </div>
     </section>
 
-    <!-- Pricing Overview -->
-    <section class="container">
-      <h2 class="section-title">Pricing (transparent & modular)</h2>
-      <p class="section-subtitle">Base pricing shown below. Multi-structure, steep/complex roofs, HOA access, and rush turnarounds can affect totals. We’ll confirm final pricing when you book.</p>
-
-      <div class="price-grid">
-
-        <!-- Certified Roof Reports -->
-        <article class="price-card">
-          <span class="badge badge--accent">Most requested</span>
-          <h3>Certified Roof Reports</h3>
-          <div class="price">From $295</div>
-          <ul class="checklist">
-            <li>Full photo set with notes</li>
-            <li>Condition summary & lifespan opinion</li>
-            <li>Repair scope (if applicable)</li>
-          </ul>
-          <div class="divider"></div>
-          <p class="pricing-subtle">≤2,500 sq ft SFR from $295 · 2,501–4,000 sq ft from $395 · 4,001–6,000 sq ft from $495 · Multi-unit +$75/unit · Rush +$95.</p>
-          <a href="#request" class="btn-outline">Request Report</a>
+    <!-- REPORTS & CERTIFICATIONS -->
+    <section id="docs" class="section card airy hoverable">
+      <h2>Reports & Certifications</h2>
+      <div class="services-grid">
+        <article class="svc">
+          <div>
+            <h3>Roof Report (with Photos)</h3>
+            <div class="price">$495</div>
+            <p class="muted">Photo-documented findings and recommendations—easy to share with lenders, insurers, and escrow.</p>
+          </div>
+          <a class="btn btn-primary" href="/services/real-estate/roof-reports/">Order Roof Report</a>
         </article>
 
-        <!-- Pre-Sale Roofing Estimates -->
-        <article class="price-card">
-          <h3>Pre-Sale Roofing Estimates</h3>
-          <div class="price">From $195</div>
-          <ul class="checklist">
-            <li>Line-item scope & materials</li>
-            <li>Photos of key areas</li>
-            <li>Credit applied if we do the work</li>
-          </ul>
-          <div class="divider"></div>
-          <p class="pricing-subtle">Virtual desk estimate from $95 · Standard on-site from $195 · Complex/steep/tile from $275.</p>
-          <a href="#request" class="btn-outline">Get an Estimate</a>
+        <article class="svc">
+          <div>
+            <h3>Roof Certification (Lender/Insurer)</h3>
+            <div class="price">$395</div>
+            <p class="muted">Evaluation and certification issued when the roof meets criteria; corrective work billed separately.</p>
+          </div>
+          <a class="btn btn-outline" href="/services/real-estate/roof-certifications/">Book Certification</a>
         </article>
-
-        <!-- Visual Roof Inspections -->
-        <article class="price-card">
-          <h3>Visual Roof Inspections</h3>
-          <div class="price">From $195</div>
-          <ul class="checklist">
-            <li>Walk-through with photos</li>
-            <li>Summary of findings</li>
-            <li>Optional drone imagery</li>
-          </ul>
-          <div class="divider"></div>
-          <p class="pricing-subtle">1-story SFR from $195 · 2-story/complex from $295 · Drone add-on +$75.</p>
-          <a href="#request" class="btn-outline">Book Inspection</a>
-        </article>
-
-        <!-- Roof Certifications -->
-        <article class="price-card">
-          <h3>Roof Certifications</h3>
-          <div class="price">From $225</div>
-          <ul class="checklist">
-            <li>1-year certification (passes inspection)</li>
-            <li>2-year option available</li>
-            <li>Maintenance prerequisites if required</li>
-          </ul>
-          <div class="divider"></div>
-          <p class="pricing-subtle">1-year from $225 · 2-year from $395. Certification issued only if the roof passes inspection; repairs may be required.</p>
-          <a href="#request" class="btn-outline">Request Certification</a>
-        </article>
-
-        <!-- Insurance Consulting -->
-        <article class="price-card">
-          <h3>Insurance Consulting</h3>
-          <div class="price">$195 / hour</div>
-          <ul class="checklist">
-            <li>Claim strategy & scope review</li>
-            <li>Photo/file prep for adjusters</li>
-            <li>On-site meet with adjuster (optional)</li>
-          </ul>
-          <div class="divider"></div>
-          <p class="pricing-subtle">File prep package from $395 · On-site adjuster meet from $295.</p>
-          <a href="#request" class="btn-outline">Consult on a Claim</a>
-        </article>
-
-        <!-- Professional Verbal Opinions -->
-        <article class="price-card">
-          <h3>Professional Verbal Opinions</h3>
-          <div class="price">From $95</div>
-          <ul class="checklist">
-            <li>Phone or video consult</li>
-            <li>Discuss findings & options</li>
-            <li>Optional written follow-up</li>
-          </ul>
-          <div class="divider"></div>
-          <p class="pricing-subtle">Phone consult (20 min) from $95 · Zoom (20–30 min) from $145 · Add brief written summary +$45.</p>
-          <a href="#request" class="btn-outline">Schedule a Call</a>
-        </article>
-
-        <!-- Satellite Imagery Analysis -->
-        <article class="price-card">
-          <h3>Satellite Imagery Analysis</h3>
-          <div class="price">From $125</div>
-          <ul class="checklist">
-            <li>Desk review with marked-up plan</li>
-            <li>Assists quick decisioning</li>
-            <li>Good for roof access limits</li>
-          </ul>
-          <div class="divider"></div>
-          <p class="pricing-subtle">24–48 hr turnaround typical · Add photo annotation set +$45.</p>
-          <a href="#request" class="btn-outline">Start a Desk Review</a>
-        </article>
-
       </div>
-
-      <p class="section-note">Pricing applies to typical SFR in our coverage area. Trip fees may apply for outlying zones, steep/unsafe access, or gated/HOA constraints. We’ll confirm total before dispatch.</p>
     </section>
 
-    <!-- Request / Estimate Form -->
-    <section class="light-section" id="request">
-      <div class="container">
-        <h2 class="section-title">Request service or ask a question</h2>
-        <p class="section-subtitle">Tell us what you need and your timeline—we’ll respond quickly with availability.</p>
-        <div data-include="/components/estimate-form.html"></div>
+    <!-- ADVISORY -->
+    <section id="advisory" class="section card airy hoverable">
+      <h2>Advisory</h2>
+      <div class="services-grid">
+        <article class="svc">
+          <div>
+            <h3>Quick Verbal Roof Opinion</h3>
+            <div class="price">Free · 5 minutes</div>
+            <p class="muted">Short, no-pressure call for fast direction. Ready for numbers? Use our Online or On-Site Estimates.</p>
+          </div>
+          <div class="cta">
+            <a class="btn btn-primary" href="/services/real-estate/verbal-opinions/">Call or Text</a>
+            <a class="btn btn-ghost" href="/services/real-estate/roof-estimates/">See Estimate Options</a>
+          </div>
+        </article>
       </div>
+      <p class="muted small" style="margin-top:.5rem">For underwriting documentation, choose a <a href="/services/real-estate/roof-reports/">Roof Report</a> or <a href="/services/real-estate/roof-certifications/">Roof Certification</a>.</p>
     </section>
   </main>
 
-  <!-- Footer include -->
-  <div data-include="/components/footer-section.html"></div>
+  <div data-include="/components/footer.html"></div>
 
-  <!-- Existing partial loader -->
+  <!-- SCRIPTS -->
   <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
 </body>
 </html>
