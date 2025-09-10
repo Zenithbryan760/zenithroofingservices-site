@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 
   <!-- META -->
-  <title>Written Roof Estimates for Real Estate | Zenith Roofing Services</title>
-  <meta name="description" content="Bid-ready, line-item roof estimates for real estate. Clear scope, photos (when available), and pricing you can attach to offers, credits, or insurance files. Price: $395."/>
+  <title>Roof Estimates for Real Estate (Online $95 or On-Site $395) | Zenith Roofing Services</title>
+  <meta name="description" content="Choose an online roof estimate for $95 (credited if you proceed) using satellite imagery, or a formal on-site written estimate for $395. Line-item pricing you can use in offers, credits, or insurance files."/>
   <link rel="canonical" href="https://zenithroofingservices.com/services/real-estate/roof-estimates/"/>
-  <meta property="og:title" content="Written Roof Estimates for Real Estate"/>
-  <meta property="og:description" content="Formal, line-item roof estimates tailored to transactions. Price: $395 · Book Now."/>
+  <meta property="og:title" content="Roof Estimates — Online $95 or On-Site $395"/>
+  <meta property="og:description" content="Online (remote) estimate $95 credited if you proceed, or on-site written estimate $395. Clear line-item pricing for buyers and sellers."/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="robots" content="index,follow,max-image-preview:large"/>
 
@@ -29,23 +29,33 @@
       padding:clamp(18px,3vw,28px);
       box-shadow:0 14px 34px rgba(2,12,32,.08)
     }
-    .chip{background:#fff;border:1px solid var(--ui-line);border-radius:999px;padding:.35rem .7rem;font-weight:800}
     .eyebrow{display:flex;gap:.5rem;flex-wrap:wrap;margin:0 0 .6rem}
+    .chip{background:#fff;border:1px solid var(--ui-line);border-radius:999px;padding:.35rem .7rem;font-weight:800}
     .price{font-weight:900}
     .pillnav.sticky-pills{position:sticky;top:.75rem;z-index:5}
-    .benefits{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-    .benefit{border:1px solid var(--ui-line);border-radius:14px;background:#fff;padding:14px}
+    .product-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .product-card{border:1px solid var(--ui-line);border-radius:14px;background:#fff;padding:14px}
+    .product-card .price{font-size:1.15rem}
+    .mini-list{margin:.5rem 0 0 1.2rem}
+    .mini-list li{margin:.25rem 0}
   </style>
 
-  <!-- JSON-LD -->
+  <!-- JSON-LD (two offers) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"Service",
-    "name":"Written Roof Estimate (Real Estate)",
-    "serviceType":"Bid-ready roof estimate for real estate transactions",
+    "name":"Roof Estimates for Real Estate",
+    "serviceType":"Roof estimates for real estate transactions",
     "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
-    "offers":{"@type":"Offer","priceCurrency":"USD","price":"395","description":"Formal, line-item roof estimate including scope notes, pricing, and photos when available."}
+    "offers":{
+      "@type":"AggregateOffer",
+      "priceCurrency":"USD",
+      "offers":[
+        {"@type":"Offer","name":"Online Roof Estimate (Remote/Satellite)","price":"95","description":"Remote estimate using satellite imagery. Fee credited if you proceed with Zenith."},
+        {"@type":"Offer","name":"On-Site Written Roof Estimate","price":"395","description":"Formal on-site written estimate with line-item pricing."}
+      ]
+    }
   }
   </script>
 </head>
@@ -59,69 +69,83 @@
       <div class="eyebrow">
         <span class="chip">Buyer / Seller</span>
         <span class="chip">Agents & Escrow</span>
-        <span class="chip">Price: $395</span>
+        <span class="chip">Online $95 • On-Site $395</span>
       </div>
-      <h1>Written Roof Estimates for Real Estate</h1>
+      <h1>Roof Estimates for Real Estate</h1>
       <p class="lede">
-        Need a formal, line-item estimate you can attach to offers, credits, or insurance files? We tailor scope and wording to your transaction so everyone’s clear on the work and budget.
+        Pick what fits your timeline: a fast <strong>Online Estimate ($95)</strong> from satellite imagery, or a formal <strong>On-Site Written Estimate ($395)</strong>. Either way, you get clear line-item pricing you can use for offers, credits, or planning.
       </p>
-      <p class="price">Price: <strong>$395</strong></p>
+      <p class="price">
+        Online: <strong>$95</strong> <span class="muted">· credited if you proceed</span> &nbsp;|&nbsp;
+        On-Site: <strong>$395</strong>
+      </p>
       <div class="cta">
-        <a class="btn btn-primary" href="#estimate">Book Now</a>
-        <a class="btn btn-outline" href="#deliverables">What’s Included</a>
+        <a class="btn btn-primary" href="#estimate" data-product="Online Estimate" data-price="95" data-delivery="remote" data-submit="Start Online Estimate">Start Online Estimate</a>
+        <a class="btn btn-outline" href="#estimate" data-product="On-Site Written Estimate" data-price="395" data-delivery="onsite" data-submit="Book On-Site Estimate">Book On-Site Estimate</a>
       </div>
     </section>
 
     <!-- NAV -->
     <nav class="pillnav sticky-pills">
-      <a href="#deliverables">What’s Included</a>
-      <a href="#benefits">Why It Helps</a>
-      <a href="#timeline">Timeline</a>
-      <a href="#estimate">Book Now</a>
+      <a href="#options">Options</a>
+      <a href="#compare">Which Should I Choose?</a>
+      <a href="#limits">Limitations</a>
+      <a href="#estimate">Start</a>
     </nav>
 
-    <!-- DELIVERABLES -->
-    <section id="deliverables" class="section card airy hoverable">
-      <h2>What’s Included</h2>
-      <ul class="checklist relaxed">
-        <li><span class="tick">✓</span> Line-item pricing with clear scope notes</li>
-        <li><span class="tick">✓</span> Photos included when available</li>
-        <li><span class="tick">✓</span> Options/alternates when useful (e.g., materials, upgrades)</li>
-        <li><span class="tick">✓</span> Wording tailored to buyer, seller, lender, or insurer</li>
-      </ul>
-      <p class="muted small">Applies to standard single-family conditions within our service area.</p>
-    </section>
+    <!-- OPTIONS -->
+    <section id="options" class="section card airy hoverable">
+      <h2>Estimate Options</h2>
+      <div class="product-grid">
+        <article class="product-card">
+          <h3>Online Estimate (Remote/Satellite)</h3>
+          <div class="price">$95</div>
+          <ul class="mini-list">
+            <li>Measurements & scope from satellite imagery/public data</li>
+            <li>Line-item pricing (repair or replacement)</li>
+            <li>Credit applied if you proceed with Zenith</li>
+          </ul>
+          <p class="muted small">If imagery is obstructed or outdated, we may request photos or recommend an on-site visit.</p>
+          <p><a class="btn btn-primary" href="#estimate" data-product="Online Estimate" data-price="95" data-delivery="remote" data-submit="Start Online Estimate">Start Online Estimate</a></p>
+        </article>
 
-    <!-- BENEFITS -->
-    <section id="benefits" class="section card airy hoverable">
-      <h2>Why It Helps</h2>
-      <div class="benefits">
-        <div class="benefit">
-          <h3>Negotiation-ready</h3>
-          <p class="muted">Use as a basis for credits, price changes, or “repair vs. replace” decisions.</p>
-        </div>
-        <div class="benefit">
-          <h3>Clear expectations</h3>
-          <p class="muted">Defines scope and materials so there are fewer surprises later.</p>
-        </div>
-        <div class="benefit">
-          <h3>Professional format</h3>
-          <p class="muted">Easy to share with escrow, lenders, and insurers.</p>
-        </div>
+        <article class="product-card">
+          <h3>On-Site Written Estimate</h3>
+          <div class="price">$395</div>
+          <ul class="mini-list">
+            <li>Visual site visit (non-destructive)</li>
+            <li>Line-item pricing with clear scope notes</li>
+            <li>Photos included when available</li>
+          </ul>
+          <p class="muted small">Great when access is easy, conditions are complex, or you need eyes on the roof.</p>
+          <p><a class="btn btn-outline" href="#estimate" data-product="On-Site Written Estimate" data-price="395" data-delivery="onsite" data-submit="Book On-Site Estimate">Book On-Site Estimate</a></p>
+        </article>
       </div>
     </section>
 
-    <!-- TIMELINE -->
-    <section id="timeline" class="section card airy hoverable">
-      <h2>Timeline</h2>
-      <p class="muted">Typical delivery is 1–3 business days after we have site details and access (if needed).</p>
+    <!-- COMPARE -->
+    <section id="compare" class="section card airy hoverable">
+      <h2>Which Should I Choose?</h2>
+      <ul class="mini-list">
+        <li><strong>Choose Online ($95)</strong> when you need numbers fast for an offer or credit and imagery is clear.</li>
+        <li><strong>Choose On-Site ($395)</strong> for complex roofs, multiple structures, tree cover/solar, or when you want photos from the visit.</li>
+      </ul>
     </section>
 
-    <!-- SINGLE FORM (Book Now) -->
+    <!-- LIMITATIONS -->
+    <section id="limits" class="section card airy hoverable">
+      <h2>Limitations</h2>
+      <p class="muted">
+        Online estimates rely on third-party imagery that may be incomplete or dated. Multi-structure and highly complex roofs may require an on-site visit.
+        This is an estimate, not a certification or report; for documentation see our <a href="/services/real-estate/roof-reports/">Roof Report</a> or <a href="/services/real-estate/roof-certifications/">Roof Certification</a>.
+      </p>
+    </section>
+
+    <!-- SINGLE FORM -->
     <section id="estimate" class="section estimate-form-section">
       <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
       <p class="form-disclaimer">
-        <em><strong>Book now:</strong> $395. Please include the property address, your role (buyer/seller/agent), repair vs. replacement focus, and your deadline.</em>
+        <em id="form-note"><strong>Start Online Estimate:</strong> $95. Include the full address, your role (buyer/seller/agent), whether you want repair or replacement pricing, and any known issues.</em>
       </p>
     </section>
   </main>
@@ -133,18 +157,64 @@
   <script src="/js/loader.js" defer></script>
   <script src="/js/header.js" defer></script>
   <script>
-    // Make the universal form say "Book Now" here
-    window.ESTIMATE_FORM_CONFIG = {
-      submitText: "Book Now",
-      referralPreselect: "Website",
-      descriptionPlaceholder: "Address, access, buyer/seller/agent, repair vs replacement, deadline, any lender/insurer notes.",
-      hiddenFields: {
-        campaign: "services/real-estate/roof-estimates",
-        page_tag: "re-estimate",
-        product: "Written Roof Estimate",
-        price_usd: "395"
+    (function(){
+      // Default to Online Estimate
+      let selection = {
+        product: "Online Estimate",
+        price: "95",
+        delivery: "remote",
+        submit: "Start Online Estimate",
+        noteHTML: '<strong>Start Online Estimate:</strong> $95. Include the full address, your role (buyer/seller/agent), whether you want repair or replacement pricing, and any known issues.'
+      };
+
+      function applySelection(){
+        window.ESTIMATE_FORM_CONFIG = {
+          submitText: selection.submit,
+          referralPreselect: "Website",
+          descriptionPlaceholder: selection.delivery === "remote"
+            ? "Full address, buyer/seller/agent, repair vs replacement, known issues, links to photos (optional)."
+            : "Full address, access/lockbox, buyer/seller/agent, repair vs replacement, deadline.",
+          hiddenFields: {
+            campaign: "services/real-estate/roof-estimates",
+            page_tag: "re-estimate",
+            product: selection.product,
+            price_usd: selection.price,
+            delivery: selection.delivery,
+            credit_applies_if_proceed: selection.delivery === "remote" ? "true" : "false"
+          }
+        };
+        var note = document.getElementById('form-note');
+        if (note) note.innerHTML = selection.noteHTML;
       }
-    };
+
+      // Update selection when user clicks a CTA with data attrs
+      document.addEventListener('click', function(e){
+        const a = e.target.closest('a[data-product]');
+        if(!a) return;
+        selection = {
+          product: a.getAttribute('data-product') || selection.product,
+          price: a.getAttribute('data-price') || selection.price,
+          delivery: a.getAttribute('data-delivery') || selection.delivery,
+          submit: a.getAttribute('data-submit') || selection.submit,
+          noteHTML: (a.getAttribute('data-delivery') === 'onsite')
+            ? '<strong>Book On-Site Estimate:</strong> $395. Include the address, access/lockbox, your role, and any deadlines.'
+            : '<strong>Start Online Estimate:</strong> $95. Include the full address, your role (buyer/seller/agent), whether you want repair or replacement pricing, and any known issues.'
+        };
+        applySelection();
+      }, true);
+
+      // Allow hash to preselect (? #onsite or #online)
+      if (location.hash.toLowerCase().includes('onsite')) {
+        selection = {
+          product: "On-Site Written Estimate",
+          price: "395",
+          delivery: "onsite",
+          submit: "Book On-Site Estimate",
+          noteHTML: '<strong>Book On-Site Estimate:</strong> $395. Include the address, access/lockbox, your role, and any deadlines.'
+        };
+      }
+      applySelection();
+    })();
   </script>
   <script src="/js/estimate-form.js" defer></script>
   <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
