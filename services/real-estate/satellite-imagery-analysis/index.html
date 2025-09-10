@@ -1,79 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-  <title>Satellite & Aerial Roof Imagery Analysis (Desk Review) | Zenith Roofing Services</title>
-  <meta name="description" content="Rapid desktop analysis using satellite/aerial imagery and client photos to flag roof type, age indicators, and likely risk areas. Great for early diligence."/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+
+  <!-- META -->
+  <title>Satellite Imagery Roof Analysis | Zenith Roofing Services</title>
+  <meta name="description" content="We analyze roofs using satellite/aerial imagery to gauge size, complexity, and access—great for fast planning. Ready for pricing? Start an Online Estimate ($95, credit-applied) or book an On-Site Estimate ($395)."/>
   <link rel="canonical" href="https://zenithroofingservices.com/services/real-estate/satellite-imagery-analysis/"/>
-  <meta property="og:title" content="Satellite & Aerial Roof Imagery Analysis"/>
-  <meta property="og:description" content="Fast, remote desk reviews for early due diligence. Book online."/>
+  <meta property="og:title" content="Satellite Imagery Roof Analysis"/>
+  <meta property="og:description" content="Remote roof review to understand scope fast. Then jump to Roof Estimates: Online $95 (credit-applied) or On-Site $395."/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <!-- CSS -->
-  <link rel="stylesheet" href="/css/base.css"/><link rel="stylesheet" href="/css/header.css"/><link rel="stylesheet" href="/css/ui.css"/><link rel="stylesheet" href="/css/footer.css"/><link rel="stylesheet" href="/css/estimate-form.css"/>
+  <meta name="robots" content="index,follow,max-image-preview:large"/>
+
+  <!-- CSS (site styles) -->
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+
   <style>
-    html{scroll-behavior:smooth}.hero{background:linear-gradient(135deg,#f8fafc,#eef6ff);border:1px solid var(--ui-line);border-radius:18px;padding:clamp(18px,3vw,28px)}
-    .pricecard{border:1px solid var(--ui-line);border-radius:14px;background:#fff;padding:14px}
+    html{scroll-behavior:smooth}
+    .hero{
+      background:linear-gradient(135deg,#f8fafc,#eef6ff);
+      border:1px solid var(--ui-line);
+      border-radius:18px;
+      padding:clamp(18px,3vw,28px);
+      box-shadow:0 14px 34px rgba(2,12,32,.08)
+    }
+    .eyebrow{display:flex;gap:.5rem;flex-wrap:wrap;margin:0 0 .6rem}
+    .chip{background:#fff;border:1px solid var(--ui-line);border-radius:999px;padding:.35rem .7rem;font-weight:800}
+    .pillnav.sticky-pills{position:sticky;top:.75rem;z-index:5}
+    .grid-two{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .cardlite{border:1px solid var(--ui-line);border-radius:14px;background:#fff;padding:14px}
+    .mini-list{margin:.5rem 0 0 1.2rem}
+    .mini-list li{margin:.25rem 0}
+    .muted.small{opacity:.85}
   </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Satellite Imagery Roof Analysis",
+    "serviceType":"Remote roof scoping using satellite/aerial imagery",
+    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
+    "areaServed":{"@type":"Place","name":"San Diego County & Surrounding Areas"},
+    "description":"Remote roof review to understand size, complexity, and access before committing to a site visit. Pairs with Online Estimate ($95, credit-applied) or On-Site Estimate ($395)."
+  }
+  </script>
 </head>
 <body>
   <div data-include="/components/header-section.html"></div>
+
   <main id="top" class="page">
+    <!-- HERO -->
     <section class="hero">
-      <h1>Satellite & Aerial Roof Imagery Analysis</h1>
-      <p class="lede">A fast, remote look at roof type, age indicators, and likely risk areas using aerial/satellite imagery plus your photos. Great for early diligence before a site visit.</p>
-      <div class="pricecard" style="max-width:520px"><strong>Desk Review</strong> — <span class="price">$$PRICE_SAT</span><p class="muted" style="margin:.3rem 0 0">Includes brief findings & recommendations; not a substitute for on-site evaluation.</p></div>
-      <div class="cta"><a class="btn btn-primary" href="#estimate">Book Desk Review</a><a class="btn btn-outline" href="#faq">FAQ</a></div>
+      <div class="eyebrow">
+        <span class="chip">Remote • Fast</span>
+        <span class="chip">No Site Visit</span>
+        <span class="chip">Great for Planning</span>
+      </div>
+      <h1>Satellite Imagery Roof Analysis</h1>
+      <p class="lede">
+        We use satellite and aerial imagery to quickly size up a roof—footprint, layout, and complexity—so buyers, sellers, and agents can make faster decisions.
+        When you’re ready for pricing, head to our Roof Estimates.
+      </p>
+      <div class="cta">
+        <a class="btn btn-primary" href="/services/real-estate/roof-estimates/#online">Start Online Estimate ($95)</a>
+        <a class="btn btn-outline" href="/services/real-estate/roof-estimates/#onsite">Book On-Site Estimate ($395)</a>
+        <a class="btn btn-ghost" href="/services/real-estate/roof-estimates/">See Both Options</a>
+      </div>
+      <p class="muted small" style="margin-top:.5rem">Online $95 fee is credited if you move forward with Zenith.</p>
     </section>
 
-    <nav class="pillnav sticky-pills"><a href="#deliverables">Deliverables</a><a href="#limitations">Limitations</a><a href="#faq">FAQ</a><a href="#estimate">Book</a></nav>
+    <!-- NAV -->
+    <nav class="pillnav sticky-pills">
+      <a href="#what">What We Check</a>
+      <a href="#limits">Limitations</a>
+      <a href="#next">Next Steps</a>
+    </nav>
 
-    <section id="deliverables" class="section card airy hoverable">
-      <h2>Deliverables</h2>
-      <ul class="checklist relaxed"><li><span class="tick">✓</span> Roof type & apparent condition cues</li><li><span class="tick">✓</span> Obvious risk areas (valleys, penetrations, drainage)</li><li><span class="tick">✓</span> Recommended next steps</li></ul>
+    <!-- WHAT WE CHECK -->
+    <section id="what" class="section card airy hoverable">
+      <h2>What We Check</h2>
+      <div class="grid-two">
+        <div class="cardlite">
+          <h3>From Imagery</h3>
+          <ul class="mini-list">
+            <li>Approximate roof area & geometry</li>
+            <li>Pitch indicators & complexity cues</li>
+            <li>Obstructions: trees, solar, skylights, dormers</li>
+            <li>Access, edges, and safety considerations</li>
+          </ul>
+        </div>
+        <div class="cardlite">
+          <h3>What We Infer (with Caution)</h3>
+          <ul class="mini-list">
+            <li>Likely material type & layering</li>
+            <li>Condition trends (staining, patchwork)</li>
+            <li>Areas needing closer look on-site</li>
+          </ul>
+          <p class="muted small">Imagery helps scope and budgeting. It’s not a substitute for on-site findings, certification, or a full report.</p>
+        </div>
+      </div>
     </section>
 
-    <section id="limitations" class="section card airy hoverable">
+    <!-- LIMITATIONS -->
+    <section id="limits" class="section card airy hoverable">
       <h2>Limitations</h2>
-      <p class="muted">Imagery date/resolution varies; trees/shade/angles can obscure details. Findings are preliminary and not a warranty or certification.</p>
+      <p class="muted">
+        Satellite/aerial images can be dated or obstructed (trees, overhangs, solar arrays). Multi-structure properties or complex roofs may require an on-site visit.
+        If you need documentation for lenders/insurers, book a <a href="/services/real-estate/roof-reports/">Roof Report</a> or <a href="/services/real-estate/roof-certifications/">Roof Certification</a>.
+      </p>
     </section>
 
-    <section id="faq" class="section card airy hoverable">
-      <h2>FAQ</h2>
-      <details><summary>Can this replace a roof report?</summary><p class="muted">No. It’s a quick screener to help decide if on-site evaluation is necessary.</p></details>
+    <!-- NEXT STEPS -->
+    <section id="next" class="section card airy hoverable">
+      <h2>Next Steps</h2>
+      <div class="grid-two">
+        <div class="cardlite">
+          <h3>Online Estimate — $95</h3>
+          <p class="muted">Remote numbers fast (credit applied if you proceed).</p>
+          <p><a class="btn btn-primary" href="/services/real-estate/roof-estimates/#online">Start Online Estimate</a></p>
+        </div>
+        <div class="cardlite">
+          <h3>On-Site Written Estimate — $395</h3>
+          <p class="muted">Visual visit with line-item pricing and notes.</p>
+          <p><a class="btn btn-outline" href="/services/real-estate/roof-estimates/#onsite">Book On-Site Estimate</a></p>
+        </div>
+      </div>
     </section>
-
-    <section id="estimate" class="section estimate-form-section">
-      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
-      <p class="form-disclaimer"><em><strong>Paid remote service.</strong> Include property address, links to any listing photos, and your timeline.</em></p>
-    </section>
-<section class="container">
-  <h2 class="section-title">Pricing</h2>
-  <div class="price-grid">
-    <article class="price-card">
-      <h3>Satellite Imagery Analysis</h3>
-      <div class="price">From $125</div>
-      <ul class="checklist">
-        <li>Desk review with marked-up plan</li>
-        <li>Fast decision support</li>
-        <li>Great when access is limited</li>
-      </ul>
-      <p class="pricing-subtle">24–48 hr turnaround typical · Add photo annotation set +$45.</p>
-    </article>
-  </div>
-</section>
-<section class="light-section"><div class="container"><div data-include="/components/estimate-form.html"></div></div></section>
   </main>
+
   <div data-include="/components/footer.html"></div>
-  <script src="/js/loader.js" defer></script><script src="/js/header.js" defer></script>
-  <script>
-    window.ESTIMATE_FORM_CONFIG = {
-      submitText: "Book Desk Review",
-      referralPreselect: "Website",
-      descriptionPlaceholder: "Address, links to photos/listing, timeline/escrow date, specific questions.",
-      hiddenFields: { campaign: "services/real-estate/satellite-imagery-analysis", page_tag: "re-satellite" }
-    };
-  </script>
-  <script src="/js/estimate-form.js" defer></script>
-  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
+
+  <!-- SCRIPTS -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
 </body>
 </html>
