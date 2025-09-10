@@ -1,77 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-  <title>Insurance Consulting (Roof) for Real Estate | Zenith Roofing Services</title>
-  <meta name="description" content="Support for roof-related insurance questions in a transaction—damage review, scope validation, documentation, and strategy. Not legal advice."/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+
+  <!-- ===== META ===== -->
+  <title>Insurance Roof Certification & Report (Real Estate) | Zenith Roofing Services</title>
+  <meta name="description" content="Need proof for insurance underwriting in a real estate transaction? Order a roof Certification ($395) or a full Roof Condition Report with photos ($495). Licensed C-39 contractor."/>
+  <!-- Keep canonical on existing URL so you don't break links; we can change the slug later if you want -->
   <link rel="canonical" href="https://zenithroofingservices.com/services/real-estate/insurance-consulting/"/>
-  <meta property="og:title" content="Insurance Consulting — Roof & Real Estate"/>
-  <meta property="og:description" content="Damage review, scope validation, and documentation support. Book consulting."/>
-  <!-- CSS -->
-  <link rel="stylesheet" href="/css/base.css"/><link rel="stylesheet" href="/css/header.css"/><link rel="stylesheet" href="/css/ui.css"/><link rel="stylesheet" href="/css/footer.css"/><link rel="stylesheet" href="/css/estimate-form.css"/>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Insurance Roof Certification & Report — Real Estate"/>
+  <meta property="og:description" content="Certification $395 · Photo Report $495. Fast turnaround from a licensed roofing contractor."/>
+
+  <!-- CSS (existing site styles) -->
+  <link rel="stylesheet" href="/css/base.css"/>
+  <link rel="stylesheet" href="/css/header.css"/>
+  <link rel="stylesheet" href="/css/ui.css"/>
+  <link rel="stylesheet" href="/css/footer.css"/>
+  <link rel="stylesheet" href="/css/estimate-form.css"/>
+
   <style>
-    html{scroll-behavior:smooth}.hero{background:linear-gradient(135deg,#f8fafc,#eef6ff);border:1px solid var(--ui-line);border-radius:18px;padding:clamp(18px,3vw,28px)}
+    html{scroll-behavior:smooth}
+    .hero{
+      background:linear-gradient(135deg,#f8fafc,#eef6ff);
+      border:1px solid var(--ui-line);
+      border-radius:18px;
+      padding:clamp(18px,3vw,28px)
+    }
     .price{font-weight:900}
+    .pillnav.sticky-pills{position:sticky;top:0.75rem;z-index:5}
+    .product-grid{
+      display:grid;gap:1.25rem;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    }
+    .product-card .price{font-size:1.35rem}
+    .muted.small{opacity:.8}
   </style>
 </head>
 <body>
+  <!-- Header include -->
   <div data-include="/components/header-section.html"></div>
+
   <main id="top" class="page">
+    <!-- ===== HERO ===== -->
     <section class="hero">
-      <h1>Insurance Consulting (Roof) for Real Estate</h1>
-      <p class="lede">When insurance overlaps with a transaction, we can review roof damage, validate scopes, and help document conditions for pragmatic outcomes.</p>
-      <p class="price">Consulting: $$PRICE_INS_MIN minimum (applies to first hour)</p>
-      <div class="cta"><a class="btn btn-primary" href="#estimate">Book Consulting</a><a class="btn btn-outline" href="#scope">What We Do</a></div>
+      <h1>Insurance Roof Certification & Report (Real Estate)</h1>
+      <p class="lede">
+        Need documentation for insurance underwriting during a purchase, refinance, or policy change?
+        Choose a quick <strong>Roof Certification ($395)</strong> or a more detailed
+        <strong>Roof Condition Report with photos ($495)</strong>.
+      </p>
+      <p class="price">Certification: $395 · Report: $495</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#estimate" data-product="Certification">Order Certification</a>
+        <a class="btn btn-outline" href="#estimate" data-product="Report">Order Report</a>
+        <a class="btn btn-ghost" href="#what">What’s Included</a>
+      </div>
     </section>
 
-    <nav class="pillnav sticky-pills"><a href="#scope">Scope</a><a href="#faq">FAQ</a><a href="#estimate">Book</a></nav>
+    <!-- Sticky pills -->
+    <nav class="pillnav sticky-pills">
+      <a href="#what">What’s Included</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#estimate">Order</a>
+    </nav>
 
-    <section id="scope" class="section card airy hoverable">
-      <h2>Scope</h2>
-      <ul class="checklist relaxed">
-        <li><span class="tick">✓</span> Review of photos/inspections/adjuster notes</li>
-        <li><span class="tick">✓</span> Condition commentary & scope validation</li>
-        <li><span class="tick">✓</span> Supplemental documentation as needed</li>
-      </ul>
-      <p class="muted small">Not legal advice. We do not act as public adjusters.</p>
+    <!-- ===== WHAT'S INCLUDED ===== -->
+    <section id="what" class="section card airy hoverable">
+      <h2>What’s Included</h2>
+      <div class="product-grid">
+        <article class="product-card card airy hoverable">
+          <h3>Roof Certification — <span class="price">$395</span></h3>
+          <ul class="checklist relaxed">
+            <li><span class="tick">✓</span> Contractor-issued roof certification suitable for insurance underwriting</li>
+            <li><span class="tick">✓</span> Pass/Fail determination based on visible condition</li>
+            <li><span class="tick">✓</span> Brief condition summary (no photo set)</li>
+          </ul>
+          <p class="muted small">If deficiencies are found, we’ll note corrective items needed for certification.</p>
+          <p><a class="btn btn-primary" href="#estimate" data-product="Certification">Order Certification ($395)</a></p>
+        </article>
+
+        <article class="product-card card airy hoverable">
+          <h3>Roof Condition Report — <span class="price">$495</span></h3>
+          <ul class="checklist relaxed">
+            <li><span class="tick">✓</span> Photo-documented roof condition report</li>
+            <li><span class="tick">✓</span> Notations on wear, flashing, penetrations, and problem areas</li>
+            <li><span class="tick">✓</span> Repair or replacement recommendations (if applicable)</li>
+          </ul>
+          <p class="muted small">Useful when the insurer or lender requests more detail than a certification.</p>
+          <p><a class="btn btn-outline" href="#estimate" data-product="Report">Order Report ($495)</a></p>
+        </article>
+      </div>
+      <p class="muted small">We do not act as public adjusters and do not provide legal advice.</p>
     </section>
 
+    <!-- ===== PRICING ===== -->
+    <section id="pricing" class="section card airy hoverable">
+      <h2>Pricing</h2>
+      <div class="price-grid">
+        <article class="price-card">
+          <h3>Insurance Roof Certification</h3>
+          <div class="price">$395</div>
+          <ul class="checklist">
+            <li>Certification letter for underwriting</li>
+            <li>Pass/Fail with brief notes</li>
+            <li>Clear next steps if items are needed</li>
+          </ul>
+        </article>
+
+        <article class="price-card">
+          <h3>Roof Condition Report (with Photos)</h3>
+          <div class="price">$495</div>
+          <ul class="checklist">
+            <li>Photo set of roof areas</li>
+            <li>Observed conditions & comments</li>
+            <li>Repair/replace recommendations</li>
+          </ul>
+        </article>
+      </div>
+      <p class="pricing-subtle muted small">Site access required. Pricing reflects standard single-family conditions in our service area.</p>
+    </section>
+
+    <!-- ===== FAQ ===== -->
     <section id="faq" class="section card airy hoverable">
       <h2>FAQ</h2>
-      <details><summary>Is site visit included?</summary><p class="muted">Depends on need. Remote review is common; site visits can be added at standard rates.</p></details>
+      <details>
+        <summary>How do I choose between Certification and Report?</summary>
+        <p class="muted">If the insurer only needs a pass/fail letter, choose Certification ($395). If they want photos and detailed notes, choose the Report ($495).</p>
+      </details>
+      <details>
+        <summary>What if issues prevent certification?</summary>
+        <p class="muted">We’ll note items required to certify. If you authorize those repairs, we can re-inspect and issue certification once the roof meets requirements.</p>
+      </details>
+      <details>
+        <summary>Is a site visit required?</summary>
+        <p class="muted">Yes—these documents are based on our inspection. We’ll coordinate access and timing with you or your agent.</p>
+      </details>
     </section>
 
+    <!-- ===== ORDER / ESTIMATE FORM ===== -->
     <section id="estimate" class="section estimate-form-section">
       <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
-      <p class="form-disclaimer"><em><strong>Paid service.</strong> Share policy/claim context, deadlines, and relevant files. We’ll confirm scope, schedule & payment.</em></p>
+      <p class="form-disclaimer">
+        <em><strong>Paid service.</strong> Please include the property address, any insurer/lender requirements, and whether you need the <strong>Certification ($395)</strong> or the <strong>Report ($495)</strong>.</em>
+      </p>
     </section>
-<section class="container">
-  <h2 class="section-title">Pricing</h2>
-  <div class="price-grid">
-    <article class="price-card">
-      <h3>Insurance Consulting</h3>
-      <div class="price">$195 / hour</div>
-      <ul class="checklist">
-        <li>Claim scope & strategy review</li>
-        <li>Adjuster-ready photo/file prep</li>
-        <li>On-site adjuster meet (optional)</li>
-      </ul>
-      <p class="pricing-subtle">File prep package from $395 · On-site adjuster meet from $295.</p>
-    </article>
-  </div>
-</section>
-<section class="light-section"><div class="container"><div data-include="/components/estimate-form.html"></div></div></section>
+
+    <!-- Optional second placement for the form on light background -->
+    <section class="light-section">
+      <div class="container">
+        <div data-include="/components/estimate-form.html"></div>
+      </div>
+    </section>
   </main>
+
+  <!-- Footer include -->
   <div data-include="/components/footer.html"></div>
-  <script src="/js/loader.js" defer></script><script src="/js/header.js" defer></script>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="/js/loader.js" defer></script>
+  <script src="/js/header.js" defer></script>
+
+  <!-- Configure the universal estimate form BEFORE estimate-form.js loads -->
   <script>
-    window.ESTIMATE_FORM_CONFIG = {
-      submitText: "Book Consulting",
-      referralPreselect: "Website",
-      descriptionPlaceholder: "Address, claim context, adjuster notes, deadlines, desired outcome.",
-      hiddenFields: { campaign: "services/real-estate/insurance-consulting", page_tag: "re-insurance" }
-    };
+    // Default selection can be overridden by button clicks
+    (function(){
+      // Capture a preferred product from the clicked CTA (via data-product) or URL hash
+      let selected = (location.hash || '').toLowerCase().includes('report') ? 'Report' : 'Certification';
+
+      // If user clicked a CTA with data-product, intercept and set selection
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('a[data-product]');
+        if(!a) return;
+        selected = a.getAttribute('data-product') || selected;
+      }, true);
+
+      // Expose config for your existing estimate-form.js
+      window.ESTIMATE_FORM_CONFIG = {
+        submitText: "Order " + selected,
+        referralPreselect: "Website",
+        descriptionPlaceholder: "Property address, insurer/lender requests, timeline. Write: \"" + selected + " requested.\"",
+        hiddenFields: {
+          campaign: "services/real-estate/insurance-certification",
+          page_tag: "re-insurance",
+          product: selected // harmless extra hidden field for your logs/CRM
+        }
+      };
+    })();
   </script>
+
   <script src="/js/estimate-form.js" defer></script>
   <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
