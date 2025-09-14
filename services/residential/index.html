@@ -100,6 +100,22 @@
     @media (max-width: 899px){ .hero .media{ width:100%; margin:.5rem 0 1rem; } }
   </style>
   <!-- END hero media overrides -->
+  <!-- BEGIN hero media overrides (replace white card) -->
+  <style>
+    .hero .media, .media{ background-color: transparent !important; padding:0 !important; }
+    .hero .media::before, .hero .media::after, .media::before, .media::after{ content:none !important; display:none !important; }
+    @media (min-width: 900px){ .hero .media{ float:right; width:clamp(320px,42%,520px); margin:.25rem 0 1.25rem 1.25rem; } }
+    @media (max-width: 899px){ .hero .media{ width:100%; margin:.5rem 0 1rem; } }
+  </style>
+  <!-- END hero media overrides -->
+  <!-- BEGIN hero media overrides (replace white card) -->
+  <style>
+    .hero .media, .media{ background-color: transparent !important; padding:0 !important; }
+    .hero .media::before, .hero .media::after, .media::before, .media::after{ content:none !important; display:none !important; }
+    @media (min-width: 900px){ .hero .media{ float:right; width:clamp(320px,42%,520px); margin:.25rem 0 1.25rem 1.25rem; } }
+    @media (max-width: 899px){ .hero .media{ width:100%; margin:.5rem 0 1rem; } }
+  </style>
+  <!-- END hero media overrides -->
 </head>
 <body>
   <!-- Header include -->
