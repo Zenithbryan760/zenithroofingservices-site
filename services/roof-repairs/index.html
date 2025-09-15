@@ -155,33 +155,22 @@
 
     <!-- NEW: responsive image -->
     <figure class="media" aria-hidden="true">
-      <picture>
-        <!-- WebP first -->
-        <source type="image/webp"
-          srcset="/images/roof-repairs/tile-roof-repair-small-480.webp 480w,
-                  /images/roof-repairs/tile-roof-repair-small-768.webp 768w,
-                  /images/roof-repairs/tile-roof-repair-small-1024.webp 1024w,
-                  /images/roof-repairs/tile-roof-repair-small-1440.webp 1440w"
-          sizes="(max-width: 900px) 100vw, 50vw" />
+  <img
+    src="./tile-roof-repair-small-1024.jpg"
+    srcset="
+      ./tile-roof-repair-small-480.jpg 480w,
+      ./tile-roof-repair-small-768.jpg 768w,
+      ./tile-roof-repair-small-1024.jpg 1024w,
+      ./tile-roof-repair-small-1440.jpg 1440w"
+    sizes="(max-width: 900px) 100vw, 50vw"
+    alt="Tile roof repair in progress—broken tiles replaced and sealed"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+    width="1440" height="960"
+  />
+</figure>
 
-        <!-- JPEG fallback -->
-        <source type="image/jpeg"
-          srcset="/images/roof-repairs/tile-roof-repair-small-480.jpg 480w,
-                  /images/roof-repairs/tile-roof-repair-small-768.jpg 768w,
-                  /images/roof-repairs/tile-roof-repair-small-1024.jpg 1024w,
-                  /images/roof-repairs/tile-roof-repair-small-1440.jpg 1440w"
-          sizes="(max-width: 900px) 100vw, 50vw" />
-
-        <!-- Fallback src for older browsers -->
-        <img
-          src="/images/roof-repairs/tile-roof-repair-small-1024.jpg"
-          alt="Tile roof repair in progress—broken tiles replaced and sealed"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-          width="1440" height="960" />
-      </picture>
-    </figure>
   </div>
 </section>
 
