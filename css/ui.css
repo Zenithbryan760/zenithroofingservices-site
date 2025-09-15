@@ -204,6 +204,27 @@
   border-radius:999px; padding:.4rem .7rem; background:#fff; font-weight:600;
 }
 
+/* ========== 10b) Hero split media (image card) ========== */
+/* Only affects the <figure class="media"> inside .hero .split — safe & contained */
+.page .hero .split > .media{
+  margin:0;                        /* remove extra margin inside hero split */
+  aspect-ratio: 3 / 2;             /* reserve space to avoid CLS */
+  border-radius:16px;              /* match hero rounding */
+  overflow:hidden;                 /* clip image to rounded corners */
+  background:#fff;                 /* graceful behind-the-scenes color */
+  border:1px solid var(--ui-line); /* consistent with other cards */
+  box-shadow: var(--ui-shadow);    /* subtle elevation */
+}
+.page .hero .split > .media picture,
+.page .hero .split > .media img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;                 /* nice crop across sizes */
+}
+/* prevent double rounding from global .page .media img rule */
+.page .hero .split > .media img{ border-radius:0; }
+
 /* ========== 11) System micro-panels (small info cards) ========== */
 .page .micro-grid{ display:grid; gap:12px; }
 @media (min-width:860px){
