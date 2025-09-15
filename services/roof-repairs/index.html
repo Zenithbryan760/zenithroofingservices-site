@@ -135,25 +135,55 @@
   <div data-include="/components/header-section.html"></div>
 
   <main id="top" class="page">
-    <!-- ===== HERO (split) ===== -->
-    <section class="hero" aria-label="Roof Repair">
-      <div class="eyebrow">
-        <span class="chip">Leak Repair</span>
-        <span class="chip">Tile • Shingle • Flat</span>
-        <span class="chip">Skylight Leaks</span>
+<!-- ===== HERO (split) ===== -->
+<section class="hero" aria-label="Roof Repair">
+  <div class="eyebrow">
+    <span class="chip">Leak Repair</span>
+    <span class="chip">Tile • Shingle • Flat</span>
+    <span class="chip">Skylight Leaks</span>
+  </div>
+
+  <div class="split">
+    <div>
+      <h1 style="margin:0 0 .5rem">Roof Repair — Fast, Local, Done Right</h1>
+      <p class="lede">Active leak? Missing shingles? Broken tiles? Ponding on a flat roof? Our local crew handles it all—diagnosis, repair, and photo documentation—for homeowners in <strong>Escondido</strong>, <strong>North County San Diego</strong>, <strong>Temecula</strong>, and throughout <strong>San Diego County</strong>.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#estimate" aria-label="Request a free estimate for roof repair">Request Free Estimate</a>
+        <a class="btn btn-outline" href="#services">All Repair Services</a>
       </div>
-      <div class="split">
-        <div>
-          <h1 style="margin:0 0 .5rem">Roof Repair — Fast, Local, Done Right</h1>
-          <p class="lede">Active leak? Missing shingles? Broken tiles? Ponding on a flat roof? Our local crew handles it all—diagnosis, repair, and photo documentation—for homeowners in <strong>Escondido</strong>, <strong>North County San Diego</strong>, <strong>Temecula</strong>, and throughout <strong>San Diego County</strong>.</p>
-          <div class="cta">
-            <a class="btn btn-primary" href="#estimate" aria-label="Request a free estimate for roof repair">Request Free Estimate</a>
-            <a class="btn btn-outline" href="#services">All Repair Services</a>
-          </div>
-        </div>
-        <div class="media" aria-hidden="true"></div>
-      </div>
-    </section>
+    </div>
+
+    <!-- NEW: responsive image -->
+    <figure class="media" aria-hidden="true">
+      <picture>
+        <!-- WebP first -->
+        <source type="image/webp"
+          srcset="/images/roof-repairs/tile-roof-repair-small-480.webp 480w,
+                  /images/roof-repairs/tile-roof-repair-small-768.webp 768w,
+                  /images/roof-repairs/tile-roof-repair-small-1024.webp 1024w,
+                  /images/roof-repairs/tile-roof-repair-small-1440.webp 1440w"
+          sizes="(max-width: 900px) 100vw, 50vw" />
+
+        <!-- JPEG fallback -->
+        <source type="image/jpeg"
+          srcset="/images/roof-repairs/tile-roof-repair-small-480.jpg 480w,
+                  /images/roof-repairs/tile-roof-repair-small-768.jpg 768w,
+                  /images/roof-repairs/tile-roof-repair-small-1024.jpg 1024w,
+                  /images/roof-repairs/tile-roof-repair-small-1440.jpg 1440w"
+          sizes="(max-width: 900px) 100vw, 50vw" />
+
+        <!-- Fallback src for older browsers -->
+        <img
+          src="/images/roof-repairs/tile-roof-repair-small-1024.jpg"
+          alt="Tile roof repair in progress—broken tiles replaced and sealed"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          width="1440" height="960" />
+      </picture>
+    </figure>
+  </div>
+</section>
 
     <!-- Sticky pills -->
     <nav class="pillnav sticky-pills" aria-label="Roof Repair sections">
