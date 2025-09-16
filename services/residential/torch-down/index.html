@@ -116,6 +116,12 @@
     ]
   }
   </script>
+
+<style>
+/* Torch-Down hero: ensure photo-card image defines height (no gray cap) */
+section.hero .photo-card img{ width:100%; height:auto; object-fit:cover; aspect-ratio:4/3; }
+</style>
+
 </head>
 <body>
   <!-- Header include -->
@@ -138,7 +144,18 @@
             <a class="btn btn-outline" href="#advantages">Advantages</a>
           </div>
         </div>
-        <div class="media" aria-hidden="true"></div>
+        <div class="photo-card">
+  <picture>
+    <source type="image/webp"
+      srcset="../../../images/torch-down-point-loma-480.webp 480w,
+              ../../../images/torch-down-point-loma-720.webp 720w"
+      sizes="(max-width: 900px) 100vw, 50vw" />
+    <img
+      src="../../../images/torch-down-point-loma.jpeg"
+      alt="Torch-down roof installation in Point Loma—clean seams and cap sheet"
+      loading="eager" decoding="async" fetchpriority="high" />
+  </picture>
+</div>
       </div>
     </section>
 
