@@ -98,6 +98,22 @@
     "isPartOf":{"@type":"WebSite","name":"Zenith Roofing Services"}
   }
   </script>
+
+  <!-- BEGIN project-map HEAD -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <style>
+    .map-wrap { margin: 18px 0 24px; }
+    #project-map{
+      width:100%;
+      height: clamp(340px, 50vh, 520px);
+      border:1px solid var(--ui-line, rgba(0,0,0,.08));
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow: var(--ui-shadow, 0 4px 24px rgba(0,0,0,.06));
+    }
+  </style>
+  <!-- END project-map HEAD -->
+
 </head>
 <body>
   <!-- Header include -->
@@ -289,7 +305,15 @@
         <a class="btn" href="#estimate">Request Free Estimate</a>
       </div>
     </section>
-  </main>
+  
+  <!-- BEGIN project-map SECTION -->
+  <section class="map-wrap" aria-label="Project map">
+    <h2 class="sr-only">Map of Recent Projects</h2>
+    <div id="project-map" data-feed="/data/projects.json"></div>
+  </section>
+  <!-- END project-map SECTION -->
+
+</main>
 
   <!-- Footer include -->
   <div data-include="/components/footer.html"></div>
@@ -402,5 +426,51 @@
   </script>
   <script src="/js/estimate-form.js" defer></script>
   <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
+
+  <!-- BEGIN project-map SCRIPTS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+  (function(){
+    var mapEl = document.getElementById('project-map');
+    if(!mapEl) return;
+
+    var FEED = mapEl.dataset.feed || '/data/projects.json';
+
+    var map = L.map(mapEl).setView([33.2, -117.2], 10);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    fetch(FEED, { cache: 'no-store' })
+      .then(function(r){ return r.json(); })
+      .then(function(items){
+        var bounds = L.latLngBounds();
+        var any=false;
+
+        items.forEach(function(p){
+          if (typeof p.lat !== 'number' || typeof p.lng !== 'number') return;
+          var html =
+            '<strong>'+(p.name||'')+'</strong><br>' +
+            (p.service||'') + (p.city?(' • '+p.city):'') + '<br>' +
+            (p.address||'') + '<br>' +
+            (p.dateCompleted?('Completed: '+p.dateCompleted):'') +
+            (p.photos && p.photos[0]
+              ? '<br><img src="'+p.photos[0]+'" alt="after photo" style="max-width:160px;border-radius:8px;margin-top:6px;">'
+              : ''
+            );
+          L.marker([p.lat, p.lng]).addTo(map).bindPopup(html);
+          bounds.extend([p.lat, p.lng]);
+          any = true;
+        });
+
+        if (any) map.fitBounds(bounds.pad(0.2));
+      })
+      .catch(function(){
+        mapEl.style.display = 'none'; // hide if feed fails
+      });
+  })();
+  </script>
+  <!-- END project-map SCRIPTS -->
+
 </body>
 </html>
