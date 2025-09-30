@@ -1,6 +1,19 @@
 [
   {
-    "id": "ZN-001",
+    "id": "ZN-101",
+    "name": "TPO Re-roof — La Jolla",
+    "service": "TPO",
+    "status": "completed",
+    "dateCompleted": "2025-09-17",
+    "address": "7415 High Ave, La Jolla, CA 92037",
+    "city": "La Jolla",
+    "state": "CA",
+    "lat": 32.839, 
+    "lng": -117.273,
+    "photos": []
+  },
+  {
+    "id": "ZN-102",
     "name": "Tile Lift & Relay — Escondido",
     "service": "Tile Lift & Relay",
     "status": "completed",
@@ -8,22 +21,8 @@
     "address": "970 W Valley Pkwy #458, Escondido, CA 92025",
     "city": "Escondido",
     "state": "CA",
-    "zip": "92025",
     "lat": 33.1192,
     "lng": -117.0864,
-    "photos": []
-  },
-  {
-    "id": "ZN-002",
-    "name": "Shingle Replacement — Temecula",
-    "service": "Shingle",
-    "status": "completed",
-    "dateCompleted": "2025-08-15",
-    "address": "Temecula, CA",
-    "city": "Temecula",
-    "state": "CA",
-    "lat": 33.4936,
-    "lng": -117.1484,
     "photos": []
   }
 ]
