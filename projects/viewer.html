@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Project Viewer</title><link rel="stylesheet" href="/css/base.css">
+<style>body{max-width:1100px;margin:0 auto;padding:20px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px}.chip{font-size:.85rem;padding:6px 10px;border:1px solid rgba(0,0,0,.1);border-radius:999px}.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}.grid img{width:100%;height:auto;border-radius:10px;display:block}.back{display:inline-block;margin:8px 0 16px;text-decoration:underline}</style>
+</head><body>
+<a class="back" href="/projects/">← Back to Projects</a>
+<h1 id="title"></h1><div class="chips" id="chips"></div>
+<p id="summary"></p><p style="opacity:.75;margin-top:-6px;">Location: <strong id="city"></strong></p>
+<div class="grid" id="gal"></div>
+<script>
+const slug=new URLSearchParams(location.search).get('slug');
+fetch('/data/projects-private.json').then(r=>r.json()).then(list=>{
+  const p=list.find(x=>x.slug===slug); if(!p){document.body.innerHTML='<p>Project not found.</p>';return;}
+  title.textContent=p.title; summary.textContent=p.summary; city.textContent=p.city+', CA';
+  [p.service,'Lift & Relay',p.city,p.county].forEach(t=>{const s=document.createElement('span');s.className='chip';s.textContent=t;chips.appendChild(s);});
+  p.photos.forEach(src=>{const a=document.createElement('a');a.href=src;a.target='_blank';a.rel='noopener';const img=document.createElement('img');img.loading='lazy';img.src=src;a.appendChild(img);gal.appendChild(a);});
+});
+</script></body></html>

@@ -1,36 +1,34 @@
 [
   {
-    "id": "GPS-TEM-001",
-    "name": "Shingle Replacement — Temecula",
-    "service": "Shingle",
-    "status": "completed",
-    "dateCompleted": "2025-08-15",
-    "address": "30650 Rancho California Rd Suit 406, #81, Temecula, CA",
-    "city": "Temecula",
-    "state": "CA",
-    "lat": 33.4936,
-    "lng": -117.1484,
-    "photos": [
-      "https://picsum.photos/seed/temecula1/640/480",
-      "https://picsum.photos/seed/temecula2/640/480"
-    ],
-    "public": true
-  },
-  {
-    "id": "GPS-ESCO-001",
+    "id": "GPS-ESCO-ELKHORN",
+    "privId": "PRIV-ESCO-ELKHORN",
     "name": "Tile Lift & Relay — Escondido",
-    "service": "Tile Lift & Relay",
-    "status": "completed",
-    "dateCompleted": "2025-09-29",
-    "address": "970 W Valley Pkwy #458, Escondido, CA 92025",
+    "service": "Tile",
+    "tags": [
+      "Tile",
+      "Lift & Relay",
+      "North County",
+      "Escondido"
+    ],
     "city": "Escondido",
     "state": "CA",
-    "lat": 33.1192,
-    "lng": -117.0864,
+    "lat": 33.12017,
+    "lng": -117.08496,
+    "approx": true,
     "photos": [
-      "https://picsum.photos/seed/esco1/640/480",
-      "https://picsum.photos/seed/esco2/640/480"
+      "/images/projects/PRIV-ESCO-ELKHORN/00-hero.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/00-hero@960.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/01@960.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/02.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/03@960.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/04@960.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/05@960.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/06@960.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/07@960.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/08@960.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/09@960.jpg"
     ],
-    "public": true
+    "url": "/projects/escondido-tile-esco-elkhorn/",
+    "summary": "Removed tiles, installed 2-layer high-temp underlayment, reset tiles, updated flashings. Pressure-washed; fascia painted before install."
   }
 ]

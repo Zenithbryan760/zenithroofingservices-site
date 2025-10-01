@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "PRIV-ESCO-ELKHORN",
+    "title": "Tile Lift & Relay — Escondido",
+    "address": "410 Elkhorn Ln, Escondido, CA 92026",
+    "city": "Escondido",
+    "county": "North County",
+    "service": "Tile",
+    "summary": "Removed tiles, installed 2-layer high-temp underlayment, reset tiles, updated flashings. Photo set with valleys and penetrations.",
+    "photos": [
+      "/images/projects/PRIV-ESCO-ELKHORN/00-hero.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/00-hero@960.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/01@960.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/02.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/03@960.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/04@960.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/05@960.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/06@960.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/07@960.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/08@960.jpg",
+      "/images/projects/PRIV-ESCO-ELKHORN/09@960.jpg"
+    ]
+  },
+  {
+    "id": "PRIV-ESCO-ELKHORN",
+    "name": "Tile Lift & Relay — Escondido",
+    "service": "Tile",
+    "status": "completed",
+    "address": "Escondido, CA",
+    "city": "Escondido",
+    "state": "CA",
+    "tags": [
+      "Tile",
+      "Lift & Relay",
+      "North County",
+      "Escondido"
+    ],
+    "summary": "Removed tiles, installed 2-layer high-temp underlayment, reset tiles, updated flashings. Pressure-washed; fascia painted before install.",
+    "photosApproved": [],
+    "lat": 33.119,
+    "lng": -117.086,
+    "private": true
+  }
+]

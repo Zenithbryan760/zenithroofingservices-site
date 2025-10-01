@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Project Viewer</title>
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/ui.css">
+<style>
+  .wrap{max-width:1000px;margin:32px auto;padding:0 16px}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:16px}
+  .gallery img{width:100%;height:180px;object-fit:cover;border-radius:12px}
+  .chips .chip{display:inline-block;padding:.25rem .6rem;border-radius:999px;background:rgba(0,0,0,.06);margin:.2rem .3rem 0 0;font-size:.85rem}
+</style>
+</head><body>
+<main class="wrap">
+  <a href="/projects/" style="text-decoration:none">&larr; Back to Projects</a>
+  <h1 id="title"></h1>
+  <div class="chips" id="tags"></div>
+  <p id="summary"></p>
+  <p id="address" style="opacity:.8"></p>
+  <div class="gallery" id="gallery"></div>
+</main>
+<script>
+(async function(){
+  const params = new URLSearchParams(location.search);
+  const id = params.get('id');
+  const res = await fetch('/data/projects.json',{cache:'no-store'});
+  const list = await res.json();
+  const p = list.find(x=>x.id===id) || list[0];
+  if(!p) return;
+  title.textContent = p.name;
+  summary.textContent = p.summary||'';
+  address.textContent = p.addressPublic || '';
+  if(!p.addressPublic) address.style.display='none';
+  tags.innerHTML = (p.tags||[]).map(t=>'<span class="chip">'+t+'</span>').join('');
+  gallery.innerHTML = (p.photos||[p.cover]).map(src=>'<img loading="lazy" src="'+src+'" alt="">').join('');
+})();
+</script>
+</body></html>
