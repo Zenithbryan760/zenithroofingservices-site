@@ -1,36 +1,22 @@
 [
   {
-    "id": "GPS-TEM-001",
-    "name": "Shingle Replacement — Temecula",
-    "service": "Shingle",
-    "status": "completed",
-    "dateCompleted": "2025-08-15",
-    "address": "30650 Rancho California Rd Suit 406, #81, Temecula, CA",
-    "city": "Temecula",
-    "state": "CA",
-    "lat": 33.4936,
-    "lng": -117.1484,
-    "photos": [
-      "https://picsum.photos/seed/temecula1/640/480",
-      "https://picsum.photos/seed/temecula2/640/480"
-    ],
-    "public": true
-  },
-  {
-    "id": "GPS-ESCO-001",
+    "id": "GPS-ESCO-ELKHORN",
+    "privId": "PRIV-ESCO-ELKHORN",
     "name": "Tile Lift & Relay — Escondido",
-    "service": "Tile Lift & Relay",
-    "status": "completed",
-    "dateCompleted": "2025-09-29",
-    "address": "970 W Valley Pkwy #458, Escondido, CA 92025",
+    "service": "Tile",
+    "tags": [
+      "Tile",
+      "Lift & Relay",
+      "North County",
+      "Escondido"
+    ],
     "city": "Escondido",
     "state": "CA",
-    "lat": 33.1192,
-    "lng": -117.0864,
-    "photos": [
-      "https://picsum.photos/seed/esco1/640/480",
-      "https://picsum.photos/seed/esco2/640/480"
-    ],
-    "public": true
+    "dateCompleted": "2025-09-25",
+    "lat": 33.12037,
+    "lng": -117.08536,
+    "approx": true,
+    "photos": [],
+    "url": "/projects/escondido-tile-esco-elkhorn/"
   }
 ]
