@@ -1,19 +1,23 @@
 [
   {
-    "id": "ZN-101",
-    "name": "TPO Re-roof — La Jolla",
-    "service": "TPO",
+    "id": "GPS-TEM-001",
+    "name": "Shingle Replacement — Temecula",
+    "service": "Shingle",
     "status": "completed",
-    "dateCompleted": "2025-09-17",
-    "address": "7415 High Ave, La Jolla, CA 92037",
-    "city": "La Jolla",
+    "dateCompleted": "2025-08-15",
+    "address": "30650 Rancho California Rd Suit 406, #81, Temecula, CA",
+    "city": "Temecula",
     "state": "CA",
-    "lat": 32.839, 
-    "lng": -117.273,
-    "photos": []
+    "lat": 33.4936,
+    "lng": -117.1484,
+    "photos": [
+      "https://picsum.photos/seed/temecula1/640/480",
+      "https://picsum.photos/seed/temecula2/640/480"
+    ],
+    "public": true
   },
   {
-    "id": "ZN-102",
+    "id": "GPS-ESCO-001",
     "name": "Tile Lift & Relay — Escondido",
     "service": "Tile Lift & Relay",
     "status": "completed",
@@ -23,6 +27,10 @@
     "state": "CA",
     "lat": 33.1192,
     "lng": -117.0864,
-    "photos": []
+    "photos": [
+      "https://picsum.photos/seed/esco1/640/480",
+      "https://picsum.photos/seed/esco2/640/480"
+    ],
+    "public": true
   }
 ]
