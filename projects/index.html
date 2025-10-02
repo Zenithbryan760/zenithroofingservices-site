@@ -101,6 +101,9 @@
 
   
 
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <style>#project-map{height:360px;border-radius:12px;margin:24px 0}</style>
 </head>
 <body>
   <!-- Header include -->
@@ -302,7 +305,64 @@
 <section class="projects-cards" style="max-width:1100px;margin:24px auto;padding:0 16px">
   <h2>Projects & Case Studies</h2>
   <div id="project-filters" class="filters" style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0"></div>
-  <div id="project-cards" class="cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px"></div>
+  <!-- BEGIN radius-map SECTION -->
+  <section id="project-map-section" class="section">
+    <h2 class="h2">Recent Projects — Service Areas</h2>
+    <div id="project-map" aria-label="Approximate service areas (no exact addresses)"></div>
+  </section>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+  (function(){
+    function boot(){
+      var el = document.getElementById('project-map');
+      if(!el) return;
+
+      // RELATIVE path so previews work under subpaths
+      var dataPath = 'data/projects.json';
+
+      fetch(dataPath).then(function(r){
+        if(!r.ok) throw new Error('fetch '+dataPath+' -> '+r.status);
+        return r.json();
+      }).then(function(items){
+        var projects = (items||[]).filter(function(it){
+          return it && it.radiusCenter && typeof it.radiusCenter.lat==='number' && typeof it.radiusCenter.lng==='number';
+        });
+        if(projects.length===0){ el.style.display='none'; return; }
+
+        var map = L.map('project-map',{scrollWheelZoom:false,zoomControl:true}).setView([33.1192,-117.0864],12);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{ attribution:'© OpenStreetMap' }).addTo(map);
+
+        var bounds = L.latLngBounds();
+        projects.forEach(function(p){
+          try{
+            var c = [p.radiusCenter.lat, p.radiusCenter.lng];
+            var r = p.radiusMeters || 600;
+            var circle = L.circle(c,{radius:r}).addTo(map);
+
+            var img = p.cardImage ? '<img src="'+(p.cardImage[0]=='/'?p.cardImage:('/'+p.cardImage))+'" alt="'+(p.name||'Project')+'" style="width:100%;border-radius:8px;">' : '';
+            var a0 = p.url ? '<a href="'+p.url+'">' : '';
+            var a1 = p.url ? '</a>' : '';
+            var html = '<div style="max-width:180px;">'
+                     + a0 + img + a1
+                     + '<div style="margin-top:8px;font-weight:600;">'+(p.name||'Project')+'</div>'
+                     + '<div style="font-size:12px;opacity:.8;">Approximate service area</div>'
+                     + '</div>';
+            circle.bindPopup(html);
+            bounds.extend(circle.getBounds());
+          }catch(_){}
+        });
+        if(bounds.isValid()) map.fitBounds(bounds.pad(0.2));
+      }).catch(function(e){
+        console.warn('radius map init failed:', e);
+        el.style.display='none';
+      });
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+  })();
+  </script>
+  <!-- END radius-map SECTION -->
+
+<div id="project-cards" class="cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px"></div>
 </section>
 </main>
 
@@ -419,6 +479,54 @@
   <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 
   
+
+
+  <!-- BEGIN radius-map SECTION -->
+  <section id="project-map-section" class="section">
+    <h2 class="h2">Recent Projects — Service Areas</h2>
+    <div id="project-map" aria-label="Approximate service areas (no exact addresses)"></div>
+  </section>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+  (async function(){
+    try{
+      const el = document.getElementById('project-map');
+      if(!el) return;
+      const res = await fetch('data/projects.json');
+      if(!res.ok) { el.style.display='none'; return; }
+      const items = await res.json();
+      const projects = (items||[]).filter(it => it && it.radiusCenter && typeof it.radiusCenter.lat==='number' && typeof it.radiusCenter.lng==='number');
+      if(projects.length===0){ el.style.display='none'; return; }
+
+      // Default center near Escondido if needed
+      const map = L.map('project-map', { scrollWheelZoom:false, zoomControl:true }).setView([33.1192,-117.0864], 12);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution:'© OpenStreetMap' }).addTo(map);
+
+      const bounds = L.latLngBounds();
+      projects.forEach(p=>{
+        try{
+          const c = [p.radiusCenter.lat, p.radiusCenter.lng];
+          const r = p.radiusMeters || 600;
+          const circle = L.circle(c, { radius: r }).addTo(map);
+
+          const img = p.cardImage ? `<img src="/${String(p.cardImage).replace(/^\//,'')}" alt="${p.name||'Project'}" style="width:100%;border-radius:8px;">` : '';
+          const a0 = p.url ? `<a href="${p.url}">` : '';
+          const a1 = p.url ? `</a>` : '';
+          const html = `
+            <div style="max-width:180px;">
+              ${a0}${img}${a1}
+              <div style="margin-top:8px;font-weight:600;">${p.name||'Project'}</div>
+              <div style="font-size:12px;opacity:.8;">Approximate service area</div>
+            </div>`;
+          circle.bindPopup(html);
+          bounds.extend(circle.getBounds());
+        }catch(_){}
+      });
+      if(bounds.isValid()) map.fitBounds(bounds.pad(0.2));
+    }catch(e){ console.warn('radius map init failed', e); document.getElementById('project-map').style.display='none'; }
+  })();
+  </script>
+  <!-- END radius-map SECTION -->
 
 </body>
 </html>
