@@ -101,6 +101,9 @@
 
   
 
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <style>#radius-only-map{height:360px;border-radius:12px;margin:24px 0}</style>
 </head>
 <body>
   <!-- Header include -->
@@ -304,6 +307,10 @@
   <div id="project-filters" class="filters" style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0"></div>
   <div id="project-cards" class="cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px"></div>
 </section>
+
+  <section aria-label="Service Area Preview">
+    <div id="radius-only-map"></div>
+  </section>
 </main>
 
   <!-- Footer include -->
@@ -420,5 +427,28 @@
 
   
 
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    async function initRadiusOnlyMap(){
+      try{
+        const res = await fetch('../data/projects.json'); // path works under /projects/
+        const items = await res.json();
+        const p = (items||[]).find(x => x && x.id === 'ESCO-ELKHORN-LIFT-LAY' && x.radiusCenter);
+        const map = L.map('radius-only-map', { zoomControl: true, attributionControl: true });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19}).addTo(map);
+        if (p){
+          const lat = Number(p.radiusCenter.lat), lng = Number(p.radiusCenter.lng);
+          const r = Number(p.radiusMeters || 410);
+          map.setView([lat, lng], 15);
+          // RADIUS ONLY — no pin/marker is added:
+          L.circle([lat, lng], { radius: r, color: '#2b6cb0', weight: 2, fillOpacity: 0.25 }).addTo(map);
+        } else {
+          map.setView([33.121, -117.082], 12); // gentle fallback
+        }
+      } catch(e){ console.error('radius-only map init failed', e); }
+    }
+    if (document.getElementById('radius-only-map')) initRadiusOnlyMap();
+  </script>
 </body>
 </html>
