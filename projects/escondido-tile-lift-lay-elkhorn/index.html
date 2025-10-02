@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Tile Lift & Relay — Escondido (Elkhorn Area)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.5;margin:20px}
+    h1{font-size:1.5rem;margin:0 0 12px}
+    .hero{margin:12px 0}
+    .hero img{max-width:100%;height:auto;border-radius:12px;display:block}
+    #radius-map{height:320px;border-radius:12px;margin:16px 0}
+    .meta{font-size:.95rem;opacity:.8}
+  </style>
+</head>
+<body>
+  <h1>Tile Lift &amp; Relay — Escondido (Elkhorn Area)</h1>
+  <div class="meta">Approximate service area in Escondido. No exact address is shared.</div>
+
+  <div class="hero">
+    <img src="images/Escondido/00-hero@960.jpg" alt="Tile Lift &amp; Relay — Escondido project photo">
+  </div>
+
+  <div id="radius-map" aria-label="Approximate project area"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    (function(){
+      try{
+        var center=[33.12037, -117.08536];
+        var r=600;
+        var map=L.map('radius-map',{scrollWheelZoom:false,zoomControl:true}).setView(center,14);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(map);
+        var circle=L.circle(center,{radius:r}).addTo(map);
+        map.fitBounds(circle.getBounds().pad(0.2));
+        var popupHtml =
+          '<div style="max-width:180px;">'
+          + '<a href="/projects/escondido-tile-lift-lay-elkhorn/"><img src="images/Escondido/00-hero@960.jpg" alt="Project photo" style="width:100%;border-radius:8px;"></a>'
+          + '<div style="margin-top:8px;font-weight:600;">Tile Lift &amp; Relay — Escondido</div>'
+          + '<div style="font-size:12px;opacity:.8;">Approximate service area</div>'
+          + '</div>';
+        circle.bindPopup(popupHtml);
+      }catch(e){ console.warn('radius map failed', e); }
+    })();
+  </script>
+</body>
+</html>

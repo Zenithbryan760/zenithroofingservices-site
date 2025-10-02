@@ -1,5 +1,72 @@
 [
   {
+    "id": "ESCO-KIT-CARSON",
+    "name": "Flat Roof Silicone — Kit Carson Park Area",
+    "city": "Escondido",
+    "slug": "escondido-kit-carson-silicone",
+    "url": "/projects/escondido-kit-carson-silicone/",
+    "cardImage": "images/Escondido/00-hero@960.jpg",
+    "tags": [
+      "Flat Roof",
+      "Silicone",
+      "Escondido"
+    ],
+    "radiusCenter": {
+      "lat": 33.074,
+      "lng": -117.066
+    },
+    "radiusMeters": 800
+  },
+  {
+    "id": "ESCO-MIDWAY-GRAND",
+    "name": "Shingle Repair — Midway/Grand Area (Escondido)",
+    "city": "Escondido",
+    "slug": "escondido-midway-grand-repair",
+    "url": "/projects/escondido-midway-grand-repair/",
+    "cardImage": "images/Escondido/00-hero@960.jpg",
+    "tags": [
+      "Shingle",
+      "Repair",
+      "Escondido"
+    ],
+    "radiusCenter": {
+      "lat": 33.1255,
+      "lng": -117.0867
+    },
+    "radiusMeters": 700
+  },
+  {
+    "city": "Escondido",
+    "tags": [
+      "Tile",
+      "Lift & Lay",
+      "Escondido"
+    ],
+    "radiusCenter": {
+      "lat": null,
+      "lng": null
+    },
+    "radiusMeters": 600
+  },
+  {
+    "id": "ESCO-ELKHORN-LIFT-LAY",
+    "name": "Tile Lift & Relay — Escondido (Elkhorn Area)",
+    "city": "Escondido",
+    "slug": "escondido-tile-lift-lay-elkhorn",
+    "url": "/projects/escondido-tile-lift-lay-elkhorn/",
+    "cardImage": "images/Escondido/00-hero@960.jpg",
+    "tags": [
+      "Tile",
+      "Lift & Lay",
+      "Escondido"
+    ],
+    "radiusCenter": {
+      "lat": 33.12037,
+      "lng": -117.08536
+    },
+    "radiusMeters": 600
+  },
+  {
     "id": "GPS-ESCO-ELKHORN",
     "privId": "PRIV-ESCO-ELKHORN",
     "name": "Tile Lift & Relay — Escondido",
@@ -13,8 +80,6 @@
     "city": "Escondido",
     "state": "CA",
     "dateCompleted": "2025-09-25",
-    "lat": 33.12037,
-    "lng": -117.08536,
     "approx": true,
     "photos": [],
     "url": "/projects/escondido-tile-esco-elkhorn/"

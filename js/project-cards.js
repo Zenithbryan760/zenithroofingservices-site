@@ -1,6 +1,6 @@
 // Renders filterable cards on /projects/ from data/projects.json
 (async function(){
-  const res = await fetch('../data/projects.json').catch(()=>null);
+  const res = await fetch((location.pathname.indexOf('/projects/')===0)?'../data/projects.json':'/data/projects.json').catch(()=>null);
   if(!res || !res.ok) return;
   const items = await res.json();
 
