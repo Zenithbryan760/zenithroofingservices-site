@@ -1,0 +1,20 @@
+[
+  {
+    "id": "ESCO-ELKHORN-LIFT-LAY",
+    "name": "Tile Lift & Relay — Country Club Lane Area (Escondido)",
+    "city": "Escondido",
+    "slug": "escondido-tile-lift-lay-elkhorn",
+    "url": "/projects/escondido-tile-lift-lay-elkhorn/",
+    "cardImage": "images/Escondido/00-hero@960.jpg",
+    "tags": [
+      "Tile",
+      "Lift & Lay",
+      "Escondido"
+    ],
+    "radiusCenter": {
+      "lat": 33.155942,
+      "lng": -117.096106
+    },
+    "radiusMeters": 410
+  }
+]
