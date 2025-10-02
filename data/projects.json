@@ -10,12 +10,7 @@
       "Flat Roof",
       "Silicone",
       "Escondido"
-    ],
-    "radiusCenter": {
-      "lat": 33.074,
-      "lng": -117.066
-    },
-    "radiusMeters": 800
+    ]
   },
   {
     "id": "ESCO-MIDWAY-GRAND",
@@ -28,12 +23,7 @@
       "Shingle",
       "Repair",
       "Escondido"
-    ],
-    "radiusCenter": {
-      "lat": 33.1255,
-      "lng": -117.0867
-    },
-    "radiusMeters": 700
+    ]
   },
   {
     "city": "Escondido",
@@ -41,12 +31,7 @@
       "Tile",
       "Lift & Lay",
       "Escondido"
-    ],
-    "radiusCenter": {
-      "lat": null,
-      "lng": null
-    },
-    "radiusMeters": 600
+    ]
   },
   {
     "id": "ESCO-ELKHORN-LIFT-LAY",
