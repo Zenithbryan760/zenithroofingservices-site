@@ -548,7 +548,7 @@
     try{
       const el = document.getElementById('project-map');
       if(!el) return;
-      const res = await fetch('data/projects.json');
+      const res = await fetch('../data/projects.json');
       if(!res.ok) { el.style.display='none'; return; }
       const items = await res.json();
       const projects = (items||[]).filter(it => it && it.radiusCenter && typeof it.radiusCenter.lat==='number' && typeof it.radiusCenter.lng==='number');
