@@ -432,7 +432,7 @@
   <script>
     async function initRadiusOnlyMap(){
       try{
-        const res = await fetch('../data/projects.json'); // path works under /projects/
+        const res = await fetch('/data/projects.json'); // path works under /projects/
         const items = await res.json();
         const p = (items||[]).find(x => x && x.id === 'ESCO-ELKHORN-LIFT-LAY' && x.radiusCenter);
         const map = L.map('radius-only-map', { zoomControl: true, attributionControl: true });
