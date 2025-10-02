@@ -61,8 +61,8 @@
       "Escondido"
     ],
     "radiusCenter": {
-      "lat": 33.12037,
-      "lng": -117.08536
+      "lat": null,
+      "lng": null
     },
     "radiusMeters": 410
   },
