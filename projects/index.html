@@ -99,20 +99,7 @@
   }
   </script>
 
-  <!-- BEGIN project-map HEAD -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
-  <style>
-    .map-wrap { margin: 18px 0 24px; }
-    #project-map{
-      width:100%;
-      height: clamp(340px, 50vh, 520px);
-      border:1px solid var(--ui-line, rgba(0,0,0,.08));
-      border-radius:14px;
-      overflow:hidden;
-      box-shadow: var(--ui-shadow, 0 4px 24px rgba(0,0,0,.06));
-    }
-  </style>
-  <!-- END project-map HEAD -->
+  
 
 </head>
 <body>
@@ -306,66 +293,10 @@
       </div>
     </section>
   
-  <!-- BEGIN project-map SECTION -->
-  <section class="map-wrap" aria-label="Project map">
-    <h2 class="sr-only">Map of Recent Projects</h2>
-    <div id="project-map" data-feed="/data/projects.json"></div>
-  </section>
-  <!-- END project-map SECTION -->
+  
 
 
-<!-- project-map:start -->
-<section class="map-wrap" aria-label="Project map">
-  <h2 class="sr-only">Project Map</h2>
-  <div id="project-map" data-feed="/data/projects.json"></div>
-  <div id="project-map-msg">Loading map…</div>
-</section>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script>
-(function(){
-  const el = document.getElementById('project-map'); if(!el){ console.warn('project-map el missing'); return; }
-  const msg = document.getElementById('project-map-msg');
-  const FEED = el.getAttribute('data-feed') || '/data/projects.json';
-
-  // Hardcoded fallback (so you ALWAYS see two pins even if fetch fails)
-  const FALLBACK = [
-    { id:'GPS-TEM-001', name:'Shingle Replacement — Temecula', service:'Shingle', city:'Temecula',
-      address:'30650 Rancho California Rd Suit 406, #81, Temecula, CA', dateCompleted:'2025-08-15',
-      lat:33.4936, lng:-117.1484, photos:['https://picsum.photos/seed/temecula1/640/480'] },
-    { id:'GPS-ESCO-001', name:'Tile Lift & Relay — Escondido', service:'Tile Lift & Relay', city:'Escondido',
-      address:'970 W Valley Pkwy #458, Escondido, CA 92025', dateCompleted:'2025-09-29',
-      lat:33.1192, lng:-117.0864, photos:['https://picsum.photos/seed/esco1/640/480'] }
-  ];
-
-  const map = L.map(el).setView([33.4936,-117.1484], 12); // default Temecula center
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution:'© OpenStreetMap contributors' }).addTo(map);
-
-  function render(items){
-    let any = false; const bounds = L.latLngBounds();
-    (items||[]).forEach(p=>{
-      if(typeof p.lat!=='number' || typeof p.lng!=='number') return;
-      const thumb = (p.photos && p.photos[0]) ? '<br><img src="'+p.photos[0]+'" alt="photo" style="max-width:160px;border-radius:8px;margin-top:6px;">' : '';
-      const html = '<strong>'+(p.name||'')+'</strong><br>'+
-                   (p.service||'')+(p.city?(' • '+p.city):'')+'<br>'+
-                   (p.address||'')+'<br>'+
-                   (p.dateCompleted?('Completed: '+p.dateCompleted):'')+
-                   thumb;
-      L.marker([p.lat,p.lng]).addTo(map).bindPopup(html);
-      bounds.extend([p.lat,p.lng]); any = true;
-    });
-    if (any && bounds.isValid()) { map.fitBounds(bounds.pad(0.2)); if(msg) msg.textContent='2 locations loaded'; }
-    else if (msg) { msg.textContent = 'No locations found'; }
-  }
-
-  fetch(FEED, {cache:'no-store'})
-    .then(r => r.ok ? r.json() : FALLBACK)
-    .then(items => Array.isArray(items) && items.length ? items : FALLBACK)
-    .then(render)
-    .catch(err => { console.warn('feed error, using FALLBACK', err); render(FALLBACK); if(msg) msg.textContent='Using fallback locations'; });
-})();
-</script>
-<!-- project-map:end -->
 
 
 <section class="projects-cards" style="max-width:1100px;margin:24px auto;padding:0 16px">
@@ -487,50 +418,7 @@
   <script src="/js/estimate-form.js" defer></script>
   <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 
-  <!-- BEGIN project-map SCRIPTS -->
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script>
-  (function(){
-    var mapEl = document.getElementById('project-map');
-    if(!mapEl) return;
-
-    var FEED = mapEl.dataset.feed || '/data/projects.json';
-
-    var map = L.map(mapEl).setView([33.2, -117.2], 10);
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
-
-    fetch(FEED, { cache: 'no-store' })
-      .then(function(r){ return r.json(); })
-      .then(function(items){
-        var bounds = L.latLngBounds();
-        var any=false;
-
-        items.forEach(function(p){
-          if (typeof p.lat !== 'number' || typeof p.lng !== 'number') return;
-          var html =
-            '<strong>'+(p.name||'')+'</strong><br>' +
-            (p.service||'') + (p.city?(' • '+p.city):'') + '<br>' +
-            (p.address||'') + '<br>' +
-            (p.dateCompleted?('Completed: '+p.dateCompleted):'') +
-            (p.photos && p.photos[0]
-              ? '<br><img src="'+p.photos[0]+'" alt="after photo" style="max-width:160px;border-radius:8px;margin-top:6px;">'
-              : ''
-            );
-          L.marker([p.lat, p.lng]).addTo(map).bindPopup(html);
-          bounds.extend([p.lat, p.lng]);
-          any = true;
-        });
-
-        if (any) map.fitBounds(bounds.pad(0.2));
-      })
-      .catch(function(){
-        mapEl.style.display = 'none'; // hide if feed fails
-      });
-  })();
-  </script>
-  <!-- END project-map SCRIPTS -->
+  
 
 </body>
 </html>
