@@ -129,3 +129,85 @@
 
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
+
+/* === ZR brand CTA override (orange primary) === */
+;(function(){
+  if (document.getElementById('zr-brand-cta-css')) return;
+  const css = `
+  /* Primary CTA (orange with white text) */
+  .zr-tip .actions .btn-primary,
+  .zr-tip .zr-cta,
+  .leaflet-tooltip.zr-tip-wrap .zr-cta{
+    background:#f97316;           /* orange-500 */
+    color:#fff !important;
+    border:1px solid #f97316;
+    box-shadow:0 1px 0 rgba(0,0,0,.04);
+  }
+  .zr-tip .actions .btn-primary:hover,
+  .zr-tip .zr-cta:hover{
+    filter:brightness(.95);
+  }
+  .zr-tip .actions .btn-primary:focus-visible,
+  .zr-tip .zr-cta:focus-visible{
+    outline:2px solid #fdba74;    /* light orange ring */
+    outline-offset:2px;
+    border-color:#ea580c;          /* orange-600 */
+  }
+
+  /* Secondary/ghost CTA in brand color */
+  .zr-tip .actions .btn-ghost,
+  .zr-tip .zr-ghost{
+    background:transparent;
+    color:#f97316 !important;
+    border:1px solid #fed7aa;      /* orange-200-ish */
+  }
+  .zr-tip .actions .btn-ghost:hover,
+  .zr-tip .zr-ghost:hover{
+    background:rgba(249,115,22,.06); /* faint orange wash */
+  }
+
+  /* Just in case: keep text/content contained */
+  .zr-tip, .zr-tip *{
+    white-space:normal !important;
+    overflow-wrap:anywhere;
+  }
+  `;
+  const s = document.createElement('style');
+  s.id = 'zr-brand-cta-css';
+  s.textContent = css;
+  document.head.appendChild(s);
+})();
+
+/* === ZR Projects card: minimal (no CTAs) === */
+;(function(){
+  if (document.getElementById('zr-card-minimal-css')) return;
+  const css = `
+  /* hide any action buttons / orange accents */
+  .zr-tip .actions,
+  .zr-tip .zr-cta,
+  .zr-tip .zr-ghost{ display:none !important; }
+
+  /* remove any decorative orange line if present */
+  .zr-tip .accent, .zr-tip .bar { display:none !important; }
+
+  /* add an inline hint inside the text column */
+  .zr-tip .t::after{
+    content:"Click the blue shaded area to view details";
+    display:block;
+    margin-top:6px;
+    font-size:.82rem;
+    line-height:1.25;
+    color:#475467;           /* subtle */
+    letter-spacing:.2px;
+  }
+
+  /* keep layout tidy on small screens */
+  @media (max-width:640px){
+    .zr-tip .t::after{ font-size:.80rem; }
+  }
+  `;
+  const s = document.createElement('style');
+  s.id = 'zr-card-minimal-css';
+  s.textContent = css;
+  document.head.appendChild(s);
+})();
