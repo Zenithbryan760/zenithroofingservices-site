@@ -451,4 +451,6 @@
     if (document.getElementById('radius-only-map')) initRadiusOnlyMap();
   </script>
 </body>
+  <script src="/js/zr-modal.js"></script>
+  <script src="/js/projects-map.js?v=9"></script>
 </html>
