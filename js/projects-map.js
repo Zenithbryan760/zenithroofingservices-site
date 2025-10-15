@@ -1,15 +1,13 @@
-(function(){
-  const MAP_ID='radius-only-map';
-  const JSON_PATHS=['/data/projects.json','data/projects.json','../data/projects.json'];
+(function () {
+  const MAP_ID = 'radius-only-map';
+  const JSON_PATHS = ['/data/projects.json', 'data/projects.json', '../data/projects.json'];
 
-  // Modern, compact tooltip styles (FIX: override Leaflet nowrap)
-  (function addTipCss(){
-    if(document.getElementById('zr-tip-css')) return;
+  // Tooltip CSS (compact, wraps correctly, mobile-friendly)
+  (function addTipCss () {
+    if (document.getElementById('zr-tip-css')) return;
     const css = `
-      /* Remove Leaflet defaults + allow wrapping */
       .zr-tip-wrap.leaflet-tooltip{background:transparent;border:0;box-shadow:none;padding:0}
       .zr-tip-wrap .leaflet-tooltip-content{white-space:normal !important;padding:0;margin:0;display:block}
-
       .zr-tip{
         --pad:12px;
         position:relative;
@@ -38,26 +36,27 @@
         .zr-chip{font-size:.78rem;padding:3px 7px}
       }
     `.trim();
-    const el=document.createElement('style'); el.id='zr-tip-css'; el.textContent=css; document.head.appendChild(el);
+    const el = document.createElement('style'); el.id = 'zr-tip-css'; el.textContent = css; document.head.appendChild(el);
   })();
 
-  function firstJson(paths){
-    return new Promise((res,rej)=>{
-      (function next(i){
-        if(i>=paths.length) return rej(new Error('projects.json not found'));
-        fetch(paths[i]).then(r=>r.ok?r.json():Promise.reject()).then(res).catch(()=>next(i+1));
+  function firstJson (paths) {
+    return new Promise((res, rej) => {
+      (function next (i) {
+        if (i >= paths.length) return rej(new Error('projects.json not found'));
+        fetch(paths[i]).then(r => r.ok ? r.json() : Promise.reject()).then(res).catch(() => next(i + 1));
       })(0);
     });
   }
 
-  function pickProject(data){
-    return data.find(p=>p.id==='ESCO-ELKHORN-LIFT-LAY')
-        || data.find(p=>/escondido/i.test(p.city||'')) || data[0];
+  function pickProject (data) {
+    return data.find(p => p.id === 'ESCO-ELKHORN-LIFT-LAY')
+        || data.find(p => /escondido/i.test(p.city || ''))
+        || data[0];
   }
 
-  function tipHTML(p){
+  function tipHTML (p) {
     const img = p.cardImage || (p.images && p.images[0]) || '';
-    const src = '/' + String(img||'').replace(/^\/+/, '');
+    const src = '/' + String(img || '').replace(/^\/+/, '');
     const title = p.name || 'Project';
     const chips = (p.chips && p.chips.length ? p.chips : [
       'Tile Lift & Relay',
@@ -70,49 +69,66 @@
         <div class="img">${img ? `<img src="${src}" alt="${title}">` : ''}</div>
         <div class="t">
           <div class="title">${title}</div>
-          <div class="meta">${chips.map(c=>`<span class="zr-chip">${c}</span>`).join('')}</div>
+          <div class="meta">${chips.map(c => `<span class="zr-chip">${c}</span>`).join('')}</div>
         </div>
       </div>
     `;
   }
 
-  function init(){
-    const el=document.getElementById(MAP_ID);
-    if(!el || !window.L) return;
+  function init () {
+    const host = document.getElementById(MAP_ID); if (!host) return;
+    const map = L.map(MAP_ID, { scrollWheelZoom: false });
 
-    const map=L.map(MAP_ID,{scrollWheelZoom:false});
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19, attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
 
-    firstJson(JSON_PATHS).then(data=>{
-      const p = pickProject(data||[]);
-      if(!p || !p.radiusCenter) return;
+    firstJson(JSON_PATHS).then(data => {
+      const p = pickProject(data || []); if (!p || !p.radiusCenter) return;
 
-      const center=[p.radiusCenter.lat, p.radiusCenter.lng];
+      const center = [p.radiusCenter.lat, p.radiusCenter.lng];
       map.setView(center, 15);
 
-      const circle=L.circle(center,{
-        radius:p.radiusMeters||400,color:'#2d6cdf',fillColor:'#2d6cdf',fillOpacity:0.25,weight:2
+      const circle = L.circle(center, {
+        radius: p.radiusMeters || 400,
+        color: '#2d6cdf', fillColor: '#2d6cdf', fillOpacity: 0.25, weight: 2
       }).addTo(map);
 
       circle.bindTooltip(tipHTML(p), {
-        direction:'top', sticky:true, opacity:1, className:'zr-tip-wrap', offset:[0,-10]
+        direction: 'top', sticky: true, opacity: 1, className: 'zr-tip-wrap', offset: [0, -10]
       });
 
-      // First tap on mobile shows tooltip; second tap will trigger click/modal
-      circle.on('touchstart', ()=> circle.openTooltip());
+      // Mobile: first tap shows tooltip; second tap opens modal
+      circle.on('touchstart', () => circle.openTooltip());
 
-      circle.on('click', ()=> window.ZR_openProjectModal && window.ZR_openProjectModal({
-        name: p.name,
-        images: p.images,
-        cardImage: p.cardImage,
-        url: p.url || "/projects/escondido-tile-lift-lay-elkhorn/",
-        notes: p.notes || [
-          "Tile lift & relay with high-temp underlayment.",
-          "Updated flashings and vents."
-        ]
-      }));
-    }).catch(()=>{});
+      // Click → open your polished modal (fields kept concise, SEO-friendly)
+      circle.on('click', () =>
+        window.ZR_openProjectModal && window.ZR_openProjectModal({
+          name: p.name || "Tile Lift & Relay — Escondido (near Country Club Ln)",
+          subtitle: (p.chips && p.chips.join(' •')) || "Tile Lift & Relay • Escondido • 2 layers Malarkey RightStart • near Country Club Ln",
+          images: p.images || (p.cardImage ? [p.cardImage] : []),
+          cardImage: p.cardImage,
+          url: p.url || "/projects/escondido-tile-lift-lay-elkhorn/",
+          summary: p.summary || [
+            "Removed existing tiles, pressure washed deck.",
+            "Installed two layers Malarkey RightStart UDL 40.",
+            "Reinstalled tiles with ~15% replacement.",
+            "Installed drip edge, bird stop, and flashings.",
+            "Completed fascia, shiplap, and ridge blocking."
+          ],
+          materials: p.materials || [
+            "Malarkey RightStart UDL 40", "Concrete tiles (~15%)",
+            "Drip edge & bird stop", "Flashing & mastic", "Ridge blocking"
+          ],
+          keywords: p.keywords || [
+            "Tile Lift & Relay", "Escondido roofing",
+            "Malarkey RightStart", "tile roof", "Country Club Ln"
+          ]
+        })
+      );
+    });
   }
 
-  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', init); } else { init(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 })();
