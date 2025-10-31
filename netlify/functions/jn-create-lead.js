@@ -56,27 +56,29 @@ exports.handler = async (event) => {
 
   try {
     const data = parseBody(event);
-// DEBUG ECHO: hit with ?debug=1 from the form to see raw fields
-if ((event.queryStringParameters || {}).debug === '1') {
-  return {
-    statusCode: 200,
-    headers: cors,
-    body: JSON.stringify({
-      receivedKeys: Object.keys(data),
-      raw: data
-    })
-  };
-}
-// [DEBUG] See what the form actually sent
-console.log('[jn-create-lead] incoming keys:', Object.keys(data));
-console.log('[jn-create-lead] street candidates:', {
-  street_address: data.street_address,
-  address1: data.address1,
-  address: data.address,
-  street: data.street,
-  line1: data.line1,
-});
-    
+
+    // DEBUG ECHO: hit with ?debug=1 from the form to see raw fields
+    if ((event.queryStringParameters || {}).debug === '1') {
+      return {
+        statusCode: 200,
+        headers: cors,
+        body: JSON.stringify({
+          receivedKeys: Object.keys(data),
+          raw: data
+        })
+      };
+    }
+
+    // [DEBUG] See what the form actually sent
+    console.log('[jn-create-lead] incoming keys:', Object.keys(data));
+    console.log('[jn-create-lead] street candidates:', {
+      street_address: data.street_address,
+      address1: data.address1,
+      address: data.address,
+      street: data.street,
+      line1: data.line1,
+    });
+
     const {
       JN_API_KEY,
       JN_CONTACT_ENDPOINT,
@@ -104,50 +106,55 @@ console.log('[jn-create-lead] street candidates:', {
         return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Recaptcha failed' }) };
       }
     }
-// ---- Normalize inputs (needed later) ----
-const first = (data.first_name || '').trim();
-const last  = (data.last_name  || '').trim();
-const email = (data.email      || '').trim();
-// ---- Address normalization (robust) ----
-// REPLACE your current streetFromAny with this:
-const streetFromAny = (
-  data.street_address ||
-  data['street-address'] ||
-  data.streetAddress ||
-  data.address1 ||
-  data.addr1 ||
-  data.address_line1 ||
-  data.addressLine1 ||
-  data['address[street]'] ||   // handles bracketed form names
-  data.line1 ||
-  data.line_1 ||
-  data.street ||
-  data.address ||
-  ''
-).toString().trim();
 
-const addressObj = {
-  street: streetFromAny,
-  city:   (data.city  || '').toString().trim(),
-  state:  (data.state || '').toString().trim(),
-  zip:    (data.zip   || '').toString().trim(),
-};
+    // ---- Normalize inputs (needed later) ----
+    const first = (data.first_name || '').trim();
+    const last  = (data.last_name  || '').trim();
+    const email = (data.email      || '').trim();
 
+    // ---- Address normalization (robust) ----
+    const streetFromAny = (
+      data.street_address ||
+      data['street-address'] ||
+      data.streetAddress ||
+      data.address1 ||
+      data.addr1 ||
+      data.address_line1 ||
+      data.addressLine1 ||
+      data['address[street]'] ||   // handles bracketed form names
+      data.line1 ||
+      data.line_1 ||
+      data.street ||
+      data.address ||
+      ''
+    ).toString().trim();
 
-const phoneDigits = normalizePhone(data.phone || data.phone_number || '');
-if (!phoneDigits)
-  return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Phone number is required' }) };
-if (phoneDigits.length !== 10)
-  return { statusCode: 400, headers: cors, body: JSON.stringify({ error: `Invalid phone number (${phoneDigits})` }) };
-const formattedPhone = `(${phoneDigits.slice(0,3)}) ${phoneDigits.slice(3,6)}-${phoneDigits.slice(6)}`;
+    const addressObj = {
+      street: streetFromAny,
+      city:   (data.city  || '').toString().trim(),
+      state:  (data.state || '').toString().trim(),
+      zip:    (data.zip   || '').toString().trim(),
+    };
 
-const descLines = [`Phone: ${formattedPhone}`];
-if ((data.service_type || '').trim()) descLines.push(`Service Type: ${data.service_type.trim()}`);
-if ((data.referral_source || '').trim()) descLines.push(`Referral: ${data.referral_source.trim()}`);
-if ((data.description || '').trim()) descLines.push(`Notes: ${data.description.trim()}`);
-if ((data.page || '').trim()) descLines.push(`Page: ${data.page.trim()}`);
-const combinedDescription = descLines.join('\n');
+    const phoneDigits = normalizePhone(data.phone || data.phone_number || '');
+    if (!phoneDigits)
+      return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Phone number is required' }) };
+    if (phoneDigits.length !== 10)
+      return { statusCode: 400, headers: cors, body: JSON.stringify({ error: `Invalid phone number (${phoneDigits})` }) };
+    const formattedPhone = `(${phoneDigits.slice(0,3)}) ${phoneDigits.slice(3,6)}-${phoneDigits.slice(6)}`;
 
+    // ---- Description (with address backup line) ----
+    const addressLineForDesc = [addressObj.street, addressObj.city, addressObj.state, addressObj.zip]
+      .filter(Boolean).join(', ');
+    const descLines = [
+      `Phone: ${formattedPhone}`,
+    ];
+    if ((data.service_type || '').trim())     descLines.push(`Service Type: ${data.service_type.trim()}`);
+    if ((data.referral_source || '').trim())  descLines.push(`Referral: ${data.referral_source.trim()}`);
+    if ((data.description || '').trim())      descLines.push(`Notes: ${data.description.trim()}`);
+    if ((data.page || '').trim())             descLines.push(`Page: ${data.page.trim()}`);
+    if (addressLineForDesc)                   descLines.push(`Address: ${addressLineForDesc}`);
+    const combinedDescription = descLines.join('\n');
 
     // ---- Build unique display_name (base + last4 or city) ----
     const baseName =
@@ -162,59 +169,48 @@ const combinedDescription = descLines.join('\n');
     // ---- JobNimbus payload ----
     const payloadBase = {
       display_name: displayName,
+
+      // contact identity
       first_name: first,
       last_name:  last,
       email,
-      phone: phoneDigits,
+
+      // phones — map to visible JN fields
+      main_phone:   phoneDigits,
+      mobile_phone: phoneDigits,
       phone_formatted: formattedPhone,
-// ✅ Send several variants + addresses[] (covers most JN tenants)
-address: {
-  street: addressObj.street,
-  city:   addressObj.city,
-  state:  addressObj.state,
-  zip:    addressObj.zip,
-},
-address1:     addressObj.street,  // many tenants use this
-street:       addressObj.street,  // backup
-street1:      addressObj.street,  // backup
-line1:        addressObj.street,  // backup
-city:         addressObj.city,
-state:        addressObj.state,
-zip:          addressObj.zip,
-postal_code:  addressObj.zip,
 
-// Some tenants expect an array of addresses
-addresses: [
-  {
-    type: 'work',
-    address1: addressObj.street,
-    city:     addressObj.city,
-    state:    addressObj.state,
-    zip:      addressObj.zip,
-    primary:  true,
-  }
-],
+      // address — keys JN writes into the UI
+      address1:    addressObj.street,
+      address2:    (data.address2 || '').toString().trim(),
+      city:        addressObj.city,
+      state:       addressObj.state,
+      postal_code: addressObj.zip,
+      zip:         addressObj.zip,
 
-
+      // UI fields that show up in the modal
+      lead_source: (data.referral_source || '').trim(),
       description: combinedDescription,
+      website:     (data.page || '').trim(),
+      company:     (data.company || '').trim(),
+
+      // metadata
       service_type: data.service_type || '',
-      referral_source: data.referral_source || '',
-      _source: 'website-jn-create-lead',
+      _source:  'website-jn-create-lead',
       _version: 'jn-create-lead-' + new Date().toISOString().split('T')[0],
     };
-// [DEBUG] What we are sending to JobNimbus (address variants)
-console.log('[jn-create-lead] payloadBase.address variants:', {
-  address: payloadBase.address,
-  address1: payloadBase.address1,
-  street: payloadBase.street,
-  street1: payloadBase.street1,
-  line1: payloadBase.line1,
-  city: payloadBase.city,
-  state: payloadBase.state,
-  zip: payloadBase.zip,
-  postal_code: payloadBase.postal_code,
-  addresses: payloadBase.addresses,
-});
+
+    // [DEBUG] Snapshot of what we send for address/phones
+    console.log('[jn-create-lead] payload.address snapshot:', {
+      address1: payloadBase.address1,
+      address2: payloadBase.address2,
+      city: payloadBase.city,
+      state: payloadBase.state,
+      postal_code: payloadBase.postal_code,
+      main_phone: payloadBase.main_phone,
+      lead_source: payloadBase.lead_source
+    });
+
     // ---- Auth header variants (JN tenants differ) ----
     const headerVariants = [
       { 'x-api-key': JN_API_KEY, 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -231,8 +227,8 @@ console.log('[jn-create-lead] payloadBase.address variants:', {
 
     // 1st attempt
     let { r: jnRes, t: jnText } = await postToJN(headerVariants[0], payloadBase);
-console.log('[jn-create-lead] JN first attempt status:', jnRes.status);
-console.log('[jn-create-lead] JN first attempt body:', (jnText || '').slice(0, 800));
+    console.log('[jn-create-lead] JN first attempt status:', jnRes.status);
+    console.log('[jn-create-lead] JN first attempt body:', (jnText || '').slice(0, 800));
 
     // If unauthorized/forbidden, try the other auth header styles
     if (jnRes.status === 401 || jnRes.status === 403) {
@@ -264,14 +260,17 @@ console.log('[jn-create-lead] JN first attempt body:', (jnText || '').slice(0, 8
     // ---- Optional: SendGrid notify ----
     if (SENDGRID_API_KEY && LEAD_NOTIFY_FROM && LEAD_NOTIFY_TO) {
       try {
+        const addrForEmail = [payloadBase.address1, payloadBase.address2, payloadBase.city, payloadBase.state, payloadBase.postal_code]
+          .filter(Boolean).join(', ') || '(none)';
+
         const message = [
           `<strong>New Website Lead</strong>`,
           `Name: ${displayName}`,
           `Email: ${email || '(none)'}`,
           `Phone: ${formattedPhone}`,
-          `Address: ${payloadBase.address || '(none)'}`,
+          `Address: ${addrForEmail}`,
           `Service: ${payloadBase.service_type || '(none)'}`,
-          `Referral: ${payloadBase.referral_source || '(none)'}`,
+          `Referral: ${payloadBase.lead_source || '(none)'}`,
           `Page: ${data.page || '(unknown)'}`,
           '',
           `Notes:`,
