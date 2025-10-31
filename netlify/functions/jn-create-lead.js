@@ -56,6 +56,17 @@ exports.handler = async (event) => {
 
   try {
     const data = parseBody(event);
+
+// [DEBUG] See what the form actually sent
+console.log('[jn-create-lead] incoming keys:', Object.keys(data));
+console.log('[jn-create-lead] street candidates:', {
+  street_address: data.street_address,
+  address1: data.address1,
+  address: data.address,
+  street: data.street,
+  line1: data.line1,
+});
+    
     const {
       JN_API_KEY,
       JN_CONTACT_ENDPOINT,
@@ -83,18 +94,25 @@ exports.handler = async (event) => {
         return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Recaptcha failed' }) };
       }
     }
-
-// ---- Normalize inputs ----
+// ---- Normalize inputs (needed later) ----
 const first = (data.first_name || '').trim();
 const last  = (data.last_name  || '').trim();
 const email = (data.email      || '').trim();
+// ---- Address normalization (robust) ----
+const streetFromAny = (
+  data.street_address ||
+  data.address1 ||
+  data.address ||
+  data.street ||
+  data.line1 ||
+  ''
+).toString().trim();
 
-// ---- Address normalization (added) ----
 const addressObj = {
-  street: (data.street_address || '').trim(),
-  city:   (data.city || '').trim(),
-  state:  (data.state || '').trim(),
-  zip:    (data.zip || '').trim(),
+  street: streetFromAny,
+  city:   (data.city  || '').toString().trim(),
+  state:  (data.state || '').toString().trim(),
+  zip:    (data.zip   || '').toString().trim(),
 };
 
 const phoneDigits = normalizePhone(data.phone || data.phone_number || '');
@@ -130,19 +148,34 @@ const combinedDescription = descLines.join('\n');
       email,
       phone: phoneDigits,
       phone_formatted: formattedPhone,
-     // ✅ Structured address for JobNimbus + common fallbacks
+// ✅ Send several variants + addresses[] (covers most JN tenants)
 address: {
   street: addressObj.street,
   city:   addressObj.city,
   state:  addressObj.state,
   zip:    addressObj.zip,
 },
-// Common alternates some JN tenants accept
-address1:    addressObj.street,
-city:        addressObj.city,
-state:       addressObj.state,
-zip:         addressObj.zip,
-postal_code: addressObj.zip,
+address1:     addressObj.street,  // many tenants use this
+street:       addressObj.street,  // backup
+street1:      addressObj.street,  // backup
+line1:        addressObj.street,  // backup
+city:         addressObj.city,
+state:        addressObj.state,
+zip:          addressObj.zip,
+postal_code:  addressObj.zip,
+
+// Some tenants expect an array of addresses
+addresses: [
+  {
+    type: 'work',
+    address1: addressObj.street,
+    city:     addressObj.city,
+    state:    addressObj.state,
+    zip:      addressObj.zip,
+    primary:  true,
+  }
+],
+
 
       description: combinedDescription,
       service_type: data.service_type || '',
@@ -150,7 +183,19 @@ postal_code: addressObj.zip,
       _source: 'website-jn-create-lead',
       _version: 'jn-create-lead-' + new Date().toISOString().split('T')[0],
     };
-
+// [DEBUG] What we are sending to JobNimbus (address variants)
+console.log('[jn-create-lead] payloadBase.address variants:', {
+  address: payloadBase.address,
+  address1: payloadBase.address1,
+  street: payloadBase.street,
+  street1: payloadBase.street1,
+  line1: payloadBase.line1,
+  city: payloadBase.city,
+  state: payloadBase.state,
+  zip: payloadBase.zip,
+  postal_code: payloadBase.postal_code,
+  addresses: payloadBase.addresses,
+});
     // ---- Auth header variants (JN tenants differ) ----
     const headerVariants = [
       { 'x-api-key': JN_API_KEY, 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -167,6 +212,8 @@ postal_code: addressObj.zip,
 
     // 1st attempt
     let { r: jnRes, t: jnText } = await postToJN(headerVariants[0], payloadBase);
+console.log('[jn-create-lead] JN first attempt status:', jnRes.status);
+console.log('[jn-create-lead] JN first attempt body:', (jnText || '').slice(0, 800));
 
     // If unauthorized/forbidden, try the other auth header styles
     if (jnRes.status === 401 || jnRes.status === 403) {
