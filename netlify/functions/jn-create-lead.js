@@ -84,22 +84,33 @@ exports.handler = async (event) => {
       }
     }
 
-    // ---- Normalize inputs ----
-    const first = (data.first_name || '').trim();
-    const last  = (data.last_name  || '').trim();
-    const email = (data.email      || '').trim();
+// ---- Normalize inputs ----
+const first = (data.first_name || '').trim();
+const last  = (data.last_name  || '').trim();
+const email = (data.email      || '').trim();
 
-    const phoneDigits = normalizePhone(data.phone || data.phone_number || '');
-    if (!phoneDigits)              return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Phone number is required' }) };
-    if (phoneDigits.length !== 10) return { statusCode: 400, headers: cors, body: JSON.stringify({ error: `Invalid phone number (${phoneDigits})` }) };
-    const formattedPhone = `(${phoneDigits.slice(0,3)}) ${phoneDigits.slice(3,6)}-${phoneDigits.slice(6)}`;
+// ---- Address normalization (added) ----
+const addressObj = {
+  street: (data.street_address || '').trim(),
+  city:   (data.city || '').trim(),
+  state:  (data.state || '').trim(),
+  zip:    (data.zip || '').trim(),
+};
 
-    const descLines = [`Phone: ${formattedPhone}`];
-    if ((data.service_type || '').trim())    descLines.push(`Service Type: ${data.service_type.trim()}`);
-    if ((data.referral_source || '').trim()) descLines.push(`Referral: ${data.referral_source.trim()}`);
-    if ((data.description || '').trim())     descLines.push(`Notes: ${data.description.trim()}`);
-    if ((data.page || '').trim())            descLines.push(`Page: ${data.page.trim()}`);
-    const combinedDescription = descLines.join('\n');
+const phoneDigits = normalizePhone(data.phone || data.phone_number || '');
+if (!phoneDigits)
+  return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Phone number is required' }) };
+if (phoneDigits.length !== 10)
+  return { statusCode: 400, headers: cors, body: JSON.stringify({ error: `Invalid phone number (${phoneDigits})` }) };
+const formattedPhone = `(${phoneDigits.slice(0,3)}) ${phoneDigits.slice(3,6)}-${phoneDigits.slice(6)}`;
+
+const descLines = [`Phone: ${formattedPhone}`];
+if ((data.service_type || '').trim()) descLines.push(`Service Type: ${data.service_type.trim()}`);
+if ((data.referral_source || '').trim()) descLines.push(`Referral: ${data.referral_source.trim()}`);
+if ((data.description || '').trim()) descLines.push(`Notes: ${data.description.trim()}`);
+if ((data.page || '').trim()) descLines.push(`Page: ${data.page.trim()}`);
+const combinedDescription = descLines.join('\n');
+
 
     // ---- Build unique display_name (base + last4 or city) ----
     const baseName =
@@ -119,7 +130,20 @@ exports.handler = async (event) => {
       email,
       phone: phoneDigits,
       phone_formatted: formattedPhone,
-      address: `${data.street_address || ''}, ${data.city || ''}, ${data.state || ''} ${data.zip || ''}`.trim(),
+     // ✅ Structured address for JobNimbus + common fallbacks
+address: {
+  street: addressObj.street,
+  city:   addressObj.city,
+  state:  addressObj.state,
+  zip:    addressObj.zip,
+},
+// Common alternates some JN tenants accept
+address1:    addressObj.street,
+city:        addressObj.city,
+state:       addressObj.state,
+zip:         addressObj.zip,
+postal_code: addressObj.zip,
+
       description: combinedDescription,
       service_type: data.service_type || '',
       referral_source: data.referral_source || '',
