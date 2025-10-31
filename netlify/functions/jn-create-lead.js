@@ -56,7 +56,17 @@ exports.handler = async (event) => {
 
   try {
     const data = parseBody(event);
-
+// DEBUG ECHO: hit with ?debug=1 from the form to see raw fields
+if ((event.queryStringParameters || {}).debug === '1') {
+  return {
+    statusCode: 200,
+    headers: cors,
+    body: JSON.stringify({
+      receivedKeys: Object.keys(data),
+      raw: data
+    })
+  };
+}
 // [DEBUG] See what the form actually sent
 console.log('[jn-create-lead] incoming keys:', Object.keys(data));
 console.log('[jn-create-lead] street candidates:', {
@@ -99,12 +109,20 @@ const first = (data.first_name || '').trim();
 const last  = (data.last_name  || '').trim();
 const email = (data.email      || '').trim();
 // ---- Address normalization (robust) ----
+// REPLACE your current streetFromAny with this:
 const streetFromAny = (
   data.street_address ||
+  data['street-address'] ||
+  data.streetAddress ||
   data.address1 ||
-  data.address ||
-  data.street ||
+  data.addr1 ||
+  data.address_line1 ||
+  data.addressLine1 ||
+  data['address[street]'] ||   // handles bracketed form names
   data.line1 ||
+  data.line_1 ||
+  data.street ||
+  data.address ||
   ''
 ).toString().trim();
 
@@ -114,6 +132,7 @@ const addressObj = {
   state:  (data.state || '').toString().trim(),
   zip:    (data.zip   || '').toString().trim(),
 };
+
 
 const phoneDigits = normalizePhone(data.phone || data.phone_number || '');
 if (!phoneDigits)
