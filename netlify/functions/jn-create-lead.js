@@ -143,17 +143,21 @@ exports.handler = async (event) => {
       return { statusCode: 400, headers: cors, body: JSON.stringify({ error: `Invalid phone number (${phoneDigits})` }) };
     const formattedPhone = `(${phoneDigits.slice(0,3)}) ${phoneDigits.slice(3,6)}-${phoneDigits.slice(6)}`;
 
-    // ---- Description (with address backup line) ----
-    const addressLineForDesc = [addressObj.street, addressObj.city, addressObj.state, addressObj.zip]
+    // ---- Description BACKUP (include EVERYTHING useful) ----
+    const addressLine = [addressObj.street, addressObj.city, addressObj.state, addressObj.zip]
       .filter(Boolean).join(', ');
+    const nameLine = [first, last].filter(Boolean).join(' ').trim();
     const descLines = [
+      `Submitted: ${new Date().toISOString()}`,
+      nameLine ? `Name: ${nameLine}` : null,
+      email ? `Email: ${email}` : null,
       `Phone: ${formattedPhone}`,
-    ];
-    if ((data.service_type || '').trim())     descLines.push(`Service Type: ${data.service_type.trim()}`);
-    if ((data.referral_source || '').trim())  descLines.push(`Referral: ${data.referral_source.trim()}`);
-    if ((data.description || '').trim())      descLines.push(`Notes: ${data.description.trim()}`);
-    if ((data.page || '').trim())             descLines.push(`Page: ${data.page.trim()}`);
-    if (addressLineForDesc)                   descLines.push(`Address: ${addressLineForDesc}`);
+      addressLine ? `Address: ${addressLine}` : null,
+      (data.service_type || '').trim()    ? `Service Type: ${data.service_type.trim()}` : null,
+      (data.referral_source || '').trim() ? `Referral: ${data.referral_source.trim()}` : null,
+      (data.page || '').trim()            ? `Page: ${data.page.trim()}` : null,
+      (data.description || '').trim()     ? `Notes: ${data.description.trim()}` : null,
+    ].filter(Boolean);
     const combinedDescription = descLines.join('\n');
 
     // ---- Build unique display_name (base + last4 or city) ----
@@ -190,7 +194,7 @@ exports.handler = async (event) => {
 
       // UI fields that show up in the modal
       lead_source: (data.referral_source || '').trim(),
-      description: combinedDescription,
+      description: combinedDescription,           // ✅ includes ALL fields for backup
       website:     (data.page || '').trim(),
       company:     (data.company || '').trim(),
 
