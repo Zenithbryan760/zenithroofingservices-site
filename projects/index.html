@@ -1,39 +1,65 @@
 <!doctype html>
 <html lang="en">
+
 <head>
+  <!-- =========================================================
+       BASIC PAGE SETTINGS
+       Controls mobile responsiveness, browser title, SEO description,
+       and how Google/social platforms understand this page.
+  ========================================================== -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-  <title>Projects & Case Studies | Zenith Roofing Services</title>
-  <meta name="description" content="See recent roofing projects by Zenith Roofing Services, including roof replacements, tile lift and lays, repairs, maintenance, underlayment work, and flat roof systems across San Diego, North County, and Temecula." />
-  <link rel="canonical" href="https://www.zenithroofingservices.com/projects/"/>
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
+  <!-- PAGE TITLE: shows in Google/browser tab -->
+  <title>Roofing Projects in San Diego, North County & Temecula | Zenith Roofing Services</title>
 
-  <meta property="og:title" content="Projects & Case Studies | Zenith Roofing Services"/>
-  <meta property="og:description" content="View real roofing projects completed by Zenith Roofing Services across San Diego, North County, and Temecula."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://www.zenithroofingservices.com/projects/"/>
-  <meta name="twitter:card" content="summary_large_image"/>
+  <!-- SEO DESCRIPTION: shows under the title in Google -->
+  <meta name="description" content="View recent roofing projects by Zenith Roofing Services across San Diego, North County San Diego, Temecula Valley, Murrieta, South Riverside, and Southern California. See roof replacements, tile lift and lays, repairs, maintenance, underlayment work, and flat roof systems." />
 
-  <link rel="preload" href="/css/base.css" as="style"/>
-  <link rel="preload" href="/css/header.css" as="style"/>
-  <link rel="preload" href="/css/ui.css" as="style"/>
-  <link rel="stylesheet" href="/css/base.css"/>
-  <link rel="stylesheet" href="/css/header.css"/>
-  <link rel="stylesheet" href="/css/ui.css"/>
-  <link rel="stylesheet" href="/css/footer.css"/>
-  <link rel="stylesheet" href="/css/estimate-form.css"/>
+  <!-- CANONICAL URL: tells Google the official page URL -->
+  <link rel="canonical" href="https://www.zenithroofingservices.com/projects/" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large" />
 
+  <!-- SOCIAL SHARING INFO -->
+  <meta property="og:title" content="Roofing Projects | Zenith Roofing Services" />
+  <meta property="og:description" content="View real roofing projects completed by Zenith Roofing Services across San Diego, North County, Temecula, Murrieta, and South Riverside." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.zenithroofingservices.com/projects/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- =========================================================
+       WEBSITE CSS FILES
+       These connect this page to your existing Zenith website styling.
+       Do not remove unless you know exactly why.
+  ========================================================== -->
+  <link rel="preload" href="/css/base.css" as="style" />
+  <link rel="preload" href="/css/header.css" as="style" />
+  <link rel="preload" href="/css/ui.css" as="style" />
+
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/header.css" />
+  <link rel="stylesheet" href="/css/ui.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
+  <link rel="stylesheet" href="/css/estimate-form.css" />
+
+  <!-- =========================================================
+       PAGE-SPECIFIC STYLING
+       This controls the look of ONLY this projects page:
+       hero box, CompanyCam gallery, map, service area cards, CTAs.
+  ========================================================== -->
   <style>
+    /* Main brand colors for this page */
     :root {
       --zenith-navy: #072e59;
       --zenith-orange: #f7941d;
     }
 
+    /* Smooth scrolling when clicking buttons like "View Projects" */
     html {
       scroll-behavior: smooth;
     }
 
+    /* Top hero box */
     .page .hero {
       background: linear-gradient(135deg, #f8fafc 0%, #eef6ff 100%);
       border: 1px solid var(--ui-line);
@@ -42,6 +68,7 @@
       box-shadow: 0 14px 34px rgba(2, 12, 32, .08);
     }
 
+    /* Small label pills above hero title */
     .page .chip {
       border: 1px solid var(--ui-line);
       border-radius: 999px;
@@ -50,12 +77,14 @@
       font-weight: 800;
     }
 
+    /* Adds spacing above CompanyCam project gallery */
     .projects-showcase {
       margin-top: 24px;
     }
 
+    /* Centered intro text above gallery/map */
     .companycam-intro {
-      max-width: 850px;
+      max-width: 900px;
       margin: 0 auto 24px;
       text-align: center;
     }
@@ -68,9 +97,10 @@
     .companycam-intro p {
       color: #475569;
       margin: 0 auto;
-      max-width: 720px;
+      max-width: 780px;
     }
 
+    /* White rounded container around CompanyCam iframe */
     .companycam-card {
       max-width: 1120px;
       margin: 0 auto;
@@ -81,6 +111,7 @@
       overflow: hidden;
     }
 
+    /* Gallery iframe sizing */
     .companycam-card iframe {
       display: block;
       width: 100%;
@@ -88,17 +119,12 @@
       border: 0;
     }
 
-    .companycam-map-heading {
-      max-width: 1120px;
-      margin: 48px auto 14px;
-      color: var(--zenith-navy);
-      font-size: clamp(1.35rem, 2vw, 1.75rem);
-    }
-
+    /* Map iframe sizing */
     .companycam-map-card iframe {
       min-height: 430px;
     }
 
+    /* Text below project gallery */
     .projects-note {
       max-width: 850px;
       margin: 22px auto 0;
@@ -106,6 +132,7 @@
       color: #475569;
     }
 
+    /* Buttons below gallery */
     .projects-cta-row {
       display: flex;
       flex-wrap: wrap;
@@ -114,6 +141,48 @@
       margin-top: 24px;
     }
 
+    /* Service area white card section */
+    .service-area-strip {
+      max-width: 1120px;
+      margin: 34px auto 0;
+      background: #fff;
+      border: 1px solid var(--ui-line);
+      border-radius: 16px;
+      box-shadow: var(--ui-shadow);
+      padding: clamp(18px, 3vw, 26px);
+    }
+
+    .service-area-strip h2 {
+      color: var(--zenith-navy);
+      margin-top: 0;
+    }
+
+    /* Service area cards grid */
+    .service-area-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .service-area-card {
+      background: #f8fafc;
+      border: 1px solid var(--ui-line);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .service-area-card h3 {
+      margin-top: 0;
+      color: var(--zenith-navy);
+    }
+
+    .service-area-card p {
+      margin-bottom: 0;
+      color: #475569;
+    }
+
+    /* Bottom call-to-action strip */
     .cta-strip {
       background: var(--zenith-navy);
       color: #fff;
@@ -132,6 +201,14 @@
       color: #0b0b0b;
     }
 
+    /* Desktop service area cards: 3 columns */
+    @media (min-width: 800px) {
+      .service-area-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Tablet iframe sizing */
     @media (max-width: 900px) {
       .companycam-card iframe {
         min-height: 520px;
@@ -142,6 +219,7 @@
       }
     }
 
+    /* Mobile iframe sizing and spacing */
     @media (max-width: 600px) {
       .projects-showcase {
         margin-top: 18px;
@@ -159,10 +237,6 @@
         min-height: 430px;
       }
 
-      .companycam-map-heading {
-        margin-top: 34px;
-      }
-
       .cta-strip {
         text-align: center;
         justify-content: center;
@@ -170,18 +244,31 @@
     }
   </style>
 
+  <!-- =========================================================
+       SEO SCHEMA
+       Helps Google understand this is a local roofing project page
+       and which service areas matter.
+  ========================================================== -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"CollectionPage",
-    "name":"Projects & Case Studies",
+    "name":"Roofing Projects in San Diego, North County and Temecula Valley",
     "about":{
       "@type":"LocalBusiness",
       "name":"Zenith Roofing Services, Inc.",
       "areaServed":[
-        {"@type":"City","name":"Escondido"},
         {"@type":"City","name":"San Diego"},
-        {"@type":"City","name":"Temecula"}
+        {"@type":"City","name":"Escondido"},
+        {"@type":"City","name":"San Marcos"},
+        {"@type":"City","name":"Carlsbad"},
+        {"@type":"City","name":"Oceanside"},
+        {"@type":"City","name":"Vista"},
+        {"@type":"City","name":"Temecula"},
+        {"@type":"City","name":"Murrieta"},
+        {"@type":"City","name":"Menifee"},
+        {"@type":"AdministrativeArea","name":"South Riverside County"},
+        {"@type":"AdministrativeArea","name":"Southern California"}
       ]
     },
     "isPartOf":{
@@ -193,112 +280,232 @@
 </head>
 
 <body>
+  <!-- =========================================================
+       HEADER
+       Loads your existing website header from components/header-section.html
+  ========================================================== -->
   <div data-include="/components/header-section.html"></div>
 
   <main id="top" class="page">
+
+    <!-- =========================================================
+         HERO SECTION
+         Top section of the Projects page.
+         Edit the h1 and paragraph here if you want to change the main wording.
+    ========================================================== -->
     <section class="hero" aria-label="Project gallery">
       <div class="eyebrow" style="display:flex; gap:8px; flex-wrap:wrap; margin:0 0 .6rem;">
         <span class="chip">Real Projects</span>
         <span class="chip">Photo Documentation</span>
-        <span class="chip">Local Roofing Work</span>
+        <span class="chip">San Diego &amp; Temecula Valley</span>
       </div>
 
       <div class="split">
         <div>
-          <h1 style="margin:0 0 .5rem">Projects &amp; Case Studies</h1>
+          <h1 style="margin:0 0 .5rem">Roofing Projects in San Diego, North County &amp; Temecula Valley</h1>
+
           <p class="lede">
-            View recent roofing projects completed by Zenith Roofing Services across San Diego, North County, and Temecula.
-            See real roof replacements, tile lift and lays, repairs, maintenance, and waterproofing work.
+            View recent roofing projects completed by Zenith Roofing Services across Greater San Diego,
+            North County San Diego, Temecula, Murrieta, South Riverside County, and surrounding Southern California communities.
+            See real roof replacements, tile lift and lays, repairs, maintenance, underlayment work, and waterproofing details.
           </p>
+
           <div class="cta">
             <a class="btn btn-primary" href="#gallery">View Projects</a>
             <a class="btn btn-outline" href="#estimate">Request Estimate</a>
           </div>
         </div>
+
+        <!-- Decorative image/media box from your existing CSS -->
         <div class="media" aria-hidden="true"></div>
       </div>
     </section>
 
+    <!-- =========================================================
+         STICKY PAGE NAVIGATION
+         These buttons jump to sections on this same page.
+    ========================================================== -->
     <nav class="pillnav sticky-pills" aria-label="Projects page sections">
       <a href="#gallery">Projects</a>
       <a href="#project-map">Project Map</a>
+      <a href="#service-areas">Service Areas</a>
       <a href="#estimate">Estimate</a>
     </nav>
 
+    <!-- =========================================================
+         COMPANYCAM GALLERY SECTION
+         This is the main Trusty/CompanyCam project gallery embed.
+         To change how many projects show, edit ?limit=3 in the iframe URL.
+    ========================================================== -->
     <section id="gallery" class="section projects-showcase">
       <div class="companycam-intro">
         <h2>Recent Roofing Projects</h2>
         <p>
-          Browse real project photos from recent jobs. These showcases are updated through CompanyCam and include roof replacements,
-          tile roof work, repairs, maintenance, and other roofing projects completed by our team.
+          Browse real project photos from recent jobs completed by our roofing team.
+          This gallery includes roof replacements, tile roof lift and lays, tile maintenance,
+          leak repairs, underlayment replacements, shingle roofing, and flat roof systems.
         </p>
       </div>
 
+      <!-- COMPANYCAM GALLERY EMBED -->
       <div class="companycam-card">
         <iframe
           src="https://trusty.app/embed/website-gallery/3bd7a37b-2d03-4e54-8a93-901ec3344877?limit=3"
-          title="Zenith Roofing Services recent roofing project gallery"
+          title="Zenith Roofing Services roofing project gallery in San Diego, North County, Temecula, Murrieta and South Riverside"
           loading="lazy"
           allow="fullscreen">
         </iframe>
       </div>
 
       <p class="projects-note">
-        Every project is documented with photos so homeowners can see the details behind the work, not just the finished roof.
+        Every project is documented with real job photos so homeowners can see the details behind the work,
+        not just the finished roof.
       </p>
 
+      <!-- CTA BUTTONS BELOW GALLERY -->
       <div class="projects-cta-row">
         <a class="btn btn-primary" href="#estimate">Request Free Estimate</a>
         <a class="btn btn-outline" href="tel:8589006163">Call 858-900-6163</a>
       </div>
     </section>
 
+    <!-- =========================================================
+         COMPANYCAM PROJECT MAP SECTION
+         This is the Trusty/CompanyCam map embed.
+    ========================================================== -->
     <section id="project-map" class="section">
-      <h2 class="companycam-map-heading">Roofing Projects Near You</h2>
+      <div class="companycam-intro">
+        <h2>Roofing Projects Near You</h2>
+        <p>
+          View recent roofing projects completed across San Diego County, North County,
+          Temecula Valley, Murrieta, South Riverside County, and nearby Southern California areas.
+        </p>
+      </div>
 
+      <!-- COMPANYCAM MAP EMBED -->
       <div class="companycam-card companycam-map-card">
         <iframe
           src="https://trusty.app/embed/project-map/ff7eff6b-4dd8-49e7-852e-9ac1742997e4"
-          title="Zenith Roofing Services project map"
+          title="Zenith Roofing Services project map for San Diego, North County, Temecula, Murrieta and South Riverside"
           loading="lazy"
           allow="fullscreen">
         </iframe>
       </div>
     </section>
 
+    <!-- =========================================================
+         SERVICE AREAS SECTION
+         SEO-focused section. Helps Google and customers understand
+         your main areas without overstuffing the page.
+    ========================================================== -->
+    <section id="service-areas" class="section">
+      <div class="service-area-strip">
+        <h2>Roofing Service Areas</h2>
+
+        <p>
+          Zenith Roofing Services is focused on helping homeowners throughout San Diego County and Southwest Riverside County,
+          with strong coverage in North County San Diego, Greater San Diego, Temecula, Murrieta, and surrounding communities.
+        </p>
+
+        <div class="service-area-grid">
+
+          <!-- Service Area Card 1 -->
+          <div class="service-area-card">
+            <h3>San Diego County</h3>
+            <p>
+              Roofing services in San Diego, Carmel Valley, Rancho Bernardo, Poway, Mira Mesa,
+              and surrounding communities.
+            </p>
+          </div>
+
+          <!-- Service Area Card 2 -->
+          <div class="service-area-card">
+            <h3>North County San Diego</h3>
+            <p>
+              Roof replacements, tile roof repairs, lift and lays, and maintenance in Escondido,
+              San Marcos, Vista, Carlsbad, Oceanside, Fallbrook, and nearby areas.
+            </p>
+          </div>
+
+          <!-- Service Area Card 3 -->
+          <div class="service-area-card">
+            <h3>Temecula &amp; South Riverside</h3>
+            <p>
+              Roofing work in Temecula, Murrieta, Menifee, Winchester, Wildomar,
+              and surrounding Southwest Riverside County communities.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ESTIMATE FORM SECTION
+         IMPORTANT: This is your lead capture form.
+         Do not remove this section if you want leads from the page.
+    ========================================================== -->
     <section id="estimate" class="section estimate-form-section">
       <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+
       <p class="form-disclaimer">
         <em>Free estimates exclude real-estate transaction documents. For letters/reports, see Real Estate Services.</em>
       </p>
     </section>
 
+    <!-- =========================================================
+         FINAL CTA STRIP
+         Last push for visitors to request an estimate.
+    ========================================================== -->
     <section class="section">
       <div class="cta-strip">
         <div class="text">
           <strong>Ready to start your project?</strong>
           Fast scheduling, clear communication, and photo documentation.
         </div>
+
         <a class="btn" href="#estimate">Request Free Estimate</a>
       </div>
     </section>
+
   </main>
 
+  <!-- =========================================================
+       FOOTER
+       Loads your existing website footer from components/footer.html
+  ========================================================== -->
   <div data-include="/components/footer.html"></div>
 
+  <!-- =========================================================
+       CORE WEBSITE JAVASCRIPT
+       Loads your header/footer includes and mobile menu behavior.
+  ========================================================== -->
   <script src="/js/loader.js" defer></script>
   <script src="/js/header.js" defer></script>
 
+  <!-- =========================================================
+       ESTIMATE FORM CONFIG
+       Controls the form wording and hidden tracking fields.
+       Do not remove if you want your lead form to work correctly.
+  ========================================================== -->
   <script>
     window.ESTIMATE_FORM_CONFIG = {
       submitText: "Request Free Estimate",
       referralPreselect: "Website",
-      hiddenFields: { campaign: "projects", page_tag: "projects" },
+      hiddenFields: {
+        campaign: "projects",
+        page_tag: "projects"
+      },
       descriptionPlaceholder: "Tell us about your roof, city/ZIP, and what you would like inspected or estimated. Photo links help."
     };
   </script>
 
+  <!-- =========================================================
+       ESTIMATE FORM JAVASCRIPT + RECAPTCHA
+       These are required for your website lead form.
+  ========================================================== -->
   <script src="/js/estimate-form.js" defer></script>
   <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
+
 </body>
 </html>
