@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Roofing Projects San Diego, Temecula & Murrieta | Zenith Roofing Services</title>
+<title>Real Roofing Projects San Diego & Temecula | Zenith Roofing Services</title>
 
-<meta name="description" content="Real roofing projects in San Diego, North County, Temecula & Murrieta. Browse tile lift & lays, shingle roofs, flat coatings & repairs with before and after photos.">
+<meta name="description" content="See real roofing projects across San Diego, Temecula, and Murrieta. Tile lift & lays, shingle replacements, flat roofs and repairs with before and after photos.">
 
 <link rel="stylesheet" href="/css/base.css">
 <link rel="stylesheet" href="/css/header.css">
@@ -25,98 +25,78 @@ body{background:var(--light);}
 
 /* HERO */
 .hero{
-  padding:80px 20px 50px;
+  padding:70px 20px 40px;
   text-align:center;
 }
 .hero h1{
-  font-size:clamp(2.6rem,5vw,4.2rem);
+  font-size:clamp(2.8rem,5vw,4.2rem);
   color:var(--navy);
 }
 .hero p{
-  max-width:700px;
+  max-width:680px;
   margin:10px auto;
+  font-size:1.1rem;
   color:#555;
-}
-
-/* FILTERS */
-.filters{
-  max-width:1100px;
-  margin:20px auto;
-  padding:0 20px;
-}
-
-.filter-row{
-  display:flex;
-  gap:8px;
-  overflow-x:auto;
-  margin-bottom:10px;
-}
-
-.filter-btn{
-  padding:8px 14px;
-  border-radius:999px;
-  border:1px solid #ddd;
-  background:#fff;
-  font-size:.85rem;
-}
-
-.filter-btn.active{
-  background:var(--navy);
-  color:white;
 }
 
 /* SECTION */
 .section{
   max-width:1100px;
-  margin:50px auto;
+  margin:40px auto;
   padding:0 20px;
 }
 
-/* PROJECT CARDS */
-.project-grid{
+/* GRID */
+.grid{
   display:grid;
-  gap:20px;
+  gap:24px;
 }
-
 @media(min-width:768px){
-  .project-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
+  .grid{grid-template-columns:repeat(3,1fr);}
 }
 
-.project-card{
+/* CARD */
+.card{
   background:#fff;
-  border-radius:14px;
+  border-radius:16px;
   overflow:hidden;
   box-shadow:0 15px 40px rgba(0,0,0,.1);
+  transition:.25s;
 }
+.card:hover{transform:translateY(-5px);}
 
-.project-card img{
+.card img{
   width:100%;
   height:220px;
   object-fit:cover;
 }
 
-.project-info{
-  padding:15px;
+.card-body{
+  padding:16px;
 }
-
-.project-info h3{
+.card-body h3{
   color:var(--navy);
+  font-size:1.1rem;
+  margin-bottom:8px;
+}
+.card-body p{
+  font-size:.9rem;
+  color:#555;
+  margin-bottom:10px;
 }
 
-.project-info p{
-  font-size:.85rem;
+.card-body ul{
+  font-size:.8rem;
   color:#666;
+  padding-left:15px;
 }
 
-/* EMBEDS */
+/* EMBED */
 .embed{
-  border-radius:14px;
+  border-radius:16px;
   overflow:hidden;
   box-shadow:0 20px 60px rgba(0,0,0,.1);
 }
-
 .embed iframe{
   width:100%;
   min-height:500px;
@@ -128,12 +108,22 @@ body{background:var(--light);}
   text-align:center;
   padding:60px 20px;
 }
+.cta h2{
+  color:var(--navy);
+}
 .cta a{
   background:var(--orange);
-  padding:14px 24px;
+  padding:14px 26px;
   border-radius:10px;
-  color:white;
+  color:#fff;
   text-decoration:none;
+  display:inline-block;
+  margin-top:10px;
+}
+
+/* MOBILE */
+@media(max-width:720px){
+  .card img{height:200px;}
 }
 </style>
 </head>
@@ -146,66 +136,80 @@ body{background:var(--light);}
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Roofing Projects Across San Diego & Temecula</h1>
+  <h1>Real Roofing Projects That Speak for Themselves</h1>
   <p>
-    Every Zenith project is fully documented with real photos — never stock images.
-    Filter by roof type, materials, and city to see work completed near you.
+    Every project we complete is documented with real photos — no stock images, no shortcuts.
+    See the difference in craftsmanship across San Diego, Temecula, and surrounding areas.
   </p>
 </section>
-
-<!-- FILTERS -->
-<div class="filters">
-
-  <div class="filter-row">
-    <button class="filter-btn active">All</button>
-    <button class="filter-btn">Tile</button>
-    <button class="filter-btn">Shingle</button>
-    <button class="filter-btn">Flat</button>
-    <button class="filter-btn">Repair</button>
-  </div>
-
-  <div class="filter-row">
-    <button class="filter-btn">Malarkey</button>
-    <button class="filter-btn">Owens Corning</button>
-    <button class="filter-btn">Silicone</button>
-  </div>
-
-  <div class="filter-row">
-    <button class="filter-btn">San Diego</button>
-    <button class="filter-btn">Temecula</button>
-    <button class="filter-btn">Murrieta</button>
-  </div>
-
-</div>
 
 <!-- FEATURED PROJECTS -->
 <section class="section">
 
   <h2>Featured Roofing Projects</h2>
 
-  <div class="project-grid">
+  <div class="grid">
 
-    <div class="project-card">
-      <img src="/images/project1.jpg" alt="Tile roof Temecula">
-      <div class="project-info">
-        <h3>Tile Lift & Lay – Temecula</h3>
-        <p>Full underlayment replacement while preserving tile system.</p>
+    <div class="card">
+      <img src="/images/project1.jpg">
+      <div class="card-body">
+        <h3>Tile Lift & Lay – Temecula Estate</h3>
+        <p>Homeowner wanted to preserve the original tile while eliminating leaks. We replaced the underlayment and restored full waterproofing.</p>
+        <ul>
+          <li>Location: Temecula</li>
+          <li>Material: Tile + Underlayment</li>
+          <li>Duration: 5 days</li>
+        </ul>
       </div>
     </div>
 
-    <div class="project-card">
-      <img src="/images/project2.jpg" alt="Shingle roof San Diego">
-      <div class="project-info">
-        <h3>Shingle Roof – San Diego</h3>
-        <p>Installed Owens Corning cool roof shingles.</p>
+    <div class="card">
+      <img src="/images/project2.jpg">
+      <div class="card-body">
+        <h3>Shingle Roof Replacement – San Diego</h3>
+        <p>Full tear-off and replacement using Owens Corning cool shingles to meet energy efficiency requirements.</p>
+        <ul>
+          <li>Location: San Diego</li>
+          <li>Material: Owens Corning</li>
+          <li>Duration: 3 days</li>
+        </ul>
       </div>
     </div>
 
-    <div class="project-card">
-      <img src="/images/project3.jpg" alt="Flat roof Murrieta">
-      <div class="project-info">
-        <h3>Flat Roof Coating – Murrieta</h3>
-        <p>Silicone system extending roof life.</p>
+    <div class="card">
+      <img src="/images/project3.jpg">
+      <div class="card-body">
+        <h3>Flat Roof Silicone Coating – Murrieta</h3>
+        <p>Extended the life of the roof by 15+ years using a seamless silicone coating system.</p>
+        <ul>
+          <li>Location: Murrieta</li>
+          <li>Material: Silicone</li>
+          <li>Duration: 2 days</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="/images/project4.jpg">
+      <div class="card-body">
+        <h3>Emergency Roof Repair – North County</h3>
+        <p>Storm damage repaired same day. Prevented interior damage and documented everything for insurance.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="/images/project5.jpg">
+      <div class="card-body">
+        <h3>Clay Tile Restoration – Rancho Bernardo</h3>
+        <p>Replaced broken tiles and cleaned roof for a like-new appearance.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="/images/project6.jpg">
+      <div class="card-body">
+        <h3>Roof Maintenance – Carlsbad</h3>
+        <p>Preventative maintenance completed before rainy season to extend roof life.</p>
       </div>
     </div>
 
@@ -215,7 +219,7 @@ body{background:var(--light);}
 
 <!-- GALLERY -->
 <section class="section">
-  <h2>Explore All Our Recent Roofing Projects</h2>
+  <h2>Explore All Roofing Projects</h2>
 
   <div class="embed">
     <iframe src="https://trusty.app/embed/website-gallery/3bd7a37b-2d03-4e54-8a93-901ec3344877?limit=3"></iframe>
@@ -234,7 +238,7 @@ body{background:var(--light);}
 <!-- CTA -->
 <section class="cta">
   <h2>Ready for a Roof Like These?</h2>
-  <a href="#estimate">Request Estimate</a>
+  <a href="#estimate">Request Free Estimate</a>
 </section>
 
 </main>
