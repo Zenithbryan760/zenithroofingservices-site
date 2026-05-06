@@ -5,13 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Roofing Projects | Zenith Roofing Services</title>
-<meta name="description" content="View real roofing projects completed by Zenith Roofing Services across San Diego, North County, and Temecula Valley.">
-
-<link rel="canonical" href="https://www.zenithroofingservices.com/projects/">
-
-<meta property="og:title" content="Zenith Roofing Projects">
-<meta property="og:description" content="Real roofing projects with real photos">
-<meta property="og:image" content="/images/zenith-van.jpg">
+<meta name="description" content="Explore real roofing projects across San Diego, North County, and Temecula. Real homes. Real results.">
 
 <link rel="stylesheet" href="/css/base.css">
 <link rel="stylesheet" href="/css/header.css">
@@ -21,112 +15,141 @@
 
 <style>
 :root {
-  --zenith-navy:#072e59;
-  --zenith-orange:#f7941d;
-  --zenith-bg:#f6f8fb;
-  --zenith-line:rgba(7,46,89,.12);
+  --navy:#072e59;
+  --orange:#f7941d;
+  --light:#f6f8fb;
 }
 
-/* GLOBAL */
-body { background:var(--zenith-bg); }
+/* BASE */
+body {
+  background:var(--light);
+}
 
 /* ================= HERO ================= */
-.projects-hero {
-  margin: 20px auto;
-  padding: clamp(60px,6vw,100px);
-  border-radius: 32px;
-  max-width: 1240px;
-
+.hero {
+  padding:120px 20px 100px;
+  text-align:center;
   background:
-    radial-gradient(circle at 80% 0%, rgba(247,148,29,.25), transparent 35%),
-    linear-gradient(135deg,#ffffff,#eef6ff);
-
-  box-shadow: 0 30px 90px rgba(3,27,54,.12);
+    radial-gradient(circle at 80% 0%, rgba(247,148,29,.18), transparent 35%),
+    linear-gradient(180deg,#ffffff,#f8fbff);
 }
 
-.projects-hero h1 {
-  font-size: clamp(2.5rem,5vw,4.5rem);
-  color: var(--zenith-navy);
-  margin-bottom: 20px;
+.hero h1 {
+  font-size:clamp(2.8rem,5vw,4.8rem);
+  color:var(--navy);
+  letter-spacing:-.05em;
+  margin-bottom:20px;
 }
 
-.projects-hero p {
-  max-width: 720px;
-  font-size: 1.2rem;
-  color: #4a5568;
+.hero p {
+  max-width:720px;
+  margin:auto;
+  font-size:1.2rem;
+  color:#4b5563;
 }
 
-/* BUTTONS */
+/* HERO CTA */
+.hero-actions {
+  margin-top:30px;
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+/* BUTTON */
 .btn {
-  display:inline-block;
-  padding:14px 24px;
-  border-radius:10px;
+  padding:16px 26px;
+  border-radius:12px;
   font-weight:700;
   text-decoration:none;
-  transition:.25s ease;
+  transition:.3s ease;
 }
 
 .btn-primary {
-  background:var(--zenith-orange);
+  background:var(--orange);
   color:#fff;
 }
 
 .btn-outline {
-  border:2px solid var(--zenith-navy);
-  color:var(--zenith-navy);
+  border:2px solid var(--navy);
+  color:var(--navy);
 }
 
 .btn:hover {
-  transform:translateY(-2px);
-  box-shadow:0 12px 30px rgba(0,0,0,.15);
+  transform:translateY(-3px);
+  box-shadow:0 15px 40px rgba(0,0,0,.15);
 }
 
-/* ================= SECTION ================= */
+/* ================= SECTION WRAPPER ================= */
 .section {
-  max-width:1100px;
-  margin:100px auto;
+  max-width:1200px;
+  margin:120px auto;
   padding:0 20px;
 }
 
-.section h2 {
+.section-head {
   text-align:center;
-  color:var(--zenith-navy);
-  font-size:2.4rem;
-  margin-bottom:15px;
+  margin-bottom:40px;
 }
 
-.section p {
-  text-align:center;
+.section-head h2 {
+  font-size:2.6rem;
+  color:var(--navy);
+}
+
+.section-head p {
   max-width:600px;
-  margin:0 auto 40px;
-  color:#555;
+  margin:auto;
+  color:#6b7280;
 }
 
-/* ================= EMBED WRAPPER ================= */
-.embed-box {
-  background:white;
-  border-radius:24px;
+/* ================= GALLERY ================= */
+.gallery-shell {
+  position:relative;
+  border-radius:28px;
   overflow:hidden;
-  box-shadow:0 25px 70px rgba(0,0,0,.1);
-  border:1px solid var(--zenith-line);
+  background:#fff;
+  box-shadow:0 40px 100px rgba(0,0,0,.12);
 }
 
-/* smooth iframe fit */
-.embed-box iframe {
+/* glass top bar */
+.gallery-top {
+  position:absolute;
+  top:0;
   width:100%;
-  height:100%;
+  padding:16px 20px;
+  background:rgba(255,255,255,.8);
+  backdrop-filter:blur(10px);
+  display:flex;
+  justify-content:space-between;
+  z-index:2;
+}
+
+.gallery-top span {
+  font-size:.9rem;
+  color:var(--navy);
+  font-weight:600;
+}
+
+/* iframe */
+.gallery-shell iframe {
+  width:100%;
+  min-height:650px;
   border:0;
-  display:block;
 }
 
-/* Gallery sizing */
-.gallery-frame {
-  min-height:600px;
+/* ================= MAP ================= */
+.map-shell {
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.12);
 }
 
-/* Map sizing */
-.map-frame {
-  min-height:450px;
+.map-shell iframe {
+  width:100%;
+  min-height:500px;
+  border:0;
 }
 
 /* ================= AREAS ================= */
@@ -136,48 +159,54 @@ body { background:var(--zenith-bg); }
 
 .areas-grid {
   display:grid;
-  gap:20px;
-  margin-top:30px;
+  gap:25px;
+  margin-top:40px;
 }
 
 @media(min-width:768px){
-  .areas-grid {
-    grid-template-columns:repeat(3,1fr);
-  }
+  .areas-grid { grid-template-columns:repeat(3,1fr); }
+}
+
+.area-card {
+  background:white;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 20px 60px rgba(0,0,0,.08);
+}
+
+.area-card h3 {
+  color:var(--navy);
+  margin-bottom:10px;
 }
 
 /* ================= CTA ================= */
 .cta {
-  margin:100px auto;
   max-width:1100px;
-  padding:60px;
-  border-radius:30px;
+  margin:120px auto;
+  padding:80px 30px;
+  border-radius:32px;
 
   background:
     radial-gradient(circle at top right, rgba(247,148,29,.35), transparent 40%),
-    linear-gradient(135deg,var(--zenith-navy),#021428);
+    linear-gradient(135deg,var(--navy),#021428);
 
-  color:#fff;
+  color:white;
   text-align:center;
 }
 
 .cta h2 {
-  font-size:2.4rem;
+  font-size:2.8rem;
 }
 
-.cta a {
-  margin-top:20px;
-  display:inline-block;
-  background:var(--zenith-orange);
-  padding:16px 28px;
-  border-radius:10px;
-  color:#fff;
+.cta p {
+  max-width:600px;
+  margin:10px auto 20px;
 }
 
 /* MOBILE */
 @media(max-width:720px){
   .btn { width:100%; }
-  .gallery-frame { min-height:520px; }
+  .gallery-shell iframe { min-height:520px; }
 }
 </style>
 </head>
@@ -189,60 +218,63 @@ body { background:var(--zenith-bg); }
 <main>
 
 <!-- HERO -->
-<section class="projects-hero">
-  <h1>Real Roofing Projects Across San Diego & Temecula</h1>
-  <p>Every project you see is real. Real homes. Real roofs. Real work completed by Zenith Roofing Services.</p>
+<section class="hero">
+  <h1>Real Roofing Projects.<br>Real Results.</h1>
+  <p>Every roof you see here is completed by our team. No stock photos. Just real homes across San Diego and Temecula.</p>
 
-  <div style="margin-top:25px;display:flex;gap:12px;flex-wrap:wrap;">
-    <a href="#gallery" class="btn btn-primary">View Projects</a>
+  <div class="hero-actions">
+    <a href="#gallery" class="btn btn-primary">Explore Projects</a>
     <a href="#estimate" class="btn btn-outline">Get Estimate</a>
   </div>
 </section>
 
 <!-- GALLERY -->
 <section id="gallery" class="section">
-  <h2>Project Gallery</h2>
-  <p>Browse real roofing projects documented with photos from start to finish.</p>
+  <div class="section-head">
+    <h2>Project Showcase</h2>
+    <p>Documented roofing work from start to finish.</p>
+  </div>
 
-  <div class="embed-box gallery-frame">
-    <iframe 
-      src="https://trusty.app/embed/website-gallery/3bd7a37b-2d03-4e54-8a93-901ec3344877?limit=3" 
-      loading="lazy"
-      allow="fullscreen">
-    </iframe>
+  <div class="gallery-shell">
+    <div class="gallery-top">
+      <span>Zenith Roofing Projects</span>
+      <span>Live Gallery</span>
+    </div>
+
+    <iframe src="https://trusty.app/embed/website-gallery/3bd7a37b-2d03-4e54-8a93-901ec3344877?limit=3" loading="lazy"></iframe>
   </div>
 </section>
 
 <!-- MAP -->
 <section class="section">
-  <h2>Projects Near You</h2>
-  <p>See where we’ve completed roofing work across San Diego, North County, and Temecula Valley.</p>
+  <div class="section-head">
+    <h2>Projects Near You</h2>
+    <p>See where we’ve completed roofing work across your area.</p>
+  </div>
 
-  <div class="embed-box map-frame">
-    <iframe 
-      src="https://trusty.app/embed/project-map/ff7eff6b-4dd8-49e7-852e-9ac1742997e4"
-      loading="lazy"
-      allow="fullscreen">
-    </iframe>
+  <div class="map-shell">
+    <iframe src="https://trusty.app/embed/project-map/ff7eff6b-4dd8-49e7-852e-9ac1742997e4" loading="lazy"></iframe>
   </div>
 </section>
 
 <!-- AREAS -->
 <section class="section areas">
-  <h2>Service Areas</h2>
+  <div class="section-head">
+    <h2>Service Areas</h2>
+  </div>
 
   <div class="areas-grid">
-    <div>
+    <div class="area-card">
       <h3>San Diego</h3>
-      <p>Central, Coastal, and surrounding communities</p>
+      <p>Central, coastal, and surrounding communities.</p>
     </div>
-    <div>
+    <div class="area-card">
       <h3>North County</h3>
-      <p>Escondido, San Marcos, Vista, Oceanside, Carlsbad</p>
+      <p>Escondido, Vista, San Marcos, Oceanside, Carlsbad.</p>
     </div>
-    <div>
+    <div class="area-card">
       <h3>Temecula Valley</h3>
-      <p>Temecula, Murrieta, Menifee, Winchester</p>
+      <p>Temecula, Murrieta, Menifee, Winchester.</p>
     </div>
   </div>
 </section>
@@ -256,7 +288,7 @@ body { background:var(--zenith-bg); }
 <section class="cta">
   <h2>Get a Roofing Estimate</h2>
   <p>Clear communication. Real documentation. No pressure.</p>
-  <a href="#estimate">Request Estimate</a>
+  <a href="#estimate" class="btn btn-primary">Request Estimate</a>
 </section>
 
 </main>
