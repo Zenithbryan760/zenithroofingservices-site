@@ -46,49 +46,17 @@ body{background:var(--light);}
   padding:0 20px;
 }
 
-/* GRID */
-.grid{
-  display:grid;
-  gap:24px;
-}
-@media(min-width:768px){
-  .grid{grid-template-columns:repeat(3,1fr);}
-}
-
-/* CARD */
-.card{
-  background:#fff;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 15px 40px rgba(0,0,0,.1);
-  transition:.25s;
-}
-.card:hover{transform:translateY(-5px);}
-
-.card img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-}
-
-.card-body{
-  padding:16px;
-}
-.card-body h3{
+.section h2{
   color:var(--navy);
-  font-size:1.1rem;
-  margin-bottom:8px;
-}
-.card-body p{
-  font-size:.9rem;
-  color:#555;
-  margin-bottom:10px;
+  text-align:center;
+  margin-bottom:12px;
 }
 
-.card-body ul{
-  font-size:.8rem;
-  color:#666;
-  padding-left:15px;
+.section p{
+  max-width:680px;
+  margin:0 auto 22px;
+  text-align:center;
+  color:#555;
 }
 
 /* EMBED */
@@ -101,6 +69,14 @@ body{background:var(--light);}
   width:100%;
   min-height:500px;
   border:0;
+}
+
+/* ESTIMATE */
+.estimate-section{
+  background:#fff;
+  border-radius:22px;
+  box-shadow:0 20px 60px rgba(0,0,0,.08);
+  padding:34px 22px;
 }
 
 /* CTA */
@@ -119,11 +95,22 @@ body{background:var(--light);}
   text-decoration:none;
   display:inline-block;
   margin-top:10px;
+  font-weight:700;
 }
 
 /* MOBILE */
 @media(max-width:720px){
-  .card img{height:200px;}
+  .hero{
+    padding:52px 18px 30px;
+  }
+
+  .embed iframe{
+    min-height:430px;
+  }
+
+  .estimate-section{
+    padding:26px 16px;
+  }
 }
 </style>
 </head>
@@ -143,22 +130,33 @@ body{background:var(--light);}
   </p>
 </section>
 
-
 <!-- GALLERY -->
 <section class="section">
   <h2>Explore All Roofing Projects</h2>
+  <p>Browse real roofing work documented through project photos and jobsite updates.</p>
 
   <div class="embed">
-    <iframe src="https://trusty.app/embed/website-gallery/3bd7a37b-2d03-4e54-8a93-901ec3344877?limit=3"></iframe>
+    <iframe 
+      src="https://trusty.app/embed/website-gallery/3bd7a37b-2d03-4e54-8a93-901ec3344877?limit=3"
+      title="Zenith Roofing Services project gallery"
+      loading="lazy"
+      allow="fullscreen">
+    </iframe>
   </div>
 </section>
 
 <!-- MAP -->
 <section class="section">
   <h2>Roofing Work Near You</h2>
+  <p>See roofing projects completed across San Diego County, North County, Temecula, Murrieta, and surrounding areas.</p>
 
   <div class="embed">
-    <iframe src="https://trusty.app/embed/project-map/ff7eff6b-4dd8-49e7-852e-9ac1742997e4"></iframe>
+    <iframe 
+      src="https://trusty.app/embed/project-map/ff7eff6b-4dd8-49e7-852e-9ac1742997e4"
+      title="Zenith Roofing Services project map"
+      loading="lazy"
+      allow="fullscreen">
+    </iframe>
   </div>
 </section>
 
@@ -168,11 +166,39 @@ body{background:var(--light);}
   <a href="#estimate">Request Free Estimate</a>
 </section>
 
+<!-- ESTIMATE -->
+<section id="estimate" class="section">
+  <div class="estimate-section">
+    <h2>Request a Roofing Estimate</h2>
+    <p>
+      Tell us about your roof and include your address so we can review your project area.
+      Photos or project details help us understand your roof faster.
+    </p>
+
+    <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+  </div>
+</section>
+
 </main>
 
 <div data-include="/components/footer.html"></div>
 
-<script src="/js/loader.js"></script>
+<script src="/js/loader.js" defer></script>
+
+<script>
+  window.ESTIMATE_FORM_CONFIG = {
+    submitText: "Request Free Estimate",
+    referralPreselect: "Website",
+    descriptionPlaceholder: "Tell us about your roof, city, and what you're looking to do. Example: tile roof leak in Temecula, shingle replacement in San Diego, or flat roof coating in Murrieta.",
+    hiddenFields: {
+      campaign: "projects",
+      page_tag: "projects-gallery"
+    }
+  };
+</script>
+
+<script src="/js/estimate-form.js" defer></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 
 </body>
 </html>
