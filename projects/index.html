@@ -4,10 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<title>Roofing Projects | Zenith Roofing Services</title>
-<meta name="description" content="Browse roofing projects across San Diego, North County, and Temecula. Filter by roof type, materials, and location.">
+<title>Roofing Projects San Diego & Temecula | Zenith Roofing Services</title>
+
+<meta name="description" content="Explore real roofing projects in San Diego, North County, and Temecula. Tile roofs, shingle replacements, flat roofing, and repairs with real photos and documentation.">
 
 <link rel="canonical" href="https://zenithroofingservices.com/projects/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Zenith Roofing Projects">
+<meta property="og:description" content="Real roofing projects with real photos across San Diego and Temecula.">
+<meta property="og:image" content="/images/zenith-van.jpg">
+<meta property="og:type" content="website">
 
 <link rel="stylesheet" href="/css/base.css">
 <link rel="stylesheet" href="/css/header.css">
@@ -23,59 +30,58 @@
 }
 
 /* BASE */
-body{
-  background:var(--light);
-}
+body{background:var(--light);}
 
 /* HERO */
 .hero{
-  padding:100px 20px 70px;
+  padding:110px 20px 80px;
   text-align:center;
 }
 
 .hero h1{
-  font-size:clamp(2.6rem,5vw,4.5rem);
+  font-size:clamp(2.8rem,5vw,4.5rem);
   color:var(--navy);
   letter-spacing:-.04em;
 }
 
 .hero p{
-  max-width:700px;
+  max-width:720px;
   margin:15px auto;
   color:#555;
 }
 
 /* FILTER SYSTEM */
 .filters-wrap{
-  margin:40px auto;
   max-width:1100px;
+  margin:40px auto;
   padding:0 20px;
 }
 
+.search{
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #ddd;
+  margin-bottom:20px;
+}
+
 .filter-group{
-  margin-bottom:18px;
+  margin-bottom:20px;
 }
 
 .filter-label{
-  font-size:.85rem;
+  font-size:.8rem;
   font-weight:700;
   color:#6b7280;
   margin-bottom:8px;
 }
 
-/* SCROLLABLE FILTER ROW */
 .filter-row{
   display:flex;
   gap:10px;
   overflow-x:auto;
-  padding-bottom:5px;
 }
 
-.filter-row::-webkit-scrollbar{
-  display:none;
-}
-
-/* BUTTON */
 .filter-btn{
   flex:0 0 auto;
   padding:10px 16px;
@@ -85,22 +91,12 @@ body{
   font-size:.9rem;
   font-weight:600;
   cursor:pointer;
-  transition:.2s;
 }
 
 .filter-btn.active{
   background:var(--navy);
   color:#fff;
   border-color:var(--navy);
-}
-
-/* SEARCH */
-.search{
-  width:100%;
-  padding:14px;
-  border-radius:12px;
-  border:1px solid #ddd;
-  margin-bottom:20px;
 }
 
 /* SECTION */
@@ -113,7 +109,7 @@ body{
 .section h2{
   text-align:center;
   color:var(--navy);
-  font-size:2.3rem;
+  font-size:2.4rem;
 }
 
 .section p{
@@ -121,6 +117,47 @@ body{
   max-width:600px;
   margin:10px auto 30px;
   color:#6b7280;
+}
+
+/* FEATURED PROJECTS */
+.project-cards{
+  display:grid;
+  gap:25px;
+}
+
+@media(min-width:768px){
+  .project-cards{grid-template-columns:repeat(3,1fr);}
+}
+
+.project-card{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 25px 70px rgba(0,0,0,.1);
+}
+
+.project-card img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+}
+
+.card-body{
+  padding:20px;
+}
+
+.card-body h3{
+  color:var(--navy);
+}
+
+.card-body p{
+  color:#6b7280;
+  font-size:.9rem;
+}
+
+.card-link{
+  color:var(--orange);
+  font-weight:700;
 }
 
 /* EMBEDS */
@@ -137,15 +174,27 @@ body{
   display:block;
 }
 
-.gallery-frame{
-  min-height:600px;
+.gallery-frame{min-height:600px;}
+.map-frame{min-height:450px;}
+
+/* MID CTA */
+.cta-mid{
+  text-align:center;
+  margin:60px auto;
 }
 
-.map-frame{
-  min-height:450px;
+.cta-mid h3{color:var(--navy);}
+
+.cta-mid a{
+  display:inline-block;
+  margin-top:10px;
+  background:var(--orange);
+  padding:14px 24px;
+  border-radius:10px;
+  color:white;
 }
 
-/* CTA */
+/* FINAL CTA */
 .cta{
   margin:100px auto;
   max-width:1100px;
@@ -167,14 +216,12 @@ body{
   padding:16px 28px;
   border-radius:10px;
   color:white;
-  text-decoration:none;
   font-weight:700;
 }
 
 /* MOBILE */
 @media(max-width:720px){
   .gallery-frame{min-height:520px;}
-  .map-frame{min-height:420px;}
 }
 </style>
 </head>
@@ -189,15 +236,13 @@ body{
 <!-- HERO -->
 <section class="hero">
   <h1>Roofing Projects Across San Diego & Temecula</h1>
-  <p>Filter by roof type, materials, and location to explore real projects completed by Zenith Roofing Services.</p>
+  <p>Explore real roofing work by type, material, and location. Every project is documented from start to finish.</p>
 </section>
 
 <!-- FILTERS -->
 <div class="filters-wrap">
+  <input class="search" placeholder="Search city or project...">
 
-  <input class="search" placeholder="Search city or project..." id="search">
-
-  <!-- TYPE -->
   <div class="filter-group">
     <div class="filter-label">Project Type</div>
     <div class="filter-row">
@@ -209,7 +254,6 @@ body{
     </div>
   </div>
 
-  <!-- MATERIAL -->
   <div class="filter-group">
     <div class="filter-label">Materials Used</div>
     <div class="filter-row">
@@ -219,7 +263,6 @@ body{
     </div>
   </div>
 
-  <!-- CITY -->
   <div class="filter-group">
     <div class="filter-label">City</div>
     <div class="filter-row">
@@ -228,34 +271,70 @@ body{
       <button class="filter-btn">Murrieta</button>
     </div>
   </div>
-
 </div>
+
+<!-- FEATURED PROJECTS -->
+<section class="section">
+  <h2>Featured Roofing Projects</h2>
+
+  <div class="project-cards">
+
+    <div class="project-card">
+      <img src="/images/project1.jpg">
+      <div class="card-body">
+        <h3>Tile Lift & Lay – Temecula</h3>
+        <p>Full underlayment replacement preserving existing tile system.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="/images/project2.jpg">
+      <div class="card-body">
+        <h3>Shingle Replacement – San Diego</h3>
+        <p>Installed Owens Corning cool roof shingles.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="/images/project3.jpg">
+      <div class="card-body">
+        <h3>Flat Roof Coating – Murrieta</h3>
+        <p>Silicone system to extend roof lifespan.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- GALLERY -->
 <section class="section">
-  <h2>Project Gallery</h2>
-  <p>Real roofing work documented from start to finish.</p>
+  <h2>Explore Roofing Projects by Type, Material & Location</h2>
 
   <div class="embed-box gallery-frame">
     <iframe src="https://trusty.app/embed/website-gallery/3bd7a37b-2d03-4e54-8a93-901ec3344877?limit=3" loading="lazy"></iframe>
   </div>
 </section>
 
+<!-- MID CTA -->
+<div class="cta-mid">
+  <h3>See a Roof Similar to Yours?</h3>
+  <a href="#estimate">Get an Estimate</a>
+</div>
+
 <!-- MAP -->
 <section class="section">
-  <h2>Projects Near You</h2>
-  <p>Explore completed roofing projects across your area.</p>
+  <h2>Roofing Projects Near You</h2>
 
   <div class="embed-box map-frame">
     <iframe src="https://trusty.app/embed/project-map/ff7eff6b-4dd8-49e7-852e-9ac1742997e4" loading="lazy"></iframe>
   </div>
 </section>
 
-<!-- SEO CONTENT -->
+<!-- SEO TEXT -->
 <section class="section">
   <h2>Roofing Work in San Diego & Temecula Valley</h2>
   <p>
-    Zenith Roofing Services provides roof replacements, tile lift and lays, flat roofing systems, and repairs throughout San Diego County, North County, and Temecula Valley. Our projects are documented with real photos to ensure transparency and trust.
+    Zenith Roofing Services completes roofing projects including tile roof lift and lay systems, shingle replacements, flat roofing systems, and repairs throughout San Diego County, North County, and Temecula Valley.
   </p>
 </section>
 
@@ -267,8 +346,7 @@ body{
 <!-- CTA -->
 <section class="cta">
   <h2>Get a Roofing Estimate</h2>
-  <p>Clear communication. Real documentation. No pressure.</p>
-  <a href="#estimate">Request Estimate</a>
+  <a href="#estimate">Request Free Estimate</a>
 </section>
 
 </main>
@@ -281,9 +359,7 @@ body{
 
 <script>
 document.querySelectorAll('.filter-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    btn.classList.toggle('active');
-  });
+  btn.addEventListener('click',()=>btn.classList.toggle('active'));
 });
 </script>
 
