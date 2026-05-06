@@ -2,19 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Roofing Projects San Diego & Temecula | Zenith Roofing Services</title>
-
-<meta name="description" content="Explore real roofing projects in San Diego, North County, and Temecula. Tile roofs, shingle replacements, flat roofing, and repairs with real photos and documentation.">
-
-<link rel="canonical" href="https://zenithroofingservices.com/projects/">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Zenith Roofing Projects">
-<meta property="og:description" content="Real roofing projects with real photos across San Diego and Temecula.">
-<meta property="og:image" content="/images/zenith-van.jpg">
-<meta property="og:type" content="website">
+<meta name="description" content="Browse real roofing projects in San Diego, Temecula, and Murrieta. Tile, shingle, flat roofs and repairs with real photos and locations.">
 
 <link rel="stylesheet" href="/css/base.css">
 <link rel="stylesheet" href="/css/header.css">
@@ -29,219 +20,159 @@
   --light:#f6f8fb;
 }
 
-/* BASE */
 body{background:var(--light);}
 
 /* HERO */
 .hero{
-  padding:110px 20px 80px;
+  padding:80px 20px 50px;
   text-align:center;
 }
 
 .hero h1{
-  font-size:clamp(2.8rem,5vw,4.5rem);
+  font-size:clamp(2.6rem,5vw,4.2rem);
   color:var(--navy);
-  letter-spacing:-.04em;
 }
 
 .hero p{
-  max-width:720px;
-  margin:15px auto;
+  max-width:650px;
+  margin:10px auto;
   color:#555;
 }
 
-/* FILTER SYSTEM */
+/* FILTERS */
 .filters-wrap{
   max-width:1100px;
-  margin:40px auto;
+  margin:30px auto;
   padding:0 20px;
 }
 
-.search{
-  width:100%;
-  padding:14px;
-  border-radius:12px;
-  border:1px solid #ddd;
-  margin-bottom:20px;
-}
-
-.filter-group{
-  margin-bottom:20px;
-}
+.filter-group{margin-bottom:15px;}
 
 .filter-label{
-  font-size:.8rem;
+  font-size:.75rem;
   font-weight:700;
   color:#6b7280;
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 
 .filter-row{
   display:flex;
-  gap:10px;
+  gap:8px;
   overflow-x:auto;
 }
 
 .filter-btn{
-  flex:0 0 auto;
-  padding:10px 16px;
+  padding:8px 14px;
   border-radius:999px;
   border:1px solid #ddd;
   background:#fff;
-  font-size:.9rem;
-  font-weight:600;
+  font-size:.85rem;
   cursor:pointer;
 }
 
 .filter-btn.active{
   background:var(--navy);
-  color:#fff;
-  border-color:var(--navy);
-}
-
-/* SECTION */
-.section{
-  max-width:1100px;
-  margin:80px auto;
-  padding:0 20px;
-}
-
-.section h2{
-  text-align:center;
-  color:var(--navy);
-  font-size:2.4rem;
-}
-
-.section p{
-  text-align:center;
-  max-width:600px;
-  margin:10px auto 30px;
-  color:#6b7280;
+  color:white;
 }
 
 /* FEATURED PROJECTS */
+.section{
+  max-width:1100px;
+  margin:50px auto;
+  padding:0 20px;
+}
+
 .project-cards{
   display:grid;
-  gap:25px;
+  gap:20px;
 }
 
 @media(min-width:768px){
-  .project-cards{grid-template-columns:repeat(3,1fr);}
+  .project-cards{
+    grid-template-columns:repeat(3,1fr);
+  }
 }
 
 .project-card{
   background:#fff;
-  border-radius:18px;
+  border-radius:14px;
   overflow:hidden;
-  box-shadow:0 25px 70px rgba(0,0,0,.1);
+  box-shadow:0 15px 40px rgba(0,0,0,.1);
+  transition:.25s;
+}
+
+.project-card:hover{
+  transform:translateY(-4px);
 }
 
 .project-card img{
   width:100%;
-  height:240px;
+  height:220px;
   object-fit:cover;
 }
 
 .card-body{
-  padding:20px;
+  padding:15px;
 }
 
 .card-body h3{
   color:var(--navy);
+  font-size:1rem;
 }
 
 .card-body p{
-  color:#6b7280;
-  font-size:.9rem;
+  font-size:.85rem;
+  color:#666;
 }
 
-.card-link{
-  color:var(--orange);
-  font-weight:700;
-}
-
-/* EMBEDS */
+/* EMBED */
 .embed-box{
-  border-radius:20px;
+  border-radius:14px;
   overflow:hidden;
-  box-shadow:0 25px 70px rgba(0,0,0,.12);
-  background:#fff;
+  box-shadow:0 20px 60px rgba(0,0,0,.1);
 }
 
 .embed-box iframe{
   width:100%;
+  min-height:500px;
   border:0;
-  display:block;
 }
 
-.gallery-frame{min-height:600px;}
-.map-frame{min-height:450px;}
-
-/* MID CTA */
-.cta-mid{
+/* CTA */
+.cta{
   text-align:center;
-  margin:60px auto;
+  padding:60px 20px;
 }
 
-.cta-mid h3{color:var(--navy);}
-
-.cta-mid a{
-  display:inline-block;
-  margin-top:10px;
+.cta a{
   background:var(--orange);
   padding:14px 24px;
   border-radius:10px;
   color:white;
+  text-decoration:none;
 }
 
-/* FINAL CTA */
-.cta{
-  margin:100px auto;
-  max-width:1100px;
-  padding:70px 20px;
-  border-radius:30px;
-  text-align:center;
-
-  background:
-    radial-gradient(circle at top right, rgba(247,148,29,.35), transparent 40%),
-    linear-gradient(135deg,var(--navy),#021428);
-
-  color:white;
-}
-
-.cta a{
-  margin-top:20px;
-  display:inline-block;
-  background:var(--orange);
-  padding:16px 28px;
-  border-radius:10px;
-  color:white;
-  font-weight:700;
-}
-
-/* MOBILE */
-@media(max-width:720px){
-  .gallery-frame{min-height:520px;}
+/* REMOVE DEAD SPACE */
+.section-tight{
+  margin:40px auto;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <div data-include="/components/header-section.html"></div>
 
 <main>
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Roofing Projects Across San Diego & Temecula</h1>
-  <p>Explore real roofing work by type, material, and location. Every project is documented from start to finish.</p>
+  <h1>Real Roofing Projects</h1>
+  <p>Tile, shingle, flat roofs and repairs across San Diego and Temecula.</p>
 </section>
 
 <!-- FILTERS -->
 <div class="filters-wrap">
-  <input class="search" placeholder="Search city or project...">
 
   <div class="filter-group">
     <div class="filter-label">Project Type</div>
@@ -255,7 +186,7 @@ body{background:var(--light);}
   </div>
 
   <div class="filter-group">
-    <div class="filter-label">Materials Used</div>
+    <div class="filter-label">Materials</div>
     <div class="filter-row">
       <button class="filter-btn">Malarkey</button>
       <button class="filter-btn">Owens Corning</button>
@@ -271,11 +202,11 @@ body{background:var(--light);}
       <button class="filter-btn">Murrieta</button>
     </div>
   </div>
+
 </div>
 
-<!-- FEATURED PROJECTS -->
-<section class="section">
-  <h2>Featured Roofing Projects</h2>
+<!-- FEATURED PROJECTS (CRITICAL FIX) -->
+<section class="section section-tight">
 
   <div class="project-cards">
 
@@ -283,14 +214,14 @@ body{background:var(--light);}
       <img src="/images/project1.jpg">
       <div class="card-body">
         <h3>Tile Lift & Lay – Temecula</h3>
-        <p>Full underlayment replacement preserving existing tile system.</p>
+        <p>Underlayment replacement restoring waterproofing.</p>
       </div>
     </div>
 
     <div class="project-card">
       <img src="/images/project2.jpg">
       <div class="card-body">
-        <h3>Shingle Replacement – San Diego</h3>
+        <h3>Shingle Roof – San Diego</h3>
         <p>Installed Owens Corning cool roof shingles.</p>
       </div>
     </div>
@@ -299,67 +230,43 @@ body{background:var(--light);}
       <img src="/images/project3.jpg">
       <div class="card-body">
         <h3>Flat Roof Coating – Murrieta</h3>
-        <p>Silicone system to extend roof lifespan.</p>
+        <p>Silicone system extending roof life.</p>
       </div>
     </div>
 
   </div>
+
 </section>
 
 <!-- GALLERY -->
-<section class="section">
-  <h2>Explore Roofing Projects by Type, Material & Location</h2>
-
-  <div class="embed-box gallery-frame">
-    <iframe src="https://trusty.app/embed/website-gallery/3bd7a37b-2d03-4e54-8a93-901ec3344877?limit=3" loading="lazy"></iframe>
+<section class="section section-tight">
+  <div class="embed-box">
+    <iframe src="https://trusty.app/embed/website-gallery/3bd7a37b-2d03-4e54-8a93-901ec3344877?limit=3"></iframe>
   </div>
 </section>
-
-<!-- MID CTA -->
-<div class="cta-mid">
-  <h3>See a Roof Similar to Yours?</h3>
-  <a href="#estimate">Get an Estimate</a>
-</div>
 
 <!-- MAP -->
-<section class="section">
-  <h2>Roofing Projects Near You</h2>
-
-  <div class="embed-box map-frame">
-    <iframe src="https://trusty.app/embed/project-map/ff7eff6b-4dd8-49e7-852e-9ac1742997e4" loading="lazy"></iframe>
+<section class="section section-tight">
+  <div class="embed-box">
+    <iframe src="https://trusty.app/embed/project-map/ff7eff6b-4dd8-49e7-852e-9ac1742997e4"></iframe>
   </div>
-</section>
-
-<!-- SEO TEXT -->
-<section class="section">
-  <h2>Roofing Work in San Diego & Temecula Valley</h2>
-  <p>
-    Zenith Roofing Services completes roofing projects including tile roof lift and lay systems, shingle replacements, flat roofing systems, and repairs throughout San Diego County, North County, and Temecula Valley.
-  </p>
-</section>
-
-<!-- ESTIMATE -->
-<section id="estimate" class="section">
-  <div data-include="/components/estimate-form.html"></div>
 </section>
 
 <!-- CTA -->
 <section class="cta">
-  <h2>Get a Roofing Estimate</h2>
-  <a href="#estimate">Request Free Estimate</a>
+  <h2>Need a Roofing Estimate?</h2>
+  <a href="#estimate">Request Estimate</a>
 </section>
 
 </main>
 
-<!-- FOOTER -->
 <div data-include="/components/footer.html"></div>
 
-<script src="/js/loader.js" defer></script>
-<script src="/js/header.js" defer></script>
+<script src="/js/loader.js"></script>
 
 <script>
 document.querySelectorAll('.filter-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>btn.classList.toggle('active'));
+  btn.onclick=()=>btn.classList.toggle('active');
 });
 </script>
 
