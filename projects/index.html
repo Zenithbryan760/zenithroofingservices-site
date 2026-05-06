@@ -1,22 +1,17 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Roofing Projects in San Diego, North County & Temecula | Zenith Roofing Services</title>
-<meta name="description" content="View real roofing projects by Zenith Roofing Services across San Diego, North County, Temecula, and Murrieta. See roof replacements, repairs, and tile projects with real photos." />
+<title>Roofing Projects | Zenith Roofing Services</title>
+<meta name="description" content="View real roofing projects completed by Zenith Roofing Services across San Diego, North County, and Temecula Valley.">
 
-<link rel="canonical" href="https://www.zenithroofingservices.com/projects/" />
+<link rel="canonical" href="https://www.zenithroofingservices.com/projects/">
 
-<!-- Open Graph -->
-<meta property="og:title" content="Roofing Projects | Zenith Roofing Services">
-<meta property="og:description" content="See real roofing projects across San Diego & Temecula.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.zenithroofingservices.com/projects/">
-<meta property="og:image" content="https://zenithroofingservices.com/images/zenith-van.jpg">
-
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="Zenith Roofing Projects">
+<meta property="og:description" content="Real roofing projects with real photos">
+<meta property="og:image" content="/images/zenith-van.jpg">
 
 <link rel="stylesheet" href="/css/base.css">
 <link rel="stylesheet" href="/css/header.css">
@@ -26,181 +21,163 @@
 
 <style>
 :root {
-  --zenith-navy: #072e59;
-  --zenith-orange: #f7941d;
-  --zenith-bg: #f6f8fb;
-  --zenith-line: rgba(7,46,89,.12);
+  --zenith-navy:#072e59;
+  --zenith-orange:#f7941d;
+  --zenith-bg:#f6f8fb;
+  --zenith-line:rgba(7,46,89,.12);
 }
 
-body { background: var(--zenith-bg); }
+/* GLOBAL */
+body { background:var(--zenith-bg); }
 
 /* ================= HERO ================= */
 .projects-hero {
-  margin: 18px auto;
-  padding: clamp(40px, 6vw, 80px);
+  margin: 20px auto;
+  padding: clamp(60px,6vw,100px);
   border-radius: 32px;
-  max-width: 1200px;
+  max-width: 1240px;
 
   background:
-    radial-gradient(circle at 85% 10%, rgba(247,148,29,.22), transparent 30%),
-    linear-gradient(135deg, #fff 0%, #eef6ff 60%, #f9fbff 100%);
+    radial-gradient(circle at 80% 0%, rgba(247,148,29,.25), transparent 35%),
+    linear-gradient(135deg,#ffffff,#eef6ff);
 
-  box-shadow: 0 30px 90px rgba(3,27,54,.14);
+  box-shadow: 0 30px 90px rgba(3,27,54,.12);
 }
 
 .projects-hero h1 {
-  font-size: clamp(2.3rem,5vw,4.2rem);
+  font-size: clamp(2.5rem,5vw,4.5rem);
   color: var(--zenith-navy);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .projects-hero p {
-  max-width: 700px;
+  max-width: 720px;
   font-size: 1.2rem;
-  color: #555;
+  color: #4a5568;
 }
 
-.projects-actions {
-  margin-top: 25px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
+/* BUTTONS */
 .btn {
-  padding: 14px 22px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
-  transition: all .25s ease;
+  display:inline-block;
+  padding:14px 24px;
+  border-radius:10px;
+  font-weight:700;
+  text-decoration:none;
+  transition:.25s ease;
 }
 
 .btn-primary {
-  background: var(--zenith-orange);
-  color: white;
+  background:var(--zenith-orange);
+  color:#fff;
 }
 
 .btn-outline {
-  border: 2px solid var(--zenith-navy);
-  color: var(--zenith-navy);
+  border:2px solid var(--zenith-navy);
+  color:var(--zenith-navy);
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(0,0,0,.15);
 }
 
-/* ================= SECTIONS ================= */
-.projects-section {
-  padding: 70px 0;
-  text-align: center;
+/* ================= SECTION ================= */
+.section {
+  max-width:1100px;
+  margin:100px auto;
+  padding:0 20px;
 }
 
-.projects-section::before {
-  content: "";
-  width: 80px;
-  height: 4px;
-  background: var(--zenith-orange);
-  display: block;
-  margin: 0 auto 25px;
-  border-radius: 2px;
-  opacity: .4;
+.section h2 {
+  text-align:center;
+  color:var(--zenith-navy);
+  font-size:2.4rem;
+  margin-bottom:15px;
 }
 
-.section-head h2 {
-  font-size: 2.2rem;
-  color: var(--zenith-navy);
+.section p {
+  text-align:center;
+  max-width:600px;
+  margin:0 auto 40px;
+  color:#555;
 }
 
-.section-head p {
-  max-width: 600px;
-  margin: auto;
-  color: #555;
+/* ================= EMBED WRAPPER ================= */
+.embed-box {
+  background:white;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 25px 70px rgba(0,0,0,.1);
+  border:1px solid var(--zenith-line);
 }
 
-/* ================= EMBEDS ================= */
-.embed-shell {
-  max-width: 1100px;
-  margin: 40px auto;
-  border-radius: 20px;
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 20px 60px rgba(0,0,0,.08);
+/* smooth iframe fit */
+.embed-box iframe {
+  width:100%;
+  height:100%;
+  border:0;
+  display:block;
 }
 
-.embed-frame iframe {
-  width: 100%;
-  height: clamp(520px,70vh,820px);
-  border: none;
+/* Gallery sizing */
+.gallery-frame {
+  min-height:600px;
 }
 
-.map-frame iframe {
-  height: clamp(480px,60vh,700px);
+/* Map sizing */
+.map-frame {
+  min-height:450px;
 }
 
 /* ================= AREAS ================= */
-.area-panel {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px;
-  border-radius: 20px;
-
-  background:
-    radial-gradient(circle at top right, rgba(247,148,29,.18), transparent 35%),
-    linear-gradient(180deg, #fff, #f8fbff);
-
-  box-shadow: 0 20px 60px rgba(0,0,0,.08);
+.areas {
+  text-align:center;
 }
 
-.area-grid {
-  display: grid;
-  gap: 20px;
-  margin-top: 25px;
+.areas-grid {
+  display:grid;
+  gap:20px;
+  margin-top:30px;
 }
 
 @media(min-width:768px){
-  .area-grid {
-    grid-template-columns: repeat(3,1fr);
+  .areas-grid {
+    grid-template-columns:repeat(3,1fr);
   }
 }
 
 /* ================= CTA ================= */
-.final-cta {
-  max-width: 1100px;
-  margin: 60px auto;
-  padding: 50px;
-  border-radius: 30px;
-  color: white;
+.cta {
+  margin:100px auto;
+  max-width:1100px;
+  padding:60px;
+  border-radius:30px;
 
   background:
     radial-gradient(circle at top right, rgba(247,148,29,.35), transparent 40%),
-    linear-gradient(135deg, var(--zenith-navy), #021428);
+    linear-gradient(135deg,var(--zenith-navy),#021428);
 
-  box-shadow: 0 30px 100px rgba(3,27,54,.3);
+  color:#fff;
+  text-align:center;
 }
 
-.final-cta a {
-  display: inline-block;
-  margin-top: 20px;
-  background: var(--zenith-orange);
-  padding: 14px 28px;
-  border-radius: 8px;
-  color: white;
-  text-decoration: none;
-  font-weight: 700;
+.cta h2 {
+  font-size:2.4rem;
 }
 
-/* ================= MOBILE ================= */
+.cta a {
+  margin-top:20px;
+  display:inline-block;
+  background:var(--zenith-orange);
+  padding:16px 28px;
+  border-radius:10px;
+  color:#fff;
+}
+
+/* MOBILE */
 @media(max-width:720px){
-
-  .projects-actions .btn {
-    width: 100%;
-  }
-
-  .embed-frame iframe {
-    height: 68vh;
-    min-height: 500px;
-  }
+  .btn { width:100%; }
+  .gallery-frame { min-height:520px; }
 }
 </style>
 </head>
@@ -214,78 +191,72 @@ body { background: var(--zenith-bg); }
 <!-- HERO -->
 <section class="projects-hero">
   <h1>Real Roofing Projects Across San Diego & Temecula</h1>
-  <p>See real roofing work completed by our team. No stock photos — just documented projects from local homes.</p>
+  <p>Every project you see is real. Real homes. Real roofs. Real work completed by Zenith Roofing Services.</p>
 
-  <div class="projects-actions">
+  <div style="margin-top:25px;display:flex;gap:12px;flex-wrap:wrap;">
     <a href="#gallery" class="btn btn-primary">View Projects</a>
     <a href="#estimate" class="btn btn-outline">Get Estimate</a>
-    <a href="tel:8589006163" class="btn btn-outline">Call Now</a>
   </div>
 </section>
 
 <!-- GALLERY -->
-<section id="gallery" class="projects-section">
-  <div class="section-head">
-    <h2>Recent Roofing Projects</h2>
-    <p>Browse real project photos from jobs across San Diego, North County, and Temecula.</p>
-  </div>
+<section id="gallery" class="section">
+  <h2>Project Gallery</h2>
+  <p>Browse real roofing projects documented with photos from start to finish.</p>
 
-  <div class="embed-shell">
-    <div class="embed-frame">
-      <iframe src="https://trusty.app/embed/website-gallery/3bd7a37b-2d03-4e54-8a93-901ec3344877" loading="lazy"></iframe>
-    </div>
+  <div class="embed-box gallery-frame">
+    <iframe 
+      src="https://trusty.app/embed/website-gallery/3bd7a37b-2d03-4e54-8a93-901ec3344877?limit=3" 
+      loading="lazy"
+      allow="fullscreen">
+    </iframe>
   </div>
 </section>
 
 <!-- MAP -->
-<section class="projects-section">
-  <div class="section-head">
-    <h2>Projects Near You</h2>
-    <p>See where we’ve completed roofing projects throughout the region.</p>
-  </div>
+<section class="section">
+  <h2>Projects Near You</h2>
+  <p>See where we’ve completed roofing work across San Diego, North County, and Temecula Valley.</p>
 
-  <div class="embed-shell">
-    <div class="embed-frame map-frame">
-      <iframe src="https://trusty.app/embed/project-map/ff7eff6b-4dd8-49e7-852e-9ac1742997e4" loading="lazy"></iframe>
-    </div>
+  <div class="embed-box map-frame">
+    <iframe 
+      src="https://trusty.app/embed/project-map/ff7eff6b-4dd8-49e7-852e-9ac1742997e4"
+      loading="lazy"
+      allow="fullscreen">
+    </iframe>
   </div>
 </section>
 
 <!-- AREAS -->
-<section class="projects-section">
-  <div class="area-panel">
-    <h2>Service Areas</h2>
-    <p>Serving San Diego County, North County, Temecula, Murrieta, and surrounding areas.</p>
+<section class="section areas">
+  <h2>Service Areas</h2>
 
-    <div class="area-grid">
-      <div>
-        <h3>San Diego</h3>
-        <p>Central, Coastal, and surrounding communities.</p>
-      </div>
-      <div>
-        <h3>North County</h3>
-        <p>Escondido, San Marcos, Vista, Oceanside, Carlsbad.</p>
-      </div>
-      <div>
-        <h3>Temecula Valley</h3>
-        <p>Temecula, Murrieta, Menifee, Winchester.</p>
-      </div>
+  <div class="areas-grid">
+    <div>
+      <h3>San Diego</h3>
+      <p>Central, Coastal, and surrounding communities</p>
+    </div>
+    <div>
+      <h3>North County</h3>
+      <p>Escondido, San Marcos, Vista, Oceanside, Carlsbad</p>
+    </div>
+    <div>
+      <h3>Temecula Valley</h3>
+      <p>Temecula, Murrieta, Menifee, Winchester</p>
     </div>
   </div>
 </section>
 
 <!-- ESTIMATE -->
-<section id="estimate" class="projects-section">
+<section id="estimate" class="section">
   <div data-include="/components/estimate-form.html"></div>
 </section>
 
-<!-- FINAL CTA -->
-<section>
-  <div class="final-cta">
-    <h2>Ready to Start Your Roofing Project?</h2>
-    <p>Get a clear, honest estimate with real photo documentation.</p>
-    <a href="#estimate">Request Free Estimate</a>
-  </div>
+<!-- CTA -->
+<section class="cta">
+  <h2>Get a Roofing Estimate</h2>
+  <p>Clear communication. Real documentation. No pressure.</p>
+  <a href="#estimate">Request Estimate</a>
 </section>
 
 </main>
@@ -294,7 +265,6 @@ body { background: var(--zenith-bg); }
 
 <script src="/js/loader.js" defer></script>
 <script src="/js/header.js" defer></script>
-<script src="/js/estimate-form.js" defer></script>
 
 </body>
 </html>
