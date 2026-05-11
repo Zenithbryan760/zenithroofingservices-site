@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Tile Lift & Relay — Escondido (Country Club Ln & North Broadway)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Case study: Tile lift & relay near Country Club Ln & North Broadway in Escondido. High-temp underlayment, updated flashings, and a clean finish.">
+  <link rel="canonical" href="https://www.zenithroofingservices.com/projects/escondido-tile-lift-lay-elkhorn/">
+  <meta name="geo.position" content="33.155942;-117.096106">
+  <meta name="ICBM" content="33.155942, -117.096106">
+  <style>
+    .wrap{max-width:1080px;margin:0 auto;padding:18px}
+    .hero{display:grid;gap:14px}
+    img.hero{max-width:100%;border-radius:14px;border:1px solid #e4e6ea}
+    .grid{display:grid;gap:14px;grid-template-columns:1fr}
+    @media(min-width:900px){ .grid{grid-template-columns:1fr 1fr} }
+    .card{background:#fff;border:1px solid #e4e6ea;border-radius:14px;padding:16px}
+    h1{font-size:1.6rem;margin:8px 0 2px}
+    .meta{color:#556}
+    ul{margin:8px 0 0 20px}
+    .crumbs{font-size:.9rem;margin:8px 0 12px}
+    .crumbs a{text-decoration:none}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="crumbs"><a href="/projects/">Projects</a> › Escondido › Tile Lift & Relay</div>
+    <header class="hero">
+      <h1>Tile Lift & Relay — Near Country Club Ln & North Broadway, Escondido</h1>
+      <p class="meta">Service: Tile Roof Lift & Relay • Privacy protected (radius only)</p>
+      <img class="hero" src="/images/Escondido/00-hero@960.jpg" alt="Tile lift & relay near Country Club Ln & North Broadway in Escondido — finished roof view" loading="eager">
+    </header>
+    <section class="grid" aria-label="Project Details">
+      <article class="card">
+        <h2>Scope</h2>
+        <ul>
+          <li>Lift and relay of existing S-tile.</li>
+          <li>Install high-temp underlayment per manufacturer specs.</li>
+          <li>Update flashings/vents with color-matched roof metal.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Notes</h2>
+        <ul>
+          <li>Neighborhood privacy preserved — map shows a radius only.</li>
+          <li>Final cleanup and walkthrough included.</li>
+        </ul>
+      </article>
+    </section>
+  </div>
+</body>
+</html>

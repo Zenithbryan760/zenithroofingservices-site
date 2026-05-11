@@ -716,3 +716,53 @@
 @media (min-width: 980px){
   .catalog-hero .stack{ display:grid; grid-template-columns:1.5fr .9fr; gap:1.4rem; align-items:start; }
 }
+
+/* Global mobile width fix - applies to pages using ui.css */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+iframe,
+table {
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  body {
+    min-width: 0;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .page .hero,
+  .service-hero,
+  .catalog-hero,
+  .projects-hero,
+  .contact-hero,
+  .section,
+  .card,
+  .estimate-form-block {
+    width: 100%;
+    max-width: 100%;
+  }
+}

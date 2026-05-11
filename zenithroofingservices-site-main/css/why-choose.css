@@ -1,0 +1,180 @@
+/* =========================================================
+   Why Choose — clean stylesheet with full-section gray clip art
+   ========================================================= */
+
+:root{
+  --zenith-navy:#072e59;
+  --zenith-orange:#f7941d;
+  --zenith-text:#0f172a;
+  --bg:#f8fafc;
+  --surface:#ffffff;
+  --line:#e7ecf2;
+  --radius:16px;
+  --radius-lg:20px;
+}
+
+/* ===== Shell & gradient ===== */
+#why-choose.why-choose-section{
+  position:relative;
+  overflow:hidden;
+  color:var(--zenith-text);
+  padding:clamp(1.6rem,3vw,2.6rem) 1rem;
+  background:linear-gradient(180deg,#f8fafc 0%,#f4f7fb 55%,#eef3f9 100%);
+}
+
+/* ===== Gray clip-art behind EVERYTHING in the section ===== */
+#why-choose.why-choose-section::after{
+  content:"";
+  position:absolute; inset:0;
+  z-index:0;                     /* sits under all content */
+  pointer-events:none;
+  opacity:.46;                   /* subtle but visible */
+  background-repeat:no-repeat;
+  background-position: right 2% bottom -10px;  /* desktop anchor */
+  background-size: min(75vw, 980px) auto;      /* scale with viewport */
+
+  /* light gray artwork (house roof, building, palms) */
+  background-image:
+    url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">\
+  <g fill="%23cfd6df">\
+    <polygon points="120,360 260,250 400,360 372,360 372,430 148,430 148,360" />\
+    <rect x="170" y="360" width="180" height="70" rx="6" />\
+    <rect x="215" y="382" width="35" height="48" rx="4" />\
+    <rect x="270" y="382" width="35" height="48" rx="4" />\
+    <rect x="700" y="270" width="260" height="190" rx="10" />\
+    <g opacity=".9">\
+      <rect x="725" y="295" width="28" height="28" rx="3" />\
+      <rect x="765" y="295" width="28" height="28" rx="3" />\
+      <rect x="805" y="295" width="28" height="28" rx="3" />\
+      <rect x="845" y="295" width="28" height="28" rx="3" />\
+      <rect x="885" y="295" width="28" height="28" rx="3" />\
+      <rect x="725" y="335" width="28" height="28" rx="3" />\
+      <rect x="765" y="335" width="28" height="28" rx="3" />\
+      <rect x="805" y="335" width="28" height="28" rx="3" />\
+      <rect x="845" y="335" width="28" height="28" rx="3" />\
+      <rect x="885" y="335" width="28" height="28" rx="3" />\
+      <rect x="725" y="375" width="28" height="28" rx="3" />\
+      <rect x="765" y="375" width="28" height="28" rx="3" />\
+      <rect x="805" y="375" width="28" height="28" rx="3" />\
+      <rect x="845" y="375" width="28" height="28" rx="3" />\
+      <rect x="885" y="375" width="28" height="28" rx="3" />\
+    </g>\
+    <g transform="translate(520,270)">\
+      <rect x="55" y="120" width="10" height="100" rx="5" />\
+      <path d="M60 120 C40 105, 25 105, 10 110 C28 120, 45 125, 60 125 Z" />\
+      <path d="M60 120 C80 105, 95 105, 110 110 C92 120, 75 125, 60 125 Z" />\
+      <path d="M60 118 C45 95, 45 85, 50 70 C55 88, 58 100, 60 112 Z" />\
+      <path d="M60 118 C75 95, 75 85, 70 70 C65 88, 62 100, 60 112 Z" />\
+    </g>\
+    <g transform="translate(600,300) scale(0.9)">\
+      <rect x="55" y="120" width="10" height="100" rx="5" />\
+      <path d="M60 120 C40 105, 25 105, 10 110 C28 120, 45 125, 60 125 Z" />\
+      <path d="M60 120 C80 105, 95 105, 110 110 C92 120, 75 125, 60 125 Z" />\
+    </g>\
+  </g>\
+</svg>');
+}
+@media (max-width: 900px){
+  #why-choose.why-choose-section::after{
+    background-position: center bottom -8px;
+    background-size: min(92vw, 720px) auto;
+    opacity:.40;
+  }
+}
+
+/* Keep all content above the background art */
+#why-choose.why-choose-section .why-container{ position:relative; z-index:1; }
+
+/* ===== Layout ===== */
+#why-choose.why-choose-section .why-container{ max-width:1100px; margin-inline:auto; }
+#why-choose.why-choose-section .why-grid{
+  display:grid; gap:1.25rem; align-items:center;
+  grid-template-columns:1fr;           /* mobile */
+}
+@media (min-width:900px){
+  #why-choose.why-choose-section .why-grid{
+    grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  }
+}
+
+/* ===== Title ===== */
+#why-choose.why-choose-section .why-title{
+  margin:0 0 .85rem 0;
+  font-size:clamp(1.55rem,3.1vw,2.15rem);
+  line-height:1.15;
+  color:var(--zenith-navy);
+}
+#why-choose.why-choose-section .why-title::after{
+  content:""; display:block; width:56px; height:3px; margin-top:.55rem;
+  background:var(--zenith-navy); border-radius:3px; opacity:.9;
+}
+
+/* ===== Checklist ===== */
+#why-choose.why-choose-section .why-list{
+  list-style:none; margin:0; padding:0;
+  display:grid; gap:.65rem;
+}
+#why-choose.why-choose-section .why-list li{
+  display:grid; grid-template-columns:38px 1fr; align-items:start; column-gap:.7rem;
+  line-height:1.6;
+}
+#why-choose.why-choose-section .check{
+  display:inline-grid; place-items:center;
+  width:38px; height:38px; border-radius:50%;
+  background:#fff; border:1px solid var(--line);
+  color:var(--zenith-navy); font-weight:700; font-size:16px; line-height:1;
+}
+
+/* ===== Actions / Buttons ===== */
+#why-choose.why-choose-section .why-actions{
+  margin-top:1rem; display:flex; flex-wrap:wrap; gap:.6rem .7rem;
+}
+#why-choose.why-choose-section .btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:.62rem 1rem; border-radius:999px; text-decoration:none; font-weight:600;
+  border:1px solid var(--line);
+  background:#fff; color:var(--zenith-text);
+  transition:transform .15s ease, border-color .15s ease, background .15s ease, box-shadow .15s ease, color .15s ease;
+}
+#why-choose.why-choose-section .btn:not(.btn--primary):hover{
+  transform:translateY(-1px);
+  background:#f1f5f9; border-color:#d7e0ea;
+}
+#why-choose.why-choose-section .btn--primary{
+  color:#fff;
+  border-color:transparent;
+  background:linear-gradient(180deg, var(--zenith-orange) 0%, #ffb457 100%);
+  box-shadow:0 8px 20px rgba(247,148,29,.22), inset 0 1px 0 rgba(255,255,255,.25);
+}
+#why-choose.why-choose-section .btn--primary:hover,
+#why-choose.why-choose-section .btn--primary:focus-visible{
+  transform:translateY(-2px);
+  background:linear-gradient(180deg, #f38a0a 0%, #ffa83b 100%);
+  box-shadow:0 14px 28px rgba(247,148,29,.28), inset 0 1px 0 rgba(255,255,255,.3);
+  color:#fff; outline:0;
+}
+#why-choose.why-choose-section .btn:focus-visible{
+  outline:0; box-shadow:0 0 0 3px rgba(247,148,29,.25);
+}
+
+/* ===== Image Card ===== */
+#why-choose.why-choose-section .why-image{
+  position:relative; overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  background:var(--surface);
+  box-shadow:0 8px 24px rgba(2,12,32,.06);
+}
+#why-choose.why-choose-section .why-image img{
+  display:block; width:100%; height:100%; object-fit:cover; aspect-ratio:16/10;
+}
+@media (min-width:900px){
+  #why-choose.why-choose-section .why-image img{ aspect-ratio:4/5; }
+}
+
+/* ===== A11y helper ===== */
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
