@@ -4,9 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<title>Real Roofing Projects San Diego & Temecula | Zenith Roofing Services</title>
+<title>Real Roofing Projects in San Diego, Escondido & Temecula | Zenith Roofing Services</title>
 
-<meta name="description" content="See real roofing projects across San Diego, Temecula, and Murrieta. Tile lift & lays, shingle replacements, flat roofs and repairs with before and after photos.">
+<meta name="description" content="Explore real roofing projects completed throughout San Diego, North County, Escondido, Temecula, and Murrieta. Tile lift and lay systems, shingle roof replacements, flat roofs, leak repairs, silicone coatings, and waterproofing projects documented with real photos by Zenith Roofing Services.">
+
+<link rel="canonical" href="https://zenithroofingservices.com/projects/">
+
+<meta property="og:title" content="Real Roofing Projects in San Diego, Escondido & Temecula | Zenith Roofing Services">
+<meta property="og:description" content="See real roofing projects completed by Zenith Roofing Services throughout San Diego, North County, Escondido, Temecula, and Murrieta.">
+<meta property="og:url" content="https://zenithroofingservices.com/projects/">
+<meta property="og:type" content="website">
 
 <link rel="stylesheet" href="/css/base.css">
 <link rel="stylesheet" href="/css/header.css">
@@ -19,93 +26,272 @@
   --navy:#072e59;
   --orange:#f7941d;
   --light:#f6f8fb;
+  --text:#253142;
+  --muted:#5f6b7a;
+  --card:#ffffff;
 }
 
-body{background:var(--light);}
+body{
+  background:var(--light);
+  color:var(--text);
+}
 
 /* HERO */
-.hero{
-  padding:70px 20px 40px;
+.projects-hero{
+  width:100%;
+  padding:76px 20px 44px;
   text-align:center;
-}
-.hero h1{
-  font-size:clamp(2.8rem,5vw,4.2rem);
-  color:var(--navy);
-}
-.hero p{
-  max-width:680px;
-  margin:10px auto;
-  font-size:1.1rem;
-  color:#555;
+  background:
+    linear-gradient(180deg, rgba(7,46,89,.08), rgba(246,248,251,0));
 }
 
-/* SECTION */
-.section{
-  max-width:1100px;
-  margin:40px auto;
+.projects-hero .eyebrow{
+  color:var(--orange);
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:.82rem;
+  margin-bottom:10px;
+}
+
+.projects-hero h1{
+  max-width:980px;
+  margin:0 auto;
+  font-size:clamp(2.35rem,5vw,4.5rem);
+  line-height:1.05;
+  color:var(--navy);
+}
+
+.projects-hero p{
+  max-width:760px;
+  margin:18px auto 0;
+  font-size:1.12rem;
+  line-height:1.7;
+  color:var(--muted);
+}
+
+/* GENERAL */
+.projects-section{
+  max-width:1160px;
+  margin:44px auto;
   padding:0 20px;
 }
 
-.section h2{
+.projects-section h2{
   color:var(--navy);
   text-align:center;
+  font-size:clamp(1.75rem,3vw,2.55rem);
+  line-height:1.15;
   margin-bottom:12px;
 }
 
-.section p{
-  max-width:680px;
-  margin:0 auto 22px;
+.projects-section > p,
+.section-lead{
+  max-width:780px;
+  margin:0 auto 26px;
   text-align:center;
-  color:#555;
+  color:var(--muted);
+  line-height:1.7;
+  font-size:1.04rem;
+}
+
+/* INTRO */
+.seo-intro{
+  background:#fff;
+  border-radius:26px;
+  padding:34px 28px;
+  box-shadow:0 18px 50px rgba(7,46,89,.08);
+}
+
+.seo-intro p{
+  max-width:900px;
+  margin:0 auto 16px;
+  color:var(--text);
+  line-height:1.75;
+  font-size:1.05rem;
+  text-align:left;
+}
+
+.seo-intro p:last-child{
+  margin-bottom:0;
+}
+
+/* GRID */
+.expertise-grid,
+.city-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-top:26px;
+}
+
+.expertise-card,
+.city-card,
+.faq-item{
+  background:var(--card);
+  border-radius:22px;
+  padding:24px;
+  box-shadow:0 14px 38px rgba(7,46,89,.08);
+  border:1px solid rgba(7,46,89,.08);
+}
+
+.expertise-card h3,
+.city-card h3,
+.faq-item h3{
+  color:var(--navy);
+  margin:0 0 10px;
+  font-size:1.12rem;
+}
+
+.expertise-card p,
+.city-card p,
+.faq-item p{
+  color:var(--muted);
+  line-height:1.65;
+  margin:0;
+  text-align:left;
+}
+
+/* TRUST BAR */
+.trust-bar{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  max-width:1040px;
+  margin:30px auto 0;
+}
+
+.trust-item{
+  background:#fff;
+  border-radius:16px;
+  padding:16px;
+  font-weight:800;
+  color:var(--navy);
+  box-shadow:0 10px 28px rgba(7,46,89,.07);
+  text-align:center;
 }
 
 /* EMBED */
 .embed{
-  border-radius:16px;
+  border-radius:22px;
   overflow:hidden;
   box-shadow:0 20px 60px rgba(0,0,0,.1);
+  background:#fff;
 }
+
 .embed iframe{
+  display:block;
   width:100%;
-  min-height:500px;
+  min-height:560px;
   border:0;
+}
+
+/* CTA */
+.projects-cta{
+  max-width:1040px;
+  margin:46px auto;
+  padding:42px 26px;
+  text-align:center;
+  border-radius:28px;
+  background:linear-gradient(135deg, var(--navy), #0d447c);
+  color:#fff;
+  box-shadow:0 22px 60px rgba(7,46,89,.18);
+}
+
+.projects-cta h2{
+  color:#fff;
+  margin:0 0 12px;
+  font-size:clamp(1.8rem,3vw,2.6rem);
+}
+
+.projects-cta p{
+  max-width:780px;
+  margin:0 auto 20px;
+  color:rgba(255,255,255,.9);
+  line-height:1.7;
+}
+
+.btn-primary{
+  background:var(--orange);
+  color:#fff;
+  padding:15px 26px;
+  border-radius:12px;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  font-weight:800;
+}
+
+/* FAQ */
+.faq-list{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+  max-width:900px;
+  margin:26px auto 0;
 }
 
 /* ESTIMATE */
 .estimate-section{
   background:#fff;
-  border-radius:22px;
+  border-radius:26px;
   box-shadow:0 20px 60px rgba(0,0,0,.08);
   padding:34px 22px;
 }
 
-/* CTA */
-.cta{
-  text-align:center;
-  padding:60px 20px;
-}
-.cta h2{
+/* LINKS */
+.inline-link{
   color:var(--navy);
-}
-.cta a{
-  background:var(--orange);
-  padding:14px 26px;
-  border-radius:10px;
-  color:#fff;
-  text-decoration:none;
-  display:inline-block;
-  margin-top:10px;
-  font-weight:700;
+  font-weight:800;
+  text-decoration:underline;
+  text-underline-offset:3px;
 }
 
 /* MOBILE */
+@media(max-width:900px){
+  .expertise-grid,
+  .city-grid,
+  .trust-bar{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
 @media(max-width:720px){
-  .hero{
-    padding:52px 18px 30px;
+  .projects-hero{
+    padding:54px 18px 32px;
+  }
+
+  .projects-section{
+    width:100%;
+    max-width:100%;
+    margin:34px auto;
+    padding:0 18px;
+  }
+
+  .seo-intro{
+    padding:26px 20px;
+    border-radius:22px;
+  }
+
+  .expertise-grid,
+  .city-grid,
+  .trust-bar{
+    grid-template-columns:1fr;
+  }
+
+  .embed{
+    border-radius:18px;
   }
 
   .embed iframe{
-    min-height:430px;
+    min-height:500px;
+  }
+
+  .projects-cta{
+    margin:36px 18px;
+    padding:34px 20px;
   }
 
   .estimate-section{
@@ -121,19 +307,94 @@ body{background:var(--light);}
 
 <main>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Real Roofing Projects That Speak for Themselves</h1>
+<section class="projects-hero">
+  <div class="eyebrow">Real Roofing Projects • Real Jobsite Photos</div>
+  <h1>Roofing Projects Completed Across San Diego, Escondido & Temecula</h1>
   <p>
-    Every project we complete is documented with real photos — no stock images, no shortcuts.
-    See the difference in craftsmanship across San Diego, Temecula, and surrounding areas.
+    Explore real roofing work completed by Zenith Roofing Services throughout San Diego County,
+    North County San Diego, Escondido, Temecula, Murrieta, and surrounding Southern California areas.
+    No stock images. No generic portfolio. Just documented roofing craftsmanship.
   </p>
+
+  <div class="trust-bar">
+    <div class="trust-item">Licensed C-39 Roofer</div>
+    <div class="trust-item">Real Project Photos</div>
+    <div class="trust-item">San Diego & Temecula</div>
+    <div class="trust-item">Roofing Systems Documented</div>
+  </div>
 </section>
 
-<!-- GALLERY -->
-<section class="section">
-  <h2>Explore All Roofing Projects</h2>
-  <p>Browse real roofing work documented through project photos and jobsite updates.</p>
+<section class="projects-section">
+  <div class="seo-intro">
+    <h2>Real Roofing Projects Across San Diego, North County & Temecula</h2>
+
+    <p>
+      Zenith Roofing Services documents completed roofing projects throughout San Diego County,
+      North County San Diego, Escondido, Temecula, Murrieta, and nearby Southern California communities.
+      This page is designed to show homeowners the actual type of work we perform in the field.
+    </p>
+
+    <p>
+      Our roofing projects include tile roof lift and lay systems, asphalt shingle roof replacements,
+      flat roof systems, leak repairs, silicone roof coatings, torch-down roofing, ventilation upgrades,
+      skylight waterproofing, flashing repairs, and preventative roof maintenance.
+    </p>
+
+    <p>
+      Each roofing project helps show the materials used, the roof conditions we corrected,
+      and the waterproofing details that matter when choosing a professional roofing contractor.
+    </p>
+  </div>
+</section>
+
+<section class="projects-section">
+  <h2>Roofing Systems Featured in Our Projects</h2>
+  <p class="section-lead">
+    Homeowners searching for a roofing company in San Diego, Escondido, Temecula, or North County
+    can review examples of the roof systems we install and repair.
+  </p>
+
+  <div class="expertise-grid">
+    <article class="expertise-card">
+      <h3>Tile Roof Lift & Lay Projects</h3>
+      <p>
+        Concrete and clay tile roof underlayment replacement projects using waterproofing systems,
+        flashings, battens, and ventilation upgrades.
+      </p>
+    </article>
+
+    <article class="expertise-card">
+      <h3>Shingle Roof Replacements</h3>
+      <p>
+        Owens Corning shingle systems, cool roof shingles, roof ventilation upgrades,
+        ridge systems, and full tear-off replacements.
+      </p>
+    </article>
+
+    <article class="expertise-card">
+      <h3>Flat Roofing Systems</h3>
+      <p>
+        Flat roof waterproofing, silicone coatings, torch-down roofing, TPO systems,
+        and low-slope roofing solutions.
+      </p>
+    </article>
+
+    <article class="expertise-card">
+      <h3>Roof Repairs & Leak Detection</h3>
+      <p>
+        Leak diagnostics, flashing repairs, slipped tile correction, skylight waterproofing,
+        pipe resealing, and targeted maintenance.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="projects-section">
+  <h2>Explore Our Roofing Project Gallery</h2>
+  <p>
+    Browse real roofing projects documented through jobsite photos, completed work,
+    roofing materials, project types, and city information.
+  </p>
 
   <div class="embed">
     <iframe 
@@ -145,10 +406,12 @@ body{background:var(--light);}
   </div>
 </section>
 
-<!-- MAP -->
-<section class="section">
+<section class="projects-section">
   <h2>Roofing Work Near You</h2>
-  <p>See roofing projects completed across San Diego County, North County, Temecula, Murrieta, and surrounding areas.</p>
+  <p>
+    See roofing projects completed across San Diego County, North County, Escondido,
+    Temecula, Murrieta, and surrounding communities.
+  </p>
 
   <div class="embed">
     <iframe 
@@ -160,14 +423,96 @@ body{background:var(--light);}
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta">
-  <h2>Ready for a Roof Like These?</h2>
-  <a href="#estimate">Request Free Estimate</a>
+<section class="projects-section">
+  <h2>Roofing Service Areas Shown in Our Project Work</h2>
+  <p class="section-lead">
+    Our project documentation helps homeowners compare real roofing work in the areas we serve most often.
+  </p>
+
+  <div class="city-grid">
+    <article class="city-card">
+      <h3>San Diego Roofing Projects</h3>
+      <p>
+        Roof replacements, flat roof systems, roof repairs, and waterproofing projects throughout San Diego.
+      </p>
+    </article>
+
+    <article class="city-card">
+      <h3>North County San Diego</h3>
+      <p>
+        Roofing projects in North County communities including Escondido, Vista, San Marcos, Oceanside, and nearby areas.
+      </p>
+    </article>
+
+    <article class="city-card">
+      <h3>Escondido Roofing Projects</h3>
+      <p>
+        Tile roof repairs, shingle roof replacements, maintenance, ventilation upgrades, and waterproofing work in Escondido.
+      </p>
+    </article>
+
+    <article class="city-card">
+      <h3>Temecula & Murrieta Roofing</h3>
+      <p>
+        Roofing services for Temecula Valley and Murrieta homeowners, including tile, shingle, and leak repair projects.
+      </p>
+    </article>
+  </div>
 </section>
 
-<!-- ESTIMATE -->
-<section id="estimate" class="section">
+<section class="projects-cta">
+  <h2>Need a Roofing Estimate?</h2>
+  <p>
+    Whether you need a roof replacement, tile roof lift and lay, leak repair, flat roof system,
+    or roof maintenance, Zenith Roofing Services provides professional roofing services throughout
+    San Diego, North County, Escondido, Temecula, Murrieta, and surrounding areas.
+  </p>
+  <a href="#estimate" class="btn-primary">Request a Free Estimate</a>
+</section>
+
+<section class="projects-section">
+  <h2>Frequently Asked Roofing Questions</h2>
+  <p class="section-lead">
+    These are common questions homeowners ask when reviewing our roofing projects.
+  </p>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <h3>What roofing services does Zenith Roofing Services provide?</h3>
+      <p>
+        Zenith Roofing Services provides tile roof lift and lay systems, shingle roof replacements,
+        flat roofing, leak repairs, preventative maintenance, roof coatings, ventilation upgrades,
+        skylight waterproofing, flashing repairs, and commercial roofing services.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What areas do you serve?</h3>
+      <p>
+        We serve San Diego County, North County San Diego, Escondido, Temecula, Murrieta,
+        and nearby Southern California communities.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Are the photos on this page from real roofing projects?</h3>
+      <p>
+        Yes. Our projects page showcases real roofing projects completed by Zenith Roofing Services
+        using actual jobsite photography and project documentation.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Can I request an estimate after viewing a similar project?</h3>
+      <p>
+        Yes. If you see a project similar to your roof, you can request an estimate and include
+        your city, roof type, and any photos that show the issue or project area.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="estimate" class="projects-section">
   <div class="estimate-section">
     <h2>Request a Roofing Estimate</h2>
     <p>
@@ -184,6 +529,7 @@ body{background:var(--light);}
 <div data-include="/components/footer.html"></div>
 
 <script src="/js/loader.js" defer></script>
+<script src="/js/header.js" defer></script>
 
 <script>
   window.ESTIMATE_FORM_CONFIG = {
@@ -199,6 +545,72 @@ body{background:var(--light);}
 
 <script src="/js/estimate-form.js" defer></script>
 <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RoofingContractor",
+  "name": "Zenith Roofing Services",
+  "url": "https://zenithroofingservices.com/projects/",
+  "telephone": "+1-858-900-6163",
+  "areaServed": [
+    "San Diego",
+    "North County San Diego",
+    "Escondido",
+    "Temecula",
+    "Murrieta"
+  ],
+  "image": "https://zenithroofingservices.com/images/logo-zenith-icon-88.webp",
+  "priceRange": "$$$",
+  "description": "Roofing contractor serving San Diego, North County, Escondido, Temecula, and Murrieta specializing in tile roofs, shingle replacements, flat roofs, repairs, and waterproofing.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "CA",
+    "addressCountry": "US"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What roofing services does Zenith Roofing Services provide?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zenith Roofing Services provides tile roof lift and lay systems, shingle roof replacements, flat roofing, leak repairs, preventative maintenance, roof coatings, ventilation upgrades, skylight waterproofing, flashing repairs, and commercial roofing services."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What areas does Zenith Roofing Services serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zenith Roofing Services serves San Diego County, North County San Diego, Escondido, Temecula, Murrieta, and nearby Southern California communities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the photos on the projects page from real roofing projects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The projects page showcases real roofing projects completed by Zenith Roofing Services using actual jobsite photography and project documentation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I request an estimate after viewing a similar roofing project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Homeowners can request an estimate and include their city, roof type, and photos after viewing a similar roofing project."
+      }
+    }
+  ]
+}
+</script>
 
 </body>
 </html>
