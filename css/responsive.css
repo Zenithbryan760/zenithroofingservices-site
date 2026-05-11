@@ -50,16 +50,70 @@
 
   /* Buttons stretch full width */
   .button,
-   (max-width: 1023px){
-.call-button {
+  .call-button {
     width: 100%;
     padding: 12px 0;
   }
 
-  
-}/* Gallery: single column photos */
+  /* Gallery: single column photos */
   .photo-grid { grid-template-columns: 1fr; }
 
   /* Badge row: tighter gap */
   .badge-row { gap: 16px; }
+}
+
+/* Mobile full-width safety fix */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+main,
+section,
+.page,
+.page-wrap,
+.content,
+.container,
+.section-container {
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  body {
+    min-width: 0;
+  }
+
+  .container,
+  .section-container,
+  .page-wrap,
+  .content {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero,
+  .hero-section,
+  .page-hero,
+  .projects-hero,
+  .service-hero,
+  .service-area-hero {
+    width: 100%;
+    max-width: 100%;
+  }
 }

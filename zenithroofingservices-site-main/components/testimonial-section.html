@@ -1,0 +1,139 @@
+<section id="testimonials" class="testimonial-section light-section" aria-labelledby="testimonials-title">
+  <!-- step 5: invisible anchor so #reviews links land below the header -->
+  <span id="reviews" class="sr-only" aria-hidden="true"></span>
+
+  <div class="container t-shell">
+    <header class="t-header">
+      <h2 id="testimonials-title" class="section-title center">Client Success Stories</h2>
+      <p class="section-subtitle center mw-3xl">Trusted by homeowners, HOAs, and businesses across Southern California.</p>
+    </header>
+
+    <!-- Swiper Carousel -->
+    <div
+      class="swiper testimonialSwiper"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Client testimonials carousel"
+    >
+      <div class="swiper-wrapper">
+        <!-- 1 -->
+        <div class="swiper-slide">
+          <article class="t-card" itemscope itemtype="https://schema.org/Review">
+            <div class="t-quote" aria-hidden="true">“</div>
+            <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="t-text" itemprop="reviewBody">
+              The Zenith team replaced our entire roof in two days with zero disruption to operations. Exceptional detail.
+            </p>
+            <footer class="t-footer">
+              <strong class="t-author" itemprop="author">Robert &amp; Maria Sanchez</strong>
+              <span class="t-meta" itemprop="itemReviewed">Commercial Property, Carlsbad</span>
+              <meta itemprop="reviewRating" content="5">
+            </footer>
+          </article>
+        </div>
+
+        <!-- 2 -->
+        <div class="swiper-slide">
+          <article class="t-card" itemscope itemtype="https://schema.org/Review">
+            <div class="t-quote" aria-hidden="true">“</div>
+            <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="t-text" itemprop="reviewBody">
+              After three other roofers failed, Zenith found and fixed our persistent leak in one visit. Worth every penny.
+            </p>
+            <footer class="t-footer">
+              <strong class="t-author" itemprop="author">Jennifer K.</strong>
+              <span class="t-meta" itemprop="itemReviewed">Residential Home, La Jolla</span>
+              <meta itemprop="reviewRating" content="5">
+            </footer>
+          </article>
+        </div>
+
+        <!-- 3 -->
+        <div class="swiper-slide">
+          <article class="t-card" itemscope itemtype="https://schema.org/Review">
+            <div class="t-quote" aria-hidden="true">“</div>
+            <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="t-text" itemprop="reviewBody">
+              The silicone coating already cut our energy costs. Professional, meticulous installation.
+            </p>
+            <footer class="t-footer">
+              <strong class="t-author" itemprop="author">Thompson Medical Center</strong>
+              <span class="t-meta" itemprop="itemReviewed">Healthcare Facility, San Diego</span>
+              <meta itemprop="reviewRating" content="5">
+            </footer>
+          </article>
+        </div>
+
+        <!-- 4 -->
+        <div class="swiper-slide">
+          <article class="t-card" itemscope itemtype="https://schema.org/Review">
+            <div class="t-quote" aria-hidden="true">“</div>
+            <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="t-text" itemprop="reviewBody">
+              Our HOA hired Zenith for a complex tile project across 12 buildings—on time and under budget.
+            </p>
+            <footer class="t-footer">
+              <strong class="t-author" itemprop="author">Oceanview Condo Association</strong>
+              <span class="t-meta" itemprop="itemReviewed">Multi-Unit Complex, Oceanside</span>
+              <meta itemprop="reviewRating" content="5">
+            </footer>
+          </article>
+        </div>
+
+        <!-- 5 -->
+        <div class="swiper-slide">
+          <article class="t-card" itemscope itemtype="https://schema.org/Review">
+            <div class="t-quote" aria-hidden="true">“</div>
+            <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="t-text" itemprop="reviewBody">
+              Zenith’s inspection report helped us negotiate a better price on our home purchase.
+            </p>
+            <footer class="t-footer">
+              <strong class="t-author" itemprop="author">The Wilson Family</strong>
+              <span class="t-meta" itemprop="itemReviewed">Home Buyers, Temecula</span>
+              <meta itemprop="reviewRating" content="5">
+            </footer>
+          </article>
+        </div>
+
+        <!-- 6 -->
+        <div class="swiper-slide">
+          <article class="t-card" itemscope itemtype="https://schema.org/Review">
+            <div class="t-quote" aria-hidden="true">“</div>
+            <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="t-text" itemprop="reviewBody">
+              Two years in, our torch-down roof looks and performs like new.
+            </p>
+            <footer class="t-footer">
+              <strong class="t-author" itemprop="author">Miguel’s Auto Repair</strong>
+              <span class="t-meta" itemprop="itemReviewed">Commercial Building, Escondido</span>
+              <meta itemprop="reviewRating" content="5">
+            </footer>
+          </article>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="swiper-button-prev" aria-label="Previous"></div>
+      <div class="swiper-button-next" aria-label="Next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="t-cta">
+      <a class="t-btn t-btn--primary" href="/reviews">Read All Reviews</a>
+    </div>
+  </div>
+
+  <!-- Optional microdata to help search/AI understand your reviews -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"item":{"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5"},"author":{"@type":"Person","name":"Robert & Maria Sanchez"}}},
+      {"@type":"ListItem","position":2,"item":{"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5"},"author":{"@type":"Person","name":"Jennifer K."}}},
+      {"@type":"ListItem","position":3,"item":{"@type":"Review","reviewRating":{"@type":"Rating","ratingValue":"5"},"author":{"@type":"Organization","name":"Thompson Medical Center"}}}
+    ]
+  }
+  </script>
+</section>
