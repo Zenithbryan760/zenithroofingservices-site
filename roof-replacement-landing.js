@@ -23,7 +23,7 @@
   };
 
   document.querySelectorAll(".track-call").forEach((link) => {
-    link.addEventListener("click", () => event("roof_replacement_phone_click", { phone: "7606421299" }));
+    link.addEventListener("click", () => event("roof_replacement_phone_click", { phone: "6194941122" }));
   });
 
   document.querySelectorAll(".track-financing").forEach((link) => {
@@ -95,7 +95,7 @@
       setMessage("Thank you. Your request was sent to Zenith Roofing Services.", "success");
     } catch (error) {
       console.error(error);
-      setMessage("We couldn’t send the form. Please call 760-642-1299 so we can help.", "error");
+      setMessage("We couldn’t send the form. Please call 619-494-1122 so we can help.", "error");
     } finally {
       button.disabled = false;
       button.textContent = "Request My Free Estimate";
