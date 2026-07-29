@@ -1,2 +1,4 @@
+/roof-replacement/  /roof-replacement.html  200
+/roof-replacement   /roof-replacement.html  200
 /services/*/  /services/:splat/index.html 200
 /services/*   /services/:splat/index.html 200
