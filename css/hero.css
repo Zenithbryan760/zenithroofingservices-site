@@ -276,3 +276,13 @@ input[type="file"]:focus-within{
 
 /* Disable any old video background, if present */
 .zenith-video-container{ display:none !important; }
+
+
+/* Native post-interaction validation without changing form submission logic */
+#estimate-form input:user-invalid,
+#estimate-form select:user-invalid,
+#estimate-form textarea:user-invalid{
+  border-color:#dc2626 !important;
+  box-shadow:0 0 0 3px rgba(220,38,38,.12);
+  background:#fff7f7;
+}
