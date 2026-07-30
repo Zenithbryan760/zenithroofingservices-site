@@ -66,7 +66,7 @@
       state: "CA",
       zip: (fd.get("zip") || "").trim(),
       service_type: "Roof Replacement",
-      referral_source: "Google Ads",
+      referral_source: "Google Search Ads",
       description,
       recaptcha_token: token,
       page: location.href
