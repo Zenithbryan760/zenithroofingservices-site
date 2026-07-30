@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" sizes="512x512" href="/zenith-favicon-v3.png?v=3">
   <link rel="apple-touch-icon" href="/zenith-favicon-v3.png?v=3">
   <title>Roof Financing in San Diego, North County & Temecula | Zenith Roofing</title>
-  <meta name="description" content="Explore roof financing options from Zenith Roofing Services through Wisetack. Check eligibility without affecting your credit score. Serving San Diego County, North County, Temecula and surrounding areas.">
+  <meta name="description" content="Estimate roof financing payments for projects from $500 to $25,000 and check Wisetack eligibility. Zenith Roofing serves San Diego, North County, Temecula, Murrieta and nearby communities.">
   <link rel="canonical" href="https://zenithroofingservices.com/financing/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Roof Financing in San Diego, North County & Temecula | Zenith Roofing">
@@ -67,6 +67,11 @@
           },
           {
             "@type":"Question",
+            "name":"Can I estimate roofing payments for projects from $500 to $25,000?",
+            "acceptedAnswer":{"@type":"Answer","text":"Yes. Zenith Roofing Services provides an illustrative payment calculator for project amounts from $500 through $25,000. Calculator results are estimates only and do not represent approval, eligibility or a guaranteed loan offer."}
+          },
+          {
+            "@type":"Question",
             "name":"Can I finance a roof replacement?",
             "acceptedAnswer":{"@type":"Answer","text":"Eligible customers may receive financing options for qualifying roof replacement and other roofing projects. Available amounts, rates and terms depend on the applicant, project and participating lending partner."}
           },
@@ -112,16 +117,32 @@
     .services{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}
     .service-card h3{margin:0 0 8px;color:var(--navy)}
     .faq{max-width:900px}
-    details{background:#fff;border:1px solid #dfe6ee;border-radius:10px;margin:12px 0;padding:0 20px}
-    summary{cursor:pointer;font-weight:800;color:var(--navy);padding:19px 0}
-    details p{margin:0 0 20px;color:var(--muted)}
+    .faq details{background:#fff;border:1px solid #dfe6ee;border-radius:10px;margin:12px 0;padding:0 20px}
+    .faq summary{cursor:pointer;font-weight:800;color:var(--navy);padding:19px 0}
+    .faq details p{margin:0 0 20px;color:var(--muted)}
+    .calc-layout{display:grid;grid-template-columns:minmax(0,.8fr) minmax(460px,1.2fr);gap:42px;align-items:start}
+    .calculator{background:#fff;border:1px solid #d7e0ea;border-radius:16px;padding:28px;box-shadow:0 12px 34px rgba(7,46,89,.1)}
+    .calculator label{display:block;font-weight:800;color:var(--navy);margin-bottom:8px}
+    .amount-row{display:grid;grid-template-columns:1fr 150px;gap:18px;align-items:center}
+    .calculator input[type="range"]{width:100%;accent-color:var(--orange)}
+    .calculator input[type="number"]{width:100%;padding:12px;border:2px solid #ccd7e4;border-radius:8px;font-size:1.05rem}
+    .range-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:.85rem;margin:5px 0 18px}
+    .calc-highlight{padding:16px;margin:18px 0;background:#eef6ff;border-left:5px solid var(--orange);color:var(--navy);font-weight:750}
+    .calc-table-wrap{overflow-x:auto}
+    .calc-table{width:100%;border-collapse:collapse;font-size:.93rem}
+    .calc-table th,.calc-table td{padding:11px 9px;border-bottom:1px solid #dbe3ec;text-align:right;white-space:nowrap}
+    .calc-table th:first-child,.calc-table td:first-child{text-align:left}
+    .calc-table th{background:#eaf6f8;color:var(--navy);font-size:.78rem;text-transform:uppercase;letter-spacing:.03em}
+    .calc-disclaimer{font-size:.78rem;color:var(--muted);line-height:1.5;margin:16px 0 0}
+    .local-copy{margin-top:34px;padding:26px;background:#fff;border:1px solid #dfe6ee;border-radius:14px}
+    .local-copy h3{color:var(--navy);margin-top:0}
     .fin-cta{padding:66px 20px;text-align:center;background:var(--navy);color:#fff}
     .fin-cta h2{color:#fff}
     .disclosure{max-width:950px;margin:30px auto 0;font-size:.78rem;line-height:1.55;color:#cbd8e5;text-align:left}
     .fin-note{padding:18px 20px;border-left:5px solid var(--orange);background:#fff7ea;color:#44331c;margin-top:28px}
     .internal-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px}
     .internal-links a{font-weight:750;color:#075fa9}
-    @media(max-width:800px){.benefits,.steps,.services{grid-template-columns:1fr}.fin-hero{padding-top:92px}.fin-wrap{width:min(100% - 28px,1120px)}}
+    @media(max-width:800px){.benefits,.steps,.services,.calc-layout{grid-template-columns:1fr}.calc-layout{gap:26px}.calculator{padding:20px}.amount-row{grid-template-columns:1fr}.fin-hero{padding-top:92px}.fin-wrap{width:min(100% - 28px,1120px)}}
   </style>
 </head>
 <body>
@@ -134,6 +155,7 @@
         <p>Zenith Roofing Services offers eligible homeowners convenient financing options through Wisetack lending partners for qualifying roofing projects.</p>
         <div class="fin-actions">
           <a class="fin-btn fin-btn-primary wisetack-link" href="https://wisetack.us/#/s7e1fo0/prequalify" target="_blank" rel="noopener sponsored">Check My Financing Options</a>
+          <a class="fin-btn fin-btn-secondary" href="#payment-calculator">Estimate Monthly Payments</a>
           <a class="fin-btn fin-btn-secondary" href="/#roofing-estimate">Request a Roofing Estimate</a>
         </div>
         <div class="fin-trust">Checking eligibility does not affect your credit score. Financing is subject to credit approval.</div>
@@ -150,6 +172,36 @@
           <article class="benefit"><span class="check">✓</span><strong>No hidden fees</strong><span>Wisetack presents lending terms clearly. Your individual offer depends on credit approval and eligibility.</span></article>
         </div>
         <div class="fin-note"><strong>Prequalification is not a roofing estimate.</strong> Start with a Zenith roof inspection or estimate so the project scope and price can be confirmed.</div>
+      </div>
+    </section>
+
+
+    <section class="fin-section alt" id="payment-calculator">
+      <div class="fin-wrap calc-layout">
+        <div>
+          <span class="eyebrow" style="color:#9a5600">Planning tool</span>
+          <h2>Estimate roofing payments from $500 to $25,000</h2>
+          <p class="lead">Choose a roofing project amount to see illustrative monthly-payment examples. This calculator helps homeowners in San Diego County, North County, Temecula, Murrieta, Wildomar and nearby communities plan before requesting an estimate or checking eligibility.</p>
+          <p>The APRs and terms shown are examples based on the options currently displayed in Zenith Roofing’s Wisetack merchant calculator. They are not a loan offer, approval, or guarantee. Your actual options depend on credit approval, the requested amount and participating lending partners.</p>
+          <a class="fin-btn fin-btn-primary wisetack-link" href="https://wisetack.us/#/s7e1fo0/prequalify" target="_blank" rel="noopener sponsored">Check Actual Eligibility</a>
+        </div>
+        <div class="calculator" aria-labelledby="calculator-title">
+          <h3 id="calculator-title">Roof financing payment estimator</h3>
+          <label for="project-amount">Estimated roofing project amount</label>
+          <div class="amount-row">
+            <input id="project-amount-range" type="range" min="500" max="25000" step="500" value="10000" aria-label="Estimated roofing project amount">
+            <input id="project-amount" type="number" min="500" max="25000" step="500" value="10000" inputmode="numeric" aria-label="Roofing project amount in dollars">
+          </div>
+          <div class="range-labels"><span>$500</span><span>$25,000</span></div>
+          <div class="calc-highlight" id="calc-highlight" aria-live="polite"></div>
+          <div class="calc-table-wrap">
+            <table class="calc-table">
+              <thead><tr><th>Term</th><th>Example APR</th><th>Est. monthly</th><th>Est. interest</th></tr></thead>
+              <tbody id="payment-results"></tbody>
+            </table>
+          </div>
+          <p class="calc-disclaimer">Illustrative estimates only. Not all terms are available for every amount or applicant. Financing is subject to credit approval. Checking eligibility does not affect your credit score; accepting an offer may involve additional credit review.</p>
+        </div>
       </div>
     </section>
 
@@ -174,6 +226,11 @@
           <article class="service-card"><h3>Residential roofing</h3><p>Financing may help eligible homeowners plan necessary roof work without delaying a project solely because of the upfront cost.</p></article>
           <article class="service-card"><h3>Energy-conscious roof upgrades</h3><p>Ask Zenith about available cool-roof shingles, reflective membranes, insulation and coating options appropriate for your property.</p></article>
         </div>
+        <div class="local-copy">
+          <h3>Local roof financing information for San Diego and Southwest Riverside County</h3>
+          <p>Zenith Roofing Services provides roof inspections, repair proposals and replacement estimates throughout Escondido, San Marcos, Vista, Oceanside, Carlsbad, Encinitas, Poway, Rancho Bernardo and greater San Diego County. We also serve Temecula, Murrieta, Wildomar and surrounding Southwest Riverside County communities when the location and roofing scope fit our service area.</p>
+          <p>Customers may explore payment options for qualifying asphalt-shingle, tile, TPO, torch-down, low-slope and coating projects. Financing does not replace a roofing evaluation: Zenith first confirms the roof condition, recommended system, written scope and project price.</p>
+        </div>
         <div class="internal-links">
           <a href="/roof-replacement">Roof replacement estimate</a>
           <a href="/services/roof-replacement/">Roof replacement services</a>
@@ -187,6 +244,7 @@
       <div class="fin-wrap faq">
         <h2>Roof financing questions</h2>
         <details><summary>Does checking eligibility affect my credit score?</summary><p>No. Wisetack states that checking available financing options uses a soft credit inquiry and does not affect your credit score. If you accept an offer, additional credit review may apply.</p></details>
+        <details><summary>Can I estimate payments for projects from $500 to $25,000?</summary><p>Yes. Zenith’s planning calculator accepts amounts from $500 through $25,000 and displays illustrative payment examples. It does not determine eligibility or guarantee that a particular amount, APR or term will be offered.</p></details>
         <details><summary>Can I finance a new roof?</summary><p>Eligible customers may receive options for qualifying roof replacements and other roofing projects. Available amounts, APRs and terms depend on creditworthiness, the requested amount and participating lending partners.</p></details>
         <details><summary>Does Zenith offer roofing payment plans directly?</summary><p>Financing options are provided through Wisetack lending partners, not directly by Zenith Roofing Services. Zenith provides the roofing estimate, contract and installation scope.</p></details>
         <details><summary>Can I check financing before receiving an estimate?</summary><p>You may check eligibility first, but a prequalification is not a final project price. Zenith must inspect or evaluate the roof and prepare the applicable roofing proposal.</p></details>
@@ -216,6 +274,49 @@
       if(window.initMobileMenu)window.initMobileMenu();
       if(window.initHeader)window.initHeader();
       if(window.initFooter)window.initFooter();
+    });
+    const calculatorTerms=[
+      {months:3,apr:0,min:500},
+      {months:6,apr:5.9,min:500},
+      {months:12,apr:6.9,min:500},
+      {months:24,apr:8.9,min:500},
+      {months:36,apr:9.9,min:5000},
+      {months:60,apr:9.9,min:10000},
+      {months:84,apr:9.9,min:10000},
+      {months:120,apr:9.9,min:10000}
+    ];
+    const money=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'});
+    function payment(principal,apr,months){
+      if(apr===0)return principal/months;
+      const rate=apr/1200;
+      return principal*rate*Math.pow(1+rate,months)/(Math.pow(1+rate,months)-1);
+    }
+    function renderCalculator(raw){
+      const amount=Math.min(25000,Math.max(500,Math.round(Number(raw||500)/500)*500));
+      const numberInput=document.getElementById('project-amount');
+      const rangeInput=document.getElementById('project-amount-range');
+      if(!numberInput||!rangeInput)return;
+      numberInput.value=amount;rangeInput.value=amount;
+      const available=calculatorTerms.filter(term=>amount>=term.min);
+      const rows=available.map(term=>{
+        const monthly=payment(amount,term.apr,term.months);
+        const interest=Math.max(0,monthly*term.months-amount);
+        return '<tr><td>'+term.months+' months</td><td>'+term.apr.toFixed(term.apr?1:0)+'%</td><td>'+money.format(monthly)+'</td><td>'+money.format(interest)+'</td></tr>';
+      });
+      document.getElementById('payment-results').innerHTML=rows.join('');
+      const longest=available[available.length-1];
+      document.getElementById('calc-highlight').textContent='Illustrative payment: '+money.format(payment(amount,longest.apr,longest.months))+'/month for '+longest.months+' months at '+longest.apr.toFixed(1)+'% example APR.';
+      window.dataLayer=window.dataLayer||[];
+      window.dataLayer.push({event:'financing_calculator_use',project_amount:amount});
+    }
+    document.addEventListener('DOMContentLoaded',function(){
+      const numberInput=document.getElementById('project-amount');
+      const rangeInput=document.getElementById('project-amount-range');
+      if(numberInput&&rangeInput){
+        renderCalculator(numberInput.value);
+        rangeInput.addEventListener('input',()=>renderCalculator(rangeInput.value));
+        numberInput.addEventListener('change',()=>renderCalculator(numberInput.value));
+      }
     });
     document.addEventListener('click',function(e){
       const link=e.target.closest('.wisetack-link');
