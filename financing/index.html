@@ -215,7 +215,7 @@
           <div class="calc-highlight" id="calc-highlight" aria-live="polite"></div>
           <div class="calc-table-wrap">
             <table class="calc-table">
-              <thead><tr><th>Term</th><th>Example APR</th><th>Est. monthly</th><th>Est. interest</th></tr></thead>
+              <thead><tr><th>Term</th><th>Example APR</th><th>Est. monthly payment</th></tr></thead>
               <tbody id="payment-results"></tbody>
             </table>
           </div>
@@ -356,8 +356,7 @@
       const available=calculatorTerms.filter(term=>amount>=term.min);
       const rows=available.map(term=>{
         const monthly=payment(amount,term.apr,term.months);
-        const interest=Math.max(0,monthly*term.months-amount);
-        return '<tr><td>'+term.months+' months</td><td>'+term.apr.toFixed(term.apr?1:0)+'%</td><td>'+money.format(monthly)+'</td><td>'+money.format(interest)+'</td></tr>';
+        return '<tr><td>'+term.months+' months</td><td>'+term.apr.toFixed(term.apr?1:0)+'%</td><td>'+money.format(monthly)+'</td></tr>';
       });
       document.getElementById('payment-results').innerHTML=rows.join('');
       const longest=available[available.length-1];
