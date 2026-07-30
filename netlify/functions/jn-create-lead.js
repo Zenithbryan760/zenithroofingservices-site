@@ -89,6 +89,14 @@ exports.handler = async (event) => {
       return { statusCode: 500, headers: cors, body: JSON.stringify({ error: 'Server not configured (missing env vars)' }) };
     }
 
+    // Netlify values can pick up whitespace, or an operator may paste the
+    // complete "Bearer <token>" value. JobNimbus expects only the normalized
+    // token after the Bearer scheme.
+    const normalizedApiKey = JN_API_KEY
+      .trim()
+      .replace(/^bearer\s+/i, '');
+    const contactEndpoint = JN_CONTACT_ENDPOINT.trim();
+
     // ---- reCAPTCHA (if enabled) ----
     if (RECAPTCHA_SECRET) {
       const token = (data.recaptcha_token || '').trim();
@@ -239,16 +247,18 @@ exports.handler = async (event) => {
       lead_source: payloadBase.lead_source
     });
 
-    // ---- Auth header variants (JN tenants differ) ----
+    // ---- Auth header variants ----
+    // JobNimbus documents Bearer authentication. Keep legacy variants only as
+    // fallbacks for older tenant configurations.
     const headerVariants = [
-      { 'x-api-key': JN_API_KEY, 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      { 'Authorization': `Bearer ${JN_API_KEY}`, 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      { 'Authorization': JN_API_KEY, 'Content-Type': 'application/json', 'Accept': 'application/json' }, // legacy last resort
+      { 'Authorization': `Bearer ${normalizedApiKey}`, 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      { 'x-api-key': normalizedApiKey, 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      { 'Authorization': normalizedApiKey, 'Content-Type': 'application/json', 'Accept': 'application/json' }, // legacy last resort
     ];
 
     // Helper to POST to JobNimbus
     const postToJN = async (headers, body) => {
-      const r = await fetch(JN_CONTACT_ENDPOINT, { method: 'POST', headers, body: JSON.stringify(body) });
+      const r = await fetch(contactEndpoint, { method: 'POST', headers, body: JSON.stringify(body) });
       const t = await r.text();
       return { r, t };
     };
@@ -262,6 +272,7 @@ exports.handler = async (event) => {
     if (jnRes.status === 401 || jnRes.status === 403) {
       for (let i = 1; i < headerVariants.length; i++) {
         ({ r: jnRes, t: jnText } = await postToJN(headerVariants[i], payloadBase));
+        console.log(`[jn-create-lead] JN auth attempt ${i + 1} status:`, jnRes.status);
         if (jnRes.status !== 401 && jnRes.status !== 403) break;
       }
     }
