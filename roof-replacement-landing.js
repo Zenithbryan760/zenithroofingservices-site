@@ -37,6 +37,7 @@
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    form.classList.add("has-errors");
     if (!form.reportValidity()) return;
 
     let token = "";
@@ -96,6 +97,7 @@
         });
       }
       form.reset();
+      form.classList.remove("has-errors");
       if (window.grecaptcha) window.grecaptcha.reset();
       setMessage("Thank you. Your request was sent to Zenith Roofing Services.", "success");
     } catch (error) {
