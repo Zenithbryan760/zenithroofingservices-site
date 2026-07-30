@@ -265,5 +265,14 @@ input[type="file"]:focus-within{
 }
 .error-summary.show{ display:block; }
 
+/* Show required-field errors only after an attempted submission */
+#estimate-form.has-errors input:invalid,
+#estimate-form.has-errors select:invalid,
+#estimate-form.has-errors textarea:invalid{
+  border-color:#dc2626 !important;
+  box-shadow:0 0 0 3px rgba(220,38,38,.12);
+  background:#fff7f7;
+}
+
 /* Disable any old video background, if present */
 .zenith-video-container{ display:none !important; }
