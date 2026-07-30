@@ -35,38 +35,6 @@
     message.className = `form-message ${type}`;
   };
 
-  const encodePhoto = async (file, index) => {
-    const bitmap = await createImageBitmap(file);
-    const scale = Math.min(1, 1600 / Math.max(bitmap.width, bitmap.height));
-    const canvas = document.createElement("canvas");
-    canvas.width = Math.max(1, Math.round(bitmap.width * scale));
-    canvas.height = Math.max(1, Math.round(bitmap.height * scale));
-    canvas.getContext("2d").drawImage(bitmap, 0, 0, canvas.width, canvas.height);
-    bitmap.close();
-    const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", 0.78));
-    if (!blob) throw new Error("Could not prepare photo");
-    const dataUrl = await new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = reject;
-      reader.readAsDataURL(blob);
-    });
-    return {
-      filename: `roof-photo-${index + 1}.jpg`,
-      type: "image/jpeg",
-      content: String(dataUrl).split(",")[1]
-    };
-  };
-
-  const preparePhotos = async () => {
-    const input = form.querySelector('input[name="photos"]');
-    const files = Array.from(input?.files || []);
-    if (files.length > 3) throw new Error("Please select no more than 3 photos.");
-    const attachments = await Promise.all(files.map(encodePhoto));
-    const estimatedBytes = attachments.reduce((sum, photo) => sum + Math.ceil(photo.content.length * 0.75), 0);
-    if (estimatedBytes > 4500000) throw new Error("The photos are too large. Please choose fewer photos.");
-    return attachments;
-  };
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -83,13 +51,6 @@
     }
 
     const fd = new FormData(form);
-    let photoAttachments = [];
-    try {
-      photoAttachments = await preparePhotos();
-    } catch (photoError) {
-      setMessage(photoError.message, "error");
-      return;
-    }
     const description = [
       (fd.get("description") || "").trim(),
       `Campaign: ${fd.get("utm_campaign") || "not provided"}`,
@@ -109,7 +70,6 @@
       service_type: "Roof Replacement",
       referral_source: "Google Search Ads",
       description,
-      photo_attachments: photoAttachments,
       recaptcha_token: token,
       page: location.href
     };
