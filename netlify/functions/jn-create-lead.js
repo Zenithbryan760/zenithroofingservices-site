@@ -82,7 +82,10 @@ exports.handler = async (event) => {
     const {
       JN_API_KEY,
       JN_CONTACT_ENDPOINT,
-      RECAPTCHA_SECRET
+      RECAPTCHA_SECRET,
+      SENDGRID_API_KEY,
+      LEAD_NOTIFY_FROM,
+      LEAD_NOTIFY_TO
     } = process.env;
 
     if (!JN_API_KEY || !JN_CONTACT_ENDPOINT) {
@@ -283,6 +286,44 @@ exports.handler = async (event) => {
           message: (jnText || '').slice(0, 800)
         })
       };
+    }
+
+    // ---- Optional: SendGrid notify ----
+    if (SENDGRID_API_KEY && LEAD_NOTIFY_FROM && LEAD_NOTIFY_TO) {
+      try {
+        const addrForEmail = [payloadBase.address1, payloadBase.address2, payloadBase.city, payloadBase.state, payloadBase.postal_code]
+          .filter(Boolean).join(', ') || '(none)';
+
+        const message = [
+          `<strong>New Website Lead</strong>`,
+          `Name: ${displayName}`,
+          `Email: ${email || '(none)'}`,
+          `Phone: ${formattedPhone}`,
+          `Address: ${addrForEmail}`,
+          `Service: ${payloadBase.service_type || '(none)'}`,
+          `Referral: ${payloadBase.lead_source || '(none)'}`,
+          `Page: ${data.page || '(unknown)'}`,
+          '',
+          `Notes:`,
+          (data.description || '(none)')
+        ].join('<br>');
+
+        await fetch('https://api.sendgrid.com/v3/mail/send', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${SENDGRID_API_KEY}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            personalizations: [{ to: [{ email: LEAD_NOTIFY_TO }] }],
+            from: { email: LEAD_NOTIFY_FROM, name: 'Zenith Roofing Website' },
+            subject: 'New Website Lead',
+            content: [{ type: 'text/html', value: message }]
+          })
+        });
+      } catch (e) {
+        console.error('SendGrid error:', e);
+      }
     }
 
     // Pass JN response through on success
