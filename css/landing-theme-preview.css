@@ -34,13 +34,24 @@ body {
 
 .header-inner {
   max-width: 1280px;
-  min-height: 82px;
+  min-height: 112px;
   padding: 8px 24px;
   gap: 22px;
 }
 
+.header .header-inner > .logo-section {
+  width: 124px;
+  min-width: 124px;
+  overflow: visible;
+}
+
 .header .header-inner > .logo-section .logo {
-  height: 68px;
+  width: 124px;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
   filter: none;
 }
 
@@ -465,9 +476,11 @@ body {
   }
 
   .mobile-header .logo {
-    width: auto;
-    height: 58px;
-    max-height: 58px;
+    width: 88px;
+    height: auto;
+    max-width: 88px;
+    max-height: none;
+    object-fit: contain;
   }
 }
 
