@@ -241,22 +241,22 @@
     <section class="fin-section" id="financing-estimate">
       <div class="fin-wrap finance-lead-layout">
         <div>
-          <span class="eyebrow" style="color:#9a5600">Estimate plus financing interest</span>
-          <h2>Request a roofing estimate and tell Zenith you want financing</h2>
-          <p class="lead">Use this form when you need a roofing estimate and also want to discuss payment options. Your request will go directly into Zenith’s lead system with your financing interest clearly identified.</p>
-          <div class="finance-interest-note"><strong>Financing interest is added automatically.</strong> You do not need to type it in the project description. This form requests a roofing estimate; it does not submit a credit application or guarantee financing approval.</div>
+          <span class="eyebrow" style="color:#9a5600">Estimate with payment options</span>
+          <h2>Request a roofing estimate and explore payment options</h2>
+          <p class="lead">Use this form when you need a roofing estimate and would also like to discuss flexible payment options. Your request will go directly into Zenith’s lead system with that preference clearly noted.</p>
+          <div class="finance-interest-note"><strong>Your request for payment options is added automatically.</strong> You do not need to repeat it in the project description. This form requests a roofing estimate; it does not submit a credit application or guarantee financing approval.</div>
           <div class="internal-links">
             <a class="wisetack-link" href="https://wisetack.us/#/s7e1fo0/prequalify" target="_blank" rel="noopener sponsored">Prefer to check eligibility first? Open Wisetack</a>
           </div>
         </div>
         <div class="finance-form-card">
-          <h3>Roofing estimate with financing interest</h3>
+          <h3>Roofing estimate and payment options</h3>
           <p>Required fields are marked with an asterisk. Your California address and contact details will populate the matching JobNimbus fields.</p>
           <form id="financing-lead-form" class="finance-form" novalidate>
             <div class="finance-form-grid">
               <div class="finance-form-field"><label for="fin-first-name">First name *</label><input id="fin-first-name" name="first_name" autocomplete="given-name" required></div>
               <div class="finance-form-field"><label for="fin-last-name">Last name *</label><input id="fin-last-name" name="last_name" autocomplete="family-name" required></div>
-              <div class="finance-form-field"><label for="fin-phone">Phone number *</label><input id="fin-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="[0-9() +.-]{10,}" required></div>
+              <div class="finance-form-field"><label for="fin-phone">Phone number *</label><input id="fin-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(760) 555-1234" pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}" maxlength="14" required></div>
               <div class="finance-form-field"><label for="fin-email">Email address *</label><input id="fin-email" name="email" type="email" autocomplete="email" required></div>
               <div class="finance-form-field full"><label for="fin-street">Street address *</label><input id="fin-street" name="street_address" autocomplete="street-address" required></div>
               <div class="finance-form-field"><label for="fin-city">City *</label><input id="fin-city" name="city" autocomplete="address-level2" required></div>
@@ -265,7 +265,7 @@
               <div class="finance-form-field full"><label for="fin-description">Tell us about the roof or project *</label><textarea id="fin-description" name="description" placeholder="Leaks, roof type, approximate age, timing, or anything else we should know" required></textarea></div>
             </div>
             <input type="hidden" name="state" value="CA">
-            <div class="g-recaptcha" data-sitekey="6LfD_borAAAAAFEtGO9x__VXAbvSjDYRiVaVpea5" style="margin-top:18px"></div>
+            <div class="g-recaptcha" data-sitekey="6LclaJ4rAAAAAEMe8ppXrEJvIgLeFVxgmkq4DBrI" style="margin-top:18px"></div>
             <button class="fin-btn fin-btn-primary finance-form-submit" type="submit">Request My Roofing Estimate</button>
             <div id="financing-form-status" class="finance-form-status" role="status" aria-live="polite"></div>
             <p class="form-privacy">Your information is used to respond to your roofing request. Submitting this form does not apply for credit. Financing applications are completed securely through Wisetack.</p>
@@ -381,10 +381,48 @@
     document.addEventListener('DOMContentLoaded',function(){
       const numberInput=document.getElementById('project-amount');
       const rangeInput=document.getElementById('project-amount-range');
+      const phoneInput=document.getElementById('fin-phone');
+      const zipInput=document.getElementById('fin-zip');
+      const cityInput=document.getElementById('fin-city');
       if(numberInput&&rangeInput){
         renderCalculator(numberInput.value);
         rangeInput.addEventListener('input',()=>renderCalculator(rangeInput.value));
         numberInput.addEventListener('change',()=>renderCalculator(numberInput.value));
+      }
+      if(phoneInput){
+        phoneInput.addEventListener('input',function(){
+          const digits=this.value.replace(/\D/g,'').slice(0,10);
+          if(digits.length<4)this.value=digits;
+          else if(digits.length<7)this.value='('+digits.slice(0,3)+') '+digits.slice(3);
+          else this.value='('+digits.slice(0,3)+') '+digits.slice(3,6)+'-'+digits.slice(6);
+        });
+      }
+      let zipRequest=0;
+      async function populateCityFromZip(){
+        if(!zipInput||!cityInput)return;
+        const zip=zipInput.value.replace(/\D/g,'').slice(0,5);
+        zipInput.value=zip;
+        cityInput.setCustomValidity('');
+        zipInput.setCustomValidity('');
+        if(zip.length!==5)return;
+        const request=++zipRequest;
+        try{
+          const response=await fetch('https://api.zippopotam.us/us/'+zip);
+          if(request!==zipRequest)return;
+          if(!response.ok)throw new Error('ZIP not found');
+          const result=await response.json();
+          const place=result.places&&result.places[0];
+          if(!place||place['state abbreviation']!=='CA')throw new Error('Not a California ZIP');
+          cityInput.value=place['place name']||'';
+        }catch(error){
+          if(request!==zipRequest)return;
+          cityInput.value='';
+          zipInput.setCustomValidity('Enter a valid California ZIP code.');
+        }
+      }
+      if(zipInput){
+        zipInput.addEventListener('input',populateCityFromZip);
+        zipInput.addEventListener('blur',populateCityFromZip);
       }
     });
     document.addEventListener('submit',async function(e){
@@ -406,7 +444,7 @@
       const isGoogleAd=Boolean(gclid)||(/google/i.test(utmSource)&&/(cpc|ppc|paid)/i.test(utmMedium));
       const projectNotes=String(fd.get('description')||'').trim();
       const description=[
-        'Financing Interest: Yes',
+        'Payment Options Requested: Yes',
         'Customer submitted the roof financing page estimate form.',
         'Project details: '+projectNotes,
         'Campaign: '+(params.get('utm_campaign')||'not provided'),
@@ -416,7 +454,7 @@
       const payload={
         first_name:String(fd.get('first_name')||'').trim(),
         last_name:String(fd.get('last_name')||'').trim(),
-        phone:String(fd.get('phone')||'').trim(),
+        phone:String(fd.get('phone')||'').replace(/\D/g,''),
         email:String(fd.get('email')||'').trim(),
         street_address:String(fd.get('street_address')||'').trim(),
         city:String(fd.get('city')||'').trim(),
@@ -436,7 +474,7 @@
         const result=await response.json().catch(()=>({}));
         if(!response.ok||result.ok===false)throw new Error(result.error||'Unable to send your request.');
         status.classList.add('success');
-        status.textContent='Thank you. Your roofing estimate request and financing interest were sent to Zenith.';
+        status.textContent='Thank you. Your roofing estimate request and request to discuss payment options were sent to Zenith.';
         window.dataLayer=window.dataLayer||[];
         window.dataLayer.push({event:'financing_estimate_lead',service_type:payload.service_type,lead_source:payload.referral_source});
         form.reset();form.classList.remove('was-validated');
