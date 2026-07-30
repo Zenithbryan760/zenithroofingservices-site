@@ -72,7 +72,15 @@
   });
 
   document.querySelectorAll(".track-financing").forEach((link) => {
-    link.addEventListener("click", () => event("wisetack_prequal_click", { page_path: location.pathname }));
+    link.addEventListener("click", () => {
+      event("wisetack_prequal_click", { page_path: location.pathname });
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "conversion", {
+          send_to: "AW-574510700/VZ4dCIL0n9kcEOys-ZEC",
+          transport_type: "beacon"
+        });
+      }
+    });
   });
 
   const setMessage = (text, type) => {
