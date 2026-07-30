@@ -142,7 +142,26 @@
     .fin-note{padding:18px 20px;border-left:5px solid var(--orange);background:#fff7ea;color:#44331c;margin-top:28px}
     .internal-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px}
     .internal-links a{font-weight:750;color:#075fa9}
-    @media(max-width:800px){.benefits,.steps,.services,.calc-layout{grid-template-columns:1fr}.calc-layout{gap:26px}.calculator{padding:20px}.amount-row{grid-template-columns:1fr}.fin-hero{padding-top:92px}.fin-wrap{width:min(100% - 28px,1120px)}}
+    .finance-lead-layout{display:grid;grid-template-columns:minmax(0,.72fr) minmax(520px,1.28fr);gap:42px;align-items:start}
+    .finance-form-card{background:#fff;border:1px solid #d7e0ea;border-radius:16px;padding:30px;box-shadow:0 12px 34px rgba(7,46,89,.1)}
+    .finance-form-card h3{margin:0 0 6px;color:var(--navy);font-size:1.45rem}
+    .finance-form-card>p{margin:0 0 22px;color:var(--muted)}
+    .finance-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .finance-form-field{display:flex;flex-direction:column;gap:6px}
+    .finance-form-field.full{grid-column:1/-1}
+    .finance-form-field label{font-weight:750;color:var(--navy)}
+    .finance-form-field input,.finance-form-field select,.finance-form-field textarea{width:100%;padding:13px 14px;border:2px solid #ccd7e4;border-radius:8px;background:#fff;color:var(--ink);font:inherit}
+    .finance-form-field textarea{min-height:118px;resize:vertical}
+    .finance-form-field input:focus,.finance-form-field select:focus,.finance-form-field textarea:focus{outline:3px solid rgba(255,148,24,.22);border-color:var(--orange)}
+    .finance-form.was-validated :invalid{border-color:#c62828;background:#fff7f7;box-shadow:0 0 0 2px rgba(198,40,40,.12)}
+    .finance-form-status{min-height:24px;margin:14px 0 0;font-weight:750}
+    .finance-form-status.error{color:#a61b1b}
+    .finance-form-status.success{color:#087c55}
+    .finance-form-submit{width:100%;border:0;cursor:pointer;margin-top:16px}
+    .finance-form-submit:disabled{opacity:.65;cursor:wait}
+    .form-privacy{font-size:.78rem;color:var(--muted);line-height:1.5;margin:12px 0 0}
+    .finance-interest-note{padding:18px;border-left:5px solid var(--orange);background:#fff7ea;color:#44331c;margin-top:22px}
+    @media(max-width:800px){.benefits,.steps,.services,.calc-layout,.finance-lead-layout{grid-template-columns:1fr}.calc-layout,.finance-lead-layout{gap:26px}.calculator,.finance-form-card{padding:20px}.amount-row,.finance-form-grid{grid-template-columns:1fr}.finance-form-field.full{grid-column:auto}.fin-hero{padding-top:92px}.fin-wrap{width:min(100% - 28px,1120px)}}
   </style>
 </head>
 <body>
@@ -156,7 +175,7 @@
         <div class="fin-actions">
           <a class="fin-btn fin-btn-primary wisetack-link" href="https://wisetack.us/#/s7e1fo0/prequalify" target="_blank" rel="noopener sponsored">Check My Financing Options</a>
           <a class="fin-btn fin-btn-secondary" href="#payment-calculator">Estimate Monthly Payments</a>
-          <a class="fin-btn fin-btn-secondary" href="/#roofing-estimate">Request a Roofing Estimate</a>
+          <a class="fin-btn fin-btn-secondary" href="#financing-estimate">Request a Roofing Estimate</a>
         </div>
         <div class="fin-trust">Checking eligibility does not affect your credit score. Financing is subject to credit approval.</div>
       </div>
@@ -201,6 +220,43 @@
             </table>
           </div>
           <p class="calc-disclaimer">Illustrative estimates only. Not all terms are available for every amount or applicant. Financing is subject to credit approval. Checking eligibility does not affect your credit score; accepting an offer may involve additional credit review.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="fin-section" id="financing-estimate">
+      <div class="fin-wrap finance-lead-layout">
+        <div>
+          <span class="eyebrow" style="color:#9a5600">Estimate plus financing interest</span>
+          <h2>Request a roofing estimate and tell Zenith you want financing</h2>
+          <p class="lead">Use this form when you need a roofing estimate and also want to discuss payment options. Your request will go directly into Zenith’s lead system with your financing interest clearly identified.</p>
+          <div class="finance-interest-note"><strong>Financing interest is added automatically.</strong> You do not need to type it in the project description. This form requests a roofing estimate; it does not submit a credit application or guarantee financing approval.</div>
+          <div class="internal-links">
+            <a class="wisetack-link" href="https://wisetack.us/#/s7e1fo0/prequalify" target="_blank" rel="noopener sponsored">Prefer to check eligibility first? Open Wisetack</a>
+          </div>
+        </div>
+        <div class="finance-form-card">
+          <h3>Roofing estimate with financing interest</h3>
+          <p>Required fields are marked with an asterisk. Your California address and contact details will populate the matching JobNimbus fields.</p>
+          <form id="financing-lead-form" class="finance-form" novalidate>
+            <div class="finance-form-grid">
+              <div class="finance-form-field"><label for="fin-first-name">First name *</label><input id="fin-first-name" name="first_name" autocomplete="given-name" required></div>
+              <div class="finance-form-field"><label for="fin-last-name">Last name *</label><input id="fin-last-name" name="last_name" autocomplete="family-name" required></div>
+              <div class="finance-form-field"><label for="fin-phone">Phone number *</label><input id="fin-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="[0-9() +.-]{10,}" required></div>
+              <div class="finance-form-field"><label for="fin-email">Email address *</label><input id="fin-email" name="email" type="email" autocomplete="email" required></div>
+              <div class="finance-form-field full"><label for="fin-street">Street address *</label><input id="fin-street" name="street_address" autocomplete="street-address" required></div>
+              <div class="finance-form-field"><label for="fin-city">City *</label><input id="fin-city" name="city" autocomplete="address-level2" required></div>
+              <div class="finance-form-field"><label for="fin-zip">California ZIP code *</label><input id="fin-zip" name="zip" autocomplete="postal-code" inputmode="numeric" pattern="9[0-6][0-9]{3}" maxlength="5" required></div>
+              <div class="finance-form-field full"><label for="fin-service">Roofing service *</label><select id="fin-service" name="service_type" required><option value="">Choose a service</option><option>Roof Replacement</option><option>Roof Repair</option><option>Tile Lift and Relay</option><option>Flat or Low-Slope Roofing</option><option>Roof Inspection</option><option>Not Sure Yet</option></select></div>
+              <div class="finance-form-field full"><label for="fin-description">Tell us about the roof or project *</label><textarea id="fin-description" name="description" placeholder="Leaks, roof type, approximate age, timing, or anything else we should know" required></textarea></div>
+            </div>
+            <input type="hidden" name="state" value="CA">
+            <div class="g-recaptcha" data-sitekey="6LfD_borAAAAAFEtGO9x__VXAbvSjDYRiVaVpea5" style="margin-top:18px"></div>
+            <button class="fin-btn fin-btn-primary finance-form-submit" type="submit">Request My Roofing Estimate</button>
+            <div id="financing-form-status" class="finance-form-status" role="status" aria-live="polite"></div>
+            <p class="form-privacy">Your information is used to respond to your roofing request. Submitting this form does not apply for credit. Financing applications are completed securely through Wisetack.</p>
+          </form>
         </div>
       </div>
     </section>
@@ -318,6 +374,65 @@
         numberInput.addEventListener('change',()=>renderCalculator(numberInput.value));
       }
     });
+    document.addEventListener('submit',async function(e){
+      const form=e.target.closest('#financing-lead-form');
+      if(!form)return;
+      e.preventDefault();
+      form.classList.add('was-validated');
+      const status=document.getElementById('financing-form-status');
+      status.className='finance-form-status';
+      status.textContent='';
+      if(!form.checkValidity()){form.reportValidity();status.classList.add('error');status.textContent='Please complete the required fields highlighted in red.';return;}
+      const captcha=typeof grecaptcha!=='undefined'?grecaptcha.getResponse():'';
+      if(!captcha){status.classList.add('error');status.textContent='Please complete the “I’m not a robot” check.';return;}
+      const fd=new FormData(form);
+      const params=new URLSearchParams(location.search);
+      const gclid=params.get('gclid')||'';
+      const utmSource=params.get('utm_source')||'';
+      const utmMedium=params.get('utm_medium')||'';
+      const isGoogleAd=Boolean(gclid)||(/google/i.test(utmSource)&&/(cpc|ppc|paid)/i.test(utmMedium));
+      const projectNotes=String(fd.get('description')||'').trim();
+      const description=[
+        'Financing Interest: Yes',
+        'Customer submitted the roof financing page estimate form.',
+        'Project details: '+projectNotes,
+        'Campaign: '+(params.get('utm_campaign')||'not provided'),
+        'Keyword: '+(params.get('utm_term')||'not provided'),
+        'GCLID: '+(gclid||'not provided')
+      ].join('\n');
+      const payload={
+        first_name:String(fd.get('first_name')||'').trim(),
+        last_name:String(fd.get('last_name')||'').trim(),
+        phone:String(fd.get('phone')||'').trim(),
+        email:String(fd.get('email')||'').trim(),
+        street_address:String(fd.get('street_address')||'').trim(),
+        city:String(fd.get('city')||'').trim(),
+        state:'CA',
+        zip:String(fd.get('zip')||'').trim(),
+        service_type:String(fd.get('service_type')||'').trim(),
+        referral_source:isGoogleAd?'Google Search Ads':'Website Contact Form',
+        description:description,
+        token:captcha,
+        page:location.href
+      };
+      const button=form.querySelector('button[type="submit"]');
+      const originalText=button.textContent;
+      button.disabled=true;button.textContent='Sending…';
+      try{
+        const response=await fetch('/.netlify/functions/jn-create-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+        const result=await response.json().catch(()=>({}));
+        if(!response.ok||result.ok===false)throw new Error(result.error||'Unable to send your request.');
+        status.classList.add('success');
+        status.textContent='Thank you. Your roofing estimate request and financing interest were sent to Zenith.';
+        window.dataLayer=window.dataLayer||[];
+        window.dataLayer.push({event:'financing_estimate_lead',service_type:payload.service_type,lead_source:payload.referral_source});
+        form.reset();form.classList.remove('was-validated');
+        if(typeof grecaptcha!=='undefined')grecaptcha.reset();
+      }catch(err){
+        status.classList.add('error');
+        status.textContent=err.message||'We could not send your request. Please call 858-900-6163.';
+      }finally{button.disabled=false;button.textContent=originalText;}
+    });
     document.addEventListener('click',function(e){
       const link=e.target.closest('.wisetack-link');
       if(!link)return;
@@ -326,6 +441,7 @@
       if(typeof gtag==='function')gtag('event','wisetack_prequalification_click',{event_category:'Financing',event_label:location.pathname,transport_type:'beacon'});
     });
   </script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="/js/header.js" defer></script>
   <script src="/js/footer.js" defer></script>
 </body>
