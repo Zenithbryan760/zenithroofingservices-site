@@ -218,7 +218,9 @@ exports.handler = async (event) => {
       zip:           addressObj.zip,
 
       // UI fields that show up in the modal
-      lead_source: (data.referral_source || '').trim(),
+      lead_source:      referralSource,
+      lead_source_name: referralSource,
+      source_name:       referralSource,
       description: combinedDescription,           // ✅ includes ALL fields for backup
       website:     (data.page || '').trim(),
       company:     (data.company || '').trim(),
