@@ -537,7 +537,10 @@
       if(!link)return;
       window.dataLayer=window.dataLayer||[];
       window.dataLayer.push({event:'wisetack_prequalification_click',page_path:location.pathname,link_url:link.href});
-      if(typeof gtag==='function')gtag('event','wisetack_prequalification_click',{event_category:'Financing',event_label:location.pathname,transport_type:'beacon'});
+      if(typeof gtag==='function'){
+        gtag('event','wisetack_prequalification_click',{event_category:'Financing',event_label:location.pathname,transport_type:'beacon'});
+        gtag('event','conversion',{send_to:'AW-574510700/VZ4dCIL0n9kcEOys-ZEC',transport_type:'beacon'});
+      }
     });
   </script>
   <script src="https://www.google.com/recaptcha/api.js?onload=onFinancingRecaptchaLoaded&render=explicit" async defer></script>
