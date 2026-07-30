@@ -265,7 +265,7 @@
               <div class="finance-form-field full"><label for="fin-description">Tell us about the roof or project *</label><textarea id="fin-description" name="description" placeholder="Leaks, roof type, approximate age, timing, or anything else we should know" required></textarea></div>
             </div>
             <input type="hidden" name="state" value="CA">
-            <div class="g-recaptcha" data-sitekey="6LfD_borAAAAAFEtGO9x__VXAbvSjDYRiVaVpea5" style="margin-top:18px"></div>
+            <div id="financing-recaptcha" data-sitekey="6LfD_borAAAAAFEtGO9x__VXAbvSjDYRiVaVpea5" style="margin-top:18px"></div>
             <button class="fin-btn fin-btn-primary finance-form-submit" type="submit">Request My Roofing Estimate</button>
             <div id="financing-form-status" class="finance-form-status" role="status" aria-live="polite"></div>
             <p class="form-privacy">Your information is used to respond to your roofing request. Submitting this form does not apply for credit. Financing applications are completed securely through Wisetack.</p>
@@ -425,6 +425,12 @@
         zipInput.addEventListener('blur',populateCityFromZip);
       }
     });
+    let financingRecaptchaId=null;
+    window.onFinancingRecaptchaLoaded=function(){
+      const holder=document.getElementById('financing-recaptcha');
+      if(!holder||typeof grecaptcha==='undefined'||financingRecaptchaId!==null)return;
+      financingRecaptchaId=grecaptcha.render(holder,{sitekey:holder.dataset.sitekey});
+    };
     document.addEventListener('submit',async function(e){
       const form=e.target.closest('#financing-lead-form');
       if(!form)return;
@@ -434,7 +440,8 @@
       status.className='finance-form-status';
       status.textContent='';
       if(!form.checkValidity()){form.reportValidity();status.classList.add('error');status.textContent='Please complete the required fields highlighted in red.';return;}
-      const captcha=typeof grecaptcha!=='undefined'?grecaptcha.getResponse():'';
+      const captcha=typeof grecaptcha!=='undefined'&&financingRecaptchaId!==null
+        ?grecaptcha.getResponse(financingRecaptchaId):'';
       if(!captcha){status.classList.add('error');status.textContent='Please complete the “I’m not a robot” check.';return;}
       const fd=new FormData(form);
       const params=new URLSearchParams(location.search);
@@ -478,7 +485,7 @@
         window.dataLayer=window.dataLayer||[];
         window.dataLayer.push({event:'financing_estimate_lead',service_type:payload.service_type,lead_source:payload.referral_source});
         form.reset();form.classList.remove('was-validated');
-        if(typeof grecaptcha!=='undefined')grecaptcha.reset();
+        if(typeof grecaptcha!=='undefined'&&financingRecaptchaId!==null)grecaptcha.reset(financingRecaptchaId);
       }catch(err){
         status.classList.add('error');
         status.textContent=err.message||'We could not send your request. Please call 858-900-6163.';
@@ -492,7 +499,7 @@
       if(typeof gtag==='function')gtag('event','wisetack_prequalification_click',{event_category:'Financing',event_label:location.pathname,transport_type:'beacon'});
     });
   </script>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onFinancingRecaptchaLoaded&render=explicit" async defer></script>
   <script src="/js/header.js" defer></script>
   <script src="/js/footer.js" defer></script>
 </body>

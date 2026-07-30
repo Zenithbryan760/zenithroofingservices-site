@@ -4,6 +4,15 @@
   const form = document.getElementById("ad-estimate-form");
   if (!form) return;
 
+  let recaptchaId = null;
+  window.onRoofReplacementRecaptchaLoaded = () => {
+    const holder = document.getElementById("roof-replacement-recaptcha");
+    if (!holder || !window.grecaptcha || recaptchaId !== null) return;
+    recaptchaId = window.grecaptcha.render(holder, {
+      sitekey: holder.dataset.sitekey
+    });
+  };
+
   const message = form.querySelector(".form-message");
   const button = form.querySelector('button[type="submit"]');
   const params = new URLSearchParams(location.search);
@@ -41,7 +50,9 @@
 
     let token = "";
     if (window.grecaptcha && typeof window.grecaptcha.getResponse === "function") {
-      token = window.grecaptcha.getResponse() || "";
+      token = recaptchaId !== null
+        ? window.grecaptcha.getResponse(recaptchaId) || ""
+        : "";
     }
     if (!token) {
       setMessage("Please complete the reCAPTCHA before submitting.", "error");
@@ -91,7 +102,9 @@
         keyword: fd.get("utm_term") || ""
       });
       form.reset();
-      if (window.grecaptcha) window.grecaptcha.reset();
+      if (window.grecaptcha && recaptchaId !== null) {
+        window.grecaptcha.reset(recaptchaId);
+      }
       setMessage("Thank you. Your request was sent to Zenith Roofing Services.", "success");
     } catch (error) {
       console.error(error);
