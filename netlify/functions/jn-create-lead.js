@@ -182,7 +182,6 @@ exports.handler = async (event) => {
     ].filter(Boolean);
     const combinedDescription = descLines.join('\n');
 
-
     // ---- Build unique display_name (base + last4 or city) ----
     const baseName =
       [first, last].filter(Boolean).join(' ').trim() ||
