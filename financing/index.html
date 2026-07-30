@@ -425,7 +425,7 @@
         service_type:String(fd.get('service_type')||'').trim(),
         referral_source:isGoogleAd?'Google Search Ads':'Website Contact Form',
         description:description,
-        token:captcha,
+        recaptcha_token:captcha,
         page:location.href
       };
       const button=form.querySelector('button[type="submit"]');
