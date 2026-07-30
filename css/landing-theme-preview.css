@@ -40,7 +40,7 @@ body {
 }
 
 .header .header-inner > .logo-section .logo {
-  height: 60px;
+  height: 68px;
   filter: none;
 }
 
@@ -465,8 +465,9 @@ body {
   }
 
   .mobile-header .logo {
-    width: 62px;
-    height: 62px;
+    width: auto;
+    height: 58px;
+    max-height: 58px;
   }
 }
 
