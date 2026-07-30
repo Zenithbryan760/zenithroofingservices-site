@@ -35,7 +35,6 @@
     message.className = `form-message ${type}`;
   };
 
-
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     form.classList.add("has-errors");
