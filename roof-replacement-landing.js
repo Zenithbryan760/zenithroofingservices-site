@@ -90,6 +90,11 @@
         campaign: fd.get("utm_campaign") || "",
         keyword: fd.get("utm_term") || ""
       });
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "conversion", {
+          send_to: "AW-574510700/C2wlCJGW2NgcEOys-ZEC"
+        });
+      }
       form.reset();
       if (window.grecaptcha) window.grecaptcha.reset();
       setMessage("Thank you. Your request was sent to Zenith Roofing Services.", "success");
