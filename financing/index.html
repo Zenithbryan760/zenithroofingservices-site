@@ -256,7 +256,7 @@
             <div class="finance-form-grid">
               <div class="finance-form-field"><label for="fin-first-name">First name *</label><input id="fin-first-name" name="first_name" autocomplete="given-name" required></div>
               <div class="finance-form-field"><label for="fin-last-name">Last name *</label><input id="fin-last-name" name="last_name" autocomplete="family-name" required></div>
-              <div class="finance-form-field"><label for="fin-phone">Phone number *</label><input id="fin-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(760) 555-1234" pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}" maxlength="14" required></div>
+              <div class="finance-form-field"><label for="fin-phone">Phone number *</label><input id="fin-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(760) 555-1234" pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}" maxlength="18" required></div>
               <div class="finance-form-field"><label for="fin-email">Email address *</label><input id="fin-email" name="email" type="email" autocomplete="email" required></div>
               <div class="finance-form-field full"><label for="fin-street">Street address *</label><input id="fin-street" name="street_address" autocomplete="street-address" required></div>
               <div class="finance-form-field"><label for="fin-city">City *</label><input id="fin-city" name="city" autocomplete="address-level2" required></div>
@@ -426,10 +426,47 @@
       }
     });
     let financingRecaptchaId=null;
+    const financingPhone=document.getElementById('fin-phone');
+    const phoneDigits=function(value){
+      let digits=String(value||'').replace(/\D/g,'');
+      if(digits.length===11&&digits.startsWith('1'))digits=digits.slice(1);
+      return digits.slice(0,10);
+    };
+    const formatPhone=function(value){
+      const digits=phoneDigits(value);
+      if(digits.length<4)return digits;
+      if(digits.length<7)return '('+digits.slice(0,3)+') '+digits.slice(3);
+      return '('+digits.slice(0,3)+') '+digits.slice(3,6)+'-'+digits.slice(6);
+    };
+    const validatePhone=function(){
+      if(!financingPhone)return true;
+      financingPhone.value=formatPhone(financingPhone.value);
+      const digits=phoneDigits(financingPhone.value);
+      const valid=/^[2-9]\d{2}[2-9]\d{6}$/.test(digits);
+      financingPhone.setCustomValidity(valid?'':'Enter a valid 10-digit US phone number.');
+      return valid;
+    };
+    if(financingPhone){
+      financingPhone.addEventListener('input',function(){
+        financingPhone.value=formatPhone(financingPhone.value);
+        financingPhone.setCustomValidity('');
+      });
+      financingPhone.addEventListener('blur',validatePhone);
+    }
     window.onFinancingRecaptchaLoaded=function(){
       const holder=document.getElementById('financing-recaptcha');
       if(!holder||typeof grecaptcha==='undefined'||financingRecaptchaId!==null)return;
-      financingRecaptchaId=grecaptcha.render(holder,{sitekey:holder.dataset.sitekey});
+      financingRecaptchaId=grecaptcha.render(holder,{
+        sitekey:holder.dataset.sitekey,
+        'expired-callback':function(){
+          const status=document.getElementById('financing-form-status');
+          if(status){status.className='finance-form-status error';status.textContent='reCAPTCHA expired. Please check the box again.';}
+        },
+        'error-callback':function(){
+          const status=document.getElementById('financing-form-status');
+          if(status){status.className='finance-form-status error';status.textContent='reCAPTCHA could not load. Please refresh the page and try again.';}
+        }
+      });
     };
     document.addEventListener('submit',async function(e){
       const form=e.target.closest('#financing-lead-form');
@@ -439,6 +476,7 @@
       const status=document.getElementById('financing-form-status');
       status.className='finance-form-status';
       status.textContent='';
+      validatePhone();
       if(!form.checkValidity()){form.reportValidity();status.classList.add('error');status.textContent='Please complete the required fields highlighted in red.';return;}
       const captcha=typeof grecaptcha!=='undefined'&&financingRecaptchaId!==null
         ?grecaptcha.getResponse(financingRecaptchaId):'';
@@ -485,11 +523,14 @@
         window.dataLayer=window.dataLayer||[];
         window.dataLayer.push({event:'financing_estimate_lead',service_type:payload.service_type,lead_source:payload.referral_source});
         form.reset();form.classList.remove('was-validated');
-        if(typeof grecaptcha!=='undefined'&&financingRecaptchaId!==null)grecaptcha.reset(financingRecaptchaId);
       }catch(err){
         status.classList.add('error');
         status.textContent=err.message||'We could not send your request. Please call 858-900-6163.';
-      }finally{button.disabled=false;button.textContent=originalText;}
+      }finally{
+        // reCAPTCHA tokens are single-use. Always reset so a corrected form can be retried.
+        if(typeof grecaptcha!=='undefined'&&financingRecaptchaId!==null)grecaptcha.reset(financingRecaptchaId);
+        button.disabled=false;button.textContent=originalText;
+      }
     });
     document.addEventListener('click',function(e){
       const link=e.target.closest('.wisetack-link');
