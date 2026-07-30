@@ -9,12 +9,48 @@
     const holder = document.getElementById("roof-replacement-recaptcha");
     if (!holder || !window.grecaptcha || recaptchaId !== null) return;
     recaptchaId = window.grecaptcha.render(holder, {
-      sitekey: holder.dataset.sitekey
+      sitekey: holder.dataset.sitekey,
+      "expired-callback": () => {
+        setMessage("reCAPTCHA expired. Please check the box again.", "error");
+      },
+      "error-callback": () => {
+        setMessage("reCAPTCHA could not load. Please refresh the page and try again.", "error");
+      }
     });
   };
 
   const message = form.querySelector(".form-message");
   const button = form.querySelector('button[type="submit"]');
+  const phoneInput = form.querySelector('input[name="phone"]');
+
+  const phoneDigits = (value) => {
+    let digits = String(value || "").replace(/\D/g, "");
+    if (digits.length === 11 && digits.startsWith("1")) digits = digits.slice(1);
+    return digits.slice(0, 10);
+  };
+
+  const formatPhone = (value) => {
+    const digits = phoneDigits(value);
+    if (digits.length < 4) return digits;
+    if (digits.length < 7) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+  };
+
+  const validatePhone = () => {
+    if (!phoneInput) return true;
+    phoneInput.value = formatPhone(phoneInput.value);
+    const valid = /^[2-9]\d{2}[2-9]\d{6}$/.test(phoneDigits(phoneInput.value));
+    phoneInput.setCustomValidity(valid ? "" : "Enter a valid 10-digit US phone number.");
+    return valid;
+  };
+
+  if (phoneInput) {
+    phoneInput.addEventListener("input", () => {
+      phoneInput.value = formatPhone(phoneInput.value);
+      phoneInput.setCustomValidity("");
+    });
+    phoneInput.addEventListener("blur", validatePhone);
+  }
   const params = new URLSearchParams(location.search);
   const campaignKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"];
 
@@ -47,6 +83,7 @@
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     form.classList.add("has-errors");
+    validatePhone();
     if (!form.reportValidity()) return;
 
     let token = "";
@@ -109,9 +146,6 @@
       }
       form.reset();
       form.classList.remove("has-errors");
-      if (window.grecaptcha && recaptchaId !== null) {
-        window.grecaptcha.reset(recaptchaId);
-      }
       setMessage("Thank you. Your request was sent to Zenith Roofing Services.", "success");
     } catch (error) {
       console.error(error);
@@ -127,6 +161,10 @@
         "error"
       );
     } finally {
+      // reCAPTCHA tokens are single-use. Always reset so a corrected form can be retried.
+      if (window.grecaptcha && recaptchaId !== null) {
+        window.grecaptcha.reset(recaptchaId);
+      }
       button.disabled = false;
       button.textContent = "Request My Free Estimate";
     }

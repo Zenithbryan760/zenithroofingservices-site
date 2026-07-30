@@ -47,7 +47,11 @@
   // ---------- Field validation ----------
   const emailOK = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
   const zipOK   = (v) => /^\d{5}(-?\d{4})?$/.test(v);
-  const cleanDigits = (v) => (v || '').replace(/\D+/g, '');
+  const cleanDigits = (v) => {
+    let digits = (v || '').replace(/\D+/g, '');
+    if (digits.length === 11 && digits.startsWith('1')) digits = digits.slice(1);
+    return digits.slice(0, 10);
+  };
 
   function validateForm(form) {
     hideError(form);
@@ -75,11 +79,12 @@
       return false;
     }
 
-    const phoneRaw = $('#phone', form).value;
-    const phoneDigits = cleanDigits(phoneRaw);
-    if (phoneDigits.length < 10) {
-      showError(form, 'Please enter a valid phone number (10 digits).');
-      $('#phone', form).focus();
+    const phoneInput = $('#phone', form);
+    phoneInput.value = formatPhone(phoneInput.value);
+    const phoneDigits = cleanDigits(phoneInput.value);
+    if (!/^[2-9]\d{2}[2-9]\d{6}$/.test(phoneDigits)) {
+      showError(form, 'Please enter a valid 10-digit US phone number.');
+      phoneInput.focus();
       return false;
     }
 
@@ -94,16 +99,15 @@
   }
 
   // ---------- Phone masking ----------
+  function formatPhone(value) {
+    const digits = cleanDigits(value);
+    if (digits.length < 4) return digits;
+    if (digits.length < 7) return `(${digits.slice(0,3)}) ${digits.slice(3)}`;
+    return `(${digits.slice(0,3)}) ${digits.slice(3,6)}-${digits.slice(6)}`;
+  }
+
   function maskPhoneInput(e) {
-    const input = e.target;
-    const digits = input.value.replace(/\D+/g, '').slice(0, 10);
-    let out = digits;
-
-    if (digits.length > 6) out = `(${digits.slice(0,3)}) ${digits.slice(3,6)}-${digits.slice(6)}`;
-    else if (digits.length > 3) out = `(${digits.slice(0,3)}) ${digits.slice(3)}`;
-    else if (digits.length > 0) out = `(${digits}`;
-
-    input.value = out;
+    e.target.value = formatPhone(e.target.value);
   }
 
   // ---------- ZIP → City/State autofill ----------  // NEW
@@ -146,7 +150,11 @@
     if (!sitekey) return;
 
     try {
-      window._recaptchaWidgetId = window.grecaptcha.render(container, { sitekey });
+      window._recaptchaWidgetId = window.grecaptcha.render(container, {
+        sitekey,
+        'expired-callback': () => showError(document.getElementById('estimate-form'), 'reCAPTCHA expired. Please check the box again.'),
+        'error-callback': () => showError(document.getElementById('estimate-form'), 'reCAPTCHA could not load. Please refresh the page and try again.')
+      });
     } catch (e) {
       // noop
     }
@@ -243,19 +251,21 @@
       form.reset();
       hideError(form);
 
-      if (window.grecaptcha &&
-          typeof window.grecaptcha.reset === 'function' &&
-          typeof window._recaptchaWidgetId !== 'undefined') {
-        window.grecaptcha.reset(window._recaptchaWidgetId);
-      } else {
-        const t = document.querySelector('textarea[name="g-recaptcha-response"]');
-        if (t) t.value = '';
-      }
 
     } catch (err) {
       console.error(err);
       showError(form, 'Network error. Please try again.');
     } finally {
+      // reCAPTCHA tokens are single-use. Always reset so corrections can be retried.
+      if (window.grecaptcha && typeof window.grecaptcha.reset === 'function') {
+        if (typeof window._recaptchaWidgetId !== 'undefined') {
+          window.grecaptcha.reset(window._recaptchaWidgetId);
+        } else {
+          window.grecaptcha.reset();
+        }
+      }
+      const captchaField = document.querySelector('textarea[name="g-recaptcha-response"]');
+      if (captchaField) captchaField.value = '';
       if (submitBtn && originalText) {
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;

@@ -45,7 +45,11 @@ const parseBody = (event) => {
 
 // ===== Helpers =====
 const onlyDigits = (s) => (s || '').replace(/\D+/g, '');
-const normalizePhone = (s) => onlyDigits(s).slice(0, 10);
+const normalizePhone = (s) => {
+  let digits = onlyDigits(s);
+  if (digits.length === 11 && digits.startsWith('1')) digits = digits.slice(1);
+  return digits.slice(0, 10);
+};
 
 exports.handler = async (event) => {
   const origin = event.headers?.origin || event.headers?.Origin || '';
@@ -74,35 +78,6 @@ exports.handler = async (event) => {
       .trim()
       .replace(/^bearer\s+/i, '');
     const contactEndpoint = JN_CONTACT_ENDPOINT.trim();
-
-    // ---- reCAPTCHA (if enabled) ----
-    if (RECAPTCHA_SECRET) {
-      const token = (data.recaptcha_token || '').trim();
-      if (!token) return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Missing recaptcha token' }) };
-      const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({ secret: RECAPTCHA_SECRET, response: token }),
-      });
-      const verifyJson = await verifyRes.json();
-      console.log('[jn-create-lead] recaptcha verification:', {
-        success: verifyJson.success,
-        hostname: verifyJson.hostname || '',
-        errorCodes: verifyJson['error-codes'] || []
-      });
-      if (!verifyJson.success) {
-        const errorCodes = Array.isArray(verifyJson['error-codes'])
-          ? verifyJson['error-codes'].join(', ')
-          : '';
-        return {
-          statusCode: 400,
-          headers: cors,
-          body: JSON.stringify({
-            error: errorCodes ? `Recaptcha failed: ${errorCodes}` : 'Recaptcha failed'
-          })
-        };
-      }
-    }
 
     // ---- Normalize inputs (needed later) ----
     const first = (data.first_name || '').trim();
@@ -161,6 +136,36 @@ exports.handler = async (event) => {
     if (!/^[2-9]\d{2}[2-9]\d{6}$/.test(phoneDigits))
       return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Enter a valid 10-digit US phone number' }) };
     const formattedPhone = `(${phoneDigits.slice(0,3)}) ${phoneDigits.slice(3,6)}-${phoneDigits.slice(6)}`;
+
+    // ---- reCAPTCHA (if enabled) ----
+    if (RECAPTCHA_SECRET) {
+      const token = (data.recaptcha_token || '').trim();
+      if (!token) return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Missing recaptcha token' }) };
+      const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ secret: RECAPTCHA_SECRET, response: token }),
+      });
+      const verifyJson = await verifyRes.json();
+      console.log('[jn-create-lead] recaptcha verification:', {
+        success: verifyJson.success,
+        hostname: verifyJson.hostname || '',
+        errorCodes: verifyJson['error-codes'] || []
+      });
+      if (!verifyJson.success) {
+        const errorCodes = Array.isArray(verifyJson['error-codes'])
+          ? verifyJson['error-codes'].join(', ')
+          : '';
+        return {
+          statusCode: 400,
+          headers: cors,
+          body: JSON.stringify({
+            error: errorCodes ? `Recaptcha failed: ${errorCodes}` : 'Recaptcha failed'
+          })
+        };
+      }
+    }
+
 
     // ---- Description BACKUP (include EVERYTHING useful) ----
     const addressLine = [addressObj.street, addressObj.city, addressObj.state, addressObj.zip]
