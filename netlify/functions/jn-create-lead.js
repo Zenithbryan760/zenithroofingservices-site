@@ -184,13 +184,16 @@ exports.handler = async (event) => {
       mobile_phone: phoneDigits,
       phone_formatted: formattedPhone,
 
-      // address — keys JN writes into the UI
-      address1:    addressObj.street,
-      address2:    (data.address2 || '').toString().trim(),
-      city:        addressObj.city,
-      state:       addressObj.state,
-      postal_code: addressObj.zip,
-      zip:         addressObj.zip,
+      // address — include JobNimbus API field names plus legacy aliases
+      address_line1: addressObj.street,
+      address_line2: (data.address2 || '').toString().trim(),
+      state_text:    addressObj.state,
+      address1:      addressObj.street,
+      address2:      (data.address2 || '').toString().trim(),
+      city:          addressObj.city,
+      state:         addressObj.state,
+      postal_code:   addressObj.zip,
+      zip:           addressObj.zip,
 
       // UI fields that show up in the modal
       lead_source: (data.referral_source || '').trim(),
