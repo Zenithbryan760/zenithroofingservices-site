@@ -115,7 +115,17 @@
       setMessage("Thank you. Your request was sent to Zenith Roofing Services.", "success");
     } catch (error) {
       console.error(error);
-      setMessage("We couldn’t send the form. Please call 619-494-1122 so we can help.", "error");
+      let detail = "";
+      try {
+        const parsed = JSON.parse(error.message);
+        detail = parsed.message || parsed.error || "";
+      } catch (_) {}
+      setMessage(
+        detail
+          ? `We couldn’t send the form: ${detail}`
+          : "We couldn’t send the form. Please call 619-494-1122 so we can help.",
+        "error"
+      );
     } finally {
       button.disabled = false;
       button.textContent = "Request My Free Estimate";

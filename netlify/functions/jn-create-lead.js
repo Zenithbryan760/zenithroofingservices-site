@@ -57,28 +57,6 @@ exports.handler = async (event) => {
   try {
     const data = parseBody(event);
 
-    // DEBUG ECHO: hit with ?debug=1 from the form to see raw fields
-    if ((event.queryStringParameters || {}).debug === '1') {
-      return {
-        statusCode: 200,
-        headers: cors,
-        body: JSON.stringify({
-          receivedKeys: Object.keys(data),
-          raw: data
-        })
-      };
-    }
-
-    // [DEBUG] See what the form actually sent
-    console.log('[jn-create-lead] incoming keys:', Object.keys(data));
-    console.log('[jn-create-lead] street candidates:', {
-      street_address: data.street_address,
-      address1: data.address1,
-      address: data.address,
-      street: data.street,
-      line1: data.line1,
-    });
-
     const {
       JN_API_KEY,
       JN_CONTACT_ENDPOINT,
@@ -107,8 +85,22 @@ exports.handler = async (event) => {
         body: new URLSearchParams({ secret: RECAPTCHA_SECRET, response: token }),
       });
       const verifyJson = await verifyRes.json();
+      console.log('[jn-create-lead] recaptcha verification:', {
+        success: verifyJson.success,
+        hostname: verifyJson.hostname || '',
+        errorCodes: verifyJson['error-codes'] || []
+      });
       if (!verifyJson.success) {
-        return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Recaptcha failed' }) };
+        const errorCodes = Array.isArray(verifyJson['error-codes'])
+          ? verifyJson['error-codes'].join(', ')
+          : '';
+        return {
+          statusCode: 400,
+          headers: cors,
+          body: JSON.stringify({
+            error: errorCodes ? `Recaptcha failed: ${errorCodes}` : 'Recaptcha failed'
+          })
+        };
       }
     }
 
@@ -236,17 +228,6 @@ exports.handler = async (event) => {
       _version: 'jn-create-lead-' + new Date().toISOString().split('T')[0],
     };
 
-    // [DEBUG] Snapshot of what we send for address/phones
-    console.log('[jn-create-lead] payload.address snapshot:', {
-      address1: payloadBase.address1,
-      address2: payloadBase.address2,
-      city: payloadBase.city,
-      state: payloadBase.state,
-      postal_code: payloadBase.postal_code,
-      main_phone: payloadBase.main_phone,
-      lead_source: payloadBase.lead_source
-    });
-
     // ---- Auth header variants ----
     // JobNimbus documents Bearer authentication. Keep legacy variants only as
     // fallbacks for older tenant configurations.
@@ -266,7 +247,6 @@ exports.handler = async (event) => {
     // 1st attempt
     let { r: jnRes, t: jnText } = await postToJN(headerVariants[0], payloadBase);
     console.log('[jn-create-lead] JN first attempt status:', jnRes.status);
-    console.log('[jn-create-lead] JN first attempt body:', (jnText || '').slice(0, 800));
 
     // If unauthorized/forbidden, try the other auth header styles
     if (jnRes.status === 401 || jnRes.status === 403) {
@@ -277,6 +257,18 @@ exports.handler = async (event) => {
       }
     }
 
+    // JobNimbus rejects lead-source labels that do not exactly match an
+    // account setting. Preserve attribution in the description, then retry
+    // without the structured source fields so the contact is not lost.
+    if (jnRes.status === 400 && referralSource) {
+      const payloadWithoutSource = { ...payloadBase };
+      delete payloadWithoutSource.lead_source;
+      delete payloadWithoutSource.lead_source_name;
+      delete payloadWithoutSource.source_name;
+      ({ r: jnRes, t: jnText } = await postToJN(headerVariants[0], payloadWithoutSource));
+      console.log('[jn-create-lead] JN source-free retry status:', jnRes.status);
+    }
+
     // If duplicate error, retry once with a stronger unique suffix
     if (!jnRes.ok && /Duplicate contact exists/i.test(jnText)) {
       displayName = `${baseName} – ${uniqueTag}-${Date.now().toString().slice(-4)}`;
@@ -284,14 +276,13 @@ exports.handler = async (event) => {
       ({ r: jnRes, t: jnText } = await postToJN(headerVariants[0], payloadRetry));
     }
 
-    // If still not OK, echo upstream error for quick debugging
+    // If still not OK, return a safe status without exposing upstream data.
     if (!jnRes.ok) {
       return {
         statusCode: jnRes.status,
         headers: cors,
         body: JSON.stringify({
-          error: `JobNimbus ${jnRes.status}`,
-          message: (jnText || '').slice(0, 800)
+          error: `JobNimbus ${jnRes.status}`
         })
       };
     }
