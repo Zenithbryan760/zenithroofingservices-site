@@ -136,11 +136,33 @@ exports.handler = async (event) => {
       zip:    (data.zip   || '').toString().trim(),
     };
 
+    // ---- Required-field and format validation ----
+    const description = (data.description || '').toString().trim();
+    const referralSource = (data.referral_source || '').toString().trim();
+    const zip5 = addressObj.zip.slice(0, 5);
+    const zipNumber = Number(zip5);
+    const stateNormalized = addressObj.state.toUpperCase();
+
+    if (!first || !last)
+      return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'First and last name are required' }) };
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'A valid email address is required' }) };
+    if (!addressObj.street || !addressObj.city)
+      return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'A complete street address and city are required' }) };
+    if (stateNormalized !== 'CA' && stateNormalized !== 'CALIFORNIA')
+      return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'The property must be located in California' }) };
+    if (!/^\d{5}(?:-\d{4})?$/.test(addressObj.zip) || zipNumber < 90001 || zipNumber > 96162)
+      return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Enter a valid California ZIP code' }) };
+    if (!description)
+      return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Please provide a brief description of the roofing request' }) };
+    if (!referralSource)
+      return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Lead source is required' }) };
+
     const phoneDigits = normalizePhone(data.phone || data.phone_number || '');
     if (!phoneDigits)
       return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Phone number is required' }) };
-    if (phoneDigits.length !== 10)
-      return { statusCode: 400, headers: cors, body: JSON.stringify({ error: `Invalid phone number (${phoneDigits})` }) };
+    if (!/^[2-9]\d{2}[2-9]\d{6}$/.test(phoneDigits))
+      return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'Enter a valid 10-digit US phone number' }) };
     const formattedPhone = `(${phoneDigits.slice(0,3)}) ${phoneDigits.slice(3,6)}-${phoneDigits.slice(6)}`;
 
     // ---- Description BACKUP (include EVERYTHING useful) ----
