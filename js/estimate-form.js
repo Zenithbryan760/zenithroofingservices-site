@@ -5,37 +5,6 @@
   const $ = (s, r = document) => r.querySelector(s);
   const cleanDigits = (v = '') => v.replace(/\D+/g, '');
 
-  const MAX_PHOTOS = 3;
-  const MAX_PHOTO_BYTES = 2 * 1024 * 1024;
-  const MAX_TOTAL_PHOTO_BYTES = 4 * 1024 * 1024;
-
-  function fileToBase64(file) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(String(reader.result || '').split(',')[1] || '');
-      reader.onerror = () => reject(new Error('Unable to read an attached photo.'));
-      reader.readAsDataURL(file);
-    });
-  }
-
-  async function filesToEmailAttachments(files) {
-    const selected = files.filter(file => file && file.size);
-    if (selected.length > MAX_PHOTOS) {
-      throw new Error('Please attach no more than 3 photos.');
-    }
-    let total = 0;
-    for (const file of selected) {
-      if (!file.type.startsWith('image/')) throw new Error('Only image files can be attached.');
-      if (file.size > MAX_PHOTO_BYTES) throw new Error(`${file.name} is larger than 2 MB.`);
-      total += file.size;
-    }
-    if (total > MAX_TOTAL_PHOTO_BYTES) throw new Error('The attached photos must total 4 MB or less.');
-    return Promise.all(selected.map(async file => ({
-      filename: file.name,
-      type: file.type,
-      content: await fileToBase64(file)
-    })));
-  }
   const debounce = (fn, wait = 300) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), wait); }; };
 
   function showError(form, msg) {
@@ -195,13 +164,6 @@
 
     const fd = new FormData(form);
     const payload = Object.fromEntries(fd.entries());
-    delete payload.photos;
-    try {
-      payload.photos = await filesToEmailAttachments(fd.getAll('photos'));
-    } catch (photoError) {
-      showError(form, photoError.message);
-      return;
-    }
     payload.phone = cleanDigits(payload.phone);
     payload.recaptcha_token = token;
     payload.page = location.href;
