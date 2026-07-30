@@ -77,6 +77,18 @@
 
     html{ scroll-behavior:smooth; scroll-padding-top:var(--header-h,80px); }
     [id]{ scroll-margin-top:calc(var(--header-h,80px) + 12px); }
+
+    /* Homepage financing callout */
+    .home-financing{background:#f4f7fb;padding:54px 20px;border-top:1px solid #dfe6ee;border-bottom:1px solid #dfe6ee}
+    .home-financing-inner{width:min(1080px,100%);margin:auto;display:grid;grid-template-columns:1.35fr .65fr;gap:34px;align-items:center;background:#fff;border-radius:18px;padding:38px;box-shadow:0 12px 32px rgba(7,46,89,.09)}
+    .home-financing-kicker{color:#b85d00;font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:.82rem}
+    .home-financing h2{margin:8px 0 10px;color:#072e59;font-size:clamp(1.65rem,3vw,2.45rem);line-height:1.18}
+    .home-financing p{margin:0;color:#5f6f84;font-size:1.05rem}
+    .home-financing-points{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px;color:#173a5d;font-weight:700;font-size:.92rem}
+    .home-financing-action{text-align:center}
+    .home-financing-btn{display:inline-flex;justify-content:center;align-items:center;min-height:54px;padding:14px 24px;background:#ff9418;color:#102b4b!important;border-radius:9px;text-decoration:none;font-weight:800;box-shadow:0 10px 22px rgba(255,148,24,.25)}
+    .home-financing-small{display:block;margin-top:10px;color:#6b7788;font-size:.78rem}
+    @media(max-width:760px){.home-financing-inner{grid-template-columns:1fr;padding:28px 22px}.home-financing-action{text-align:left}}
   </style>
 
   <!-- ===== Load critical CSS normally (preloaded above) ===== -->
@@ -136,6 +148,26 @@
       </div>
       <!-- light skeleton so layout matches before swap -->
       <div class="zenith-card" aria-hidden="true"></div>
+    </section>
+
+
+    <section class="home-financing" aria-labelledby="home-financing-title">
+      <div class="home-financing-inner">
+        <div>
+          <span class="home-financing-kicker">Roofing payment options</span>
+          <h2 id="home-financing-title">Roof financing for San Diego, North County, Temecula and surrounding areas</h2>
+          <p>Eligible customers can explore payment options for qualifying roofing projects through Wisetack lending partners.</p>
+          <div class="home-financing-points">
+            <span>✓ No credit impact to check eligibility</span>
+            <span>✓ Clear terms</span>
+            <span>✓ No hidden fees</span>
+          </div>
+        </div>
+        <div class="home-financing-action">
+          <a class="home-financing-btn" href="/financing/">Explore Roof Financing</a>
+          <span class="home-financing-small">Financing is subject to credit approval. Terms may vary.</span>
+        </div>
+      </div>
     </section>
 
     <!-- Other includes stay the same -->
