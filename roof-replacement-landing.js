@@ -9,7 +9,13 @@
     const holder = document.getElementById("roof-replacement-recaptcha");
     if (!holder || !window.grecaptcha || recaptchaId !== null) return;
     recaptchaId = window.grecaptcha.render(holder, {
-      sitekey: holder.dataset.sitekey
+      sitekey: holder.dataset.sitekey,
+      "expired-callback": () => {
+        setMessage("reCAPTCHA expired. Please check the box again.", "error");
+      },
+      "error-callback": () => {
+        setMessage("reCAPTCHA could not load. Please refresh the page and try again.", "error");
+      }
     });
   };
 
@@ -109,9 +115,6 @@
       }
       form.reset();
       form.classList.remove("has-errors");
-      if (window.grecaptcha && recaptchaId !== null) {
-        window.grecaptcha.reset(recaptchaId);
-      }
       setMessage("Thank you. Your request was sent to Zenith Roofing Services.", "success");
     } catch (error) {
       console.error(error);
@@ -127,6 +130,11 @@
         "error"
       );
     } finally {
+      // A reCAPTCHA v2 token is single-use and can also expire. Reset after
+      // every attempt so a retry can never resend a stale token.
+      if (window.grecaptcha && recaptchaId !== null) {
+        window.grecaptcha.reset(recaptchaId);
+      }
       button.disabled = false;
       button.textContent = "Request My Free Estimate";
     }
