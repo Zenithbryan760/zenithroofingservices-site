@@ -182,6 +182,22 @@ exports.handler = async (event) => {
     ].filter(Boolean);
     const combinedDescription = descLines.join('\n');
 
+    // ---- Optional photo attachments for the lead notification email ----
+    const rawPhotos = Array.isArray(data.photo_attachments) ? data.photo_attachments : [];
+    if (rawPhotos.length > 3)
+      return { statusCode: 400, headers: cors, body: JSON.stringify({ error: 'No more than 3 photos are allowed' }) };
+    const emailAttachments = rawPhotos.map((photo, index) => {
+      const content = (photo?.content || '').toString();
+      if (!content || content.length > 3000000 || !/^[A-Za-z0-9+/=]+$/.test(content))
+        throw new Error(`Invalid photo attachment ${index + 1}`);
+      return {
+        content,
+        filename: (photo.filename || `roof-photo-${index + 1}.jpg`).toString().replace(/[^a-zA-Z0-9._-]/g, '_'),
+        type: 'image/jpeg',
+        disposition: 'attachment'
+      };
+    });
+
     // ---- Build unique display_name (base + last4 or city) ----
     const baseName =
       [first, last].filter(Boolean).join(' ').trim() ||
@@ -318,7 +334,8 @@ exports.handler = async (event) => {
             personalizations: [{ to: [{ email: LEAD_NOTIFY_TO }] }],
             from: { email: LEAD_NOTIFY_FROM, name: 'Zenith Roofing Website' },
             subject: 'New Website Lead',
-            content: [{ type: 'text/html', value: message }]
+            content: [{ type: 'text/html', value: message }],
+            ...(emailAttachments.length ? { attachments: emailAttachments } : {})
           })
         });
       } catch (e) {
