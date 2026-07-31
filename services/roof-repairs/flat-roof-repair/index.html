@@ -1,295 +1,1017 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ===== META ===== -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Flat Roof Repair (TPO, Torch, Mod Bit, PVC) | North County San Diego & Temecula</title>
-  <meta name="description" content="Expert flat roof repair for TPO, PVC, torch-down/modified bitumen, and built-up roofs. Leak tracing, seam & flashing repairs, drain/scupper fixes, and ponding solutions. Serving Escondido, North County San Diego, Temecula & all San Diego County." />
-  <link rel="canonical" href="https://zenithroofingservices.com/services/roof-repairs/flat-roof-repair/"/>
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Flat Roof Leak Repair | TPO, Torch-Down, BUR &amp; Silicone | San Diego</title>
+  <meta name="description" content="Flat roof leak repair for TPO, PVC, EPDM, torch-down, self-adhered, built-up and silicone roofs. Honest repair options for San Diego County and Temecula.">
+  <link rel="canonical" href="https://zenithroofingservices.com/services/roof-repairs/flat-roof-repair/">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Flat Roof Repair (TPO, Torch, Mod Bit, PVC) | Zenith Roofing Services"/>
-  <meta property="og:description" content="Fast, clean flat roof repairs—seams, flashings, drains, and ponding fixes. Serving Escondido, North County San Diego & Temecula."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://zenithroofingservices.com/services/roof-repairs/flat-roof-repair/"/>
-  <meta name="twitter:card" content="summary_large_image"/>
+  <meta property="og:title" content="Flat Roof Leak Repair | Zenith Roofing Services">
+  <meta property="og:description" content="The right repair depends on the roof you already have. See a real built-up roof repair and the systems we service.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zenithroofingservices.com/services/roof-repairs/flat-roof-repair/">
+  <meta property="og:image" content="https://zenithroofingservices.com/images/flat-roof-repair/completed-bur-roof-repair-1200.webp">
+  <meta property="og:image:alt" content="Two completed built-up flat roof repair areas on a San Diego roof">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Shared CSS (footer.css in head so it’s global) -->
-  <link rel="preload" href="/css/base.css" as="style"/>
-  <link rel="preload" href="/css/header.css" as="style"/>
-  <link rel="preload" href="/css/ui.css" as="style"/>
-  <link rel="stylesheet" href="/css/base.css"/>
-  <link rel="stylesheet" href="/css/header.css"/>
-  <link rel="stylesheet" href="/css/ui.css"/>
-  <link rel="stylesheet" href="/css/footer.css"/>
-  <!-- Form CSS -->
-  <link rel="stylesheet" href="/css/estimate-form.css"/>
+  <link rel="preload" href="/css/base.css" as="style">
+  <link rel="preload" href="/css/header.css" as="style">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/ui.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="/css/estimate-form.css">
+  <link rel="stylesheet" href="/css/landing-theme-preview.css?v=sitewide-2">
 
-  <!-- Page-scope polish (same vibe as other pages) -->
   <style>
-    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
+    :root {
+      --flat-navy: #072e59;
+      --flat-navy-deep: #041d38;
+      --flat-orange: #f7941d;
+      --flat-ink: #142033;
+      --flat-muted: #526173;
+      --flat-line: #dce4ec;
+      --flat-paper: #f6f8fb;
+      --flat-sky: #eaf3fb;
+      --flat-radius: 22px;
+      --flat-shadow: 0 18px 44px rgba(7, 46, 89, .11);
+    }
+
     html { scroll-behavior: smooth; }
+    body { color: var(--flat-ink); }
+    .flat-page { overflow: clip; }
+    .flat-page *, .flat-page *::before, .flat-page *::after { box-sizing: border-box; }
+    .flat-page img { display: block; width: 100%; height: auto; }
+    .flat-page section[id] { scroll-margin-top: 124px; }
 
-    .page .hero{
-      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
-      border: 1px solid var(--ui-line);
+    .flat-shell {
+      width: min(1180px, calc(100% - 32px));
+      margin-inline: auto;
+    }
+
+    .flat-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 14px;
+      color: var(--flat-navy);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .flat-kicker::before {
+      content: "";
+      width: 28px;
+      height: 3px;
+      border-radius: 10px;
+      background: var(--flat-orange);
+    }
+
+    .flat-page h1,
+    .flat-page h2,
+    .flat-page h3 { color: var(--flat-navy-deep); text-wrap: balance; }
+    .flat-page h1 {
+      margin: 0;
+      font-size: clamp(2.45rem, 5.4vw, 5.2rem);
+      line-height: .98;
+      letter-spacing: -.045em;
+    }
+    .flat-page h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.04;
+      letter-spacing: -.035em;
+    }
+    .flat-page h3 {
+      margin: 0 0 8px;
+      font-size: clamp(1.08rem, 1.8vw, 1.35rem);
+      line-height: 1.2;
+    }
+    .flat-page p { line-height: 1.72; }
+    .flat-lede {
+      max-width: 700px;
+      margin: 18px 0 0;
+      color: var(--flat-muted);
+      font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+    }
+
+    .flat-hero {
+      position: relative;
+      padding: clamp(42px, 7vw, 86px) 0 clamp(48px, 8vw, 94px);
+      background:
+        radial-gradient(circle at 88% 8%, rgba(247, 148, 29, .18), transparent 27%),
+        linear-gradient(135deg, #f9fbfd 0%, #eaf3fb 100%);
+      border-bottom: 1px solid var(--flat-line);
+    }
+    .flat-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, .98fr);
+      gap: clamp(30px, 6vw, 72px);
+      align-items: center;
+    }
+    .flat-hero-copy { position: relative; z-index: 1; }
+    .flat-hero .flat-lede { max-width: 640px; }
+    .flat-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+    .flat-button {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border: 2px solid var(--flat-navy);
+      border-radius: 999px;
+      color: var(--flat-navy);
+      font-weight: 900;
+      line-height: 1.1;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .flat-button:hover { transform: translateY(-2px); }
+    .flat-button.primary {
+      border-color: var(--flat-orange);
+      background: var(--flat-orange);
+      color: #17110a;
+      box-shadow: 0 12px 24px rgba(247, 148, 29, .25);
+    }
+    .flat-button.light { border-color: rgba(255,255,255,.62); color: #fff; }
+    .flat-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .flat-proof li {
+      padding: 8px 11px;
+      border: 1px solid rgba(7, 46, 89, .16);
+      border-radius: 999px;
+      background: rgba(255,255,255,.68);
+      color: var(--flat-navy);
+      font-size: .78rem;
+      font-weight: 850;
+    }
+    .flat-hero-photo {
+      position: relative;
+      margin: 0;
+      border: 8px solid #fff;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 26px 65px rgba(7, 46, 89, .2);
+      transform: rotate(1.2deg);
+    }
+    .flat-hero-photo img {
+      aspect-ratio: 4 / 4.45;
+      object-fit: cover;
+      object-position: center 34%;
+    }
+    .flat-hero-photo figcaption {
+      position: absolute;
+      inset: auto 12px 12px;
+      padding: 12px 14px;
+      border-radius: 13px;
+      background: rgba(4, 29, 56, .92);
+      color: #fff;
+      font-size: .82rem;
+      line-height: 1.45;
+      backdrop-filter: blur(8px);
+    }
+
+    .flat-nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--flat-line);
+      background: rgba(255,255,255,.94);
+      box-shadow: 0 9px 25px rgba(7,46,89,.07);
+      backdrop-filter: blur(14px);
+    }
+    .flat-nav {
+      display: flex;
+      gap: 8px;
+      padding: 11px 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .flat-nav::-webkit-scrollbar { display: none; }
+    .flat-nav a {
+      flex: 0 0 auto;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--flat-navy);
+      font-size: .82rem;
+      font-weight: 850;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .flat-nav a:hover { background: var(--flat-sky); }
+
+    .flat-section { padding: clamp(64px, 9vw, 112px) 0; }
+    .flat-section.soft { background: var(--flat-paper); }
+    .flat-section.dark {
+      background:
+        radial-gradient(circle at 88% 10%, rgba(247,148,29,.18), transparent 28%),
+        var(--flat-navy-deep);
+      color: #fff;
+    }
+    .flat-section.dark h2,
+    .flat-section.dark h3 { color: #fff; }
+    .flat-section.dark .flat-kicker { color: #ffd29c; }
+    .flat-section.dark .flat-lede { color: #d6e3ef; }
+    .flat-heading-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+    .flat-heading-row > :first-child { max-width: 760px; }
+    .flat-heading-note {
+      max-width: 360px;
+      margin: 0;
+      color: var(--flat-muted);
+      font-size: .95rem;
+    }
+
+    .flat-truth-grid,
+    .flat-system-grid,
+    .flat-cause-grid,
+    .flat-method-grid,
+    .flat-choice-grid {
+      display: grid;
+      gap: 16px;
+    }
+    .flat-truth-grid { grid-template-columns: repeat(3, 1fr); }
+    .flat-system-grid { grid-template-columns: repeat(3, 1fr); }
+    .flat-cause-grid { grid-template-columns: repeat(3, 1fr); }
+    .flat-method-grid { grid-template-columns: repeat(3, 1fr); }
+    .flat-choice-grid { grid-template-columns: repeat(4, 1fr); }
+
+    .flat-card {
+      position: relative;
+      padding: clamp(21px, 3vw, 30px);
+      border: 1px solid var(--flat-line);
+      border-radius: var(--flat-radius);
+      background: #fff;
+      box-shadow: 0 9px 25px rgba(7,46,89,.06);
+    }
+    .flat-card p { margin: 0; color: var(--flat-muted); font-size: .95rem; }
+    .flat-card-num {
+      display: inline-grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      margin-bottom: 19px;
+      border-radius: 50%;
+      background: var(--flat-sky);
+      color: var(--flat-navy);
+      font-size: .82rem;
+      font-weight: 950;
+    }
+    .flat-system {
+      padding-top: 64px;
+      overflow: hidden;
+    }
+    .flat-system::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 6px;
+      background: linear-gradient(90deg, var(--flat-orange), #ffc778);
+    }
+    .flat-system-tag {
+      position: absolute;
+      top: 23px;
+      right: 24px;
+      color: #8290a0;
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .flat-cause {
+      box-shadow: none;
+    }
+    .flat-cause h3::before {
+      content: "•";
+      margin-right: 9px;
+      color: var(--flat-orange);
+    }
+
+    .flat-story-intro {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: clamp(30px, 6vw, 72px);
+      align-items: end;
+      margin-bottom: 36px;
+    }
+    .flat-story-summary {
+      padding: 23px 25px;
+      border: 1px solid rgba(255,255,255,.18);
       border-radius: 18px;
-      padding: clamp(18px, 3vw, 28px);
-      box-shadow: 0 14px 34px rgba(2,12,32,.08);
+      background: rgba(255,255,255,.07);
+      color: #dce8f3;
     }
-    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
-    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
-    .page .hero .split{ align-items:center; }
-    .page .hero .media{
-      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
-      background:#fff; box-shadow: var(--ui-shadow); transform: translateZ(0);
+    .flat-story-summary strong { color: #fff; }
+    .flat-story-summary p { margin: 0; }
+    .flat-gallery {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
     }
-    .page .hero .media::before{
-      content:""; display:block; aspect-ratio:16/10;
-      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
+    .flat-gallery figure {
+      position: relative;
+      min-height: 340px;
+      margin: 0;
+      overflow: hidden;
+      border-radius: 18px;
+      background: #122f4b;
+    }
+    .flat-gallery figure:nth-child(1),
+    .flat-gallery figure:nth-child(4) { grid-column: span 7; }
+    .flat-gallery figure:nth-child(2),
+    .flat-gallery figure:nth-child(3) { grid-column: span 5; }
+    .flat-gallery figure:nth-child(5),
+    .flat-gallery figure:nth-child(6),
+    .flat-gallery figure:nth-child(7) { grid-column: span 4; }
+    .flat-gallery img {
+      height: 100%;
+      min-height: 340px;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+    .flat-gallery figure:hover img { transform: scale(1.025); }
+    .flat-gallery figcaption {
+      position: absolute;
+      inset: auto 10px 10px;
+      padding: 11px 13px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 12px;
+      background: rgba(4, 29, 56, .88);
+      color: #fff;
+      font-size: .8rem;
+      line-height: 1.4;
+      backdrop-filter: blur(8px);
+    }
+    .flat-gallery figcaption strong { display: block; margin-bottom: 2px; color: #ffd19a; }
+
+    .flat-method {
+      min-height: 100%;
+    }
+    .flat-method small {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--flat-orange);
+      font-size: .73rem;
+      font-weight: 950;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .flat-method-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
+    .flat-method-links a {
+      color: var(--flat-navy);
+      font-size: .9rem;
+      font-weight: 850;
     }
 
-    .page h2{ margin-bottom:.4rem; }
-    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
-
-    .page .card.hoverable{ will-change: transform, box-shadow; }
-    .page .card.hoverable:hover{ transform: translateY(-3px); }
-
-    .page .mini-list{ margin:.5rem 0 0 .95rem; color:#334155; }
-    .page .mini-list li{ margin:.25rem 0; }
-
-    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
-
-    .page .cta-strip{
-      background:#072e59; color:#fff; border-radius:16px;
-      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
-      box-shadow:0 14px 34px rgba(2,12,32,.12);
+    .flat-callout {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 25px;
+      align-items: center;
+      margin-top: 28px;
+      padding: clamp(24px, 4vw, 38px);
+      border-radius: 24px;
+      background: var(--flat-navy);
+      color: #fff;
+      box-shadow: var(--flat-shadow);
     }
-    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
-    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
+    .flat-callout h3 { margin: 0 0 7px; color: #fff; font-size: clamp(1.35rem, 2.4vw, 1.9rem); }
+    .flat-callout p { max-width: 800px; margin: 0; color: #dbe7f1; }
+
+    .flat-choice {
+      border-top: 5px solid var(--flat-line);
+      box-shadow: none;
+    }
+    .flat-choice:nth-child(1) { border-top-color: #49a078; }
+    .flat-choice:nth-child(2) { border-top-color: #3994d1; }
+    .flat-choice:nth-child(3) { border-top-color: #8d79bd; }
+    .flat-choice:nth-child(4) { border-top-color: var(--flat-orange); }
+    .flat-old-roof {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 0;
+      margin-top: 26px;
+      overflow: hidden;
+      border-radius: 24px;
+      background: var(--flat-navy-deep);
+      box-shadow: var(--flat-shadow);
+    }
+    .flat-old-roof img {
+      height: 100%;
+      min-height: 430px;
+      object-fit: cover;
+    }
+    .flat-old-roof-copy {
+      display: grid;
+      align-content: center;
+      padding: clamp(28px, 5vw, 56px);
+      color: #fff;
+    }
+    .flat-old-roof-copy h3 { color: #fff; font-size: clamp(1.55rem, 3vw, 2.4rem); }
+    .flat-old-roof-copy p { color: #d5e1ec; }
+    .flat-old-roof-copy ul { margin: 10px 0 0; padding-left: 20px; color: #eef5fb; line-height: 1.65; }
+
+    .flat-faq {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: clamp(30px, 6vw, 70px);
+      align-items: start;
+    }
+    .flat-faq-list { display: grid; gap: 10px; }
+    .flat-faq details {
+      padding: 0 20px;
+      border: 1px solid var(--flat-line);
+      border-radius: 15px;
+      background: #fff;
+    }
+    .flat-faq summary {
+      padding: 19px 32px 19px 0;
+      color: var(--flat-navy-deep);
+      font-weight: 900;
+      cursor: pointer;
+    }
+    .flat-faq details p { margin: -3px 0 20px; color: var(--flat-muted); }
+
+    .flat-areas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+      padding: clamp(28px, 5vw, 54px);
+      border-radius: 26px;
+      background: linear-gradient(135deg, var(--flat-sky), #fff);
+      border: 1px solid var(--flat-line);
+    }
+    .flat-city-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .flat-city-list li {
+      padding: 8px 11px;
+      border: 1px solid var(--flat-line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--flat-navy);
+      font-size: .8rem;
+      font-weight: 850;
+    }
+
+    .flat-form-wrap { padding-top: 0; }
+    .flat-final {
+      padding: clamp(36px, 6vw, 66px) 0;
+      background: var(--flat-navy-deep);
+      color: #fff;
+    }
+    .flat-final-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 25px;
+      align-items: center;
+    }
+    .flat-final h2 { max-width: 760px; color: #fff; }
+    .flat-final p { margin: 8px 0 0; color: #d2dfeb; }
+    .flat-disclaimer { margin-top: 12px; color: #64748b; font-size: .82rem; }
+
+    @media (max-width: 900px) {
+      .flat-hero-grid,
+      .flat-story-intro,
+      .flat-old-roof,
+      .flat-faq,
+      .flat-areas { grid-template-columns: 1fr; }
+      .flat-truth-grid,
+      .flat-system-grid,
+      .flat-cause-grid,
+      .flat-method-grid { grid-template-columns: repeat(2, 1fr); }
+      .flat-choice-grid { grid-template-columns: repeat(2, 1fr); }
+      .flat-hero-photo { width: min(620px, 100%); transform: none; }
+      .flat-heading-row { display: block; }
+      .flat-heading-note { max-width: 700px; margin-top: 14px; }
+      .flat-city-list { justify-content: flex-start; }
+    }
+
+    @media (max-width: 640px) {
+      .flat-shell { width: min(100% - 22px, 1180px); }
+      .flat-hero { padding-top: 34px; }
+      .flat-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+      .flat-hero-photo { border-width: 5px; border-radius: 20px; }
+      .flat-hero-photo img { aspect-ratio: 4 / 4.7; }
+      .flat-actions .flat-button { width: 100%; }
+      .flat-truth-grid,
+      .flat-system-grid,
+      .flat-cause-grid,
+      .flat-method-grid,
+      .flat-choice-grid { grid-template-columns: 1fr; }
+      .flat-gallery { grid-template-columns: 1fr; }
+      .flat-gallery figure,
+      .flat-gallery figure:nth-child(n) { grid-column: 1; min-height: 390px; }
+      .flat-gallery img { min-height: 390px; }
+      .flat-callout { grid-template-columns: 1fr; }
+      .flat-old-roof img { min-height: 360px; }
+      .flat-final-inner { display: block; }
+      .flat-final .flat-button { width: 100%; margin-top: 22px; }
+    }
   </style>
 
-  <!-- JSON-LD: Service + FAQ -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"Service",
-    "name":"Flat Roof Repair",
-    "serviceType":"Flat/low-slope roof repair (TPO, PVC, modified bitumen/torch-down, BUR)",
-    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
-    "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}],
-    "description":"Expert flat roof repair including seam welding, flashing rebuilds at curbs/walls, drain and scupper fixes, targeted membrane & underlayment replacement, and ponding water mitigation with photo documentation."
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Flat Roof Leak Repair",
+    "serviceType": [
+      "Built-up roof repair",
+      "TPO roof repair",
+      "PVC roof repair",
+      "EPDM roof repair",
+      "Torch-down modified bitumen repair",
+      "Self-adhered roof repair",
+      "Silicone roof restoration"
+    ],
+    "provider": {
+      "@type": "RoofingContractor",
+      "name": "Zenith Roofing Services, Inc.",
+      "url": "https://zenithroofingservices.com/",
+      "telephone": "+1-858-900-6163"
+    },
+    "areaServed": [
+      {"@type": "AdministrativeArea", "name": "San Diego County"},
+      {"@type": "City", "name": "Escondido"},
+      {"@type": "City", "name": "Temecula"}
+    ],
+    "description": "Flat and low-slope roof leak diagnosis and repair for built-up, modified bitumen, single-ply and compatible coating systems."
   }
   </script>
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Which flat roof types do you repair?","acceptedAnswer":{"@type":"Answer","text":"We work on TPO, PVC, modified bitumen (torch-down), built-up roofs, and select coatings. We match materials and attachment methods to your existing system."}},
-      {"@type":"Question","name":"Can you fix ponding water?","acceptedAnswer":{"@type":"Answer","text":"Often, yes. We improve drainage with tapered patches/crickets, adjust scuppers/drains, and rework low spots when feasible."}},
-      {"@type":"Question","name":"Do you repair rooftop equipment flashings?","acceptedAnswer":{"@type":"Answer","text":"Yes. Curbs, pipes, HVAC stands, and skylight flashings are common leak points. We rebuild and heat-weld/seal to manufacturer standards."}}
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What types of flat roofs does Zenith repair?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Zenith repairs built-up and tar-and-gravel roofs, APP and SBS modified bitumen, torch-down and self-adhered systems, TPO, PVC, EPDM and compatible silicone-coated roofs."}
+      },
+      {
+        "@type": "Question",
+        "name": "Can a tar-and-gravel roof be repaired?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Sometimes. A localized repair may be reasonable when the surrounding roof is still serviceable. On a very old or broadly deteriorated built-up roof, a patch may only be a temporary and relatively expensive bridge."}
+      },
+      {
+        "@type": "Question",
+        "name": "Can a flat roof leak be far from the interior stain?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes. Water can travel beneath roofing layers, along insulation, deck joints or structural slopes before it appears inside. That is why the visible ceiling stain is not automatically the repair location."}
+      },
+      {
+        "@type": "Question",
+        "name": "Do you repair drains, scuppers and roof penetrations?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes. Drains, scuppers, pipes, curbs, wall transitions and other penetrations are common flat-roof leak points and can often be rebuilt or resealed as a focused repair."}
+      },
+      {
+        "@type": "Question",
+        "name": "When is silicone coating an option?",
+        "acceptedAnswer": {"@type": "Answer", "text": "A compatible silicone restoration can make sense on a dry, serviceable roof, especially where solar panels, HVAC equipment, conduit and many details make other work disruptive. The roof must be inspected first."}
+      },
+      {
+        "@type": "Question",
+        "name": "How long will a flat roof repair last?",
+        "acceptedAnswer": {"@type": "Answer", "text": "It depends on the roof system, moisture conditions, age and condition of the surrounding roof, and whether the leak is truly localized. Zenith explains the likely repair life and scope limitations before work begins."}
+      }
     ]
   }
   </script>
-  <link rel="stylesheet" href="/css/landing-theme-preview.css?v=sitewide-2">
 </head>
 <body>
-  <!-- Header include -->
   <div data-include="/components/header-section.html"></div>
 
-  <main id="top" class="page">
-    <!-- ===== HERO (split) ===== -->
-    <section class="hero" aria-label="Flat Roof Repair">
-      <div class="eyebrow">
-        <span class="chip">Flat & Low-Slope</span>
-        <span class="chip">Leak Repair</span>
-        <span class="chip">Drains & Scuppers</span>
+  <main id="top" class="flat-page">
+    <section class="flat-hero" aria-labelledby="flat-roof-title">
+      <div class="flat-shell flat-hero-grid">
+        <div class="flat-hero-copy">
+          <p class="flat-kicker">Flat &amp; low-slope roof repair</p>
+          <h1 id="flat-roof-title">The repair has to match the roof you already have.</h1>
+          <p class="flat-lede">We diagnose and repair leaks in built-up, torch-down, self-adhered, TPO, PVC, EPDM and silicone-coated roofs. The material, attachment method, moisture and age of the surrounding roof determine what belongs in the repair—not a one-size-fits-all patch.</p>
+          <div class="flat-actions">
+            <a class="flat-button primary" href="#estimate">Request a Flat Roof Inspection</a>
+            <a class="flat-button" href="#field-repair">See a Real BUR Repair</a>
+          </div>
+          <ul class="flat-proof" aria-label="Flat roof systems serviced">
+            <li>TPO · PVC · EPDM</li>
+            <li>Torch-down · Self-adhered</li>
+            <li>BUR · Tar &amp; gravel</li>
+            <li>Silicone restoration</li>
+          </ul>
+        </div>
+
+        <figure class="flat-hero-photo">
+          <picture>
+            <source media="(max-width: 680px)" srcset="/images/flat-roof-repair/bur-repair-base-sheet-720.webp">
+            <img src="/images/flat-roof-repair/bur-repair-base-sheet-1200.webp" width="900" height="1200" alt="Zenith roofer working at a new built-up roof repair area surrounded by the existing gravel roof">
+          </picture>
+          <figcaption><strong>Real Zenith repair:</strong> a localized built-up roof opening during rainy weather, rebuilt and tied back into the existing roof.</figcaption>
+        </figure>
       </div>
-      <div class="split">
-        <div>
-          <h1 style="margin:0 0 .5rem">Flat Roof Repair — Clean Seams, Dry Interiors</h1>
-          <p class="lede">Leaks around seams, curbs, or drains? We diagnose fast and repair right—heat-welded seams, rebuilt flashings, and tuned drainage. Serving <strong>Escondido</strong>, <strong>North County San Diego</strong>, and <strong>Temecula</strong>.</p>
-          <div class="cta">
-            <a class="btn btn-primary" href="#estimate" aria-label="Request a free estimate for flat roof repair">Request Free Estimate</a>
-            <a class="btn btn-outline" href="#repairs">What We Fix</a>
+    </section>
+
+    <div class="flat-nav-wrap">
+      <nav class="flat-shell flat-nav" aria-label="Flat roof repair page sections">
+        <a href="#diagnosis">Diagnosis</a>
+        <a href="#systems">Roof Systems</a>
+        <a href="#leak-points">Leak Points</a>
+        <a href="#field-repair">Field Repair</a>
+        <a href="#methods">Repair Methods</a>
+        <a href="#decision">Repair or Replace?</a>
+        <a href="#faq">FAQ</a>
+        <a href="#estimate">Estimate</a>
+      </nav>
+    </div>
+
+    <section id="diagnosis" class="flat-section">
+      <div class="flat-shell">
+        <div class="flat-heading-row">
+          <div>
+            <p class="flat-kicker">Start with the roof—not the stain</p>
+            <h2>A flat-roof leak is a symptom. The assembly tells us how to repair it.</h2>
+          </div>
+          <p class="flat-heading-note">A ceiling stain can be several feet from the entry point. Water may travel beneath the membrane, through insulation or along deck joints before it shows inside.</p>
+        </div>
+
+        <div class="flat-truth-grid">
+          <article class="flat-card">
+            <span class="flat-card-num">01</span>
+            <h3>Same symptom, different repair</h3>
+            <p>An open TPO seam is not repaired like a split in APP modified bitumen or a failed detail buried beneath gravel. We identify the existing system before specifying materials.</p>
+          </article>
+          <article class="flat-card">
+            <span class="flat-card-num">02</span>
+            <h3>Trace the water path</h3>
+            <p>We inspect laps, transitions, walls, curbs, pipes, scuppers, drains and the surrounding field—not only the spot directly above the interior damage.</p>
+          </article>
+          <article class="flat-card">
+            <span class="flat-card-num">03</span>
+            <h3>Judge the roof around it</h3>
+            <p>A focused repair makes sense when the adjacent roof can support it. Widespread moisture, repeated leaks or a worn-out system can change the honest recommendation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="systems" class="flat-section soft">
+      <div class="flat-shell">
+        <p class="flat-kicker">Systems we service</p>
+        <h2>Repair options for virtually every common flat roof.</h2>
+        <p class="flat-lede">Compatibility matters. The new membrane, adhesive, reinforcing and surfacing must work with the roof that remains in place.</p>
+
+        <div class="flat-system-grid" style="margin-top:34px">
+          <article class="flat-card flat-system">
+            <span class="flat-system-tag">Multi-ply</span>
+            <h3>Built-Up Roofing (BUR)</h3>
+            <p>Asphalt and reinforcing plies, often surfaced with gravel. Repairs may require clearing aggregate, opening failed layers, replacing damaged material, reinforcing transitions and restoring the surfacing.</p>
+          </article>
+          <article class="flat-card flat-system">
+            <span class="flat-system-tag">Modified bitumen</span>
+            <h3>APP / SBS &amp; Torch-Down</h3>
+            <p>Localized repairs can use compatible base, smooth and cap materials, installed by an appropriate torch-applied, cold-process or other approved method for the existing assembly.</p>
+          </article>
+          <article class="flat-card flat-system">
+            <span class="flat-system-tag">Low-flame options</span>
+            <h3>Self-Adhered &amp; Cold Process</h3>
+            <p>Multi-ply repairs can be built with self-adhered membranes or cold-process adhesives where those materials and application methods fit the roof and site conditions.</p>
+          </article>
+          <article class="flat-card flat-system">
+            <span class="flat-system-tag">Single-ply</span>
+            <h3>TPO &amp; PVC</h3>
+            <p>Open seams, punctures and failed details may be cleaned, prepared and repaired with compatible membrane and heat-welded patches after moisture and substrate conditions are checked.</p>
+          </article>
+          <article class="flat-card flat-system">
+            <span class="flat-system-tag">Rubber membrane</span>
+            <h3>EPDM</h3>
+            <p>EPDM requires system-compatible cleaners, primers, cover tape, uncured flashing or membrane patches. Generic roof cement is not a substitute for a compatible detail.</p>
+          </article>
+          <article class="flat-card flat-system">
+            <span class="flat-system-tag">Restoration</span>
+            <h3>Silicone-Coated Roofs</h3>
+            <p>Details and damaged coating can often be cleaned, reinforced and recoated. A broader restoration may be considered only when the existing roof is dry, sound and compatible.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="leak-points" class="flat-section">
+      <div class="flat-shell">
+        <div class="flat-heading-row">
+          <div>
+            <p class="flat-kicker">Where flat roofs leak</p>
+            <h2>Most leaks begin at a transition, opening or stressed detail.</h2>
+          </div>
+          <p class="flat-heading-note">The roof field matters, but penetrations and drainage details receive movement, water and service traffic that can accelerate failure.</p>
+        </div>
+
+        <div class="flat-cause-grid">
+          <article class="flat-card flat-cause"><h3>Seams, laps &amp; splits</h3><p>Open welds, fishmouths, wrinkles, punctures and membrane movement can create a direct path beneath the roof.</p></article>
+          <article class="flat-card flat-cause"><h3>Drains &amp; scuppers</h3><p>Loose clamping rings, failed tie-ins, blocked flow and deteriorated sealant can keep water at the most vulnerable point.</p></article>
+          <article class="flat-card flat-cause"><h3>Pipes, curbs &amp; penetrations</h3><p>HVAC curbs, pipe flashings, pitch pockets, supports and conduits all interrupt the waterproofing plane.</p></article>
+          <article class="flat-card flat-cause"><h3>Walls, parapets &amp; edges</h3><p>Terminations, counterflashing, edge metal and wall transitions move differently than the roof field and need durable tie-ins.</p></article>
+          <article class="flat-card flat-cause"><h3>Wet insulation or deck</h3><p>Trapped moisture and soft substrate can spread beyond the visible opening. Unsound material must be addressed before it is covered.</p></article>
+          <article class="flat-card flat-cause"><h3>Traffic &amp; rooftop equipment</h3><p>Solar work, HVAC service and repeated foot traffic can puncture or stress the roof around busy access paths and equipment zones.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="field-repair" class="flat-section dark">
+      <div class="flat-shell">
+        <div class="flat-story-intro">
+          <div>
+            <p class="flat-kicker">From a real Zenith job</p>
+            <h2>Two active leak areas on an older built-up roof.</h2>
+            <p class="flat-lede">Rain was in the forecast and the property wanted a focused repair. We traced the problem areas, opened the existing assembly, rebuilt the repair zones and tied them into the surrounding BUR system.</p>
+          </div>
+          <div class="flat-story-summary">
+            <p><strong>What this job shows:</strong> a tar-and-gravel repair is more than smearing mastic over the surface. The gravel and failed layers have to be moved, the repair has to reach sound material, and the perimeter has to be reinforced before compatible surfacing is restored.</p>
           </div>
         </div>
-        <div class="media" aria-hidden="true"></div>
+
+        <div class="flat-gallery">
+          <figure>
+            <picture>
+              <source media="(max-width:680px)" srcset="/images/flat-roof-repair/bur-roof-opened-repair-area-720.webp">
+              <img loading="lazy" src="/images/flat-roof-repair/bur-roof-opened-repair-area-1200.webp" width="900" height="1200" alt="Built-up roofing removed to expose the aged roof deck and locate the repair area">
+            </picture>
+            <figcaption><strong>1 · Open and inspect</strong>Existing roofing was removed so the crew could see what was happening below the surface.</figcaption>
+          </figure>
+          <figure>
+            <picture>
+              <source media="(max-width:680px)" srcset="/images/flat-roof-repair/bur-roof-damaged-deck-720.webp">
+              <img loading="lazy" src="/images/flat-roof-repair/bur-roof-damaged-deck-1200.webp" width="900" height="1200" alt="Close view of weathered deck exposed beneath removed built-up roof layers">
+            </picture>
+            <figcaption><strong>2 · Reach sound material</strong>Loose and failed material was cleared instead of hiding it beneath a surface-only patch.</figcaption>
+          </figure>
+          <figure>
+            <picture>
+              <source media="(max-width:680px)" srcset="/images/flat-roof-repair/bur-repair-perimeter-reinforcement-720.webp">
+              <img loading="lazy" src="/images/flat-roof-repair/bur-repair-perimeter-reinforcement-1200.webp" width="900" height="1200" alt="Roofer reinforcing the perimeter of a built-up roof repair with fiberglass fabric and roofing cement">
+            </picture>
+            <figcaption><strong>3 · Reinforce the transition</strong>The repair perimeter was tied in with a three-course detail: roofing cement, reinforcing fabric and a protective top coat.</figcaption>
+          </figure>
+          <figure>
+            <picture>
+              <source media="(max-width:680px)" srcset="/images/flat-roof-repair/flat-roof-repair-solar-equipment-720.webp">
+              <img loading="lazy" src="/images/flat-roof-repair/flat-roof-repair-solar-equipment-1200.webp" width="900" height="1200" alt="Long flat roof repair area beside solar panels, conduits and rooftop equipment">
+            </picture>
+            <figcaption><strong>4 · Work with a busy roof</strong>Solar panels, conduit, equipment and wall details all affect access and the best repair approach.</figcaption>
+          </figure>
+          <figure>
+            <picture>
+              <source media="(max-width:680px)" srcset="/images/flat-roof-repair/bur-repair-base-sheet-720.webp">
+              <img loading="lazy" src="/images/flat-roof-repair/bur-repair-base-sheet-1200.webp" width="900" height="1200" alt="Large rebuilt flat roof repair area with new light-colored roofing plies">
+            </picture>
+            <figcaption><strong>5 · Rebuild the opening</strong>Compatible roofing layers were installed over the prepared repair area.</figcaption>
+          </figure>
+          <figure>
+            <picture>
+              <source media="(max-width:680px)" srcset="/images/flat-roof-repair/bur-repair-three-course-720.webp">
+              <img loading="lazy" src="/images/flat-roof-repair/bur-repair-three-course-1200.webp" width="900" height="1200" alt="Zenith roofer applying built-up roof repair materials around a repaired area">
+            </picture>
+            <figcaption><strong>6 · Tie in the edges</strong>Perimeter details were completed so the new work transitioned into the existing built-up roof.</figcaption>
+          </figure>
+          <figure>
+            <picture>
+              <source media="(max-width:680px)" srcset="/images/flat-roof-repair/completed-bur-roof-repair-720.webp">
+              <img loading="lazy" src="/images/flat-roof-repair/completed-bur-roof-repair-1200.webp" width="900" height="1200" alt="Overall view of two completed built-up roof repair areas">
+            </picture>
+            <figcaption><strong>7 · Complete both repairs</strong>Two localized areas were rebuilt and prepared for compatible final surfacing.</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
-    <!-- Sticky pills -->
-    <nav class="pillnav sticky-pills" aria-label="Flat Roof Repair sections">
-      <a href="#symptoms">Symptoms</a>
-      <a href="#repairs">What We Fix</a>
-      <a href="#materials">Systems We Service</a>
-      <a href="#drainage">Drainage & Ponding</a>
-      <a href="#faq">FAQ</a>
-      <a href="#areas">Service Areas</a>
-      <a href="#estimate">Estimate</a>
-    </nav>
+    <section id="methods" class="flat-section soft">
+      <div class="flat-shell">
+        <p class="flat-kicker">The method follows the system</p>
+        <h2>Several ways to make a durable flat-roof repair.</h2>
+        <p class="flat-lede">The right choice comes from field conditions—not from forcing one product onto every roof.</p>
 
-    <!-- ===== SYMPTOMS ===== -->
-    <section id="symptoms" class="section card airy hoverable">
-      <h2>Signs Your Flat Roof Needs Repair</h2>
-      <div class="grid cols-2">
-        <ul class="checklist relaxed">
-          <li><span class="tick">✓</span> Leaks during steady rain or after standing water</li>
-          <li><span class="tick">✓</span> Open or wrinkled seams; lifted laps</li>
-          <li><span class="tick">✓</span> Blisters, fishmouths, or membrane splits</li>
+        <div class="flat-method-grid" style="margin-top:34px">
+          <article class="flat-card flat-method">
+            <small>Single-ply</small>
+            <h3>Membrane patch or seam repair</h3>
+            <p>For compatible TPO, PVC or EPDM, the area is cleaned and prepared before a system-specific patch, seam or flashing repair is installed.</p>
+          </article>
+          <article class="flat-card flat-method">
+            <small>Modified bitumen</small>
+            <h3>Base, ply and cap repair</h3>
+            <p>A torch-down opening may be rebuilt with compatible base material, a smooth or intermediate ply and an APP cap sheet, depending on the existing assembly.</p>
+          </article>
+          <article class="flat-card flat-method">
+            <small>Alternative application</small>
+            <h3>Self-adhered or cold process</h3>
+            <p>Self-adhered membranes and cold-process adhesives can build a compatible multi-ply repair where site conditions or the roof system favor those methods.</p>
+          </article>
+          <article class="flat-card flat-method">
+            <small>Detail work</small>
+            <h3>Three-course reinforcement</h3>
+            <p>Roofing cement with embedded fiberglass reinforcing fabric and a protective top layer can strengthen compatible BUR and modified-bitumen transitions and details.</p>
+          </article>
+          <article class="flat-card flat-method">
+            <small>Water management</small>
+            <h3>Drain or scupper rebuild</h3>
+            <p>Localized work may include opening the surrounding roof, correcting the tie-in, resealing or replacing components and restoring positive drainage where feasible.</p>
+          </article>
+          <article class="flat-card flat-method">
+            <small>Restoration option</small>
+            <h3>Silicone detail or coating work</h3>
+            <p>On a suitable dry roof, silicone can simplify restoration around extensive solar, HVAC and electrical equipment—but coating is not a cure for trapped moisture.</p>
+          </article>
+        </div>
+
+        <div class="flat-method-links" aria-label="Related flat roofing services">
+          <a href="/services/commercial/tpo/">TPO roofing →</a>
+          <a href="/services/commercial/torch-down/">Torch-down roofing →</a>
+          <a href="/services/commercial/silicone-coatings/">Silicone roof coatings →</a>
+          <a href="/services/roof-replacement/flat-roof/">Flat roof replacement →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="decision" class="flat-section">
+      <div class="flat-shell">
+        <p class="flat-kicker">Repair, restore or replace?</p>
+        <h2>We explain what the repair can—and cannot—do.</h2>
+        <p class="flat-lede">A repair can be the right investment, a practical bridge or poor value. The difference is the condition of the roof around the leak.</p>
+
+        <div class="flat-choice-grid" style="margin-top:34px">
+          <article class="flat-card flat-choice">
+            <h3>Spot or detail repair</h3>
+            <p>Best fit for a localized puncture, seam, pipe, curb, drain or scupper when the nearby roof is dry and serviceable.</p>
+          </article>
+          <article class="flat-card flat-choice">
+            <h3>Sectional opening</h3>
+            <p>Used when the water path or damaged material extends beyond a small surface detail and a larger area must be rebuilt.</p>
+          </article>
+          <article class="flat-card flat-choice">
+            <h3>Recovery or restoration</h3>
+            <p>May fit a compatible roof with sound, dry substrate—especially where a crowded equipment layout makes tear-off disruptive.</p>
+          </article>
+          <article class="flat-card flat-choice">
+            <h3>Replacement</h3>
+            <p>Often the stronger value when wet insulation, widespread deterioration, repeated leaks or end-of-life materials are no longer localized.</p>
+          </article>
+        </div>
+
+        <div class="flat-old-roof">
+          <picture>
+            <source media="(max-width:680px)" srcset="/images/flat-roof-repair/bur-roof-opened-repair-area-720.webp">
+            <img loading="lazy" src="/images/flat-roof-repair/bur-roof-opened-repair-area-1200.webp" width="900" height="1200" alt="Old built-up roofing opened to reveal weathered deck and aged roof layers">
+          </picture>
+          <div class="flat-old-roof-copy">
+            <p class="flat-kicker">An honest note about old BUR roofs</p>
+            <h3>Sometimes a patch is an expensive Band-Aid.</h3>
+            <p>Tar-and-gravel roofs can be repaired, but an isolated repair does not renew the surrounding aged roof. If the system is brittle, saturated or leaking in several areas, we will tell you before you spend money expecting a new-roof result.</p>
+            <ul>
+              <li>The proposed repair scope is limited to the areas we work on.</li>
+              <li>Adjacent old roofing can develop a separate leak later.</li>
+              <li>We discuss those limits and the applicable workmanship coverage before work begins.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flat-callout">
+          <div>
+            <h3>Not sure whether your flat roof is worth repairing?</h3>
+            <p>We can inspect the system, isolate the likely entry point and show you whether a focused repair, broader restoration or replacement is the more responsible next step.</p>
+          </div>
+          <a class="flat-button primary" href="#estimate">Ask Zenith</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="flat-section soft">
+      <div class="flat-shell flat-faq">
+        <div>
+          <p class="flat-kicker">Straight answers</p>
+          <h2>Flat roof repair FAQ</h2>
+          <p class="flat-lede">Every assembly is different, but these are the questions we answer most often before a repair.</p>
+        </div>
+        <div class="flat-faq-list">
+          <details>
+            <summary>What types of flat roofs do you repair?</summary>
+            <p>We repair built-up and tar-and-gravel roofs, APP and SBS modified bitumen, torch-down and self-adhered systems, TPO, PVC, EPDM and compatible silicone-coated roofs. We first identify the existing system so the repair materials and method match it.</p>
+          </details>
+          <details>
+            <summary>Can you repair a tar-and-gravel roof?</summary>
+            <p>Sometimes. A localized repair can be reasonable when the surrounding built-up roof is still serviceable. On a very old, brittle or broadly deteriorated roof, the same repair may only be a temporary and relatively expensive bridge. We will explain that distinction before work begins.</p>
+          </details>
+          <details>
+            <summary>Why can the ceiling stain be far from the roof leak?</summary>
+            <p>Water can travel beneath roofing layers, through insulation, along deck joints or with the roof slope before it appears inside. We inspect likely entry points and transitions rather than assuming the stain marks the exact opening.</p>
+          </details>
+          <details>
+            <summary>Can you repair scuppers, drains, pipes and HVAC curbs?</summary>
+            <p>Yes. These are common leak points. A focused repair may involve opening the surrounding membrane, rebuilding the tie-in, reinforcing or replacing flashing materials, resealing components and restoring drainage.</p>
+          </details>
+          <details>
+            <summary>When does silicone coating make sense?</summary>
+            <p>A compatible silicone restoration may make sense when the existing roof is dry and serviceable, particularly on a busy roof with solar panels, HVAC equipment and extensive electrical conduit. It is not a shortcut over wet insulation or unsound roofing.</p>
+          </details>
+          <details>
+            <summary>Can you repair a flat roof around solar panels and equipment?</summary>
+            <p>Often, yes. Access, penetrations, equipment supports and service paths all affect the scope. We assess whether a spot repair is practical or whether a compatible coating or larger sectional repair provides better continuity.</p>
+          </details>
+          <details>
+            <summary>How long will a flat roof repair last?</summary>
+            <p>There is no responsible one-number answer. Service life depends on the system, moisture, attachment, drainage, age and condition of the surrounding roof, and whether the leak is truly localized. We explain the likely limitations with the proposed scope.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="flat-section">
+      <div class="flat-shell flat-areas">
+        <div>
+          <p class="flat-kicker">Local flat-roof service</p>
+          <h2>Serving San Diego County and Southwest Riverside County.</h2>
+          <p class="flat-lede">Based in Escondido, with repair service throughout North County, greater San Diego and the Temecula Valley.</p>
+        </div>
+        <ul class="flat-city-list" aria-label="Flat roof repair service areas">
+          <li>Escondido</li>
+          <li>San Diego</li>
+          <li>San Marcos</li>
+          <li>Vista</li>
+          <li>Oceanside</li>
+          <li>Carlsbad</li>
+          <li>Encinitas</li>
+          <li>Poway</li>
+          <li>Fallbrook</li>
+          <li>Temecula</li>
+          <li>Murrieta</li>
+          <li>Menifee</li>
         </ul>
-        <ul class="checklist relaxed">
-          <li><span class="tick">✓</span> Wet insulation, soft spots, or sagging deck</li>
-          <li><span class="tick">✓</span> Clogged drains/scuppers or constant ponding</li>
-          <li><span class="tick">✓</span> Cracked flashings at curbs, walls, or skylights</li>
-        </ul>
-      </div>
-      <div class="center-actions">
-        <a class="btn btn-primary" href="#estimate">Get a Roof Repair Estimate</a>
       </div>
     </section>
 
-    <!-- ===== WHAT WE FIX ===== -->
-    <section id="repairs" class="section card airy hoverable">
-      <h2>What We Repair on Flat Roofs</h2>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Seams & Membrane</h3>
-          <ul class="mini-list">
-            <li>Heat-weld or adhere open laps; reinforce with patches</li>
-            <li>Targeted membrane replacement at splits/blisters</li>
-            <li>Seal terminations and penetration collars</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Flashings & Details</h3>
-          <ul class="mini-list">
-            <li>Rebuild curb, wall, and skylight flashings</li>
-            <li>Replace cracked pipe boots and pitch pans</li>
-            <li>Edge metal tune-ups and counterflashing integration</li>
-          </ul>
-        </div>
+    <section id="estimate" class="flat-section flat-form-wrap">
+      <div class="flat-shell">
+        <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
+        <p class="flat-disclaimer"><em>*Free estimates exclude real-estate transaction inspections/reports. Buyers, sellers and agents should use our Real Estate Services.</em></p>
       </div>
     </section>
 
-    <!-- ===== MATERIALS ===== -->
-    <section id="materials" class="section card airy hoverable">
-      <h2>Systems We Service</h2>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>TPO &amp; PVC</h3>
-          <p class="muted">Heat-welded single-ply systems—excellent for efficient repairs at seams and details.</p>
+    <section class="flat-final">
+      <div class="flat-shell flat-final-inner">
+        <div>
+          <h2>Show us the leak. We’ll identify the roof and explain the right repair.</h2>
+          <p>Flat-roof leak diagnosis and repair from Zenith Roofing Services.</p>
         </div>
-        <div class="card">
-          <h3>Modified Bitumen / Torch-Down</h3>
-          <p class="muted">SBS/APP membranes—torch, cold-process, or self-adhered; strong for targeted patches.</p>
-        </div>
-        <div class="card">
-          <h3>Built-Up &amp; Coatings</h3>
-          <p class="muted">BUR and compatible coatings for maintenance and service-life extension.</p>
-        </div>
-        <div class="card">
-          <h3>Drains &amp; Scuppers</h3>
-          <p class="muted">Reset bowls, tighten clamps, replace strainers, seal tie-ins, and improve flow.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== DRAINAGE & PONDING ===== -->
-    <section id="drainage" class="section card airy hoverable">
-      <h2>Drainage &amp; Ponding Solutions</h2>
-      <div class="grid cols-2">
-        <div class="card"><h3>Clog Removal & Tune-Up</h3><p class="muted">Clear debris at drains/scuppers; verify clamp rings, strainers, and tie-ins.</p></div>
-        <div class="card"><h3>Tapered Patches/Crickets</h3><p class="muted">Build slope to move water off low spots and away from seams/curbs.</p></div>
-        <div class="card"><h3>Detail Rework</h3><p class="muted">Correct backwater laps and add diverters/saddles where helpful.</p></div>
-        <div class="card"><h3>Moisture Check</h3><p class="muted">Identify wet insulation and recommend targeted replacement as needed.</p></div>
-      </div>
-    </section>
-
-    <!-- ===== FAQ ===== -->
-    <section id="faq" class="section card airy hoverable">
-      <h2>FAQ</h2>
-      <div class="faq">
-        <details><summary>Do you provide photos?</summary><p class="muted">Yes—before/after photos and a brief summary so you can see exactly what was done.</p></details>
-        <details><summary>Will repairs void my warranty?</summary><p class="muted">We follow manufacturer practices whenever possible and will advise if warranty constraints apply.</p></details>
-        <details><summary>How soon can you come out?</summary><p class="muted">We prioritize active leaks and safety issues. Ask about our earliest openings.</p></details>
-      </div>
-    </section>
-
-    <!-- ===== AREAS ===== -->
-    <section id="areas" class="section card airy hoverable service-areas-modern">
-      <div class="sa-head">
-        <h2 class="sa-title">Service Areas</h2>
-        <p class="muted">Fast scheduling in North County San Diego, greater San Diego, and Temecula Valley.</p>
-      </div>
-
-      <ul class="chip-grid sa-cities" aria-label="Primary service cities">
-        <li><span class="chip sa-chip strong">Escondido</span></li>
-        <li><span class="chip sa-chip strong">San Diego</span></li>
-        <li><span class="chip sa-chip strong">Temecula</span></li>
-        <li><span class="chip sa-chip">San Marcos</span></li>
-        <li><span class="chip sa-chip">Vista</span></li>
-        <li><span class="chip sa-chip">Oceanside</span></li>
-      </ul>
-
-      <details class="sa-more">
-        <summary class="sa-summary">More nearby cities</summary>
-        <ul class="chip-grid sa-cities">
-          <li><span class="chip sa-chip">Carlsbad</span></li>
-          <li><span class="chip sa-chip">Encinitas</span></li>
-          <li><span class="chip sa-chip">Poway</span></li>
-          <li><span class="chip sa-chip">Rancho Bernardo</span></li>
-          <li><span class="chip sa-chip">Fallbrook</span></li>
-          <li><span class="chip sa-chip">Murrieta</span></li>
-          <li><span class="chip sa-chip">Menifee</span></li>
-        </ul>
-      </details>
-
-      <div class="center-actions">
-        <a class="btn btn-primary" href="#estimate">Check my ZIP &amp; Request Free Estimate</a>
-      </div>
-    </section>
-
-    <!-- ===== ESTIMATE FORM (Flat Roof Repair) ===== -->
-    <section id="estimate" class="section estimate-form-section">
-      <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
-      <p class="form-disclaimer">
-        <em>*Free estimates exclude real-estate transaction inspections/reports. If you’re a buyer/seller or agent, please see our Real Estate Services.</em>
-      </p>
-    </section>
-
-    <!-- Full-width CTA band inside container -->
-    <section class="section">
-      <div class="cta-strip">
-        <div class="text">
-          <strong>Need flat roof repair?</strong> Precise leak tracing, clean seams, and tuned drainage—done right.
-        </div>
-        <a class="btn" href="#estimate">Request Free Estimate</a>
+        <a class="flat-button primary" href="#estimate">Request an Estimate</a>
       </div>
     </section>
   </main>
 
-  <!-- Footer include OUTSIDE <main> so it spans full width -->
   <div data-include="/components/footer.html"></div>
 
-  <!-- ===== JS ===== -->
   <script src="/js/loader.js" defer></script>
   <script src="/js/header.js" defer></script>
-
-  <!-- Per-page form config: keep form consistent & preselect “Roof Repair” -->
   <script>
     window.ESTIMATE_FORM_CONFIG = {
       submitText: "Request Free Estimate",
       referralPreselect: "Website",
-      descriptionPlaceholder: "Tell us where it leaks, how long it ponds, roof type (TPO/PVC/torch/BUR), and share photos/links if you have them…",
+      descriptionPlaceholder: "Tell us where it leaks, your roof type if known (TPO, EPDM, torch-down, BUR, coating), the roof age, and whether water ponds. Add photos or links if available…",
       lockService: "Roof Repair",
-      hiddenFields: { campaign: "services/roof-repairs/flat-roof-repair", page_tag: "flat-roof-repair" }
+      hiddenFields: {
+        campaign: "services/roof-repairs/flat-roof-repair",
+        page_tag: "flat-roof-repair"
+      }
     };
   </script>
   <script src="/js/estimate-form.js" defer></script>
-  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&amp;render=explicit" async defer></script>
 </body>
 </html>
