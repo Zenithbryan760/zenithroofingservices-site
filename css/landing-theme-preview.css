@@ -2037,6 +2037,11 @@ textarea:focus {
   margin: 0;
   overflow: hidden;
   background: var(--zr-white);
+  text-align: left;
+}
+
+.zr-about-page section {
+  text-align: left;
 }
 
 .zr-shell {
