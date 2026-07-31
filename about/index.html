@@ -25,38 +25,6 @@
   <script defer src="/js/loader.js"></script>
   <script defer src="/js/header.js"></script>
 
-  <!-- Page micro styles -->
-  <style>
-    html { scroll-behavior: smooth; }
-    .page.about { max-width:1080px; margin:24px auto; padding:0 16px; }
-    .hero { background:linear-gradient(135deg,#f8fafc,#eef6ff); border:1px solid var(--ui-line); border-radius:18px; padding:clamp(18px,3vw,28px); box-shadow:0 14px 34px rgba(2,12,32,.08); }
-    .hero .chips { display:flex; flex-wrap:wrap; gap:8px; margin:.25rem 0 .5rem; }
-    .chip { border:1px solid var(--ui-line); border-radius:999px; padding:.45rem .75rem; background:#fff; font-weight:800; }
-    .values-grid { display:grid; gap:16px; grid-template-columns:1fr; }
-    @media(min-width:860px){ .values-grid { grid-template-columns:repeat(3,1fr); } }
-    .quote { font-size:1.05rem; line-height:1.7; color:#0f172a; }
-    .sig { font-weight:800; color:#072e59; }
-    .badge-row { display:flex; flex-wrap:wrap; gap:10px; }
-    .badge-row .badge { background:#fff; border:1px solid var(--ui-line); border-radius:999px; padding:.45rem .75rem; font-weight:700; }
-    .media.placeholder {
-      background: linear-gradient(135deg, rgba(7,46,89,.06), rgba(247,148,29,.06));
-      border:1px dashed var(--ui-line);
-      border-radius:14px; height:230px;
-      display:flex; align-items:center; justify-content:center; color:#64748b; font-weight:700;
-    }
-    .cta-strip {
-      background:#072e59; color:#fff; border-radius:16px;
-      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between;
-      box-shadow:0 14px 34px rgba(2,12,32,.12);
-    }
-    .cta-strip .btn { background:#f7941d; color:#0b0b0b; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; padding:10px 16px; border-radius:12px; font-weight:800; text-decoration:none; border:2px solid transparent; }
-    .btn:hover { transform: translateY(-1px); box-shadow:0 10px 20px rgba(2,12,32,.08); }
-    .btn.outline { background:transparent; border-color:#f7941d; color:#f7941d; }
-    .list-tight { margin:.25rem 0 0 1rem; }
-    .list-tight li { margin:.2rem 0; }
-  </style>
-
   <!-- JSON-LD: Organization + Breadcrumbs -->
   <script type="application/ld+json">
   {
@@ -91,110 +59,120 @@
   <!-- Header include -->
   <div data-include="/components/header-section.html"></div>
 
-  <main id="top" class="page about">
-    <!-- HERO -->
-    <section class="hero card airy">
-      <div class="chips">
-        <span class="chip">Escondido-Born</span>
-        <span class="chip">San Diego Proud</span>
-        <span class="chip">Do It Right the First Time</span>
-      </div>
-      <h1>Built in San Diego. Built to Last.</h1>
-      <p class="lede">
-        We’re a local, family-run roofing company out of <strong>Escondido</strong> serving all of <strong>North County San Diego</strong>, greater <strong>San Diego</strong>, and <strong>Temecula Valley</strong>. 
-        Our promise is simple: use <strong>high-quality materials</strong>, follow manufacturer standards, document our work with photos, and leave your home <strong>water-tight, safe,</strong> and clean.
-      </p>
-      <div class="badge-row" aria-label="Trust highlights">
-        <span class="badge">Premium Materials</span>
-        <span class="badge">Manufacturer Warranties</span>
-        <span class="badge">Wind/Insurance Assessments</span>
-        <span class="badge">Jobsite Cleanliness</span>
-        <span class="badge">Photo Documentation</span>
-        <span class="badge">Great Communication</span>
-      </div>
-      <div class="cta" style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
-        <a class="btn" href="/">Go to Home</a>
-        <a class="btn outline" href="/services/">Explore Services</a>
+  <main id="top" class="zr-about-page">
+    <section class="zr-interior-hero" aria-labelledby="about-title">
+      <img src="/images/zenith-van-optimized.jpg" width="1000" height="750" alt="Zenith Roofing Services work van at a Southern California project" fetchpriority="high">
+      <span class="zr-interior-hero__shade" aria-hidden="true"></span>
+      <div class="zr-shell zr-interior-hero__content">
+        <span class="zr-eyebrow zr-eyebrow--light">Licensed • Insured • Documented</span>
+        <h1 id="about-title">A roofing company built around clear work.</h1>
+        <p>Zenith Roofing Services helps homeowners, HOAs, property managers, and businesses make confident roofing decisions through clear scopes, dependable workmanship, and photo documentation.</p>
+        <div class="zr-interior-hero__actions">
+          <a class="zr-button zr-button--orange" href="/contact/">Request a Free Estimate <span aria-hidden="true">→</span></a>
+          <a class="zr-button zr-button--glass" href="tel:8589006163">Call 858-900-6163</a>
+        </div>
       </div>
     </section>
 
-    <!-- ASPIRATION / LIFESTYLE (≈70%) -->
-    <section class="section card airy hoverable">
-      <div class="grid cols-2">
-        <div>
-          <h2>Homes That Feel Buttoned-Up</h2>
-          <p class="quote">
-            A great roof isn’t just about shingles or tiles—it’s about peace of mind when the wind picks up and the rain sets in. 
-            We design and install like your home is our own, focusing on resilience, clean details, and a finish that looks as good as it performs.
-          </p>
-          <ul class="checklist relaxed">
-            <li><span class="tick">✓</span> Clean lines, correct flashings, and watertight transitions</li>
-            <li><span class="tick">✓</span> Roof systems that meet or exceed <em>manufacturer specs</em></li>
-            <li><span class="tick">✓</span> Before/after photos so you see exactly what we did</li>
-            <li><span class="tick">✓</span> Jobsite protection, daily cleanup, on-site dump trailers</li>
+    <div class="zr-interior-trust" aria-label="Zenith Roofing service standards">
+      <div class="zr-shell zr-interior-trust__grid">
+        <span><b>Licensed C-39</b><small>CSLB #1036112</small></span>
+        <span><b>Photo documented</b><small>Clear proof at every phase</small></span>
+        <span><b>194 customer reviews</b><small>Across trusted platforms</small></span>
+        <span><b>Locally established</b><small>Serving Southern California</small></span>
+      </div>
+    </div>
+
+    <section class="zr-section zr-about-intro">
+      <div class="zr-shell zr-about-proof">
+        <div class="zr-about-copy">
+          <span class="zr-eyebrow">About Zenith Roofing Services, Inc.</span>
+          <h2>San Diego &amp; Temecula roofing experts.</h2>
+          <p>We are a licensed Southern California roofing contractor serving residential and commercial properties with roof replacement, roof repair, tile, shingle, TPO, torch-down, silicone coatings, maintenance, and inspections.</p>
+          <p>Our process is straightforward: inspect thoroughly, scope clearly, install precisely, and document the work. The result is a better customer experience and a roofing system that is easier to understand from the start.</p>
+          <div class="zr-about-values" aria-label="Our working values">
+            <span><b>Clear</b> Line-item recommendations and practical options.</span>
+            <span><b>Documented</b> Photos before, during, and after the work.</span>
+            <span><b>Dependable</b> Clean sites, quality control, and communication.</span>
+          </div>
+        </div>
+        <div class="zr-about-visual">
+          <picture>
+            <source media="(max-width: 540px)" srcset="/images/zenith-sign-forklift-480.webp">
+            <source media="(max-width: 900px)" srcset="/images/zenith-sign-forklift-720.webp">
+            <img src="/images/zenith-sign-forklift.jpg" width="1440" height="1440" alt="Zenith Roofing Services sign at an active roofing jobsite" loading="lazy">
+          </picture>
+          <div class="zr-about-license">
+            <strong>CSLB #1036112</strong>
+            <span>California licensed C-39 roofing contractor.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="zr-section zr-about-roots" aria-labelledby="roots-title">
+      <div class="zr-shell">
+        <div class="zr-section-heading">
+          <div>
+            <span class="zr-eyebrow">Local roots. Professional standards.</span>
+            <h2 id="roots-title">Built here. Accountable here.</h2>
+          </div>
+          <p>Zenith was built in Escondido by people who understand Southern California roofs, weather, neighborhoods, and the trust it takes to work on someone’s home.</p>
+        </div>
+        <div class="zr-roots-grid">
+          <article>
+            <span class="zr-card-number">01</span>
+            <h3>San Diego roots</h3>
+            <p>Born and raised in San Diego County, our owner built the company in Escondido and has lived here all his life. We know the microclimates, winds, and conditions local roofs face.</p>
+          </article>
+          <article>
+            <span class="zr-card-number">02</span>
+            <h3>Hands-on leadership</h3>
+            <p>We learned the craft by doing the work. That field experience shapes how our team plans details, communicates clearly, and keeps every project moving smoothly.</p>
+          </article>
+          <article>
+            <span class="zr-card-number">03</span>
+            <h3>Faith &amp; family</h3>
+            <p>We are a family that loves God and strives to be worthy of trust. Doing the right thing—even when no one is watching—is part of how we run the company.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="zr-section zr-about-standard">
+      <div class="zr-shell zr-standard-grid">
+        <div class="zr-standard-copy">
+          <span class="zr-eyebrow zr-eyebrow--light">The Zenith standard</span>
+          <h2>Work you can see. Details you can trust.</h2>
+          <p>A great roof is more than shingles or tile. It is correct flashing, watertight transitions, clean lines, manufacturer-approved installation, and the confidence of knowing what happened at every stage.</p>
+          <ul>
+            <li><span>✓</span><div><b>Clear recommendations</b><small>Practical options explained without pressure.</small></div></li>
+            <li><span>✓</span><div><b>Real photo documentation</b><small>Before, during, and after photos of the work.</small></div></li>
+            <li><span>✓</span><div><b>Protected, clean jobsites</b><small>Daily cleanup and respect for your property.</small></div></li>
+            <li><span>✓</span><div><b>One capable local team</b><small>Repairs, replacements, tile, flat roofing, gutters, skylights, and more.</small></div></li>
           </ul>
+          <a class="zr-text-link" href="/projects/">See real Zenith roofing projects <span aria-hidden="true">→</span></a>
         </div>
+        <a class="zr-standard-photo" href="/projects/" aria-label="View completed Zenith roofing projects">
+          <img src="/images/modern-tile-roof-1280.webp" width="1280" height="853" alt="Completed modern tile roof by Zenith Roofing Services" loading="lazy">
+          <span><small>Real project photography</small><b>Built for Southern California</b></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="zr-section zr-about-service-area" aria-labelledby="area-title">
+      <div class="zr-shell zr-area-card">
         <div>
-          <figure class="media placeholder">Add a team / jobsite photo (1200×700)</figure>
-          <p class="muted small" style="margin:.4rem 0 0;">Want help deciding roof type or scope? We’ll walk you through options (performance, look, and cost) with no pressure.</p>
+          <span class="zr-eyebrow">Proudly serving Southern California</span>
+          <h2 id="area-title">Local roofing expertise, from San Diego to Temecula.</h2>
         </div>
-      </div>
-    </section>
-
-    <!-- STORY / HERITAGE / CRAFT (≈20%) -->
-    <section class="section">
-      <div class="values-grid">
-        <div class="card airy">
-          <h3>San Diego Roots</h3>
-          <p class="muted">Born and raised in San Diego County, our owner built the company in <strong>Escondido</strong> and has lived here all his life. We know the microclimates, the winds, and what SoCal roofs really face.</p>
+        <div class="zr-area-list" aria-label="Primary service areas">
+          <span>Escondido</span><span>North County</span><span>San Diego</span><span>Temecula</span><span>Murrieta</span><span>Menifee</span>
         </div>
-        <div class="card airy">
-          <h3>From Hands-On to Leadership</h3>
-          <p class="muted">We’ve worked on roofs ourselves, learned the craft the right way, and built a team known for <strong>precision</strong> and <strong>communication</strong>. That’s how we keep projects smooth.</p>
+        <div class="zr-area-actions">
+          <a class="zr-button zr-button--orange" href="/contact/">Request an Estimate <span aria-hidden="true">→</span></a>
+          <a class="zr-button zr-button--outline" href="/services/">Explore Services</a>
         </div>
-        <div class="card airy">
-          <h3>Guided by Faith & Family</h3>
-          <p class="muted">We’re a family that loves God and strives to be worthy of trust. Doing things right—even when no one’s watching—matters to us.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TRUST / PROOF -->
-    <section class="section card airy hoverable">
-      <h2>Why Homeowners Choose Us</h2>
-      <ul class="checklist grid-2">
-        <li><span class="tick">✓</span> <strong>Insurance & Wind Damage</strong>—we assess storm and wind claims and help you communicate with carriers.</li>
-        <li><span class="tick">✓</span> <strong>Reviews You Can Verify</strong>—plenty on Google, Angi, and Yelp.</li>
-        <li><span class="tick">✓</span> <strong>Manufacturer Focus</strong>—we follow specs so warranties stay strong.</li>
-        <li><span class="tick">✓</span> <strong>All Services, One Team</strong>—repairs, tune-ups, tile lift & relay, TPO, silicone, gutters, skylights, and more.</li>
-      </ul>
-      <p class="muted small" style="margin:.4rem 0 0;">Ask us for sample photo sets—before, during, and after—so you can see our process.</p>
-    </section>
-
-    <!-- LIGHT SELL (≈10%) -->
-    <section class="section cta-strip">
-      <div class="text">
-        <strong>Ready to feel confident about your roof?</strong> We’ll show recommendations, materials, and photos—no guesswork.
-      </div>
-      <div class="actions" style="display:flex; gap:10px; flex-wrap:wrap;">
-        <a class="btn" href="/">Go to Home</a>
-        <a class="btn outline" href="/services/">Browse Services</a>
-      </div>
-    </section>
-
-    <!-- Service area & quick links -->
-    <section class="section card airy">
-      <h2>Proudly Serving</h2>
-      <p class="muted">North County San Diego, greater San Diego County, and Temecula Valley.</p>
-      <ul class="list-tight">
-        <li>Escondido • San Marcos • Carlsbad • Encinitas • Vista • Oceanside</li>
-        <li>San Diego metro • Poway • Rancho Bernardo • La Jolla • Scripps Ranch</li>
-        <li>Temecula • Murrieta • Menifee • Lake Elsinore</li>
-      </ul>
-      <div class="cta" style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
-        <a class="btn" href="/">Return Home</a>
-        <a class="btn outline" href="/contact/">Contact</a>
-        <a class="btn outline" href="/services/">All Services</a>
       </div>
     </section>
   </main>
@@ -202,11 +180,5 @@
   <!-- Footer include -->
   <div data-include="/components/footer.html"></div>
 
-  <!-- Optional mobile action bar -->
-  <div class="actionbar">
-    <a class="ab-btn call" href="tel:8589006163">Call</a>
-    <a class="ab-btn text" href="sms:+18589006163">Text</a>
-    <a class="ab-btn estimate" href="/">Home</a>
-  </div>
 </body>
 </html>
