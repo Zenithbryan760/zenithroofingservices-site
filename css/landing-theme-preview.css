@@ -635,18 +635,6 @@ summary:focus-visible {
   filter: drop-shadow(0 7px 10px rgba(6, 41, 75, .15));
 }
 
-.header .license {
-  position: absolute;
-  right: 0;
-  bottom: 5px;
-  left: 0;
-  color: var(--zr-ink-500) !important;
-  font-size: .54rem !important;
-  font-weight: 750;
-  letter-spacing: .04em;
-  text-align: center;
-}
-
 .nav-bar {
   min-width: 0;
   flex: 1;
