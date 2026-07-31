@@ -3359,6 +3359,11 @@ textarea:focus {
   display: none;
 }
 
+/* The premium quick-action dock replaces legacy page-level mobile bars. */
+.actionbar {
+  display: none !important;
+}
+
 /* Exact premium About page */
 .premium-page {
   width: 100%;
