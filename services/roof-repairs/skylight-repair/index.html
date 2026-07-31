@@ -25,17 +25,23 @@
   <style>
     :root{--navy:#072e59;--orange:#f7941d;--ink:#10233a;--soft:#f3f7fb}
     html{scroll-behavior:smooth}
-    .skylight-page{color:var(--ink)}
-    .hero{background:linear-gradient(125deg,#071f3a,#0b4a79);color:#fff;border-radius:22px;overflow:hidden;box-shadow:0 18px 44px rgba(7,31,58,.2)}
-    .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.9fr);align-items:stretch}
-    .hero-copy{padding:clamp(26px,5vw,62px)}
+    .skylight-page{color:var(--ink);overflow:hidden}
+    .skylight-page>section,.skylight-page>.pillnav{width:min(1180px,calc(100% - 32px));margin-inline:auto}
+    .skylight-hero{position:relative;margin-top:28px;background:linear-gradient(132deg,#041d38 0%,#073a68 68%,#0b4f82 100%);color:#fff;border:1px solid rgba(7,46,89,.18);border-radius:28px;overflow:hidden;box-shadow:0 24px 64px rgba(7,31,58,.2)}
+    .skylight-hero::before{content:"";position:absolute;inset:-35% auto auto -8%;width:440px;height:440px;border-radius:50%;background:rgba(247,148,29,.12);filter:blur(2px);pointer-events:none}
+    .skylight-hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(400px,.92fr);min-height:590px;align-items:stretch}
+    .skylight-hero-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(42px,6vw,78px)}
     .eyebrow{color:#ffd39b;font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}
-    .hero h1{color:#fff;font-size:clamp(2.2rem,5vw,4.25rem);line-height:1.02;margin:.45rem 0 1rem;max-width:13ch}
-    .hero .lede{font-size:clamp(1.05rem,2vw,1.3rem);line-height:1.6;color:#e8f2fc;max-width:60ch}
-    .hero-media{min-height:420px}
-    .hero-media img{width:100%;height:100%;object-fit:cover;display:block}
-    .hero .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:1.4rem}
-    .hero .btn-outline{border-color:#fff;color:#fff}
+    .skylight-hero h1{color:#fff;font-size:clamp(2.65rem,4.6vw,4.9rem);line-height:.98;letter-spacing:-.045em;margin:.55rem 0 1.2rem;max-width:10.5ch;text-wrap:balance}
+    .skylight-hero .lede{font-size:clamp(1.05rem,1.55vw,1.22rem);line-height:1.65;color:#dceafa;max-width:590px;margin:0}
+    .skylight-hero-media{position:relative;min-height:590px;margin:18px 18px 18px 0;border-radius:20px;overflow:hidden;background:#173b59}
+    .skylight-hero-media::after{content:"Completed Zenith skylight repair";position:absolute;right:16px;bottom:16px;padding:10px 13px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(4,29,56,.82);color:#fff;font-size:.76rem;font-weight:800;letter-spacing:.02em;backdrop-filter:blur(8px)}
+    .skylight-hero-media img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+    .skylight-hero .cta{display:flex;flex-wrap:wrap;gap:11px;margin-top:1.65rem}
+    .skylight-hero .btn-outline{border-color:rgba(255,255,255,.7);color:#fff;background:rgba(255,255,255,.04)}
+    .skylight-hero .btn-outline:hover{background:#fff;color:var(--navy)}
+    .hero-proof{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 0;padding:0;list-style:none}
+    .hero-proof li{padding:7px 10px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.07);color:#e7f1fb;font-size:.76rem;font-weight:800}
     .pillnav{margin-top:16px}
     .section{scroll-margin-top:110px}
     .section-heading{max-width:760px;margin-bottom:1.25rem}
@@ -66,8 +72,8 @@
     .cta-strip{background:var(--navy);color:#fff;border-radius:18px;padding:clamp(22px,4vw,38px);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
     .cta-strip h2{color:#fff;margin:0 0 .35rem}
     .cta-strip p{margin:0;color:#dcecff}
-    @media(max-width:850px){.hero-grid,.proof-grid,.process-grid,.issue-grid{grid-template-columns:1fr}.hero-media{min-height:280px}.flow{grid-template-columns:1fr 1fr}}
-    @media(max-width:560px){.flow{grid-template-columns:1fr}.hero h1{font-size:2.4rem}.spec-table th,.spec-table td{display:block;width:auto}.spec-table th{padding-bottom:3px}.spec-table td{padding-top:3px}}
+    @media(max-width:900px){.skylight-hero-grid,.proof-grid,.process-grid,.issue-grid{grid-template-columns:1fr}.skylight-hero-grid{min-height:0}.skylight-hero-media{min-height:440px;margin:0 18px 18px}.flow{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.skylight-page>section,.skylight-page>.pillnav{width:min(100% - 22px,1180px)}.skylight-hero{margin-top:14px;border-radius:20px}.skylight-hero-copy{padding:34px 24px}.skylight-hero h1{font-size:2.65rem}.skylight-hero .cta .btn{width:100%}.skylight-hero-media{min-height:330px;margin:0 8px 8px;border-radius:15px}.skylight-hero-media::after{right:10px;bottom:10px}.flow{grid-template-columns:1fr}.spec-table th,.spec-table td{display:block;width:auto}.spec-table th{padding-bottom:3px}.spec-table td{padding-top:3px}}
   </style>
 
   <script type="application/ld+json">
@@ -100,10 +106,10 @@
 <body>
   <div data-include="/components/header-section.html"></div>
 
-  <main id="top" class="page skylight-page">
-    <section class="hero" aria-labelledby="page-title">
-      <div class="hero-grid">
-        <div class="hero-copy">
+  <main id="top" class="skylight-page">
+    <section class="skylight-hero" aria-labelledby="page-title">
+      <div class="skylight-hero-grid">
+        <div class="skylight-hero-copy">
           <p class="eyebrow">Tile • Shingle • Flat Roof Skylights</p>
           <h1 id="page-title">Skylight Leak Repair That Fixes the Water Path</h1>
           <p class="lede">A leaking skylight is often a flashing and drainage problem—not simply a bad bead of sealant. We open the roof, trace where the water is traveling, rebuild the underlayment and flashing, and give the water a clear path back onto the roof.</p>
@@ -111,8 +117,13 @@
             <a class="btn btn-primary" href="#estimate">Request a Free Estimate</a>
             <a class="btn btn-outline" href="#process">See Our Repair Process</a>
           </div>
+          <ul class="hero-proof" aria-label="Zenith skylight repair specialties">
+            <li>Tile, shingle &amp; flat roofs</li>
+            <li>Flashing &amp; underlayment</li>
+            <li>Real project documentation</li>
+          </ul>
         </div>
-        <picture class="hero-media">
+        <picture class="skylight-hero-media">
           <source media="(max-width:720px)" srcset="/images/skylight-repair/completed-skylight-repair-720.webp">
           <img src="/images/skylight-repair/completed-skylight-repair-1200.webp" width="1200" height="675" alt="Completed bank of skylights integrated into a concrete tile roof" fetchpriority="high">
         </picture>
