@@ -1,0 +1,707 @@
+/* =====================================================================
+   Zenith Roofing Services — Unified Visual System
+   Loaded from the shared header so it is the final visual layer.
+   Content, forms, integrations and page behavior remain unchanged.
+   ===================================================================== */
+
+:root {
+  --zr-navy: #072e59;
+  --zr-navy-deep: #031f3d;
+  --zr-blue: #0b3a6f;
+  --zr-orange: #f7941d;
+  --zr-orange-dark: #df7c08;
+  --zr-ink: #172033;
+  --zr-copy: #475467;
+  --zr-muted: #667085;
+  --zr-line: #dce3eb;
+  --zr-soft: #f4f7fa;
+  --zr-white: #fff;
+  --zr-content: 1180px;
+  --zr-reading: 780px;
+  --zr-radius: 14px;
+  --zr-radius-lg: 18px;
+  --zr-shadow: 0 14px 36px rgba(7, 46, 89, .09);
+  --zr-shadow-lg: 0 24px 64px rgba(7, 46, 89, .15);
+}
+
+html {
+  scroll-padding-top: 108px;
+}
+
+body {
+  background: var(--zr-white);
+  color: var(--zr-ink);
+  font-family: "Poppins", Inter, ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body :where(h1, h2, h3, h4) {
+  color: var(--zr-navy);
+  font-weight: 800;
+  text-wrap: balance;
+}
+
+body :where(p, li) {
+  text-wrap: pretty;
+}
+
+body :where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid rgba(247, 148, 29, .4);
+  outline-offset: 3px;
+}
+
+/* ---------------------------------------------------------------------
+   Shared header
+   --------------------------------------------------------------------- */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--zr-line);
+  background: rgba(255, 255, 255, .98);
+  color: var(--zr-navy);
+  box-shadow: 0 5px 24px rgba(7, 46, 89, .07);
+  backdrop-filter: blur(14px) saturate(150%);
+}
+
+.header-inner {
+  min-height: 92px;
+}
+
+.header .header-inner > .logo-section .license,
+.nav-links > li > a,
+.phone-section p a {
+  color: var(--zr-navy);
+}
+
+.nav-links > li > a {
+  font-weight: 750;
+}
+
+.nav-links > li > a:hover,
+.nav-links a.is-active,
+.nav-links a[aria-current="page"] {
+  color: var(--zr-orange-dark);
+  background: #fff4e6;
+}
+
+.call-button {
+  border-radius: 10px !important;
+  background: var(--zr-orange) !important;
+  color: var(--zr-navy-deep) !important;
+  box-shadow: 0 8px 20px rgba(247, 148, 29, .22) !important;
+}
+
+/* ---------------------------------------------------------------------
+   Shared interior-page typography, spacing and controls
+   --------------------------------------------------------------------- */
+
+body:has(main.page) main.page {
+  width: min(var(--zr-content), calc(100% - 40px));
+  max-width: var(--zr-content);
+  margin: clamp(28px, 4vw, 52px) auto clamp(64px, 8vw, 100px);
+  padding: 0;
+}
+
+body:has(main.page) main.page :where(h1, .h1) {
+  font-size: clamp(2.35rem, 4.5vw, 4.25rem);
+  line-height: 1.04;
+  letter-spacing: -.045em;
+}
+
+body:has(main.page) main.page :where(h2, .section-title, .section-heading) {
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  line-height: 1.14;
+  letter-spacing: -.03em;
+}
+
+body:has(main.page) main.page :where(.lede, .lead, .section-lead, .lede-narrow) {
+  color: var(--zr-copy);
+  font-size: clamp(1rem, .96rem + .25vw, 1.12rem);
+  line-height: 1.75;
+}
+
+body:has(main.page) main.page :where(.muted, .desc, .small-note) {
+  color: var(--zr-muted);
+}
+
+body:has(main.page) main.page > section.section {
+  margin: 0;
+  padding: clamp(54px, 7vw, 84px) 0;
+  border: 0;
+  border-bottom: 1px solid var(--zr-line);
+  border-radius: 0;
+  background: var(--zr-white);
+  box-shadow: none;
+}
+
+body:has(main.page) main.page > section.section:last-of-type {
+  border-bottom: 0;
+}
+
+body:has(main.page) main.page > section.section.hoverable:hover {
+  transform: none;
+  border-color: var(--zr-line);
+  box-shadow: none;
+}
+
+/* Classic service/location hero — one consistent composition */
+body:has(main.page) main.page > .hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin: 0 0 22px;
+  padding: clamp(42px, 5vw, 66px);
+  border: 0;
+  border-radius: var(--zr-radius-lg);
+  background:
+    radial-gradient(circle at 96% 100%, rgba(255, 255, 255, .09), transparent 29%),
+    linear-gradient(120deg, var(--zr-navy-deep), var(--zr-blue));
+  box-shadow: var(--zr-shadow-lg);
+  color: var(--zr-white);
+}
+
+body:has(main.page) main.page > .hero .split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(350px, .8fr);
+  gap: clamp(38px, 6vw, 74px);
+  align-items: center;
+}
+
+body:has(main.page) main.page > .hero :where(h1, h2, h3, strong) {
+  color: var(--zr-white);
+}
+
+body:has(main.page) main.page > .hero :where(.lede, .lead, p) {
+  color: rgba(255, 255, 255, .88);
+}
+
+body:has(main.page) main.page > .hero .eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 24px;
+}
+
+body:has(main.page) main.page > .hero :where(.chip, .tag, .proof-pill) {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  padding: 6px 11px;
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .1) !important;
+  color: var(--zr-white) !important;
+  font-size: .78rem;
+  font-weight: 750;
+  line-height: 1.2;
+  backdrop-filter: blur(5px);
+}
+
+body:has(main.page) main.page > .hero :where(.photo-card, .media) {
+  overflow: hidden;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, .28);
+  border-radius: var(--zr-radius);
+  background: var(--zr-white);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, .22);
+}
+
+body:has(main.page) main.page > .hero :where(.photo-card, .media)::before {
+  display: none;
+}
+
+body:has(main.page) main.page > .hero :where(.photo-card, .media) img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Buttons */
+body:has(main.page) main.page :where(
+  .btn,
+  .button,
+  .flat-button,
+  .fin-btn,
+  .cta-button
+) {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 18px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  box-shadow: none;
+  font-size: .9rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+  transition: transform .18s ease, box-shadow .18s ease,
+    background-color .18s ease, border-color .18s ease;
+}
+
+body:has(main.page) main.page :where(
+  .btn-primary,
+  .button-primary,
+  .flat-button.primary,
+  .fin-btn-primary,
+  .btn.primary
+) {
+  border-color: var(--zr-orange);
+  background: var(--zr-orange);
+  color: var(--zr-navy-deep);
+}
+
+body:has(main.page) main.page :where(
+  .btn-outline,
+  .button-secondary,
+  .flat-button.secondary,
+  .fin-btn-secondary,
+  .btn.secondary
+) {
+  border-color: var(--zr-navy);
+  background: transparent;
+  color: var(--zr-navy);
+}
+
+body:has(main.page) main.page > .hero :where(
+  .btn-outline,
+  .button-secondary,
+  .flat-button.secondary,
+  .btn.secondary
+) {
+  border-color: rgba(255, 255, 255, .68);
+  color: var(--zr-white);
+}
+
+body:has(main.page) main.page :where(.btn, .button, .flat-button, .fin-btn):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(7, 46, 89, .14);
+}
+
+/* Sticky in-page navigation */
+body:has(main.page) main.page > .sticky-pills {
+  position: sticky;
+  top: 92px;
+  z-index: 35;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  overflow-x: auto;
+  margin: 0;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--zr-line);
+  background: rgba(255, 255, 255, .97);
+  scrollbar-width: none;
+  backdrop-filter: blur(12px);
+}
+
+body:has(main.page) main.page > .sticky-pills::-webkit-scrollbar {
+  display: none;
+}
+
+body:has(main.page) main.page > .sticky-pills a {
+  flex: 0 0 auto;
+  min-height: 38px;
+  padding: 7px 12px;
+  border: 1px solid var(--zr-line);
+  border-radius: 999px;
+  background: var(--zr-white);
+  color: var(--zr-navy);
+  font-size: .82rem;
+  font-weight: 700;
+}
+
+body:has(main.page) main.page > .sticky-pills a:hover {
+  border-color: rgba(247, 148, 29, .7);
+  background: #fff6ea;
+}
+
+/* Cards are reserved for actual grouped items, not whole sections */
+body:has(main.page) main.page .grid > :where(
+  .card,
+  .svc-card,
+  .cause-card,
+  .city-card,
+  .truth-card,
+  .product-card,
+  a.card
+),
+body:has(main.page) main.page :where(
+  .commercial-scope article,
+  .decision-grid article,
+  .faq details,
+  .project-proof figure
+) {
+  border: 1px solid var(--zr-line);
+  border-radius: var(--zr-radius);
+  background: var(--zr-white);
+  box-shadow: 0 6px 20px rgba(7, 46, 89, .055);
+}
+
+body:has(main.page) main.page .grid > :where(
+  .card,
+  .svc-card,
+  .cause-card,
+  .city-card,
+  .truth-card,
+  .product-card,
+  a.card
+) {
+  padding: clamp(20px, 2.5vw, 28px);
+}
+
+body:has(main.page) main.page .grid > :where(.card, a.card):hover {
+  transform: translateY(-3px);
+  border-color: rgba(247, 148, 29, .55);
+  box-shadow: var(--zr-shadow);
+}
+
+body:has(main.page) main.page :where(.cta-strip, .cta-band, .truth-callout) {
+  padding: clamp(24px, 4vw, 38px);
+  border-radius: var(--zr-radius-lg);
+  background: linear-gradient(120deg, var(--zr-navy-deep), var(--zr-blue));
+  color: rgba(255, 255, 255, .88);
+  box-shadow: var(--zr-shadow);
+}
+
+body:has(main.page) main.page :where(.cta-strip, .cta-band, .truth-callout)
+  :where(h2, h3, strong) {
+  color: var(--zr-white);
+}
+
+/* Visual treatment only; form fields and submission behavior are untouched */
+body:has(main.page) main.page :where(
+  input:not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea
+) {
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 13px;
+  border: 1px solid #cfd8e3;
+  border-radius: 9px;
+  background: #f8fafc;
+  color: var(--zr-ink);
+  box-shadow: none;
+  font: inherit;
+  font-size: 16px;
+}
+
+body:has(main.page) main.page :where(input, select, textarea):focus {
+  border-color: var(--zr-blue);
+  background: var(--zr-white);
+  box-shadow: 0 0 0 4px rgba(11, 58, 111, .1);
+  outline: 0;
+}
+
+/* ---------------------------------------------------------------------
+   Services directory — same homepage-led hero and card language
+   --------------------------------------------------------------------- */
+
+body:has(.services-directory-hero) .services-directory-hero {
+  padding: clamp(68px, 8vw, 108px) 24px;
+  background:
+    linear-gradient(90deg, rgba(3, 31, 61, .97), rgba(7, 46, 89, .78)),
+    url("/images/modern-tile-roof-1280.webp") center / cover no-repeat;
+}
+
+body:has(.services-directory-hero) .services-hero-grid {
+  width: min(var(--zr-content), 100%);
+  grid-template-columns: minmax(0, 1.1fr) minmax(330px, .65fr);
+}
+
+body:has(.services-directory-hero) .services-directory-hero h1 {
+  max-width: 760px;
+  font-size: clamp(2.65rem, 5vw, 4.65rem);
+  line-height: 1.03;
+}
+
+body:has(.services-directory-hero) .services-hero-card {
+  border-radius: var(--zr-radius-lg);
+  box-shadow: var(--zr-shadow-lg);
+}
+
+body:has(.services-directory-hero) .catalog-subnav {
+  position: sticky;
+  top: 92px;
+  z-index: 40;
+  border-bottom: 1px solid var(--zr-line);
+  background: rgba(255, 255, 255, .97);
+  box-shadow: 0 5px 16px rgba(7, 46, 89, .05);
+  backdrop-filter: blur(12px);
+}
+
+body:has(.services-directory-hero) .services-category,
+body:has(.services-directory-hero) .services-faq,
+body:has(.services-directory-hero) .services-estimate {
+  padding-top: clamp(64px, 7vw, 92px);
+  padding-bottom: clamp(64px, 7vw, 92px);
+}
+
+body:has(.services-directory-hero) .services-card-grid {
+  gap: 20px;
+}
+
+body:has(.services-directory-hero) .services-card {
+  min-height: 0;
+  padding: 27px;
+  border-radius: var(--zr-radius);
+  box-shadow: 0 7px 22px rgba(7, 46, 89, .06);
+}
+
+/* ---------------------------------------------------------------------
+   Projects — real photo hero, readable text, same brand hierarchy
+   --------------------------------------------------------------------- */
+
+body:has(.projects-hero) {
+  background: var(--zr-white);
+}
+
+body:has(.projects-hero) .projects-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  padding: clamp(72px, 9vw, 118px) 24px;
+  background:
+    linear-gradient(90deg, rgba(3, 31, 61, .97), rgba(7, 46, 89, .78)),
+    url("/images/zenith-sign-forklift-720.webp") center 48% / cover no-repeat;
+  text-align: left;
+}
+
+body:has(.projects-hero) .projects-hero > * {
+  width: min(var(--zr-content), 100%);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+body:has(.projects-hero) .projects-hero .eyebrow {
+  margin-bottom: 13px;
+  color: #ffb353;
+}
+
+body:has(.projects-hero) .projects-hero h1 {
+  max-width: 850px;
+  margin-left: auto;
+  color: var(--zr-white) !important;
+  font-size: clamp(2.65rem, 5vw, 4.65rem);
+  line-height: 1.03;
+  letter-spacing: -.045em;
+}
+
+body:has(.projects-hero) .projects-hero > p {
+  max-width: 760px;
+  margin: 22px auto 0;
+  color: rgba(255, 255, 255, .88) !important;
+}
+
+body:has(.projects-hero) .trust-bar {
+  max-width: 900px;
+  margin-top: 30px;
+  margin-left: auto;
+}
+
+body:has(.projects-hero) .trust-item {
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, .09);
+  color: var(--zr-white);
+  box-shadow: none;
+  font-size: .84rem;
+  backdrop-filter: blur(5px);
+}
+
+body:has(.projects-hero) .projects-section {
+  margin-top: clamp(62px, 7vw, 92px);
+  margin-bottom: clamp(62px, 7vw, 92px);
+}
+
+body:has(.projects-hero) :where(.expertise-card, .city-card, .faq-item) {
+  border: 1px solid var(--zr-line);
+  border-radius: var(--zr-radius);
+  box-shadow: 0 7px 22px rgba(7, 46, 89, .06);
+}
+
+body:has(.projects-hero) .seo-intro,
+body:has(.projects-hero) .estimate-section {
+  border: 1px solid var(--zr-line);
+  border-radius: var(--zr-radius-lg);
+  box-shadow: var(--zr-shadow);
+}
+
+body:has(.projects-hero) .embed {
+  border: 1px solid var(--zr-line);
+  border-radius: var(--zr-radius-lg);
+  box-shadow: var(--zr-shadow);
+}
+
+/* ---------------------------------------------------------------------
+   Mobile navigation and layout
+   --------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  html {
+    scroll-padding-top: 74px;
+  }
+
+  .header {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+
+  .header .header-inner {
+    min-height: 72px;
+    padding: 0 14px;
+  }
+
+  .mobile-header {
+    width: 100%;
+    min-height: 72px;
+    padding: 0;
+    background: transparent;
+  }
+
+  .mobile-header .logo {
+    width: 82px;
+    height: 62px;
+    max-width: 82px;
+    max-height: 62px;
+    object-fit: contain;
+  }
+
+  .menu-toggle,
+  .mobile-call {
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    background: var(--zr-orange);
+    box-shadow: none;
+  }
+
+  .mobile-nav {
+    inset: 0 auto 0 0;
+    width: min(90vw, 390px);
+    max-width: 390px;
+    padding: 18px 14px calc(30px + env(safe-area-inset-bottom));
+    background: var(--zr-navy-deep);
+    box-shadow: 24px 0 70px rgba(0, 0, 0, .3);
+  }
+
+  .mobile-nav .mobile-links > li > .accordion-toggle,
+  .mobile-nav .submenu .accordion-toggle,
+  .mobile-nav .mobile-links > li > a {
+    min-height: 48px;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .06);
+    color: var(--zr-white);
+  }
+
+  .mobile-nav .mobile-links > li > .submenu,
+  .mobile-nav .submenu .submenu {
+    margin-top: 6px;
+    padding: 7px;
+    background: rgba(255, 255, 255, .07);
+    box-shadow: none;
+  }
+
+  .mobile-nav .submenu li a {
+    color: rgba(255, 255, 255, .9);
+  }
+
+  body:has(main.page) main.page > .sticky-pills,
+  body:has(.services-directory-hero) .catalog-subnav {
+    top: 72px;
+  }
+}
+
+@media (max-width: 800px) {
+  body:has(main.page) main.page {
+    width: min(100% - 28px, var(--zr-content));
+    margin-top: 16px;
+  }
+
+  body:has(main.page) main.page > .hero {
+    padding: 30px 22px;
+    border-radius: 15px;
+  }
+
+  body:has(main.page) main.page > .hero .split,
+  body:has(.services-directory-hero) .services-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body:has(main.page) main.page > .hero :where(.photo-card, .media) {
+    order: 2;
+  }
+
+  body:has(main.page) main.page > section.section {
+    padding: 52px 0;
+  }
+
+  body:has(main.page) main.page :where(h1, .h1) {
+    font-size: clamp(2.1rem, 10vw, 3.25rem);
+  }
+
+  body:has(.services-directory-hero) .services-directory-hero,
+  body:has(.projects-hero) .projects-hero {
+    padding: 58px 18px;
+  }
+
+  body:has(.projects-hero) .projects-hero {
+    text-align: left;
+  }
+
+  body:has(.projects-hero) .trust-bar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-left: 0;
+  }
+
+  body:has(main.page) main.page :where(.cta, .center-actions, .hero-actions) {
+    gap: 9px;
+  }
+
+  body:has(main.page) main.page :where(.cta, .center-actions, .hero-actions)
+    > :where(a, button) {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  body:has(main.page) main.page > .hero :where(.photo-card, .media) {
+    padding: 7px;
+  }
+
+  body:has(.projects-hero) .trust-bar {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  body:has(.projects-hero) .trust-item {
+    display: flex;
+    min-height: 58px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
