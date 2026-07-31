@@ -1477,6 +1477,15 @@ textarea:focus {
   transition: transform .4s var(--zr-ease), box-shadow .4s var(--zr-ease) !important;
 }
 
+.page.revs .hero .kpi,
+.page.revs .hero .kpi strong {
+  color: var(--zr-navy-950) !important;
+}
+
+.page.revs .hero .kpi > div {
+  color: var(--zr-ink-500) !important;
+}
+
 .page.revs .kpi:hover,
 .page.revs .cta:hover,
 .page.revs .review:hover {
