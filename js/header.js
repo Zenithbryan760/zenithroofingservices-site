@@ -1,174 +1,101 @@
-/* =======================================================================
-   js/header.js — Desktop dropdowns + Mobile off-canvas (single file)
-   - Desktop: optional .submenu-toggle click handler (if you use it)
-   - Mobile: .menu-toggle opens/closes off-canvas by toggling body.nav-open
-   - Mobile accordions: .accordion-toggle expands nested <li> menus
-   - Click-outside, ESC to close, resize cleanup
-   - Idempotent: safe to call window.ZenithHeader.init() multiple times
-   - Legacy alias: window.initMobileMenu() calls the same init
-   ======================================================================= */
+/* Shared premium header, mobile drawer, active navigation and quick-action dock. */
 (() => {
-  'use strict';
+  "use strict";
 
-  // Guards so we don’t double-bind global listeners
-  let desktopBound = false;
-  let outsideClickBound = false;
-  let escBound = false;
-  let resizeBound = false;
+  const boundOpeners = new WeakSet();
+  const boundClosers = new WeakSet();
+  const boundDrawers = new WeakSet();
+  let globalBound = false;
 
-  // Cache current bound elements so we only bind once per element
-  const boundMenuToggles = new WeakSet();
-  let boundMobileNav  = null;
+  const elements = () => ({
+    drawer: document.querySelector(".mobile-drawer"),
+    backdrop: document.querySelector(".drawer-backdrop"),
+    openers: document.querySelectorAll(".menu-button, .mobile-dock__menu"),
+    closers: document.querySelectorAll(".mobile-drawer__close"),
+  });
 
-  // --- Utilities ---
-  const isOpen = () => document.body.classList.contains('nav-open');
   const syncExpanded = (expanded) => {
-    document.querySelectorAll('.menu-toggle, .zr-dock-menu')
-      .forEach((toggle) => toggle.setAttribute('aria-expanded', String(expanded)));
+    document.querySelectorAll(".menu-button, .mobile-dock__menu").forEach((button) => {
+      button.setAttribute("aria-expanded", String(expanded));
+      if (button.classList.contains("menu-button")) {
+        button.setAttribute("aria-label", expanded ? "Close navigation" : "Open navigation");
+      }
+    });
   };
-  const openMobile = () => {
-    document.body.classList.add('nav-open');
-    syncExpanded(true);
-    document.body.style.overflow = 'hidden';
+
+  const setMenu = (open) => {
+    const { drawer, backdrop } = elements();
+    if (!drawer || !backdrop) return;
+
+    drawer.classList.toggle("is-open", open);
+    backdrop.classList.toggle("is-open", open);
+    drawer.setAttribute("aria-hidden", String(!open));
+    document.body.classList.toggle("menu-open", open);
+    document.body.style.overflow = open ? "hidden" : "";
+    syncExpanded(open);
   };
-  const closeMobile = () => {
-    document.body.classList.remove('nav-open');
-    syncExpanded(false);
-    document.body.style.overflow = '';
-  };
-  const isMobileViewport = () => window.matchMedia('(max-width: 1024px)').matches; // matches your CSS
 
-  // --- [A] Desktop dropdowns (optional click support) ---
-  // If you add .submenu-toggle to desktop triggers, this will handle click-to-toggle
-  function bindDesktopDropdowns() {
-    if (desktopBound) return;
-    document.addEventListener('click', (e) => {
-      const toggle = e.target.closest('.submenu-toggle');
-      if (!toggle) return;
+  const setActiveNavigation = () => {
+    const path = window.location.pathname.replace(/\/+$/, "") || "/";
+    const matches = (href) => {
+      const target = new URL(href, window.location.origin).pathname.replace(/\/+$/, "") || "/";
+      return target === "/" ? path === "/" : path === target || path.startsWith(`${target}/`);
+    };
 
-      const li = toggle.closest('li');
-      const parentUl = li?.parentElement;
-      if (!li || !parentUl) return;
-
-      // Close siblings
-      parentUl.querySelectorAll(':scope > li.open').forEach((openLi) => {
-        if (openLi !== li) {
-          openLi.classList.remove('open');
-          openLi.querySelectorAll('.submenu-toggle,[aria-expanded]')
-                .forEach((b) => b.setAttribute('aria-expanded', 'false'));
-        }
-      });
-
-      // Toggle current
-      const nowOpen = li.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(nowOpen));
-
-      // Prevent accidental nav if the toggle is an <a>
-      if (toggle.tagName === 'A') e.preventDefault();
-    }, { passive: false });
-    desktopBound = true;
-  }
-
-  // --- [B] Mobile: off-canvas open/close & helpers ---
-  function bindMobileControls() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menuToggles = document.querySelectorAll('.menu-toggle, .zr-dock-menu');
-    const mobileNav  = document.querySelector('.mobile-nav');
-
-    // If either element is missing, nothing to bind (ok on desktop-only pages)
-    if (!menuToggle || !mobileNav || !menuToggles.length) return;
-
-    // Bind hamburger only once per element
-    menuToggles.forEach((toggle) => {
-      if (boundMenuToggles.has(toggle)) return;
-      toggle.addEventListener('click', () => {
-        const opening = !isOpen();
-        opening ? openMobile() : closeMobile();
-      });
-      boundMenuToggles.add(toggle);
+    document.querySelectorAll(".desktop-nav > a").forEach((link) => {
+      const active = matches(link.getAttribute("href"));
+      link.classList.toggle("is-active", active);
+      if (active) link.setAttribute("aria-current", "page");
+      else link.removeAttribute("aria-current");
     });
 
-    // Click outside to close (bind once globally)
-    if (!outsideClickBound) {
-      document.addEventListener('click', (e) => {
-        if (!isOpen()) return;
-        // Don’t close if clicking inside the panel or on the toggle
-        if (mobileNav.contains(e.target) || e.target.closest('.menu-toggle, .zr-dock-menu')) return;
-        closeMobile(menuToggle);
-      });
-      outsideClickBound = true;
-    }
-
-    // ESC to close (bind once globally)
-    if (!escBound) {
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && isOpen()) closeMobile(menuToggle);
-      });
-      escBound = true;
-    }
-
-    // On resize to desktop, clean up (bind once globally)
-    if (!resizeBound) {
-      let lastIsMobile = isMobileViewport();
-      window.addEventListener('resize', () => {
-        const nowIsMobile = isMobileViewport();
-        if (lastIsMobile && !nowIsMobile) closeMobile(menuToggle);
-        lastIsMobile = nowIsMobile;
-      });
-      resizeBound = true;
-    }
-
-
-    // Delegate mobile nav clicks once per injected mobileNav element.
-    // This handles both normal links and accordion buttons without double-binding.
-    if (boundMobileNav !== mobileNav) {
-      mobileNav.addEventListener('click', (e) => {
-        const btn = e.target.closest('.accordion-toggle');
-        if (btn) {
-          e.preventDefault();
-          e.stopPropagation();
-
-          const li = btn.closest('li');
-          if (!li) return;
-
-          li.parentElement?.querySelectorAll(':scope > li.open').forEach((openLi) => {
-            if (openLi !== li) {
-              openLi.classList.remove('open');
-              openLi.querySelectorAll('.accordion-toggle,[aria-expanded]')
-                    .forEach((b) => b.setAttribute('aria-expanded', 'false'));
-            }
-          });
-
-          const now = li.classList.toggle('open');
-          btn.setAttribute('aria-expanded', String(now));
-          return;
-        }
-
-        const link = e.target.closest('a[href]');
-        if (link) closeMobile(menuToggle);
-      }, { passive: false });
-
-      boundMobileNav = mobileNav;
-    }
-  }
+    const services = document.querySelector(".nav-mega");
+    if (services) services.classList.toggle("is-active", path === "/services" || path.startsWith("/services/"));
+  };
 
   function init() {
-    // Desktop click support (safe if you only use :hover in CSS too)
-    bindDesktopDropdowns();
+    const { drawer, backdrop, openers, closers } = elements();
+    if (!drawer || !backdrop) return;
 
-    // Mobile controls & accordions
-    bindMobileControls();
+    setActiveNavigation();
+
+    openers.forEach((button) => {
+      if (boundOpeners.has(button)) return;
+      button.addEventListener("click", () => setMenu(!drawer.classList.contains("is-open")));
+      boundOpeners.add(button);
+    });
+
+    closers.forEach((button) => {
+      if (boundClosers.has(button)) return;
+      button.addEventListener("click", () => setMenu(false));
+      boundClosers.add(button);
+    });
+
+    if (!boundDrawers.has(drawer)) {
+      drawer.addEventListener("click", (event) => {
+        if (event.target.closest("a[href]")) setMenu(false);
+      });
+      backdrop.addEventListener("click", () => setMenu(false));
+      boundDrawers.add(drawer);
+    }
+
+    if (!globalBound) {
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") setMenu(false);
+      });
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 960) setMenu(false);
+      });
+      globalBound = true;
+    }
   }
 
-  // Auto-init on DOM ready (safe: idempotent)
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init, { once: true });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init, { once: true });
   } else {
     init();
   }
 
-  // Expose for your include loader (safe to call multiple times)
   window.ZenithHeader = { init };
-  // Legacy alias so existing calls to initMobileMenu() keep working
-  window.initMobileMenu = () => window.ZenithHeader.init();
+  window.initMobileMenu = init;
 })();
