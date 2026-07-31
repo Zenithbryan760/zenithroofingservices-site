@@ -1,328 +1,134 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <!-- ===== META & SEO ===== -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <link rel="icon" type="image/png" sizes="512x512" href="/zenith-favicon-v3.png?v=3">
-  <link rel="apple-touch-icon" href="/zenith-favicon-v3.png?v=3">
-  <title>Zenith Roofing Services – San Diego & Temecula Roof Experts</title>
-  <meta name="description" content="Licensed roofing contractor serving Escondido, San Diego & Temecula. Roof repair, replacement, tile, shingles, TPO, torch down, silicone coatings & gutters.">
-
-  <!-- ===== Preload critical CSS ===== -->
-  <link rel="preload" href="/css/base.css" as="style">
-  <link rel="preload" href="/css/header.css" as="style">
-  <link rel="preload" href="/css/hero.css" as="style">
-
-  <!-- LCP image preload (WebP, responsive) -->
-  <link rel="preload" as="image" type="image/webp"
-        href="/images/modern-tile-roof-1280.webp"
-        imagesrcset="/images/modern-tile-roof-640.webp 640w,
-                     /images/modern-tile-roof-960.webp 960w,
-                     /images/modern-tile-roof-1280.webp 1280w,
-                     /images/modern-tile-roof-1600.webp 1600w"
-        imagesizes="100vw">
-
-  <!-- (Optional) Preload the hero partial you inject -->
-  <link rel="preload" as="fetch" href="components/hero-section.html" crossorigin="anonymous">
-
-  <!-- Google Fonts (non-blocking) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-        media="print"
-        onload="this.media='all'">
-  <noscript>
-    
-  </noscript>
-
-  <!-- ===== Structured data ===== -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "RoofingContractor",
-    "name": "Zenith Roofing Services, Inc.",
-    "image": "https://zenithroofingca.com/images/badges/logo-zenith-icon-176.webp",
-    "telephone": "+1-858-900-6163",
-    "areaServed": ["Escondido CA","San Diego CA","Temecula CA","North County San Diego"],
-    "url": "https://zenithroofingca.com/",
-    "address": { "@type": "PostalAddress", "addressRegion": "CA", "addressCountry": "US" },
-    "license": "C-39 #1036112",
-    "sameAs": [
-      "https://www.yelp.com/biz/zenith-roofing-services-escondido",
-      "https://www.angi.com/companylist/us/ca/escondido/zenith-roofing-services-inc-reviews-1.htm"
-    ]
-  }
-  </script>
-
-  <!-- ===== Critical CSS (tiny; stabilizes layout & scroll) ===== -->
-  <style>
-    body{ margin:0; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-    .header{ position:relative; z-index:5000; }
-    a,button,.hover-effect{ transition:all .3s ease; }
-    a:hover,button:hover,.hover-effect:hover{ opacity:.9; transform:translateY(-1px); }
-
-    :root{ --header-h:80px; }
-    .zenith-hero{ min-height:100svh; min-height:100dvh; }
-
-    /* LCP stub space (replaces the old [data-include="/components/hero-section.html"] rule) */
-    #hero-stub{ display:block; min-height:100svh; min-height:100dvh; }
-
-    /* Zero font-swap shift above the fold */
-    .zenith-hero, .zenith-card, .zenith-header-text, #estimate-form{
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    }
-
-    html{ scroll-behavior:smooth; scroll-padding-top:var(--header-h,80px); }
-    [id]{ scroll-margin-top:calc(var(--header-h,80px) + 12px); }
-
-    /* Homepage financing callout */
-    .home-financing{background:#f4f7fb;padding:54px 20px;border-top:1px solid #dfe6ee;border-bottom:1px solid #dfe6ee}
-    .home-financing-inner{width:min(1080px,100%);margin:auto;display:grid;grid-template-columns:1.35fr .65fr;gap:34px;align-items:center;background:#fff;border-radius:18px;padding:38px;box-shadow:0 12px 32px rgba(7,46,89,.09)}
-    .home-financing-kicker{color:#b85d00;font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:.82rem}
-    .home-financing h2{margin:8px 0 10px;color:#072e59;font-size:clamp(1.65rem,3vw,2.45rem);line-height:1.18}
-    .home-financing p{margin:0;color:#5f6f84;font-size:1.05rem}
-    .home-financing-points{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px;color:#173a5d;font-weight:700;font-size:.92rem}
-    .home-financing-action{text-align:center}
-    .home-financing-btn{display:inline-flex;justify-content:center;align-items:center;min-height:54px;padding:14px 24px;background:#ff9418;color:#102b4b!important;border-radius:9px;text-decoration:none;font-weight:800;box-shadow:0 10px 22px rgba(255,148,24,.25)}
-    .home-financing-small{display:block;margin-top:10px;color:#6b7788;font-size:.78rem}
-    @media(max-width:760px){.home-financing-inner{grid-template-columns:1fr;padding:28px 22px}.home-financing-action{text-align:left}}
-  </style>
-
-  <!-- ===== Load critical CSS normally (preloaded above) ===== -->
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/hero.css">
-
-  <!-- ===== Non-critical CSS (async) ===== -->
-  <link rel="stylesheet" href="/css/about.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="/css/why-choose.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="/css/trust.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="/css/photo.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="/css/testimonial.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="/css/cta.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="/css/service-areas.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="/css/real-estate.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="/css/footer.css" media="print" onload="this.media='all'"><!-- Swiper CSS (self-hosted) -->
-  <link rel="stylesheet" href="/css/landing-theme-preview.css?v=sitewide-2">
-  <link rel="stylesheet"
-        href="/assets/lib/swiper/10.3.1/swiper-bundle.min.css"
-        media="print" onload="this.media='all'">
-  <noscript>
-    
-  </noscript>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Zenith Roofing Services | Escondido, San Diego &amp; Temecula Roofer</title>
+  <meta name="description" content="Licensed Southern California roofing contractor for roof repair, replacement, tile, shingles, TPO, torch-down, silicone coatings and gutters.">
+  <link rel="canonical" href="https://www.zenithroofingservices.com/">
+  <link rel="icon" href="/zenith-favicon-v3.png">
+  <link rel="preload" as="image" href="/images/modern-tile-roof-1600.webp">
+  <link rel="stylesheet" href="/css/zenith-premium-exact.css?v=exact-premium-1">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"RoofingContractor","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163","url":"https://www.zenithroofingservices.com/","areaServed":["Escondido","San Diego","Temecula","North County San Diego"],"identifier":"CSLB C-39 #1036112"}</script>
 </head>
-
-<body class="">
-  <!-- Header include FIRST so it's present for measurements -->
+<body>
   <section data-include="/components/header-section.html"></section>
 
-  <!-- ===== MAIN (partials auto-injected below) ===== -->
-  <main id="top">
-    <!-- ✅ LCP STUB replaces the hero include -->
-    <section id="hero-stub" class="zenith-hero" aria-label="Free roofing estimate">
-      <div class="zenith-hero-media">
-        <picture>
-          <!-- WebP sources (match the <head> preload) -->
-          <source type="image/webp"
-                  srcset="/images/modern-tile-roof-640.webp 640w,
-                          /images/modern-tile-roof-960.webp 960w,
-                          /images/modern-tile-roof-1280.webp 1280w,
-                          /images/modern-tile-roof-1600.webp 1600w"
-                  sizes="100vw">
-          <!-- Fallback also WebP (avoid large PNG) -->
-          <img id="lcp-img"
-               class="zenith-hero-mobile-img"
-               src="/images/modern-tile-roof-1280.webp"
-               srcset="/images/modern-tile-roof-640.webp 640w,
-                       /images/modern-tile-roof-960.webp 960w,
-                       /images/modern-tile-roof-1280.webp 1280w,
-                       /images/modern-tile-roof-1600.webp 1600w"
-               sizes="100vw"
-               alt="Zenith Roofing work background"
-               width="1600" height="900"
-               decoding="async" fetchpriority="high">
-        </picture>
-        <div class="zenith-image-overlay" aria-hidden="true"></div>
-      </div>
-      <!-- light skeleton so layout matches before swap -->
-      <div class="zenith-card" aria-hidden="true"></div>
-    </section>
-
-
-    <section class="home-financing" aria-labelledby="home-financing-title">
-      <div class="home-financing-inner">
-        <div>
-          <span class="home-financing-kicker">Roofing payment options</span>
-          <h2 id="home-financing-title">Roof financing for San Diego, North County, Temecula and surrounding areas</h2>
-          <p>Eligible customers can explore payment options for qualifying roofing projects through Wisetack lending partners.</p>
-          <div class="home-financing-points">
-            <span>✓ No credit impact to check eligibility</span>
-            <span>✓ Clear terms</span>
-            <span>✓ No hidden fees</span>
+  <main id="main-content">
+    <section class="home-hero">
+      <picture class="home-hero__media">
+        <source srcset="/images/modern-tile-roof-640.webp 640w,/images/modern-tile-roof-960.webp 960w,/images/modern-tile-roof-1280.webp 1280w,/images/modern-tile-roof-1600.webp 1600w" sizes="100vw" type="image/webp">
+        <img src="/images/modern-tile-roof-1600.webp" alt="Completed modern tile roof installed by Zenith Roofing Services" width="1600" height="900" fetchpriority="high">
+      </picture>
+      <div class="home-hero__veil" aria-hidden="true"></div>
+      <div class="shell home-hero__grid">
+        <div class="home-hero__copy">
+          <span class="eyebrow eyebrow--light">Local roofing. Done the right way.</span>
+          <h1>Roofing contractor in <span>Escondido, San Diego &amp; Temecula.</span></h1>
+          <p class="home-hero__lede">Clear recommendations, photo documentation and dependable workmanship from a licensed Southern California roofing contractor.</p>
+          <div class="home-hero__actions">
+            <a class="button button--orange" href="#estimate">Request a Free Estimate <span>→</span></a>
+            <a class="button button--glass" href="tel:8589006163">Call 858-900-6163</a>
+          </div>
+          <div class="home-hero__proof">
+            <div><b>★ 4.9</b><span>across leading review platforms</span></div>
+            <div><b>194</b><span>customer reviews</span></div>
+            <div><b>C-39</b><span>licensed roofing contractor</span></div>
           </div>
         </div>
-        <div class="home-financing-action">
-          <a class="home-financing-btn" href="/financing/">Explore Roof Financing</a>
-          <span class="home-financing-small">Financing is subject to credit approval. Terms may vary.</span>
+
+        <div class="home-hero__form" id="estimate">
+          <form class="estimate-form estimate-form--compact" action="/.netlify/functions/submit-jobnimbus" method="POST">
+            <input type="hidden" name="state" value="CA">
+            <div class="estimate-form__heading">
+              <span class="eyebrow">Free roofing estimate</span>
+              <h2>Tell us about your roof</h2>
+              <p>Fast response. Clear next steps. No pressure.</p>
+            </div>
+            <div class="form-grid">
+              <label><span>First name</span><input type="text" name="first_name" placeholder="First name*" autocomplete="given-name" required></label>
+              <label><span>Last name</span><input type="text" name="last_name" placeholder="Last name*" autocomplete="family-name" required></label>
+              <label><span>Phone number</span><input type="tel" name="phone" placeholder="Phone number*" autocomplete="tel" required></label>
+              <label><span>Email address</span><input type="email" name="email" placeholder="Email address*" autocomplete="email" required></label>
+              <label class="form-grid__wide"><span>Street address</span><input type="text" name="street_address" placeholder="Street address*" autocomplete="street-address" required></label>
+              <label><span>City</span><input type="text" name="city" placeholder="City*" autocomplete="address-level2" required></label>
+              <label><span>ZIP code</span><input type="text" name="zip" placeholder="ZIP code*" inputmode="numeric" autocomplete="postal-code" required></label>
+              <label><span>Service type</span><select name="service_type" required><option value="" selected disabled>Service type*</option><option>Roof Replacement</option><option>Roof Repair</option><option>Gutters</option><option>Roof Maintenance</option><option>Commercial Roofing</option><option>Residential Roofing</option><option>Other</option></select></label>
+              <label><span>How did you hear about us?</span><select name="referral_source" required><option value="" selected disabled>How did you hear about us?*</option><option value="Google Search - Organic">Google</option><option value="YouTube – Organic">YouTube</option><option>Yelp</option><option>Thumbtack</option><option>Facebook</option><option>Instagram</option><option>Nextdoor</option><option value="Customer Referral">Referred by someone</option><option value="Past Customer">Past customer</option><option value="Other - Verified">Other</option></select></label>
+              <label class="form-grid__wide"><span>Brief description</span><textarea name="description" rows="3" placeholder="Tell us what you need help with*" required></textarea></label>
+              <div class="form-grid__wide recaptcha-wrap"><div class="g-recaptcha" data-sitekey="6LfD_borAAAAAFEtGO9x__VXAbvSjDYRiVaVpea5"></div></div>
+            </div>
+            <button class="button button--orange button--full" type="submit">Request My Free Estimate <span>→</span></button>
+            <p class="estimate-form__note">Your information stays private. We use it only to respond to your roofing request.</p>
+          </form>
         </div>
+      </div>
+      <a class="hero-scroll" href="#services" aria-label="Explore the page"><span>Explore</span><i></i></a>
+    </section>
+
+    <section class="confidence-bar" aria-label="Zenith credentials">
+      <div class="shell confidence-bar__grid">
+        <div><span>01</span><p><b>Licensed &amp; insured</b>CSLB #1036112</p></div>
+        <div><span>02</span><p><b>Photo documented</b>From inspection to completion</p></div>
+        <div><span>03</span><p><b>Preferred contractor</b>Owens Corning</p></div>
+        <div><span>04</span><p><b>Locally established</b>San Diego &amp; Temecula</p></div>
       </div>
     </section>
 
-    <!-- Other includes stay the same -->
-    <section data-include="/components/about-section.html"></section>
-    <section data-include="/components/why-choose-section.html"></section>
-    <section data-include="/components/trust-section.html"></section>
-    <section data-include="/components/photo-section.html"></section>
-    <section data-include="/components/testimonial-section.html"></section>
-    <section data-include="/components/cta-section.html"></section>
-    <section data-include="/components/service-areas.html"></section>
-    <section data-include="/components/real-estate.html"></section>
-    <section data-include="/components/footer.html"></section>
+    <section class="section section--services" id="services">
+      <div class="shell">
+        <div class="section-heading"><div><span class="eyebrow">Roofing services</span><h2>The right solution—not the biggest sale.</h2></div><p>We inspect first, explain what we find and help you choose the right path for your property, budget and timeline.</p></div>
+        <div class="service-grid">
+          <article class="service-card"><a class="service-card__image" href="/services/roof-repairs/"><img src="/images/tile-roof-repair/tile-roof-chimney-completed-1200.webp" alt="Completed tile roof chimney repair" width="720" height="520" loading="lazy"><span>Repairs</span></a><div class="service-card__body"><span class="service-card__number">01</span><h3>Roof Repair</h3><p>Pinpoint leaks, failed flashing, broken tiles and storm damage—then repair the source, not just the symptom.</p><a class="text-link" href="/services/roof-repairs/">Explore service <span>→</span></a></div></article>
+          <article class="service-card"><a class="service-card__image" href="/services/roof-replacement/"><img src="/images/modern-tile-roof-1280.webp" alt="Completed residential tile roof" width="720" height="520" loading="lazy"><span>Re-roofing</span></a><div class="service-card__body"><span class="service-card__number">02</span><h3>Roof Replacement</h3><p>A complete roofing system built for your property, climate and long-term performance—with every layer documented.</p><a class="text-link" href="/services/roof-replacement/">Explore service <span>→</span></a></div></article>
+          <article class="service-card"><a class="service-card__image" href="/services/commercial/"><img src="/images/roof-tune-up/commercial-roof-tune-up-overview-1200.webp" alt="Commercial flat roof inspection" width="720" height="520" loading="lazy"><span>Commercial</span></a><div class="service-card__body"><span class="service-card__number">03</span><h3>Commercial &amp; Flat Roofing</h3><p>TPO, torch-down and silicone restoration options for businesses, HOAs and property managers.</p><a class="text-link" href="/services/commercial/">Explore service <span>→</span></a></div></article>
+        </div>
+        <div class="section-action"><a class="button button--navy" href="/services/">Explore Every Roofing Service <span>→</span></a></div>
+      </div>
+    </section>
+
+    <section class="section section--proof">
+      <div class="shell proof-layout">
+        <div class="proof-visual"><img src="/images/zenith-van-optimized.jpg" alt="Zenith Roofing Services work vehicle at a Southern California project" width="960" height="720" loading="lazy"><div class="proof-visual__card"><strong>Built on proof.</strong><span>Photos before, during and after your project.</span></div></div>
+        <div class="proof-copy"><span class="eyebrow">Why Home &amp; Business Owners Trust Zenith Roofing Services</span><h2>You should always know what is happening over your head.</h2><p>We inspect thoroughly, scope clearly, install precisely and document each phase with photos. You get straight answers, visible progress and a roofing system built for long-term performance.</p><ul class="check-list"><li><i>✓</i><span><b>Inspection you can see</b>Clear photos and practical recommendations.</span></li><li><i>✓</i><span><b>Scope you can understand</b>Material transparency, options and no hidden surprises.</span></li><li><i>✓</i><span><b>Craftsmanship you can verify</b>Photo-backed quality control and clean job sites.</span></li></ul><a class="button button--navy" href="/about/">Meet Zenith Roofing <span>→</span></a></div>
+      </div>
+    </section>
+
+    <section class="section section--projects">
+      <div class="shell">
+        <div class="section-heading section-heading--light"><div><span class="eyebrow eyebrow--light">Real work. Real local roofs.</span><h2>Recent Zenith projects.</h2></div><p>No stock project gallery. These are documented roofing systems completed across Southern California.</p></div>
+        <div class="project-grid">
+          <a class="project-card" href="/projects/escondido-tile-lift-lay-elkhorn/"><img src="/images/Escondido/00-hero.jpg" alt="Escondido tile lift and relay project" width="960" height="720" loading="lazy"><span class="project-card__shade"></span><span class="project-card__content"><small>📍 Escondido, CA</small><strong>Tile lift &amp; relay with new underlayment</strong><i>View project →</i></span></a>
+          <a class="project-card" href="/projects/"><img src="/images/clay-tile-roof-repair/two-piece-clay-roof-completed-1200.webp" alt="Completed two-piece clay tile roof" width="960" height="720" loading="lazy"><span class="project-card__shade"></span><span class="project-card__content"><small>📍 San Diego, CA</small><strong>Two-piece clay tile roof restoration</strong><i>View project →</i></span></a>
+          <a class="project-card" href="/projects/"><img src="/images/torch-down-point-loma-720.webp" alt="Completed torch-down flat roof" width="960" height="720" loading="lazy"><span class="project-card__shade"></span><span class="project-card__content"><small>📍 Point Loma, CA</small><strong>Torch-down flat roofing system</strong><i>View project →</i></span></a>
+        </div>
+        <div class="section-action section-action--light"><a class="button button--ghost-light" href="/projects/">View Our Project Gallery <span>→</span></a></div>
+      </div>
+    </section>
+
+    <section class="section section--reviews">
+      <div class="shell">
+        <div class="review-heading"><div><span class="eyebrow">Customer stories</span><h2>Established, local and proven by our customers.</h2></div><div class="review-total"><strong>194</strong><span>reviews across trusted platforms</span><b>★★★★★</b></div></div>
+        <div class="review-grid">
+          <article class="review-card"><div class="review-card__top"><span class="stars">★★★★★</span><span class="quote-mark">“</span></div><blockquote>Bryan was very helpful and had his crew out the same day to look at my roof. They had photos of everything. The job was done in a timely manner and everyone was very professional.</blockquote><footer><span class="review-avatar">J</span><span><b>Jeffrey Powell</b><small>Google review</small></span></footer></article>
+          <article class="review-card"><div class="review-card__top"><span class="stars">★★★★★</span><span class="quote-mark">“</span></div><blockquote>Zenith was excellent to work with from beginning to end, from quote to job completed.</blockquote><footer><span class="review-avatar">L</span><span><b>Laurie W.</b><small>GuildQuality review</small></span></footer></article>
+          <article class="review-card"><div class="review-card__top"><span class="stars">★★★★★</span><span class="quote-mark">“</span></div><blockquote>On time, super clean, efficient and even saved us money in the end. We’d give them a 10!</blockquote><footer><span class="review-avatar">K</span><span><b>K &amp; R Kalahiki</b><small>Google review</small></span></footer></article>
+        </div>
+        <div class="platform-row"><span>Google</span><span>HomeAdvisor</span><span>Yelp</span><span>GuildQuality</span><span>Owens Corning</span><span>Angi</span><span>Thumbtack</span></div>
+        <div class="section-action"><a class="button button--navy" href="/reviews/">Read Customer Reviews <span>→</span></a></div>
+      </div>
+    </section>
+
+    <section class="section section--areas">
+      <div class="shell areas-layout">
+        <div><span class="eyebrow">Proudly local</span><h2>Roofing expertise across San Diego County and Temecula.</h2><p>From coastal flat roofs to inland tile systems, our recommendations account for the property, roof assembly and Southern California climate.</p><div class="area-links"><a href="/service-areas/escondido/">Escondido <span>↗</span></a><a href="/service-areas/">San Diego <span>↗</span></a><a href="/service-areas/temecula/">Temecula <span>↗</span></a><a href="/service-areas/murrieta/">Murrieta <span>↗</span></a><a href="/service-areas/san-marcos/">San Marcos <span>↗</span></a><a href="/service-areas/vista/">Vista <span>↗</span></a><a href="/service-areas/carlsbad/">Carlsbad <span>↗</span></a><a href="/service-areas/oceanside/">Oceanside <span>↗</span></a><a href="/service-areas/poway/">Poway <span>↗</span></a><a href="/service-areas/rancho-santa-fe/">Rancho Santa Fe <span>↗</span></a></div><a class="text-link" href="/service-areas/">See every service area <span>→</span></a></div>
+        <div class="areas-card"><span class="areas-card__pin">⌖</span><div><small>Local response</small><strong>North County San Diego</strong><span>San Diego • Temecula Valley</span></div><p>Call or text our roofing team and we’ll let you know the clearest next step.</p><a class="button button--orange button--full" href="tel:8589006163">Call 858-900-6163</a></div>
+      </div>
+    </section>
   </main>
 
-  <!-- ===== JS (all defer) ===== -->
-  <script src="js/header.js" defer></script>
-  <!-- reCAPTCHA API must load from the page because hero is injected -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <script src="js/hero.js" defer></script>
-  <script src="js/about.js" defer></script>
-  <script src="js/why-choose.js" defer></script>
-  <script src="js/trust.js" defer></script>
-  <script src="js/photo.js" defer></script>
-  <script src="js/cta.js" defer></script>
-  <script src="js/service-areas.js" defer></script>
-  <script src="js/real-estate.js" defer></script>
-  <script src="js/footer.js" defer></script>
-
-  <!-- Swiper (self-hosted) + testimonials init -->
-  <script defer src="/assets/lib/swiper/10.3.1/swiper-bundle.min.js"></script>
-  <script defer src="js/testimonial.js"></script>
-
-  <!-- ✅ Include loader (upgrades stub; no scroll reflow) -->
-  <script>
-  (function () {
-    // fetch + inject a single [data-include]
-    async function include(el) {
-      const src = el.getAttribute('data-include');
-      if (!src) return;
-      try {
-        const res = await fetch(src);             // normal caching
-        if (!res.ok) throw new Error('Failed ' + src);
-        const html = await res.text();
-        el.outerHTML = html;
-      } catch (e) {
-        console.error('❌ Include error:', src, e);
-      }
-    }
-
-    // Header height + collapsed state WITHOUT scroll reflow
-    function setupHeaderObservers() {
-      const root = document.documentElement;
-      const getHeader = () => document.querySelector('.mobile-header') || document.querySelector('.header');
-
-      function updateHeaderH() {
-        const h = getHeader();
-        if (h) root.style.setProperty('--header-h', Math.round(h.offsetHeight) + 'px');
-      }
-
-      // update when the header actually resizes
-      if ('ResizeObserver' in window) {
-        const ro = new ResizeObserver(updateHeaderH);
-        const h = getHeader(); if (h) ro.observe(h);
-      }
-      window.addEventListener('load', updateHeaderH, { passive: true });
-      window.addEventListener('resize', () => requestAnimationFrame(updateHeaderH), { passive: true });
-
-      // toggle nav-collapsed via IntersectionObserver (no scroll work)
-      const sent = document.createElement('div');
-      sent.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;';
-      document.body.prepend(sent);
-      new IntersectionObserver(([e]) => {
-        root.classList.toggle('nav-collapsed', !e.isIntersecting);
-      }, { rootMargin: '-80px 0px 0px 0px' }).observe(sent); // adjust -80px if your header is taller
-    }
-
-    async function init() {
-      // include everything ELSE (hero has an LCP stub now)
-      const includes = Array.from(document.querySelectorAll('[data-include]'));
-      await Promise.all(includes.map(include));
-
-      // Upgrade the stub to the real hero component while REUSING the already-downloaded LCP <img>
-      const stub = document.getElementById('hero-stub');
-      if (stub) {
-        const res = await fetch('components/hero-section.html');
-        if (res.ok) {
-          const html = await res.text();
-          const tpl = document.createElement('template');
-          tpl.innerHTML = html.trim();
-          const real = tpl.content.querySelector('section.zenith-hero') || tpl.content.firstElementChild;
-          if (real) {
-            const lcp = document.getElementById('lcp-img');
-            const realPic = real.querySelector('.zenith-hero-media picture') || real.querySelector('.zenith-hero-media');
-            if (lcp && realPic) {
-              const existing = realPic.querySelector('.zenith-hero-mobile-img');
-              if (existing) existing.replaceWith(lcp); else realPic.appendChild(lcp);
-            }
-            stub.replaceWith(real);
-          }
-        }
-      }
-
-      // your existing inits (unchanged)
-      if (window.initMobileMenu) window.initMobileMenu();
-      [
-        'initEstimateForm','initAboutSection','initWhyChoose','initTrustSection',
-        'initPhotoSection','initTestimonials','initCTA','initServiceAreas',
-        'initRealEstate','initFooter','initHeader'
-      ].forEach(n => { if (typeof window[n] === 'function') window[n](); });
-
-      setupHeaderObservers();   // replaces old setLayoutFlags/scroll listeners
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
-  })();
-  </script>
-
-  <!-- Smooth scroll with header offset (fallback) -->
-  <script>
-    (function(){
-      var root = document.documentElement;
-      function headerHeight(){
-        var h = parseInt(getComputedStyle(root).getPropertyValue('--header-h')) || 80;
-        return h + 8;
-      }
-      function scrollToHash(hash, replace){
-        var id = (hash || '').slice(1);
-        if(!id) return;
-        var el = document.getElementById(id);
-        if(!el) return;
-        var y = el.getBoundingClientRect().top + window.pageYOffset - headerHeight();
-        window.scrollTo({ top: y, behavior: 'smooth' });
-        if(replace) { try { history.replaceState(null, '', '#' + id); } catch(_){} }
-      }
-      document.addEventListener('click', function(e){
-        var a = e.target.closest('a[href^="#"]');
-        if(!a) return;
-        var href = a.getAttribute('href');
-        if(href === '#' || href.length < 2) return;
-        if(document.getElementById(href.slice(1))){
-          e.preventDefault();
-          scrollToHash(href, true);
-        }
-      });
-      window.addEventListener('load', function(){
-        if(location.hash){
-          setTimeout(function(){ scrollToHash(location.hash, false); }, 0);
-        }
-      });
-    })();
-  </script>
+  <section data-include="/components/footer.html"></section>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="/js/loader.js" defer></script>
 </body>
 </html>
