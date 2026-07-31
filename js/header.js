@@ -17,19 +17,23 @@
   let resizeBound = false;
 
   // Cache current bound elements so we only bind once per element
-  let boundMenuToggle = null;
+  const boundMenuToggles = new WeakSet();
   let boundMobileNav  = null;
 
   // --- Utilities ---
   const isOpen = () => document.body.classList.contains('nav-open');
-  const openMobile = (menuToggle) => {
+  const syncExpanded = (expanded) => {
+    document.querySelectorAll('.menu-toggle, .zr-dock-menu')
+      .forEach((toggle) => toggle.setAttribute('aria-expanded', String(expanded)));
+  };
+  const openMobile = () => {
     document.body.classList.add('nav-open');
-    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'true');
+    syncExpanded(true);
     document.body.style.overflow = 'hidden';
   };
-  const closeMobile = (menuToggle) => {
+  const closeMobile = () => {
     document.body.classList.remove('nav-open');
-    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+    syncExpanded(false);
     document.body.style.overflow = '';
   };
   const isMobileViewport = () => window.matchMedia('(max-width: 1024px)').matches; // matches your CSS
@@ -68,32 +72,28 @@
   // --- [B] Mobile: off-canvas open/close & helpers ---
   function bindMobileControls() {
     const menuToggle = document.querySelector('.menu-toggle');
+    const menuToggles = document.querySelectorAll('.menu-toggle, .zr-dock-menu');
     const mobileNav  = document.querySelector('.mobile-nav');
 
     // If either element is missing, nothing to bind (ok on desktop-only pages)
-    if (!menuToggle || !mobileNav) return;
+    if (!menuToggle || !mobileNav || !menuToggles.length) return;
 
     // Bind hamburger only once per element
-    if (boundMenuToggle !== menuToggle) {
-      // Clean old binding aria state if needed
-      if (boundMenuToggle && boundMenuToggle !== menuToggle) {
-        boundMenuToggle.setAttribute('aria-expanded', 'false');
-      }
-
-      menuToggle.addEventListener('click', () => {
+    menuToggles.forEach((toggle) => {
+      if (boundMenuToggles.has(toggle)) return;
+      toggle.addEventListener('click', () => {
         const opening = !isOpen();
-        opening ? openMobile(menuToggle) : closeMobile(menuToggle);
+        opening ? openMobile() : closeMobile();
       });
-
-      boundMenuToggle = menuToggle;
-    }
+      boundMenuToggles.add(toggle);
+    });
 
     // Click outside to close (bind once globally)
     if (!outsideClickBound) {
       document.addEventListener('click', (e) => {
         if (!isOpen()) return;
         // Don’t close if clicking inside the panel or on the toggle
-        if (mobileNav.contains(e.target) || menuToggle.contains(e.target)) return;
+        if (mobileNav.contains(e.target) || e.target.closest('.menu-toggle, .zr-dock-menu')) return;
         closeMobile(menuToggle);
       });
       outsideClickBound = true;
