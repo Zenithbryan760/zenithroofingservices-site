@@ -43,7 +43,11 @@
     };
 
     document.querySelectorAll(".desktop-nav > a").forEach((link) => {
-      const active = matches(link.getAttribute("href"));
+      const href = link.getAttribute("href");
+      const resourceLink = href === "/blog/";
+      const active = resourceLink
+        ? ["/blog", "/glossary", "/youtube"].some((section) => path === section || path.startsWith(`${section}/`))
+        : matches(href);
       link.classList.toggle("is-active", active);
       if (active) link.setAttribute("aria-current", "page");
       else link.removeAttribute("aria-current");
