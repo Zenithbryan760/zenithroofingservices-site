@@ -4130,7 +4130,7 @@ textarea:focus {
     left: 0;
     z-index: 1082;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     padding: 7px 8px calc(7px + env(safe-area-inset-bottom));
     background: rgba(255, 255, 255, .95);
     border-top: 1px solid rgba(6, 41, 75, .12);
@@ -4158,6 +4158,11 @@ textarea:focus {
   .mobile-dock span {
     font-size: 1rem;
     line-height: 1;
+  }
+
+  .mobile-dock .mobile-dock__home.is-active {
+    color: var(--orange-600) !important;
+    background: var(--orange-100);
   }
 
   .mobile-dock .mobile-dock__primary {

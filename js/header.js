@@ -55,6 +55,14 @@
 
     const services = document.querySelector(".nav-mega");
     if (services) services.classList.toggle("is-active", path === "/services" || path.startsWith("/services/"));
+
+    const mobileHome = document.querySelector(".mobile-dock__home");
+    if (mobileHome) {
+      const active = path === "/";
+      mobileHome.classList.toggle("is-active", active);
+      if (active) mobileHome.setAttribute("aria-current", "page");
+      else mobileHome.removeAttribute("aria-current");
+    }
   };
 
   function init() {

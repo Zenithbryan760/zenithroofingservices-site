@@ -3750,7 +3750,7 @@ textarea:focus-visible {
     left: 0;
     z-index: 82;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     padding: 7px 8px calc(7px + env(safe-area-inset-bottom));
     background: rgba(255, 255, 255, 0.95);
     border-top: 1px solid rgba(6, 41, 75, 0.12);
@@ -3778,6 +3778,11 @@ textarea:focus-visible {
   .mobile-dock span {
     font-size: 1rem;
     line-height: 1;
+  }
+
+  .mobile-dock .mobile-dock__home.is-active {
+    color: var(--orange-600);
+    background: var(--orange-100);
   }
 
   .mobile-dock .mobile-dock__primary {
