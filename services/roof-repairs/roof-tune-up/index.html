@@ -4,16 +4,18 @@
   <!-- ===== META ===== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Roof Tune-Up in North County San Diego & Temecula | Zenith Roofing Services</title>
-  <meta name="description" content="Professional roof tune-ups to stop small issues before they become leaks—flashing reseal, minor fixes, debris clearing, and a brief photo summary. Serving Escondido, San Diego & Temecula." />
+  <title>Roof Tune-Ups: Commercial, Tile & Shingle | San Diego & Temecula</title>
+  <meta name="description" content="Commercial, tile and limited shingle roof tune-ups in San Diego County and Temecula. Maintain drains, flashings, tile details, pipe collars and repairable wind damage." />
   <link rel="canonical" href="https://zenithroofingservices.com/services/roof-repairs/roof-tune-up/"/>
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Roof Tune-Up | North County San Diego, Temecula & San Diego County"/>
-  <meta property="og:description" content="Extend roof life with a pro tune-up: minor fixes, flashing reseal, valley cleanout & photo summary. Escondido • San Diego • Temecula."/>
+  <meta property="og:title" content="Commercial, Tile & Shingle Roof Tune-Ups | San Diego & Temecula"/>
+  <meta property="og:description" content="Condition-based roof maintenance for commercial, tile and repairable shingle roofs across San Diego County and Southwest Riverside County."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://zenithroofingservices.com/services/roof-repairs/roof-tune-up/"/>
+  <meta property="og:image" content="https://zenithroofingservices.com/images/roof-tune-up/commercial-roof-drains-after-1200.webp"/>
+  <meta property="og:image:alt" content="Commercial roof drains after professional cleaning and sealant detailing"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Shared CSS (match gutters page order) -->
@@ -69,6 +71,45 @@
     }
     .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
     .page .cta-strip .btn:hover{ transform:translateY(-2px); }
+
+    .commercial-tuneup,.tile-tuneup,.shingle-tuneup{ border-top:5px solid var(--zenith-orange); }
+    .commercial-tuneup .section-kicker,.tile-tuneup .section-kicker,.shingle-tuneup .section-kicker{
+      color:#c75f00; font-size:.8rem; font-weight:900; letter-spacing:.09em;
+      margin:0 0 .35rem; text-transform:uppercase;
+    }
+    .commercial-tuneup .intro{ max-width:78ch; }
+    .commercial-scope{
+      display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px;
+      margin:1.2rem 0;
+    }
+    .commercial-scope article{
+      border:1px solid #d9e3ef; border-radius:14px; background:#f8fbff; padding:16px;
+    }
+    .commercial-scope h3{ color:var(--zenith-navy); font-size:1.05rem; margin:0 0 .35rem; }
+    .commercial-scope p{ color:#475569; margin:0; }
+    .project-proof{
+      display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:1.25rem 0;
+    }
+    .project-proof figure{
+      background:#fff; border:1px solid #d9e3ef; border-radius:14px; margin:0;
+      overflow:hidden; box-shadow:0 10px 26px rgba(2,12,32,.08);
+    }
+    .project-proof img{ display:block; width:100%; aspect-ratio:4/3; object-fit:cover; }
+    .project-proof figcaption{ color:#334155; font-size:.94rem; line-height:1.45; padding:12px 14px 14px; }
+    .project-proof figcaption strong{ color:var(--zenith-navy); display:block; margin-bottom:.2rem; }
+    .decision-grid{
+      display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:1rem;
+    }
+    .decision-grid article{ border:1px solid #d9e3ef; border-radius:14px; padding:16px; }
+    .decision-grid h3{ color:var(--zenith-navy); font-size:1.05rem; margin:0 0 .35rem; }
+    .decision-grid p{ color:#475569; margin:0; }
+    .field-note{
+      background:#fff7ed; border-left:4px solid var(--zenith-orange); border-radius:10px;
+      color:#6b3b10; margin:1rem 0; padding:14px 16px;
+    }
+    @media (max-width:760px){
+      .commercial-scope,.project-proof,.decision-grid{ grid-template-columns:1fr; }
+    }
   </style>
 
   <!-- JSON-LD: Service + FAQ -->
@@ -76,11 +117,12 @@
   {
     "@context":"https://schema.org",
     "@type":"Service",
-    "name":"Roof Tune-Up",
-    "serviceType":"Roof tune-up and minor maintenance",
-    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
-    "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}],
-    "description":"Proactive roof tune-up that extends roof life: minor shingle/tile fixes, flashing reseal, sealant touch-ups, valley and debris cleanout, and a brief photo summary."
+    "name":"Commercial and Residential Roof Tune-Up",
+    "serviceType":["Commercial roof maintenance","Flat roof tune-up","Tile roof tune-up","Limited shingle roof repair","Wind-damage roof repair"],
+    "url":"https://zenithroofingservices.com/services/roof-repairs/roof-tune-up/",
+    "provider":{"@type":"RoofingContractor","name":"Zenith Roofing Services, Inc.","url":"https://zenithroofingservices.com/","telephone":"+1-858-900-6163"},
+    "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"},{"@type":"City","name":"Murrieta"},{"@type":"City","name":"Wildomar"}],
+    "description":"Condition-based commercial, tile and limited shingle roof tune-ups addressing drainage, penetrations, flashing, slipped or broken tile, repairable wind damage and other vulnerable details."
   }
   </script>
   <script type="application/ld+json">
@@ -90,7 +132,25 @@
     "mainEntity":[
       {"@type":"Question","name":"What is included in a roof tune-up?","acceptedAnswer":{"@type":"Answer","text":"Minor repairs where feasible, sealant touch-ups, flashing reseal at critical joints, cleaning of valleys and roof-to-gutter transitions, and a short photo summary."}},
       {"@type":"Question","name":"How often should I get a roof tune-up?","acceptedAnswer":{"@type":"Answer","text":"Annually, or twice a year for homes under trees, near the coast, or with complex rooflines in Southern California."}},
+      {"@type":"Question","name":"Can a commercial roof tune-up delay replacement?","acceptedAnswer":{"@type":"Answer","text":"When the roof membrane and insulation remain serviceable, correcting isolated vulnerable details may extend useful service life and postpone a larger project. Widespread membrane failure, saturated insulation or structural concerns may require more extensive work."}},
+      {"@type":"Question","name":"Can every commercial roof receive a silicone coating?","acceptedAnswer":{"@type":"Answer","text":"No. The existing roof must be inspected for moisture, adhesion, compatibility and repair needs. A coating is a restoration option for a suitable roof, not a substitute for every replacement."}},
+      {"@type":"Question","name":"Why must roof details be cleaned before sealant is applied?","acceptedAnswer":{"@type":"Answer","text":"Dust, loose coating, rust, oxidation and deteriorated material can prevent proper adhesion. Details must be cleaned, prepared and dry according to the selected product and roof system."}},
+      {"@type":"Question","name":"What is included in a tile roof tune-up?","acceptedAnswer":{"@type":"Answer","text":"When conditions allow, a tile roof tune-up may include resetting slipped tile, replacing available broken tile, sealing pipe collars, securing loose components, addressing failed mortar with suitable flashing or weather blocking, and making localized underlayment repairs."}},
+      {"@type":"Question","name":"Can a tune-up fix worn-out tile underlayment?","acceptedAnswer":{"@type":"Answer","text":"No. A tune-up can preserve serviceable areas and correct isolated defects, but it cannot restore underlayment that has broadly deteriorated. A tile lift-and-lay or replacement may be more appropriate."}},
+      {"@type":"Question","name":"Can individual shingles or missing ridge caps be repaired?","acceptedAnswer":{"@type":"Answer","text":"Sometimes. A limited repair depends on compatible material availability and whether the surrounding shingles remain flexible enough to separate without causing additional damage."}},
+      {"@type":"Question","name":"Do you help with wind-damage insurance claims?","acceptedAnswer":{"@type":"Answer","text":"Zenith can document visible roof conditions and explain repair options. Coverage decisions, claim approval and payment remain with the homeowner and insurance carrier."}},
       {"@type":"Question","name":"Do you serve my area?","acceptedAnswer":{"@type":"Answer","text":"Yes—North County San Diego (Escondido, San Marcos, Carlsbad, Encinitas, Vista, Oceanside), Temecula/Murrieta, and the rest of San Diego County."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://zenithroofingservices.com/"},
+      {"@type":"ListItem","position":2,"name":"Roof Repairs","item":"https://zenithroofingservices.com/services/roof-repairs/"},
+      {"@type":"ListItem","position":3,"name":"Roof Tune-Up","item":"https://zenithroofingservices.com/services/roof-repairs/roof-tune-up/"}
     ]
   }
   </script>
@@ -134,6 +194,9 @@
     <!-- Sticky pills -->
     <nav class="pillnav sticky-pills" aria-label="Roof Tune-Up sections">
       <a href="#what">What’s Included</a>
+      <a href="#commercial">Commercial</a>
+      <a href="#tile">Tile Roofs</a>
+      <a href="#shingle">Shingles</a>
       <a href="#process">Process</a>
       <a href="#faq">FAQ</a>
       <a href="#areas">Service Areas</a>
@@ -165,6 +228,163 @@
       </div>
     </section>
 
+    <!-- ===== COMMERCIAL ROOF TUNE-UP ===== -->
+    <section id="commercial" class="section card airy commercial-tuneup">
+      <p class="section-kicker">Commercial roof maintenance</p>
+      <h2>Commercial Roof Tune-Ups in San Diego &amp; Temecula</h2>
+      <p class="intro">A commercial roof tune-up is targeted preventive maintenance for a low-slope or flat roof that is still serviceable but has vulnerable details. On warehouses, retail buildings, offices and multifamily properties, small openings around drains, pipe penetrations, pitch pockets, equipment curbs and metal transitions can become costly leaks if they are ignored.</p>
+      <p class="intro">Zenith Roofing Services inspects the existing roof system, identifies movement and deterioration, prepares the surfaces and uses compatible, professional-grade detailing materials. This is more than adding caulk: the material, preparation, weather window and existing membrane all affect whether a repair bonds and lasts.</p>
+
+      <div class="commercial-scope" aria-label="Commercial roof tune-up scope">
+        <article><h3>Penetrations &amp; pitch pockets</h3><p>Inspect and detail pipe penetrations, pitch pans or pitch pockets, HVAC supports, equipment curbs and other openings where thermal movement can crack or separate old sealant.</p></article>
+        <article><h3>Drains &amp; drainage details</h3><p>Clear debris, inspect drain bowls and clamping areas, and repair compatible surrounding details so water has a clean path off the roof.</p></article>
+        <article><h3>Counterflashing, coping &amp; metal</h3><p>Check counterflashing joints, coping metal, metal transitions and exposed laps for openings, movement or failed sealant.</p></article>
+        <article><h3>Fasteners &amp; open laps</h3><p>Identify backed-out fasteners, loose components, split details and open membrane laps that may need correction before they admit water.</p></article>
+        <article><h3>Surface preparation</h3><p>Remove loose or failed material and clean, scrape or wire-brush applicable surfaces so the selected sealant or coating can adhere to a sound, dry substrate.</p></article>
+        <article><h3>Compatible detailing material</h3><p>Select a UV- and weather-resistant roof repair material compatible with the existing membrane. Not every mastic, silicone or elastomeric product belongs on every roof.</p></article>
+      </div>
+
+      <div class="field-note"><strong>Why timing matters:</strong> product cure times and weather requirements vary. Work must be scheduled around surface moisture, overnight dew and condensation, and the manufacturer’s application instructions. Applying material over contamination or a damp surface can lead to peeling or early failure.</div>
+
+      <h3>Real Commercial Roof Maintenance</h3>
+      <p class="intro">These photos show actual detail work at a commercial property: existing drain conditions, cleaned and reinforced drain areas, sealed pipe penetrations and completed maintenance around rooftop equipment.</p>
+      <div class="project-proof">
+        <figure>
+          <img src="/images/roof-tune-up/commercial-roof-drains-before-720.webp"
+               srcset="/images/roof-tune-up/commercial-roof-drains-before-720.webp 720w, /images/roof-tune-up/commercial-roof-drains-before-1200.webp 1200w"
+               sizes="(max-width:760px) 100vw, 50vw" width="1200" height="900" loading="lazy" decoding="async"
+               alt="Commercial flat roof drains before tune-up maintenance and surface preparation">
+          <figcaption><strong>Before: drain detail needing maintenance</strong>Drainage areas collect dirt and moisture and deserve close inspection before compatible repair material is installed.</figcaption>
+        </figure>
+        <figure>
+          <img src="/images/roof-tune-up/commercial-roof-drains-after-720.webp"
+               srcset="/images/roof-tune-up/commercial-roof-drains-after-720.webp 720w, /images/roof-tune-up/commercial-roof-drains-after-1200.webp 1200w"
+               sizes="(max-width:760px) 100vw, 50vw" width="1200" height="900" loading="lazy" decoding="async"
+               alt="Commercial roof drains after cleaning and reinforced sealant detailing">
+          <figcaption><strong>After: prepared and reinforced drain area</strong>The surrounding drain and wall transition were cleaned and detailed to protect common water-entry points.</figcaption>
+        </figure>
+        <figure>
+          <img src="/images/roof-tune-up/pipe-penetration-sealant-detail-720.webp"
+               srcset="/images/roof-tune-up/pipe-penetration-sealant-detail-720.webp 720w, /images/roof-tune-up/pipe-penetration-sealant-detail-1200.webp 1200w"
+               sizes="(max-width:760px) 100vw, 50vw" width="900" height="1200" loading="lazy" decoding="async"
+               alt="Commercial modified bitumen roof pipe penetration after professional sealant detailing">
+          <figcaption><strong>Pipe penetration detailing</strong>A vulnerable penetration was cleaned and sealed with compatible roof-detailing material designed for exterior exposure.</figcaption>
+        </figure>
+        <figure>
+          <img src="/images/roof-tune-up/commercial-roof-tune-up-overview-720.webp"
+               srcset="/images/roof-tune-up/commercial-roof-tune-up-overview-720.webp 720w, /images/roof-tune-up/commercial-roof-tune-up-overview-1200.webp 1200w"
+               sizes="(max-width:760px) 100vw, 50vw" width="900" height="1200" loading="lazy" decoding="async"
+               alt="Completed commercial flat roof tune-up around HVAC equipment, pipes and penetrations">
+          <figcaption><strong>Completed commercial tune-up</strong>Multiple penetrations and equipment-support details were addressed across this low-slope commercial roof.</figcaption>
+        </figure>
+      </div>
+
+      <h3>Tune-Up, Restoration Coating or Replacement?</h3>
+      <div class="decision-grid">
+        <article><h3>Roof tune-up</h3><p>Best when the membrane is generally serviceable and the priority is correcting isolated openings, aging sealant, drainage details and exposed fasteners.</p></article>
+        <article><h3>Silicone roof restoration</h3><p>A suitable existing roof may qualify for a silicone restoration system after inspection, moisture evaluation, repairs and adhesion testing. Depending on the approved system, manufacturer coverage may be available in 10-, 15- or 20-year options.</p></article>
+        <article><h3>Roof replacement</h3><p>More appropriate when there is widespread membrane failure, saturated insulation, deteriorated decking or structural conditions that maintenance cannot correct.</p></article>
+      </div>
+      <p class="intro" style="margin-top:1rem;">Granules on a modified-bitumen cap sheet help shield the asphalt surface. When widespread granule loss or weathering appears, early evaluation can preserve more options; a tune-up cannot replace missing roof life or make a roof last forever.</p>
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Request a Commercial Roof Evaluation</a>
+        <a class="btn btn-outline" href="/services/commercial/silicone-coatings/">Explore Silicone Roof Coatings</a>
+      </div>
+    </section>
+
+    <!-- ===== TILE ROOF TUNE-UP ===== -->
+    <section id="tile" class="section card airy tile-tuneup">
+      <p class="section-kicker">Tile roof maintenance</p>
+      <h2>Tile Roof Tune-Ups in San Diego County &amp; Temecula Valley</h2>
+      <p class="intro">A tile roof tune-up can preserve a roof that still has serviceable underlayment but needs targeted maintenance. This is especially useful on older concrete-tile roofs with slipped or broken tiles, cracked mortar, exposed underlayment, loose ridge or rake pieces, and aging pipe-flashing details.</p>
+      <p class="intro">Many tile roofs installed in the 1980s and early 1990s relied heavily on mortar at hips, ridges and transitions. Mortar can crack and separate as the roof moves. The tile sheds most of the water and shields the underlayment from sunlight and weather; when tiles or flashing are missing, the exposed felt can dry, curl and deteriorate.</p>
+
+      <div class="commercial-scope" aria-label="Tile roof tune-up scope">
+        <article><h3>Slipped &amp; broken tiles</h3><p>Reposition slipped tiles and replace compatible broken tiles where matching material is available, restoring coverage over vulnerable underlayment.</p></article>
+        <article><h3>Mortar &amp; transition flashing</h3><p>Remove failed mortar where appropriate and install a suitable aluminum or galvanized secondary flashing detail to keep water moving over the tile assembly.</p></article>
+        <article><h3>Hips, ridges &amp; weather blocking</h3><p>Secure loose ridge or rake pieces, correct exposed fasteners, and renew compatible mortar or approved weather-blocking details where needed.</p></article>
+        <article><h3>Pipe collars &amp; metal flashing</h3><p>Inspect and seal pipe collars and other penetrations, then prepare and paint exposed metal flashing when conditions allow.</p></article>
+        <article><h3>Localized underlayment repair</h3><p>Open a limited tile area and repair a small underlayment defect when the surrounding roof assembly remains serviceable and the damage is truly isolated.</p></article>
+        <article><h3>Condition-based recommendations</h3><p>Document what is still sound, what can be maintained, and when broader underlayment work is more responsible than another surface repair.</p></article>
+      </div>
+
+      <div class="field-note"><strong>Underlayment exposure matters:</strong> underlayment is not intended to remain as the finished roof surface. Manufacturer exposure limits vary by product and may be measured in weeks or months—not a universal six-month rule. Missing or displaced tile should be corrected promptly to protect the water-shedding assembly.</div>
+
+      <h3>What an Older Tile Roof Can Reveal</h3>
+      <p class="intro">These are actual field conditions. They show why a tune-up begins with diagnosis instead of simply applying mortar or sealant over every visible opening.</p>
+      <div class="project-proof">
+        <figure>
+          <img src="/images/roof-tune-up/tile-roof-slipped-tiles-720.webp"
+               srcset="/images/roof-tune-up/tile-roof-slipped-tiles-720.webp 720w, /images/roof-tune-up/tile-roof-slipped-tiles-1200.webp 1200w"
+               sizes="(max-width:760px) 100vw, 50vw" width="900" height="1200" loading="lazy" decoding="async"
+               alt="Slipped concrete roof tiles exposing the tile roof water-shedding assembly">
+          <figcaption><strong>Slipped and misaligned tiles</strong>Open courses leave the underlying roof assembly exposed and create a direct path for wind-driven rain.</figcaption>
+        </figure>
+        <figure>
+          <img src="/images/roof-tune-up/tile-roof-failed-underlayment-opening-720.webp"
+               srcset="/images/roof-tune-up/tile-roof-failed-underlayment-opening-720.webp 720w, /images/roof-tune-up/tile-roof-failed-underlayment-opening-1200.webp 1200w"
+               sizes="(max-width:760px) 100vw, 50vw" width="900" height="1200" loading="lazy" decoding="async"
+               alt="Opening in deteriorated underlayment beneath a concrete tile roof">
+          <figcaption><strong>Failed underlayment beneath the tile</strong>Tile is the first line of water shedding, but the underlayment is the critical secondary defense when water gets below it.</figcaption>
+        </figure>
+        <figure>
+          <img src="/images/roof-tune-up/tile-roof-missing-broken-tiles-720.webp"
+               srcset="/images/roof-tune-up/tile-roof-missing-broken-tiles-720.webp 720w, /images/roof-tune-up/tile-roof-missing-broken-tiles-1200.webp 1200w"
+               sizes="(max-width:760px) 100vw, 50vw" width="900" height="1200" loading="lazy" decoding="async"
+               alt="Missing and broken concrete roof tiles exposing underlayment">
+          <figcaption><strong>Missing and broken tile</strong>Prompt replacement helps protect felt from UV exposure and direct weather before a small defect becomes a larger repair.</figcaption>
+        </figure>
+        <figure>
+          <img src="/images/roof-tune-up/tile-roof-localized-underlayment-repair-720.webp"
+               srcset="/images/roof-tune-up/tile-roof-localized-underlayment-repair-720.webp 720w, /images/roof-tune-up/tile-roof-localized-underlayment-repair-1200.webp 1200w"
+               sizes="(max-width:760px) 100vw, 50vw" width="900" height="1200" loading="lazy" decoding="async"
+               alt="Localized underlayment repair beneath temporarily removed concrete roof tiles">
+          <figcaption><strong>Localized underlayment repair</strong>A small section may be repaired when inspection confirms the surrounding underlayment remains serviceable.</figcaption>
+        </figure>
+      </div>
+
+      <h3>Tune-Up, Tile Lift-and-Lay or Replacement?</h3>
+      <div class="decision-grid">
+        <article><h3>Tile roof tune-up</h3><p>Appropriate for isolated slipped or broken tiles, limited flashing and mortar defects, minor fastener issues, and serviceable surrounding underlayment.</p></article>
+        <article><h3>Tile lift-and-lay</h3><p>Often the better option when the reusable tile is still sound but aging or failed underlayment affects broad roof areas. Tile is removed, the water-shedding assembly is renewed, and suitable tile is reinstalled.</p></article>
+        <article><h3>Replacement evaluation</h3><p>Needed when widespread deterioration, damaged decking, incompatible materials or the condition of the tile makes reuse impractical.</p></article>
+      </div>
+      <p class="intro" style="margin-top:1rem;">A tune-up preserves what is still good; it cannot restore underlayment that has already failed across the roof. On long-neglected roofs, plywood can absorb moisture before a ceiling stain becomes obvious. Older tile roofs in Escondido, San Diego, Temecula, Murrieta, Wildomar and nearby communities deserve a condition-based inspection before deciding on maintenance.</p>
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Request a Tile Roof Evaluation</a>
+        <a class="btn btn-outline" href="/services/residential/tile-lift-lay/">Learn About Tile Lift-and-Lay</a>
+      </div>
+    </section>
+
+    <!-- ===== SHINGLE ROOF TUNE-UP ===== -->
+    <section id="shingle" class="section card airy shingle-tuneup">
+      <p class="section-kicker">Limited shingle maintenance</p>
+      <h2>Limited Shingle Roof Tune-Ups &amp; Wind-Damage Repairs</h2>
+      <p class="intro">Shingle tune-ups are less common than tile or commercial maintenance. They are most useful when a shingle roof is generally serviceable and has a limited, repairable condition—such as wind-damaged or missing ridge caps, an isolated damaged shingle, an open penetration detail, or debris blocking a valley or gutter.</p>
+      <p class="intro">Repairs depend heavily on material availability and roof condition. Existing shingles may be too brittle to manipulate safely or so tightly bonded that lifting them causes additional damage. If a compatible shingle or ridge product is no longer made, a visually close substitute may not be an appropriate repair.</p>
+
+      <div class="commercial-scope" aria-label="Limited shingle roof tune-up scope">
+        <article><h3>Wind-damaged ridge caps</h3><p>Inspect missing or displaced ridge material and install compatible new ridge caps when the surrounding shingles and roof deck can accept a durable repair.</p></article>
+        <article><h3>Isolated shingle replacement</h3><p>Replace individual damaged shingles only when compatible material is available and the surrounding shingles can be separated without creating wider damage.</p></article>
+        <article><h3>Pipe collars &amp; openings</h3><p>Inspect and seal compatible pipe-collar, flashing and exposed fastener details, and paint prepared metal flashing where appropriate.</p></article>
+        <article><h3>Gutters &amp; valleys</h3><p>Remove accessible debris from roof valleys and gutters so water can drain instead of backing up beneath vulnerable shingle edges.</p></article>
+      </div>
+
+      <div class="field-note"><strong>Why shingle repairs are limited:</strong> a tune-up cannot reverse widespread granule loss, brittle shingles, failed seals or an aged roof system. If opening the roof is likely to cause more damage, replacement may be safer and more cost-effective than a small repair.</div>
+
+      <h3>Inspection, Documentation &amp; the Right Next Step</h3>
+      <div class="decision-grid">
+        <article><h3>Isolated maintenance</h3><p>Best for a small, clearly defined condition on an otherwise serviceable roof with repairable surrounding shingles.</p></article>
+        <article><h3>Wind-damage evaluation</h3><p>We can document visible roof conditions and explain the roofing scope. Homeowners remain responsible for claim decisions and should contact their insurer for coverage questions.</p></article>
+        <article><h3>Replacement evaluation</h3><p>Recommended when damage is widespread, shingles are too brittle or bonded to repair, matching products are unavailable, or the remaining roof life is limited.</p></article>
+      </div>
+      <p class="intro" style="margin-top:1rem;">Some shingle evaluations are requested for real-estate transactions or insurance matters. Those inspections and reports are separate from a standard free replacement estimate; see our <a href="/services/real-estate/">Real Estate Roofing Services</a> for transaction-specific work.</p>
+      <div class="center-actions">
+        <a class="btn btn-primary" href="#estimate">Request a Shingle Roof Evaluation</a>
+        <a class="btn btn-outline" href="/services/roof-repairs/shingles-roof-repair/">Explore Shingle Roof Repair</a>
+      </div>
+    </section>
+
     <!-- ===== PROCESS ===== -->
     <section id="process" class="section card airy hoverable">
       <h2>Our Tune-Up Process</h2>
@@ -183,6 +403,13 @@
         <details><summary>How often should I schedule a tune-up?</summary><p class="muted">Annually for most homes; twice per year if under trees or near the coast.</p></details>
         <details><summary>Do you repair active leaks?</summary><p class="muted">Yes—see our <a href="/services/roof-repairs/roof-leak-repair/">Roof Leak Repair</a> page for active leak service.</p></details>
         <details><summary>Will you walk on my tiles?</summary><p class="muted">We use tile-safe paths and pads; fragile systems may need extra precautions.</p></details>
+        <details><summary>Can a commercial roof tune-up delay replacement?</summary><p class="muted">When the membrane and insulation remain serviceable, correcting isolated vulnerable details may extend useful service life and postpone a larger project. Widespread failure, saturated insulation or structural concerns may require more extensive work.</p></details>
+        <details><summary>Can every commercial roof receive a silicone coating?</summary><p class="muted">No. The roof must first be evaluated for trapped moisture, adhesion, compatibility and repair needs. A coating is a restoration option for a suitable roof, not a substitute for every replacement.</p></details>
+        <details><summary>Why must roof details be cleaned before sealant is applied?</summary><p class="muted">Dust, loose coating, rust, oxidation and deteriorated material can prevent proper adhesion. Details must be prepared and dry according to the selected product and roof system.</p></details>
+        <details><summary>What does a tile roof tune-up include?</summary><p class="muted">The exact scope depends on inspection, but it may include resetting slipped tiles, replacing compatible broken tiles, correcting limited mortar or flashing defects, sealing pipe collars, securing loose ridge or rake pieces, and repairing a small isolated underlayment area.</p></details>
+        <details><summary>Can a tune-up fix worn-out tile-roof underlayment?</summary><p class="muted">Not when deterioration is widespread. A tune-up can preserve serviceable areas and correct isolated defects, but broadly aged or failed underlayment may require a tile lift-and-lay or replacement evaluation.</p></details>
+        <details><summary>Can you replace a few shingles or missing ridge caps?</summary><p class="muted">Sometimes. The existing roof must be flexible enough to work on safely, and a compatible shingle or ridge product must be available. Brittle, tightly bonded or broadly worn shingles may make replacement the more responsible option.</p></details>
+        <details><summary>Can you help after suspected wind damage?</summary><p class="muted">We can inspect and document visible roofing conditions and explain repair or replacement options. Coverage and claim decisions belong to the homeowner and insurance carrier, and no inspection can guarantee claim approval.</p></details>
       </div>
     </section>
 
@@ -211,6 +438,7 @@
           <li><span class="chip sa-chip">Rancho Bernardo</span></li>
           <li><span class="chip sa-chip">Fallbrook</span></li>
           <li><span class="chip sa-chip">Murrieta</span></li>
+          <li><span class="chip sa-chip">Wildomar</span></li>
           <li><span class="chip sa-chip">Menifee</span></li>
         </ul>
       </details>
@@ -218,17 +446,6 @@
       <div class="center-actions">
         <a class="btn btn-primary" href="#estimate">Check my ZIP &amp; Request Free Estimate</a>
       </div>
-    </section>
-
-    <section class="section card airy hoverable">
-      <h2>Recent preventive roof maintenance</h2>
-      <p>Verified maintenance work documents small conditions before they become larger repairs and prepares eligible roofs for restoration.</p>
-      <ul class="checklist relaxed">
-        <li><span class="tick">✓</span> <a href="https://trusty.app/companies/zenith-roofing-services-temecula/fallbrook-roof-tune-up-solving-the-small-problems-before-they-become-bigger-ones">Fallbrook roof tune-up and preventive maintenance</a></li>
-        <li><span class="tick">✓</span> <a href="https://trusty.app/companies/zenith-roofing-services-temecula?tab=portfolio">Escondido concrete tile roof repair and maintenance</a></li>
-        <li><span class="tick">✓</span> <a href="https://trusty.app/companies/zenith-roofing-services-temecula?tab=portfolio">Escondido commercial roof maintenance and silicone-restoration preparation</a></li>
-      </ul>
-      <p><a class="btn btn-outline" href="https://trusty.app/companies/zenith-roofing-services-temecula?tab=portfolio">View the verified roofing portfolio</a></p>
     </section>
 
     <!-- ===== ESTIMATE FORM (Roof Tune-Up) ===== -->
@@ -269,8 +486,6 @@
   };
 </script>
 <script src="/js/estimate-form.js" defer></script>
-
-  <script src="/js/estimate-form.js" defer></script>
   <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
 </html>
