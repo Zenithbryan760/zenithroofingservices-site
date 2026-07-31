@@ -38,25 +38,25 @@
         </div>
 
         <div class="home-hero__form" id="estimate">
-          <form class="estimate-form estimate-form--compact" action="/.netlify/functions/submit-jobnimbus" method="POST">
-            <input type="hidden" name="state" value="CA">
+          <form id="estimate-form" class="estimate-form estimate-form--compact" action="/.netlify/functions/jn-create-lead" method="POST">
+            <input id="state" type="hidden" name="state" value="CA">
             <div class="estimate-form__heading">
               <span class="eyebrow">Free roofing estimate</span>
               <h2>Tell us about your roof</h2>
               <p>Fast response. Clear next steps. No pressure.</p>
             </div>
             <div class="form-grid">
-              <label><span>First name</span><input type="text" name="first_name" placeholder="First name*" autocomplete="given-name" required></label>
-              <label><span>Last name</span><input type="text" name="last_name" placeholder="Last name*" autocomplete="family-name" required></label>
-              <label><span>Phone number</span><input type="tel" name="phone" placeholder="Phone number*" autocomplete="tel" required></label>
-              <label><span>Email address</span><input type="email" name="email" placeholder="Email address*" autocomplete="email" required></label>
-              <label class="form-grid__wide"><span>Street address</span><input type="text" name="street_address" placeholder="Street address*" autocomplete="street-address" required></label>
-              <label><span>City</span><input type="text" name="city" placeholder="City*" autocomplete="address-level2" required></label>
-              <label><span>ZIP code</span><input type="text" name="zip" placeholder="ZIP code*" inputmode="numeric" autocomplete="postal-code" required></label>
-              <label><span>Service type</span><select name="service_type" required><option value="" selected disabled>Service type*</option><option>Roof Replacement</option><option>Roof Repair</option><option>Gutters</option><option>Roof Maintenance</option><option>Commercial Roofing</option><option>Residential Roofing</option><option>Other</option></select></label>
-              <label><span>How did you hear about us?</span><select name="referral_source" required><option value="" selected disabled>How did you hear about us?*</option><option value="Google Search - Organic">Google</option><option value="YouTube – Organic">YouTube</option><option>Yelp</option><option>Thumbtack</option><option>Facebook</option><option>Instagram</option><option>Nextdoor</option><option value="Customer Referral">Referred by someone</option><option value="Past Customer">Past customer</option><option value="Other - Verified">Other</option></select></label>
-              <label class="form-grid__wide"><span>Brief description</span><textarea name="description" rows="3" placeholder="Tell us what you need help with*" required></textarea></label>
-              <div class="form-grid__wide recaptcha-wrap"><div class="g-recaptcha" data-sitekey="6LfD_borAAAAAFEtGO9x__VXAbvSjDYRiVaVpea5"></div></div>
+              <label><span>First name</span><input id="firstName" type="text" name="first_name" placeholder="First name*" autocomplete="given-name" required></label>
+              <label><span>Last name</span><input id="lastName" type="text" name="last_name" placeholder="Last name*" autocomplete="family-name" required></label>
+              <label><span>Phone number</span><input id="phone" type="tel" name="phone" placeholder="Phone number*" autocomplete="tel" required></label>
+              <label><span>Email address</span><input id="email" type="email" name="email" placeholder="Email address*" autocomplete="email" required></label>
+              <label class="form-grid__wide"><span>Street address</span><input id="streetAddress" type="text" name="street_address" placeholder="Street address*" autocomplete="street-address" required></label>
+              <label><span>City</span><input id="city" type="text" name="city" placeholder="City*" autocomplete="address-level2" required></label>
+              <label><span>ZIP code</span><input id="zip" type="text" name="zip" placeholder="ZIP code*" inputmode="numeric" autocomplete="postal-code" required></label>
+              <label><span>Service type</span><select id="serviceType" name="service_type" required><option value="" selected disabled>Service type*</option><option>Roof Replacement</option><option>Roof Repair</option><option>Gutters</option><option>Roof Maintenance</option><option>Commercial Roofing</option><option>Residential Roofing</option><option>Other</option></select></label>
+              <label><span>How did you hear about us?</span><select id="referral" name="referral_source" required><option value="" selected disabled>How did you hear about us?*</option><option value="Google Search - Organic">Google</option><option value="YouTube – Organic">YouTube</option><option>Yelp</option><option>Thumbtack</option><option>Facebook</option><option>Instagram</option><option>Nextdoor</option><option value="Customer Referral">Referred by someone</option><option value="Past Customer">Past customer</option><option value="Other - Verified">Other</option></select></label>
+              <label class="form-grid__wide"><span>Brief description</span><textarea id="description" name="description" rows="3" placeholder="Tell us what you need help with*" required></textarea></label>
+              <div class="form-grid__wide recaptcha-wrap"><div id="recaptcha" class="g-recaptcha" data-sitekey="6LfD_borAAAAAFEtGO9x__VXAbvSjDYRiVaVpea5"></div></div>
             </div>
             <button class="button button--orange button--full" type="submit">Request My Free Estimate <span>→</span></button>
             <p class="estimate-form__note">Your information stays private. We use it only to respond to your roofing request.</p>
@@ -130,5 +130,6 @@
   <section data-include="/components/footer.html"></section>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="/js/loader.js" defer></script>
+  <script src="/js/hero.js" defer></script>
 </body>
 </html>
