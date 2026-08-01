@@ -1,0 +1,130 @@
+.clay-tile-roof-repair-page { margin: 0; padding: 0; color: var(--ink-950); background: var(--mist); font-family: "Avenir Next","Manrope","Segoe UI",Helvetica,Arial,sans-serif; }
+.clay-tile-roof-repair-page .page { width: 100%; max-width: none; margin: 0; padding: 0 0 100px; overflow: hidden; }
+.clay-tile-roof-repair-page .clay-hero { position: relative; width: 100vw; max-width: none; min-height: 720px; display: grid; align-items: center; overflow: hidden; margin: 0 0 0 calc(50% - 50vw); padding: clamp(70px,8vw,120px) max(28px,calc((100vw - 1180px)/2)); color: var(--white); background: var(--navy-950); border: 0; border-radius: 0; box-shadow: none; }
+.clay-tile-roof-repair-page .clay-hero::before { position: absolute; inset: 0; background: url('/images/clay-tile-roof-repair/two-piece-clay-roof-completed-1200.webp') center 42%/cover no-repeat; content: ''; opacity: .52; }
+.clay-tile-roof-repair-page .clay-hero::after { position: absolute; inset: 0; background: linear-gradient(90deg,rgba(3,20,38,.99) 0%,rgba(3,26,48,.94) 47%,rgba(3,26,48,.66) 73%,rgba(3,26,48,.48) 100%),linear-gradient(0deg,rgba(3,26,48,.67),transparent 62%); content: ''; }
+.clay-tile-roof-repair-page .clay-hero .split { position: relative; z-index: 1; width: 100%; display: grid; grid-template-columns: minmax(0,1.25fr) minmax(360px,.58fr); align-items: center; gap: clamp(55px,8vw,125px); max-width: 1180px; margin: 0 auto; }
+.clay-tile-roof-repair-page .eyebrow { margin: 0 0 13px; color: var(--orange-500); font-size: .68rem; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+.clay-tile-roof-repair-page .clay-hero .eyebrow { color: #ffb15b; }
+.clay-tile-roof-repair-page .clay-hero h1 { max-width: 760px; margin: 0; color: var(--white); font-size: clamp(3.1rem,5.7vw,5.65rem); font-weight: 780; letter-spacing: -.06em; line-height: .98; }
+.clay-tile-roof-repair-page .clay-hero .lede { max-width: 700px; margin: 25px 0 0; color: rgba(255,255,255,.76); font-size: 1.05rem; line-height: 1.75; }
+.clay-tile-roof-repair-page .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 29px; }
+.clay-tile-roof-repair-page .hero-actions .btn { min-height: 51px; display: inline-flex; align-items: center; justify-content: center; padding: 13px 20px; border-radius: 13px; font-size: .74rem; font-weight: 900; }
+.clay-tile-roof-repair-page .hero-actions .btn-primary { color: var(--navy-950); background: linear-gradient(135deg,#ffad43,var(--orange-500)); box-shadow: 0 13px 30px rgba(237,106,0,.28); }
+.clay-tile-roof-repair-page .hero-actions .btn-outline { color: var(--white); background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.28); backdrop-filter: blur(12px); }
+.clay-tile-roof-repair-page .proof-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 23px; }
+.clay-tile-roof-repair-page .clay-hero .proof-pill { padding: 8px 12px; color: rgba(255,255,255,.8); background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.17); border-radius: 999px; font-size: .66rem; font-weight: 800; }
+.clay-tile-roof-repair-page .section .proof-pill { min-height: 39px; display: inline-flex; align-items: center; padding: 8px 12px; color: var(--navy-900); background: var(--white); border: 1px solid rgba(6,41,75,.1); border-radius: 999px; font-size: .68rem; font-weight: 800; }
+.clay-tile-roof-repair-page .hero-photo { overflow: hidden; margin: 0; padding: 15px; background: linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.07)),rgba(3,26,48,.38); border: 1px solid rgba(255,255,255,.25); border-radius: 28px; box-shadow: 0 28px 70px rgba(2,15,29,.34),inset 0 1px 0 rgba(255,255,255,.14); backdrop-filter: blur(18px); }
+.clay-tile-roof-repair-page .hero-photo img { width: 100%; height: 280px; object-fit: cover; object-position: center 42%; border-radius: 17px; }
+.clay-tile-roof-repair-page .hero-photo figcaption { position: static; padding: 18px 5px 5px; color: rgba(255,255,255,.68); background: transparent; font-size: .73rem; line-height: 1.55; }
+.clay-tile-roof-repair-page .hero-photo strong { margin-bottom: 4px; color: #ffb15b; font-size: .83rem; }
+.clay-tile-roof-repair-page .interior-trust { position: relative; z-index: 2; }
+.clay-tile-roof-repair-page .pillnav { position: sticky; top: 102px; z-index: 25; display: flex; width: min(100% - 36px,1100px); gap: 7px; overflow-x: auto; margin: 22px auto 0; padding: 10px; background: rgba(255,255,255,.95); border: 1px solid rgba(6,41,75,.1); border-radius: 16px; box-shadow: var(--shadow-md); backdrop-filter: blur(15px); }
+.clay-tile-roof-repair-page .pillnav a { flex: 0 0 auto; min-height: 42px; display: inline-flex; align-items: center; padding: 9px 13px; color: var(--navy-900); border-radius: 10px; font-size: .65rem; font-weight: 850; }
+.clay-tile-roof-repair-page .pillnav a:hover { color: var(--white); background: var(--navy-900); }
+.clay-tile-roof-repair-page .section { width: min(100% - 36px,1180px); margin: 0 auto; padding: 88px 0; }
+.clay-tile-roof-repair-page .section + .section { border-top: 1px solid rgba(6,41,75,.09); }
+.clay-tile-roof-repair-page .section.card { background: transparent; border: 0; border-radius: 0; box-shadow: none; }
+.clay-tile-roof-repair-page .section-title { max-width: 840px; margin: 0 auto 38px; text-align: center; }
+.clay-tile-roof-repair-page .section-title h2,.clay-tile-roof-repair-page .wide-repair h2,.clay-tile-roof-repair-page .age-band h2 { margin: 0; color: var(--navy-950); font-size: clamp(2.25rem,4.5vw,4rem); font-weight: 770; letter-spacing: -.055em; line-height: 1.04; }
+.clay-tile-roof-repair-page .section-title p:not(.eyebrow) { max-width: 760px; margin: 15px auto 0; color: var(--ink-500); font-size: .88rem; line-height: 1.75; }
+.clay-tile-roof-repair-page .truth-grid,.clay-tile-roof-repair-page .cause-grid { display: grid; gap: 16px; }
+.clay-tile-roof-repair-page .truth-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.clay-tile-roof-repair-page .cause-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.clay-tile-roof-repair-page .story-card,.clay-tile-roof-repair-page .repair-path { padding: 27px; background: var(--white); border: 1px solid rgba(6,41,75,.1); border-radius: 20px; box-shadow: var(--shadow-sm); transition: transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s ease; }
+.clay-tile-roof-repair-page .story-card:hover,.clay-tile-roof-repair-page .repair-path:hover { transform: translateY(-5px); border-color: rgba(255,130,0,.35); box-shadow: var(--shadow-md); }
+.clay-tile-roof-repair-page .truth-card { border-top: 4px solid var(--orange-500); }
+.clay-tile-roof-repair-page .truth-card .number,.clay-tile-roof-repair-page .cause-icon { display: grid; width: 43px; height: 43px; place-items: center; margin-bottom: 17px; color: var(--white); background: var(--navy-900); border: 0; border-radius: 13px; font-size: .72rem; font-weight: 900; }
+.clay-tile-roof-repair-page :is(.truth-card,.cause-card,.repair-path,.story-card) h3 { margin: 0; color: var(--navy-950); font-size: 1.04rem; letter-spacing: -.025em; }
+.clay-tile-roof-repair-page :is(.truth-card,.cause-card,.repair-path,.story-card) p { margin: 11px 0 0; color: var(--ink-500); font-size: .77rem; line-height: 1.7; }
+.clay-tile-roof-repair-page .cause-card { display: grid; grid-template-columns: 52px 1fr; gap: 16px; }
+.clay-tile-roof-repair-page .cause-card .cause-icon { margin: 0; color: var(--orange-600); background: var(--orange-100); }
+.clay-tile-roof-repair-page .truth-callout { margin-top: 18px; padding: clamp(27px,4vw,43px); color: var(--white); background: linear-gradient(135deg,var(--navy-950),var(--navy-800)); border-radius: 22px; box-shadow: var(--shadow-md); text-align: center; }
+.clay-tile-roof-repair-page .truth-callout strong { color: var(--white); font-size: clamp(1.25rem,2vw,1.6rem); }
+.clay-tile-roof-repair-page .truth-callout p { max-width: 820px; margin: 10px auto 0; color: rgba(255,255,255,.68); font-size: .82rem; line-height: 1.7; }
+.clay-tile-roof-repair-page .field-story { width: 100vw; max-width: none; margin-left: calc(50% - 50vw); padding-right: max(28px,calc((100vw - 1180px)/2)); padding-left: max(28px,calc((100vw - 1180px)/2)); color: var(--white); background: radial-gradient(circle at 100% 0,rgba(255,130,0,.16),transparent 30%),var(--navy-950); border-radius: 0; }
+.clay-tile-roof-repair-page .field-story .section-title h2 { color: var(--white); }
+.clay-tile-roof-repair-page .field-story .section-title p:not(.eyebrow) { color: rgba(255,255,255,.67); }
+.clay-tile-roof-repair-page .photo-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; max-width: 1180px; margin: 0 auto; }
+.clay-tile-roof-repair-page .photo-card { overflow: hidden; margin: 0; color: var(--ink-950); background: var(--white); border: 1px solid rgba(255,255,255,.13); border-radius: 20px; box-shadow: 0 18px 40px rgba(0,0,0,.2); transition: transform .35s var(--ease); }
+.clay-tile-roof-repair-page .photo-card:hover { transform: translateY(-5px); }
+.clay-tile-roof-repair-page .photo-card img,.clay-tile-roof-repair-page .photo-card.portrait img { display: block; width: 100%; height: 225px; aspect-ratio: auto; object-fit: cover; object-position: center; }
+.clay-tile-roof-repair-page .photo-card figcaption { padding: 17px 18px 20px; }
+.clay-tile-roof-repair-page .photo-card figcaption strong { display: block; margin-bottom: 5px; color: var(--navy-950); font-size: .84rem; }
+.clay-tile-roof-repair-page .photo-card figcaption span { color: var(--ink-500); font-size: .7rem; line-height: 1.6; }
+.clay-tile-roof-repair-page .repair-paths { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 15px; }
+.clay-tile-roof-repair-page .repair-path.recommended { border: 2px solid var(--orange-500); box-shadow: 0 16px 35px rgba(255,130,0,.14); }
+.clay-tile-roof-repair-page .repair-path .tag { margin-bottom: 10px; color: var(--orange-600); font-size: .61rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.clay-tile-roof-repair-page .repair-path ul { margin: 15px 0 0; padding-left: 17px; color: var(--ink-700); font-size: .7rem; line-height: 1.65; }
+.clay-tile-roof-repair-page .wide-repair { display: grid; grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); align-items: center; gap: clamp(36px,6vw,80px); }
+.clay-tile-roof-repair-page .wide-repair img { width: 100%; height: 460px; object-fit: cover; border: 10px solid var(--white); border-radius: 25px; box-shadow: var(--shadow-lg); }
+.clay-tile-roof-repair-page .wide-repair p { color: var(--ink-500); font-size: .82rem; line-height: 1.75; }
+.clay-tile-roof-repair-page .wide-repair .principle { margin-top: 21px; padding: 18px 20px; color: #6b3b10; background: var(--orange-100); border-left: 5px solid var(--orange-500); border-radius: 12px; font-size: .78rem; line-height: 1.65; }
+.clay-tile-roof-repair-page .age-band { display: grid; grid-template-columns: .72fr 1.28fr; gap: 48px; padding: clamp(34px,6vw,65px); background: var(--white); border: 1px solid rgba(6,41,75,.1); border-radius: 27px; box-shadow: var(--shadow-md); }
+.clay-tile-roof-repair-page .age-number { color: var(--orange-500); font-size: clamp(5rem,9vw,8.2rem); font-weight: 850; letter-spacing: -.08em; line-height: .8; }
+.clay-tile-roof-repair-page .age-number span { display: block; margin-top: 22px; color: var(--navy-900); font-size: .68rem; letter-spacing: .11em; line-height: 1.4; }
+.clay-tile-roof-repair-page .age-band p { color: var(--ink-500); font-size: .8rem; line-height: 1.72; }
+.clay-tile-roof-repair-page .age-band .btn { display: inline-flex; min-height: 48px; align-items: center; padding: 12px 18px; color: var(--navy-900); background: var(--white); border: 1px solid rgba(6,41,75,.17); border-radius: 12px; font-size: .72rem; font-weight: 850; }
+.clay-tile-roof-repair-page .faq { display: grid; gap: 12px; width: 100%; max-width: 940px; margin: 0 auto; }
+.clay-tile-roof-repair-page .faq details { overflow: hidden; margin: 0; padding: 0; background: var(--white); border: 1px solid rgba(6,41,75,.1); border-radius: 16px; box-shadow: var(--shadow-sm); }
+.clay-tile-roof-repair-page .faq summary { min-height: 62px; display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; color: var(--navy-950); cursor: pointer; font-size: .81rem; font-weight: 850; }
+.clay-tile-roof-repair-page .faq summary::after { color: var(--orange-600); content: '+'; font-size: 1.2rem; }
+.clay-tile-roof-repair-page .faq details[open] summary::after { content: '−'; }
+.clay-tile-roof-repair-page .faq details p { margin: 0; padding: 0 20px 20px; color: var(--ink-500); font-size: .77rem; line-height: 1.72; }
+.clay-tile-roof-repair-page .service-areas-modern { text-align: center; }
+.clay-tile-roof-repair-page .chip-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 25px 0 0; padding: 0; list-style: none; }
+.clay-tile-roof-repair-page .sa-chip { display: inline-flex; min-height: 39px; align-items: center; padding: 8px 12px; color: var(--navy-900); background: var(--white); border: 1px solid rgba(6,41,75,.1); border-radius: 999px; font-size: .68rem; font-weight: 800; }
+.clay-tile-roof-repair-page .sa-chip.strong { color: var(--white); background: var(--navy-900); }
+.clay-tile-roof-repair-page .estimate-form-section { position: relative; width: min(100% - 36px,1040px); margin-top: 45px; padding: clamp(32px,5vw,58px); overflow: hidden; background: rgba(255,255,255,.98); border: 1px solid rgba(6,41,75,.11); border-radius: 28px; box-shadow: 0 26px 70px rgba(6,41,75,.14); }
+.clay-tile-roof-repair-page .estimate-form-section::before { position: absolute; top: 0; right: 0; left: 0; height: 5px; content: ''; background: linear-gradient(90deg,var(--orange-500),#ffb34e 44%,var(--blue-500)); }
+.clay-tile-roof-repair-page .estimate-form-heading { margin-bottom: 30px; padding-bottom: 26px; border-bottom: 1px solid rgba(6,41,75,.11); }
+.clay-tile-roof-repair-page .estimate-form-heading > span { color: var(--orange-600); font-size: .65rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+.clay-tile-roof-repair-page .estimate-form-heading h2 { margin: 9px 0 0; color: var(--navy-950); font-size: clamp(1.8rem,3.5vw,2.75rem); letter-spacing: -.045em; line-height: 1.08; }
+.clay-tile-roof-repair-page .estimate-form-heading p { max-width: 720px; margin: 12px 0 0; color: var(--ink-500); font-size: .78rem; line-height: 1.65; }
+.clay-tile-roof-repair-page .estimate-form-block #estimate-form { max-width: none; margin: 0; padding: 0; background: transparent; border-radius: 0; box-shadow: none; }
+.clay-tile-roof-repair-page .estimate-form-block .form-row { gap: 16px; margin-bottom: 16px; }
+.clay-tile-roof-repair-page .estimate-form-block .form-col-6 { flex-basis: calc(50% - 8px); }
+.clay-tile-roof-repair-page .estimate-form-block .form-col-4 { flex-basis: calc(33.333% - 11px); }
+.clay-tile-roof-repair-page .estimate-form-block :is(input,select,textarea) { min-height: 54px; padding: 13px 15px; color: var(--ink-950); background: #fbfcfd; border: 1px solid rgba(6,41,75,.16); border-radius: 12px; font: 500 16px/1.35 inherit; box-shadow: none; }
+.clay-tile-roof-repair-page .estimate-form-block textarea { min-height: 128px; resize: vertical; }
+.clay-tile-roof-repair-page .estimate-form-block :is(input,select,textarea):focus { outline: none; background: var(--white); border-color: var(--orange-500); box-shadow: 0 0 0 4px rgba(255,130,0,.13); }
+.clay-tile-roof-repair-page .estimate-form-block input[type='file'] { padding: 7px; background: #f5f8fb; }
+.clay-tile-roof-repair-page .estimate-form-block input[type='file']::file-selector-button { min-height: 38px; margin-right: 11px; padding: 8px 13px; color: var(--navy-950); background: var(--white); border: 1px solid rgba(6,41,75,.16); border-radius: 8px; font: 800 .7rem/1 inherit; cursor: pointer; }
+.clay-tile-roof-repair-page .estimate-form-block .recaptcha-container { justify-content: flex-start; }
+.clay-tile-roof-repair-page .estimate-form-block .zenith-btn { min-height: 56px; color: var(--navy-950); background: linear-gradient(135deg,#ffad43,var(--orange-500)); border: 0; border-radius: 13px; box-shadow: 0 13px 30px rgba(237,106,0,.25); font: 900 .78rem/1 inherit; }
+.clay-tile-roof-repair-page .estimate-form-block .form-disclaimer { margin-top: 22px; padding-top: 18px; color: var(--ink-500); background: transparent; border: 0; border-top: 1px solid rgba(6,41,75,.11); font-size: .68rem; line-height: 1.65; }
+.clay-tile-roof-repair-page .estimate-form-block .form-disclaimer a { color: var(--orange-600); font-weight: 850; }
+.clay-tile-roof-repair-page .cta-strip { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: clamp(31px,5vw,52px); color: var(--white); background: linear-gradient(135deg,var(--navy-950),var(--navy-800)); border-radius: 24px; box-shadow: var(--shadow-lg); }
+.clay-tile-roof-repair-page .cta-strip strong { color: var(--white); font-size: 1.15rem; }
+.clay-tile-roof-repair-page .cta-strip span { display: block; margin-top: 7px; color: rgba(255,255,255,.68); font-size: .78rem; }
+.clay-tile-roof-repair-page .cta-strip .btn { min-height: 49px; display: inline-flex; flex: 0 0 auto; align-items: center; padding: 12px 20px; color: var(--navy-950); background: linear-gradient(135deg,#ffad43,var(--orange-500)); border-radius: 13px; font-size: .73rem; font-weight: 900; }
+.clay-tile-roof-repair-page :is(a,button,input,select,textarea,summary):focus-visible { outline: 3px solid #75b6ff; outline-offset: 3px; }
+@media (max-width:960px) {
+  .clay-tile-roof-repair-page .clay-hero .split { grid-template-columns: 1fr; }
+  .clay-tile-roof-repair-page .hero-photo { max-width: 720px; transform: none; }
+  .clay-tile-roof-repair-page .truth-grid { grid-template-columns: 1fr; }
+  .clay-tile-roof-repair-page .photo-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .clay-tile-roof-repair-page .repair-paths { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .clay-tile-roof-repair-page .wide-repair,.clay-tile-roof-repair-page .age-band { grid-template-columns: 1fr; }
+  .clay-tile-roof-repair-page .wide-repair img { height: 380px; }
+}
+@media (max-width:680px) {
+  .clay-tile-roof-repair-page .clay-hero { min-height: 0; padding: 76px 14px 66px; }
+  .clay-tile-roof-repair-page .clay-hero h1 { font-size: clamp(2.7rem,13vw,4rem); }
+  .clay-tile-roof-repair-page .hero-photo img { height: 280px; }
+  .clay-tile-roof-repair-page .pillnav { top: 76px; width: calc(100% - 20px); }
+  .clay-tile-roof-repair-page .section { width: min(100% - 28px,1180px); padding: 68px 0; }
+  .clay-tile-roof-repair-page .cause-grid,.clay-tile-roof-repair-page .photo-grid,.clay-tile-roof-repair-page .repair-paths { grid-template-columns: 1fr; }
+  .clay-tile-roof-repair-page .photo-card img,.clay-tile-roof-repair-page .photo-card.portrait img { height: 220px; }
+  .clay-tile-roof-repair-page .wide-repair img { height: 290px; border-width: 6px; }
+  .clay-tile-roof-repair-page .age-band { gap: 30px; }
+  .clay-tile-roof-repair-page .estimate-form-section { width: calc(100% - 28px); padding: 28px 18px; }
+  .clay-tile-roof-repair-page .estimate-form-block .form-col-6,.clay-tile-roof-repair-page .estimate-form-block .form-col-4 { flex-basis: 100%; }
+  .clay-tile-roof-repair-page .estimate-form-block .recaptcha-container { overflow-x: auto; }
+  .clay-tile-roof-repair-page .cta-strip { flex-direction: column; align-items: flex-start; }
+  .clay-tile-roof-repair-page .cta-strip .btn { width: 100%; justify-content: center; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .clay-tile-roof-repair-page *,.clay-tile-roof-repair-page *::before,.clay-tile-roof-repair-page *::after { transition-duration: .01ms !important; }
+}
