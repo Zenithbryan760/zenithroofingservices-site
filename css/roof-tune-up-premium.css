@@ -40,7 +40,7 @@
 .roof-tune-up-page .tick { display: inline-grid; width: 23px; height: 23px; flex: 0 0 auto; place-items: center; color: var(--white); background: var(--orange-500); border-radius: 50%; font-size: .65rem; font-weight: 900; }
 .roof-tune-up-page .center-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
 
-.roof-tune-up-page .commercial-tuneup { width: 100%; padding-right: max(28px,calc((100vw - 1180px)/2)); padding-left: max(28px,calc((100vw - 1180px)/2)); color: var(--white); background: radial-gradient(circle at 100% 0,rgba(255,130,0,.17),transparent 32%),var(--navy-950); }
+.roof-tune-up-page .section.card.commercial-tuneup { width: 100%; padding-right: max(28px,calc((100vw - 1180px)/2)); padding-left: max(28px,calc((100vw - 1180px)/2)); color: var(--white); background: radial-gradient(circle at 100% 0,rgba(255,130,0,.17),transparent 32%),var(--navy-950); border-top: 0; }
 .roof-tune-up-page .commercial-tuneup h2,.roof-tune-up-page .commercial-tuneup > h3 { color: var(--white); }
 .roof-tune-up-page .commercial-tuneup .intro { color: rgba(255,255,255,.68); }
 .roof-tune-up-page .commercial-scope { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 15px; margin-top: 38px; }
