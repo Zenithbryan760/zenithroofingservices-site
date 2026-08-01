@@ -2,26 +2,29 @@
 .torch-shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
 .torch-kicker { margin: 0 0 13px; color: var(--orange-500); font-size: .72rem; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
 .torch-lede { color: var(--ink-700); font-size: 1.05rem; line-height: 1.8; }
-.torch-hero { overflow: hidden; padding: clamp(72px, 10vw, 132px) 0 78px; background: radial-gradient(circle at 84% 12%, rgba(42,131,196,.34), transparent 30%), linear-gradient(128deg, #031a30 0%, #06294b 54%, #0b3f70 100%); color: #fff; }
-.torch-hero__grid { display: grid; grid-template-columns: 1.04fr .96fr; gap: clamp(38px, 6vw, 82px); align-items: center; }
+.torch-hero { position: relative; overflow: hidden; min-height: 720px; padding: clamp(72px, 10vw, 132px) 0 78px; color: #fff; background: var(--navy-950); }
+.torch-hero::before { position: absolute; inset: 0; background: url('/images/torch-down/existing-modified-bitumen-roof.jpg') center / cover no-repeat; content: ""; opacity: .58; transform: scale(1.025); }
+.torch-hero::after { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(3,20,38,.99) 0%, rgba(3,26,48,.94) 47%, rgba(3,26,48,.69) 72%, rgba(3,26,48,.45) 100%), linear-gradient(0deg, rgba(3,26,48,.72), transparent 65%); content: ""; }
+.torch-hero__grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.04fr .96fr; gap: clamp(38px, 6vw, 82px); align-items: center; }
 .torch-hero__copy .torch-kicker { color: #ffb24d; }
 .torch-hero h1 { max-width: 720px; margin: 0; font-size: clamp(3rem, 5.3vw, 5.25rem); line-height: .98; letter-spacing: -.055em; }
 .torch-hero .torch-lede { max-width: 650px; color: rgba(255,255,255,.82); }
 .torch-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
-.torch-button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 0 22px; border: 1px solid rgba(6,41,75,.2); border-radius: 999px; color: var(--navy-900); background: #fff; box-shadow: 0 10px 20px rgba(3,26,48,.1); font-size: .82rem; font-weight: 900; text-align: center; transition: transform .2s ease, box-shadow .2s ease; }
+.torch-button { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; padding: 0 22px; border: 1px solid rgba(255,255,255,.28); border-radius: 13px; color: #fff; background: rgba(255,255,255,.09); box-shadow: 0 10px 20px rgba(3,26,48,.18); backdrop-filter: blur(12px); font-size: .82rem; font-weight: 900; text-align: center; transition: transform .2s ease, box-shadow .2s ease; }
 .torch-button:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(3,26,48,.17); }
 .torch-button--primary { color: #1d1b15; border-color: transparent; background: linear-gradient(135deg, #ffb447, var(--orange-500)); }
-.torch-proof { display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 0; margin: 31px 0 0; list-style: none; color: rgba(255,255,255,.78); font-size: .74rem; font-weight: 800; }
-.torch-proof li::before { content: "✓"; margin-right: 7px; color: #ffad43; }
-.torch-hero__photo { position: relative; margin: 0; padding: 0 22px 27px 0; }
-.torch-hero__photo::before { position: absolute; z-index: 0; right: 0; bottom: 0; left: 25px; height: 88%; border-radius: 24px; background: linear-gradient(135deg, #ffb447, #ed6a00); content: ""; }
-.torch-hero__photo img { position: relative; display: block; z-index: 1; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 6px solid rgba(255,255,255,.94); border-radius: 22px; box-shadow: 0 23px 45px rgba(0,0,0,.3); }
-.torch-hero__photo figcaption { position: absolute; z-index: 2; right: 0; bottom: 0; width: min(86%, 390px); padding: 16px 18px; border-radius: 16px; color: rgba(255,255,255,.82); background: rgba(3,26,48,.93); box-shadow: 0 14px 25px rgba(0,0,0,.22); font-size: .76rem; line-height: 1.5; }
-.torch-hero__photo figcaption strong { display: block; color: #fff; }
-.torch-nav-wrap { position: sticky; z-index: 10; top: var(--header-height, 70px); overflow-x: auto; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.96); backdrop-filter: blur(12px); }
-.torch-nav { display: flex; gap: 23px; min-width: max-content; }
-.torch-nav a { padding: 18px 0 15px; color: var(--ink-700); border-bottom: 3px solid transparent; font-size: .7rem; font-weight: 900; white-space: nowrap; }
-.torch-nav a:hover { color: var(--orange-600); border-bottom-color: var(--orange-500); }
+.torch-proof { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 27px 0 0; list-style: none; color: rgba(255,255,255,.84); font-size: .7rem; font-weight: 800; }
+.torch-proof li { padding: 8px 12px; border: 1px solid rgba(255,255,255,.17); border-radius: 999px; background: rgba(255,255,255,.08); backdrop-filter: blur(10px); }
+.torch-proof li::before { content: "✓"; margin-right: 7px; color: #ffb447; }
+.torch-hero__photo { overflow: hidden; margin: 0; padding: 15px; border: 1px solid rgba(255,255,255,.25); border-radius: 28px; background: linear-gradient(145deg, rgba(255,255,255,.16), rgba(255,255,255,.07)), rgba(3,26,48,.38); box-shadow: 0 28px 70px rgba(2,15,29,.34), inset 0 1px 0 rgba(255,255,255,.14); backdrop-filter: blur(18px); }
+.torch-hero__photo::before { display: none; }
+.torch-hero__photo img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 0; border-radius: 17px; box-shadow: none; }
+.torch-hero__photo figcaption { position: static; width: auto; padding: 18px 5px 5px; border-radius: 0; color: rgba(255,255,255,.68); background: transparent; box-shadow: none; font-size: .76rem; line-height: 1.5; }
+.torch-hero__photo figcaption strong { display: inline; color: #ffb15b; }
+.torch-nav-wrap { position: sticky; z-index: 25; top: 102px; width: min(100% - 36px, 1100px); margin: 22px auto 0; overflow-x: visible; border: 0; background: transparent; }
+.torch-nav { display: flex; gap: 7px; width: 100%; min-width: 0; overflow-x: auto; padding: 10px; border: 1px solid rgba(6,41,75,.1); border-radius: 16px; background: rgba(255,255,255,.95); box-shadow: var(--shadow-md); backdrop-filter: blur(15px); }
+.torch-nav a { flex: 0 0 auto; min-height: 42px; padding: 9px 13px; color: var(--navy-900); border: 0; border-radius: 10px; font-size: .67rem; font-weight: 900; white-space: nowrap; }
+.torch-nav a:hover { color: #fff; background: var(--navy-900); }
 .torch-section { padding: clamp(74px, 9vw, 122px) 0; }
 .torch-section--soft { background: var(--mist); }
 .torch-section--dark { background: var(--navy-950); color: #fff; }
@@ -29,12 +32,13 @@
 .torch-heading-row h2, .torch-section > .torch-shell > h2, .torch-faq h2 { max-width: 850px; margin: 0; color: inherit; font-size: clamp(2.2rem, 4vw, 3.85rem); line-height: 1.04; letter-spacing: -.045em; }
 .torch-heading-row > p { margin: 0 0 4px; color: var(--ink-700); font-size: .95rem; line-height: 1.75; }
 .torch-assessment-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.torch-card { padding: 29px; border: 1px solid var(--line); border-radius: 20px; background: #fff; box-shadow: 0 13px 30px rgba(3,26,48,.06); }
+.torch-card { padding: 29px; border: 1px solid rgba(6,41,75,.1); border-radius: 20px; background: rgba(255,255,255,.86); box-shadow: var(--shadow-sm); backdrop-filter: blur(10px); transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s ease; }
+.torch-card:hover { transform: translateY(-5px); border-color: rgba(255,130,0,.35); box-shadow: var(--shadow-md); }
 .torch-card span { color: var(--orange-600); font-size: .72rem; font-weight: 900; letter-spacing: .13em; }
 .torch-card h3 { margin: 15px 0 10px; font-size: 1.25rem; }
 .torch-card p { margin: 0; color: var(--ink-700); font-size: .9rem; line-height: 1.7; }
 .torch-system-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 37px; }
-.torch-system-card { padding: clamp(26px, 4vw, 48px); border: 1px solid rgba(6,41,75,.12); border-radius: 24px; background: #fff; box-shadow: 0 17px 34px rgba(3,26,48,.07); }
+.torch-system-card { padding: clamp(26px, 4vw, 48px); border: 1px solid rgba(6,41,75,.12); border-radius: 24px; background: rgba(255,255,255,.88); box-shadow: 0 17px 34px rgba(3,26,48,.07); backdrop-filter: blur(13px); }
 .torch-system-card--featured { color: #fff; border: 0; background: linear-gradient(140deg, #06294b, #0b3f70); }
 .torch-system-card__label { margin: 0; color: var(--orange-600); font-size: .66rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
 .torch-system-card--featured .torch-system-card__label { color: #ffb447; }
@@ -85,4 +89,4 @@
 .torch-final h2 { max-width: 700px; margin: 0; font-size: clamp(1.9rem, 3vw, 3rem); line-height: 1.08; letter-spacing: -.04em; }
 .torch-final p { margin: 10px 0 0; color: rgba(255,255,255,.75); font-size: .9rem; }
 @media (max-width: 860px) { .torch-hero__grid, .torch-heading-row, .torch-details-grid, .torch-faq { grid-template-columns: 1fr; } .torch-assessment-grid { grid-template-columns: 1fr; } .torch-steps { grid-template-columns: 1fr; gap: 5px; } .torch-steps li, .torch-steps li + li { display: grid; grid-template-columns: 42px 1fr; column-gap: 10px; padding: 16px 0; border-left: 0; border-bottom: 1px solid rgba(6,41,75,.13); } .torch-steps li::before { grid-row: span 2; margin: 0; } .torch-steps span { margin-top: 7px; } .torch-final__inner { display: block; } .torch-final .torch-button { margin-top: 24px; } }
-@media (max-width: 620px) { .torch-shell { width: min(100% - 32px, 1180px); } .torch-hero { padding-top: 68px; } .torch-hero h1 { font-size: clamp(2.7rem, 13vw, 3.55rem); } .torch-actions, .torch-actions .torch-button { width: 100%; } .torch-system-grid, .torch-gallery, .torch-project-links { grid-template-columns: 1fr; } .torch-hero__photo { margin-top: 8px; } .torch-heading-row h2, .torch-section > .torch-shell > h2, .torch-faq h2 { font-size: clamp(2.2rem, 11vw, 3rem); } .torch-nav { gap: 18px; } .torch-nav a { font-size: .65rem; } }
+@media (max-width: 620px) { .torch-shell { width: min(100% - 32px, 1180px); } .torch-hero { min-height: 0; padding-top: 76px; } .torch-hero h1 { font-size: clamp(2.7rem, 13vw, 3.55rem); } .torch-actions, .torch-actions .torch-button { width: 100%; } .torch-system-grid, .torch-gallery, .torch-project-links { grid-template-columns: 1fr; } .torch-hero__photo { margin-top: 8px; } .torch-heading-row h2, .torch-section > .torch-shell > h2, .torch-faq h2 { font-size: clamp(2.2rem, 11vw, 3rem); } .torch-nav-wrap { top: 76px; width: calc(100% - 20px); } .torch-nav { gap: 7px; } .torch-nav a { font-size: .65rem; } }
