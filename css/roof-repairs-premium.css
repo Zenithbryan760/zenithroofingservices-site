@@ -1,0 +1,116 @@
+.roof-repairs-page { width: 100%; max-width: none; margin: 0 !important; padding: 0 !important; color: var(--ink-950); background: var(--mist); }
+.roof-repairs-page .page { width: 100%; max-width: none; margin: 0; padding: 0 0 100px; overflow: hidden; }
+
+.roof-repairs-page .hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 670px;
+  padding: clamp(86px,10vw,130px) max(28px,calc((100vw - 1180px)/2));
+  color: var(--white);
+  background:
+    linear-gradient(90deg,rgba(3,20,38,.99) 0%,rgba(3,26,48,.93) 48%,rgba(3,26,48,.64) 76%,rgba(3,26,48,.5) 100%),
+    linear-gradient(0deg,rgba(3,26,48,.58),transparent 62%),
+    url('/images/tile-roof-repair-small-1440.jpg') center 48%/cover no-repeat;
+}
+.roof-repairs-page .hero::after { position: absolute; right: -140px; bottom: -210px; z-index: -1; width: 620px; height: 620px; background: radial-gradient(circle,rgba(255,130,0,.21),transparent 68%); content: ''; }
+.roof-repairs-page .hero .eyebrow { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; }
+.roof-repairs-page .hero .chip { display: inline-flex; min-height: 34px; align-items: center; padding: 7px 11px; color: #ffd49b; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); border-radius: 999px; font-size: .62rem; font-weight: 850; }
+.roof-repairs-page .hero .split { display: grid; grid-template-columns: minmax(0,1fr) minmax(360px,.78fr); gap: clamp(38px,6vw,76px); align-items: center; }
+.roof-repairs-page .hero h1 { margin: 0 !important; color: var(--white); font-size: clamp(3.25rem,6.2vw,6.1rem); letter-spacing: -.065em; line-height: .98; }
+.roof-repairs-page .hero .lede { max-width: 720px; margin: 25px 0 0; color: rgba(255,255,255,.76); font-size: clamp(1rem,1.45vw,1.17rem); line-height: 1.72; }
+.roof-repairs-page .hero .lede strong { color: var(--white); }
+.roof-repairs-page .hero .cta { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 31px; }
+.roof-repairs-page .hero .btn { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; padding: 12px 21px; border-radius: 13px; font-size: .74rem; font-weight: 900; transition: transform .3s var(--ease),background .3s ease; }
+.roof-repairs-page .hero .btn:hover { transform: translateY(-3px); }
+.roof-repairs-page .hero .btn-primary { color: var(--navy-950); background: linear-gradient(135deg,#ffad43,var(--orange-500)); }
+.roof-repairs-page .hero .btn-outline { color: var(--white); background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.2); }
+.roof-repairs-page .photo-card { position: relative; overflow: hidden; padding: 10px; background: linear-gradient(145deg,rgba(255,255,255,.17),rgba(255,255,255,.07)),rgba(3,26,48,.32); border: 1px solid rgba(255,255,255,.25); border-radius: 28px; box-shadow: 0 28px 70px rgba(2,15,29,.34),inset 0 1px 0 rgba(255,255,255,.14); backdrop-filter: blur(18px); }
+.roof-repairs-page .photo-card::after { position: absolute; inset: 8px; background: linear-gradient(0deg,rgba(3,26,48,.26),transparent 55%); border-radius: 19px; pointer-events: none; content: ''; }
+.roof-repairs-page .photo-card img { display: block; width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 19px; }
+
+.roof-repairs-page .pillnav { position: sticky; top: 102px; z-index: 25; display: flex; width: min(100% - 36px,1050px); gap: 7px; overflow-x: auto; margin: -29px auto 0; padding: 10px; background: rgba(255,255,255,.94); border: 1px solid rgba(6,41,75,.1); border-radius: 16px; box-shadow: var(--shadow-md); backdrop-filter: blur(15px); }
+.roof-repairs-page .pillnav a { flex: 0 0 auto; min-height: 42px; display: inline-flex; align-items: center; padding: 9px 13px; color: var(--navy-900); border-radius: 10px; font-size: .66rem; font-weight: 850; }
+.roof-repairs-page .pillnav a:hover { color: var(--white); background: var(--navy-900); }
+
+.roof-repairs-page .section { width: min(100% - 36px,1180px); margin: 0 auto; padding: 88px 0; }
+.roof-repairs-page .section + .section { border-top: 1px solid rgba(6,41,75,.09); }
+.roof-repairs-page .section > h2,.roof-repairs-page .sa-head > h2 { margin: 0; color: var(--navy-950); font-size: clamp(2.2rem,4.7vw,4.1rem); letter-spacing: -.055em; line-height: 1.04; }
+.roof-repairs-page .section > .lede-narrow { max-width: 760px; margin: 18px 0 0; color: var(--ink-500); font-size: .92rem; line-height: 1.78; }
+.roof-repairs-page .grid { display: grid; gap: 16px; margin-top: 38px; }
+.roof-repairs-page .cols-3 { grid-template-columns: repeat(3,1fr); }
+.roof-repairs-page .cols-2 { grid-template-columns: repeat(2,1fr); }
+.roof-repairs-page .card { background: var(--white); border: 1px solid rgba(6,41,75,.1); border-radius: 20px; box-shadow: var(--shadow-sm); }
+.roof-repairs-page .section.card { background: transparent; border: 0; border-radius: 0; box-shadow: none; }
+.roof-repairs-page .grid > .card,.roof-repairs-page .grid > a.card { position: relative; min-height: 175px; padding: 27px; transition: transform .38s var(--ease),box-shadow .38s var(--ease),border-color .3s ease; }
+.roof-repairs-page .grid > a.card { display: block; color: var(--navy-950); }
+.roof-repairs-page .grid > .card:hover,.roof-repairs-page .grid > a.card:hover { transform: translateY(-5px); border-color: rgba(255,130,0,.35); box-shadow: var(--shadow-md); }
+.roof-repairs-page .grid > .card::before,.roof-repairs-page .grid > a.card::before { display: block; width: 32px; height: 4px; margin-bottom: 19px; background: linear-gradient(90deg,var(--orange-600),#ffbd64); border-radius: 99px; content: ''; }
+.roof-repairs-page .svc-card h3,.roof-repairs-page .grid h3 { margin: 0; color: var(--navy-950); font-size: 1.07rem; letter-spacing: -.025em; }
+.roof-repairs-page .svc-card p,.roof-repairs-page .grid p,.roof-repairs-page .grid .muted { margin: 12px 0 0; color: var(--ink-500); font-size: .78rem; line-height: 1.7; }
+.roof-repairs-page .grid > a.card strong { display: inline-block; max-width: 90%; font-size: 1.07rem; line-height: 1.4; }
+.roof-repairs-page .grid > a.card::after { position: absolute; right: 23px; bottom: 21px; color: var(--orange-600); content: '→'; font-size: 1.2rem; font-weight: 900; }
+.roof-repairs-page .center-actions { display: flex; justify-content: flex-start; margin-top: 30px; }
+.roof-repairs-page .center-actions .btn { min-height: 49px; padding: 12px 21px; color: var(--navy-950); background: linear-gradient(135deg,#ffad43,var(--orange-500)); border-radius: 13px; font-size: .74rem; font-weight: 900; }
+
+.roof-repairs-page #emergency { width: 100%; padding-right: max(28px,calc((100vw - 1180px)/2)); padding-left: max(28px,calc((100vw - 1180px)/2)); color: var(--white); background: radial-gradient(circle at 100% 0,rgba(255,130,0,.2),transparent 32%),var(--navy-950); }
+.roof-repairs-page #emergency > h2 { color: var(--white); }
+.roof-repairs-page #emergency .card { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.13); box-shadow: none; }
+.roof-repairs-page #emergency .card h3 { color: var(--white); }
+.roof-repairs-page #emergency .card p { color: rgba(255,255,255,.64); }
+
+.roof-repairs-page .faq { display: grid; gap: 12px; max-width: 900px; margin-top: 36px; }
+.roof-repairs-page .faq details { overflow: hidden; background: var(--white); border: 1px solid rgba(6,41,75,.1); border-radius: 16px; box-shadow: var(--shadow-sm); }
+.roof-repairs-page .faq summary { min-height: 62px; display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; color: var(--navy-950); cursor: pointer; font-size: .84rem; font-weight: 850; }
+.roof-repairs-page .faq summary::after { color: var(--orange-600); content: '+'; font-size: 1.25rem; }
+.roof-repairs-page .faq details[open] summary::after { content: '−'; }
+.roof-repairs-page .faq p { margin: 0; padding: 0 20px 20px; color: var(--ink-500); font-size: .8rem; line-height: 1.72; }
+
+.roof-repairs-page #areas > .sa-head { max-width: 820px; margin-bottom: 35px; }
+.roof-repairs-page #areas > .sa-head p { color: var(--ink-500); line-height: 1.75; }
+.roof-repairs-page #areas > .card { margin-top: 15px; padding: 28px; }
+.roof-repairs-page #areas .sa-head h3 { margin: 0; color: var(--navy-950); font-size: 1.25rem; }
+.roof-repairs-page #areas .sa-head p { margin: 8px 0 0 !important; }
+.roof-repairs-page .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; padding: 0; list-style: none; }
+.roof-repairs-page .sa-chip { display: inline-flex; min-height: 38px; align-items: center; padding: 8px 11px; color: var(--navy-900); background: var(--mist); border: 1px solid rgba(6,41,75,.08); border-radius: 999px; font-size: .67rem; font-weight: 750; }
+.roof-repairs-page .sa-chip.strong { color: var(--white); background: var(--navy-900); }
+.roof-repairs-page .sa-more { margin-top: 16px; }
+.roof-repairs-page .sa-summary { color: var(--orange-600); cursor: pointer; font-size: .72rem; font-weight: 850; }
+
+.roof-repairs-page .estimate-form-section { width: min(100% - 36px,1040px); margin-top: 35px; padding: clamp(28px,5vw,52px); background: var(--white); border: 1px solid rgba(6,41,75,.1); border-radius: 27px; box-shadow: var(--shadow-lg); }
+.roof-repairs-page .form-disclaimer { margin: 18px 0 0; color: var(--ink-500); font-size: .7rem; line-height: 1.6; }
+.roof-repairs-page .cta-strip { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: clamp(31px,5vw,52px); color: var(--white); background: linear-gradient(135deg,var(--navy-950),var(--navy-800)); border-radius: 24px; box-shadow: var(--shadow-lg); }
+.roof-repairs-page .cta-strip .text { max-width: 700px; color: rgba(255,255,255,.72); line-height: 1.65; }
+.roof-repairs-page .cta-strip .text strong { color: var(--white); }
+.roof-repairs-page .cta-strip .btn { flex: 0 0 auto; min-height: 49px; padding: 12px 20px; color: var(--navy-950); background: linear-gradient(135deg,#ffad43,var(--orange-500)); border-radius: 13px; font-size: .73rem; font-weight: 900; }
+
+.roof-repairs-page :is(a,button,input,select,textarea,summary):focus-visible { outline: 3px solid #75b6ff; outline-offset: 3px; }
+
+@media (max-width: 960px) {
+  .roof-repairs-page .hero .split { grid-template-columns: 1fr; }
+  .roof-repairs-page .photo-card { max-width: 650px; transform: none; }
+  .roof-repairs-page .photo-card img { aspect-ratio: 16/10; }
+  .roof-repairs-page .cols-3 { grid-template-columns: repeat(2,1fr); }
+}
+
+@media (max-width: 680px) {
+  .roof-repairs-page .hero { min-height: auto; padding: 72px 14px 84px; }
+  .roof-repairs-page .hero h1 { font-size: clamp(2.7rem,12vw,3.7rem); }
+  .roof-repairs-page .hero .cta { flex-direction: column; }
+  .roof-repairs-page .hero .btn { width: 100%; }
+  .roof-repairs-page .photo-card { padding: 5px; border-radius: 20px; }
+  .roof-repairs-page .photo-card img { border-radius: 15px; }
+  .roof-repairs-page .pillnav { top: 76px; width: calc(100% - 20px); margin-top: -25px; }
+  .roof-repairs-page .section { width: min(100% - 28px,1180px); padding: 68px 0; }
+  .roof-repairs-page .section > h2,.roof-repairs-page .sa-head > h2 { font-size: clamp(2.2rem,10vw,3.05rem); }
+  .roof-repairs-page .cols-3,.roof-repairs-page .cols-2 { grid-template-columns: 1fr; }
+  .roof-repairs-page .grid > .card,.roof-repairs-page .grid > a.card { min-height: 0; padding: 24px; }
+  .roof-repairs-page #emergency { padding-right: 14px; padding-left: 14px; }
+  .roof-repairs-page #areas > .card { padding: 23px 19px; }
+  .roof-repairs-page .estimate-form-section { width: calc(100% - 28px); padding: 25px 18px; }
+  .roof-repairs-page .cta-strip { flex-direction: column; align-items: flex-start; }
+  .roof-repairs-page .cta-strip .btn { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .roof-repairs-page *, .roof-repairs-page *::before, .roof-repairs-page *::after { transition-duration: .01ms !important; }
+}
