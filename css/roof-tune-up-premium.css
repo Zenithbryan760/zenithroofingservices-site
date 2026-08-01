@@ -65,12 +65,18 @@
 .roof-tune-up-page .commercial-tuneup .project-proof figcaption strong { color: var(--white); }
 .roof-tune-up-page .decision-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 15px; margin-top: 26px; }
 
-.roof-tune-up-page .faq { display: grid; gap: 12px; max-width: 940px; margin-top: 36px; }
+.roof-tune-up-page #faq > h2 { max-width: 940px; margin-right: auto; margin-left: auto; text-align: center; }
+.roof-tune-up-page .faq { display: grid; gap: 12px; width: 100%; max-width: 940px; margin: 36px auto 0; }
 .roof-tune-up-page .faq details { overflow: hidden; background: var(--white); border: 1px solid rgba(6,41,75,.1); border-radius: 16px; box-shadow: var(--shadow-sm); }
 .roof-tune-up-page .faq summary { min-height: 62px; display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; color: var(--navy-950); cursor: pointer; font-size: .82rem; font-weight: 850; }
 .roof-tune-up-page .faq summary::after { color: var(--orange-600); content: '+'; font-size: 1.25rem; }
 .roof-tune-up-page .faq details[open] summary::after { content: '−'; }
 .roof-tune-up-page .faq p { margin: 0; padding: 0 20px 20px; color: var(--ink-500); font-size: .78rem; line-height: 1.72; }
+.roof-tune-up-page .service-areas-modern { text-align: center; }
+.roof-tune-up-page .service-areas-modern .sa-head h2 { margin-right: auto; margin-left: auto; }
+.roof-tune-up-page .service-areas-modern .sa-head p { max-width: 760px; margin: 10px auto 0; }
+.roof-tune-up-page .service-areas-modern .chip-grid { justify-content: center; }
+.roof-tune-up-page .service-areas-modern .center-actions { justify-content: center; }
 
 .roof-tune-up-page #process .grid > .card { padding: 26px; background: var(--white); border: 1px solid rgba(6,41,75,.1); border-radius: 18px; box-shadow: var(--shadow-sm); }
 .roof-tune-up-page #process .grid h3 { margin: 0; color: var(--navy-950); font-size: 1rem; }
