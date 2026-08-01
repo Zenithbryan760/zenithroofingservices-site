@@ -1,4 +1,4 @@
-.projects-page { color: var(--ink-950); background: var(--mist); }
+.projects-page { width: 100%; max-width: none; margin: 0 !important; padding: 0 !important; color: var(--ink-950); background: var(--mist); }
 .projects-page main { overflow: hidden; }
 
 .projects-hero {
