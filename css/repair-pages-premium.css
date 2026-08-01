@@ -744,6 +744,33 @@ body.repair-family-page main :is(.sticky-pills, .flat-nav-wrap) {
   }
 }
 
+/* Final hero guard: legacy theme files draw large decorative circles with
+   hero pseudo-elements. The approved interior pages use the real photograph,
+   a controlled navy treatment and glass—not oversized ornaments. */
+html body.repair-family-page main > :is(
+  .hero, .clay-hero, .shingle-hero, .slate-hero,
+  .tile-hero, .skylight-hero, .flat-hero
+)::before,
+html body.repair-family-page main > :is(
+  .hero, .clay-hero, .shingle-hero, .slate-hero,
+  .tile-hero, .skylight-hero, .flat-hero
+)::after {
+  display: none !important;
+  content: none !important;
+}
+
+html body.repair-family-page main :is(
+  .hero .split > :last-child,
+  .clay-hero .split > :last-child,
+  .shingle-hero .split > :last-child,
+  .slate-hero .split > :last-child,
+  .tile-hero .split > :last-child,
+  .skylight-hero-media,
+  .flat-hero-photo
+) img {
+  filter: brightness(.74) saturate(.9) contrast(1.04) !important;
+}
+
 /* -------------------------------------------------------------------------
    Canonical repair-page composition
 
