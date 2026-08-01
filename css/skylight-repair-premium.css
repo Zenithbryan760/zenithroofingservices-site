@@ -8,4 +8,17 @@
 .skylight-repair-page .cta-strip{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(31px,5vw,52px);color:var(--white);background:linear-gradient(135deg,var(--navy-950),var(--navy-800));border-radius:24px;box-shadow:var(--shadow-lg)}.skylight-repair-page .cta-strip h2{color:var(--white);font-size:1.5rem}.skylight-repair-page .cta-strip p{margin:7px 0 0;color:rgba(255,255,255,.68);font-size:.78rem}.skylight-repair-page .cta-strip .btn{min-height:49px;display:inline-flex;flex:0 0 auto;align-items:center;padding:12px 20px;color:var(--navy-950);background:linear-gradient(135deg,#ffad43,var(--orange-500));border-radius:13px;font-size:.73rem;font-weight:900}
 @media(max-width:960px){.skylight-repair-page .skylight-hero-grid{grid-template-columns:1fr}.skylight-repair-page .issue-grid,.skylight-repair-page .process-grid,.skylight-repair-page .proof-grid{grid-template-columns:1fr}.skylight-repair-page .flow{grid-template-columns:repeat(2,minmax(0,1fr))}.skylight-repair-page .skylight-hero-media{max-width:720px}}
 @media(max-width:680px){.skylight-repair-page .skylight-hero{min-height:0;padding:76px 14px 66px}.skylight-repair-page .skylight-hero h1{font-size:clamp(2.7rem,13vw,4rem)}.skylight-repair-page .skylight-hero-media img{height:280px}.skylight-repair-page .pillnav{top:76px;width:calc(100% - 20px)}.skylight-repair-page .section{width:min(100% - 28px,1180px);padding:68px 0}.skylight-repair-page .flow{grid-template-columns:1fr}.skylight-repair-page .spec-table th,.skylight-repair-page .spec-table td{display:block;width:100%}.skylight-repair-page .photo-card img{height:220px}.skylight-repair-page .estimate-form-section{width:calc(100% - 28px);padding:28px 18px}.skylight-repair-page .estimate-form-block .form-col-6,.skylight-repair-page .estimate-form-block .form-col-4{flex-basis:100%}.skylight-repair-page .estimate-form-block .recaptcha-container{overflow-x:auto}.skylight-repair-page .cta-strip{flex-direction:column;align-items:flex-start}.skylight-repair-page .cta-strip .btn{width:100%;justify-content:center}}
+
+/* Keep article sections in the page's vertical content rhythm instead of
+   inheriting the shared split-card grid used by other premium components. */
+.skylight-repair-page section.card,
+.skylight-repair-page #water-path{
+  display:block;
+  grid-template-columns:none;
+}
+.skylight-repair-page #water-path .section-heading{
+  width:100%;
+  max-width:840px;
+  margin:0 auto 38px;
+}
 @media(prefers-reduced-motion:reduce){.skylight-repair-page *,.skylight-repair-page *::before,.skylight-repair-page *::after{transition-duration:.01ms!important}}
