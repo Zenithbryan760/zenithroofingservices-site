@@ -1,0 +1,198 @@
+/* Zenith full-site premium bridge
+   Normalizes legacy page families without changing their content or behavior. */
+
+.zenith-premium-site {
+  color: var(--ink-950);
+  background: var(--white);
+  font-family: "Avenir Next", "Manrope", "Segoe UI", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.zenith-premium-site main:not(.premium-page):not(.flat-page):not(.skylight-page) {
+  color: var(--ink-950);
+  background: var(--white);
+}
+
+.zenith-premium-site main:not(.premium-page) :where(h1, h2, h3, h4) {
+  color: var(--navy-950);
+  font-family: inherit;
+  text-wrap: balance;
+}
+
+.zenith-premium-site main:not(.premium-page) :where(p, li) {
+  line-height: 1.7;
+}
+
+.zenith-premium-site main:not(.premium-page) :where(.container, .wrap, .inner, .content-wrap) {
+  width: min(1180px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.zenith-premium-site main:not(.premium-page) :where(.section, section.section) {
+  padding-top: clamp(72px, 8vw, 112px);
+  padding-bottom: clamp(72px, 8vw, 112px);
+}
+
+.zenith-premium-site main:not(.premium-page) :where(.eyebrow, .kicker, .section-kicker) {
+  color: var(--orange-600);
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.zenith-premium-site main:not(.premium-page) :where(.section-title, .section-heading) h2,
+.zenith-premium-site main:not(.premium-page) > section > h2 {
+  color: var(--navy-950);
+  font-size: clamp(2.35rem, 4.4vw, 4.5rem);
+  font-weight: 760;
+  letter-spacing: -.055em;
+  line-height: 1.03;
+}
+
+.zenith-premium-site main:not(.premium-page) :where(.card, .panel, .feature-card, .service-card, .review-card, .area-card, .faq-card) {
+  background: rgba(255,255,255,.98);
+  border: 1px solid rgba(6,41,75,.1);
+  border-radius: 22px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .38s var(--ease), box-shadow .38s var(--ease), border-color .25s ease;
+}
+
+.zenith-premium-site main:not(.premium-page) :where(.card, .panel, .feature-card, .service-card, .review-card, .area-card, .faq-card):hover {
+  border-color: rgba(237,106,0,.28);
+  box-shadow: 0 22px 52px rgba(6,41,75,.13);
+  transform: translateY(-5px);
+}
+
+.zenith-premium-site main:not(.premium-page) :where(.btn, .button, a.cta-button, button[type="submit"], input[type="submit"]) {
+  min-height: 50px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: .82rem;
+  font-weight: 850;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .25s ease, border-color .25s ease;
+}
+
+.zenith-premium-site main:not(.premium-page) :where(.btn-primary, .button-primary, .primary-cta, button[type="submit"], input[type="submit"]) {
+  color: var(--navy-950);
+  background: linear-gradient(135deg, #ffad43, var(--orange-500) 52%, var(--orange-600));
+  border-color: transparent;
+  box-shadow: 0 14px 30px rgba(237,106,0,.28), inset 0 1px 0 rgba(255,255,255,.55);
+}
+
+.zenith-premium-site main:not(.premium-page) :where(.btn, .button, a.cta-button, button[type="submit"], input[type="submit"]):hover {
+  transform: translateY(-3px);
+}
+
+.zenith-premium-site main:not(.premium-page) :where(input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]), select, textarea) {
+  min-height: 50px;
+  color: var(--ink-950);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: inset 0 1px 2px rgba(6,41,75,.035);
+}
+
+.zenith-premium-site main:not(.premium-page) :where(input, select, textarea):focus {
+  border-color: var(--orange-500);
+  box-shadow: 0 0 0 4px rgba(255,130,0,.12);
+  outline: none;
+}
+
+.zenith-premium-site main:not(.premium-page) :where(details) {
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid rgba(6,41,75,.11);
+  border-radius: 15px;
+}
+
+.zenith-premium-site main:not(.premium-page) :where(summary) {
+  min-height: 54px;
+  color: var(--navy-950);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.zenith-premium-site main:not(.premium-page) :where(.muted, .subtext, .caption) {
+  color: var(--ink-500);
+}
+
+.zenith-premium-site main:not(.premium-page) :where(.soft, .light, .section-alt, .bg-light) {
+  background:
+    radial-gradient(circle at 6% 12%, rgba(42,131,196,.075), transparent 24rem),
+    var(--mist);
+}
+
+.zenith-premium-site main:not(.premium-page) :where(.dark, .section-dark, .bg-dark) {
+  color: var(--white);
+  background:
+    radial-gradient(circle at 92% 10%, rgba(42,131,196,.22), transparent 28rem),
+    linear-gradient(145deg, var(--navy-950), #052846);
+}
+
+.zenith-premium-site main:not(.premium-page) :where(.dark, .section-dark, .bg-dark) :where(h1, h2, h3, h4) {
+  color: var(--white);
+}
+
+.zenith-premium-site main:not(.premium-page) :where(.dark, .section-dark, .bg-dark) :where(p, li) {
+  color: rgba(255,255,255,.7);
+}
+
+.zenith-premium-site main:not(.premium-page) :where(.cta-strip, .final-cta, .cta-section) {
+  color: var(--white);
+  background:
+    radial-gradient(circle at 90% 0, rgba(42,131,196,.27), transparent 25rem),
+    linear-gradient(135deg, var(--navy-950), var(--navy-900));
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+}
+
+.zenith-premium-site main:not(.premium-page) :where(.cta-strip, .final-cta, .cta-section) :where(h2, h3, p) {
+  color: var(--white);
+}
+
+.zenith-premium-site main:not(.premium-page) img {
+  max-width: 100%;
+}
+
+.zenith-premium-site main:not(.premium-page) :where(.photo-card, .image-card, figure.card) {
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.zenith-premium-site main:not(.premium-page) :where(.photo-card, .image-card, figure.card) img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .75s var(--ease);
+}
+
+.zenith-premium-site main:not(.premium-page) :where(.photo-card, .image-card, figure.card):hover img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 760px) {
+  .zenith-premium-site main:not(.premium-page) :where(.container, .wrap, .inner, .content-wrap) {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .zenith-premium-site main:not(.premium-page) :where(.section, section.section) {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .zenith-premium-site main:not(.premium-page) :where(.grid, .cards, .columns) {
+    gap: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zenith-premium-site *,
+  .zenith-premium-site *::before,
+  .zenith-premium-site *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

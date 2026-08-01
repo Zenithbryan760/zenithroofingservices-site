@@ -1,0 +1,523 @@
+/* Zenith premium repair-page family.
+   This stylesheet intentionally sits after legacy page CSS so every repair
+   authority page shares one visual language while its content stays intact. */
+
+.repair-family-page {
+  color: var(--ink-950);
+  background: var(--white);
+}
+
+.repair-family-page :where(.page, .flat-page, .skylight-page) {
+  overflow: hidden;
+  background: var(--white);
+}
+
+.repair-family-page :where(.page, .skylight-page) {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.repair-family-page :where(.page, .skylight-page) > :where(section:not(.hero):not(.clay-hero):not(.shingle-hero):not(.slate-hero):not(.tile-hero):not(.skylight-hero), nav),
+.repair-family-page .flat-shell {
+  width: min(1180px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+/* Shared image-led authority hero */
+.repair-family-page :where(.hero, .clay-hero, .shingle-hero, .slate-hero, .tile-hero, .skylight-hero, .flat-hero) {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  min-height: 650px;
+  margin: 0;
+  padding: 82px max(20px, calc((100vw - 1180px) / 2));
+  overflow: hidden;
+  color: var(--white);
+  background:
+    radial-gradient(circle at 86% 16%, rgba(42, 131, 196, .3), transparent 31rem),
+    radial-gradient(circle at 8% 92%, rgba(255, 130, 0, .12), transparent 27rem),
+    linear-gradient(135deg, var(--navy-950), var(--navy-900) 62%, #0a477b);
+}
+
+.repair-family-page :where(.hero, .clay-hero, .shingle-hero, .slate-hero, .tile-hero, .skylight-hero, .flat-hero)::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(90deg, #000, transparent 72%);
+}
+
+.repair-family-page :where(.hero .split, .clay-hero .split, .shingle-hero .split, .slate-hero .split, .tile-hero .split, .skylight-hero-grid, .flat-hero-grid) {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(1180px, 100%);
+  margin-inline: auto;
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, .72fr);
+  align-items: center;
+  gap: clamp(46px, 7vw, 98px);
+}
+
+.repair-family-page :where(.hero, .clay-hero, .shingle-hero, .slate-hero, .tile-hero, .skylight-hero, .flat-hero) :where(h1) {
+  max-width: 900px;
+  margin: 18px 0 0;
+  color: var(--white);
+  font-size: clamp(3.8rem, 6vw, 6.8rem);
+  font-weight: 760;
+  letter-spacing: -.065em;
+  line-height: .96;
+  text-wrap: balance;
+}
+
+.repair-family-page :where(.hero, .clay-hero, .shingle-hero, .slate-hero, .tile-hero, .skylight-hero, .flat-hero) :where(.eyebrow, .flat-kicker) {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: #ffad55;
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.repair-family-page :where(.hero, .clay-hero, .shingle-hero, .slate-hero, .tile-hero, .skylight-hero, .flat-hero) :where(.lede, .flat-lede) {
+  max-width: 760px;
+  margin: 25px 0 0;
+  color: rgba(255,255,255,.76);
+  font-size: 1.03rem;
+  line-height: 1.75;
+}
+
+.repair-family-page :where(.hero-actions, .cta, .flat-actions) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.repair-family-page :where(.btn, .flat-button) {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 22px;
+  overflow: hidden;
+  color: var(--white);
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.34);
+  border-radius: 999px;
+  font-size: .82rem;
+  font-weight: 850;
+  line-height: 1;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .25s ease, background .25s ease;
+}
+
+.repair-family-page :where(.btn, .flat-button):hover {
+  background: rgba(255,255,255,.1);
+  border-color: rgba(255,255,255,.62);
+  transform: translateY(-3px);
+}
+
+.repair-family-page :where(.btn-primary, .flat-button.primary) {
+  color: var(--navy-950);
+  background: linear-gradient(135deg, #ffad43, var(--orange-500) 52%, var(--orange-600));
+  border-color: transparent;
+  box-shadow: 0 15px 34px rgba(237,106,0,.3), inset 0 1px 0 rgba(255,255,255,.55);
+}
+
+.repair-family-page :where(.btn-primary, .flat-button.primary):hover {
+  background: linear-gradient(135deg, #ffba5e, var(--orange-500) 52%, var(--orange-600));
+  border-color: transparent;
+  box-shadow: 0 20px 42px rgba(237,106,0,.38);
+}
+
+.repair-family-page :where(.hero-photo, .hero-photo-wrap, .hero-media, .hero-visual, .photo-card, .skylight-hero-media, .flat-hero-photo) {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: var(--navy-900);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 27px;
+  box-shadow: 0 30px 75px rgba(0,10,24,.4), inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+.repair-family-page :where(.hero-photo, .hero-photo-wrap, .hero-media, .hero-visual, .photo-card, .skylight-hero-media, .flat-hero-photo) img {
+  width: 100%;
+  height: 100%;
+  min-height: 390px;
+  object-fit: cover;
+  transition: transform .8s var(--ease);
+}
+
+.repair-family-page :where(.hero-photo, .hero-photo-wrap, .hero-media, .hero-visual, .photo-card, .skylight-hero-media, .flat-hero-photo):hover img {
+  transform: scale(1.035);
+}
+
+.repair-family-page :where(.proof-row, .hero-proof, .flat-proof) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.repair-family-page :where(.proof-pill, .hero-proof li, .flat-proof li) {
+  padding: 8px 11px;
+  color: rgba(255,255,255,.78);
+  background: rgba(255,255,255,.075);
+  border: 1px solid rgba(255,255,255,.17);
+  border-radius: 999px;
+  font-size: .63rem;
+  font-weight: 780;
+}
+
+/* Consistent section navigation */
+.repair-family-page :where(.sticky-pills, .flat-nav-wrap) {
+  position: sticky;
+  top: 96px;
+  z-index: 25;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 max(20px, calc((100vw - 1180px) / 2));
+  background: rgba(255,255,255,.94);
+  border-bottom: 1px solid rgba(6,41,75,.1);
+  box-shadow: 0 12px 30px rgba(6,41,75,.07);
+  backdrop-filter: blur(16px);
+}
+
+.repair-family-page :where(.pillnav, .flat-nav) {
+  display: flex;
+  gap: 7px;
+  width: min(1180px, 100%);
+  min-height: 64px;
+  align-items: center;
+  margin: 0 auto;
+  padding: 8px 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.repair-family-page :where(.pillnav, .flat-nav)::-webkit-scrollbar { display: none; }
+
+.repair-family-page :where(.pillnav, .flat-nav) a {
+  flex: 0 0 auto;
+  min-height: 42px;
+  padding: 12px 15px;
+  color: var(--navy-900);
+  background: var(--mist);
+  border: 1px solid rgba(6,41,75,.09);
+  border-radius: 999px;
+  font-size: .7rem;
+  font-weight: 820;
+  transition: color .25s ease, background .25s ease, transform .25s ease;
+}
+
+.repair-family-page :where(.pillnav, .flat-nav) a:hover {
+  color: var(--navy-950);
+  background: var(--orange-100);
+  transform: translateY(-2px);
+}
+
+/* Shared content rhythm */
+.repair-family-page :where(.section, .flat-section) {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.repair-family-page :where(.section + .section, .flat-section + .flat-section) {
+  margin-top: 0;
+}
+
+.repair-family-page :where(.section-title, .section-heading, .flat-heading-row) {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, .7fr);
+  align-items: end;
+  gap: clamp(28px, 6vw, 88px);
+  margin-bottom: 40px;
+}
+
+.repair-family-page :where(.section-title, .section-heading, .flat-heading-row) :where(h2) {
+  margin: 0;
+  color: var(--navy-950);
+  font-size: clamp(2.5rem, 4.5vw, 4.7rem);
+  font-weight: 760;
+  letter-spacing: -.06em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.repair-family-page :where(.section-title, .section-heading, .flat-heading-row) :where(.eyebrow, .flat-kicker) {
+  margin-bottom: 14px;
+  color: var(--orange-600);
+  font-size: .67rem;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.repair-family-page :where(.section-title, .section-heading, .flat-heading-row) :where(p, .flat-heading-note) {
+  color: var(--ink-700);
+  line-height: 1.75;
+}
+
+.repair-family-page :where(.card, .story-card, .truth-card, .repair-path, .flat-card) {
+  color: var(--ink-950);
+  background: rgba(255,255,255,.98);
+  border: 1px solid rgba(6,41,75,.1);
+  border-radius: 22px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .38s var(--ease), box-shadow .38s var(--ease), border-color .25s ease;
+}
+
+.repair-family-page :where(.card, .story-card, .truth-card, .repair-path, .flat-card):hover {
+  border-color: rgba(237,106,0,.28);
+  box-shadow: 0 22px 52px rgba(6,41,75,.13);
+  transform: translateY(-5px);
+}
+
+.repair-family-page :where(.card, .story-card, .truth-card, .repair-path, .flat-card) :where(h2, h3) {
+  color: var(--navy-950);
+  letter-spacing: -.035em;
+}
+
+.repair-family-page :where(.grid, .truth-grid, .cause-grid, .repair-paths, .flow, .issue-grid, .process-grid, .flat-truth-grid, .flat-system-grid, .flat-cause-grid, .flat-method-grid, .flat-choice-grid) {
+  gap: 18px;
+}
+
+.repair-family-page :where(.muted, .card p, .story-card p, .repair-path p, .flat-card p) {
+  color: var(--ink-500);
+  line-height: 1.7;
+}
+
+.repair-family-page :where(.soft, .service-areas-modern, .estimate-form-section, .flat-form-wrap) {
+  background:
+    radial-gradient(circle at 6% 12%, rgba(42,131,196,.08), transparent 25rem),
+    var(--mist);
+}
+
+.repair-family-page :where(.dark, .field-story) {
+  color: var(--white);
+  background:
+    radial-gradient(circle at 92% 12%, rgba(42,131,196,.22), transparent 28rem),
+    linear-gradient(145deg, var(--navy-950), #052846);
+}
+
+.repair-family-page :where(.dark, .field-story) :where(h2, h3) { color: var(--white); }
+.repair-family-page :where(.dark, .field-story) :where(p, .muted) { color: rgba(255,255,255,.68); }
+
+.repair-family-page :where(.photo-grid, .proof-grid, .flat-gallery) {
+  gap: 14px;
+}
+
+.repair-family-page :where(.photo-grid, .proof-grid, .flat-gallery) figure {
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.repair-family-page :where(.photo-grid, .proof-grid, .flat-gallery) img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* FAQ, tables, forms and final conversion areas */
+.repair-family-page :where(.faq, .flat-faq-list) details {
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid rgba(6,41,75,.11);
+  border-radius: 15px;
+  box-shadow: 0 7px 24px rgba(6,41,75,.05);
+}
+
+.repair-family-page :where(.faq, .flat-faq-list) summary {
+  min-height: 58px;
+  padding: 18px 52px 18px 20px;
+  color: var(--navy-950);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.repair-family-page :where(.faq, .flat-faq-list) details p {
+  padding: 0 20px 20px;
+  color: var(--ink-700);
+  line-height: 1.7;
+}
+
+.repair-family-page :where(.spec-table, table) {
+  width: 100%;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 17px;
+}
+
+.repair-family-page :where(.spec-table, table) :where(th, td) {
+  padding: 16px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.repair-family-page :where(.callout, .principle, .truth-callout, .flat-callout) {
+  padding: 22px 24px;
+  color: var(--ink-700);
+  background: linear-gradient(120deg, var(--orange-100), rgba(255,255,255,.96));
+  border: 1px solid rgba(237,106,0,.17);
+  border-left: 4px solid var(--orange-500);
+  border-radius: 15px;
+  line-height: 1.7;
+}
+
+.repair-family-page :where(.estimate-form-section, .flat-form-wrap) {
+  width: 100% !important;
+  max-width: none !important;
+  padding-right: max(20px, calc((100vw - 1180px) / 2));
+  padding-left: max(20px, calc((100vw - 1180px) / 2));
+}
+
+.repair-family-page :where(.estimate-form-block) {
+  width: min(900px, 100%);
+  margin-inline: auto;
+}
+
+.repair-family-page :where(.form-disclaimer, .flat-disclaimer) {
+  max-width: 900px;
+  margin: 18px auto 0;
+  color: var(--ink-500);
+  font-size: .78rem;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.repair-family-page :where(.form-disclaimer, .flat-disclaimer) a {
+  color: var(--orange-600);
+  font-weight: 800;
+}
+
+.repair-family-page :where(.cta-strip, .flat-final) {
+  width: 100%;
+  max-width: none;
+  padding: 55px max(20px, calc((100vw - 1180px) / 2));
+  color: var(--white);
+  background:
+    radial-gradient(circle at 90% 0, rgba(42,131,196,.27), transparent 25rem),
+    linear-gradient(135deg, var(--navy-950), var(--navy-900));
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.repair-family-page :where(.cta-strip, .flat-final) :where(h2, h3, strong) { color: var(--white); }
+.repair-family-page :where(.cta-strip, .flat-final) :where(p) { color: rgba(255,255,255,.69); }
+
+@media (min-width: 1440px) {
+  .repair-family-page :where(.page, .skylight-page) > :where(section:not(.hero):not(.clay-hero):not(.shingle-hero):not(.slate-hero):not(.tile-hero):not(.skylight-hero), nav),
+  .repair-family-page .flat-shell,
+  .repair-family-page :where(.hero .split, .clay-hero .split, .shingle-hero .split, .slate-hero .split, .tile-hero .split, .skylight-hero-grid, .flat-hero-grid) {
+    width: min(1450px, calc(100% - 136px));
+  }
+
+  .repair-family-page :where(.hero, .clay-hero, .shingle-hero, .slate-hero, .tile-hero, .skylight-hero, .flat-hero) {
+    min-height: 760px;
+  }
+}
+
+@media (max-width: 980px) {
+  .repair-family-page :where(.hero .split, .clay-hero .split, .shingle-hero .split, .slate-hero .split, .tile-hero .split, .skylight-hero-grid, .flat-hero-grid),
+  .repair-family-page :where(.section-title, .section-heading, .flat-heading-row) {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .repair-family-page :where(.hero, .clay-hero, .shingle-hero, .slate-hero, .tile-hero, .skylight-hero, .flat-hero) {
+    min-height: auto;
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .repair-family-page :where(.hero-photo, .hero-photo-wrap, .hero-media, .hero-visual, .photo-card, .skylight-hero-media, .flat-hero-photo) {
+    width: min(100%, 680px);
+  }
+}
+
+@media (max-width: 760px) {
+  .repair-family-page :where(.hero, .clay-hero, .shingle-hero, .slate-hero, .tile-hero, .skylight-hero, .flat-hero) {
+    padding: 62px 20px;
+  }
+
+  .repair-family-page :where(.hero, .clay-hero, .shingle-hero, .slate-hero, .tile-hero, .skylight-hero, .flat-hero) h1 {
+    font-size: clamp(2.75rem, 12vw, 4rem);
+  }
+
+  .repair-family-page :where(.hero-actions, .cta, .flat-actions) {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .repair-family-page :where(.hero-actions, .cta, .flat-actions) :where(.btn, .flat-button) {
+    width: 100%;
+  }
+
+  .repair-family-page :where(.hero-photo, .hero-photo-wrap, .hero-media, .hero-visual, .photo-card, .skylight-hero-media, .flat-hero-photo) img {
+    min-height: 280px;
+  }
+
+  .repair-family-page :where(.sticky-pills, .flat-nav-wrap) {
+    top: 0;
+    padding: 0 14px;
+  }
+
+  .repair-family-page :where(.section, .flat-section) {
+    padding-top: 76px;
+    padding-bottom: 76px;
+  }
+
+  .repair-family-page :where(.section-title, .section-heading, .flat-heading-row) h2 {
+    font-size: clamp(2.35rem, 11vw, 3.4rem);
+  }
+}
+
+@media (max-width: 520px) {
+  .repair-family-page :where(.page, .skylight-page) > :where(section:not(.hero):not(.clay-hero):not(.shingle-hero):not(.slate-hero):not(.tile-hero):not(.skylight-hero), nav),
+  .repair-family-page .flat-shell {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .repair-family-page :where(.hero, .clay-hero, .shingle-hero, .slate-hero, .tile-hero, .skylight-hero, .flat-hero) :where(.lede, .flat-lede) {
+    font-size: .91rem;
+  }
+
+  .repair-family-page :where(.card, .story-card, .truth-card, .repair-path, .flat-card) {
+    border-radius: 18px;
+  }
+
+  .repair-family-page :where(.estimate-form-section, .flat-form-wrap) {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .repair-family-page *,
+  .repair-family-page *::before,
+  .repair-family-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

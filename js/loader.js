@@ -6,6 +6,32 @@
    - Fires "includes:ready" on document AND window
 */
 (async () => {
+  // Keep every partial-driven public page on the approved Zenith premium
+  // design foundation. Existing page CSS remains intact; these shared layers
+  // load last so legacy pages inherit the same brand, navigation and controls.
+  const ensurePremiumDesignSystem = () => {
+    const styles = [
+      ['/css/zenith-premium-exact.css?v=exact-premium-3', 'zenith-premium-exact.css']
+    ];
+    if (!document.body.classList.contains('repair-family-page')) {
+      styles.push(['/css/sitewide-premium-bridge.css?v=1', 'sitewide-premium-bridge.css']);
+    }
+
+    styles.forEach(([href, marker]) => {
+      const exists = [...document.querySelectorAll('link[rel="stylesheet"][href]')]
+        .some(link => (link.getAttribute('href') || '').includes(marker));
+      if (exists) return;
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      document.head.appendChild(link);
+    });
+
+    document.body.classList.add('zenith-premium-site');
+  };
+
+  ensurePremiumDesignSystem();
+
   const slots = [...document.querySelectorAll('[data-include]')];
 
   // Check if a given external script URL is already present on the page
