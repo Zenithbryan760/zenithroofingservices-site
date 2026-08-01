@@ -3,12 +3,56 @@
    - Inserts markup
    - Executes ALL nested <script> tags (inline + external)
    - Skips duplicate external scripts
+   - Applies the shared Zenith premium interior design only to approved pages
    - Fires "includes:ready" on document AND window
 */
 (async () => {
+  const premiumInteriorPaths = new Set([
+    '/services/',
+    '/services/roof-repairs/',
+    '/services/roof-repairs/roof-tune-up/',
+    '/services/roof-repairs/tile-roof-repair/',
+    '/services/roof-repairs/clay-tile-roof-repair/',
+    '/services/roof-repairs/flat-roof-repair/',
+    '/services/roof-repairs/skylight-repair/',
+    '/services/roof-replacement/',
+    '/services/residential/tile-lift-lay/',
+    '/services/residential/asphalt-shingles/',
+    '/services/commercial/',
+    '/services/commercial/tpo/',
+    '/services/commercial/torch-down/',
+    '/services/commercial/silicone-coatings/',
+    '/services/roof-inspection/',
+    '/services/insurance-claims/',
+    '/services/real-estate/',
+    '/services/gutters/',
+    '/reviews/'
+  ]);
+
+  function applyPremiumInteriorDesign() {
+    let path = location.pathname.replace(/\/index\.html$/i, '/');
+    if (!path.endsWith('/')) path += '/';
+    if (!premiumInteriorPaths.has(path)) return;
+
+    document.body.classList.add('premium-interior', 'premium-service-page');
+    if (path === '/services/') document.body.classList.add('premium-directory');
+    if (path === '/reviews/') document.body.classList.add('premium-reviews');
+
+    const href = '/css/premium-interior-pages.css?v=1';
+    const alreadyLoaded = [...document.querySelectorAll('link[rel="stylesheet"]')]
+      .some(link => new URL(link.href, location.href).pathname === '/css/premium-interior-pages.css');
+    if (!alreadyLoaded) {
+      const stylesheet = document.createElement('link');
+      stylesheet.rel = 'stylesheet';
+      stylesheet.href = href;
+      document.head.appendChild(stylesheet);
+    }
+  }
+
+  applyPremiumInteriorDesign();
+
   const slots = [...document.querySelectorAll('[data-include]')];
 
-  // Check if a given external script URL is already present on the page
   const scriptSrcExists = (src) => {
     try {
       const abs = new URL(src, location.href).href;
@@ -19,37 +63,19 @@
     }
   };
 
-  // Execute scripts in DOM order. External scripts are awaited unless async is set.
   async function runScriptsSequentially(scripts) {
     for (const n of scripts) {
       const src = n.getAttribute('src');
-
-      // Skip external script if it's already loaded
       if (src && scriptSrcExists(src)) continue;
-
-      // Create a real <script> so the browser executes it
       const s = document.createElement('script');
-
-      // Copy all attributes (type, src, async, defer, data-*, etc.)
       for (const { name, value } of [...n.attributes]) s.setAttribute(name, value);
-
-      // Inline code
       if (!src) s.textContent = n.textContent || '';
-
-      // If external & async => don't block; otherwise await load to preserve order
       const shouldAwait = !!src && !s.hasAttribute('async');
-
-      const p = new Promise((resolve) => {
-        s.onload = s.onerror = () => resolve();
-      });
-
-      // Append to head (or body). Head is fine for both inline and external in this context.
+      const p = new Promise((resolve) => { s.onload = s.onerror = () => resolve(); });
       (document.head || document.documentElement).appendChild(s);
-
       if (shouldAwait) await p;
     }
   }
-
 
   async function ensureHeaderController() {
     if (window.ZenithHeader?.init) return;
@@ -73,34 +99,22 @@
   await Promise.all(slots.map(async (slot) => {
     const url = slot.getAttribute('data-include');
     try {
-      const res  = await fetch(url, { cache: 'no-store' });
+      const res = await fetch(url, { cache: 'no-store' });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const html = await res.text();
-
-      // Parse into a container
       const wrap = document.createElement('div');
       wrap.innerHTML = html.trim();
-
-      // Collect ALL scripts (nested too), then remove them from the fragment
       const scripts = [...wrap.querySelectorAll('script')];
       scripts.forEach(s => s.parentNode.removeChild(s));
-
-      // Insert all non-script nodes before the placeholder
       const parent = slot.parentNode;
       [...wrap.childNodes].forEach(n => parent.insertBefore(n, slot));
-
-      // Execute scripts after DOM nodes are in place
       await runScriptsSequentially(scripts);
-
-      // Remove the placeholder
       parent.removeChild(slot);
     } catch (err) {
       console.error('Include failed:', url, err);
     }
   }));
 
-  // Ensure the mobile/desktop header controller is present on every page,
-  // including pages that only loaded /js/loader.js.
   try {
     await ensureHeaderController();
     if (window.ZenithHeader?.init) window.ZenithHeader.init();
@@ -108,13 +122,11 @@
     console.debug('Post-include init skipped:', e);
   }
 
-  // Fire the ready event for both patterns of listeners
   try {
     const evt = new (window.CustomEvent || Event)('includes:ready');
     document.dispatchEvent(evt);
     window.dispatchEvent(new Event('includes:ready'));
   } catch {
-    // Old browsers: best-effort fallback
     document.dispatchEvent(new Event('includes:ready'));
     window.dispatchEvent(new Event('includes:ready'));
   }
