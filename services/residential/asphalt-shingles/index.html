@@ -1,342 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ===== META ===== -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Asphalt Shingle Roofing — Repair & Replacement | North County San Diego & Temecula</title>
-  <meta name="description" content="Architectural asphalt shingle roof repair and replacement. Leak fixes, storm damage, ventilation upgrades, and full re-roofs. Serving Escondido, North County San Diego, Temecula & greater San Diego County. Free estimates." />
-  <link rel="canonical" href="https://zenithroofingservices.com/services/residential/asphalt-shingles/"/>
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Asphalt Shingle Roofing — Repair & Replacement | Zenith Roofing Services"/>
-  <meta property="og:description" content="Architectural shingle re-roofs, leak repairs, ventilation and underlayment upgrades. Serving Escondido, North County San Diego & Temecula."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://zenithroofingservices.com/services/residential/asphalt-shingles/"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-
-  <!-- Shared CSS (footer stays in head so it spans full width) -->
-  <link rel="preload" href="/css/base.css" as="style"/>
-  <link rel="preload" href="/css/header.css" as="style"/>
-  <link rel="preload" href="/css/ui.css" as="style"/>
-  <link rel="stylesheet" href="/css/base.css"/>
-  <link rel="stylesheet" href="/css/header.css"/>
-  <link rel="stylesheet" href="/css/ui.css"/>
-  <link rel="stylesheet" href="/css/footer.css"/>
-  <!-- Form CSS -->
-  <link rel="stylesheet" href="/css/estimate-form.css"/>
-
-  <!-- Page-scope polish -->
-  <style>
-    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
-    html { scroll-behavior: smooth; }
-
-    .page .hero{
-      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
-      border: 1px solid var(--ui-line);
-      border-radius: 18px;
-      padding: clamp(18px, 3vw, 28px);
-      box-shadow: 0 14px 34px rgba(2,12,32,.08);
-    }
-    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
-    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
-    .page .hero .split{ align-items:center; }
-    .page .hero .media{
-      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
-      background:#fff; box-shadow: var(--ui-shadow); transform: translateZ(0);
-    }
-    .page .hero .media::before{
-      content:""; display:block; aspect-ratio:16/10;
-      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
-    }
-
-    .page h2{ margin-bottom:.4rem; }
-    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
-    .page .card.hoverable{ will-change: transform, box-shadow; }
-    .page .card.hoverable:hover{ transform: translateY(-3px); }
-
-    .page .badge { font-weight:800; border:1px solid var(--ui-line); padding:.25rem .55rem; border-radius:999px; background:#fff; }
-    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
-
-    .page .cta-strip{
-      background:#072e59; color:#fff; border-radius:16px;
-      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
-      box-shadow:0 14px 34px rgba(2,12,32,.12);
-    }
-    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
-    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
-  </style>
-
-  <!-- JSON-LD: Breadcrumbs -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Asphalt Shingle Roofing &amp; Replacement | San Diego &amp; Temecula</title>
+  <meta name="description" content="Asphalt shingle roof replacement with deck inspection, plywood correction, slope-specific underlayment, new flashings, ventilation and registered system warranties in San Diego County and Temecula.">
+  <link rel="canonical" href="https://zenithroofingservices.com/services/residential/asphalt-shingles/">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Asphalt Shingle Roofing | Zenith Roofing Services">
+  <meta property="og:description" content="A complete shingle roof system starts with the deck, slope, underlayment, flashings and ventilation—not just the shingles.">
+  <meta property="og:url" content="https://zenithroofingservices.com/services/residential/asphalt-shingles/">
+  <meta property="og:image" content="https://zenithroofingservices.com/images/asphalt-shingles/completed-architectural-shingles.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/css/zenith-premium-exact.css?v=exact-premium-3">
+  <link rel="stylesheet" href="/css/estimate-form.css">
+  <link rel="stylesheet" href="/css/asphalt-shingles-premium.css?v=1">
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"BreadcrumbList",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Services","item":"https://zenithroofingservices.com/services/"},
-      {"@type":"ListItem","position":2,"name":"Residential","item":"https://zenithroofingservices.com/services/residential/"},
-      {"@type":"ListItem","position":3,"name":"Asphalt Shingles","item":"https://zenithroofingservices.com/services/residential/asphalt-shingles/"}
-    ]
-  }
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"RoofingContractor","@id":"https://zenithroofingservices.com/#business","name":"Zenith Roofing Services, Inc.","url":"https://zenithroofingservices.com/","telephone":"+1-858-900-6163"},
+    {"@type":"Service","@id":"https://zenithroofingservices.com/services/residential/asphalt-shingles/#service","name":"Asphalt Shingle Roofing and Roof Replacement","serviceType":"Architectural asphalt shingle roof replacement","url":"https://zenithroofingservices.com/services/residential/asphalt-shingles/","provider":{"@id":"https://zenithroofingservices.com/#business"},"areaServed":[{"@type":"AdministrativeArea","name":"San Diego County"},{"@type":"City","name":"Temecula"}],"description":"Asphalt shingle roof replacement including deck inspection, plywood correction, slope-specific underlayment, flashing replacement, ventilation and project documentation."},
+    {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://zenithroofingservices.com/"},{"@type":"ListItem","position":2,"name":"Residential Roofing","item":"https://zenithroofingservices.com/services/residential/"},{"@type":"ListItem","position":3,"name":"Asphalt Shingles","item":"https://zenithroofingservices.com/services/residential/asphalt-shingles/"}]},
+    {"@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"Can asphalt shingles be installed on any roof slope?","acceptedAnswer":{"@type":"Answer","text":"Zenith does not install asphalt shingles below a 2:12 roof slope. Roofs from 2:12 to under 4:12 require an enhanced underlayment assembly selected for the shingle manufacturer, roof conditions and applicable requirements."}},
+      {"@type":"Question","name":"Do plank or skip-sheathed roofs need plywood before shingles?","acceptedAnswer":{"@type":"Answer","text":"Skip sheathing, former wood-shake decks and plank decks with excessive gaps generally need an approved plywood or OSB overlay to provide a continuous nailing surface. Zenith inspects the attic and exposed deck before confirming the scope."}},
+      {"@type":"Question","name":"Can you tell how many roof layers exist before tear-off?","acceptedAnswer":{"@type":"Answer","text":"Sometimes there are clues, but the exact number of layers may not be known until tear-off. Zenith lists unit pricing for extra layers and wood replacement in the contract so concealed conditions can be handled transparently."}},
+      {"@type":"Question","name":"Which asphalt shingle brands does Zenith install?","acceptedAnswer":{"@type":"Answer","text":"Zenith has installed Malarkey, Owens Corning, GAF, CertainTeed and IKO shingle systems. The recommended system depends on roof slope, ventilation, desired appearance, product availability and warranty goals."}},
+      {"@type":"Question","name":"Does a shingle roof replacement include new flashing and ventilation?","acceptedAnswer":{"@type":"Answer","text":"The scope can include new drip edge, starter shingles, pipe and wall flashings, hip and ridge shingles, and ventilation selected for the attic and roof design. Final components are documented in the proposal."}}
+    ]}
+  ]}
   </script>
-
-  <!-- JSON-LD: Service + FAQ -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Service",
-    "name":"Asphalt Shingle Roof Repair & Replacement",
-    "serviceType":"Architectural asphalt shingle roofing",
-    "provider":{"@type":"LocalBusiness","name":"Zenith Roofing Services, Inc.","telephone":"+1-858-900-6163"},
-    "areaServed":[{"@type":"City","name":"Escondido"},{"@type":"City","name":"San Diego"},{"@type":"City","name":"Temecula"}],
-    "description":"Architectural asphalt shingle leak repairs, storm damage fixes, ventilation and underlayment upgrades, and full re-roofs for Southern California homes."
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"How long does an asphalt shingle roof last in Southern California?","acceptedAnswer":{"@type":"Answer","text":"Architectural shingles commonly last 20–30 years depending on exposure, ventilation, and maintenance. Coastal sun/salt and attic heat can shorten life without proper ventilation."}},
-      {"@type":"Question","name":"Should I overlay or tear off?","acceptedAnswer":{"@type":"Answer","text":"We recommend tear-off for a flat deck, new underlayment, and manufacturer-compliant install. Overlays can trap heat and hide decking issues."}},
-      {"@type":"Question","name":"Do you improve ventilation with the new roof?","acceptedAnswer":{"@type":"Answer","text":"Yes—ridge/roof vents and intake balancing are part of our scope when needed, which helps shingle life and comfort."}}
-    ]
-  }
-  </script>
-  <link rel="stylesheet" href="/css/landing-theme-preview.css?v=sitewide-2">
 </head>
-<body>
-  <!-- Header include -->
+<body class="shingle-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <div data-include="/components/header-section.html"></div>
 
-  <main id="top" class="page">
-    <!-- ===== HERO ===== -->
-    <section class="hero" aria-label="Asphalt shingle roofing">
-      <div class="eyebrow">
-        <span class="chip">Architectural Shingles</span>
-        <span class="chip">Leak Repair</span>
-        <span class="chip">Full Replacement</span>
-      </div>
-      <div class="split">
-        <div>
-          <h1 style="margin:0 0 .5rem">Asphalt Shingle Roofing — Repair & Replacement</h1>
-          <p class="lede">Durable, good-looking, and budget-smart. We handle **leak repairs**, **storm damage**, and **architectural shingle re-roofs** with proper ventilation and underlayment—serving <strong>Escondido</strong>, <strong>North County San Diego</strong>, <strong>Temecula</strong>, and greater <strong>San Diego County</strong>.</p>
-          <div class="cta">
-            <a class="btn btn-primary" href="#estimate" aria-label="Request a free asphalt shingle roofing estimate">Request Free Estimate</a>
-            <a class="btn btn-outline" href="#compare">Shingle Options</a>
+  <main id="main-content" class="premium-page shingle-main">
+    <section class="shingle-hero" aria-labelledby="shingle-title">
+      <div class="shingle-shell shingle-hero-grid">
+        <div class="shingle-hero-copy">
+          <p class="shingle-kicker">Architectural asphalt shingle roofing</p>
+          <h1 id="shingle-title">A shingle roof is only as good as the deck beneath it.</h1>
+          <p class="shingle-lede">We inspect the attic, roof deck, existing layers, slope, flashings and ventilation before specifying a system. Then we build the assembly your property actually needs—from plywood correction and dry-in through shingles, cleanup and warranty registration.</p>
+          <div class="shingle-actions">
+            <a class="shingle-button primary" href="#estimate">Request a Roof Estimate</a>
+            <a class="shingle-button" href="#system">See the Complete System</a>
           </div>
-        </div>
-        <div class="media" aria-hidden="true"></div>
-      </div>
-    </section>
-
-    <!-- Sticky pills -->
-    <nav class="pillnav sticky-pills" aria-label="Asphalt shingles sections">
-      <a href="#benefits">Why Asphalt Shingles</a>
-      <a href="#compare">Options</a>
-      <a href="#process">Our Process</a>
-      <a href="#warranty">Warranty</a>
-      <a href="#faq">FAQ</a>
-      <a href="#areas">Service Areas</a>
-      <a href="#estimate">Estimate</a>
-    </nav>
-
-    <!-- ===== BENEFITS ===== -->
-    <section id="benefits" class="section card airy hoverable">
-      <h2>Why Asphalt Shingles</h2>
-      <div class="grid cols-2">
-        <div>
-          <ul class="checklist relaxed">
-            <li><span class="tick">✓</span> Great value with architectural curb appeal</li>
-            <li><span class="tick">✓</span> Broad color and style selection</li>
-            <li><span class="tick">✓</span> Compatible with most Southern CA homes</li>
-            <li><span class="tick">✓</span> Streamlined repairs and components availability</li>
+          <ul class="shingle-proof" aria-label="Asphalt shingle service highlights">
+            <li>Deck-first inspection</li><li>Slope-specific dry-in</li><li>New flashing details</li><li>Photo documented</li>
           </ul>
         </div>
-        <div>
-          <ul class="checklist relaxed">
-            <li><span class="tick">✓</span> Proper underlayment & flashing details for longevity</li>
-            <li><span class="tick">✓</span> Ventilation upgrades to protect shingles & attic</li>
-            <li><span class="tick">✓</span> Strong manufacturer warranties when installed right</li>
-          </ul>
-        </div>
-      </div>
-      <div class="center-actions"><a class="btn btn-primary" href="#estimate">Request Free Estimate</a></div>
-    </section>
-
-    <!-- ===== OPTIONS ===== -->
-    <section id="compare" class="section card airy hoverable">
-      <h2>Popular Shingle Options</h2>
-      <div class="grid cols-3">
-        <div class="card">
-          <h3>Architectural (Dimensional)</h3>
-          <p class="muted">Heavier profile, layered look, strong wind ratings—our top pick for most homes.</p>
-        </div>
-        <div class="card">
-          <h3>Impact-Resistant</h3>
-          <p class="muted">Added toughness for debris-prone areas; may lower insurance in some cases.</p>
-        </div>
-        <div class="card">
-          <h3>Cool-Roof Colors</h3>
-          <p class="muted">Higher reflectivity options to help reduce attic heat under the SoCal sun.</p>
-        </div>
-      </div>
-      <p class="section lede-narrow" style="margin:0;">We’ll help you select the right profile and color for your home and neighborhood guidelines.</p>
-    </section>
-
-    <!-- ===== PROCESS ===== -->
-    <section id="process" class="section card airy hoverable">
-      <h2>Our Re-Roof & Repair Process</h2>
-      <div class="grid cols-2">
-        <div class="card"><h3>1) Evaluate</h3><p class="muted">Inspect decking, flashings, ventilation, and trouble areas.</p></div>
-        <div class="card"><h3>2) Protect & Tear-Off</h3><p class="muted">Landscape protection, clean tear-off, deck prep.</p></div>
-        <div class="card"><h3>3) Re-Sheet & Dry-In</h3><p class="muted">Replace bad decking, underlayment, and flashing upgrades.</p></div>
-        <div class="card"><h3>4) Install & Vent</h3><p class="muted">Architectural shingles + balanced intake/exhaust ventilation.</p></div>
-        <div class="card"><h3>5) Detail & Clean</h3><p class="muted">Sealants, penetrations, magnets for nails, thorough cleanup.</p></div>
-        <div class="card"><h3>6) Photos & Walkthrough</h3><p class="muted">Final check with photo documentation for your records.</p></div>
+        <figure class="shingle-hero-photo">
+          <img src="/images/asphalt-shingles/completed-architectural-shingles.webp" width="1200" height="900" alt="Completed architectural asphalt shingle roof installed by Zenith Roofing Services" fetchpriority="high">
+          <figcaption><strong>Real Zenith work:</strong> completed architectural shingle roofing with finished ridge, penetrations and edge details.</figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- ===== WARRANTY ===== -->
-    <section id="warranty" class="section card airy hoverable">
-      <h2>Solid Materials & Warranty</h2>
-      <p class="muted">We install shingle systems to manufacturer specs with matching accessories for warranty integrity. You’ll receive clear documentation and care tips to maximize service life.</p>
-    </section>
-
-    <!-- ===== FAQ ===== -->
-    <section id="faq" class="section card airy hoverable">
-      <h2>FAQ</h2>
-      <div class="faq">
-        <details><summary>Can you repair instead of replace?</summary><p class="muted">Yes—if the roof still has life left, we’ll target leak sources (flashings, penetrations, valleys) and provide photos and recommendations.</p></details>
-        <details><summary>Do you offer financing or phased work?</summary><p class="muted">We can stage work and discuss cost-smart scopes. Ask us about options for timing and phases.</p></details>
-        <details><summary>Do you handle HOA requirements?</summary><p class="muted">Yes—color sheets, scope summaries, and install specs are available to help with approvals.</p></details>
+    <section class="interior-trust" aria-label="Shingle roof project standards">
+      <div class="shell interior-trust__grid">
+        <span><b>Inspect before specifying</b><small>Attic, substrate, slope and layers</small></span>
+        <span><b>Continuous nailing surface</b><small>Plywood correction when needed</small></span>
+        <span><b>Matched roof assembly</b><small>Underlayment by slope and system</small></span>
+        <span><b>Clean closeout</b><small>Photos, cleanup and warranty records</small></span>
       </div>
     </section>
 
-    <!-- ===== AREAS (hierarchy) ===== -->
-    <section id="areas" class="section card airy hoverable service-areas-modern">
-      <div class="sa-head">
-        <h2 class="sa-title">Service Areas</h2>
-        <p class="muted">North County San Diego, Temecula Valley, the rest of San Diego County, and nearby Southern California communities.</p>
-      </div>
+    <div class="shingle-nav-wrap"><nav class="shingle-shell shingle-nav" aria-label="Asphalt shingle page sections">
+      <a href="#deck">Roof Deck</a><a href="#slope">Slope</a><a href="#system">Roof System</a><a href="#process">Process</a><a href="#warranty">Warranty</a><a href="#faq">FAQ</a><a href="#estimate">Estimate</a>
+    </nav></div>
 
-      <div class="card airy">
-        <div class="sa-head">
-          <h3 class="sa-title">1) North County San Diego</h3>
-          <p class="muted small" style="margin:0;">Escondido • Carlsbad • San Marcos • Encinitas • Vista • Oceanside • Poway • Rancho Bernardo</p>
-        </div>
-        <ul class="chip-grid" aria-label="North County cities">
-          <li><span class="sa-chip strong">Escondido 92025–92029</span></li>
-          <li><span class="sa-chip">Carlsbad 92008–92011</span></li>
-          <li><span class="sa-chip">San Marcos 92069–92078</span></li>
-          <li><span class="sa-chip">Encinitas 92024</span></li>
-          <li><span class="sa-chip">Vista 92081–92084</span></li>
-          <li><span class="sa-chip">Oceanside 92054–92057</span></li>
-          <li><span class="sa-chip">Poway 92064</span></li>
-          <li><span class="sa-chip">Rancho Bernardo 92127–92128</span></li>
-        </ul>
-        <details class="sa-more">
-          <summary class="sa-summary">See more North County ZIPs</summary>
-          <p class="muted small">Rancho Peñasquitos 92129 • Fallbrook 92028 • Solana Beach 92075 • Del Mar 92014 • La Costa 92009</p>
-        </details>
+    <section id="deck" class="shingle-section shingle-shell shingle-split">
+      <div class="shingle-copy">
+        <p class="shingle-kicker dark">The first decision happens underneath</p>
+        <h2>We inspect the attic and substrate before we price the roof assembly.</h2>
+        <p>Older Southern California homes may have plywood, OSB, solid planks, tongue-and-groove boards, skip sheathing or a former wood-shake deck. Those conditions change the tear-off, ventilation and nailing-surface requirements.</p>
+        <div class="shingle-note"><strong>Our practical standard:</strong> skip sheathing, former shake decks and plank decks with excessive gaps receive a continuous plywood or OSB overlay. We commonly specify 7/16-inch OSB or 15/32-inch CDX, subject to the existing structure, engineering and applicable requirements.</div>
+        <p>Even sound tongue-and-groove deserves careful review because shingle nail zones must consistently land in solid material. We explain the visible conditions and the contract unit prices for concealed wood replacement before work begins.</p>
       </div>
-
-      <div class="card airy">
-        <div class="sa-head">
-          <h3 class="sa-title">2) Temecula Valley</h3>
-          <p class="muted small" style="margin:0;">Temecula • Murrieta • Menifee • Wildomar • Lake Elsinore</p>
-        </div>
-        <ul class="chip-grid" aria-label="Temecula area">
-          <li><span class="sa-chip strong">Temecula 92590–92592</span></li>
-          <li><span class="sa-chip">Murrieta 92562–92563</span></li>
-          <li><span class="sa-chip">Menifee 92584</span></li>
-          <li><span class="sa-chip">Wildomar 92595</span></li>
-          <li><span class="sa-chip">Lake Elsinore 92530–92532</span></li>
-        </ul>
-      </div>
-
-      <div class="card airy">
-        <div class="sa-head">
-          <h3 class="sa-title">3) Greater San Diego County</h3>
-          <p class="muted small" style="margin:0;">Coastal, inland, and metro neighborhoods.</p>
-        </div>
-        <ul class="chip-grid" aria-label="San Diego County">
-          <li><span class="sa-chip">San Diego</span></li>
-          <li><span class="sa-chip">La Jolla</span></li>
-          <li><span class="sa-chip">Scripps Ranch</span></li>
-          <li><span class="sa-chip">Chula Vista</span></li>
-          <li><span class="sa-chip">La Mesa</span></li>
-          <li><span class="sa-chip">El Cajon</span></li>
-        </ul>
-      </div>
-
-      <div class="card airy">
-        <div class="sa-head">
-          <h3 class="sa-title">4) Southern California</h3>
-          <p class="muted small" style="margin:0;">Select nearby communities by request.</p>
-        </div>
-        <ul class="chip-grid" aria-label="SoCal">
-          <li><span class="sa-chip">Orange County (by request)</span></li>
-          <li><span class="sa-chip">Riverside County (by request)</span></li>
-        </ul>
+      <div class="shingle-evidence-grid">
+        <figure><img src="/images/asphalt-shingles/existing-plank-roof-deck.webp" width="825" height="1100" alt="Existing plank roof deck exposed during asphalt shingle tear-off"><figcaption>Existing plank deck exposed for inspection.</figcaption></figure>
+        <figure><img src="/images/asphalt-shingles/plank-gap-measurement.webp" width="750" height="1000" alt="Tape measure documenting a wide gap between roof deck planks"><figcaption>Field measurement documents deck gaps before correction.</figcaption></figure>
       </div>
     </section>
 
-    <section class="section card airy hoverable">
-      <h2>Recent shingle roof replacements</h2>
-      <p>Verified local work includes complete tear-offs, structural wood repairs, cool-roof shingles, solar coordination, and mixed-slope transitions.</p>
-      <ul class="checklist relaxed">
-        <li><span class="tick">✓</span> <a href="https://trusty.app/companies/zenith-roofing-services-temecula/fallbrook-roof-replacement-owens-corning-duration-cool-night-sky">Fallbrook roof replacement with Owens Corning Duration COOL Night Sky shingles</a></li>
-        <li><span class="tick">✓</span> <a href="https://trusty.app/companies/zenith-roofing-services-temecula/poway-full-roof-replacement-with-owens-corning-duration-cool-sand-castle-shingles">Poway full roof replacement with Duration COOL Sand Castle shingles</a></li>
-        <li><span class="tick">✓</span> <a href="https://trusty.app/companies/zenith-roofing-services-temecula/vista-ca-shingle-roof-replacement-with-structural-wood-repairs-and-solar-attic-ventilation">Vista shingle replacement with structural wood repairs and solar attic ventilation</a></li>
-        <li><span class="tick">✓</span> <a href="https://trusty.app/companies/zenith-roofing-services-temecula/escondido-shingle-roof-replacement-with-duration-cool-mojave-shingles">Escondido roof replacement with Duration COOL Mojave shingles</a></li>
-      </ul>
-      <p><a class="btn btn-outline" href="https://trusty.app/companies/zenith-roofing-services-temecula?tab=portfolio">View the verified roofing portfolio</a></p>
+    <section id="slope" class="shingle-dark-section">
+      <div class="shingle-shell">
+        <p class="shingle-kicker">Slope determines the assembly</p>
+        <h2>We do not install shingles on roofs below 2:12.</h2>
+        <p class="shingle-dark-lede">A roof that looks like a shingle roof may include low-slope sections—or even an older tar-and-gravel roof hidden below a later overlay. We verify pitch and exposed conditions before choosing the dry-in method.</p>
+        <div class="slope-grid">
+          <article><span>Below 2:12</span><h3>Use a low-slope system</h3><p>Asphalt shingles are not our solution here. We recommend a compatible flat or low-slope roof system.</p></article>
+          <article class="featured"><span>2:12 to under 4:12</span><h3>Enhanced underlayment</h3><p>The roof may require a full self-adhered membrane or a double-underlayment assembly with 50% overlap, selected to match the manufacturer and project requirements.</p></article>
+          <article><span>4:12 and steeper</span><h3>Standard system dry-in</h3><p>A compatible single synthetic underlayment is commonly used with the complete manufacturer system, subject to the specified product and conditions.</p></article>
+        </div>
+        <p class="shingle-caveat">Exact components and installation details follow the selected manufacturer instructions, approved scope and applicable code—not a generic one-size-fits-all recipe.</p>
+      </div>
     </section>
 
-    <!-- ===== ESTIMATE FORM ===== -->
-    <section id="estimate" class="section estimate-form-section">
+    <section id="system" class="shingle-section shingle-shell">
+      <div class="shingle-heading-row"><div><p class="shingle-kicker dark">More than the visible shingle</p><h2>The complete roof system we walk through with you.</h2></div><p>We have installed systems from Malarkey, Owens Corning, GAF, CertainTeed and IKO. Brand selection follows the roof—not the other way around.</p></div>
+      <div class="system-grid">
+        <article><b>01</b><h3>Deck &amp; wood correction</h3><p>Replace documented dry rot and establish a suitable continuous nailing surface where required.</p></article>
+        <article><b>02</b><h3>Dry-in &amp; vulnerable details</h3><p>Synthetic or self-adhered underlayment selected by slope, plus enhanced protection at specified transitions.</p></article>
+        <article><b>03</b><h3>Metal &amp; flashing</h3><p>New drip edge and specified pipe, chimney, wall and penetration flashings—not black mastic standing in for proper metal.</p></article>
+        <article><b>04</b><h3>Starter, field &amp; ridge</h3><p>Compatible starter shingles, architectural field shingles, and matching hip and ridge components.</p></article>
+        <article><b>05</b><h3>Balanced ventilation</h3><p>Intake and exhaust are evaluated for the actual attic. Options may include fire-rated O'Hagin vents, dormers or solar attic ventilation.</p></article>
+        <article><b>06</b><h3>Closeout documentation</h3><p>Progress photos, final cleanup, magnetic sweep, invoice and eligible manufacturer warranty registration.</p></article>
+      </div>
+    </section>
+
+    <section class="shingle-photo-story shingle-shell">
+      <figure class="wide"><img src="/images/asphalt-shingles/shingle-tearoff-deck-inspection.webp" width="825" height="1100" alt="Asphalt shingle tear-off revealing plank decking and new plywood installation"><figcaption><strong>Tear-off reveals the truth.</strong> Extra layers and concealed deck conditions cannot always be confirmed until the roof is opened.</figcaption></figure>
+      <figure><img src="/images/asphalt-shingles/synthetic-underlayment-installation.webp" width="825" height="1100" alt="Titanium synthetic underlayment installed on a shingle roof deck"><figcaption><strong>System-matched dry-in.</strong> Underlayment is selected for the pitch and specified shingle assembly.</figcaption></figure>
+      <figure><img src="/images/asphalt-shingles/chimney-peel-stick-flashing.webp" width="825" height="1100" alt="Self-adhered membrane detail installed around a brick chimney"><figcaption><strong>Transitions receive focused detailing.</strong> Chimneys and penetrations are integrated before shingles cover the work.</figcaption></figure>
+    </section>
+
+    <section id="process" class="shingle-section shingle-shell">
+      <p class="shingle-kicker dark">A transparent installation</p><h2>From attic check to final magnetic sweep.</h2>
+      <ol class="process-list">
+        <li><span>1</span><div><h3>Inspect and define the scope</h3><p>Check the attic, substrate, pitch, ventilation and visible signs of previous layers or problem flashing.</p></div></li>
+        <li><span>2</span><div><h3>Protect, tear off and document</h3><p>Remove the existing roofing, verify concealed layers, photograph the deck and identify wood requiring correction.</p></div></li>
+        <li><span>3</span><div><h3>Repair the deck and dry in</h3><p>Complete approved wood work, install the specified underlayment and integrate critical transition protection.</p></div></li>
+        <li><span>4</span><div><h3>Install flashings, ventilation and shingles</h3><p>Complete the specified metal, starter, field shingles, ventilation, hip and ridge components as one coordinated system.</p></div></li>
+        <li><span>5</span><div><h3>Clean, photograph and close out</h3><p>Blow off the roof, clean gutters and grounds, haul debris, perform a magnetic sweep and deliver the project records.</p></div></li>
+      </ol>
+      <div class="insulation-note"><h3>A note about old shake and skip-sheathed roofs</h3><p>Opening these roofs can expose the attic directly to weather and pests. Zenith does not perform insulation work. If insulation replacement is planned, coordinate it with a qualified insulation contractor; in many cases it is safest to close and dry in the roof promptly, then complete insulation work afterward.</p></div>
+    </section>
+
+    <section id="warranty" class="shingle-finish-section">
+      <div class="shingle-shell shingle-finish-grid">
+        <figure><img src="/images/asphalt-shingles/completed-chimney-flashing.webp" width="825" height="1100" alt="Completed painted chimney flashing on an architectural shingle roof"></figure>
+        <div><p class="shingle-kicker dark">Finish details and registered protection</p><h2>The proposal should tell you what system you are buying.</h2><p>Depending on the selected manufacturer and scope, an eligible complete-system warranty may be available. Zenith documents the installed products and registers the specified warranty when included in the contract.</p><ul><li>Specified shingle manufacturer and product</li><li>Underlayment and accessory components</li><li>Ventilation and flashing scope</li><li>Wood and extra-layer unit pricing</li><li>Photos, invoice and warranty documents</li></ul><a class="shingle-button primary" href="#estimate">Ask Us to Compare Systems</a></div>
+      </div>
+    </section>
+
+    <section id="faq" class="shingle-section shingle-shell shingle-faq">
+      <p class="shingle-kicker dark">Common asphalt shingle questions</p><h2>What property owners ask before tear-off.</h2>
+      <details><summary>Can you confirm every existing roof layer before work starts?</summary><p>Not always. Mastic around penetrations, roof edges and low-slope sections may provide clues, but the exact assembly can remain hidden until tear-off. Our proposal identifies unit prices for extra layers and concealed wood work.</p></details>
+      <details><summary>What happens if you find skip sheathing, wood shakes or wide plank gaps?</summary><p>We establish a suitable continuous nailing surface, commonly with an approved plywood or OSB overlay. The exact material and fastening plan depend on the structure and documented scope.</p></details>
+      <details><summary>Can asphalt shingles go on a roof below 2:12?</summary><p>Zenith does not install asphalt shingles below 2:12. We evaluate those areas for a compatible low-slope roof system instead.</p></details>
+      <details><summary>Which underlayment will you use?</summary><p>That depends on slope, shingle manufacturer and conditions. Steeper roofs commonly receive a compatible synthetic underlayment. Roofs from 2:12 to under 4:12 require an enhanced assembly such as approved full-roof self-adhered protection or double underlayment with 50% overlap.</p></details>
+      <details><summary>Do you install ventilation during a shingle replacement?</summary><p>We evaluate intake and exhaust for the actual attic and roof. The proposal may specify fire-rated O'Hagin vents, dormers, solar attic ventilation or another compatible solution; no single vent type is correct for every property.</p></details>
+      <details><summary>What happens at project completion?</summary><p>We remove debris, blow off the roof, clean the gutters and work area, perform a final magnetic sweep, share project photos and provide the invoice and applicable warranty documentation.</p></details>
+    </section>
+
+    <section id="estimate" class="shingle-estimate shingle-shell">
+      <div class="shingle-estimate-intro"><p class="shingle-kicker dark">Start with the roof you actually have</p><h2>Tell us about your shingle roof.</h2><p>Photos of the roof, attic framing or existing deck help. We will inspect the slope, substrate, layers, flashing and ventilation before recommending a system.</p></div>
       <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
-      <p class="form-disclaimer">
-        <em>*Free estimates exclude real-estate transaction inspections/reports. If you’re buying/selling or an agent, ask about our paid inspection/report options.</em>
-      </p>
+      <p class="form-disclaimer"><em>*Free estimates exclude real-estate transaction inspections and written reports. See our paid inspection options on the <a href="/pricing/#real-estate">pricing page</a>.</em></p>
     </section>
 
-    <!-- CTA band -->
-    <section class="section">
-      <div class="cta-strip">
-        <div class="text"><strong>Ready for a shingle repair or re-roof?</strong> Clean tear-offs, proper ventilation, and photos—done right.</div>
-        <a class="btn" href="#estimate">Request Free Estimate</a>
-      </div>
-    </section>
-
-    <!-- Internal links to help funnel -->
-    <section class="section">
-      <div class="grid cols-3">
-        <a class="card hoverable" href="/services/roof-repairs/"><strong>Roof Repairs</strong><br><span class="muted">Leaks, skylights, flashing</span></a>
-        <a class="card hoverable" href="/services/roof-replacement/"><strong>Roof Replacement</strong><br><span class="muted">Shingle, tile, slate, flat</span></a>
-        <a class="card hoverable" href="/services/gutters/"><strong>Seamless Gutters</strong><br><span class="muted">5&quot;/6&quot; K-style + guards</span></a>
-      </div>
-    </section>
+    <section class="shingle-final"><div class="shingle-shell"><div><p class="shingle-kicker">Asphalt shingles, specified from the deck up</p><h2>Get a clear roof-system recommendation.</h2></div><div class="shingle-actions"><a class="shingle-button primary" href="#estimate">Request a Roof Estimate</a><a class="shingle-button light" href="tel:+18589006163">Call 858-900-6163</a></div></div></section>
   </main>
 
-  <!-- Footer include OUTSIDE <main> for full width -->
   <div data-include="/components/footer.html"></div>
-
-  <!-- ===== JS ===== -->
   <script src="/js/loader.js" defer></script>
   <script src="/js/header.js" defer></script>
-  <!-- Per-page form config (keep Service Type on “Other”) -->
-  <script>
-    window.ESTIMATE_FORM_CONFIG = {
-      submitText: "Request Free Estimate",
-      referralPreselect: "Website",
-      descriptionPlaceholder: "Tell us about leaks, age of roof, preferred colors/profiles, any HOA rules, and attach photos if available.",
-      // No lockService so the dropdown stays on “Other” (your preferred default)
-      hiddenFields: { campaign: "services/residential/asphalt-shingles", page_tag: "asphalt-shingles" }
-    };
-  </script>
+  <script>window.ESTIMATE_FORM_CONFIG={submitText:"Request Free Estimate",referralPreselect:"Website",descriptionPlaceholder:"Tell us about the roof age, leaks, attic or deck conditions, preferred shingles, HOA requirements, and attach photos if available.",hiddenFields:{campaign:"services/residential/asphalt-shingles",page_tag:"asphalt-shingles"}};</script>
   <script src="/js/estimate-form.js" defer></script>
   <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </body>
