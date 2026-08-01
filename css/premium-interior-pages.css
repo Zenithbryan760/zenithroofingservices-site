@@ -1,0 +1,73 @@
+/* Zenith premium interior pages
+   Visual source of truth: live Home, Service Areas, Financing, About and Blog pages. */
+
+body.premium-interior {
+  --zp-navy:#072e59;
+  --zp-navy-deep:#032743;
+  --zp-blue:#075fa9;
+  --zp-orange:#f7941d;
+  --zp-ink:#172033;
+  --zp-muted:#5e6b7d;
+  --zp-line:#dce3eb;
+  --zp-wash:#f3f6f9;
+  --zp-white:#fff;
+  --zp-shadow:0 18px 54px rgba(7,46,89,.12);
+  margin:0;
+  color:var(--zp-ink);
+  background:#fff;
+  font-family:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+
+body.premium-interior *,body.premium-interior *::before,body.premium-interior *::after{box-sizing:border-box}
+body.premium-interior img{max-width:100%;height:auto}
+body.premium-interior a{text-decoration:none}
+body.premium-interior main,body.premium-interior .page,body.premium-interior .revs{width:100%;max-width:none;margin:0;padding:0;overflow:hidden;background:#fff}
+body.premium-interior :where(.container,.split,.section,.services-hero-grid,.services-intro>.container,.services-category>.container,.services-faq>.container,.services-estimate>.container,.hero>.container,.hero.card,.revs>.hero,.highlights,.filters,.cta-wrap){width:min(1180px,calc(100% - 48px));max-width:1180px;margin-inline:auto}
+body.premium-interior :where(.hero,.tile-hero,.clay-hero,.shingle-hero,.slate-hero,.skylight-hero,.flat-hero,.services-directory-hero){position:relative;width:100%;max-width:none;min-height:520px;margin:0;padding:clamp(64px,8vw,104px) 24px;display:flex;align-items:center;color:#fff;background:linear-gradient(90deg,rgba(3,34,67,.97) 0%,rgba(7,46,89,.9) 52%,rgba(7,46,89,.62) 100%),url('/images/zenith-van-optimized.jpg') center/cover no-repeat;border:0;border-radius:0;box-shadow:none;text-align:left}
+body.premium-interior :where(.hero,.tile-hero,.clay-hero,.shingle-hero,.slate-hero,.skylight-hero,.flat-hero)>.split,body.premium-interior :where(.skylight-hero-grid,.flat-hero-grid){width:min(1180px,100%);max-width:1180px;margin:auto;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(330px,.78fr);gap:clamp(38px,6vw,76px);align-items:center}
+body.premium-interior :where(.hero,.tile-hero,.clay-hero,.shingle-hero,.slate-hero,.skylight-hero,.flat-hero,.services-directory-hero) h1{max-width:820px;margin:0;color:#fff;font-size:clamp(2.45rem,5vw,4.7rem);line-height:1.03;letter-spacing:-.045em;font-weight:800}
+body.premium-interior :where(.eyebrow,.services-eyebrow,.flat-kicker){margin:0 0 12px;color:var(--zp-orange);font-size:.76rem;font-weight:850;letter-spacing:.13em;text-transform:uppercase}
+body.premium-interior :where(.hero .lede,.hero .lead,.tile-hero .lede,.clay-hero .lede,.skylight-hero .lede,.flat-lede,.services-hero-lede){max-width:720px;margin:22px 0 0;color:rgba(255,255,255,.9);font-size:clamp(1rem,1.5vw,1.18rem);line-height:1.7}
+body.premium-interior :where(.photo-card,.hero-photo,.hero-photo-wrap,.hero-media,.hero-visual,.skylight-hero-media,.flat-hero-photo,.services-hero-card,.hero .media){overflow:hidden;border:1px solid rgba(255,255,255,.38);border-radius:18px;background:rgba(255,255,255,.97);box-shadow:0 24px 64px rgba(0,0,0,.25)}
+body.premium-interior :where(.photo-card,.hero-photo,.hero-photo-wrap,.hero-media,.hero-visual,.skylight-hero-media,.flat-hero-photo,.hero .media) img{width:100%;height:100%;min-height:320px;object-fit:cover;display:block}
+body.premium-interior :where(.btn,.button,.flat-button,.services-primary-button,.services-secondary-button){display:inline-flex;min-height:48px;align-items:center;justify-content:center;padding:12px 20px;border:1px solid rgba(7,46,89,.22);border-radius:9px;color:var(--zp-navy);background:#fff;font-size:.91rem;font-weight:800;transition:transform .2s ease,box-shadow .2s ease,background .2s ease,border-color .2s ease}
+body.premium-interior :where(.btn,.button,.flat-button,.services-primary-button,.services-secondary-button):hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(7,46,89,.14)}
+body.premium-interior :where(.btn-primary,.button--accent,.flat-button.primary,.services-primary-button,.btn.primary){color:#fff;background:var(--zp-orange);border-color:var(--zp-orange)}
+body.premium-interior :where(.btn-outline,.services-secondary-button){color:#fff;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.72)}
+body.premium-interior :where(.cta,.hero-actions,.flat-actions,.services-hero-actions){display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+body.premium-interior :where(.pillnav,.sticky-pills,.flat-nav-wrap){width:100%;max-width:none;margin:0;padding:0 24px;background:#fff;border-bottom:1px solid var(--zp-line);box-shadow:0 8px 24px rgba(7,46,89,.06)}
+body.premium-interior :where(.pillnav,.flat-nav){width:min(1180px,100%);max-width:1180px;min-height:68px;margin:auto;padding:10px 0;display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:none}
+body.premium-interior .pillnav::-webkit-scrollbar{display:none}
+body.premium-interior :where(.pillnav,.flat-nav) a{flex:0 0 auto;padding:10px 14px;border:1px solid var(--zp-line);border-radius:999px;color:var(--zp-navy);background:#fff;font-size:.76rem;font-weight:750}
+body.premium-interior :where(.pillnav,.flat-nav) a:hover{color:var(--zp-navy);background:#fff3e3;border-color:rgba(247,148,29,.4)}
+body.premium-interior :where(.section,.flat-section,.services-category,.services-faq,.services-estimate){width:100%;max-width:none;margin:0;padding:clamp(64px,8vw,96px) 24px}
+body.premium-interior :where(.section,.flat-section)>*,body.premium-interior :where(.services-category,.services-faq,.services-estimate)>.container{width:min(1180px,100%);max-width:1180px;margin-inline:auto}
+body.premium-interior :where(.section.soft,.section:nth-of-type(even),.flat-section.soft,.services-category-alt,.services-faq){background:var(--zp-wash)}
+body.premium-interior :where(.section-title,.section-heading,.flat-heading-row,.services-category-heading){width:min(1180px,100%);margin:0 auto 34px;display:flex;align-items:end;justify-content:space-between;gap:28px}
+body.premium-interior :where(.section h2,.flat-section h2,.services-category h2,.services-faq h2,.services-estimate h2,.revs h2){color:var(--zp-navy);font-size:clamp(1.9rem,3.6vw,3.35rem);line-height:1.1;letter-spacing:-.035em;font-weight:800}
+body.premium-interior :where(.section p,.flat-section p,.services-category p,.services-faq p,.services-estimate p,.revs p){color:var(--zp-muted);line-height:1.72}
+body.premium-interior :where(.grid,.truth-grid,.cause-grid,.repair-paths,.flow,.issue-grid,.process-grid,.card-grid,.services-card-grid,.flat-truth-grid,.flat-system-grid,.flat-cause-grid,.flat-method-grid,.flat-choice-grid){gap:18px}
+body.premium-interior :where(.card,.story-card,.truth-card,.repair-path,.flat-card,.services-card,.kpi,.cta-wrap .cta){color:var(--zp-ink);background:#fff;border:1px solid var(--zp-line);border-radius:15px;box-shadow:0 10px 30px rgba(7,46,89,.07)}
+body.premium-interior :where(.card,.story-card,.truth-card,.repair-path,.flat-card,.services-card,.kpi){transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+body.premium-interior :where(.card,.story-card,.truth-card,.repair-path,.flat-card,.services-card,.kpi):hover{transform:translateY(-3px);border-color:rgba(247,148,29,.5);box-shadow:0 16px 38px rgba(7,46,89,.12)}
+body.premium-interior :where(.card,.story-card,.truth-card,.repair-path,.flat-card){padding:clamp(22px,3vw,32px)}
+body.premium-interior :where(.card h2,.card h3,.story-card h3,.repair-path h3,.flat-card h3,.services-card h3){color:var(--zp-navy)}
+body.premium-interior :where(.center-actions,.section>.center-actions){width:min(1180px,100%);margin:30px auto 0;display:flex;justify-content:center}
+body.premium-directory .services-directory-hero .services-hero-grid{grid-template-columns:minmax(0,1.08fr) minmax(340px,.72fr)}
+body.premium-directory .services-intro{padding:clamp(58px,7vw,84px) 24px 28px;text-align:center}
+body.premium-directory .services-category-heading{width:100%;max-width:none}
+body.premium-directory .services-card-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+body.premium-directory .services-card{min-height:230px;padding:25px}
+body.premium-reviews .revs>.hero{width:100%;max-width:none;min-height:480px;padding:clamp(72px,8vw,104px) 24px;background:linear-gradient(90deg,rgba(3,34,67,.97),rgba(7,46,89,.72)),url('/images/modern-tile-roof-1600.webp') center/cover no-repeat}
+body.premium-reviews .revs>.hero>*{width:min(1180px,100%);margin-inline:auto}
+body.premium-reviews .revs>.hero h1{max-width:800px}
+body.premium-reviews :where(.highlights,.filters,.cta-wrap){padding-left:0;padding-right:0}
+body.premium-reviews .highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
+body.premium-reviews .kpi{padding:28px;text-align:center}
+body.premium-reviews .filters{margin-top:32px}
+body.premium-reviews .cta-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px;margin-bottom:80px}
+body.premium-reviews .cta-wrap .cta{display:block;margin:0;padding:24px}
+body.premium-interior :where(.estimate-form-section,.flat-form-wrap,.services-estimate){background:var(--zp-wash)}
+body.premium-interior :where(form,.estimate-form,.zenith-form){border-radius:15px}
+@media (max-width:900px){body.premium-interior :where(.container,.split,.section,.services-hero-grid,.hero>.container,.hero.card,.revs>.hero,.highlights,.filters,.cta-wrap){width:min(100% - 32px,1180px)}body.premium-interior :where(.hero,.tile-hero,.clay-hero,.shingle-hero,.slate-hero,.skylight-hero,.flat-hero,.services-directory-hero){min-height:auto;padding:64px 16px}body.premium-interior :where(.hero,.tile-hero,.clay-hero,.shingle-hero,.slate-hero,.skylight-hero,.flat-hero)>.split,body.premium-interior :where(.skylight-hero-grid,.flat-hero-grid),body.premium-directory .services-directory-hero .services-hero-grid{grid-template-columns:1fr}body.premium-directory .services-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body.premium-reviews .highlights,body.premium-reviews .cta-wrap{grid-template-columns:1fr}body.premium-interior :where(.section-title,.section-heading,.flat-heading-row,.services-category-heading){align-items:flex-start;flex-direction:column}}
+@media (max-width:620px){body.premium-interior :where(.container,.split,.section,.services-hero-grid,.hero>.container,.hero.card,.revs>.hero,.highlights,.filters,.cta-wrap){width:min(100% - 24px,1180px)}body.premium-interior :where(.section,.flat-section,.services-category,.services-faq,.services-estimate){padding:58px 12px}body.premium-directory .services-card-grid{grid-template-columns:1fr}body.premium-interior :where(.hero-actions,.cta,.flat-actions,.services-hero-actions){align-items:stretch;flex-direction:column}body.premium-interior :where(.btn,.button,.flat-button,.services-primary-button,.services-secondary-button){width:100%}}
