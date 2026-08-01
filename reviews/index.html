@@ -6,64 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="description" content="Read verified Zenith Roofing Services reviews from Google, HomeAdvisor, Yelp, GuildQuality, Owens Corning, Angi, and Thumbtack for roofing projects across San Diego County and Temecula." />
   <link rel="canonical" href="https://www.zenithroofingservices.com/reviews/">
-
-  <!-- Shared CSS -->
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/footer.css">
-  <link rel="stylesheet" href="/css/ui.css">
-
-  <!-- Shared JS -->
-  <script defer src="/js/loader.js"></script>
-  <script defer src="/js/header.js"></script>
-
-  <style>
-    :root{ --pad:16px; --gap:12px; --radius:14px; --line:#e2e8f0; --muted:#64748b; --ink:#0b3a6f; --tap:50px; }
-    .page.revs{ max-width:1100px; margin:24px auto; padding:0 var(--pad); }
-    .hero{ background:#f8fafc; border:1px solid var(--line); border-radius:16px; padding:20px; }
-    .badge{ display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:999px; background:#eef2ff; color:#334155; font-weight:700; }
-    .lede{ color:#475569; margin:8px 0 0; }
-
-    .pills{ margin:16px 0 0; display:flex; flex-wrap:wrap; gap:8px; }
-    .pill{ border:1px solid var(--line); border-radius:999px; padding:8px 12px; cursor:pointer; background:#fff; font-weight:700; }
-    .pill[aria-pressed="true"]{ background:#0b3a6f; color:#fff; border-color:transparent; }
-
-    .highlights{ display:grid; gap:12px; margin:16px 0; }
-    .kpi{ border:1px solid var(--line); border-radius:14px; padding:14px; background:#fff; display:flex; align-items:center; justify-content:space-between; }
-    .kpi strong{ font-size:1.15rem; }
-    @media (min-width:800px){ .highlights{ grid-template-columns:1fr 1fr 1fr; } }
-
-    .filters{ display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 0; }
-    .filters select, .filters input{ border:1px solid var(--line); border-radius:10px; padding:8px 10px; }
-
-    .grid{ display:grid; gap:12px; }
-    .reviews{ margin-top:16px; }
-    .card.review{ border:1px solid var(--line); border-radius:16px; padding:14px; background:#fff; }
-    .meta{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; color:var(--muted); font-size:.92rem; }
-    .stars{ color:#f59e0b; font-weight:800; letter-spacing:.5px; }
-    .src{ background:#f1f5f9; padding:4px 8px; border-radius:999px; font-weight:700; }
-    .who{ font-weight:700; color:#111827; }
-    .when{ color:var(--muted); }
-    .body{ margin:8px 0 0; color:#334155; }
-    .more{ display:inline-block; margin-top:8px; color:var(--ink); font-weight:700; }
-
-    .cta-wrap{ display:grid; gap:12px; margin:18px 0; }
-    @media (min-width:800px){ .cta-wrap{ grid-template-columns: repeat(4,1fr); } }
-    .cta{ border:1px solid var(--line); border-radius:14px; padding:14px; background:#fff; }
-    .cta h3{ margin:0 0 6px; font-size:1rem; }
-    .cta .btn{ display:inline-flex; align-items:center; justify-content:center; min-height:var(--tap); padding:10px 14px; border-radius:12px; border:1px solid var(--line); }
-    .cta .btn.primary{ background:var(--ink); color:#fff; border-color:transparent; }
-
-    .loadmore { display:flex; justify-content:center; margin:16px 0 8px; }
-    .loadmore .btn { min-height:var(--tap); padding:10px 18px; border-radius:12px; border:1px solid var(--line); font-weight:700; }
-    .btn[disabled]{ opacity:.6; cursor:not-allowed; }
-
-    .actionbar{ position:sticky; bottom:0; left:0; width:100%; display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; background:rgba(255,255,255,.97); backdrop-filter: saturate(180%) blur(6px); border-top:1px solid var(--line); padding:10px var(--pad) calc(env(safe-area-inset-bottom,0) + 10px); }
-    .ab-btn{ display:flex; align-items:center; justify-content:center; min-height:var(--tap); border-radius:12px; border:1px solid var(--line); font-weight:700; }
-    .ab-btn.primary{ background:var(--ink); color:#fff; border-color:transparent; }
-
-    a:focus-visible, button:focus-visible, .pill:focus-visible{ outline:3px solid #75b6ff; outline-offset:2px; border-radius:10px; }
-  </style>
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Customer Reviews &amp; Testimonials | Zenith Roofing Services">
+  <meta property="og:description" content="Real customer experiences from roofing projects across San Diego County and Southwest Riverside County.">
+  <meta property="og:url" content="https://www.zenithroofingservices.com/reviews/">
+  <meta property="og:image" content="https://www.zenithroofingservices.com/images/modern-tile-roof-1600.webp">
+  <link rel="preload" as="image" type="image/webp" href="/images/modern-tile-roof-1600.webp">
+  <link rel="stylesheet" href="/css/zenith-premium-exact.css?v=exact-premium-3">
+  <link rel="stylesheet" href="/css/reviews-premium.css?v=1">
 
   <!-- Organization schema -->
   <script type="application/ld+json">
@@ -85,15 +36,14 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="/css/landing-theme-preview.css?v=sitewide-2">
 </head>
-<body>
+<body class="reviews-page">
   <div data-include="/components/header-section.html"></div>
 
-  <main class="page revs" id="top" aria-label="Customer reviews">
+  <main class="page revs" id="main-content" aria-label="Customer reviews">
     <!-- Hero -->
     <section class="hero card airy">
-      <span class="badge">194 Reviews Across Trusted Platforms</span>
+      <span class="badge">Customer experiences across trusted platforms</span>
       <h1 style="margin:10px 0 6px;">Established, Local and Proven by Our Customers</h1>
       <p class="lede">Read the actual words customers shared about Zenith Roofing Services on Google, HomeAdvisor, Yelp, GuildQuality, Owens Corning, Angi and Thumbtack.</p>
 
@@ -130,42 +80,42 @@
     <!-- Leave a review / profiles -->
     <section class="cta-wrap" aria-label="Profile links">
       <div class="cta">
-        <h3>Google — Escondido</h3>
+        <h2>Google — Escondido</h2>
         <p class="muted"><strong>58 reviews • 4.9 stars</strong><br>Our primary San Diego County profile.</p>
         <a class="btn primary" rel="noopener" target="_blank" href="https://share.google/tu1mPk3Oim7OPFiqS">Open Escondido Profile</a>
       </div>
       <div class="cta">
-        <h3>Google — Temecula</h3>
+        <h2>Google — Temecula</h2>
         <p class="muted"><strong>8 reviews • 5.0 stars</strong><br>Our Temecula Valley profile.</p>
         <a class="btn primary" rel="noopener" target="_blank" href="https://share.google/2Ok3Yz6IHsJMdQvh3">Open Temecula Profile</a>
       </div>
       <div class="cta">
-        <h3>HomeAdvisor</h3>
+        <h2>HomeAdvisor</h2>
         <p class="muted"><strong>62 reviews • 4.9 stars</strong><br>Homeowner ratings and project feedback.</p>
         <a class="btn primary" rel="noopener" target="_blank" href="https://www.homeadvisor.com/rated.ZenithRoofingServices.73340475.html">Open HomeAdvisor</a>
       </div>
       <div class="cta">
-        <h3>Yelp</h3>
+        <h2>Yelp</h2>
         <p class="muted"><strong>16 recommended reviews • 4.8 stars</strong><br>Customer experiences and project photos.</p>
         <a class="btn primary" rel="noopener" target="_blank" href="https://www.yelp.com/biz/zenith-roofing-services-escondido">Open Yelp Profile</a>
       </div>
       <div class="cta">
-        <h3>GuildQuality</h3>
+        <h2>GuildQuality</h2>
         <p class="muted"><strong>19 verified reviews • 4.9 stars</strong><br>Independent, survey-based feedback.</p>
         <a class="btn primary" rel="noopener" target="_blank" href="https://www.guildquality.com/profile/zenith-roofing-services">Open GuildQuality</a>
       </div>
       <div class="cta">
-        <h3>Owens Corning</h3>
+        <h2>Owens Corning</h2>
         <p class="muted"><strong>19 reviews • 4.95 stars</strong><br>Manufacturer contractor profile.</p>
         <a class="btn primary" rel="noopener" target="_blank" href="https://www.owenscorning.com/en-us/roofing/contractors/contractor-profile/230828">Open OC Profile</a>
       </div>
       <div class="cta">
-        <h3>Angi</h3>
+        <h2>Angi</h2>
         <p class="muted"><strong>9 reviews • 5.0 stars</strong><br>Customer feedback from completed projects.</p>
         <a class="btn primary" rel="noopener" target="_blank" href="https://www.angi.com/companylist/us/ca/escondido/zenith-roofing-services-reviews-9533580.htm">Open Angi</a>
       </div>
       <div class="cta">
-        <h3>Thumbtack</h3>
+        <h2>Thumbtack</h2>
         <p class="muted"><strong>3 reviews • 5.0 stars</strong><br>Highly rated for value, responsiveness and quality.</p>
         <a class="btn primary" rel="noopener" target="_blank" href="https://www.thumbtack.com/ca/escondido/roofing/zenith-roofing-services-inc/service/295721236717715636">Open Thumbtack</a>
       </div>
@@ -183,13 +133,7 @@
   </main>
 
   <div data-include="/components/footer.html"></div>
-
-  <!-- Sticky Actions -->
-  <div class="actionbar">
-    <a class="ab-btn" href="tel:8589006163">Call</a>
-    <a class="ab-btn" href="sms:+18589006163">Text</a>
-    <a class="ab-btn primary" href="/services/roof-inspection/#free">Book Free Inspection</a>
-  </div>
+  <script src="/js/loader.js" defer></script>
 
   <!-- Seed data: expanded real reviews you provided (trimmed excerpts) -->
   <script type="application/json" id="reviews-seed">
