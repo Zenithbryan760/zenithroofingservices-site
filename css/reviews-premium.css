@@ -1,0 +1,196 @@
+.reviews-page {
+  background: var(--mist);
+}
+
+.reviews-page .page.revs {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 0 110px;
+}
+
+.reviews-page .hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: 650px;
+  align-content: center;
+  overflow: hidden;
+  padding: clamp(90px, 12vw, 150px) max(28px, calc((100vw - 1180px) / 2));
+  color: var(--white);
+  background:
+    linear-gradient(90deg, rgba(3, 20, 38, 0.97) 0%, rgba(3, 26, 48, 0.88) 47%, rgba(3, 26, 48, 0.48) 100%),
+    url('/images/modern-tile-roof-1600.webp') center 54% / cover no-repeat;
+  border: 0;
+  border-radius: 0;
+}
+
+.reviews-page .hero::after {
+  position: absolute;
+  right: -90px;
+  bottom: -180px;
+  z-index: -1;
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgba(255,130,0,.24), transparent 68%);
+  content: '';
+}
+
+.reviews-page .hero > * { max-width: 790px; }
+
+.reviews-page .badge {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  padding: 9px 14px;
+  color: #ffd49b;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  backdrop-filter: blur(12px);
+}
+
+.reviews-page .hero h1 {
+  max-width: 790px;
+  margin: 20px 0 0 !important;
+  color: var(--white);
+  font-size: clamp(3.2rem, 6.6vw, 6.5rem);
+  letter-spacing: -.065em;
+  line-height: .98;
+}
+
+.reviews-page .lede {
+  max-width: 690px;
+  margin: 24px 0 0;
+  color: rgba(255,255,255,.78);
+  font-size: clamp(1rem, 1.6vw, 1.22rem);
+  line-height: 1.7;
+}
+
+.reviews-page .pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.reviews-page .pill {
+  min-height: 44px;
+  padding: 10px 15px;
+  color: rgba(255,255,255,.82);
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: .72rem;
+  font-weight: 850;
+  transition: transform .3s var(--ease), background .3s ease, border-color .3s ease;
+}
+
+.reviews-page .pill:hover { transform: translateY(-2px); border-color: rgba(255,173,67,.7); }
+.reviews-page .pill[aria-pressed='true'] { color: var(--navy-950); background: linear-gradient(135deg,#ffad43,var(--orange-500)); border-color: transparent; }
+
+.reviews-page .highlights {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1px;
+  overflow: hidden;
+  margin-top: 34px;
+  background: rgba(255,255,255,.13);
+  border: 1px solid rgba(255,255,255,.17);
+  border-radius: 19px;
+  backdrop-filter: blur(16px);
+}
+
+.reviews-page .kpi { min-height: 96px; padding: 20px; background: rgba(3,26,48,.62); }
+.reviews-page .kpi div { color: rgba(255,255,255,.56); font-size: .61rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.reviews-page .kpi strong { display: block; margin-top: 7px; color: var(--white); font-size: .96rem; }
+
+.reviews-page .filters { display: grid; grid-template-columns: 190px minmax(260px,1fr); gap: 9px; margin-top: 12px; }
+.reviews-page .filters select,
+.reviews-page .filters input { min-height: 50px; padding: 0 16px; color: var(--white); background: rgba(3,26,48,.72); border: 1px solid rgba(255,255,255,.18); border-radius: 13px; font: inherit; }
+.reviews-page .filters input::placeholder { color: rgba(255,255,255,.58); }
+.reviews-page .filters option { color: var(--ink-950); background: var(--white); }
+
+.reviews-page .cta-wrap,
+.reviews-page .reviews,
+.reviews-page .loadmore,
+.reviews-page main > .card.airy:last-of-type { width: min(100% - 36px,1180px); margin-right: auto; margin-left: auto; }
+
+.reviews-page .cta-wrap {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 16px;
+  margin-top: -46px;
+  padding-bottom: 86px;
+  position: relative;
+  z-index: 2;
+}
+
+.reviews-page .cta {
+  display: flex;
+  min-height: 220px;
+  flex-direction: column;
+  padding: 27px;
+  background: var(--white);
+  border: 1px solid rgba(6,41,75,.1);
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .3s ease;
+}
+.reviews-page .cta:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: rgba(255,130,0,.36); }
+.reviews-page .cta h2 { margin: 0; color: var(--navy-950); font-size: 1.13rem; }
+.reviews-page .cta p { flex: 1; color: var(--ink-500); font-size: .75rem; line-height: 1.65; }
+.reviews-page .cta p strong { color: var(--orange-600); }
+.reviews-page .cta .btn { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; padding: 10px 15px; color: var(--white); background: var(--navy-900); border-radius: 12px; font-size: .7rem; font-weight: 850; transition: transform .3s var(--ease), background .3s ease; }
+.reviews-page .cta .btn:hover { background: var(--orange-600); transform: translateY(-2px); }
+
+.reviews-page .reviews { display: grid; grid-template-columns: repeat(3,1fr); gap: 17px; }
+.reviews-page .card.review { position: relative; min-height: 290px; padding: 29px; background: var(--white); border: 1px solid rgba(6,41,75,.1); border-radius: 20px; box-shadow: var(--shadow-sm); transition: transform .4s var(--ease), box-shadow .4s var(--ease); }
+.reviews-page .card.review::before { display: block; margin-bottom: 18px; color: var(--orange-500); content: '★★★★★'; font-size: .88rem; letter-spacing: .12em; }
+.reviews-page .card.review:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.reviews-page .meta { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; color: var(--ink-500); font-size: .68rem; }
+.reviews-page .stars { display: none; }
+.reviews-page .src { padding: 5px 8px; color: var(--navy-900); background: var(--mist); border-radius: 999px; font-weight: 850; text-transform: capitalize; }
+.reviews-page .who { color: var(--navy-950); font-weight: 850; }
+.reviews-page .body { margin: 20px 0 0; color: var(--ink-700); font-size: .82rem; line-height: 1.78; }
+.reviews-page .more { display: inline-block; margin-top: 19px; color: var(--orange-600); font-size: .69rem; font-weight: 900; }
+
+.reviews-page .loadmore { display: flex; justify-content: center; padding: 38px 0 84px; }
+.reviews-page .loadmore .btn { min-height: 50px; padding: 12px 24px; color: var(--white); background: var(--navy-900); border: 0; border-radius: 13px; cursor: pointer; font-weight: 850; }
+.reviews-page .loadmore .btn:hover { background: var(--orange-600); }
+.reviews-page .btn[disabled] { opacity: .55; cursor: not-allowed; }
+
+.reviews-page main > .card.airy:last-of-type { padding: clamp(28px,5vw,54px); color: var(--white); background: linear-gradient(135deg,var(--navy-950),var(--navy-800)); border: 0; border-radius: 25px; box-shadow: var(--shadow-lg); }
+.reviews-page main > .card.airy:last-of-type h2 { margin: 0; color: var(--white); font-size: clamp(1.8rem,4vw,3rem); }
+.reviews-page main > .card.airy:last-of-type p { max-width: 880px; margin: 17px 0 0; color: rgba(255,255,255,.68); font-size: .86rem; line-height: 1.8; }
+
+.reviews-page :is(a,button,input,select):focus-visible { outline: 3px solid #75b6ff; outline-offset: 3px; }
+
+@media (max-width: 960px) {
+  .reviews-page .cta-wrap { grid-template-columns: repeat(2,1fr); }
+  .reviews-page .reviews { grid-template-columns: repeat(2,1fr); }
+}
+
+@media (max-width: 680px) {
+  .reviews-page .hero { min-height: auto; padding: 74px 14px 92px; background-position: 64% center; }
+  .reviews-page .hero h1 { font-size: clamp(2.7rem,12vw,3.7rem); }
+  .reviews-page .pills { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; }
+  .reviews-page .pill { flex: 0 0 auto; }
+  .reviews-page .highlights { grid-template-columns: 1fr; }
+  .reviews-page .kpi + .kpi { border-top: 1px solid rgba(255,255,255,.12); }
+  .reviews-page .filters { grid-template-columns: 1fr; }
+  .reviews-page .filters input { font-size: 16px; }
+  .reviews-page .cta-wrap { grid-template-columns: 1fr; margin-top: -38px; padding-bottom: 66px; }
+  .reviews-page .cta { min-height: 0; }
+  .reviews-page .reviews { grid-template-columns: 1fr; }
+  .reviews-page .card.review { min-height: 0; padding: 25px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews-page *, .reviews-page *::before, .reviews-page *::after { transition-duration: .01ms !important; }
+}
