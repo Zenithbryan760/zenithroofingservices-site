@@ -54,10 +54,10 @@
 
 .roof-tune-up-page .field-note { margin: 27px 0 0; padding: 20px 22px; color: #6b3b10; background: var(--orange-100); border-left: 5px solid var(--orange-500); border-radius: 12px; font-size: .8rem; line-height: 1.7; }
 .roof-tune-up-page .commercial-tuneup .field-note { color: #ffe0b7; background: rgba(255,130,0,.12); border-color: var(--orange-500); }
-.roof-tune-up-page .project-proof { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; margin-top: 30px; }
+.roof-tune-up-page .project-proof { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); max-width: 1040px; gap: 22px; margin: 30px auto 0; }
 .roof-tune-up-page .project-proof figure { overflow: hidden; margin: 0; background: var(--white); border: 1px solid rgba(6,41,75,.1); border-radius: 21px; box-shadow: var(--shadow-md); transition: transform .38s var(--ease),box-shadow .38s var(--ease); }
 .roof-tune-up-page .project-proof figure:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-.roof-tune-up-page .project-proof img { display: block; width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: center; }
+.roof-tune-up-page .project-proof img { display: block; width: 100%; height: clamp(220px,22vw,285px); max-height: 285px; object-fit: cover; object-position: center; }
 .roof-tune-up-page .project-proof figcaption { padding: 19px 21px 22px; color: var(--ink-500); font-size: .75rem; line-height: 1.65; }
 .roof-tune-up-page .project-proof figcaption strong { display: block; margin-bottom: 5px; color: var(--navy-950); font-size: .9rem; }
 .roof-tune-up-page .commercial-tuneup .project-proof figure { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.13); }
@@ -93,7 +93,7 @@
   .roof-tune-up-page .tuneup-hero__content { grid-template-columns: 1fr; }
   .roof-tune-up-page .tuneup-offer { max-width: 650px; }
   .roof-tune-up-page .commercial-scope { grid-template-columns: repeat(2,1fr); }
-  .roof-tune-up-page .project-proof { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .roof-tune-up-page .project-proof { gap: 16px; }
 }
 @media (max-width: 680px) {
   .roof-tune-up-page .tuneup-hero { min-height: 620px; }
@@ -106,6 +106,7 @@
   .roof-tune-up-page .section { width: min(100% - 28px,1180px); padding: 68px 0; }
   .roof-tune-up-page .section > h2,.roof-tune-up-page .sa-head h2 { font-size: clamp(2.2rem,10vw,3.05rem); }
   .roof-tune-up-page .cols-2,.roof-tune-up-page .commercial-scope,.roof-tune-up-page .project-proof,.roof-tune-up-page .decision-grid { grid-template-columns: 1fr; }
+  .roof-tune-up-page .project-proof img { height: 220px; max-height: 220px; }
   .roof-tune-up-page .commercial-tuneup { padding-right: 14px; padding-left: 14px; }
   .roof-tune-up-page .estimate-form-section { width: calc(100% - 28px); padding: 25px 18px; }
   .roof-tune-up-page .cta-strip { flex-direction: column; align-items: flex-start; }
