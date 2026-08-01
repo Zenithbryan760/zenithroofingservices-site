@@ -15,71 +15,9 @@
   <meta property="og:image" content="https://www.zenithroofingservices.com/images/clay-tile-roof-repair/two-piece-clay-roof-completed-1200.webp" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="preload" href="/css/base.css" as="style" />
-  <link rel="preload" href="/css/header.css" as="style" />
-  <link rel="preload" href="/css/ui.css" as="style" />
-  <link rel="stylesheet" href="/css/base.css" />
-  <link rel="stylesheet" href="/css/header.css" />
-  <link rel="stylesheet" href="/css/ui.css" />
-  <link rel="stylesheet" href="/css/footer.css" />
+  <link rel="stylesheet" href="/css/zenith-premium-exact.css?v=exact-premium-3" />
   <link rel="stylesheet" href="/css/estimate-form.css" />
-  <link rel="stylesheet" href="/css/landing-theme-preview.css?v=sitewide-2" />
-
-  <style>
-    :root{
-      --zenith-navy:#072e59;--zenith-deep:#041f3d;--zenith-orange:#f7941d;
-      --clay:#a94827;--clay-dark:#77301f;--ink:#162131;--muted:#526174;
-      --line:#dce5ee;--pale:#f4f8fc;--warm:#fff5ed;--shadow:0 18px 45px rgba(2,12,32,.1);
-    }
-    html{scroll-behavior:smooth}.page{color:var(--ink)}
-    .clay-hero{
-      background:radial-gradient(circle at 10% 10%,rgba(169,72,39,.2),transparent 30rem),linear-gradient(135deg,#fffaf6 0%,#edf5fc 100%);
-      border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden;padding:clamp(22px,4vw,44px)
-    }
-    .clay-hero .split{align-items:center;gap:clamp(24px,4vw,52px)}
-    .eyebrow{color:var(--clay);font-size:.78rem;font-weight:900;letter-spacing:.11em;margin:0 0 .65rem;text-transform:uppercase}
-    .clay-hero h1{color:var(--zenith-deep);font-size:clamp(2.1rem,4.6vw,4.15rem);letter-spacing:-.045em;line-height:1.01;margin:0 0 1rem;max-width:15ch}
-    .clay-hero .lede{color:#34445a;font-size:clamp(1.02rem,1.7vw,1.22rem);max-width:61ch}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:1.2rem}
-    .proof-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:1.1rem}
-    .proof-pill{background:#fff;border:1px solid var(--line);border-radius:999px;color:var(--zenith-navy);font-size:.88rem;font-weight:800;padding:.5rem .76rem}
-    figure{margin:0}.hero-photo{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 38px rgba(2,12,32,.14);overflow:hidden;position:relative}
-    .hero-photo img{aspect-ratio:4/3;display:block;height:auto;object-fit:cover;width:100%}
-    .hero-photo figcaption{background:rgba(4,31,61,.95);bottom:0;color:#fff;font-size:.91rem;left:0;line-height:1.45;padding:12px 15px;position:absolute;right:0}
-    .hero-photo strong{color:#ffb45a;display:block}.pillnav{margin-top:18px}
-    .section-title{margin:0 auto 1rem;max-width:820px;text-align:center}
-    .section-title h2{color:var(--zenith-deep);font-size:clamp(1.75rem,3vw,2.65rem);letter-spacing:-.03em;margin:0 0 .55rem}
-    .section-title p{color:var(--muted);font-size:1.03rem;margin:0}
-    .story-card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 12px 30px rgba(2,12,32,.07);padding:clamp(18px,2.7vw,28px)}
-    .truth-grid{display:grid;gap:14px;grid-template-columns:repeat(3,minmax(0,1fr))}
-    .truth-card{border-top:4px solid var(--clay)}.truth-card .number{align-items:center;background:var(--zenith-navy);border-radius:50%;color:#fff;display:flex;font-weight:900;height:36px;justify-content:center;margin-bottom:.8rem;width:36px}
-    .truth-card h3,.cause-card h3,.repair-path h3{color:var(--zenith-navy);margin:0 0 .45rem}.truth-card p,.cause-card p,.repair-path p{color:var(--muted);margin:0}
-    .truth-callout{background:var(--zenith-deep);border-radius:18px;color:#fff;margin-top:16px;padding:clamp(18px,3vw,30px);text-align:center}
-    .truth-callout strong{color:#ffb45a;font-size:clamp(1.2rem,2vw,1.55rem)}.truth-callout p{margin:.45rem auto 0;max-width:78ch}
-    .cause-grid{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr))}
-    .cause-card{display:grid;gap:14px;grid-template-columns:48px 1fr}
-    .cause-icon{align-items:center;background:var(--warm);border:1px solid #efc5b2;border-radius:13px;color:var(--clay-dark);display:flex;font-size:1.25rem;font-weight:900;height:48px;justify-content:center;width:48px}
-    .field-story{background:linear-gradient(180deg,#061f3b,#08335e);border-radius:22px;color:#fff;overflow:hidden;padding:clamp(20px,3.5vw,38px)}
-    .field-story .section-title h2,.field-story .section-title p{color:#fff}.field-story .eyebrow{color:#ffb45a}
-    .photo-grid{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr))}
-    .photo-card{background:#fff;border-radius:15px;color:var(--ink);overflow:hidden}
-    .photo-card img{aspect-ratio:4/3;display:block;object-fit:cover;width:100%}.photo-card.portrait img{object-position:center 45%}
-    .photo-card figcaption{padding:14px 16px 17px}.photo-card strong{color:var(--zenith-navy);display:block;font-size:1.02rem;margin-bottom:.25rem}.photo-card span{color:var(--muted);font-size:.93rem;line-height:1.48}
-    .repair-paths{display:grid;gap:12px;grid-template-columns:repeat(4,minmax(0,1fr))}
-    .repair-path{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.repair-path.recommended{border:2px solid var(--clay);box-shadow:0 12px 28px rgba(169,72,39,.16)}
-    .repair-path .tag{color:var(--clay-dark);font-size:.72rem;font-weight:900;letter-spacing:.08em;margin-bottom:.45rem;text-transform:uppercase}
-    .repair-path ul{color:#43546a;font-size:.9rem;margin:.75rem 0 0;padding-left:1.05rem}
-    .wide-repair{align-items:center;display:grid;gap:clamp(18px,3vw,34px);grid-template-columns:1.02fr .98fr}
-    .wide-repair img{border-radius:16px;display:block;height:auto;width:100%}.wide-repair h2{color:var(--zenith-deep);font-size:clamp(1.7rem,3vw,2.5rem);letter-spacing:-.025em;margin:.2rem 0 .7rem}.wide-repair p{color:var(--muted)}
-    .principle{background:var(--warm);border-left:4px solid var(--clay);border-radius:0 12px 12px 0;color:#683421;font-weight:700;padding:13px 15px}
-    .age-band{background:linear-gradient(135deg,#fff5ed,#fff);border:1px solid #efc5b2;border-radius:18px;display:grid;gap:22px;grid-template-columns:.75fr 1.25fr;padding:clamp(20px,3vw,34px)}
-    .age-number{color:var(--zenith-navy);font-size:clamp(3.8rem,8vw,7rem);font-weight:950;letter-spacing:-.07em;line-height:.85}.age-number span{color:var(--clay-dark);display:block;font-size:.78rem;letter-spacing:.08em;line-height:1.3;margin-top:.8rem;text-transform:uppercase}
-    .age-band h2{color:var(--zenith-deep);margin:0 0 .55rem}.age-band p{color:var(--muted);margin:.5rem 0}
-    .faq details{background:#fff;border:1px solid var(--line);border-radius:12px;margin:.65rem 0;padding:.15rem 1rem}.faq summary{color:var(--zenith-navy);cursor:pointer;font-weight:850;padding:.9rem 0}.faq details p{color:var(--muted);margin:0 0 1rem}
-    .cta-strip{align-items:center;background:var(--zenith-deep);border-radius:18px;box-shadow:var(--shadow);color:#fff;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;padding:20px}.cta-strip strong{display:block;font-size:1.2rem}.cta-strip span{color:#dceafa}.cta-strip .btn{background:var(--zenith-orange);color:#111}
-    @media(max-width:900px){.truth-grid{grid-template-columns:1fr}.repair-paths{grid-template-columns:repeat(2,minmax(0,1fr))}.wide-repair,.age-band{grid-template-columns:1fr}}
-    @media(max-width:680px){.clay-hero h1{max-width:none}.cause-grid,.photo-grid,.repair-paths{grid-template-columns:1fr}.hero-photo figcaption{position:static}.age-number{font-size:4.4rem}}
-  </style>
+  <link rel="stylesheet" href="/css/clay-tile-roof-repair-premium.css?v=1" />
 
   <script type="application/ld+json">
   {
@@ -110,9 +48,9 @@
   }
   </script>
 </head>
-<body>
+<body class="clay-tile-roof-repair-page">
   <div data-include="/components/header-section.html"></div>
-  <main id="top" class="page">
+  <main id="main-content" class="page premium-page">
     <section class="clay-hero" aria-label="Clay tile roof repair">
       <div class="split">
         <div>
@@ -136,6 +74,15 @@
           </picture>
           <figcaption><strong>Actual Zenith clay roof project</strong>Two-piece clay carefully reinstalled after the waterproofing and flashing below were rebuilt.</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <section class="interior-trust" aria-label="Clay tile roof repair highlights">
+      <div class="shell interior-trust__grid">
+        <span><b>Clay-system experience</b><small>One-piece and two-piece clay roofs</small></span>
+        <span><b>Water-path diagnosis</b><small>Underlayment, flashing and drainage</small></span>
+        <span><b>Real project proof</b><small>Documented Zenith clay-roof work</small></span>
+        <span><b>Condition-based scope</b><small>Repair, partial lift or lift-and-lay</small></span>
       </div>
     </section>
 
@@ -235,8 +182,12 @@
     </section>
 
     <section id="estimate" class="section estimate-form-section">
+      <div class="estimate-form-heading">
+        <span>Secure estimate request</span>
+        <h2>Tell us what is happening with your clay roof.</h2>
+        <p>Share the property address, approximate roof age, whether solar is installed and where you noticed the problem. Photos help us understand the clay and flashing conditions before we contact you.</p>
+      </div>
       <div class="estimate-form-block" data-include="/components/estimate-form.html"></div>
-      <p class="form-disclaimer"><em>*Free estimates exclude real-estate transaction inspections and reports. Buyers, sellers and agents should use our Real Estate Services.</em></p>
     </section>
   </main>
   <div data-include="/components/footer.html"></div>
