@@ -1,4 +1,4 @@
-.roof-repairs-page { color: var(--ink-950); background: var(--mist); }
+.roof-repairs-page { width: 100%; max-width: none; margin: 0 !important; padding: 0 !important; color: var(--ink-950); background: var(--mist); }
 .roof-repairs-page .page { width: 100%; max-width: none; margin: 0; padding: 0 0 100px; overflow: hidden; }
 
 .roof-repairs-page .hero {
@@ -7,7 +7,10 @@
   min-height: 670px;
   padding: clamp(86px,10vw,130px) max(28px,calc((100vw - 1180px)/2));
   color: var(--white);
-  background: radial-gradient(circle at 12% 10%,rgba(42,131,196,.25),transparent 32%),linear-gradient(135deg,var(--navy-950),var(--navy-900));
+  background:
+    linear-gradient(90deg,rgba(3,20,38,.99) 0%,rgba(3,26,48,.93) 48%,rgba(3,26,48,.64) 76%,rgba(3,26,48,.5) 100%),
+    linear-gradient(0deg,rgba(3,26,48,.58),transparent 62%),
+    url('/images/tile-roof-repair-small-1440.jpg') center 48%/cover no-repeat;
 }
 .roof-repairs-page .hero::after { position: absolute; right: -140px; bottom: -210px; z-index: -1; width: 620px; height: 620px; background: radial-gradient(circle,rgba(255,130,0,.21),transparent 68%); content: ''; }
 .roof-repairs-page .hero .eyebrow { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; }
@@ -21,7 +24,7 @@
 .roof-repairs-page .hero .btn:hover { transform: translateY(-3px); }
 .roof-repairs-page .hero .btn-primary { color: var(--navy-950); background: linear-gradient(135deg,#ffad43,var(--orange-500)); }
 .roof-repairs-page .hero .btn-outline { color: var(--white); background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.2); }
-.roof-repairs-page .photo-card { position: relative; overflow: hidden; padding: 8px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.17); border-radius: 26px; box-shadow: 0 30px 75px rgba(0,0,0,.3); transform: rotate(1.3deg); }
+.roof-repairs-page .photo-card { position: relative; overflow: hidden; padding: 10px; background: linear-gradient(145deg,rgba(255,255,255,.17),rgba(255,255,255,.07)),rgba(3,26,48,.32); border: 1px solid rgba(255,255,255,.25); border-radius: 28px; box-shadow: 0 28px 70px rgba(2,15,29,.34),inset 0 1px 0 rgba(255,255,255,.14); backdrop-filter: blur(18px); }
 .roof-repairs-page .photo-card::after { position: absolute; inset: 8px; background: linear-gradient(0deg,rgba(3,26,48,.26),transparent 55%); border-radius: 19px; pointer-events: none; content: ''; }
 .roof-repairs-page .photo-card img { display: block; width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 19px; }
 
