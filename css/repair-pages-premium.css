@@ -525,13 +525,22 @@
 /* Signature premium glass treatment.
    Kept at the end with deliberate specificity so legacy inline page themes
    cannot turn the authority hero back into a boxed two-column card. */
+body.repair-family-page main.page,
+body.repair-family-page main.flat-page,
+body.repair-family-page main.skylight-page {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 body.repair-family-page main :is(.hero, .clay-hero, .shingle-hero, .slate-hero, .tile-hero, .skylight-hero, .flat-hero) {
   position: relative !important;
   isolation: isolate;
-  width: 100% !important;
+  width: 100vw !important;
   max-width: none !important;
   min-height: clamp(680px, 72vh, 860px) !important;
-  margin: 0 !important;
+  margin: 0 calc(50% - 50vw) !important;
   padding: clamp(76px, 8vw, 126px) max(20px, calc((100vw - 1180px) / 2)) !important;
   overflow: hidden !important;
   background: var(--navy-950) !important;
