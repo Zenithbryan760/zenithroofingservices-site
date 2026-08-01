@@ -303,7 +303,7 @@
 .tpo-accordions details p { margin: 0; padding: 0 22px 22px; color: var(--ink-700); line-height: 1.7; }
 
 .tpo-estimate { background: linear-gradient(180deg, var(--mist), #eaf0f5); }
-.tpo-estimate-layout { display: grid; grid-template-columns: minmax(280px, .82fr) minmax(0, 1.18fr); gap: 52px; align-items: start; }
+.tpo-estimate-layout { display: grid; grid-template-columns: minmax(250px, .65fr) minmax(0, 1.35fr); gap: 44px; align-items: start; }
 .tpo-estimate-copy { padding-top: 26px; }
 .tpo-form-card { position: relative; overflow: hidden; border: 1px solid #dfe7ef; border-radius: 28px; background: #fff; box-shadow: 0 26px 64px rgba(3, 26, 48, .13); }
 .tpo-form-card::before { content: ''; position: absolute; inset: 0 0 auto; height: 4px; background: linear-gradient(90deg, var(--orange-500), #ffb458, #2484bd); }
@@ -316,7 +316,14 @@
 .tpo-form-note a { color: var(--navy-800); font-weight: 800; }
 
 .tpo-form-card #estimate-form { max-width: none; margin: 0; padding: 0; border: 0; background: transparent; box-shadow: none; }
-.tpo-form-card #estimate-form .row { gap: 16px; }
+.tpo-form-card #estimate-form .form-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 16px; }
+.tpo-form-card #estimate-form .form-row:has(.form-col-4) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.tpo-form-card #estimate-form .form-group,
+.tpo-form-card #estimate-form .form-col-6,
+.tpo-form-card #estimate-form .form-col-4 { width: 100%; min-width: 0; }
+.tpo-form-card #estimate-form input,
+.tpo-form-card #estimate-form select,
+.tpo-form-card #estimate-form textarea { max-width: 100%; min-width: 0; }
 .tpo-form-card #estimate-form input:not([type='checkbox']):not([type='radio']):not([type='file']),
 .tpo-form-card #estimate-form select,
 .tpo-form-card #estimate-form textarea { min-height: 54px; border: 1px solid #ccd7e1; border-radius: 12px; background: #fff; color: var(--ink-950); font: inherit; }
@@ -327,6 +334,7 @@
 .tpo-form-card #estimate-form input[type='file'] { width: 100%; min-height: 54px; padding: 8px; border: 1px solid #ccd7e1; border-radius: 12px; background: #fff; }
 .tpo-form-card #estimate-form input[type='file']::file-selector-button { min-height: 36px; margin-right: 10px; padding: 0 14px; border: 0; border-radius: 8px; background: var(--navy-900); color: #fff; font-weight: 800; }
 .tpo-form-card #estimate-form button[type='submit'] { min-height: 56px; border: 0; border-radius: 12px; background: linear-gradient(135deg, #ff9b28, var(--orange-500)); color: #071a2d; font-weight: 900; box-shadow: 0 14px 30px rgba(255, 130, 0, .22); }
+.tpo-form-card #estimate-form .recaptcha-container { max-width: 100%; overflow-x: auto; justify-content: flex-start; }
 
 .tpo-final-cta { padding: 64px 0; background: linear-gradient(120deg, var(--navy-950), var(--navy-800)); color: #fff; }
 .tpo-final-cta .shell { display: flex; align-items: center; justify-content: space-between; gap: 48px; }
@@ -368,7 +376,8 @@
   .tpo-detail-list small { max-width: none; text-align: left; }
   .tpo-form-card__head, .tpo-form-card [data-include] { padding-right: 20px; padding-left: 20px; }
   .tpo-form-note { margin-right: 20px; margin-left: 20px; }
-  .tpo-form-card #estimate-form .row { display: grid; grid-template-columns: 1fr; }
+  .tpo-form-card #estimate-form .form-row,
+  .tpo-form-card #estimate-form .form-row:has(.form-col-4) { grid-template-columns: 1fr; }
   .tpo-final-cta__actions { width: 100%; flex-direction: column; }
   .tpo-final-cta__actions .button { justify-content: center; width: 100%; }
 }
