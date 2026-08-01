@@ -18,103 +18,10 @@
   <meta property="og:image:alt" content="Commercial roof drains after professional cleaning and sealant detailing"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Shared CSS (match gutters page order) -->
-  <link rel="preload" href="/css/base.css" as="style"/>
-  <link rel="preload" href="/css/header.css" as="style"/>
-  <link rel="preload" href="/css/ui.css" as="style"/>
-  <link rel="stylesheet" href="/css/base.css"/>
-  <link rel="stylesheet" href="/css/header.css"/>
-  <link rel="stylesheet" href="/css/ui.css"/>
-  <link rel="stylesheet" href="/css/footer.css"/>
-  <!-- Form CSS -->
+  <link rel="preload" as="image" href="/images/hvac-penetrations-before-after-1440.webp"/>
+  <link rel="stylesheet" href="/css/zenith-premium-exact.css?v=exact-premium-3"/>
   <link rel="stylesheet" href="/css/estimate-form.css"/>
-
-  <!-- Page-scope polish (same vibe as gutters page) -->
-  <style>
-    :root{ --zenith-navy:#072e59; --zenith-orange:#f7941d; }
-    html { scroll-behavior: smooth; }
-
-    .page .hero{
-      background: linear-gradient(135deg,#f8fafc 0%, #eef6ff 100%);
-      border: 1px solid var(--ui-line);
-      border-radius: 18px;
-      padding: clamp(18px, 3vw, 28px);
-      box-shadow: 0 14px 34px rgba(2,12,32,.08);
-    }
-    .page .hero .eyebrow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 .6rem; }
-    .page .hero .eyebrow .chip{ background:#fff; font-weight:800; }
-    .page .hero .split{ align-items:center; }
-    .page .hero .media{
-      border-radius:14px; overflow:hidden; border:1px solid var(--ui-line);
-      background:#fff; box-shadow: var(--ui-shadow); transform: translateZ(0);
-    }
-    .page .hero .media::before{
-      content:""; display:block; aspect-ratio:16/10;
-      background: linear-gradient(135deg, rgba(7,46,89,.08), rgba(247,148,29,.08));
-    }
-
-    .page h2{ margin-bottom:.4rem; }
-    .page .section .lede-narrow{ max-width:68ch; color:#475569; }
-
-    .page .card.hoverable{ will-change: transform, box-shadow; }
-    .page .card.hoverable:hover{ transform: translateY(-3px); }
-
-    .page .mini-list{ margin:.5rem 0 0 .95rem; color:#334155; }
-    .page .mini-list li{ margin:.25rem 0; }
-
-    .page .center-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:.6rem; }
-
-    .page .cta-strip{
-      background:#072e59; color:#fff; border-radius:16px;
-      padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
-      box-shadow:0 14px 34px rgba(2,12,32,.12);
-    }
-    .page .cta-strip .btn{ background:#f7941d; color:#0b0b0b; }
-    .page .cta-strip .btn:hover{ transform:translateY(-2px); }
-
-    .commercial-tuneup,.tile-tuneup,.shingle-tuneup{ border-top:5px solid var(--zenith-orange); }
-    .commercial-tuneup .section-kicker,.tile-tuneup .section-kicker,.shingle-tuneup .section-kicker{
-      color:#c75f00; font-size:.8rem; font-weight:900; letter-spacing:.09em;
-      margin:0 0 .35rem; text-transform:uppercase;
-    }
-    .commercial-tuneup .intro{
-      max-width:78ch;
-      margin-left:auto;
-      margin-right:auto;
-    }
-    .commercial-scope{
-      display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px;
-      margin:1.2rem 0;
-    }
-    .commercial-scope article{
-      border:1px solid #d9e3ef; border-radius:14px; background:#f8fbff; padding:16px;
-    }
-    .commercial-scope h3{ color:var(--zenith-navy); font-size:1.05rem; margin:0 0 .35rem; }
-    .commercial-scope p{ color:#475569; margin:0; }
-    .project-proof{
-      display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:1.25rem 0;
-    }
-    .project-proof figure{
-      background:#fff; border:1px solid #d9e3ef; border-radius:14px; margin:0;
-      overflow:hidden; box-shadow:0 10px 26px rgba(2,12,32,.08);
-    }
-    .project-proof img{ display:block; width:100%; aspect-ratio:4/3; object-fit:cover; }
-    .project-proof figcaption{ color:#334155; font-size:.94rem; line-height:1.45; padding:12px 14px 14px; }
-    .project-proof figcaption strong{ color:var(--zenith-navy); display:block; margin-bottom:.2rem; }
-    .decision-grid{
-      display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:1rem;
-    }
-    .decision-grid article{ border:1px solid #d9e3ef; border-radius:14px; padding:16px; }
-    .decision-grid h3{ color:var(--zenith-navy); font-size:1.05rem; margin:0 0 .35rem; }
-    .decision-grid p{ color:#475569; margin:0; }
-    .field-note{
-      background:#fff7ed; border-left:4px solid var(--zenith-orange); border-radius:10px;
-      color:#6b3b10; margin:1rem 0; padding:14px 16px;
-    }
-    @media (max-width:760px){
-      .commercial-scope,.project-proof,.decision-grid{ grid-template-columns:1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="/css/roof-tune-up-premium.css?v=1"/>
 
   <!-- JSON-LD: Service + FAQ -->
   <script type="application/ld+json">
@@ -158,13 +65,12 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="/css/landing-theme-preview.css?v=sitewide-2">
 </head>
-<body>
+<body class="roof-tune-up-page">
   <!-- Header include -->
   <div data-include="/components/header-section.html"></div>
 
-  <main id="top" class="page">
+  <main id="main-content" class="page premium-page">
     <!-- ===== HERO (split) ===== -->
     <section class="hero" aria-label="Roof Tune-Up">
       <div class="eyebrow">
@@ -226,7 +132,7 @@
           </ul>
         </div>
       </div>
-      <p class="section lede-narrow" style="margin:0;">Perfect for annual upkeep or pre-storm prep across North County San Diego, Temecula Valley, and greater San Diego County.</p>
+      <p class="lede-narrow" style="margin-top:24px;">Perfect for annual upkeep or pre-storm prep across North County San Diego, Temecula Valley, and greater San Diego County.</p>
       <div class="center-actions">
         <a class="btn btn-primary" href="#estimate">Request Free Estimate</a>
       </div>
@@ -379,7 +285,7 @@
       <h3>Inspection, Documentation &amp; the Right Next Step</h3>
       <div class="decision-grid">
         <article><h3>Isolated maintenance</h3><p>Best for a small, clearly defined condition on an otherwise serviceable roof with repairable surrounding shingles.</p></article>
-        <article><h3>Wind-damage evaluation</h3><p>We can document visible roof conditions and explain the roofing scope. Homeowners remain responsible for claim decisions and should contact their insurer for coverage questions.</p></article>
+        <article><h3>Wind-damage evaluation</h3><p>We can document visible roof conditions and explain the roofing scope. Property owners remain responsible for claim decisions and should contact their insurer for coverage questions.</p></article>
         <article><h3>Replacement evaluation</h3><p>Recommended when damage is widespread, shingles are too brittle or bonded to repair, matching products are unavailable, or the remaining roof life is limited.</p></article>
       </div>
       <p class="intro" style="margin-top:1rem;">Some shingle evaluations are requested for real-estate transactions or insurance matters. Those inspections and reports are separate from a standard free replacement estimate; see our <a href="/services/real-estate/">Real Estate Roofing Services</a> for transaction-specific work.</p>
