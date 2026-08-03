@@ -2,5 +2,30 @@
 /financing   /financing/index.html  200
 /roof-replacement/  /roof-replacement.html  200
 /roof-replacement   /roof-replacement.html  200
+
+# Retired resource URLs: preserve old links and send visitors to the closest live guidance.
+/blog/bryan-escondido-story.html  /about/  301
+/blog/cdx-vs-osb.html  /services/roof-replacement/  301
+/blog/insurance-claims-san-diego-wind.html  /services/insurance-claims/storm-damage/  301
+/blog/peel-and-stick-vs-felt.html  /services/residential/tile-lift-lay/  301
+/blog/ponding-water-crickets-diverters.html  /services/roof-repairs/flat-roof-repair/  301
+/blog/repair-stories-skip-sheathing.html  /projects/  301
+/blog/repair-vs-replace-30-years.html  /services/roof-repairs/  301
+/blog/solar-racking-stanchions.html  /services/residential/tile-roof/  301
+/blog/termites-from-leaks.html  /services/roof-repairs/  301
+/blog/tpo-vs-torch.html  /services/roof-replacement/flat-roof/  301
+/blog/why-professional-roof-report.html  /services/real-estate/roof-reports/  301
+/blog/why-warranty-matters.html  /services/roof-replacement/  301
+/blog/wood-shakes-under-shingles.html  /services/roof-repairs/shingles-roof-repair/  301
+
+# Legacy service and project aliases referenced by existing pages and search results.
+/projects/escondido-commercial-dibiten-flat-roof/  /projects/  301
+/services/insurance/storm-damage-inspection/  /services/insurance-claims/storm-damage/  301
+/services/roof-inspection/certified-roof-reports/  /services/real-estate/roof-reports/  301
+/services/roof-repairs/roof-leak-repair/  /services/residential/leak-repair-troubleshooting/  301
+/services/roof-repairs/shingle-roof-repair/  /services/roof-repairs/shingles-roof-repair/  301
+/services/roof-replacement/shingle-roof-replacement/  /services/residential/asphalt-shingles/  301
+/services/roof-replacement/tile-roof-replacement/  /services/residential/tile-roof/  301
+
 /services/*/  /services/:splat/index.html 200
 /services/*   /services/:splat/index.html 200
