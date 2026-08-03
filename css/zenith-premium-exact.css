@@ -1401,6 +1401,7 @@ textarea:focus-visible {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
+  object-position: center 56%;
   border: 1px solid rgba(255, 255, 255, 0.38);
   border-radius: 28px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.38);
