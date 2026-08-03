@@ -352,6 +352,10 @@
   margin-top: 30px;
 }
 
+.authority-team__roles--single {
+  grid-template-columns: minmax(0, 520px);
+}
+
 .authority-team__role {
   padding: 23px;
   background: var(--mist);
