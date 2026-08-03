@@ -90,3 +90,18 @@
 .torch-final p { margin: 10px 0 0; color: rgba(255,255,255,.75); font-size: .9rem; }
 @media (max-width: 960px) { .torch-hero__grid, .torch-heading-row, .torch-details-grid, .torch-faq { grid-template-columns: 1fr; } .torch-hero__photo { justify-self: start; max-width: 480px; } .torch-assessment-grid { grid-template-columns: 1fr; } .torch-steps { grid-template-columns: 1fr; gap: 5px; } .torch-steps li, .torch-steps li + li { display: grid; grid-template-columns: 42px 1fr; column-gap: 10px; padding: 16px 0; border-left: 0; border-bottom: 1px solid rgba(6,41,75,.13); } .torch-steps li::before { grid-row: span 2; margin: 0; } .torch-steps span { margin-top: 7px; } .torch-final__inner { display: block; } .torch-final .torch-button { margin-top: 24px; } .torch-gallery { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 @media (max-width: 620px) { .torch-shell { width: min(100% - 32px, 1180px); } .torch-hero { min-height: 0; padding-top: 76px; } .torch-hero h1 { font-size: clamp(2.7rem, 13vw, 3.55rem); } .torch-actions, .torch-actions .torch-button { width: 100%; } .torch-system-grid, .torch-gallery, .torch-project-links { grid-template-columns: 1fr; } .torch-hero__photo { max-width: none; margin-top: 8px; } .torch-hero__photo img { height: 260px; } .torch-heading-row h2, .torch-section > .torch-shell > h2, .torch-faq h2 { font-size: clamp(2.2rem, 11vw, 3rem); } .torch-nav-wrap { top: 76px; width: calc(100% - 20px); } .torch-nav { gap: 7px; } .torch-nav a { font-size: .65rem; } }
+
+/* Full-bleed commercial page frame */
+body.torch-page {
+  margin: 0 !important;
+  padding-inline: 0 !important;
+  max-width: none !important;
+  overflow-x: hidden;
+  background: #fff;
+}
+.torch-page .site-shell,
+.torch-page .torch-main {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+}

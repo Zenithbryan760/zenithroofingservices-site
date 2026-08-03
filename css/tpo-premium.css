@@ -386,3 +386,18 @@
   .tpo-check-grid article, .tpo-detail-cards article, .tpo-process-grid li { transition: none; }
   .tpo-check-grid article:hover, .tpo-detail-cards article:hover, .tpo-process-grid li:hover { transform: none; }
 }
+
+/* Full-bleed commercial page frame */
+body.tpo-site-page {
+  margin: 0 !important;
+  padding-inline: 0 !important;
+  max-width: none !important;
+  overflow-x: hidden;
+  background: var(--mist);
+}
+.tpo-site-page .site-shell,
+.tpo-site-page .tpo-page {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+}
