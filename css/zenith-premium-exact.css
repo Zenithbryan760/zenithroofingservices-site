@@ -4039,3 +4039,41 @@ textarea:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* Services mega-menu taxonomy */
+.nav-menu-group {
+  display: block;
+  margin: 10px 0 1px;
+  color: var(--ink-500);
+  font-size: 0.61rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.nav-mega__panel > .nav-mega__feature .nav-menu-group {
+  color: rgba(255, 255, 255, 0.56);
+}
+
+.mobile-drawer__label {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .mobile-drawer__label {
+    display: block;
+    margin: 19px 0 5px;
+    color: var(--orange-600);
+    font-size: 0.62rem;
+    font-weight: 900;
+    letter-spacing: 0.11em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .mobile-drawer__sub .mobile-drawer__label:first-of-type {
+    margin-top: 6px;
+  }
+}
