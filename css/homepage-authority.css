@@ -557,38 +557,27 @@
   max-height: 64px;
 }
 
-/* Keep the homepage estimate-fee distinction easy to read without changing form behavior. */
-.estimate-form__fee-notice {
-  grid-template-columns: 38px minmax(0, 1fr);
-  gap: 13px;
-  margin: 2px 0 20px;
-  padding: 15px 16px;
-  border-radius: 15px;
-  box-shadow:
-    inset 4px 0 0 var(--orange-500),
-    0 10px 24px rgba(3, 26, 48, 0.06);
+/* Make the form purpose the dominant heading without changing form behavior. */
+.estimate-form__heading .eyebrow {
+  margin-bottom: 11px;
+  font-size: clamp(1.55rem, 1.7vw, 1.72rem);
+  font-weight: 900;
+  letter-spacing: 0.025em;
+  line-height: 1.08;
 }
 
-.estimate-form__fee-icon {
-  width: 38px;
-  height: 38px;
-  font-size: 0.86rem;
+.estimate-form__heading .eyebrow::before {
+  width: 34px;
+  height: 3px;
 }
 
-.estimate-form__fee-notice p {
-  font-size: 0.84rem;
-  line-height: 1.52;
+.estimate-form__heading h2 {
+  font-size: 1.35rem;
+  letter-spacing: -0.025em;
 }
 
-.estimate-form__fee-notice strong {
-  margin-bottom: 3px;
-  font-size: 0.96rem;
-  line-height: 1.35;
-}
-
-.estimate-form__fee-notice a {
-  margin-top: 2px;
-  font-size: 0.84rem;
+.estimate-form__heading p {
+  font-size: 0.82rem;
 }
 
 @media (max-width: 1080px) {
@@ -650,26 +639,18 @@
 }
 
 @media (max-width: 620px) {
-  .estimate-form__fee-notice {
-    grid-template-columns: 34px minmax(0, 1fr);
-    gap: 11px;
-    margin-bottom: 17px;
-    padding: 13px 14px;
+  .estimate-form__heading .eyebrow {
+    gap: 8px;
+    font-size: 1.25rem;
+    letter-spacing: 0.02em;
   }
 
-  .estimate-form__fee-icon {
-    width: 34px;
-    height: 34px;
-    font-size: 0.78rem;
+  .estimate-form__heading .eyebrow::before {
+    width: 23px;
   }
 
-  .estimate-form__fee-notice p,
-  .estimate-form__fee-notice a {
-    font-size: 0.8rem;
-  }
-
-  .estimate-form__fee-notice strong {
-    font-size: 0.9rem;
+  .estimate-form__heading h2 {
+    font-size: 1.18rem;
   }
 
   .manufacturer-card__brand {
