@@ -4077,36 +4077,3 @@ textarea:focus-visible {
     margin-top: 6px;
   }
 }
-
-
-/* Compact flat-roof systems summary in the Services mega-menu */
-.nav-system-summary > span {
-  display: grid;
-  gap: 3px;
-}
-
-.nav-system-summary small {
-  color: var(--ink-500);
-  font-size: 0.59rem;
-  font-weight: 700;
-  line-height: 1.35;
-}
-
-.nav-system-summary b {
-  color: var(--navy-800);
-  font-size: 0.92rem;
-  font-weight: 800;
-}
-
-.mobile-drawer__system {
-  grid-column: 1 / -1;
-}
-
-.mobile-drawer__system small {
-  display: block;
-  margin-top: 4px;
-  color: var(--ink-500);
-  font-size: 0.61rem;
-  font-weight: 700;
-  line-height: 1.35;
-}
