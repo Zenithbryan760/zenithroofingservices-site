@@ -79,7 +79,7 @@
           {
             "@type":"Question",
             "name":"Can I estimate roofing payments for projects from $500 to $25,000?",
-            "acceptedAnswer":{"@type":"Answer","text":"Yes. Zenith Roofing Services provides an illustrative payment calculator for project amounts from $500 through $25,000. Calculator results are estimates only and do not represent approval, eligibility or a guaranteed loan offer."}
+            "acceptedAnswer":{"@type":"Answer","text":"Yes. Zenith Roofing Services provides an illustrative payment calculator for any whole-dollar project amount from $500 through $25,000. Calculator results are estimates only and do not represent approval, eligibility or a guaranteed loan offer."}
           },
           {
             "@type":"Question",
@@ -169,7 +169,7 @@
         <div class="calc-copy">
           <span class="eyebrow">Planning tool</span>
           <h2>Estimate roofing payments from $500 to $25,000.</h2>
-          <p class="lead">Choose a roofing project amount to see illustrative monthly-payment examples. This calculator helps property owners in San Diego County, North County, Temecula, Murrieta, Wildomar and nearby communities plan before requesting an estimate or checking eligibility.</p>
+          <p class="lead">Enter any whole-dollar roofing project amount to see illustrative monthly-payment examples. This calculator helps property owners in San Diego County, North County, Temecula, Murrieta, Wildomar and nearby communities plan before requesting an estimate or checking eligibility.</p>
           <p>The APRs and terms shown are examples based on the options currently displayed in Zenith Roofing’s Wisetack merchant calculator. They are not a loan offer, approval or guarantee. Your actual options depend on credit approval, the requested amount and participating lending partners.</p>
           <a class="button button--navy wisetack-link" href="https://wisetack.us/#/s7e1fo0/prequalify" target="_blank" rel="noopener sponsored">Check Actual Eligibility <span aria-hidden="true">→</span></a>
         </div>
@@ -180,8 +180,8 @@
           </div>
           <label for="project-amount">Estimated roofing project amount</label>
           <div class="amount-row">
-            <input id="project-amount-range" type="range" min="500" max="25000" step="500" value="10000" aria-label="Estimated roofing project amount">
-            <span class="amount-input"><b>$</b><input id="project-amount" type="number" min="500" max="25000" step="500" value="10000" inputmode="numeric" aria-label="Roofing project amount in dollars"></span>
+            <input id="project-amount-range" type="range" min="500" max="25000" step="1" value="10000" aria-label="Estimated roofing project amount">
+            <span class="amount-input"><b>$</b><input id="project-amount" type="number" min="500" max="25000" step="1" value="10000" inputmode="numeric" aria-label="Roofing project amount in dollars"></span>
           </div>
           <div class="range-labels"><span>$500</span><span>$25,000</span></div>
           <div class="calc-highlight" id="calc-highlight" aria-live="polite"></div>
@@ -297,7 +297,7 @@
         <div class="faq">
           <details><summary>Does Zenith Roofing offer 0% APR financing for 3 months?<span aria-hidden="true">+</span></summary><p>A 3-month 0% APR option may be available to qualifying customers through Wisetack lending partners. Financing is subject to credit approval, and your available terms depend on the requested amount and creditworthiness.</p></details>
           <details><summary>Does checking eligibility affect my credit score?<span aria-hidden="true">+</span></summary><p>No. Wisetack states that checking available financing options uses a soft credit inquiry and does not affect your credit score. If you accept an offer, additional credit review may apply.</p></details>
-          <details><summary>Can I estimate payments for projects from $500 to $25,000?<span aria-hidden="true">+</span></summary><p>Yes. Zenith’s planning calculator accepts amounts from $500 through $25,000 and displays illustrative payment examples. It does not determine eligibility or guarantee that a particular amount, APR or term will be offered.</p></details>
+          <details><summary>Can I estimate payments for projects from $500 to $25,000?<span aria-hidden="true">+</span></summary><p>Yes. Zenith’s planning calculator accepts any whole-dollar amount from $500 through $25,000 and displays illustrative payment examples. It does not determine eligibility or guarantee that a particular amount, APR or term will be offered.</p></details>
           <details><summary>Can I finance a new roof?<span aria-hidden="true">+</span></summary><p>Eligible customers may receive options for qualifying roof replacements and other roofing projects. Available amounts, APRs and terms depend on creditworthiness, the requested amount and participating lending partners.</p></details>
           <details><summary>Does Zenith offer roofing payment plans directly?<span aria-hidden="true">+</span></summary><p>Financing options are provided through Wisetack lending partners, not directly by Zenith Roofing Services. Zenith provides the roofing estimate, contract and installation scope.</p></details>
           <details><summary>Can I check financing before receiving an estimate?<span aria-hidden="true">+</span></summary><p>You may check eligibility first, but a prequalification is not a final project price. Zenith must inspect or evaluate the roof and prepare the applicable roofing proposal.</p></details>
@@ -345,7 +345,7 @@
       return principal*rate*Math.pow(1+rate,months)/(Math.pow(1+rate,months)-1);
     }
     function renderCalculator(raw){
-      const amount=Math.min(25000,Math.max(500,Math.round(Number(raw||500)/500)*500));
+      const amount=Math.min(25000,Math.max(500,Math.round(Number(raw||500))));
       const numberInput=document.getElementById('project-amount');
       const rangeInput=document.getElementById('project-amount-range');
       if(!numberInput||!rangeInput)return;
