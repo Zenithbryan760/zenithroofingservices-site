@@ -1942,14 +1942,14 @@ textarea:focus-visible {
 
 .areas-card > div span {
   margin-top: 4px;
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(255, 255, 255, 0.82);
   font-size: 0.75rem;
 }
 
-.areas-card p {
+.areas-layout > .areas-card > p {
   margin: 23px 0;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.79rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.82rem;
   line-height: 1.7;
 }
 
