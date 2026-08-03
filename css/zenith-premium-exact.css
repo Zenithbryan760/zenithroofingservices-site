@@ -387,8 +387,8 @@ textarea:focus-visible {
   top: calc(100% + 10px);
   left: 50%;
   display: grid;
-  width: min(920px, calc(100vw - 60px));
-  grid-template-columns: 1fr 1fr 1.15fr;
+  width: min(1180px, calc(100vw - 60px));
+  grid-template-columns: 0.95fr 0.9fr 1fr 1.12fr;
   gap: 0;
   overflow: hidden;
   visibility: hidden;
@@ -504,6 +504,17 @@ textarea:focus-visible {
 
 .nav-mega__feature .text-link {
   color: #ffae4d;
+}
+
+.mobile-drawer__section {
+  display: block;
+  margin: 17px 0 4px;
+  color: var(--orange-600);
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.11em;
+  line-height: 1.25;
+  text-transform: uppercase;
 }
 
 .header-actions {
