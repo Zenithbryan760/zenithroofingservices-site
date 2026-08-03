@@ -506,6 +506,57 @@
   text-underline-offset: 3px;
 }
 
+.manufacturer-card__brand {
+  position: relative;
+  display: flex;
+  min-height: 92px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: -4px 0 25px;
+  padding: 15px 19px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 17px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 12px 30px rgba(0, 0, 0, 0.13);
+  -webkit-backdrop-filter: blur(14px) saturate(115%);
+  backdrop-filter: blur(14px) saturate(115%);
+}
+
+.manufacturer-card__brand::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(118deg, rgba(255, 255, 255, 0.1), transparent 30%, transparent 72%, rgba(255, 255, 255, 0.04));
+  pointer-events: none;
+}
+
+.manufacturer-card__brand img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 62px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.2));
+}
+
+.manufacturer-card__brand--owens img {
+  max-height: 48px;
+}
+
+.manufacturer-card__brand--malarkey img {
+  max-height: 55px;
+}
+
+.manufacturer-card__brand--weatherbond img {
+  max-height: 64px;
+}
+
 @media (max-width: 1080px) {
   .decision-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -565,6 +616,25 @@
 }
 
 @media (max-width: 620px) {
+  .manufacturer-card__brand {
+    min-height: 78px;
+    margin-bottom: 22px;
+    padding: 13px 15px;
+    border-radius: 15px;
+  }
+
+  .manufacturer-card__brand--owens img {
+    max-height: 42px;
+  }
+
+  .manufacturer-card__brand--malarkey img {
+    max-height: 47px;
+  }
+
+  .manufacturer-card__brand--weatherbond img {
+    max-height: 56px;
+  }
+
   .authority-heading h2,
   .authority-written h2,
   .authority-team h2,
