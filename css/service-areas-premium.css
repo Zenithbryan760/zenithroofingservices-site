@@ -66,6 +66,149 @@
   list-style: none;
 }
 
+.service-areas-page .service-area-search {
+  position: relative;
+  margin: -10px 0 34px;
+  padding: clamp(22px, 3vw, 31px);
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, .9), rgba(255, 255, 255, .58)),
+    rgba(225, 237, 246, .35);
+  border: 1px solid rgba(255, 255, 255, .96);
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(3, 26, 48, .12), inset 0 1px 0 #fff;
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  backdrop-filter: blur(22px) saturate(150%);
+}
+
+.service-areas-page .service-area-search::after {
+  position: absolute;
+  top: -70%;
+  left: -8%;
+  width: 54%;
+  height: 120%;
+  background: linear-gradient(112deg, rgba(255, 255, 255, .88), transparent 72%);
+  border-radius: 50%;
+  content: '';
+  filter: blur(16px);
+  opacity: .7;
+  pointer-events: none;
+  transform: rotate(-8deg);
+}
+
+.service-areas-page .service-area-search > label {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-bottom: 11px;
+  color: var(--navy-950);
+  font-size: .71rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.service-areas-page .service-area-search__control {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  align-items: center;
+  min-height: 68px;
+  padding: 6px 8px 6px 20px;
+  background: rgba(255, 255, 255, .92);
+  border: 1px solid rgba(6, 41, 75, .15);
+  border-radius: 17px;
+  box-shadow: 0 12px 30px rgba(3, 26, 48, .07), inset 0 1px 0 #fff;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.service-areas-page .service-area-search__control:focus-within {
+  border-color: var(--orange-500);
+  box-shadow: 0 0 0 4px rgba(255, 130, 0, .13), 0 16px 35px rgba(3, 26, 48, .1);
+}
+
+.service-areas-page .service-area-search__control > span {
+  color: var(--orange-600);
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.service-areas-page .service-area-search input {
+  min-width: 0;
+  min-height: 54px;
+  padding: 10px 12px;
+  color: var(--navy-950);
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font-family: inherit;
+  font-size: clamp(1rem, 1.5vw, 1.17rem);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.service-areas-page .service-area-search input::placeholder {
+  color: #7a8796;
+  opacity: 1;
+}
+
+.service-areas-page .service-area-search button {
+  min-height: 46px;
+  padding: 9px 17px;
+  color: var(--navy-900);
+  background: var(--mist);
+  border: 1px solid rgba(6, 41, 75, .12);
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: .72rem;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.service-areas-page .service-area-search button:hover {
+  color: #fff;
+  background: var(--navy-900);
+}
+
+.service-areas-page .service-area-search > p {
+  position: relative;
+  z-index: 1;
+  margin: 12px 2px 0;
+  color: var(--ink-500);
+  font-size: .72rem;
+  line-height: 1.5;
+}
+
+.service-areas-page .service-area-empty {
+  margin-top: 18px;
+  padding: clamp(28px, 5vw, 48px);
+  color: var(--navy-950);
+  background: #fff;
+  border: 1px solid rgba(6, 41, 75, .1);
+  border-radius: 22px;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.service-areas-page .service-area-empty strong {
+  display: block;
+  font-size: clamp(1.35rem, 2.6vw, 2rem);
+  letter-spacing: -.03em;
+}
+
+.service-areas-page .service-area-empty p {
+  max-width: 620px;
+  margin: 12px auto 22px;
+  color: var(--ink-500);
+  line-height: 1.7;
+}
+
+.service-areas-page [hidden] {
+  display: none !important;
+}
+
 .service-areas-page .service-area-featured {
   display: grid;
   grid-template-columns: minmax(0, .9fr) minmax(390px, 1.1fr);
@@ -286,6 +429,30 @@
   .service-areas-page .service-area-grid {
     grid-template-columns: 1fr;
     gap: 10px;
+  }
+
+  .service-areas-page .service-area-search {
+    margin-bottom: 25px;
+    padding: 20px 16px;
+    border-radius: 20px;
+  }
+
+  .service-areas-page .service-area-search__control {
+    grid-template-columns: 24px minmax(0, 1fr);
+    min-height: 62px;
+    padding-left: 14px;
+  }
+
+  .service-areas-page .service-area-search input {
+    min-height: 50px;
+    padding-right: 5px;
+    font-size: 16px;
+  }
+
+  .service-areas-page .service-area-search button {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 5px;
   }
 
   .service-areas-page .service-area-featured {
