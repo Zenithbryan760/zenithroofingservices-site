@@ -66,6 +66,77 @@
   list-style: none;
 }
 
+.service-areas-page .service-area-featured {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(390px, 1.1fr);
+  align-items: stretch;
+  gap: 0;
+  margin: 0 0 28px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(6, 41, 75, .1);
+  border-radius: 26px;
+  box-shadow: 0 25px 62px rgba(3, 26, 48, .12);
+}
+
+.service-areas-page .service-area-featured__image,
+.service-areas-page .service-area-featured__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.service-areas-page .service-area-featured__image img {
+  min-height: 390px;
+  object-fit: cover;
+}
+
+.service-areas-page .service-area-featured__copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(34px, 5vw, 68px);
+}
+
+.service-areas-page .service-area-featured__copy h3 {
+  max-width: 690px;
+  margin: 15px 0 0;
+  color: var(--navy-950);
+  font-size: clamp(2rem, 3.25vw, 3.5rem);
+  font-weight: 780;
+  letter-spacing: -.055em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.service-areas-page .service-area-featured__copy p {
+  max-width: 670px;
+  margin: 20px 0 0;
+  color: var(--ink-700);
+  font-size: .9rem;
+  line-height: 1.72;
+}
+
+.service-areas-page .service-area-featured__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+  margin-top: 27px;
+}
+
+.service-areas-page .service-area-featured__actions .button--navy {
+  color: #fff !important;
+  background: linear-gradient(135deg, var(--navy-900), var(--navy-800)) !important;
+  border-color: transparent !important;
+  box-shadow: 0 12px 26px rgba(3, 26, 48, .18) !important;
+}
+
+.service-areas-page .service-area-featured__actions .button--navy:hover {
+  color: #fff !important;
+  box-shadow: 0 18px 34px rgba(3, 26, 48, .24) !important;
+}
+
 .service-areas-page .service-area-card {
   min-width: 0;
 }
@@ -179,6 +250,15 @@
   .service-areas-page .service-area-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .service-areas-page .service-area-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .service-areas-page .service-area-featured__image img {
+    min-height: 320px;
+    aspect-ratio: 16 / 9;
+  }
 }
 
 @media (max-width: 680px) {
@@ -206,6 +286,26 @@
   .service-areas-page .service-area-grid {
     grid-template-columns: 1fr;
     gap: 10px;
+  }
+
+  .service-areas-page .service-area-featured {
+    border-radius: 20px;
+  }
+
+  .service-areas-page .service-area-featured__image img {
+    min-height: 230px;
+  }
+
+  .service-areas-page .service-area-featured__copy {
+    padding: 29px 22px 31px;
+  }
+
+  .service-areas-page .service-area-featured__actions {
+    flex-direction: column;
+  }
+
+  .service-areas-page .service-area-featured__actions .button {
+    width: 100%;
   }
 
   .service-areas-page .service-area-card a {
