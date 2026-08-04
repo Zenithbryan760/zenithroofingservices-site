@@ -10,3 +10,30 @@
 .local-cta{padding:clamp(70px,8vw,110px) 0;background:linear-gradient(135deg,var(--navy-900),#0b477a)}.local-cta__grid{display:grid;grid-template-columns:1fr auto;align-items:center;gap:45px}.local-cta h2{max-width:780px;color:#fff}.local-cta p{max-width:760px;margin:20px 0 0;color:rgba(255,255,255,.7);line-height:1.7}.local-cta__actions{display:flex;flex-direction:column;gap:11px;min-width:245px}
 @media(max-width:1000px){.local-project,.local-heading{grid-template-columns:1fr}.local-project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.local-card-grid{grid-template-columns:1fr 1fr}.local-card-grid article:last-child{grid-column:span 2}.local-service-grid{grid-template-columns:1fr 1fr}.local-cta__grid{grid-template-columns:1fr}.local-cta__actions{flex-direction:row}}
 @media(max-width:680px){.local-area-page .local-hero{min-height:570px}.local-area-page .local-hero>img{object-position:62% center}.local-actions,.local-cta__actions{flex-direction:column}.local-actions .button,.local-cta__actions .button{width:100%}.local-project-grid{grid-template-columns:1fr}.local-project-card__image img{height:210px}.local-project-card__body{padding:22px 20px 24px}.local-project-card__actions{align-items:stretch;flex-direction:column}.local-project-card__actions .button{width:100%}.local-project-card__service{display:grid;min-height:44px;place-items:center}.local-project__visual{padding:10px;border-radius:22px}.local-project__visual img{border-radius:15px}.local-card-grid,.local-service-grid{grid-template-columns:1fr}.local-card-grid article:last-child{grid-column:auto}.local-service-grid a{min-height:180px}.local-heading h2,.local-project__copy h2,.local-cta h2{font-size:clamp(2.45rem,11vw,3.35rem)}}
+
+/* Murrieta authority page: dense local proof without an oversized empty navy field. */
+.local-area-page--murrieta .local-hero{min-height:620px}
+.local-area-page--murrieta .local-hero>img{object-position:center 52%}
+.local-area-page--murrieta .local-section{padding:clamp(68px,7vw,104px) 0}
+.local-area-page--murrieta .local-heading{grid-template-columns:minmax(0,1.05fr) minmax(320px,.8fr);gap:clamp(38px,6vw,82px);margin-bottom:40px}
+.local-area-page--murrieta .local-heading h2{font-size:clamp(2.45rem,3.7vw,3.85rem);letter-spacing:-.052em;line-height:1.04}
+.local-section--project-proof{background:linear-gradient(180deg,#fff 0%,#f3f7fa 100%)}
+.local-project-list{display:grid;gap:22px}
+.local-feature-project{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(390px,.92fr);align-items:center;overflow:hidden;background:rgba(255,255,255,.92);border:1px solid rgba(6,41,75,.1);border-radius:30px;box-shadow:0 30px 76px rgba(3,26,48,.12),inset 0 1px 0 #fff}
+.local-feature-project__image{position:relative;display:block;margin:14px;overflow:hidden;border-radius:21px;box-shadow:0 22px 52px rgba(3,26,48,.17)}
+.local-feature-project__image::after{position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(3,26,48,.72));content:"";pointer-events:none}
+.local-feature-project__image img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:center 52%;transition:transform .45s var(--ease)}
+.local-feature-project:hover .local-feature-project__image img{transform:scale(1.02)}
+.local-feature-project__image span{position:absolute;right:16px;bottom:15px;z-index:1;padding:8px 11px;color:#fff;background:rgba(3,26,48,.72);border:1px solid rgba(255,255,255,.3);border-radius:999px;font-size:.6rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.local-feature-project__body{padding:clamp(34px,4.5vw,58px) clamp(28px,4vw,52px) clamp(34px,4.5vw,58px) clamp(20px,2vw,32px)}
+.local-feature-project__body h3{margin:14px 0 0;color:var(--navy-950);font-size:clamp(2rem,2.55vw,2.75rem);font-weight:780;letter-spacing:-.045em;line-height:1.06;text-wrap:balance}
+.local-feature-project__body>p{margin:20px 0 0;color:var(--ink-700);font-size:.9rem;line-height:1.75}
+.local-feature-project__checks{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;margin:25px 0 0;padding:0;list-style:none}
+.local-feature-project__checks li{position:relative;padding-left:27px;color:var(--navy-900);font-size:.72rem;font-weight:800;line-height:1.5}
+.local-feature-project__checks li::before{position:absolute;top:0;left:0;display:grid;width:19px;height:19px;place-items:center;color:#fff;background:var(--orange-500);border-radius:50%;content:"✓";font-size:.6rem}
+.local-feature-project .local-project-card__actions{margin-top:30px;padding-top:0}
+.local-feature-project .local-project-card__service{color:var(--navy-900)}
+.local-feature-project .local-project-card__service:hover{color:var(--orange-600)}
+.local-project-list>.local-feature-project:nth-child(even) .local-feature-project__image{order:2}
+@media(max-width:1000px){.local-area-page--murrieta .local-heading,.local-feature-project{grid-template-columns:1fr}.local-feature-project__image,.local-project-list>.local-feature-project:nth-child(even) .local-feature-project__image{order:0}.local-feature-project__body{padding:26px 28px 38px}.local-feature-project__image img{aspect-ratio:16/9}}
+@media(max-width:680px){.local-area-page--murrieta .local-hero{min-height:560px}.local-area-page--murrieta .local-hero>img{object-position:center}.local-area-page--murrieta .local-section{padding:62px 0}.local-area-page--murrieta .local-heading h2{font-size:clamp(2.35rem,10.5vw,3.1rem)}.local-feature-project{border-radius:23px}.local-feature-project__image{margin:9px;border-radius:16px}.local-feature-project__image span{right:10px;bottom:10px}.local-feature-project__body{padding:24px 20px 30px}.local-feature-project__body h3{font-size:clamp(1.8rem,8.5vw,2.3rem)}.local-feature-project__checks{grid-template-columns:1fr}.local-feature-project .local-project-card__actions{align-items:stretch;flex-direction:column}.local-feature-project .local-project-card__actions .button{width:100%}.local-feature-project .local-project-card__service{display:grid;min-height:44px;place-items:center}}

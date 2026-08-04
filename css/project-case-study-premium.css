@@ -1,5 +1,5 @@
 .case-study-page{overflow-x:hidden;background:#fff;color:var(--ink-950)}
-.case-study-page--murrieta .case-hero{--case-hero-image:url('/images/projects/murrieta-tile-roof-maintenance/completed-roof-overview.webp');--case-hero-position:center 48%;--case-hero-position-mobile:center center}
+.case-study-page--murrieta .case-hero{--case-hero-image:url('/images/projects/murrieta-tile-roof-maintenance/roof-overview-hero.webp');--case-hero-position:center 52%;--case-hero-position-mobile:center center}
 .case-shell{width:min(1240px,calc(100% - 40px));margin-inline:auto}
 .case-hero{position:relative;isolation:isolate;display:grid;min-height:760px;align-items:center;overflow:hidden;padding:clamp(64px,7vw,96px) 0;background:var(--navy-950)}
 .case-hero::before{position:absolute;inset:-2%;z-index:-2;background-color:var(--navy-950);background-image:var(--case-hero-image,url('/images/projects/carmel-mountain-ranch-tile-lift-lay/tiles-staged-deck-exposed.webp'));background-position:var(--case-hero-position,center 48%);background-repeat:no-repeat;background-size:cover;content:"";filter:saturate(.92);transform:scale(1.025)}
@@ -37,3 +37,21 @@
 @media(max-width:960px){.case-result__grid{grid-template-columns:1fr}.case-result__copy{max-width:720px}.case-result__photos{max-width:820px}}
 @media(max-width:780px){.case-shell{width:min(100% - 28px,1240px)}.case-hero{min-height:auto;padding:52px 0 68px}.case-hero::before{background-position:var(--case-hero-position-mobile,var(--case-hero-position,58% center))}.case-hero__grid{gap:30px}.case-hero__copy{padding:27px 22px;border-radius:23px}.case-hero h1{font-size:clamp(2.45rem,10.5vw,3.65rem)}.case-actions{flex-direction:column}.case-actions .button{width:100%}.case-hero__visual{width:100%;padding:9px;border-radius:22px}.case-hero__visual img{height:280px;border-radius:15px}.case-proof__grid{grid-template-columns:1fr 1fr}.case-proof__grid span{min-height:92px;padding:18px 14px}.case-proof__grid span:nth-child(3){border-left:0;border-top:1px solid rgba(6,41,75,.1)}.case-proof__grid span:nth-child(4){border-top:1px solid rgba(6,41,75,.1)}.case-section-nav-wrap{top:76px;width:calc(100% - 20px);margin:14px auto -42px}.case-section-nav{justify-content:flex-start}.case-section-nav a{flex:0 0 auto}.case-story__grid,.case-heading,.case-result__grid{grid-template-columns:1fr;gap:28px}.case-before-grid{grid-template-columns:1fr}.case-photo-card img,.case-before-grid>.case-photo-card:not(.case-photo-card--wide) img{min-height:330px;aspect-ratio:4/3}.case-steps{grid-template-columns:1fr}.case-steps article,.case-steps article:last-child{grid-column:auto;min-height:220px}.case-gallery{grid-template-columns:1fr}.case-gallery .case-photo-card--landscape{grid-column:auto}.case-gallery .case-photo-card img,.case-gallery .case-photo-card--landscape img{min-height:360px;aspect-ratio:4/3}.case-result__photos{grid-template-columns:1fr;padding:9px;border-radius:23px}.case-result__photos img{min-height:280px;border-radius:16px}.case-paths__grid{grid-template-columns:1fr}.case-paths__grid a{min-height:180px}}
 @media(prefers-reduced-motion:reduce){.case-paths__grid a{transition:none}}
+
+/* Murrieta project: preserve each source photo's real orientation. */
+.case-study-page--murrieta .case-hero__visual{width:min(100%,560px)}
+.case-study-page--murrieta .case-hero__visual img{height:auto;aspect-ratio:16/9;object-fit:cover;object-position:center}
+.case-study-page--murrieta .case-before-grid--murrieta{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.case-study-page--murrieta .case-before-grid--murrieta .case-photo-card--roof-wide{grid-column:1/-1}
+.case-study-page--murrieta .case-before-grid--murrieta .case-photo-card img{height:auto;min-height:0;object-fit:cover}
+.case-study-page--murrieta .case-before-grid--murrieta .case-photo-card--roof-wide img{aspect-ratio:16/9}
+.case-study-page--murrieta .case-before-grid--murrieta .case-photo-card--portrait img{aspect-ratio:3/4}
+.case-study-page--murrieta .case-steps--maintenance{grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.case-study-page--murrieta .case-steps--maintenance article{min-height:225px;padding:28px}
+.case-study-page--murrieta .case-steps--maintenance h3{margin-top:26px}
+.case-study-page--murrieta .case-gallery--portraits{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.case-study-page--murrieta .case-gallery--portraits .case-photo-card img{height:auto;min-height:0;aspect-ratio:3/4;object-fit:cover}
+.case-study-page--murrieta .case-result__photos{grid-template-columns:1fr 1fr;align-items:start}
+.case-study-page--murrieta .case-result__photos img{height:auto;min-height:0;aspect-ratio:3/4;object-fit:cover}
+@media(max-width:1100px){.case-study-page--murrieta .case-steps--maintenance{grid-template-columns:repeat(2,minmax(0,1fr))}.case-study-page--murrieta .case-steps--maintenance article:last-child{grid-column:auto}.case-study-page--murrieta .case-gallery--portraits{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:780px){.case-study-page--murrieta .case-before-grid--murrieta,.case-study-page--murrieta .case-steps--maintenance,.case-study-page--murrieta .case-gallery--portraits{grid-template-columns:1fr}.case-study-page--murrieta .case-before-grid--murrieta .case-photo-card--roof-wide{grid-column:auto}.case-study-page--murrieta .case-steps--maintenance article{min-height:auto}.case-study-page--murrieta .case-result__photos{grid-template-columns:1fr 1fr}.case-study-page--murrieta .case-result__photos img{border-radius:14px}}
