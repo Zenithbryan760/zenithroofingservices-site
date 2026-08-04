@@ -557,6 +557,51 @@
   max-height: 64px;
 }
 
+/* Give the form a calm premium hierarchy without changing form behavior. */
+.estimate-form__heading .eyebrow {
+  gap: 7px;
+  margin-bottom: 13px;
+  padding: 7px 11px;
+  color: var(--orange-600);
+  background: linear-gradient(135deg, rgba(255, 130, 0, 0.11), rgba(255, 255, 255, 0.58));
+  border: 1px solid rgba(255, 130, 0, 0.22);
+  border-radius: 999px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.78),
+    0 8px 20px rgba(237, 106, 0, 0.08);
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  line-height: 1;
+}
+
+.estimate-form__heading .eyebrow::before {
+  width: 15px;
+  height: 2px;
+}
+
+.estimate-form__heading h2 {
+  margin: 0;
+  color: var(--navy-950);
+  font-size: clamp(1.9rem, 2.25vw, 2.2rem);
+  font-weight: 850;
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+.estimate-form__heading p {
+  margin-top: 11px;
+  color: var(--ink-500);
+  font-size: 0.84rem;
+  line-height: 1.52;
+}
+
+.estimate-form__heading p strong {
+  color: var(--navy-900);
+  font-weight: 800;
+}
+
 @media (max-width: 1080px) {
   .decision-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -616,6 +661,26 @@
 }
 
 @media (max-width: 620px) {
+  .estimate-form__heading .eyebrow {
+    gap: 6px;
+    margin-bottom: 11px;
+    padding: 6px 10px;
+    font-size: 0.61rem;
+    letter-spacing: 0.14em;
+  }
+
+  .estimate-form__heading .eyebrow::before {
+    width: 12px;
+  }
+
+  .estimate-form__heading h2 {
+    font-size: clamp(1.72rem, 8vw, 2rem);
+  }
+
+  .estimate-form__heading p {
+    font-size: 0.79rem;
+  }
+
   .manufacturer-card__brand {
     min-height: 78px;
     margin-bottom: 22px;
