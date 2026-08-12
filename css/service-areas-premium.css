@@ -2,6 +2,13 @@
 
 .service-areas-page {
   overflow: hidden;
+  background: #fff;
+}
+
+html:has(.service-areas-page),
+body:has(.service-areas-page) {
+  margin: 0 !important;
+  background: #fff !important;
 }
 
 /* Detailed location cards generated from the location authority data.
@@ -622,7 +629,6 @@
     font-size: .94rem;
   }
 }
-
 
 /* Premium Service Areas lead form */
 .service-areas-page .service-area-estimate{padding:0 0 126px;background:var(--mist)}
