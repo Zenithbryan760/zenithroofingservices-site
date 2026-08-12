@@ -50,7 +50,7 @@ for (const area of areas) {
 }
 
 const serviceCount = serviceGroups.flatMap((group) => group.services).length;
-if (serviceCount !== 49) fail('data/service-area-services.json', `expected 49 services, found ${serviceCount}`);
+if (serviceCount !== 52) fail('data/service-area-services.json', `expected 52 services, found ${serviceCount}`);
 for (const service of serviceGroups.flatMap((group) => group.services)) {
   const target = path.join(root, service.href.replace(/^\//, ''), 'index.html');
   if (!fs.existsSync(target)) fail('data/service-area-services.json', `service URL does not resolve: ${service.href}`);

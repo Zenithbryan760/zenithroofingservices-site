@@ -63,15 +63,15 @@ const projectBySlug = {
 
 const systemGuides = [
   {
-    name: 'Tile Lift & Reset', href: '/services/residential/tile-lift-lay/', label: 'Reusable clay or concrete tile', image: '/images/finished-tile-lift-relay.webp', alt: 'Completed tile roof after serviceable tile was lifted and reset',
+    name: 'Tile Lift & Lay', href: '/services/residential/tile-lift-lay/', label: 'Reusable clay or concrete tile', image: '/images/finished-tile-lift-relay.webp', alt: 'Completed tile roof after serviceable tile was lifted and reset',
     lead: 'Keep serviceable tile while rebuilding the roof system beneath it.',
-    explanation: 'A lift and reset, also called lift and relay or lift and lay, carefully removes and stages reusable tile so the existing underlayment can be removed and the deck can be inspected. Documented wood repairs, new underlayment, flashing, metal and drainage details are completed before suitable tile is returned to the roof.',
+    explanation: 'A lift and reset—also called lift and relay or lift and lay—carefully removes and stages reusable tile so the existing underlayment can be removed and the deck can be inspected. Documented wood repairs, new underlayment, flashing, metal and drainage details are completed before suitable tile is returned to the roof.',
     decision: 'This can be a responsible path when the visible tile retains value but the waterproofing below has aged beyond isolated repairs. The work boundary should follow complete slopes, valleys and transitions rather than stop at an unreliable tie-in.',
     points: ['Deck inspection and documented wood repair', 'Underlayment and critical-area protection', 'Valley, chimney, skylight and penetration flashing', 'Serviceable existing tile reset and blended']
   },
   {
     name: 'Asphalt Shingle Roofing', href: '/services/residential/asphalt-shingles/', label: 'Pitched residential systems', image: '/images/owens-corning/completed-owens-corning-shingle-roof.webp', alt: 'Completed architectural asphalt shingle roof installed by Zenith',
-    lead: 'A complete shingle system starts with the deck, pitch and ventilation, not the color sample.',
+    lead: 'A complete shingle system starts with the deck, pitch and ventilation—not the color sample.',
     explanation: 'Zenith evaluates the attic and substrate before defining a shingle assembly. Plywood, OSB, solid planks, tongue-and-groove boards, skip sheathing and former wood-shake decks can require different tear-off, nailing-surface and ventilation work. Underlayment is selected by slope; asphalt shingles are not Zenith’s solution below a 2:12 pitch.',
     decision: 'A complete system coordinates corrected decking, slope-appropriate dry-in, drip edge, starter, field shingles, hip and ridge pieces, penetrations, wall and chimney flashings, and balanced intake and exhaust. Progress photography and a final magnetic sweep support a clear closeout.',
     points: ['Deck-first inspection and wood allowances', 'Slope-specific synthetic or self-adhered dry-in', 'Integrated metal, flashing and ventilation', 'Compatible starter, field and ridge components']
@@ -93,7 +93,7 @@ const systemGuides = [
   {
     name: 'Torch-Down Modified Bitumen', href: '/services/commercial/torch-down/', label: 'Layered low-slope membrane', image: '/images/torch-down/modified-bitumen-roof-complete.jpg', alt: 'Completed modified bitumen low-slope roof installed by Zenith',
     lead: 'A durable modified-bitumen system when the roof and safe application conditions fit.',
-    explanation: 'Torch-down uses modified-bitumen membrane courses fused as part of a compatible low-slope assembly. The system still begins with tear-off or approved preparation, deck review, base or interply requirements, primed metal, drains, edges, walls and penetration details, not simply heating a cap sheet over existing problems.',
+    explanation: 'Torch-down uses modified-bitumen membrane courses fused as part of a compatible low-slope assembly. The system still begins with tear-off or approved preparation, deck review, base or interply requirements, primed metal, drains, edges, walls and penetration details—not simply heating a cap sheet over existing problems.',
     decision: 'Building use, combustible conditions, clearances, trees, access, existing counterflashing and hot-work controls influence whether torch application is appropriate. Where the conditions do not support it, self-adhered modified bitumen or another compatible system may be the more responsible recommendation.',
     points: ['Prepared and inspected substrate', 'Layered modified-bitumen assembly', 'Primed metal and integrated flashings', 'Site-specific hot-work controls']
   },
@@ -232,14 +232,14 @@ function projectSection(area) {
       <div class="shell local-proof-slot" data-case-study-slot="${html(area.slug)}">
         <div class="local-proof-slot__copy">
           <span class="eyebrow eyebrow--light">Local project library</span>
-          <h2 id="project-slot-heading">Local proof stays local and verified.</h2>
+          <h2 id="project-slot-heading">Local proof stays local—and verified.</h2>
           <p>Zenith will add a ${html(area.name)} case study here after the project photographs and completed scope are published. Until then, start with the full tile, shingle and low-slope system guides instead of seeing another city’s project presented as local proof.</p>
-          <div class="local-proof-slot__actions"><a class="button button--orange" href="/services/residential/tile-lift-lay/">Tile Lift &amp; Reset</a><a class="button button--glass" href="/services/residential/asphalt-shingles/">Asphalt Shingles</a></div>
+          <div class="local-proof-slot__actions"><a class="button button--orange" href="/services/residential/tile-lift-lay/">Tile Lift &amp; Lay</a><a class="button button--glass" href="/services/residential/asphalt-shingles/">Asphalt Shingles</a></div>
           <div class="local-proof-slot__service-links"><a href="/services/commercial/tpo/">TPO roofing</a><a href="/services/commercial/pvc/">PVC roofing</a><a href="/services/commercial/self-adhered/">Self-adhered modified bitumen</a><a href="/services/commercial/torch-down/">Torch-down</a></div>
         </div>
         <figure class="local-proof-slot__visual">
           <img src="/images/tile-underlayment-install.webp" alt="Zenith roofing underlayment installation documented during a project" width="1200" height="800" loading="lazy">
-          <figcaption>Representative Zenith process photography, not presented as a ${html(area.name)} project.</figcaption>
+          <figcaption>Representative Zenith process photography—not presented as a ${html(area.name)} project.</figcaption>
         </figure>
       </div>
     </section>`;
@@ -303,14 +303,10 @@ function areaPage(area) {
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" as="image" href="${hero.image}">
   <link rel="stylesheet" href="/css/zenith-premium-exact.css?v=exact-premium-3">
-  <link rel="stylesheet" href="/css/estimate-form.css">
-  <link rel="stylesheet" href="/css/service-area-authority.css?v=6">
+  <link rel="stylesheet" href="/css/service-area-authority.css?v=5">
   <script type="application/ld+json">${schemaFor(area, faqs)}</script>
   <script defer src="/js/loader.js"></script>
   <script defer src="/js/header.js"></script>
-  <script>window.ESTIMATE_FORM_CONFIG={submitText:"Request a Free Estimate",referralPreselect:"Website",descriptionPlaceholder:"Tell us what is happening with the roof and attach photos if available.",hiddenFields:{campaign:"service-areas/${area.slug}",page_tag:"service-area-${area.slug}"}};</script>
-  <script defer src="/js/estimate-form.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </head>
 <body class="local-area-page">
   <div data-include="/components/header-section.html"></div>
@@ -322,7 +318,7 @@ function areaPage(area) {
         <span class="eyebrow eyebrow--light">${html(titleCaseKind(area.kind))} · ${html(area.county)}</span>
         <h1>${html(area.name)} roofing, explained from repair through replacement.</h1>
         <p>One premium local guide to roof repair, tile and shingle systems, TPO, PVC, torch-down, self-adhered modified bitumen, coatings, maintenance and property-focused roof services in ${html(area.name)}.</p>
-        <div class="interior-hero__actions"><a class="button button--orange" href="#estimate">Request a Free Estimate <span aria-hidden="true">→</span></a>${projectAction}</div>
+        <div class="interior-hero__actions"><a class="button button--orange" href="/contact/">Request a Free Estimate <span aria-hidden="true">→</span></a>${projectAction}</div>
       </div>
     </section>
 
@@ -340,7 +336,7 @@ function areaPage(area) {
     <section class="local-section local-section--mist" id="local-guidance">
       <div class="shell">
         <div class="local-heading">
-          <div><span class="eyebrow">Roofing decisions for ${html(area.name)}</span><h2>Start with the assembly, not a one-size-fits-all answer.</h2></div>
+          <div><span class="eyebrow">Roofing decisions for ${html(area.name)}</span><h2>Start with the assembly—not a one-size-fits-all answer.</h2></div>
           <p>${html(area.name)} includes ${html(area.setting)}. Local roofs commonly include ${html(area.roofMix)}, so the correct scope begins with identifying the installed system and the actual water path.</p>
         </div>
         <div class="local-card-grid">
@@ -389,8 +385,7 @@ function areaPage(area) {
       <div class="shell local-faq"><span class="eyebrow">${html(area.name)} roofing questions</span><h2>Frequently asked questions.</h2>${faqs.map(({ q, a }) => `<details><summary>${html(q)}</summary><p>${html(a)}</p></details>`).join('')}</div>
     </section>
 
-    <section class="local-area-estimate" id="estimate" aria-labelledby="estimate-title"><div class="shell local-area-estimate__grid"><div class="local-area-estimate__copy"><span class="eyebrow eyebrow--light">Request an estimate</span><h2 id="estimate-title">Tell us about your ${html(area.name)} roof.</h2><p>Tell us where the property is, what you are seeing, and attach photos if you have them. This request is recorded from the ${html(area.name)} local guide.</p><a class="button button--glass" href="tel:8589006163">Call 858&#8209;900&#8209;6163</a></div><div class="local-area-estimate__form"><div class="estimate-form-block" data-include="/components/estimate-form.html"></div></div></div></section>
-    <section class="local-cta"><div class="shell local-cta__grid"><div><span class="eyebrow eyebrow--light">Clear next steps</span><h2>Tell us what is happening with your ${html(area.name)} roof.</h2><p>Zenith will evaluate the condition and explain whether repair, maintenance, restoration, lift and reset, or replacement is the responsible direction.</p></div><div class="local-cta__actions"><a class="button button--orange" href="#estimate">Request a Free Estimate</a><a class="button button--glass" href="tel:8589006163">Call&nbsp;858&#8209;900&#8209;6163</a></div></div></section>
+    <section class="local-cta"><div class="shell local-cta__grid"><div><span class="eyebrow eyebrow--light">Clear next steps</span><h2>Tell us what is happening with your ${html(area.name)} roof.</h2><p>Zenith will evaluate the condition and explain whether repair, maintenance, restoration, lift and reset, or replacement is the responsible direction.</p></div><div class="local-cta__actions"><a class="button button--orange" href="/contact/">Request a Free Estimate</a><a class="button button--glass" href="tel:8589006163">Call&nbsp;858&#8209;900&#8209;6163</a></div></div></section>
   </main>
   <div data-include="/components/footer.html"></div>
 </body>
@@ -410,8 +405,8 @@ function indexPage() {
   <link rel="canonical" href="${baseUrl}/service-areas/"><meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
   <meta property="og:title" content="Roofing Service Areas | Zenith Roofing Services"><meta property="og:description" content="Premium local roofing guides for cities, neighborhoods and communities across San Diego County and Southwest Riverside County."><meta property="og:type" content="website"><meta property="og:url" content="${baseUrl}/service-areas/"><meta name="twitter:card" content="summary_large_image">
   <link rel="preload" as="image" href="/images/modern-tile-roof-1600.webp">
-  <link rel="stylesheet" href="/css/zenith-premium-exact.css?v=exact-premium-3"><link rel="stylesheet" href="/css/estimate-form.css"><link rel="stylesheet" href="/css/service-areas-premium.css?v=6">
-  <script type="application/ld+json">${schema}</script><script defer src="/js/loader.js"></script><script defer src="/js/header.js"></script><script defer src="/js/service-area-filter.js?v=2"></script><script>window.ESTIMATE_FORM_CONFIG={submitText:"Request a Free Estimate",referralPreselect:"Website",descriptionPlaceholder:"Tell us where the property is, the roof type, what you are seeing, and add photos if available.",hiddenFields:{campaign:"service-areas",page_tag:"service-areas"}};</script><script defer src="/js/estimate-form.js"></script><script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
+  <link rel="stylesheet" href="/css/zenith-premium-exact.css?v=exact-premium-3"><link rel="stylesheet" href="/css/service-areas-premium.css?v=4">
+  <script type="application/ld+json">${schema}</script><script defer src="/js/loader.js"></script><script defer src="/js/header.js"></script><script defer src="/js/service-area-filter.js?v=2"></script>
 </head><body><div data-include="/components/header-section.html"></div>
 <main id="main-content" class="premium-page service-areas-page">
   <section class="interior-hero service-areas-hero"><img src="/images/modern-tile-roof-1600.webp" alt="Southern California tile roof inspected by Zenith Roofing Services" width="1600" height="900" fetchpriority="high"><span class="interior-hero__shade" aria-hidden="true"></span><div class="shell interior-hero__content"><span class="eyebrow eyebrow--light">Cities · neighborhoods · communities</span><h1>Premium local roofing guides across Southern California.</h1><p>Search by city, locally recognized community, nearby area or common ZIP code. Every page explains Zenith’s complete repair, replacement, residential and commercial roofing capabilities.</p><div class="interior-hero__actions"><a class="button button--orange" href="/contact/">Request a Free Estimate <span aria-hidden="true">→</span></a><a class="button button--glass" href="tel:8589006163">Call&nbsp;858&#8209;900&#8209;6163</a></div></div></section>
@@ -420,9 +415,8 @@ function indexPage() {
     <div class="service-area-search" role="search" aria-label="Search roofing service areas"><label for="service-area-search-input">Search by city, community or ZIP</label><div class="service-area-search__control"><span aria-hidden="true">⌕</span><input id="service-area-search-input" type="search" autocomplete="off" spellcheck="false" placeholder="Try San Marcos, 92078 or Rancho Bernardo" aria-describedby="service-area-search-status"><button id="service-area-search-clear" type="button" hidden>Clear</button></div><p id="service-area-search-status" aria-live="polite">${areas.length} service areas available.</p></div>
     <article class="service-area-featured" data-service-area-featured aria-labelledby="featured-carmel-title"><picture class="service-area-featured__image"><source media="(max-width:640px)" srcset="/images/projects/carmel-mountain-ranch-tile-lift-lay/completed-tile-roof-hero-640.webp"><source media="(max-width:960px)" srcset="/images/projects/carmel-mountain-ranch-tile-lift-lay/completed-tile-roof-hero-960.webp"><img src="/images/projects/carmel-mountain-ranch-tile-lift-lay/completed-tile-roof-hero.webp" alt="Completed concrete tile roof in Carmel Mountain Ranch" width="1280" height="720" loading="lazy"></picture><div class="service-area-featured__copy"><span class="eyebrow">Featured local proof</span><h3 id="featured-carmel-title">Carmel Mountain Ranch roofing backed by a real tile project.</h3><p>See how the premium area-page system connects local guidance to a documented Zenith tile lift-and-lay project without inventing proof for other communities.</p><div class="service-area-featured__actions"><a class="button button--orange" href="/service-areas/carmel-mountain-ranch/">View Local Guide</a><a class="button button--navy" href="/projects/carmel-mountain-ranch-tile-lift-lay/">View Case Study</a></div></div></article>
     <ul class="service-area-grid service-area-grid--detailed" data-service-area-list>${cards}</ul>
-    <div class="service-area-empty" data-service-area-empty hidden><strong>No exact area match yet.</strong><p>Zenith may still serve your property. Call us or send the location through the estimate form.</p><a class="button button--orange" href="#estimate">Ask About Your Area</a></div><p class="service-area-note">Don’t see your community? <a href="#estimate">Contact our team</a>. We may still serve your property.</p>
+    <div class="service-area-empty" data-service-area-empty hidden><strong>No exact area match yet.</strong><p>Zenith may still serve your property. Call us or send the location through the estimate form.</p><a class="button button--orange" href="/contact/">Ask About Your Area</a></div><p class="service-area-note">Don’t see your community? <a href="/contact/">Contact our team</a>—we may still serve your property.</p>
   </div></section>
-  <section id="estimate" class="service-area-estimate"><div class="shell service-area-estimate__grid"><div class="service-area-estimate__copy"><span class="eyebrow eyebrow--light">Start with your property</span><h2>Tell us where the roof is and what is happening.</h2><p>Upload photos if you have them. We will match the property to the right repair, replacement, maintenance or commercial-roofing path before recommending a scope.</p><ul><li>Residential and commercial roofing</li><li>Repairs, maintenance and replacements</li><li>Local service across San Diego County and Southwest Riverside</li></ul></div><div class="service-area-estimate__form"><div class="estimate-form-block" data-include="/components/estimate-form.html"></div></div></div></section>
 </main><div data-include="/components/footer.html"></div></body></html>
 `;
 }
