@@ -27,7 +27,7 @@
     var visible = 0;
 
     cards.forEach(function (card) {
-      var areaName = normalize(card.textContent || '');
+      var areaName = normalize((card.textContent || '') + ' ' + (card.getAttribute('data-search') || ''));
       var matches = !query || areaName.indexOf(query) !== -1;
       card.hidden = !matches;
       if (matches) visible += 1;

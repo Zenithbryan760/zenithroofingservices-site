@@ -4,6 +4,11 @@
   overflow: hidden;
 }
 
+/* Detailed location cards generated from the location authority data. */
+.service-area-grid--detailed .service-area-card a{display:flex;min-height:92px;align-items:flex-start;justify-content:center;flex-direction:column;gap:6px}
+.service-area-grid--detailed .service-area-card small{color:var(--ink-500);font-size:.58rem;font-weight:750;letter-spacing:.02em;line-height:1.35;text-transform:none}
+.service-area-grid--detailed .service-area-card a:hover small{color:var(--navy-800)}
+
 .service-areas-page .service-areas-hero {
   min-height: 635px;
 }
