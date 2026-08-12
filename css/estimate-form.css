@@ -10,7 +10,7 @@
 }
 
 /* Form defaults. Never style the page body from a reusable component. */
-.estimate-form-block {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: #2c3e50;
@@ -18,7 +18,7 @@
 
 /* Premium form shell. Presentation only: the form markup, fields, validation,
    reCAPTCHA and JobNimbus submission script remain unchanged. */
-.estimate-form-block #estimate-form {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) #estimate-form {
   max-width: 800px;
   margin: 0 auto;
   padding: clamp(24px, 3.2vw, 42px);
@@ -29,23 +29,23 @@
 }
 
 /* Rows & columns */
-.estimate-form-block .form-row {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) .form-row {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 20px;
   gap: 20px;
 }
 
-.estimate-form-block .form-group {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) .form-group {
   flex: 1;
   min-width: 0;
 }
 
-.estimate-form-block .form-col-6 {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) .form-col-6 {
   flex: 0 0 calc(50% - 10px);
 }
 
-.estimate-form-block .form-col-4 {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) .form-col-4 {
   flex: 0 0 calc(33.333% - 14px);
 }
 
@@ -63,9 +63,9 @@
 }
 
 /* Inputs, selects, textarea */
-.estimate-form-block input,
-.estimate-form-block select,
-.estimate-form-block textarea {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) input,
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) select,
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) textarea {
   width: 100%;
   min-height: 56px;
   padding: 14px 16px;
@@ -77,30 +77,30 @@
   box-shadow: 0 2px 10px rgba(3, 26, 48, .025);
 }
 
-.estimate-form-block textarea { min-height: 132px; resize: vertical; }
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) textarea { min-height: 132px; resize: vertical; }
 
-.estimate-form-block input::placeholder,
-.estimate-form-block textarea::placeholder {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) input::placeholder,
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) textarea::placeholder {
   color: #9ca3af;
 }
 
 /* Focus ring in Zenith orange */
-.estimate-form-block input:focus,
-.estimate-form-block select:focus,
-.estimate-form-block textarea:focus {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) input:focus,
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) select:focus,
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) textarea:focus {
   outline: none;
   border-color: #ff8200;
   box-shadow: 0 0 0 4px rgba(255, 130, 0, .14), 0 7px 18px rgba(3, 26, 48, .07);
 }
 
 /* File input */
-.estimate-form-block input[type="file"] {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) input[type="file"] {
   padding: 10px;
   background-color: #f9fafb;
 }
 
 /* Select caret */
-.estimate-form-block select {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) select {
   appearance: none;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
@@ -110,7 +110,7 @@
 }
 
 /* Zenith orange primary button */
-.estimate-form-block .zenith-btn {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) .zenith-btn {
   display: block;
   width: 100%;
   min-height: 58px;
@@ -126,29 +126,29 @@
   transition: transform 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
 }
 
-.estimate-form-block .zenith-btn:hover {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) .zenith-btn:hover {
   background: linear-gradient(135deg, #ffb24d 0%, #ff8200 52%, #e35f00 100%);
   transform: translateY(-2px);
 }
 
-.estimate-form-block .zenith-btn:active {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) .zenith-btn:active {
   transform: translateY(0);
 }
 
-.estimate-form-block .zenith-btn:disabled {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) .zenith-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
 }
 
 /* Center the reCAPTCHA widget */
-.estimate-form-block .recaptcha-container {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) .recaptcha-container {
   display: flex;
   justify-content: center;
 }
 
 /* Error summary (shown by JS when there’s a validation error) */
-.estimate-form-block .form-error-summary {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) .form-error-summary {
   display: none;
   margin: 10px 0;
   padding: 10px 12px;
@@ -170,7 +170,7 @@
 }
 
 /* Disclaimer — subtle top divider, no dark left bar */
-.estimate-form-block .form-disclaimer {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) .form-disclaimer {
   margin-top: 24px;
   padding: 16px 0 0;
   background: transparent;
@@ -181,24 +181,24 @@
   line-height: 1.7;
 }
 
-.estimate-form-block .form-disclaimer a {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) .form-disclaimer a {
   color: #f7941d;
   text-decoration: none;
   font-weight: 500;
 }
 
-.estimate-form-block .form-disclaimer a:hover {
+:is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) .form-disclaimer a:hover {
   text-decoration: underline;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .estimate-form-block .form-col-6,
-  .estimate-form-block .form-col-4 {
+  :is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) .form-col-6,
+  :is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) .form-col-4 {
     flex: 0 0 100%;
   }
 
-  .estimate-form-block #estimate-form {
+  :is(.estimate-form-block, .service-area-estimate__form, .local-area-estimate__form) #estimate-form {
     padding: 20px;
   }
 }
