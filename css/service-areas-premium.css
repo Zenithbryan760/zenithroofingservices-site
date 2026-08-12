@@ -8,6 +8,7 @@
 html:has(.service-areas-page),
 body:has(.service-areas-page) {
   margin: 0 !important;
+  padding: 0 !important;
   background: #fff !important;
 }
 
