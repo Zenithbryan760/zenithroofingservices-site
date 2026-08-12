@@ -216,6 +216,10 @@
     const form = document.getElementById('estimate-form');
     if (!form) return;
 
+    // Some older pages include the shared form without its wrapper class.
+    // Apply the presentation hook after the partial loads; this is visual only.
+    form.parentElement?.classList.add('estimate-form-block');
+
     // Phone mask
     const phone = $('#phone', form);
     if (phone) {
