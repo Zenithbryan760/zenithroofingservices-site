@@ -256,6 +256,7 @@ function systemExpertise(area) {
               <p>${html(system.explanation)}</p>
               <p>${html(system.decision)}</p>
               <ul>${system.points.map((point) => `<li>${html(point)}</li>`).join('')}</ul>
+              ${index === 0 ? `<div class="local-tile-paths"><span>Explore tile roofing paths</span><div><a href="/services/residential/concrete-tile-roof-replacement/">Concrete Tile Replacement</a><a href="/services/residential/clay-tile-roof-replacement/">Clay Tile Replacement</a><a href="/services/residential/concrete-tile-lift-lay/">Concrete Tile Lift &amp; Lay</a><a href="/services/residential/clay-tile-lift-lay/">Clay Tile Lift &amp; Lay</a><a href="/services/residential/clay-tile-mortar-booster/">Clay Tile Mortar Booster</a></div></div>` : ''}
               <a class="button button--navy" href="${system.href}">Explore ${html(system.name)} <span aria-hidden="true">→</span></a>
             </div>
           </article>`).join('');
