@@ -72,6 +72,9 @@
 
   await Promise.all(slots.map(async (slot) => {
     const url = slot.getAttribute('data-include');
+    if (url === '/components/estimate-form.html') {
+      slot.classList.add('estimate-form-block');
+    }
     try {
       const res  = await fetch(url, { cache: 'no-store' });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
