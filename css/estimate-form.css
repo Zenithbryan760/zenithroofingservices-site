@@ -200,3 +200,180 @@
     flex-basis: 100%;
   }
 }
+
+
+/* Shared estimate form surface
+   The HTML partial loader replaces its placeholder, so the form must be styled
+   by its permanent ID as well as page-level wrappers. Visual-only override. */
+#estimate-form {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: clamp(24px, 3vw, 42px);
+  color: var(--estimate-ink);
+  background:
+    radial-gradient(circle at 94% 3%, rgba(255, 130, 0, .11), transparent 18rem),
+    linear-gradient(145deg, #ffffff, #f8fbfd);
+  border: 1px solid rgba(6, 41, 75, .13);
+  border-radius: 24px;
+  box-shadow: 0 24px 58px rgba(3, 26, 48, .13), inset 0 1px 0 #ffffff;
+  font-family: "Avenir Next", "Manrope", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+#estimate-form .form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+#estimate-form .form-group {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+#estimate-form .form-col-6 { flex: 0 0 calc(50% - 8px); }
+#estimate-form .form-col-4 { flex: 0 0 calc(33.333% - 10.7px); }
+
+#estimate-form input,
+#estimate-form select,
+#estimate-form textarea {
+  width: 100%;
+  min-height: 54px;
+  padding: 14px 16px;
+  color: var(--estimate-ink);
+  background: rgba(255, 255, 255, .96);
+  border: 1px solid var(--estimate-line);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(3, 26, 48, .025);
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.35;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+#estimate-form textarea {
+  min-height: 136px;
+  resize: vertical;
+}
+
+#estimate-form input::placeholder,
+#estimate-form textarea::placeholder {
+  color: #7b8796;
+  opacity: 1;
+}
+
+#estimate-form input:focus,
+#estimate-form select:focus,
+#estimate-form textarea:focus {
+  outline: 0;
+  border-color: var(--estimate-orange);
+  box-shadow: 0 0 0 4px rgba(255, 130, 0, .14), 0 10px 22px rgba(3, 26, 48, .08);
+}
+
+#estimate-form input[type="file"] {
+  padding: 10px;
+  background: #f8fafc;
+}
+
+#estimate-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2306294b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+  padding-right: 42px;
+}
+
+#estimate-form .zenith-btn {
+  display: block;
+  width: 100%;
+  min-height: 58px;
+  padding: 15px 22px;
+  color: var(--estimate-navy);
+  background: linear-gradient(135deg, #ffb34d 0%, #ff8200 52%, #ed6a00 100%);
+  border: 0;
+  border-radius: 13px;
+  box-shadow: 0 14px 28px rgba(237, 106, 0, .26), inset 0 1px 0 rgba(255, 255, 255, .58);
+  cursor: pointer;
+  font: inherit;
+  font-size: .92rem;
+  font-weight: 850;
+  letter-spacing: .01em;
+  transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+}
+
+#estimate-form .zenith-btn:hover {
+  box-shadow: 0 18px 34px rgba(237, 106, 0, .32), inset 0 1px 0 rgba(255, 255, 255, .65);
+  transform: translateY(-2px);
+}
+
+#estimate-form .zenith-btn:disabled {
+  cursor: not-allowed;
+  opacity: .62;
+  transform: none;
+}
+
+#estimate-form .recaptcha-container {
+  display: flex;
+  justify-content: center;
+  padding: 3px 0;
+}
+
+#estimate-form .form-error-summary {
+  display: none;
+  margin: 0 0 16px;
+  padding: 13px 15px;
+  color: #9f1239;
+  background: #fff7f7;
+  border: 1px solid #fecaca;
+  border-left: 4px solid #ef4444;
+  border-radius: 10px;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+#estimate-form.has-errors input:invalid,
+#estimate-form.has-errors select:invalid,
+#estimate-form.has-errors textarea:invalid,
+#estimate-form input:user-invalid,
+#estimate-form select:user-invalid,
+#estimate-form textarea:user-invalid {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, .12);
+}
+
+#estimate-form + .form-disclaimer,
+#estimate-form ~ .form-disclaimer {
+  margin-top: 22px;
+  padding: 15px 0 0;
+  color: var(--estimate-muted);
+  border-top: 1px solid var(--estimate-line);
+  font-size: .74rem;
+  line-height: 1.65;
+}
+
+#estimate-form + .form-disclaimer a,
+#estimate-form ~ .form-disclaimer a {
+  color: var(--estimate-navy-soft);
+  font-weight: 750;
+  text-decoration-color: rgba(255, 130, 0, .75);
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  #estimate-form {
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+
+  #estimate-form .form-row {
+    gap: 13px;
+    margin-bottom: 13px;
+  }
+
+  #estimate-form .form-col-6,
+  #estimate-form .form-col-4 {
+    flex-basis: 100%;
+  }
+}
