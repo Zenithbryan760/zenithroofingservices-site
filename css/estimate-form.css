@@ -1,55 +1,53 @@
-/* ============================
-   Estimate Form – Stylesheet
-   ============================ */
+/* Zenith premium estimate form
+   Visual styling only. Field names, validation, reCAPTCHA and JobNimbus submission are untouched. */
 
-/* Base reset for the form area */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root {
+  --estimate-navy: #031a30;
+  --estimate-navy-soft: #06294b;
+  --estimate-orange: #ff8200;
+  --estimate-ink: #0b1725;
+  --estimate-muted: #657386;
+  --estimate-line: #dce5ed;
 }
 
-/* Page text defaults (kept from your original) */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: #2c3e50;
-  background-color: #f8f9fa;
-  padding: 20px;
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) {
+  color: var(--estimate-ink);
+  font-family: "Avenir Next", "Manrope", "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
-/* Form container */
-#estimate-form {
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) #estimate-form {
+  width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  padding: 30px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: clamp(24px, 3vw, 42px);
+  background:
+    radial-gradient(circle at 94% 3%, rgba(255, 130, 0, .11), transparent 18rem),
+    linear-gradient(145deg, #ffffff, #f8fbfd);
+  border: 1px solid rgba(6, 41, 75, .13);
+  border-radius: 24px;
+  box-shadow: 0 24px 58px rgba(3, 26, 48, .13), inset 0 1px 0 #ffffff;
 }
 
-/* Rows & columns */
-.form-row {
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) .form-row {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 20px;
-  gap: 20px;
+  gap: 16px;
+  margin-bottom: 16px;
 }
 
-.form-group {
-  flex: 1;
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) .form-group {
+  flex: 1 1 0;
   min-width: 0;
 }
 
-.form-col-6 {
-  flex: 0 0 calc(50% - 10px);
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) .form-col-6 {
+  flex: 0 0 calc(50% - 8px);
 }
 
-.form-col-4 {
-  flex: 0 0 calc(33.333% - 14px);
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) .form-col-4 {
+  flex: 0 0 calc(33.333% - 10.7px);
 }
 
-/* Accessible label helper */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -62,145 +60,143 @@ body {
   border: 0;
 }
 
-/* Inputs, selects, textarea */
-input,
-select,
-textarea {
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) input,
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) select,
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) textarea {
   width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
+  min-height: 54px;
+  padding: 14px 16px;
+  color: var(--estimate-ink);
+  background: rgba(255, 255, 255, .96);
+  border: 1px solid var(--estimate-line);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(3, 26, 48, .025);
+  font: inherit;
   font-size: 16px;
-  transition: all 0.2s ease;
-  background-color: #fff;
+  line-height: 1.35;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
 
-input::placeholder,
-textarea::placeholder {
-  color: #9ca3af;
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) textarea {
+  min-height: 136px;
+  resize: vertical;
 }
 
-/* Focus ring in Zenith orange */
-input:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  border-color: #f7941d;
-  box-shadow: 0 0 0 3px rgba(247, 148, 29, 0.25);
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) input::placeholder,
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) textarea::placeholder {
+  color: #7b8796;
+  opacity: 1;
 }
 
-/* File input */
-input[type="file"] {
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) input:focus,
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) select:focus,
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) textarea:focus {
+  outline: 0;
+  border-color: var(--estimate-orange);
+  box-shadow: 0 0 0 4px rgba(255, 130, 0, .14), 0 10px 22px rgba(3, 26, 48, .08);
+}
+
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) input[type="file"] {
   padding: 10px;
-  background-color: #f9fafb;
+  background: #f8fafc;
 }
 
-/* Select caret */
-select {
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) select {
   appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2306294b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 15px center;
   background-size: 16px;
-  padding-right: 40px;
+  padding-right: 42px;
 }
 
-/* Zenith orange primary button */
-.zenith-btn {
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) .zenith-btn {
   display: block;
   width: 100%;
-  padding: 15px;
-  background-color: #f7941d;   /* brand orange */
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  font-size: 18px;
-  font-weight: 600;
+  min-height: 58px;
+  padding: 15px 22px;
+  color: var(--estimate-navy);
+  background: linear-gradient(135deg, #ffb34d 0%, #ff8200 52%, #ed6a00 100%);
+  border: 0;
+  border-radius: 13px;
+  box-shadow: 0 14px 28px rgba(237, 106, 0, .26), inset 0 1px 0 rgba(255, 255, 255, .58);
   cursor: pointer;
-  transition: transform 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
+  font: inherit;
+  font-size: .92rem;
+  font-weight: 850;
+  letter-spacing: .01em;
+  transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
 }
 
-.zenith-btn:hover {
-  background-color: #e9830d;   /* slightly darker on hover */
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) .zenith-btn:hover {
+  box-shadow: 0 18px 34px rgba(237, 106, 0, .32), inset 0 1px 0 rgba(255, 255, 255, .65);
   transform: translateY(-2px);
 }
 
-.zenith-btn:active {
-  transform: translateY(0);
-}
-
-.zenith-btn:disabled {
-  opacity: 0.6;
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) .zenith-btn:disabled {
   cursor: not-allowed;
+  opacity: .62;
   transform: none;
 }
 
-/* Center the reCAPTCHA widget */
-.recaptcha-container {
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) .recaptcha-container {
   display: flex;
   justify-content: center;
+  padding: 3px 0;
 }
 
-/* Error summary (shown by JS when there’s a validation error) */
-.form-error-summary {
-  display: none;                /* JS toggles this to block */
-  margin: 10px 0;
-  padding: 10px 12px;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  color: #b00020;
-  background: #fff5f5;
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) .form-error-summary {
+  display: none;
+  margin: 0 0 16px;
+  padding: 13px 15px;
+  color: #9f1239;
+  background: #fff7f7;
   border: 1px solid #fecaca;
   border-left: 4px solid #ef4444;
-  border-radius: 6px;
+  border-radius: 10px;
+  font-size: .9rem;
+  line-height: 1.5;
 }
 
-/* ---- Only show red borders AFTER a failed submit ---- */
 #estimate-form.has-errors input:invalid,
 #estimate-form.has-errors select:invalid,
-#estimate-form.has-errors textarea:invalid {
-  border-color: #e53e3e;        /* red only when form has errors */
-  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
-}
-
-/* Disclaimer — subtle top divider, no dark left bar */
-.form-disclaimer {
-  margin-top: 24px;
-  padding: 16px 0 0;
-  background: transparent;
-  color: #334155;               /* slate-700 */
-  border-left: 0;
-  border-top: 2px solid #e5e7eb;/* light top rule to match site */
-}
-
-.form-disclaimer a {
-  color: #f7941d;               /* keep links on-brand */
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.form-disclaimer a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .form-col-6,
-  .form-col-4 {
-    flex: 0 0 100%;
-  }
-
-  #estimate-form {
-    padding: 20px;
-  }
-}
-
-
-/* Native post-interaction validation without changing form submission logic */
+#estimate-form.has-errors textarea:invalid,
 #estimate-form input:user-invalid,
 #estimate-form select:user-invalid,
-#estimate-form textarea:user-invalid{
-  border-color:#dc2626 !important;
-  box-shadow:0 0 0 3px rgba(220,38,38,.12);
-  background:#fff7f7;
+#estimate-form textarea:user-invalid {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, .12);
+}
+
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) .form-disclaimer {
+  margin-top: 22px;
+  padding: 15px 0 0;
+  color: var(--estimate-muted);
+  border-top: 1px solid var(--estimate-line);
+  font-size: .74rem;
+  line-height: 1.65;
+}
+
+:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) .form-disclaimer a {
+  color: var(--estimate-navy-soft);
+  font-weight: 750;
+  text-decoration-color: rgba(255, 130, 0, .75);
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  :is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) #estimate-form {
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+
+  :is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) .form-row {
+    gap: 13px;
+    margin-bottom: 13px;
+  }
+
+  :is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) .form-col-6,
+  :is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) .form-col-4 {
+    flex-basis: 100%;
+  }
 }
