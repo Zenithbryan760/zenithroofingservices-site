@@ -289,10 +289,11 @@
 }
 
 .estimate-form-block #estimate-form .zenith-btn {
+  grid-column: 1 / -1 !important;
   width: 100% !important;
-  max-width: none !important;
+  max-width: 360px !important;
   min-height: 54px !important;
-  margin: 0 !important;
+  margin: 0 auto !important;
   color: var(--estimate-navy) !important;
   background: linear-gradient(135deg, #ffb34d 0%, #ff8200 52%, #ed6a00 100%) !important;
   border-radius: 11px !important;
@@ -300,6 +301,8 @@
 }
 
 .estimate-form-block #estimate-form .recaptcha-container {
+  display: flex !important;
+  grid-column: 1 / -1 !important;
   justify-content: center !important;
 }
 
