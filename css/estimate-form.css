@@ -10,22 +10,36 @@
   --estimate-line: #dce5ed;
 }
 
-:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) {
+.estimate-form-block,
+:is(.service-area-estimate__form, .local-area-estimate__form) {
   color: var(--estimate-ink);
   font-family: "Avenir Next", "Manrope", "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
-:is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) #estimate-form {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: clamp(24px, 3vw, 42px);
+.estimate-form-block {
+  width: min(100%, 680px);
+  margin-inline: auto;
+  padding: clamp(18px, 2.4vw, 28px);
   background:
-    radial-gradient(circle at 94% 3%, rgba(255, 130, 0, .11), transparent 18rem),
+    radial-gradient(circle at 100% 0, rgba(255, 130, 0, .10), transparent 15rem),
     linear-gradient(145deg, #ffffff, #f8fbfd);
   border: 1px solid rgba(6, 41, 75, .13);
-  border-radius: 24px;
-  box-shadow: 0 24px 58px rgba(3, 26, 48, .13), inset 0 1px 0 #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 18px 42px rgba(3, 26, 48, .11), inset 0 1px 0 #ffffff;
+}
+
+/* The card lives on the shared include wrapper. Some service pages have their
+   own layout CSS for #estimate-form, so this keeps every lead form consistent
+   without changing a field, validation hook, reCAPTCHA, or submission script. */
+.estimate-form-block #estimate-form {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 :is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) .form-row {
@@ -64,12 +78,12 @@
 :is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) select,
 :is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) textarea {
   width: 100%;
-  min-height: 54px;
-  padding: 14px 16px;
+  min-height: 50px;
+  padding: 12px 14px;
   color: var(--estimate-ink);
   background: rgba(255, 255, 255, .96);
   border: 1px solid var(--estimate-line);
-  border-radius: 12px;
+  border-radius: 10px;
   box-shadow: 0 2px 8px rgba(3, 26, 48, .025);
   font: inherit;
   font-size: 16px;
@@ -78,7 +92,7 @@
 }
 
 :is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) textarea {
-  min-height: 136px;
+  min-height: 118px;
   resize: vertical;
 }
 
@@ -113,12 +127,12 @@
 :is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) .zenith-btn {
   display: block;
   width: 100%;
-  min-height: 58px;
-  padding: 15px 22px;
+  min-height: 52px;
+  padding: 14px 20px;
   color: var(--estimate-navy);
   background: linear-gradient(135deg, #ffb34d 0%, #ff8200 52%, #ed6a00 100%);
   border: 0;
-  border-radius: 13px;
+  border-radius: 11px;
   box-shadow: 0 14px 28px rgba(237, 106, 0, .26), inset 0 1px 0 rgba(255, 255, 255, .58);
   cursor: pointer;
   font: inherit;
@@ -185,9 +199,9 @@
 }
 
 @media (max-width: 768px) {
-  :is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) #estimate-form {
-    padding: 22px 18px;
-    border-radius: 20px;
+  .estimate-form-block {
+    padding: 18px 14px;
+    border-radius: 16px;
   }
 
   :is(.service-area-estimate__form, .local-area-estimate__form, .estimate-form-block) .form-row {
