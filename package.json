@@ -1,6 +1,7 @@
 {
   "scripts": {
     "generate:service-areas": "node scripts/generate-service-areas.mjs",
+    "generate:tile-services": "node scripts/generate-tile-service-pages.mjs",
     "test:service-areas": "node scripts/validate-service-areas.mjs"
   },
   "dependencies": {
