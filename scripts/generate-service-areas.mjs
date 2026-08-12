@@ -238,7 +238,7 @@ function projectSection(area) {
           <div class="local-proof-slot__service-links"><a href="/services/commercial/tpo/">TPO roofing</a><a href="/services/commercial/pvc/">PVC roofing</a><a href="/services/commercial/self-adhered/">Self-adhered modified bitumen</a><a href="/services/commercial/torch-down/">Torch-down</a></div>
         </div>
         <figure class="local-proof-slot__visual">
-          <img src="/images/tile-lift-lay/zenith-tile-lift-lay-staged-01.jpg" alt="Zenith crew stages reusable tile during an underlayment replacement project" width="2048" height="1536" loading="lazy">
+          <img src="/images/tile-lift-lay/zenith-tile-lift-lay-staged-02.jpg" alt="Zenith crew stages reusable tile above new underlayment during a tile lift and lay" width="2048" height="1536" loading="lazy">
           <figcaption>Representative Zenith tile lift-and-lay photography, not presented as a ${html(area.name)} project.</figcaption>
         </figure>
       </div>
@@ -304,7 +304,7 @@ function areaPage(area) {
   <link rel="preload" as="image" href="${hero.image}">
   <link rel="stylesheet" href="/css/zenith-premium-exact.css?v=exact-premium-3">
   <link rel="stylesheet" href="/css/estimate-form.css">
-  <link rel="stylesheet" href="/css/service-area-authority.css?v=6">
+  <link rel="stylesheet" href="/css/service-area-authority.css?v=8">
   <script type="application/ld+json">${schemaFor(area, faqs)}</script>
   <script defer src="/js/loader.js"></script>
   <script defer src="/js/header.js"></script>
@@ -410,7 +410,7 @@ function indexPage() {
   <link rel="canonical" href="${baseUrl}/service-areas/"><meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
   <meta property="og:title" content="Roofing Service Areas | Zenith Roofing Services"><meta property="og:description" content="Premium local roofing guides for cities, neighborhoods and communities across San Diego County and Southwest Riverside County."><meta property="og:type" content="website"><meta property="og:url" content="${baseUrl}/service-areas/"><meta name="twitter:card" content="summary_large_image">
   <link rel="preload" as="image" href="/images/modern-tile-roof-1600.webp">
-  <link rel="stylesheet" href="/css/zenith-premium-exact.css?v=exact-premium-3"><link rel="stylesheet" href="/css/estimate-form.css"><link rel="stylesheet" href="/css/service-areas-premium.css?v=6">
+  <link rel="stylesheet" href="/css/zenith-premium-exact.css?v=exact-premium-3"><link rel="stylesheet" href="/css/estimate-form.css"><link rel="stylesheet" href="/css/service-areas-premium.css?v=8">
   <script type="application/ld+json">${schema}</script><script defer src="/js/loader.js"></script><script defer src="/js/header.js"></script><script defer src="/js/service-area-filter.js?v=2"></script><script>window.ESTIMATE_FORM_CONFIG={submitText:"Request a Free Estimate",referralPreselect:"Website",descriptionPlaceholder:"Tell us where the property is, the roof type, what you are seeing, and add photos if available.",hiddenFields:{campaign:"service-areas",page_tag:"service-areas"}};</script><script defer src="/js/estimate-form.js"></script><script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer></script>
 </head><body><div data-include="/components/header-section.html"></div>
 <main id="main-content" class="premium-page service-areas-page">
