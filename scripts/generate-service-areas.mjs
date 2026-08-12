@@ -238,8 +238,8 @@ function projectSection(area) {
           <div class="local-proof-slot__service-links"><a href="/services/commercial/tpo/">TPO roofing</a><a href="/services/commercial/pvc/">PVC roofing</a><a href="/services/commercial/self-adhered/">Self-adhered modified bitumen</a><a href="/services/commercial/torch-down/">Torch-down</a></div>
         </div>
         <figure class="local-proof-slot__visual">
-          <img src="/images/tile-underlayment-install.webp" alt="Zenith roofing underlayment installation documented during a project" width="1200" height="800" loading="lazy">
-          <figcaption>Representative Zenith process photography, not presented as a ${html(area.name)} project.</figcaption>
+          <img src="/images/tile-lift-lay/zenith-tile-lift-lay-staged-01.jpg" alt="Zenith crew stages reusable tile during an underlayment replacement project" width="2048" height="1536" loading="lazy">
+          <figcaption>Representative Zenith tile lift-and-lay photography, not presented as a ${html(area.name)} project.</figcaption>
         </figure>
       </div>
     </section>`;
