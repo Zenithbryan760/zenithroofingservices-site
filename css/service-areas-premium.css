@@ -4,9 +4,20 @@
   overflow: hidden;
 }
 
-/* Detailed location cards generated from the location authority data. */
-.service-area-grid--detailed .service-area-card a{display:flex;min-height:92px;align-items:flex-start;justify-content:center;flex-direction:column;gap:6px}
-.service-area-grid--detailed .service-area-card small{color:var(--ink-500);font-size:.58rem;font-weight:750;letter-spacing:.02em;line-height:1.35;text-transform:none}
+/* Detailed location cards generated from the location authority data.
+   Keep the location type readable; it is supporting context, not microcopy. */
+.service-area-grid--detailed .service-area-card a{
+  display:grid;
+  min-height:128px;
+  grid-template-columns:48px minmax(0,1fr) 20px;
+  grid-template-rows:auto auto;
+  align-items:center;
+  gap:4px 16px;
+}
+.service-area-grid--detailed .service-area-card a::before{grid-column:1;grid-row:1 / span 2}
+.service-area-grid--detailed .service-area-card a::after{grid-column:3;grid-row:1 / span 2}
+.service-area-grid--detailed .service-area-card a > span{grid-column:2;grid-row:1;align-self:end}
+.service-area-grid--detailed .service-area-card a > small{grid-column:2;grid-row:2;align-self:start;color:var(--ink-500);font-size:.78rem;font-weight:650;letter-spacing:0;line-height:1.42;text-transform:none}
 .service-area-grid--detailed .service-area-card a:hover small{color:var(--navy-800)}
 
 .service-areas-page .service-areas-hero {
