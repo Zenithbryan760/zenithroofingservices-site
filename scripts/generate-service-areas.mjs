@@ -228,7 +228,7 @@ function projectSection(area) {
   }
 
   return `
-    <section class="local-section local-section--navy" id="project-proof" aria-labelledby="project-slot-heading">
+    <section class="local-section local-section--navy local-proof-hero" id="project-proof" aria-labelledby="project-slot-heading">
       <div class="shell local-proof-slot" data-case-study-slot="${html(area.slug)}">
         <div class="local-proof-slot__copy">
           <span class="eyebrow eyebrow--light">Local project library</span>
