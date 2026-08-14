@@ -81,6 +81,7 @@
       title: "Compare Owens Corning warranty options",
       copy: "Review Standard, System Protection and Preferred Protection limited warranty choices, including current enhanced-coverage and workmanship distinctions.",
       note: "<b>Eligibility guidance:</b> The actual warranty document, qualifying products, installation requirements, contractor status and registration control coverage.",
+      embedUrl: "https://www.owenscorning.com/en-us/public_widgets/warranty",
       fallbackUrl: "https://www.owenscorning.com/en-us/roofing/warranty",
       fallbackLabel: "Open the official warranty comparison"
     }
@@ -104,9 +105,14 @@
   function fallbackMarkup(tool) {
     return [
       '<div class="oc-widget-fallback">',
-      "<b>The official Owens Corning tool did not finish loading.</b>",
-      "<p>You can continue on the official Owens Corning page or request help from Zenith.</p>",
+      "<span>Official Owens Corning resource</span>",
+      "<b>The embedded tool is temporarily unavailable in this window.</b>",
+      "<p>Continue with the official Owens Corning resource, retry the embed, or ask Zenith to review the selection with your roof conditions.</p>",
+      '<div class="oc-widget-fallback__actions">',
       '<a href="' + tool.fallbackUrl + '" target="_blank" rel="noopener">' + tool.fallbackLabel + "</a>",
+      '<button type="button" data-retry-widget>Retry embedded tool</button>',
+      '<a class="is-secondary" href="#estimate">Ask Zenith</a>',
+      "</div>",
       "</div>"
     ].join("");
   }
@@ -117,50 +123,105 @@
 
   function setWidgetMarkup(mount, toolKey, product) {
     if (toolKey === "budget") {
-      mount.className = "oc-widget-mount oc-widget-budget";
+      mount.className = "oc-widget-mount oc-widget-budget is-loading";
       mount.innerHTML = loadingMarkup() + '<div id="budget-your-roof-embed"></div>';
       return "https://www.owenscorning.com/en-us/widgets/budget-your-roof.js?configuration-id=" + product.budgetId;
     }
 
     if (toolKey === "shingles") {
-      mount.className = "oc-widget-mount oc-widget-shingles";
+      mount.className = "oc-widget-mount oc-widget-shingles is-loading";
       mount.innerHTML = loadingMarkup() + '<div class="oc_shingle_view" data-shingle="' + product.shingle + '" data-view="house" data-layout="row" data-style="default"></div>';
       return "https://apis.owenscorning.com/client/widget.js?lang=en-us";
     }
 
     if (toolKey === "visualizer") {
-      mount.className = "oc-widget-mount oc-widget-visualizer";
+      mount.className = "oc-widget-mount oc-widget-visualizer is-loading";
       mount.innerHTML = loadingMarkup() + '<div id="visualizer" data-zip="92026"></div>';
       return "https://apis.owenscorning.com/client/widget.js?lang=en-us";
     }
 
     if (toolKey === "build") {
-      mount.className = "oc-widget-mount oc-widget-build";
+      mount.className = "oc-widget-mount oc-widget-build is-loading";
       mount.innerHTML = loadingMarkup() + '<div id="build-your-roof-embed"></div>';
       return "https://www.owenscorning.com/en-us/widgets/build-your-roof.js?version=zenith-roofing-services-cb2c8c";
     }
 
     if (toolKey === "style") {
-      mount.className = "oc-widget-mount oc-widget-style";
+      mount.className = "oc-widget-mount oc-widget-style is-loading";
       mount.innerHTML = loadingMarkup() + '<div class="oc_design_and_inspire" slide-delay="6000"></div>';
       return "https://apis.owenscorning.com/client/widget.js?lang=en-us";
     }
 
     if (toolKey === "smarter") {
-      mount.className = "oc-widget-mount oc-widget-smarter";
+      mount.className = "oc-widget-mount oc-widget-smarter is-loading";
       mount.innerHTML = loadingMarkup() + '<div class="roof_smarter"></div>';
       return "https://apis.owenscorning.com/client/widget.js?lang=en-us";
     }
 
     if (toolKey === "system") {
-      mount.className = "oc-widget-mount oc-widget-system";
+      mount.className = "oc-widget-mount oc-widget-system is-loading";
       mount.innerHTML = loadingMarkup() + '<div class="total_protection_roofing_system"></div>';
       return "https://apis.owenscorning.com/client/widget.js?lang=en-us";
     }
 
-    mount.className = "oc-widget-mount oc-widget-warranty";
-    mount.innerHTML = loadingMarkup() + '<div class="oc_warranty" data-standard-coverage="true" data-system-protection="true" data-preferred-protection="true"></div>';
-    return "https://apis.owenscorning.com/client/widget.js?lang=en-us";
+    mount.className = "oc-widget-mount oc-widget-warranty is-loading";
+    mount.innerHTML = loadingMarkup() + '<div class="oc-widget-framebar"><span>Official Owens Corning warranty comparison</span><a href="' + tools.warranty.fallbackUrl + '" target="_blank" rel="noopener">Open full comparison</a></div><iframe class="oc-direct-widget-frame" src="' + tools.warranty.embedUrl + '" title="Owens Corning warranty comparison" loading="eager" referrerpolicy="strict-origin-when-cross-origin"></iframe>';
+    return null;
+  }
+
+  function getWidgetTarget(mount, toolKey) {
+    var selectors = {
+      budget: "#budget-your-roof-embed",
+      shingles: ".oc_shingle_view",
+      visualizer: "#visualizer",
+      build: "#build-your-roof-embed",
+      style: ".oc_design_and_inspire",
+      smarter: ".roof_smarter",
+      system: ".total_protection_roofing_system"
+    };
+    return selectors[toolKey] ? mount.querySelector(selectors[toolKey]) : null;
+  }
+
+  function widgetHasRendered(mount, toolKey) {
+    var target = getWidgetTarget(mount, toolKey);
+    if (!target) return false;
+    return target.children.length > 0 || target.textContent.trim().length > 0;
+  }
+
+  function markWidgetReady(mount) {
+    var loading = mount.querySelector(".oc-widget-loading");
+    if (loading) loading.remove();
+    mount.classList.remove("is-loading", "is-fallback");
+    mount.classList.add("is-ready");
+    mount.setAttribute("aria-busy", "false");
+  }
+
+  function showWidgetFallback(mount, tool) {
+    mount.innerHTML = fallbackMarkup(tool);
+    mount.classList.remove("is-loading", "is-ready");
+    mount.classList.add("is-fallback");
+    mount.setAttribute("aria-busy", "false");
+  }
+
+  function waitForWidget(mount, toolKey, tool, token) {
+    var attempts = 0;
+    var maximumAttempts = 32;
+    var timer = window.setInterval(function () {
+      if (token !== loadToken) {
+        window.clearInterval(timer);
+        return;
+      }
+      attempts += 1;
+      if (widgetHasRendered(mount, toolKey)) {
+        window.clearInterval(timer);
+        markWidgetReady(mount);
+        return;
+      }
+      if (attempts >= maximumAttempts) {
+        window.clearInterval(timer);
+        showWidgetFallback(mount, tool);
+      }
+    }, 250);
   }
 
   function updateQuery() {
@@ -208,33 +269,53 @@
     mount.setAttribute("aria-busy", "true");
 
     var src = setWidgetMarkup(mount, activeTool, product);
+
+    if (!src) {
+      var frame = mount.querySelector(".oc-direct-widget-frame");
+      if (!frame) {
+        showWidgetFallback(mount, tool);
+      } else {
+        frame.addEventListener("load", function () {
+          if (token !== loadToken) return;
+          window.setTimeout(function () {
+            if (token === loadToken) markWidgetReady(mount);
+          }, 350);
+        }, { once: true });
+        frame.addEventListener("error", function () {
+          if (token === loadToken) showWidgetFallback(mount, tool);
+        }, { once: true });
+        window.setTimeout(function () {
+          if (token === loadToken && mount.getAttribute("aria-busy") === "true") {
+            showWidgetFallback(mount, tool);
+          }
+        }, 9000);
+      }
+      if (!options.skipQuery) updateQuery();
+      return;
+    }
+
     var runtime = document.createElement("script");
     runtime.src = src;
     runtime.async = true;
     runtime.setAttribute("data-oc-widget-runtime", activeTool);
 
     runtime.onload = function () {
-      window.setTimeout(function () {
-        if (token !== loadToken) return;
-        var loading = mount.querySelector(".oc-widget-loading");
-        if (loading) loading.remove();
-        mount.setAttribute("aria-busy", "false");
-      }, 900);
+      if (token !== loadToken) return;
+      waitForWidget(mount, activeTool, tool, token);
     };
 
     runtime.onerror = function () {
       if (token !== loadToken) return;
-      mount.innerHTML = fallbackMarkup(tool);
-      mount.setAttribute("aria-busy", "false");
+      showWidgetFallback(mount, tool);
     };
 
     document.body.appendChild(runtime);
 
     window.setTimeout(function () {
-      if (token !== loadToken || mount.getAttribute("aria-busy") !== "true") return;
-      mount.innerHTML = fallbackMarkup(tool);
-      mount.setAttribute("aria-busy", "false");
-    }, 10000);
+      if (token === loadToken && mount.getAttribute("aria-busy") === "true") {
+        showWidgetFallback(mount, tool);
+      }
+    }, 12000);
 
     if (!options.skipQuery) updateQuery();
   }
@@ -296,6 +377,13 @@
       link.addEventListener("click", function () {
         track("owens_corning_phone_click", { oc_path: window.location.pathname });
       });
+    });
+
+    document.addEventListener("click", function (event) {
+      var retry = event.target.closest("[data-retry-widget]");
+      if (!retry) return;
+      renderWidget({ skipQuery: true });
+      track("owens_corning_widget_retry", { oc_tool: activeTool, oc_product: activeProduct });
     });
 
     document.addEventListener("includes:ready", configureSharedChrome);
