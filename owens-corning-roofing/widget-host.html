@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Official Owens Corning roofing tool</title>
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    html, body { width: 100%; min-height: 100%; margin: 0; background: #fff; }
+    body { overflow-x: hidden; color: #071a2d; font-family: Arial, Helvetica, sans-serif; }
+    img, iframe, video, canvas, svg { max-width: 100%; }
+    #host-status {
+      min-height: 340px;
+      display: grid;
+      place-content: center;
+      justify-items: center;
+      gap: 14px;
+      padding: 34px;
+      text-align: center;
+      background: linear-gradient(145deg, #fff, #f4f7f9);
+    }
+    #host-status i {
+      width: 42px;
+      height: 42px;
+      border: 3px solid rgba(6, 41, 75, 0.14);
+      border-top-color: #f47c00;
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+    #host-status b { max-width: 520px; font-size: 15px; line-height: 1.45; }
+    #host-status p { max-width: 560px; margin: 0; color: #52657a; font-size: 13px; line-height: 1.55; }
+    #host-status[data-state="fallback"] i { display: none; }
+    #host-status[hidden] { display: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div id="host-status" role="status" aria-live="polite">
+    <i aria-hidden="true"></i>
+    <b>Loading the official Owens Corning tool</b>
+  </div>
+  <script>
+    (function () {
+      "use strict";
+
+      var params = new URLSearchParams(window.location.search);
+      var tool = params.get("tool") || "budget";
+      var product = params.get("system") || "oakridge";
+      var products = {
+        oakridge: {
+          shingle: "oakridge",
+          budgetId: "55df30e1-90f3-44ff-bc6f-f0227ceb6d3b"
+        },
+        duration: {
+          shingle: "trudefinition-duration",
+          budgetId: "c0bfcc13-f8ba-4b78-9d7b-a7fa306adc14"
+        },
+        "duration-cool": {
+          shingle: "trudefinition-duration-cool",
+          budgetId: "d1c3335a-b00f-4fea-836a-9db3bfc2bdc8"
+        }
+      };
+      var selectedProduct = products[product] || products.oakridge;
+      var clientScript = "https://apis.owenscorning.com/client/widget.js?lang=en-us";
+      var configurations = {
+        budget: {
+          selector: "#budget-your-roof-embed",
+          markup: '<div id="budget-your-roof-embed"></div>',
+          src: "https://www.owenscorning.com/en-us/widgets/budget-your-roof.js?configuration-id=" + selectedProduct.budgetId
+        },
+        shingles: {
+          selector: ".oc_shingle_view",
+          markup: '<div class="oc_shingle_view" data-shingle="' + selectedProduct.shingle + '" data-view="house" data-layout="row" data-style="default"></div>',
+          src: clientScript,
+          async: true
+        },
+        visualizer: {
+          selector: "#visualizer",
+          markup: '<div id="visualizer" data-zip="92026"></div>',
+          src: clientScript,
+          async: true
+        },
+        build: {
+          selector: "#build-your-roof-embed",
+          markup: '<div id="build-your-roof-embed"></div>',
+          src: "https://www.owenscorning.com/en-us/widgets/build-your-roof.js?version=zenith-roofing-services-cb2c8c"
+        },
+        style: {
+          selector: ".oc_design_and_inspire",
+          markup: '<div slide-delay="6000" class="oc_design_and_inspire"></div>',
+          src: clientScript,
+          async: true
+        },
+        warranty: {
+          selector: ".oc_warranty",
+          markup: '<div data-standard-coverage="true" data-system-protection="true" data-preferred-protection="true" class="oc_warranty"></div>',
+          src: clientScript,
+          async: true
+        }
+      };
+      var configuration = configurations[tool];
+      var vendorFailed = false;
+
+      function send(type, details) {
+        var payload = Object.assign({
+          channel: "zenith-oc-widget",
+          type: type,
+          tool: tool,
+          product: product
+        }, details || {});
+        if (window.parent !== window) window.parent.postMessage(payload, window.location.origin);
+      }
+
+      window.zenithOcVendorError = function () {
+        vendorFailed = true;
+      };
+
+      window.__zenithOcHost = {
+        tool: tool,
+        product: product,
+        get configuration() { return configuration; },
+        send: send,
+        vendorFailed: function () { return vendorFailed; }
+      };
+
+      if (!configuration) {
+        vendorFailed = true;
+        return;
+      }
+
+      document.write(configuration.markup);
+      document.write('<script src="' + configuration.src + '"' + (configuration.async ? ' async' : '') + ' onerror="window.zenithOcVendorError()"><\/script>');
+    })();
+  </script>
+  <script>
+    (function () {
+      "use strict";
+
+      var host = window.__zenithOcHost;
+      var status = document.getElementById("host-status");
+      var attempts = 0;
+      var ready = false;
+      var timer;
+
+      function reportHeight() {
+        if (!host) return;
+        host.send("height", { height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) });
+      }
+
+      function showFallback() {
+        if (!host || ready) return;
+        window.clearInterval(timer);
+        status.dataset.state = "fallback";
+        status.innerHTML = "<b>The official tool did not finish loading.</b><p>Return to the Zenith page for the official Owens Corning link and estimate options.</p>";
+        host.send("fallback");
+        reportHeight();
+      }
+
+      function hasRendered() {
+        if (!host || !host.configuration) return false;
+        var target = document.querySelector(host.configuration.selector);
+        if (!target) return false;
+        var height = target.getBoundingClientRect().height;
+        return target.children.length > 0 || target.textContent.trim().length > 0 || height > 120;
+      }
+
+      function markReady() {
+        if (ready || !host) return;
+        ready = true;
+        window.clearInterval(timer);
+        status.hidden = true;
+        host.send("ready");
+        reportHeight();
+        window.setTimeout(reportHeight, 350);
+        window.setTimeout(reportHeight, 1200);
+      }
+
+      timer = window.setInterval(function () {
+        attempts += 1;
+        if (!host || host.vendorFailed()) {
+          showFallback();
+          return;
+        }
+        if (hasRendered()) {
+          markReady();
+          return;
+        }
+        if (attempts >= 72) showFallback();
+      }, 250);
+
+      window.addEventListener("load", reportHeight);
+      if ("ResizeObserver" in window) {
+        new ResizeObserver(reportHeight).observe(document.body);
+      }
+      reportHeight();
+    })();
+  </script>
+</body>
+</html>
