@@ -60,28 +60,11 @@
       fallbackUrl: "https://www.owenscorning.com/en-us/roofing/widgets",
       fallbackLabel: "Open the Owens Corning widget library"
     },
-    smarter: {
-      eyebrow: "Homeowner education",
-      title: "Roof Smarter",
-      copy: "Review official roofing education intended to help homeowners understand the decisions behind a complete roof replacement.",
-      note: "<b>Next step:</b> Bring your questions to the inspection. Zenith connects the general guidance to the deck, roof shape and attic at your property.",
-      fallbackUrl: "https://www.owenscorning.com/en-us/roofing",
-      fallbackLabel: "Explore Owens Corning roofing resources"
-    },
-    system: {
-      eyebrow: "SEAL. DEFEND. BREATHE.",
-      title: "Total Protection Roofing System",
-      copy: "Explore the official Owens Corning explanation of the integrated components that help seal the deck, defend the home and support balanced ventilation.",
-      note: "<b>Scope guidance:</b> Flashing, fasteners, pipe boots and wood decking are roof-critical details but are not branded Total Protection Roofing System components.",
-      fallbackUrl: "https://www.owenscorning.com/en-us/roofing/total-protection-roofing-system",
-      fallbackLabel: "Open the official Total Protection overview"
-    },
     warranty: {
       eyebrow: "Manufacturer protection",
       title: "Compare Owens Corning warranty options",
       copy: "Review Standard, System Protection and Preferred Protection limited warranty choices, including current enhanced-coverage and workmanship distinctions.",
       note: "<b>Eligibility guidance:</b> The actual warranty document, qualifying products, installation requirements, contractor status and registration control coverage.",
-      embedUrl: "https://www.owenscorning.com/en-us/public_widgets/warranty",
       fallbackUrl: "https://www.owenscorning.com/en-us/roofing/warranty",
       fallbackLabel: "Open the official warranty comparison"
     }
@@ -152,8 +135,6 @@
       visualizer: 900,
       build: 900,
       style: 760,
-      smarter: 800,
-      system: 800,
       warranty: 860
     };
     var height = Number(measuredHeight);
