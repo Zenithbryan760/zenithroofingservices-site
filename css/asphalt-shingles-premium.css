@@ -124,6 +124,92 @@
   margin-top: 30px;
 }
 
+.oc-studio-hero-card {
+  width: min(100%, 680px);
+  min-height: 94px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) 42px;
+  align-items: center;
+  gap: 18px;
+  margin-top: 18px;
+  padding: 15px 17px;
+  color: var(--navy-950);
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  text-decoration: none;
+  box-shadow: 0 20px 45px rgba(2, 15, 29, 0.26);
+  transition:
+    transform 0.3s var(--ease),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.oc-studio-hero-card:hover {
+  transform: translateY(-3px);
+  border-color: #ffb15b;
+  box-shadow: 0 25px 55px rgba(2, 15, 29, 0.34);
+}
+
+.oc-studio-hero-card__badge {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid rgba(6, 41, 75, 0.1);
+  border-radius: 12px;
+}
+
+.oc-studio-hero-card__badge img {
+  width: 100%;
+  max-height: 46px;
+  display: block;
+  object-fit: contain;
+}
+
+.oc-studio-hero-card__copy {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.oc-studio-hero-card__copy small {
+  color: var(--orange-600);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.oc-studio-hero-card__copy strong {
+  color: var(--navy-950);
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+.oc-studio-hero-card__copy > span {
+  color: var(--ink-700);
+  font-size: 0.69rem;
+  line-height: 1.45;
+}
+
+.oc-studio-hero-card__arrow {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  justify-self: end;
+  color: var(--white);
+  background: var(--orange-500);
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: 900;
+  box-shadow: 0 9px 20px rgba(237, 106, 0, 0.3);
+}
+
 .shingle-button {
   min-height: 51px;
   display: inline-flex;
@@ -1297,5 +1383,32 @@
   .shingle-page *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .oc-studio-hero-card {
+    grid-template-columns: 112px minmax(0, 1fr) 36px;
+    gap: 12px;
+    padding: 13px;
+    border-radius: 16px;
+  }
+
+  .oc-studio-hero-card__badge {
+    min-height: 52px;
+    padding: 7px 8px;
+  }
+
+  .oc-studio-hero-card__badge img {
+    max-height: 38px;
+  }
+
+  .oc-studio-hero-card__copy > span {
+    display: none;
+  }
+
+  .oc-studio-hero-card__arrow {
+    width: 34px;
+    height: 34px;
   }
 }
