@@ -1864,12 +1864,10 @@
     "torch": "When an exposed upper slope drains onto a low garage, water can concentrate at a single corner. We check the nearby cap-sheet lap, kick-out and gutter opening so the torch-down repair addresses the full discharge path.",
     "work": [
       {
+        "place": "San Elijo Hills",
         "status": "completed",
-        "place": "San Marcos",
-        "heading": "Solar stanchion flashing during a tile lift and lay",
-        "text": "We lifted and reset the concrete tiles, renewed the underlayment and upgraded the solar stanchions. Each penetration was flashed at both the underlayment and tile levels.",
-        "url": "https://trusty.app/companies/zenith-roofing-services-temecula/san-marcos-tile-roof-lift-and-lay-with-solar-stanchion-upgrade",
-        "label": "See the San Marcos solar flashing project"
+        "heading": "Completed work · concrete tile repair with tile-pan and penetration flashing",
+        "text": "On a San Elijo Hills concrete tile roof, we lifted tiles in the repair area, tied new underlayment into the existing roof and renewed the tile-pan and penetration flashings. We reset sound tiles and used Eagle replacement tiles where needed."
       }
     ]
   },
