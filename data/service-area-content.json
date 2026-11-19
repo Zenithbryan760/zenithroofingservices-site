@@ -488,12 +488,16 @@
     "torch": "On an older flat-roof extension, a drip near the eave may start at a plumbing vent farther upslope. We inspect both the vent flashing and the cap-sheet laps in between before picking a repair boundary.",
     "work": [
       {
-        "status": "completed",
-        "place": "Clairemont",
-        "heading": "TPO and shingles installed before solar",
-        "text": "We fitted architectural shingles to the front roof and a mechanically attached TPO membrane over fan-fold insulation at the rear. We detailed the transition before solar installation.",
-        "url": "https://trusty.app/companies/zenith-roofing-services-temecula/san-diego-clairemont-shingle-tpo-roof-replacement-for-solar-installation",
-        "label": "See the Clairemont TPO and shingle tie-in"
+        "place": "Linda Vista",
+        "status": "proposal",
+        "heading": "Estimate · wind-damaged shingles and pipe collars",
+        "text": "On a Linda Vista roof, we proposed replacing wind-damaged shingle tabs over a localized peel-and-stick repair and resealing the pipe collars. The work was confined to the affected part of the roof."
+      },
+      {
+        "place": "Linda Vista",
+        "status": "proposal",
+        "heading": "Estimate · closing a skylight opening in tile roofing",
+        "text": "At a different Linda Vista property, we proposed removing a curb-mounted skylight, closing the opening with plywood and tying new underlayment into the surrounding tile roof before resetting the tiles."
       }
     ]
   },
@@ -1206,12 +1210,10 @@
     "torch": "A parapet scupper depends on the connection between the metal throat and the roof membrane. We inspect that joint and the outlet before deciding whether a torch-down flashing repair or replacement of the scupper is needed.",
     "work": [
       {
-        "status": "completed",
-        "place": "La Jolla",
-        "heading": "Silicone restoration beneath solar panels",
-        "text": "We coordinated removal of selected panels to reach the low-slope roof beneath them. We cleaned the roof sections, reinforced seams and penetrations and applied a Uniflex silicone system.",
-        "url": "https://trusty.app/companies/zenith-roofing-services-temecula/la-jolla-silicone-roof-restoration-uniflex-20-year-roof-coating-system",
-        "label": "See the La Jolla silicone coating project"
+        "place": "Torrey Hills",
+        "status": "proposal",
+        "heading": "Estimate · tile lift and lay with dead-valley waterproofing",
+        "text": "For a Torrey Hills tile roof, we proposed lifting the existing tiles and resetting them over two layers of underlayment. The estimate included new flashing and ventilation components. In the dead valleys, where adjoining slopes feed a low area, we specified a separate two-layer self-adhered membrane."
       }
     ]
   },
@@ -1564,12 +1566,10 @@
     "torch": "A low-slope addition may collect water from a much larger shingle roof. When scoping a torch-down repair, we follow that runoff through the overlap and out to the edge so new membrane does not leave the original leak above it.",
     "work": [
       {
-        "status": "completed",
-        "place": "La Mesa",
-        "heading": "Deck overlay after a three-layer tear-off",
-        "text": "After removing three layers including wood shakes, we fitted OSB over the spaced sheathing. We installed Titanium 30 underlayment, added self-adhered protection in the valleys and replaced tunnel lights.",
-        "url": "https://trusty.app/companies/zenith-roofing-services-temecula/la-mesa-wood-shake-tear-off-roof-replacement",
-        "label": "See the La Mesa roof deck and tunnel lights"
+        "place": "Allied Gardens",
+        "status": "proposal",
+        "heading": "Estimate · two-ply torch-down roofing and perimeter metal",
+        "text": "For an Allied Gardens property, we proposed a fiberglass base sheet, a smooth Johns Manville APP modified-bitumen ply and a granulated torch-down cap sheet. The estimate also covered drip-edge metal and flashing at roof jacks and vents."
       }
     ]
   },
@@ -1714,12 +1714,10 @@
     "torch": "On a small apartment roof with shared drains, an overflow mark along a parapet helps locate the ponded area. We inspect the throat, nearby laps and membrane turn-up before pricing a local torch-down repair.",
     "work": [
       {
+        "place": "University Heights",
         "status": "completed",
-        "place": "San Diego",
-        "heading": "Valley repair with shingle and low-slope sections",
-        "text": "We repaired valley plywood and installed Owens Corning Oakridge Driftwood shingles on the main roof. A three-layer DeckSeal assembly served the low-slope sections.",
-        "url": "https://trusty.app/companies/zenith-roofing-services-temecula/architectural-shingle-roof-replacement-and-deck-repair-in-san-diego",
-        "label": "See the San Diego partial reroof"
+        "heading": "Completed work · shingle replacement with adjoining low-slope roofing",
+        "text": "In University Heights, we replaced the existing shingles with Owens Corning TruDefinition Duration COOL shingles. The estimate specified self-adhered underlayment in the valleys, step flashing at the sidewalls and TPO membrane on designated low-slope sections."
       }
     ]
   },
