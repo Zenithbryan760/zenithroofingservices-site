@@ -201,7 +201,7 @@ function schemaFor(area, faqs) {
 
 function projectSection(area, work) {
   const project = projectBySlug[area.slug];
-  const local = work[0].place === area.name;
+  const local = work.some(example => example.place === area.name || example.place.endsWith(`, ${area.name}`));
   const hasWork = work.some(example => ['completed', 'in-progress', 'approved', 'scheduled', 'invoiced'].includes(example.status));
   const projectHeading = local
     ? `${hasWork ? 'Roofing work' : 'Roofing estimates'} in ${area.name}`
