@@ -342,7 +342,7 @@ function areaPage(area) {
       <span class="interior-hero__shade" aria-hidden="true"></span>
       <div class="shell interior-hero__content">
         <span class="eyebrow eyebrow--light">${html(titleCaseKind(area.kind))} · ${html(area.county)}</span>
-        <h1>${html(area.name)} roofing, explained from repair through replacement.</h1>
+        <h1>${html(copy.title)}</h1>
         <p>${html(copy.hero)}</p>
         <div class="interior-hero__actions"><a class="button button--orange" href="/contact/">Request a Free Estimate <span aria-hidden="true">→</span></a>${projectAction}</div>
       </div>
@@ -362,7 +362,7 @@ function areaPage(area) {
     <section class="local-section local-section--mist" id="local-guidance">
       <div class="shell">
         <div class="local-heading">
-          <div><span class="eyebrow">Roofing decisions for ${html(area.name)}</span><h2>Start with the assembly—not a one-size-fits-all answer.</h2></div>
+          <div><span class="eyebrow">Roofing decisions for ${html(area.name)}</span><h2>Does the roof need a repair, a tune-up or replacement?</h2></div>
           <p>${html(area.name)} includes ${html(area.setting)}. Local roofs commonly include ${html(area.roofMix)}, so the correct scope begins with identifying the installed system and the actual water path.</p>
         </div>
         <div class="local-card-grid">

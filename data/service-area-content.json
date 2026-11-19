@@ -1384,12 +1384,10 @@
     "torch": "On an attached home, a patio reroof can stop at a shared wall only if the flashing can be tied back into sound material. We identify the shared detail and access needs before defining the torch-down work for a single unit.",
     "work": [
       {
-        "status": "completed",
-        "place": "Rancho Bernardo",
-        "heading": "An isolated tile roof corner leak",
-        "text": "We opened the affected corner, installed new weather blocking and reset the serviceable tiles. The repair stayed within the affected section.",
-        "url": "https://trusty.app/companies/zenith-roofing-services-temecula/rancho-bernardo-ca-small-tile-roof-corner-leak-repair",
-        "label": "See the Rancho Bernardo tile corner repair"
+        "place": "4S Ranch",
+        "status": "proposal",
+        "heading": "Estimate · tile roof tune-up, vents and gutter cleaning",
+        "text": "After inspecting a 4S Ranch tile roof, we proposed replacing up to eight broken tiles, resetting slipped tiles, checking roof vents, resealing pipe collars and blowing leaves from the gutters."
       }
     ]
   },
