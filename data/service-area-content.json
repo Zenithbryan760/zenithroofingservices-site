@@ -377,7 +377,7 @@
     "title": "Hillcrest Commercial Roof Maintenance and Leak Repair",
     "description": "Organize roof maintenance for a Hillcrest apartment or commercial building. Identify leaking pipe flashings, clear drains and plan repairs around occupied units.",
     "hero": "An interior leak report is more actionable when it includes the room, floor and time of rainfall. We match that information to the roof layout and document the repair or maintenance each penetration needs.",
-    "repair": "On a shingle roof with a new stain by a vent, we inspect the boot and the shingle courses above it. If the surrounding shingles still lift intact, we can replace the flashing and weave the repair back into the roof.",
+    "repair": "A Hillcrest property manager reported water entering one apartment beneath a tile roof and asked us to look at reroofing. On a shared roof, we start by tracing which slope serves the unit and checking the flashing and waterproofing beneath the tile. That helps define how far a repair needs to extend.",
     "maintenance": "When a building has multiple tenants, the same roof can have several equipment contractors working on it. We inspect service paths for cuts, check pipe and curb flashing, and clear drains. The manager gets photos that distinguish roof repairs from equipment service calls.",
     "coating": "For a mixed-use building with an active leak near a rooftop unit, the first question is whether water passes through the curb, the wall or the equipment itself. We inspect the curb corners, seams and deck condition. Once the source is corrected, a dry compatible roof may qualify for silicone restoration. We outline access around each unit so the crew can prepare and reinforce all four sides.",
     "tpo": "A tight gap between two curbs makes the flashing layout important. On a TPO repair we check whether the crew can reach the corners and make a sound weld. If equipment blocks access, we identify the clearance needed before quoting the repair.",
@@ -394,12 +394,12 @@
     "torch": "A leak at an apartment equipment stand may track along a pipe support before appearing inside. We look below and around the support, then decide whether access for a compatible patch requires coordination with the equipment contractor.",
     "work": [
       {
-        "status": "completed",
-        "place": "Point Loma",
-        "heading": "Bright White torch-down roof with skylight details",
-        "text": "We removed the existing flat roof, inspected the substrate and installed a Johns Manville torch-applied system with a Bright White granulated cap sheet. The work included the skylights, chimney flashing and roof perimeter.",
-        "url": "https://trusty.app/companies/zenith-roofing-services-temecula/point-loma-flat-roof-replacement-johns-manville-bright-white-torch-applied-roofing-system",
-        "label": "See the Point Loma torch-applied roof"
+        "place": "Normal Heights",
+        "status": "in-progress",
+        "heading": "Production scope · four-building shingle and commercial-property maintenance",
+        "text": "On a four-building Normal Heights property, our phased work scope covered shingle repairs, cleaning debris from gutters, resealing gutter joints and servicing pipe collars and metal flashings on all four roofs. It also included a custom metal cap over an exposed roof opening.",
+        "url": "/service-areas/normal-heights/#project-proof",
+        "label": "See the Normal Heights roofing guide"
       }
     ]
   },
@@ -609,11 +609,11 @@
     "work": [
       {
         "status": "completed",
-        "place": "El Cajon",
-        "heading": "Two-ply torch-down on an apartment building",
-        "text": "We tore off failed flat roofing, repaired damaged wood and installed tapered insulation and a Johns Manville DIBITEN two-ply torch-down system. At the front, we lifted and reset the concrete tiles.",
-        "url": "https://trusty.app/companies/zenith-roofing-services-temecula/el-cajon-apartment-two-ply-torch-down-roof-replacement",
-        "label": "See the El Cajon apartment roof"
+        "place": "Escondido",
+        "heading": "Commercial WeatherBond TPO with welded seams",
+        "text": "We installed high-density insulation and a mechanically attached 60-mil WeatherBond TPO membrane on a restaurant roof. We heat-welded the seams as part of the project’s specified assembly.",
+        "url": "https://trusty.app/companies/zenith-roofing-services-temecula/escondido-commercial-single-ply-tpo-roof-replacement-at-chipotle",
+        "label": "See the Escondido commercial TPO installation"
       }
     ]
   },
@@ -1214,6 +1214,12 @@
         "status": "proposal",
         "heading": "Estimate · tile lift and lay with dead-valley waterproofing",
         "text": "For a Torrey Hills tile roof, we proposed lifting the existing tiles and resetting them over two layers of underlayment. The estimate included new flashing and ventilation components. In the dead valleys, where adjoining slopes feed a low area, we specified a separate two-layer self-adhered membrane."
+      },
+      {
+        "place": "Torrey Hills",
+        "status": "completed",
+        "heading": "Completed work · tile roof tune-up",
+        "text": "On a separate Torrey Hills maintenance job, we replaced broken roof tiles, repaired cracked mortar and resealed roof pipe flashings. This tune-up addressed exposed details on an existing roof."
       }
     ]
   },
@@ -1420,12 +1426,12 @@
     "torch": "If a low-slope porch is bounded by stucco on three sides, the outlet and wall flashing control the repair. We identify how the metal can be accessed and whether an alternative to torch application is needed beside those finishes.",
     "work": [
       {
+        "place": "Del Sur",
         "status": "completed",
-        "place": "Rancho Bernardo",
-        "heading": "An isolated tile roof corner leak",
-        "text": "We opened the affected corner, installed new weather blocking and reset the serviceable tiles. The repair stayed within the affected section.",
-        "url": "https://trusty.app/companies/zenith-roofing-services-temecula/rancho-bernardo-ca-small-tile-roof-corner-leak-repair",
-        "label": "See the Rancho Bernardo tile corner repair"
+        "heading": "Completed work · matching ridge tiles on a localized tile repair",
+        "text": "The tile repair described in our Black Mountain Ranch guide was in Del Sur. We reset serviceable tiles after renewing the underlayment. For the ridge, our supply order specified Eagle Ridge pieces in Charcoal Range. Matching the profile lets replacement pieces sit properly alongside the tiles that stay.",
+        "url": "/service-areas/black-mountain-ranch/",
+        "label": "Read the Black Mountain Ranch guide"
       }
     ]
   },
@@ -1450,12 +1456,10 @@
     "torch": "A low-slope wing beside a courtyard may have little room between the roof and a door threshold. We measure that clearance and check the outlet before recommending an overlay, tear-off or a different membrane assembly.",
     "work": [
       {
+        "place": "Black Mountain Ranch",
         "status": "completed",
-        "place": "Rancho Peñasquitos",
-        "heading": "Two-layer shingle tear-off and deck inspection",
-        "text": "We removed both shingle layers, inspected the deck and installed Titanium 30 underlayment followed by Owens Corning Duration COOL shingles in Sand Castle.",
-        "url": "https://trusty.app/companies/zenith-roofing-services-temecula/rancho-penasquitos-san-diego-roof-replacement-owens-corning-duration-cool-sand-castle",
-        "label": "See the Rancho Peñasquitos shingle replacement"
+        "heading": "Completed work · localized tile roof repair and underlayment replacement",
+        "text": "On a Black Mountain Ranch tile roof, we lifted the tiles over the repair area, replaced the underlayment and reset the reusable tiles. The scope included replacement concrete tiles and sealing around vent-pipe collars."
       }
     ]
   },
@@ -1509,11 +1513,11 @@
     "work": [
       {
         "status": "completed",
-        "place": "Poway",
-        "heading": "New sheathing beneath replacement shingles",
-        "text": "Removing three roof layers exposed gaps in the plank deck. We installed new sheathing and finished the roof with Owens Corning Duration COOL in Sand Castle.",
-        "url": "https://trusty.app/companies/zenith-roofing-services-temecula/poway-full-roof-replacement-with-owens-corning-duration-cool-sand-castle-shingles",
-        "label": "See the Poway decking and shingle project"
+        "place": "Rancho Bernardo",
+        "heading": "An isolated tile roof corner leak",
+        "text": "We opened the affected corner, installed new weather blocking and reset the serviceable tiles. The repair stayed within the affected section.",
+        "url": "https://trusty.app/companies/zenith-roofing-services-temecula/rancho-bernardo-ca-small-tile-roof-corner-leak-repair",
+        "label": "See the Rancho Bernardo tile corner repair"
       }
     ]
   },
@@ -1770,12 +1774,12 @@
     "torch": "On an older addition, several cap sheets at the threshold can leave too little flashing height for another layer. We check the existing build-up, deck and drainage before choosing a tear-off or a local modified-bitumen repair.",
     "work": [
       {
-        "status": "completed",
-        "place": "San Diego",
-        "heading": "Valley repair with shingle and low-slope sections",
-        "text": "We repaired valley plywood and installed Owens Corning Oakridge Driftwood shingles on the main roof. A three-layer DeckSeal assembly served the low-slope sections.",
-        "url": "https://trusty.app/companies/zenith-roofing-services-temecula/architectural-shingle-roof-replacement-and-deck-repair-in-san-diego",
-        "label": "See the San Diego partial reroof"
+        "place": "South Park",
+        "status": "in-progress",
+        "heading": "Production scope · 60-mil mechanically attached TPO",
+        "text": "For a South Park sunroom, the approved scope called for mechanically attached, 60-mil white WeatherBond TPO. During tear-off, the crew found and replaced additional deteriorated decking.",
+        "url": "/service-areas/south-park/#project-proof",
+        "label": "See the South Park roofing guide"
       }
     ]
   },
@@ -1800,12 +1804,12 @@
     "torch": "For an association roof, a repair to one unit can involve a shared chase or parapet. We define who controls access to that detail and identify the sound cap sheet where any new membrane can terminate.",
     "work": [
       {
+        "place": "San Diego",
         "status": "completed",
-        "place": "Lomita Village, San Diego",
-        "heading": "Plank deck overlay before a Lomita Village reroof",
-        "text": "We overlaid the plank deck with OSB before installing Malarkey OmniSeal underlayment and Highlander NEX shingles in Willow Wood.",
-        "url": "https://trusty.app/companies/zenith-roofing-services-temecula/lomita-village-malarkey-roof-replacement-san-diego",
-        "label": "See the Lomita Village roof replacement"
+        "heading": "Completed work · tile maintenance and valley drainage",
+        "text": "On a San Diego tile roof, we cleared leaves from four valleys and trimmed adjoining tiles where the channels needed room to drain. The work also included resealing cracked pipe collars and painting exposed flashings.",
+        "url": "/service-areas/san-diego/#project-proof",
+        "label": "See the San Diego roofing guide"
       }
     ]
   },
