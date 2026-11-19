@@ -1834,12 +1834,10 @@
     "torch": "For a townhome or retail building with several roof levels, we mark which outlets serve each one. A two-ply reroof scope should identify the scuppers and downspouts receiving water from neighboring sections as well as the field membrane.",
     "work": [
       {
-        "status": "completed",
-        "place": "El Cajon",
-        "heading": "Two-ply torch-down on an apartment building",
-        "text": "We tore off failed flat roofing, repaired damaged wood and installed tapered insulation and a Johns Manville DIBITEN two-ply torch-down system. At the front, we lifted and reset the concrete tiles.",
-        "url": "https://trusty.app/companies/zenith-roofing-services-temecula/el-cajon-apartment-two-ply-torch-down-roof-replacement",
-        "label": "See the El Cajon apartment roof"
+        "place": "Eastlake",
+        "status": "proposal",
+        "heading": "Estimate · tile lift and relay over two layers of underlayment",
+        "text": "For an Eastlake property in Chula Vista, we prepared a tile lift-and-relay estimate. It called for setting aside the existing tiles, preparing the deck, installing two layers of underlayment and resetting the tiles."
       }
     ]
   },
