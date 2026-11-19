@@ -375,7 +375,7 @@
   },
   "hillcrest": {
     "title": "Hillcrest Commercial Roof Maintenance and Leak Repair",
-    "description": "Organize roof maintenance for a Hillcrest apartment or commercial building. Identify leaking pipe flashings, clear drains and plan repairs around occupied units.",
+    "description": "See how a Hillcrest silicone roof coating estimate treated pipes, drains and perimeter metal. Compare restoration with commercial roof maintenance and localized leak repair.",
     "hero": "An interior leak report is more actionable when it includes the room, floor and time of rainfall. We match that information to the roof layout and document the repair or maintenance each penetration needs.",
     "repair": "A Hillcrest property manager reported water entering one apartment beneath a tile roof and asked us to look at reroofing. On a shared roof, we start by tracing which slope serves the unit and checking the flashing and waterproofing beneath the tile. That helps define how far a repair needs to extend.",
     "maintenance": "When a building has multiple tenants, the same roof can have several equipment contractors working on it. We inspect service paths for cuts, check pipe and curb flashing, and clear drains. The manager gets photos that distinguish roof repairs from equipment service calls.",
@@ -394,12 +394,10 @@
     "torch": "A leak at an apartment equipment stand may track along a pipe support before appearing inside. We look below and around the support, then decide whether access for a compatible patch requires coordination with the equipment contractor.",
     "work": [
       {
-        "place": "Normal Heights",
-        "status": "in-progress",
-        "heading": "Production scope · four-building shingle and commercial-property maintenance",
-        "text": "On a four-building Normal Heights property, our phased work scope covered shingle repairs, cleaning debris from gutters, resealing gutter joints and servicing pipe collars and metal flashings on all four roofs. It also included a custom metal cap over an exposed roof opening.",
-        "url": "/service-areas/normal-heights/#project-proof",
-        "label": "See the Normal Heights roofing guide"
+        "place": "Hillcrest",
+        "status": "proposal",
+        "heading": "Estimate · silicone coating with drain and perimeter details",
+        "text": "For a Hillcrest property, we prepared a Uniflex silicone restoration estimate. It called for cleaning the roof, checking seams and flashings, and treating pipes, drains and the metal perimeter with One Flash before applying silicone to the prepared roof surface."
       }
     ]
   },
