@@ -135,6 +135,10 @@ function faqData(area, copy) {
     },
     ...copy.faqs,
     {
+      q: 'When should older clay or concrete roof tiles be replaced?',
+      a: 'For a few broken tiles, we check whether a replacement fits the surrounding course. That matters when the original profile has been discontinued. If the tiles are sound but the underlayment has worn out, we can lift the tiles, renew the underlayment and reset them. When tiles crumble during lifting or too few intact pieces remain to cover a slope, we compare replacing that slope with a full tile reroof.'
+    },
+    {
       q: `What roofing systems are common around ${area.name}?`,
       a: `${area.name} includes ${area.roofMix}. The correct repair or replacement method depends on the installed assembly, its age, previous work and the condition of the deck, flashings and drainage details.`
     },
